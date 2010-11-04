@@ -1,0 +1,12 @@
+*.c
+*.o
+*.dgs
+*.scm
+*.class
+*.crash
+*.stack
+*.patch
+.configuration
+.DS_Store
+Thumbs.db
+._*
