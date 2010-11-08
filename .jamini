@@ -1,0 +1,9 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Local jamini
+;;;
+
+
+(jazz.default-safety 'release)
