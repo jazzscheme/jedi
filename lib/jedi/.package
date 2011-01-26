@@ -13,63 +13,9 @@
                           jedi.run
                           jedi.services)
                   (build (jedi include-compiler?: #t resources: "resources"))
-                  (dependencies jazz
-                                jazz.catalog
-                                jazz.console
-                                jazz.database
-                                (cond
-                                  (windows jazz.database.ado))
-                                jazz.debuggee
-                                jazz.debugger
-                                jazz.debugger.gambit
-                                jazz.debugger.jazz
-                                jazz.designer
-                                jazz.detprof
-                                jazz.doc
-                                jazz.git
-                                jazz.graphic
-                                jazz.groupware
-                                jazz.ide
-                                jazz.io
-                                jazz.jml
-                                jazz.jrm
-                                jazz.editor.c
-                                jazz.editor.commonlisp
-                                jazz.editor.diff
-                                jazz.editor.jazz
-                                jazz.editor.scheme
-                                jazz.editor.sql
-                                jazz.editor.tex
-                                jazz.library
-                                jazz.media
-                                jazz.network
-                                jazz.platform
-                                jazz.profile
-                                jazz.project
-                                jazz.recorder
-                                jazz.schema
-                                jazz.system
-                                jazz.ui
-                                jazz.validation
-                                jazz.website
-                                gambit
-                                contrib.irregex
-                                contrib.statprof
-                                srfi-19
-                                kernel
-                                profiler
+                  (dependencies all
+                                samples
                                 jedi.install))
             (jedi.install (update jedi.install)
-                          (dependencies jazz))
-            (all (dependencies jazz
-                               jedi
-                               jazz.sample
-                               jazz.sample.c4
-                               jazz.sample.fib
-                               jazz.sample.game
-                               jazz.sample.gameserver
-                               jazz.sample.gomoku
-                               jazz.sample.mandelbrot
-                               jazz.sample.paradigms
-                               jazz.sample.world)))
+                          (dependencies jazz)))
   (project ".project"))
