@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Data-Sources
+;;;
+
+
+(data jazz.ide.data.connections
+
+
+(form
+  (<Data-Sources>)))

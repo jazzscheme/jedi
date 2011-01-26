@@ -1,0 +1,24 @@
+"Gambit-Debugger"
+ ({Lisp-File-Entry {File jazz.debugger.gambit "src" "jazz" "debugger" "gambit" "Gambit-Debugger.jazz"} 1288732032
+    {Lisp-Entry "jazz.debugger.gambit.Gambit-Debugger" module #f 37 18 37 54 ("frame-variable-value" "variable" "frame-variable-name" "frame-variables" "frame-location" "frame" "frame-name" "command" "step-stop" "continue-stop" "stop-frames" "stop-reason" "stop" "stop-kind" "restart" "restart-stop" "break-thread" "thread-stops" "thread-state" "thread" "thread-name" "process-exit" "process-detach" "col" "line" "container" "string" "syntax" "evaluate-expressions" "present-process" "process-threads" "process-icon" "process-title" "process" "process-live?" "y" "x" "process=?" "detach-processes" "public" "validate-liveness?" "validate-liveness?:" "get-processes" "stop-debugger" "gambit-debugger-server" "'gambit-debugger-server" "rdi-debugger-init" "lambda" "new-system-thread" "thread-start!" "rdi-function" "rdi-init" "user-message" "start-debugger" "method" "Debugger" "extends" "Gambit-Debugger" "class" "jazz")
+      {Lisp-Entry "Gambit-Debugger" class #f 44 7 44 22 ("Debugger")}}})
+"Gambit-Project"
+ ({Lisp-File-Entry {File jazz.debugger.gambit "src" "jazz" "debugger" "gambit" "Gambit-Project.jazz"} 1289506007
+    {Lisp-Entry "jazz.debugger.gambit.Gambit-Project" module #f 37 18 37 53 ("jazz")
+      {Lisp-Entry "Gambit-Project" class #f 47 7 47 21 ("Jazz-Project")
+        {Lisp-Entry "concrete?" method #f 55 20 55 29 ()}
+        {Lisp-Entry "started?" definition #f 65 14 65 22 ()}
+        {Lisp-Entry "start-debugger" method #f 70 11 70 25 ("set!" "register-debugger" "start-debugger" "Gambit-Debugger" "new" "debugger" "let" "started?" "not" "when")}
+        {Lisp-Entry "project-debug" method #f 84 11 84 24 ("show-console:" "stderr-redirection:" "stdout-redirection:" "stdin-redirection:" "arguments:" "path:" "list" "open-process" "start-debugger" "rest")}
+        {Lisp-Entry "get-class-descriptor" method #f 101 25 101 45 ("Gambit-Project-Descriptor" "new")}}
+      {Lisp-Entry "design" submodule #f 110 11 110 17 ()
+        {Lisp-Entry "Gambit-Project-Descriptor" class #f 116 7 116 32 ("catalog-heuristics" "catalog-extensions" "catalog?" "include-extensions" "title" "categorized:" "Image-Resource" "image:" "Jazz-Project-Descriptor")}}}})
+"_gambit"
+ ({Lisp-File-Entry {File jazz.debugger.gambit "src" "jazz" "debugger" "gambit" "_gambit.jazz"} 1288732032
+    {Lisp-Entry "jazz.debugger.gambit" module #f 37 8 37 28 ("jazz")}})
+"autoload"
+ ({Lisp-File-Entry {File jazz.debugger.gambit "src" "jazz" "debugger" "gambit" "autoload.jazz"} 1288732032
+    {Lisp-Entry "jazz.debugger.gambit.autoload" module #f 37 18 37 47 ("jazz")}})
+"project"
+ ({Lisp-File-Entry {File jazz.debugger.gambit "src" "jazz" "debugger" "gambit" "data" "project.jazz"} 1290002631
+    {Lisp-Entry "jazz.debugger.gambit.data.project" module #f 37 8 37 41 ("jazz")}})

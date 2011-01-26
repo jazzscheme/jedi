@@ -1,0 +1,31 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(import (jazz.editor.jazz))
+
+
+(form
+  (<Project>             name: %profile-lowercase% catalog?: #t catalog-extensions: :jazz include-extensions: :jazz
+    (<Jazz-File>         name: %profile%           source: {File Profile "%profile%.jazz"})
+    (<Project-Directory>                           directory: {Directory Profile "settings"}
+      (<Project-File>                              source: {File Profile "settings" "Bindings.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Colors.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Connections.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Favorites.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Fonts.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Formats.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Preferences.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Toolbox.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Servers.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Workbench.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Skins.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Workspaces.jml"})
+      (<Project-File>                              source: {File Profile "settings" "Styles.jml"})))))

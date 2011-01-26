@@ -1,0 +1,10 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Local jazzini
+;;;
+
+
+(jazz.jazz-repository "jazz")
+(jazz.repositories ".")

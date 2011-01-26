@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Favorites
+;;;
+
+
+(data jazz.ide.data.favorites
+
+
+(form
+  (<Group> name: "Favorites")))

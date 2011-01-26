@@ -1,0 +1,650 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; The Jedi Application
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2008
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.application.Jedi jazz
+
+
+(import (jazz.catalog)
+        (jazz.console)
+        (jazz.debugger)
+        (jazz.debugger.gambit)
+        (jazz.debugger.jazz)
+        (jazz.designer)
+        (jazz.designer.view)
+        (jazz.doc)
+        (jazz.editor.diff)
+        (jazz.editor.jazz)
+        (jazz.editor.lisp)
+        (jazz.editor.sql)
+        (jazz.editor.sql.view)
+        (jazz.ide)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.library.component)
+        (jazz.platform)
+        (jazz.project)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.picker)
+        (jazz.ui.view)
+        (jazz.ui.workspace)
+        (jedi))
+
+
+(class Jedi extends IDE
+  
+  
+  (slot documentation-cataloguer initialize #f)
+  
+  
+  (method meta override (external-name . rest)
+    'jedi)
+
+  
+  (method override (process-name)
+    "Jedi")
+  
+  
+  (method override (process-owner)
+    "JazzScheme")
+  
+  
+  (method override (process-copyright)
+    "1996-2010")
+  
+  
+  (method override (process-icon)
+    "Jedi")
+
+
+  (method override (process-version)
+    (receive (major minor revision) (split-version kernel-version)
+      (new Version major minor revision)))
+
+
+  (method override (process-email)
+    "gcartier@jazzscheme.org")
+
+
+  (method override (new-toplevel)
+    (new Jedi-Toplevel))
+
+
+  (method override (finalize-process)
+    (nextmethod)
+    @convert/wait
+    (register-provider (new Access-Provider))
+    @convert/wait
+    (register-provider (new SQLServer-Provider))
+    @convert/wait
+    (register-provider (new JDBC-Provider)))
+  
+  
+  (method override (finish-process)
+    (define (setup-sql)
+      (register-console~ (get-sql-console) "SQL Console" #f view-class: SQL-Console-View console-button?: #f))
+    
+    (nextmethod)
+    (setup-workspaces)
+    (setup-sql))
+  
+  
+  ;;;
+  ;;;; Catalogs
+  ;;;
+  
+  
+  (method (setup-catalog name directory extensions (char-encoding: char-encoding #f) (heuristics: heuristics #f))
+    (let ((cataloguer (get-cataloguer))
+          (output (new-file~ {Directory Profile "catalogs"} (format "{a}.jcat" name))))
+      (let ((catalog (new Filing-Catalog name output directory extensions char-encoding heuristics #t)))
+        (add-catalog~ cataloguer catalog)
+        (activate~ catalog report?: #f))))
+
+  
+  ;;;
+  ;;;; Preferences
+  ;;;
+  
+  
+  (method override (persist-preferences?)
+    #t)
+  
+  
+  (method override (default-preferences)
+    (new Default-Jedi-Preferences))
+  
+  
+  (method override (default-bindings)
+    (new Default-Jedi-Bindings))
+  
+  
+  (method override (default-workspaces)
+    (new Default-Jedi-Workspaces))
+
+  
+  ;;;
+  ;;;; Servers
+  ;;;
+  
+  
+  @wait-need-a-way-to-open-service-any-if-port-is-already-in-use
+  (method override (default-listener-service)
+    44333)
+
+  
+  ;;;
+  ;;;; Search
+  ;;;
+
+
+  (method override (get-search-manager)
+    (singleton-palette
+      (lambda ()
+        (new-palette Jedi-Search
+                     host-title: "Search"
+                     host-visible?: #f
+                     host-position: {Point 150 220}
+                     host-size: {Dimension 857 169}))
+      'search))
+  
+  
+  ;;;
+  ;;;; Versions
+  ;;;
+  
+
+  (method override (mandatory-version what)
+    (case what
+      ((sqlserver) {Version 8 0 0})
+      ((dao) {Version 3 6 0})
+      ((access-database) {Version 4 0 0})
+      (else (nextmethod what))))
+  
+  
+  ;;;
+  ;;;; Settings
+  ;;;
+  
+  
+  (define settings-updates
+    (list->updates
+      '((version: 205001 targets: settings)
+        (version: 205000 targets: settings))))
+  
+  
+  (define (convert-settings dir old)
+    (define (convert-initial)
+      (jedi.convert.convert-settings-initial (new Directory (tokenise-filename dir)))
+      205000)
+    
+    (define (convert-205000)
+      (jedi.convert.convert-settings-205000 (new Directory (tokenise-filename dir)))
+      205001)
+    
+    (case old
+      ((#f) (convert-initial))
+      ((205000) (convert-205000))
+      (else #f)))
+
+  
+  (method override (initialize-settings)
+    (let ((dot-jedi-dir {Directory Home ".jedi"}))
+      (create-directories~ dot-jedi-dir)
+      (let ((settings-path (tokenise-filename (versioned-directory (parse~ dot-jedi-dir) 'settings settings-updates convert-settings))))
+        (register-alias 'Settings settings-path)
+        (let ((file {File Settings ".settings"}))
+          (unless (exists?~ file)
+            (create~ file))
+          (set! settings (new Settings file: file))
+          (register-settings settings))))
+    (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) create?: #t)))
+      (register-repository-aliases (install-repository projects-repository))))
+  
+  
+  (method override (settings-version)
+    (update-version (car settings-updates)))
+  
+
+  ;;;
+  ;;;; Profile
+  ;;;
+  
+  
+  (method override (install-profiles)
+    (register-repository-aliases (install-repository (parse~ {Directory Settings "profiles"}))))
+  
+  
+  (method override (choose-profile-appl)
+    'jedi)
+  
+  
+  (method override (profile-template-directory)
+    {Directory Jazz "lib" "jedi" "templates" "profile"})
+  
+  
+  ;;;
+  ;;;; Frames
+  ;;;
+
+
+  (method override (default-frame-class)
+    Jazz-Text-View)
+
+
+  (method override (known-extension-frame-class ext)
+    (cond ((member? ext '("txt" "text") test: ci=?) Jazz-Plain-Text-View)
+          (else (nextmethod ext))))
+
+
+  ;;;
+  ;;;; Files
+  ;;;
+  
+  
+  (method override (edit-file file)
+    (let ((ext (get-extension~ file)))
+      (cond
+      @wait ((ci=? ext "class") (browse-java-classfile file))
+      @wait ((ci=? ext "jar") (browse-java-jarfile file))
+            (else (nextmethod file)))))
+  
+  
+  (method override (edit-category name)
+    (let ((location (new Jazz-Code-Location (list name 1))))
+      (edit~ location)))
+  
+  
+  ;;;
+  ;;;; Text
+  ;;;
+  
+  
+  (method override (get-text-class)
+    Jazz-Text-View)
+  
+  
+  ;;;
+  ;;;; Java
+  ;;;
+  
+  
+  @convert/wait
+  (method (browse-java-classfile file)
+    (let* ((host (new-frame Java-Manager))
+           (manager (get-guest~ host)))
+      (browse-classfile~ manager file)))
+  
+  
+  @convert/wait
+  (method (browse-java-jarfile file)
+    (let* ((host (new-frame Java-Manager))
+           (manager (get-guest~ host)))
+      (browse-jarfile~ manager file)))
+
+  
+  ;;;
+  ;;;; Depot
+  ;;;
+  
+  
+  @convert/wait
+  (method (get-depot-classes)
+    (list
+      VSS-Depot))
+  
+  
+  ;;;
+  ;;;; Persistence
+  ;;;
+  
+  
+  (method override (persist-usernames?)
+    #t)
+  
+  
+  (method override (persist-passwords?)
+    #t)
+
+
+  ;;;
+  ;;;; Context
+  ;;;
+  
+  
+  (method override (get-context-text)
+    #f)
+
+
+  ;;;
+  ;;;; Session
+  ;;;
+  
+  
+  ;; temporary...
+  @convert-to-session
+  (method (reload-opened-windows)
+    )
+    
+  
+  @convert-to-session
+  (method (reload-component class properties)
+    (case class
+      ((search)    (apply (~ new-frame Jedi-Search) properties))
+      ((jazz-text) (apply (~ new-frame Jazz-Text-View) properties))
+      (else (nextmethod class properties))))
+
+  
+  ;;;
+  ;;;; Documentation
+  ;;;
+  
+  
+  (method override (get-documentation-cataloguer)
+    (define (new-documentation-cataloguer)
+      (let ((cataloguer (new Cataloguer))
+            (workbench (get-workbench)))
+        (for-each-project~ workbench
+          (lambda (project)
+            (let ((file (get-documentation~ project)))
+              (when file
+                (let ((form (safe-read-form file)))
+                  (unless (exception? form)
+                    (let* ((doc (instantiate~ form))
+                           (name (get-name~ doc))
+                           (catalog (new Doc-Catalog name doc project)))
+                      (add-catalog~ cataloguer catalog))))))))
+        cataloguer))
+    
+    (unless documentation-cataloguer
+      (when (get-documented?~ (get-preferences #f))
+        (set! documentation-cataloguer (new-documentation-cataloguer))))
+    documentation-cataloguer)
+  
+  
+  (method public (reload-documentation)
+    (set! documentation-cataloguer #f)
+    (get-documentation-cataloguer))
+
+
+  ;;;
+  ;;;; Alias
+  ;;;
+  
+  
+  (method override (process-alias name)
+    (define (focus-editor)
+      (let ((focus (get-focus)))
+        (when focus
+          (get-view-editor (get-guest~ focus)))))
+    
+    (case name
+      ((:focus-editor) (focus-editor))
+      (else (nextmethod name))))
+
+  
+  ;;;
+  ;;;; Actions
+  ;;;
+  
+  
+  (method override (class-actions)
+    (cons (find-actions 'jedi)
+          (nextmethod))
+    @wait
+    (cons (find-actions 'debugger)
+          (cons (find-actions 'jedi)
+                (nextmethod))))
+  
+  
+  (method override (update-focus-actions)
+    (nextmethod)
+    (let ((focus (get-focus)))
+      (let ((text? (and focus (is? focus Text-View)))
+            (code? (and focus (is? focus Code-Text-View)))
+            (lisp? (and focus (is? focus Lisp-Text-View)))
+            (jazz? (and focus (is? focus Jazz-Text-View)))
+            (console? (and focus (is? focus Console-Text-View))))
+        (when preferences-designer
+          (set-action-enabled? {Action code-text evaluate} (and code? (not console?)))
+          (set-action-enabled? {Action code-text evaluate-buffer} (and code? (not console?)))
+          (set-action-enabled? {Action code-text edit-definitions} code?)
+          (set-action-enabled? {Action code-text edit-references} code?)
+          (set-action-enabled? {Action code-text recolorize-syntax} (and code? (not console?)))
+          (set-action-enabled? {Action text search-forward-mode} text?)
+          (set-action-enabled? {Action text search-backward-mode} text?)
+          (set-action-enabled? {Action text search-current} text?)
+          (set-action-enabled? {Action text goto-line} text?)
+          (set-action-enabled? {Action text select-outer} text?)
+          (set-action-enabled? {Action code-text transpose-expr} code?)
+          (set-action-enabled? {Action lisp-text tabulate} lisp?)
+          (set-action-enabled? {Action lisp-text highlight-selection} lisp?)
+          (set-action-enabled? {Action lisp-text remove-highlights} lisp?)
+          (set-action-enabled? {Action code-text find-imports} (or jazz? console?))
+          (set-action-enabled? {Action code-text find-all-imports} (or jazz? console?))
+          (set-action-enabled? {Action text mark-column} text?)
+          (set-action-enabled? {Action text fill-to-column} text?)
+          (set-action-enabled? {Action text upcase} text?)
+          (set-action-enabled? {Action text downcase} text?)
+          (set-action-enabled? {Action text capitalize} text?)))))
+  
+  
+  (method override (allow-orphaned-actions?)
+    #t)
+
+
+  ;;;
+  ;;;; Windows
+  ;;;
+  
+  
+  (method override (update-windowing-actions)
+    (nextmethod)
+    (unless (exiting-process?)
+      (update-search-actions)
+      (update-project-actions)))
+  
+  
+  ;;;
+  ;;;; Results
+  ;;;
+  
+  
+  (method override (navigable-results)
+    (list
+      (get-guest~ (singleton-docked Search-Results #f))
+      @wait
+      (get-guest~ (singleton-docked Output-Log #f))
+      @wait
+      (get-guest~ (singleton-docked Violations-Manager #f))))
+
+
+  ;;;
+  ;;;; Events
+  ;;;
+  
+  
+  (method (on-new-project evt)
+    (add-project-to~ (get-workbench-manager) (get-workbench)))
+  
+  
+  (method (on-event-spy evt)
+    @convert/wait
+    (new-palette Event-Spy))
+  
+  
+  (method (on-registry-viewer evt)
+    @convert/wait
+    (new-frame Registry-Viewer))
+  
+  
+  (method (on-type-viewer evt)
+    @convert/wait
+    (new-frame Type-Viewer))
+  
+  
+  (method (on-java-manager evt)
+    @convert/wait
+    (new-frame Java-Manager))
+  
+  
+  (method (on-showcase evt)
+    (new-frame Showcase))
+  
+  
+  (method (on-profiler-manager evt)
+    @convert/wait
+    (show-palette Profiler-Manager))
+  
+  
+  (method (on-documentation-editor evt)
+    (let* ((cataloguer (get-documentation-cataloguer))
+           (catalog (car (get-catalogs~ cataloguer))))
+      (new-frame Doc-Editor client: (get-client~ catalog))))
+  
+  
+  (method (on-run-smoker evt)
+    @convert/wait
+    (build/run~ (new Smoker-Builder)))
+
+
+  (method package (on-spy-events evt)
+    @convert/wait
+    (show-palette Event-Spy))
+
+
+  ;;;
+  ;;;; Help
+  ;;;
+  
+  
+  (method package (on-readme evt)
+    (edit-document {File Jazz "README"})))
+
+
+;;;
+;;;; Default-Jedi-Preferences
+;;;
+
+
+(class Default-Jedi-Preferences extends Jedi-Preferences)
+
+
+;;;
+;;;; Default-Jedi-Bindings
+;;;
+
+
+(class Default-Jedi-Bindings extends Jedi-Bindings)
+
+
+;;;
+;;;; Default-Jedi-Workspaces
+;;;
+
+
+(class Default-Jedi-Workspaces extends Workspaces-Preferences
+  
+  
+  (form
+    (<install>                                                         active: home
+      (<Workspace-Preferences>                name: home               title: "Home" icon: {Image-Resource "WorkspaceHome"} shortcut: {Shortcut :shift :alt #\A}
+        (<Menubar-Preferences>                name: menubar            location: root
+          (<Mainbar-Preferences>              name: toolbar            location: second
+            (<Status-Preferences>             name: status             location: second
+              (<Splitter-Preferences>         name: top                location: first orientation: horz mode: relative division: 20 insets: {Rect 5 5 5 5}
+                (<Splitter-Preferences>                                location: second orientation: vert mode: relative division: -27
+                  (<Stage-Preferences>                                 location: first maximized?: #f)
+                  (<Pad-Preferences>                                   location: second
+                    (<Docked-Preferences>                              location: selection model: Lisp-Console-Manager)
+                    (<Docked-Preferences>                              location: #f model: Properties-Manager)
+                    (<Docked-Preferences>                              location: #f model: Search-Results)
+                    (<Docked-Preferences>                              location: #f model: Profile-Results)
+                    (<Docked-Preferences>                              location: #f model: Servers-Manager)))
+                (<Pad-Preferences>                                     location: first
+                  (<Docked-Preferences>                                location: selection model: Workbench-Manager)
+                  (<Docked-Preferences>                                location: #f model: Repositories-Manager)))))))
+      (<Workspace-Preferences>                name: text               title: "Text" icon: {Image-Resource "WorkspaceText"} shortcut: {Shortcut :shift :alt #\S} frame-model: jazz.editor.jazz.Jazz-Text-View
+        (<Menubar-Preferences>                name: menubar            location: root
+          (<Mainbar-Preferences>              name: toolbar            location: second
+            (<Status-Preferences>             name: status             location: second
+              (<Splitter-Preferences>         name: top                location: first orientation: horz mode: relative division: 36 insets: {Rect 5 5 5 5}
+                (<Stage-Preferences>                                   location: second maximized?: #t)
+                (<Splitter-Preferences>                                location: first orientation: vert mode: relative division: -27
+                  (<Pad-Preferences>                                   location: second
+                    (<Docked-Preferences>                              location: selection model: Lisp-Console-Manager)
+                    (<Docked-Preferences>                              location: #f model: Properties-Manager)
+                    (<Docked-Preferences>                              location: #f model: Search-Results)
+                    (<Docked-Preferences>                              location: #f model: Profile-Results))
+                  (<Splitter-Preferences>                              mode: relative division: 46 location: first orientation: horz
+                    (<Splitter-Preferences>                            mode: relative division: 31 location: second orientation: vert location: second
+                      (<Docked-Preferences>                            location: first model: Chapters-Browser)
+                      (<Docked-Preferences>                            location: second model: Hierarchy-Browser))
+                    (<Pad-Preferences>                                 location: first
+                      (<Docked-Preferences>                            location: selection model: Workbench-Manager)
+                      (<Docked-Preferences>                            location: #f model: Repositories-Manager)))))))))
+      (<Workspace-Preferences>                name: debugger           title: "Debugger" icon: {Image-Resource "WorkspaceDebugger"} shortcut: {Shortcut :shift :alt #\D}
+        (<Menubar-Preferences>                name: menubar            location: root
+          (<Mainbar-Preferences>              name: toolbar            location: second
+            (<Status-Preferences>             name: status             location: second
+              (<Splitter-Preferences>         name: top                location: first orientation: vert mode: relative division: 23 insets: {Rect 5 5 5 5}
+                (<Splitter-Preferences>                                location: first orientation: horz division: 668
+                  (<Splitter-Preferences>                              location: first orientation: horz division: 160
+                    (<Docked-Preferences>                              location: first model: Processes-View)
+                    (<Splitter-Preferences>                            location: second orientation: horz division: 250
+                      (<Docked-Preferences>                            location: first model: Threads-View)
+                      (<Pad-Preferences>                               location: second
+                        (<Docked-Preferences>                          location: selection model: Exception-View)
+                        (<Docked-Preferences>                          location: #f model: Frames-View))))
+                  (<Docked-Preferences>                                location: second model: Variables-View))
+                (<Splitter-Preferences>                                location: second orientation: horz mode: relative division: 33
+                  (<Splitter-Preferences>                              location: first mode: relative division: 50 orientation: horz
+                    (<Pad-Preferences>                                 location: first
+                      (<Docked-Preferences>                            location: selection model: Workbench-Manager)
+                      (<Docked-Preferences>                            location: #f model: Repositories-Manager))
+                    (<Splitter-Preferences>                            location: second mode: relative division: 31 orientation: vert
+                      (<Docked-Preferences>                            location: first model: Chapters-Browser)
+                      (<Docked-Preferences>                            location: second model: Hierarchy-Browser)))
+                  (<Splitter-Preferences>                              location: second orientation: vert mode: relative division: -29
+                    (<Stage-Preferences>                               location: first)
+                    (<Pad-Preferences>                                 location: second
+                      (<Docked-Preferences>                            location: selection model: Lisp-Console-Manager)
+                      (<Docked-Preferences>                            location: #f model: Properties-Manager)
+                      (<Docked-Preferences>                            location: #f model: Search-Results)
+                      (<Docked-Preferences>                            location: #f model: Profile-Results)
+                      (<Docked-Preferences>                            location: #f model: Servers-Manager)))))))))))))

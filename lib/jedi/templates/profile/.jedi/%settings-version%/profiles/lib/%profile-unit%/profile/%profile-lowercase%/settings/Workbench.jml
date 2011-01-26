@@ -1,0 +1,15 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Workbench
+;;;
+
+
+(data jazz.ide.data.workbench
+
+
+(form
+  (<Workbench>
+    (<*> tag-reference: {File Jazz ".project"})
+    (<*> tag-reference: {File Profiles "lib" "%profile-unit%" ".project"}))))

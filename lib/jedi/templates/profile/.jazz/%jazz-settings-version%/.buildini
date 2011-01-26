@@ -1,0 +1,10 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; buildini
+;;;
+
+
+(jazz.build-link 'objects)
+(jazz.build-jobs 1)

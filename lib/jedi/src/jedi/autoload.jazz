@@ -1,0 +1,65 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Autoload
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2008
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.autoload jazz
+
+
+(export
+  (jedi.application.Jedi (autoload Jedi))
+  (jedi.application.Jedi-Menubar (autoload Jedi-Menubar))
+  (jedi.application.Jedi-Status (autoload Jedi-Status))
+  (jedi.application.Jedi-Toolbar (autoload Jedi-Toolbar))
+  (jedi.application.Jedi-Toplevel (autoload Jedi-Toplevel))
+  (jedi.generator.Code-Generator (autoload Code-Generator))
+  (jedi.preference.Jedi-Actions (autoload Jedi-Actions))
+  (jedi.preference.Jedi-Bindings (autoload Jedi-Bindings))
+  (jedi.preference.Jedi-Preferences (autoload Jedi-Preferences))
+  (jedi.profile.Jedi-Profile (autoload Jedi-Profile))
+  (jedi.search.Jedi-Search (autoload Jedi-Search))
+  (jedi.showcase.Outline-Showcase (autoload Outline-Showcase))
+  (jedi.showcase.Scaled-View (autoload Scaled-View))
+  (jedi.showcase.Showcase (autoload Showcase))
+  (jedi.showcase.Text-Showcase (autoload Text-Showcase))
+  (jedi.showcase.Threads-Showcase (autoload Threads-Showcase))
+  (jedi.showcase.Tree-Showcase (autoload Tree-Showcase))
+  (jedi.showcase.Tree-Showcase-Actions (autoload Tree-Showcase-Actions))
+  (jedi.smoker.Smoker (autoload Smoker))
+  (jedi.smoker.Smoker-Builder (autoload Smoker-Builder))
+  (jedi.smoker.Smoker-Suite (autoload Smoker-Suite))
+  (jedi.test.Horizontal-View (autoload Horizontal-View))
+  (jedi.test.Vertical-View (autoload Vertical-View))
+  (jedi.text.Completion-Popup (autoload Completion-Popup))))

@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Colors
+;;;
+
+
+(data jazz.ide.data.colors
+
+
+(form
+  (<Colors-Preferences>)))

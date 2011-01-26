@@ -1,0 +1,76 @@
+"Tex-Explorer"
+ ({Lisp-File-Entry {File jazz.editor.tex "src" "jazz" "editor" "tex" "text" "Tex-Explorer.jazz"} 1288732033
+    {Lisp-Entry "jazz.editor.tex.text.Tex-Explorer" module #f 37 18 37 51 ("jazz")
+      {Lisp-Entry "Tex-Explorer" class #f 45 7 45 19 ("C-Explorer")}}})
+"Tex-Syntax"
+ ({Lisp-File-Entry {File jazz.editor.tex "src" "jazz" "editor" "tex" "text" "Tex-Syntax.jazz"} 1288732033
+    {Lisp-Entry "jazz.editor.tex.text.Tex-Syntax" module #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "Tex-Syntax" class #f 45 7 45 17 ("Code-Syntax")
+        {Lisp-Entry "get-constituent-test" method #f 53 20 53 40 ("tex-constituent?")}}}})
+"Tex-Text-Preferences"
+ ({Lisp-File-Entry {File jazz.editor.tex "src" "jazz" "editor" "tex" "text" "Tex-Text-Preferences.jazz"} 1288732033
+    {Lisp-Entry "jazz.editor.tex.text.Tex-Text-Preferences" module #f 37 18 37 59 ("jazz")
+      {Lisp-Entry "Tex-Text-Preferences" class #f 47 7 47 27 ("Dark-Blue" "keyword-style:" "definition-style:" "Purple" "line-comment-style:" "Dark-Red" "color:" "Text-Style-Preference" "title-style:" "title:" "initialize" "Code-Text-Preferences")
+        {Lisp-Entry "title-style" property #f 50 12 50 23 ()}
+        {Lisp-Entry "get-title-style" accessor #f 50 56 50 64 ()}
+        {Lisp-Entry "set-title-style" accessor #f 50 56 50 64 ()}
+        {Lisp-Entry "line-comment-style" property #f 51 12 51 30 ()}
+        {Lisp-Entry "get-line-comment-style" accessor #f 51 56 51 64 ()}
+        {Lisp-Entry "set-line-comment-style" accessor #f 51 56 51 64 ()}
+        {Lisp-Entry "definition-style" property #f 52 12 52 28 ()}
+        {Lisp-Entry "get-definition-style" accessor #f 52 56 52 64 ()}
+        {Lisp-Entry "set-definition-style" accessor #f 52 56 52 64 ()}
+        {Lisp-Entry "keyword-style" property #f 53 12 53 25 ()}
+        {Lisp-Entry "get-keyword-style" accessor #f 53 56 53 64 ()}
+        {Lisp-Entry "set-keyword-style" accessor #f 53 56 53 64 ()}
+        {Lisp-Entry "keywords" property #f 54 12 54 20 ()}
+        {Lisp-Entry "get-keywords" accessor #f 54 56 54 64 ()}
+        {Lisp-Entry "set-keywords" accessor #f 54 56 54 64 ()}
+        {Lisp-Entry "completions" property #f 55 12 55 23 ()}
+        {Lisp-Entry "get-completions" accessor #f 55 56 55 64 ()}
+        {Lisp-Entry "set-completions" accessor #f 55 56 55 64 ()}
+        {Lisp-Entry "get-class-descriptor" method #f 72 25 72 45 ("Tex-Text-Preferences-Descriptor" "new")}}
+      {Lisp-Entry "design" submodule #f 81 11 81 17 ()
+        {Lisp-Entry "Tex-Text-Preferences-Descriptor" class #f 87 7 87 38 ("domain" "keyword-style" "definition-style" "line-comment-style" "title:" "title-style" "name:" "keyword-color" "definition-color" "line-comment-color" "title-color" "completions" "keywords" "categorized:" "Document-Preferences-Descriptor")}}}})
+"Tex-Text-View"
+ ({Lisp-File-Entry {File jazz.editor.tex "src" "jazz" "editor" "tex" "text" "Tex-Text-View.jazz"} 1288732033
+    {Lisp-Entry "jazz.editor.tex.text.Tex-Text-View" module #f 37 18 37 52 ("jazz")
+      {Lisp-Entry "Tex-Text-View" class #f 48 7 48 20 ("wrap?:" "Code-Text-View")
+        {Lisp-Entry "external-name" method #f 55 25 55 38 ("tex-text" "'tex-text" "rest")}
+        {Lisp-Entry "install" method #f 59 20 59 27 ("get-keyword-style" "Keyword" "'Keyword" "get-definition-style" "Definition" "'Definition" "get-line-comment-style" "Line-Comment" "'Line-Comment" "get-title-style" "Title" "'Title" "add-style-preference" "default-style" "get-name" "default" "preferences" "pref" "let" "nextmethod" "rest")}
+        {Lisp-Entry "preferences" method #f 69 20 69 31 ("tex-text" "documents" "get-preferences")}
+        {Lisp-Entry "host-workspaces" method #f 78 20 78 35 ("text")}
+        {Lisp-Entry "new-syntax" method #f 87 20 87 30 ("Tex-Syntax" "new")}
+        {Lisp-Entry "favorite-completions" method #f 96 20 96 40 ()}
+        {Lisp-Entry "symbol-completions" method #f 105 20 105 38 ("name")}
+        {Lisp-Entry "commented?" method #f 109 20 109 30 ("Line-Comment" "'Line-Comment" "Title" "'Title" "inherits?" "or" "and" "get-style-at" "style" "let" "pos")}
+        {Lisp-Entry "explorer-class" method #f 121 20 121 34 ("Tex-Explorer")}
+        {Lisp-Entry "get-context" method #f 130 20 130 31 ("c")}
+        {Lisp-Entry "current-name" method #f 134 20 134 32 ("current-expr-range" "name-at")}
+        {Lisp-Entry "name-at" method #f 138 11 138 18 ("read-string-element" "element" "eqv?" "if" "0" "cardinality" ">" "get-string" "name" "let" "when" "range")}
+        {Lisp-Entry "current-expr" method #f 147 20 147 32 ("current-name")}
+        {Lisp-Entry "current-expr-range" method #f 151 20 151 38 ("get-end" "expr-range" "get-selection" "has-selection?" "completion-active?" "not" "and" "if")}
+        {Lisp-Entry "expr-range" method #f 157 20 157 30 ("get-range" "outer-expr" "end:" "start:" "self" "Tex-Explorer" "new" "expl" "let" "pos")}
+        {Lisp-Entry "expr-at" method #f 163 20 163 27 ("expr-range" "name-at" "pos")}
+        {Lisp-Entry "headers" constant #f 172 12 172 19 ("list")}
+        {Lisp-Entry "get-headers" method #f 177 20 177 31 ("headers")}
+        {Lisp-Entry "get-first-special?" method #f 181 20 181 38 ()}
+        {Lisp-Entry "Definitions" constant #f 190 12 190 23 ()}
+        {Lisp-Entry "get-definitions" method #f 206 11 206 26 ("Definitions")}
+        {Lisp-Entry "Keywords" constant #f 215 12 215 20 ()}
+        {Lisp-Entry "get-keywords" method #f 234 29 234 41 ("Keywords")}
+        {Lisp-Entry "Syntax-Targets" definition #f 243 14 243 28 ()}
+        {Lisp-Entry "Syntax-Automata" definition #f 246 14 246 29 ()}
+        {Lisp-Entry "syntax-targets" method #f 250 20 250 34 ("compute-syntax-targets" "set!" "Syntax-Targets" "unless")}
+        {Lisp-Entry "syntax-automata" method #f 256 20 256 35 ("compute-syntax-automata" "set!" "Syntax-Automata" "unless")}
+        {Lisp-Entry "compute-syntax-targets" method #f 262 20 262 42 ("get-keywords" "keyword" "'keyword" "get-definitions" "definition" "'definition" "str" "lambda" "map" "line-comment" "'line-comment" "list" "append")}
+        {Lisp-Entry "compute-syntax-automata" method #f 268 20 268 43 ("tex-constituent?" "syntax-targets" "build-search-automata")}
+        {Lisp-Entry "colorize-type" method #f 272 20 272 33 ("colorize-keyword" "keyword" "Definition" "'Definition" "Keyword" "'Keyword" "colorize-definition" "definition" "Title" "'Title" "Line-Comment" "'Line-Comment" "colorize-line-comment" "line-comment" "case" "recolorize?" "colorizer" "end" "start" "type" "found")}
+        {Lisp-Entry "colorize-definition" method #f 279 11 279 30 ("cdr" "1" "+" "Cell" "new" ">" "and" "when" "close" "start:" "search" "open" "paragraph-length" "len" "paragraph-string" "str" "get-col" "col" "get-line" "line" "let*" "apply-coloring" "definition-style" "keyword-style" "colorizer" "end" "start" "found")}}}})
+"_tex"
+ ({Lisp-File-Entry {File jazz.editor.tex "src" "jazz" "editor" "tex" "_tex.jazz"} 1288732033
+    {Lisp-Entry "jazz.editor.tex" module #f 37 8 37 23 ("jazz")
+      {Lisp-Entry "tex-constituent?" definition #f 48 20 48 36 ("eqv?" "alphanumeric?" "or" "c")}}})
+"autoload"
+ ({Lisp-File-Entry {File jazz.editor.tex "src" "jazz" "editor" "tex" "autoload.jazz"} 1288732033
+    {Lisp-Entry "jazz.editor.tex.autoload" module #f 37 18 37 42 ("jazz")}})

@@ -1,0 +1,4 @@
+"_resources"
+ ({Lisp-File-Entry {File jazz.resources "src" "jazz" "resources" "_resources.scm"} 1288732034
+    {Lisp-Entry "jazz.resources" unit #f 37 6 37 20 ("jazz.build-resources" "build:" "jazz.resources" "'jazz.resources" "jazz.register-product")
+      {Lisp-Entry "jazz.build-resources" define #f 40 9 40 29 ("jazz.update-product-descriptor" "force?:" "pre-build:" "unit:" "jazz.custom-compile/build" "copy-resource-directories" "create-directory" "file-exists?" "not" "if" "ensure-directory-exists" "jazz.feedback" "feedback:" "jazz.copy-files" "dir" "copy-files" "source-file" "string-append" "path" "build-file" "define" "jazz.kernel-source" "source" "jazz.Build-Repository" "%%repository-directory" "build" "let" "force?" "unit" "#!key" "descriptor")}}})

@@ -1,0 +1,21 @@
+(<Workspace-Preferences>                              title: "SQL" icon: {Image-Resource "WorkspaceSQL"} shortcut: {Shortcut :alt :shift #\L} frame-model: SQL-Text-View
+  (<Menubar-Preferences>                name: menubar location: root
+    (<Mainbar-Preferences>              name: toolbar location: second
+      (<Status-Preferences>             name: status  location: second
+        (<Splitter-Preferences>         name: top     location: first orientation: horz mode: relative division: 36 insets: {Rect 5 5 5 5}
+          (<Splitter-Preferences>                     location: first orientation: vert mode: relative division: -27
+            (<Pad-Preferences>                        location: second
+              (<Docked-Preferences>                   location: selection model-name: SQL-Console-Manager)
+              (<Docked-Preferences>                   location: {} model-name: Lisp-Console-Manager)
+              (<Docked-Preferences>                   location: {} model-name: Properties-Manager)
+              (<Docked-Preferences>                   location: {} model-name: Search-Results))
+            (<Splitter-Preferences>                   mode: relative division: 42 location: first orientation: horz
+              (<Splitter-Preferences>                 mode: relative division: -43 location: second orientation: vert
+                (<Docked-Preferences>                 location: first model-name: Chapters-Browser)
+                (<Docked-Preferences>                 location: second model-name: SQL-Connections-Manager))
+              (<Docked-Preferences>                   location: first model-name: Workbench-Manager)))
+          (<Splitter-Preferences>                     location: second orientation: vert mode: relative division: -41
+            (<Stage-Preferences>                      location: first)
+            (<Pad-Preferences>                        location: second
+              (<Docked-Preferences>                   location: selection model-name: SQL-Tree-Output)
+              (<Docked-Preferences>                   location: {} model-name: SQL-Text-Output))))))))

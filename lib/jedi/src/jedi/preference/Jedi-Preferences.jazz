@@ -1,0 +1,89 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Preferences
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2008
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.preference.Jedi-Preferences jazz
+
+
+(import (jazz.catalog)
+        (jazz.doc)
+        (jazz.editor.c)
+        (jazz.editor.commonlisp)
+ @wait  (jazz.editor.csharp)
+ @wait  (jazz.editor.css)
+        (jazz.editor.diff)
+ @wait  (jazz.editor.html)
+ @wait  (jazz.editor.java)
+ @wait  (jazz.editor.javascript)
+        (jazz.editor.jazz)
+ @wait  (jazz.editor.lua)
+ @wait  (jazz.editor.properties)
+ @wait  (jazz.editor.python)
+        (jazz.editor.scheme)
+        (jazz.editor.sql)
+        (jazz.editor.tex)
+        (jazz.groupware)
+        (jazz.ide)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.project)
+        (jazz.ui)
+        (jedi))
+
+
+(class Jedi-Preferences extends IDE-Preferences
+  
+  
+  (form
+    (<install>                                                       title: "Jedi Preferences" documented?: #t protocols: ((file . {Reference File}) (dir . {Reference Directory}) (group . {Reference Directory-Group}) (manifest . {Reference Manifest}) (url . {Reference URL}) @wait (item . {Reference Depot-Moniker}) (doc . {Reference Document-Moniker}) (category . {Reference Category-Moniker})) catalog-types: ((filing . {Reference Filing-Catalog}) (doc . {Reference Doc-Catalog})) toolbar-classes: ((:menubar . {Reference Jedi-Menubar}) (:toolbar . {Reference Jedi-Toolbar}) (:command . {Reference Command-Toolbar}) (:minibuffer . {Reference Minibuffer-Toolbar}) (:status . {Reference Jedi-Status}))
+      (<documents~>
+        (<CommonLisp-Text-Preferences>     name: commonlisp-text)
+        (<C-Text-Preferences>              name: c-text)
+  @wait (<CSharp-Text-Preferences>         name: csharp-text)
+  @wait (<CSS-Text-Preferences>            name: css-text)
+        (<Compare-Text-Preferences>        name: compare-text)
+  @wait (<HTML-Text-Preferences>           name: html-text)
+  @wait (<Java-Text-Preferences>           name: java-text)
+  @wait (<JavaScript-Text-Preferences>     name: javascript-text)
+  @wait (<Lua-Text-Preferences>            name: lua-text)
+  @wait (<Prop-Text-Preferences>           name: prop-text)
+  @wait (<Properties-Text-Preferences>     name: properties-text)
+  @wait (<Python-Text-Preferences>         name: python-text)
+        (<Tex-Text-Preferences>            name: tex-text)
+  @wait (<XML-Text-Preferences>            name: xml-text))
+      (<Repositories-Preferences>          name: repositories)
+      (<Wallpaper-Preferences>             name: wallpaper)))))

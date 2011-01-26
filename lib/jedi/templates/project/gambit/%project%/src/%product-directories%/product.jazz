@@ -1,0 +1,40 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; %product-title% Product
+;;;
+
+
+(module %product-unit%.product jazz
+
+
+;;;
+;;;; Run
+;;;
+
+
+(definition (run descriptor)
+  (terminal "Please define a run function")
+  (thread-sleep! 2.5))
+
+
+;;;
+;;;; Build
+;;;
+
+
+(definition (build descriptor)
+  (terminal "Please define a build function")
+  (thread-sleep! 2.5))
+
+
+;;;
+;;;; Register
+;;;
+
+
+(register-product '%product%
+  title: "%product-title%"
+  run: run
+  build: build))

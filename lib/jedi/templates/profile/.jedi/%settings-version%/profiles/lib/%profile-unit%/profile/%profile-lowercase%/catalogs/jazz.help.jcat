@@ -1,0 +1,35 @@
+"Help-Contents"
+ ({Lisp-File-Entry {File jazz.help "src" "jazz" "help" "Help-Contents.jazz"} 1289844347
+    {Lisp-Entry "jazz.help.Help-Contents" module #f 37 18 37 41 ("jazz")
+      {Lisp-Entry "Help-Contents" class #f 48 7 48 20 ("descendant" "highlight-edited?:" "show-header?:" "tree" "shown?:" "header" "content" "tool" "style:" "scroller" "center" "location:" "descendants" "on-synchronize" ":guest" "Event-Handler" "action-handler:" ":images" "portfolio:" "Image-Resource" "resource:" "tooltip-text:" "tooltip?:" "22" "synchronize" "tools" "name:" "border" "layout-type:" "400" "650" "Dimension" "size:" "Component-Editor")
+        {Lisp-Entry "external-name" method #f 64 25 64 38 ("help-contents" "'help-contents" "rest")}
+        {Lisp-Entry "host-icon" method #f 73 25 73 34 ("Image-Resource")}
+        {Lisp-Entry "get-tools-view" method #f 82 20 82 34 ("tools" "'tools" "locate")}
+        {Lisp-Entry "tool-preferences" method #f 91 20 91 36 ("help-contents" "tools" "get-preferences")}
+        {Lisp-Entry "install" method #f 100 20 100 27 ("get-client" "set-client" "when" "get-catalogs" "car" "catalog" "get-application" "get-documentation-cataloguer" "cataloguer" "let" "self" "descendants" "'descendants" "locate" "set-editor" "nextmethod" "rest")}
+        {Lisp-Entry "document-status" method #f 115 11 115 26 ()}
+        {Lisp-Entry "on-synchronize" method #f 124 11 124 25 ("evt")}
+        {Lisp-Entry "synchronize-tree" method #f 133 11 133 27 ("contents-sheet" "'contents-sheet" "tab" "'tab" "set-selection-name" "row->line" "set-single-selection" "ensure-expanded" "bell" "null?" "if" "component-row" "row" "descendants" "locate" "tree" "let*" "component")}}}})
+"Help-Index"
+ ({Lisp-File-Entry {File jazz.help "src" "jazz" "help" "Help-Index.jazz"} 1289844343
+    {Lisp-Entry "jazz.help.Help-Index" module #f 37 18 37 38 ("jazz")
+      {Lisp-Entry "Help-Index" class #f 48 7 48 17 ("search" "307" "35" "search-border" "on-return-press" "return-press-handler:" "top-padding:" "left-padding:" "show-unfocused-selection?:" "focus-selects-all?:" "accepts-returns?:" "find" "19" "238" "9" "40" "find-border" "16" "60" "12" "8" "search-sheet" "160" "width:" "index" "fill" "vscroll?:" "hscroll?:" "index-border" "index-sheet" "edge" "border-type:" "338" "276" "4" "descendants-border" "title:" "contents-sheet" "on-selection" ":form" "selection-handler:" "366" "285" "1" "Point" "position:" "tab" "367" "descendant" "highlight-edited?:" "show-header?:" "tree" "header" "content" "tool" "style:" "scroller" "center" "location:" "descendants" "on-synchronize" ":guest" "Event-Handler" "action-handler:" ":images" "portfolio:" "Image-Resource" "resource:" "tooltip-text:" "tooltip?:" "22" "synchronize" "tools" "name:" "2" "0" "Rect" "layout-insets:" "border" "layout-type:" "400" "650" "Dimension" "size:" "Component-Editor")
+        {Lisp-Entry "host-icon" method #f 111 25 111 34 ("Image-Resource")}
+        {Lisp-Entry "host-title" method #f 115 25 115 35 ()}
+        {Lisp-Entry "get-tools-view" method #f 124 20 124 34 ("tools" "'tools" "locate")}
+        {Lisp-Entry "tool-preferences" method #f 133 20 133 36 ("help-index" "tools" "get-preferences")}
+        {Lisp-Entry "install" method #f 142 20 142 27 ("search" "'search" "index" "'index" "self" "'descendants" "set-editor" "header" "descendants" "locate" "set-shown?" "nextmethod" "rest")}
+        {Lisp-Entry "client-update" method #f 150 20 150 33 ("search" "'search" "client" "index" "'index" "locate" "set-client" "nextmethod")}
+        {Lisp-Entry "focus-document" method #f 156 20 156 34 ("tree" "descendants" "locate" "acquire-focus")}
+        {Lisp-Entry "document-status" method #f 165 11 165 26 ()}
+        {Lisp-Entry "resize-center" method #f 174 29 174 42 ("search-border" "'search-border" "index-border" "'index-border" "descendants-border" "'descendants-border" "0" "tab" "'tab" "locate" "size-figure" "dv" "dh")}
+        {Lisp-Entry "on-splitter-move" method #f 181 19 181 35 ("update-view" "search-border" "'search-border" "find-border" "'find-border" "index-border" "'index-border" "descendants-border" "'descendants-border" "0" "tab" "'tab" "locate" "size-figure" "right" "get-name" "case" "delta:" "get-property" "delta" "get-sender" "sender" "let" "evt")}
+        {Lisp-Entry "on-selection" method #f 194 19 194 31 ("select-all" "acquire-focus" "find" "'find" "text" "search-sheet" "'search-sheet" "get-selection-name" "eq?" "when" "'tab" "locate" "tab" "let" "evt")}
+        {Lisp-Entry "synchronize-tree" method #f 207 11 207 27 ("contents-sheet" "'contents-sheet" "tab" "'tab" "set-selection-name" "row->line" "set-single-selection" "ensure-expanded" "bell" "null?" "if" "component-row" "row" "descendants" "locate" "tree" "let*" "component")}
+        {Lisp-Entry "search" method #f 222 11 222 17 ("search" "'search" "locate" "set-target" "target")}}}})
+"_help"
+ ({Lisp-File-Entry {File jazz.help "src" "jazz" "help" "_help.jazz"} 1288732033
+    {Lisp-Entry "jazz.help" module #f 37 8 37 17 ("jazz")}})
+"autoload"
+ ({Lisp-File-Entry {File jazz.help "src" "jazz" "help" "autoload.jazz"} 1288732033
+    {Lisp-Entry "jazz.help.autoload" module #f 37 18 37 36 ("jazz")}})

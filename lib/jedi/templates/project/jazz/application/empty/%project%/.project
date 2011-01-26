@@ -1,0 +1,14 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(form
+  (<Project> name: %product-unit% catalog?: #t catalog-extensions: :text include-extensions: :text
+    (<*>                          tag-reference: {File Projects "lib" "%package%" "%product%.project"}))))

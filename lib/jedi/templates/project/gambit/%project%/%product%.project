@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gambit-Project
+;;;
+
+
+(data jazz.debugger.gambit.data.project
+
+
+(form
+  (<Gambit-Project> name: %project-title% directory: {Directory Projects} product: %product%)))

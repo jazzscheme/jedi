@@ -1,0 +1,276 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Menubar
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2008
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.application.Jedi-Menubar jazz
+
+
+(import (jazz.ide)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.locale)
+        (jazz.system)
+        (jazz.ui))
+
+
+(class Jedi-Menubar extends Menubar
+
+  
+  ;;;
+  ;;;; Host
+  ;;;
+  
+  
+  (method meta override (host-icon)
+    {Image-Resource "Document"})
+  
+
+  (method meta override (host-title)
+    "Text")
+  
+  
+  ;;;
+  ;;;; Menubar
+  ;;;
+  
+  
+  (method override (install rest)
+    (nextmethod rest)
+    (with-update-locked
+      (lambda ()
+        (new Label-Item parent: self name: 'file      content: (new Jedi-File-Menu))
+        (new Label-Item parent: self name: 'edit      content: (new Edit-Menu))
+        (new Label-Item parent: self name: 'source    content: (new Source-Menu))
+        (new Label-Item parent: self name: 'recorder  content: (new Recorder-Menu))
+        (new Label-Item parent: self name: 'refactor  content: (new Refactor-Menu))
+        (new Label-Item parent: self name: 'search    content: (new Search-Menu))
+        (new Label-Item parent: self name: 'project   content: (new Project-Menu))
+        (new Label-Item parent: self name: 'debug     content: (new Debug-Menu))
+        (new Label-Item parent: self name: 'tools     content: (new Tools-Menu))
+        (new Label-Item parent: self name: 'workspace content: (new Workspace-Menu))
+        (new Label-Item parent: self name: 'view      content: (new View-Menu))
+        (new Label-Item parent: self name: 'window    content: (new Window-Advanced-Menu))
+        (new Label-Item parent: self name: 'help      content: (new Help-Menu))))))
+
+
+;;;
+;;;; File
+;;;
+
+
+(class Jedi-File-Menu extends IDE-File-Menu
+  
+  
+  (form
+    (<install>
+      (<Label-Item> name: on-new-project title: {Locales english: "New Project..." french: "Nouveau Projet..."} before: on-new action-handler: {Action ide new-project})
+      (<!>          name: on-new         title: {Locales english: "New File" french: "Nouveau Fichier"}))))
+
+
+;;;
+;;;; View
+;;;
+
+
+(class View-Menu extends Menu
+  
+  
+  (form
+    (<install>                                      title: "View"
+      (<Label-Item>     name: workbench             title: "Workbench" icon: {Image-Resource "Workbench"} action-handler: {Action ide view-workbench})
+      (<Label-Item>     name: repositories          title: "Repositories" icon: {Image-Resource "Repositories"} action-handler: {Action ide view-repositories})
+      (<Label-Item>     name: favorites             title: "Favorites" icon: {Image-Resource "Favorites"} action-handler: {Action ide view-favorites})
+      (<Separator-Item>)
+      (<Label-Item>     name: console               title: "Console" icon: {Image-Resource "Console"} action-handler: {Action ide view-console})
+      (<Label-Item>     name: properties            title: "Properties" icon: {Image-Resource "Properties"} action-handler: {Action ide view-properties})
+      (<Label-Item>     name: search-results        title: "Search Results" icon: {Image-Resource "Find"} action-handler: {Action ide view-search-results})
+      (<Label-Item>     name: profile-results       title: "Profile Results" icon: {Image-Resource "Constructor"} action-handler: {Action ide view-profile-results})
+      @waiting
+      (<Label-Item>     name: output-log            title: "Output Log" icon: {Image-Resource "Spy"} action-handler: {Action ide view-output-log})
+      @waiting
+      (<Label-Item>     name: user-log              title: "User Log" icon: {Image-Resource "Log"} action-handler: {Action ide view-user-log})
+      @waiting
+      (<Label-Item>     name: activities            title: "Activities" icon: {Image-Resource "Task"} action-handler: {Action ide view-activities})
+      (<Label-Item>     name: servers               title: "Servers" icon: {Image-Resource "Servers"} action-handler: {Action ide view-servers})
+      (<Separator-Item>)
+      @waiting
+      (<Label-Item>                                 title: "COM" icon: {Image-Resource "Reference"}
+        (<Menu>
+          (<Label-Item> name: registry-viewer       title: "Registry Viewer" icon: {Image-Resource "Reference"} action-handler: {Action ide view-registry-viewer})
+          (<Label-Item> name: type-viewer           title: "Type Viewer" icon: {Image-Resource "Browser"} action-handler: {Action ide view-type-viewer})))
+      (<Label-Item>                                 title: "Text" icon: {Image-Resource "WorkspaceText"}
+        (<Menu>
+          (<Label-Item> name: chapters              title: "Chapters" icon: {Image-Resource "Traits"} action-handler: {Action ide view-chapters})
+          (<Label-Item> name: hierarchy             title: "Hierarchy" icon: {Image-Resource "Components"} action-handler: {Action ide view-hierarchy})))
+      (<Label-Item>                                 title: "Debugger" icon: {Image-Resource "WorkspaceDebugger"}
+        (<Menu>
+          (<Label-Item> name: processes             title: "Processes" icon: {Image-Resource "Process"} action-handler: {Action ide processes})
+          (<Label-Item> name: threads               title: "Threads" icon: {Image-Resource "Threads"} action-handler: {Action ide threads})
+          (<Label-Item> name: frames                title: "Frames" icon: {Image-Resource "Link"} action-handler: {Action ide frames})
+          (<Label-Item> name: restarts              title: "Restarts" icon: {Image-Resource "Force"} action-handler: {Action ide restarts})
+          (<Label-Item> name: exception             title: "Exception" icon: {Image-Resource "Exception"} action-handler: {Action ide exception})
+          (<Label-Item> name: variables             title: "Variables" icon: {Image-Resource "Spy"} action-handler: {Action ide variables})))
+      @waiting
+      (<Label-Item>                                 title: "Java" icon: {Image-Resource "Java"}
+        (<Menu>
+          (<Label-Item> name: java-manager          title: "Java Manager" icon: {Image-Resource "Java"} action-handler: {Action ide view-java-manager})))
+      (<Label-Item>     name: sql                   title: "SQL" icon: {Image-Resource "Databases"}
+        (<Menu>
+          (<Label-Item> name: sql-connections       title: "SQL Connections" icon: {Image-Resource "Databases"} action-handler: {Action ide view-sql-connections})
+          @waiting (<Label-Item> name: sql-inventory         title: "SQL Inventory" icon: {Image-Resource "Database"} action-handler: {Action ide view-sql-inventory})
+          (<Label-Item> name: sql-console           title: "SQL Console" icon: {Image-Resource "Console"} action-handler: {Action ide view-sql-console})))
+      (<Label-Item>                                 title: "Designer" icon: {Image-Resource "Sorcerer"}
+        (<Menu>
+          (<Label-Item> name: toolbox               title: "Toolbox" icon: {Image-Resource "Toolbox"} action-handler: {Action ide view-toolbox})
+          (<Label-Item> name: traits                title: "Traits" icon: {Image-Resource "Traits"} action-handler: {Action ide view-traits})
+          (<Label-Item> name: descendants           title: "Descendants" icon: {Image-Resource "Components"} action-handler: {Action ide view-descendants})))
+      @waiting
+      (<Label-Item>                                 title: "Documentation" icon: {Image-Resource "Architecture"}
+        (<Menu>
+          (<Label-Item> name: documentation-editor  title: "Documentation Editor" icon: {Image-Resource "Doc"} action-handler: {Action ide view-documentation-editor})))
+      (<Label-Item>                                 title: "Showcase" icon: {Image-Resource "DesignLayout"}
+        (<Menu>
+          (<Label-Item> name: showcase              title: "User Interface Showcase" icon: {Image-Resource "DesignLayout"} action-handler: {Action ide view-showcase}))))))
+
+
+;;;
+;;;; Project
+;;;
+
+
+(class Project-Menu extends Menu
+  
+  
+  (form
+    (<install>                                title: "Project"
+      (<Label-Item>     name: select          title: "Select..." icon: {Image-Resource "ConcreteProject"} action-handler: {Action ide select-project})
+      @waiting
+      (<Label-Item>     name: clean           title: "Clean" action-handler: {Action ide clean-project})
+      @waiting
+      (<Label-Item>     name: view-log        title: "View Log" action-handler: {Action ide view-project-log})
+      (<Separator-Item>)
+      (<Label-Item>     name: test            title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
+      (<Label-Item>     name: debug           title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
+      (<Label-Item>     name: debug-with      title: "Debug With..." action-handler: {Action ide debug-project-with})
+      (<Label-Item>     name: run             title: "Run" icon: {Image-Resource "Link"} action-handler: {Action ide run-project})
+      (<Separator-Item>)
+      (<Label-Item>     name: build           title: "Build" icon: {Image-Resource "Build"} action-handler: {Action ide build-project})
+      @waiting
+      (<Label-Item>     name: compile         title: "Compile" icon: {Image-Resource "Compile"} action-handler: {Action ide compile-file})
+      )))
+
+
+;;;
+;;;; Debug
+;;;
+
+
+(class Debug-Menu extends Menu
+  
+  
+  (form
+    (<install>                                       title: "Debug"
+      @wait
+      (<Label-Item>     name: restart                title: "Restart" icon: {Image-Resource "Restart"} tooltip?: #t tooltip-text: "Restart" action-handler: {Action ide restart})
+      @wait
+      (<Label-Item>     name: break                  title: "Break" icon: {Image-Resource "Break"} tooltip?: #t tooltip-text: "Break" action-handler: {Action ide break})
+      @wait
+      (<Label-Item>     name: continue               title: "Continue" icon: {Image-Resource "Continue"} tooltip?: #t tooltip-text: "Continue" action-handler: {Action ide continue})
+      @wait
+      (<Separator-Item>)
+      (<Label-Item>     name: terminal-repl          title: "Terminal Repl" icon: {Image-Resource "Console"} tooltip?: #t tooltip-text: "Terminal Repl" action-handler: {Action ide terminal-repl})
+      (<Label-Item>     name: toggle-terminal        title: "Toggle Terminal" tooltip?: #t tooltip-text: "Toggle Terminal" action-handler: {Action ide toggle-terminal})
+      (<Label-Item>     name: clear-terminal         title: "Clear Terminal" icon: {Image-Resource "Clear"} tooltip?: #t tooltip-text: "Clear Terminal" action-handler: {Action ide clear-terminal})
+      (<Separator-Item>)
+      (<Label-Item>     name: test                   title: "Test" icon: {Image-Resource "Script"} tooltip?: #t tooltip-text: "Test" action-handler: {Action ide test})
+      (<Label-Item>     name: test-shift             title: "Test Shift" action-handler: {Action ide test-shift})
+      @wait
+      (<Separator-Item>)
+      @wait
+      (<Label-Item>     name: reload-process         title: "Reload Process" icon: {Image-Resource "Refresh"} tooltip?: #t tooltip-text: "Reload Process" action-handler: {Action ide reload-process})))
+  
+  
+  (method override (update)
+    (set-title~ (child 'toggle-terminal) (if (terminal-visible?) "Hide Terminal" "Show Terminal"))))
+
+
+;;;
+;;;; Tools
+;;;
+
+
+(class Tools-Menu extends Menu
+  
+  
+  (form
+    (<install>                                       title: "Tools"
+      (<Label-Item>     name: explore-views          title: "Explore Views" icon: {Image-Resource "Edit"} action-handler: {Action ide explore-views})
+      (<Separator-Item>)
+      (<Label-Item>     name: bindings-manager       title: "Bindings Manager" icon: {Image-Resource "EditLink"} action-handler: {Action ide bindings-manager})
+      (<Label-Item>     name: view-bindings          title: "View Shortcut Bindings..." icon: {Image-Resource "Link"} action-handler: {Action ide view-bindings})
+      (<Separator-Item>)
+      (<Label-Item>     name: skins-manager          title: "Skins Manager" icon: {Image-Resource "Grab"} action-handler: {Action ide skins-manager})
+      (<Separator-Item>)
+      (<Label-Item>                                  title: "Catalogs Manager" icon: {Image-Resource "Catalog"} action-handler: {Action ide catalogs-manager})
+      (<Label-Item>                                  title: "Update Main Catalogs" action-handler: {Action ide update-catalogs})
+      (<Separator-Item>)
+      (<Label-Item>     name: compare-directories    title: "Compare Directories" icon: {Image-Resource "CompareDirectories"} action-handler: {Action ide compare-directories})
+      (<Label-Item>     name: compare-files          title: "Compare Files" icon: {Image-Resource "CompareFiles"} action-handler: {Action ide compare-files})
+      (<Separator-Item>)
+      (<Label-Item>     name: capture-document       title: "Capture Document" action-handler: {Action ide capture-document})
+      (<Label-Item>     name: capture-mouse-document title: "Capture Mouse Document" action-handler: {Action ide capture-mouse-document})
+      (<Label-Item>     name: capture-host           title: "Capture Host" action-handler: {Action ide capture-host})
+      (<Label-Item>     name: capture-mouse-host     title: "Capture Mouse Host" action-handler: {Action ide capture-mouse-host})
+      (<Separator-Item> name: command-execute-separator)
+      (<Label-Item>     name: command-extended       title: "Extended Command" action-handler: {Action ide command-extended} icon: {Image-Resource "QuickFind"})
+      (<Label-Item>     name: command-execute        title: "Execute Command" action-handler: {Action ide command-execute})
+      (<Separator-Item>)
+      (<Label-Item>     name: preferences            title: "Preferences Manager" icon: {Image-Resource "Preferences"} action-handler: {Action ide view-preferences}))))
+
+
+;;;
+;;;; Help
+;;;
+
+
+(class Help-Menu extends Menu
+  
+  
+  (form
+    (<install>          title: "Help"
+      (<Label-Item>     title: "Readme" icon: {Image-Resource "Document"} action-handler: {Action jedi readme})
+      (<Separator-Item>)
+      (<Label-Item>     title: "About Jedi..." icon: {Image-Resource "About"} action-handler: {Action application about})))))

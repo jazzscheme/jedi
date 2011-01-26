@@ -1,0 +1,14 @@
+(<Workspace-Preferences>                           title: "Groupware" icon: {Image-Resource "WorkspaceGroupware"} shortcut: {Shortcut :alt :shift #\G}
+  (<Menubar-Preferences>             name: menubar location: root
+    (<Mainbar-Preferences>           name: toolbar location: second
+      (<Status-Preferences>          name: status  location: second
+        (<Splitter-Preferences>      name: top     location: first state: zoom target: second orientation: horz mode: relative division: 25 insets: {Rect 5 5 5 5}
+          (<Splitter-Preferences>                  location: first orientation: vert mode: relative division: -31
+            (<Pad-Preferences>                     location: first
+              (<Docked-Preferences>                location: selection model-name: Workbench-Manager)
+              (<Docked-Preferences>                location: {} model-name: Repositories-Manager))
+            (<Pad-Preferences>                     location: second
+              (<Docked-Preferences>                location: selection model-name: Lisp-Console-Manager)
+              (<Docked-Preferences>                location: {} model-name: Properties-Manager)
+              (<Docked-Preferences>                location: {} model-name: Search-Results)))
+          (<Stage-Preferences>                     location: second))))))

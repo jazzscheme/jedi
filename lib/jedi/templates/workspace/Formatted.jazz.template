@@ -1,0 +1,19 @@
+(<Workspace-Preferences>                            title: "Formatted" icon: {Image-Resource "ForegroundColor"} shortcut: {Shortcut :alt :shift #\F} frame-model: Plain-Formatted-Text-View
+  (<Menubar-Preferences>              name: menubar location: root
+    (<Mainbar-Preferences>            name: toolbar location: second
+      (<Status-Preferences>           name: status  location: second
+        (<Splitter-Preferences>       name: top     location: first orientation: horz mode: relative division: 36 insets: {Rect 5 5 5 5}
+          (<Splitter-Preferences>                   location: first orientation: vert mode: relative division: -27
+            (<Pad-Preferences>                      location: second
+              (<Docked-Preferences>                 location: selection model-name: Lisp-Console-Manager)
+              (<Docked-Preferences>                 location: {} model-name: Properties-Manager)
+              (<Docked-Preferences>                 location: {} model-name: Search-Results))
+            (<Splitter-Preferences>                 mode: relative division: 46 location: first orientation: horz
+              (<Splitter-Preferences>               mode: relative division: 31 location: second orientation: vert location: second
+                (<Docked-Preferences>               location: first model-name: Chapters-Browser)
+                (<Docked-Preferences>               location: second model-name: Hierarchy-Browser))
+              (<Pad-Preferences>                    location: first
+                (<Docked-Preferences>               location: selection model-name: Workbench-Manager))))
+          (<Splitter-Preferences>                   location: second division: 59 orientation: vert
+            (<Docked-Preferences>                   location: first model-name: Text-Palette)
+            (<Stage-Preferences>                    location: second)))))))

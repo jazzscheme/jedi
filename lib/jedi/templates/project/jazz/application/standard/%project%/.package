@@ -1,0 +1,9 @@
+(package %package%
+  
+  (root "src")
+  (products (%product% (title "%product-title%")
+                       (run %product-unit%.run)
+                       (update %product-unit%.application
+                               %product-unit%.run)
+                       (dependencies jazz)))
+  (project ".project"))

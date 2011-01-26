@@ -1,0 +1,163 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Smoker Suite
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2008
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.smoker.Smoker-Suite jazz
+
+
+(class Smoker-Suite extends Object)
+
+
+@convert
+
+
+(class Smoker-Suite extends Object
+
+  
+  (method public (smoke)
+    (run-validations)
+    (run-showcase)
+    (run-searches)
+    @waiting-full-thread-safety
+    (run-builds))
+  
+  
+  ;;;
+  ;;;; Manual
+  ;;;
+  
+  
+  ;; Verify that creating a large tree (with and without a vertical scrollbar), expanding and
+  ;; collapsing only generate one layout-content.
+  
+  
+  ;;;
+  ;;;; Validations
+  ;;;
+  
+  
+  (method (run-validations)
+    @wait-Validation-Suite-cleanup-of-units
+    (new Activity
+      name: "Smoker Validations"
+      context: self
+      execute: (lambda (activity)
+                 (while #t
+                   (set-range~ activity (new Range 0 1))
+                   (user-feedback~ activity "Validating")
+                   (let ((suite (new Validation-Suite feedback: user-feedback)))
+                     (validate~ suite report-success?: #f)
+                     (sleep 2)
+                     (user-feedback~ activity "Done")
+                     (step-it~ activity)
+                     (set-done~ activity)
+                     (sleep 10))))))
+  
+  
+  ;;;
+  ;;;; Showcase
+  ;;;
+  
+  
+  (method (run-showcase)
+    (let* ((frame (new-frame Showcase))
+           (showcase (get-guest~ frame))
+           (tab (locate~ showcase 'tab)))
+      (set-selection-name~ tab 'threads-sheet)
+      (let ((threads (locate~ showcase 'threads)))
+        (for-each (lambda (n)
+                    (add-threaded-icon~ threads n))
+                  (naturals 0 5)))))
+  
+  
+  ;;;
+  ;;;; Searches
+  ;;;
+
+
+  (method (run-searches)
+    (let* ((appl (get-application))
+           (frame (get-search-manager~ appl))
+           (manager (get-guest~ frame))
+           (view (get-search~ manager))
+           (tree (locate~ view 'targets)))
+      (set-visible?~ frame #t)
+      (end-edition~ tree)
+      (set-search-targets~ view '(("Search-View" "")))
+      (unimplemented)
+      @convert-thread
+      (new Thread
+        name: "Smoker Searches"
+        context: self
+        execute: (lambda (thread)
+                   (let ((running #f))
+                     (while #t
+                       (when running
+                         ;; todo: this will freeze the app if an error occurs
+                         ;; during the search because the wait-for will never complete...
+                         (wait-for running)
+                         (sleep 1))
+                       (set! running (on-search~ view #f))))))))
+  
+  
+  ;;;
+  ;;;; Builds
+  ;;;
+  
+  
+  (method (run-builds)
+    @wait (run-project-builds "Jazz"   Launcher-Project "Distribution"    0 8000)
+    @wait (run-project-builds "Yoda"   Yoda-Project     "Distribution" 1000 5000)
+    @wait (run-project-builds "Puzzle" Puzzle-Project   "Distribution" 1000 7000))
+  
+  
+  (method (run-project-builds title project-class project-title (wait-before 0) (wait-beetween 0))
+    (unimplemented)
+    @convert-thread
+    (new Thread
+      name: (format "{a} Builds" title)
+      context: self
+      execute: (lambda (thread)
+                 (sleep wait-before)
+                 (let ((running #f))
+                   (while #t
+                     (when running
+                       ;; todo: this will freeze the app if an error occurs
+                       ;; during the build because the wait-for will never complete...
+                       (wait-for running)
+                       (sleep wait-beetween))
+                     (let ((project (find-project~ project-class project-title)))
+                       (set! running (build~ project threaded?: #t keep-reporter?: #f))))))))))

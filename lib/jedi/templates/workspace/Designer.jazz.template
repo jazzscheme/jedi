@@ -1,0 +1,19 @@
+(<Workspace-Preferences>                                            title: "Designer" icon: {Image-Resource "Designer"} shortcut: {Shortcut :alt :shift #\X} frame-model: View-Editor
+  (<Menubar-Preferences>        name: menubar location: root
+    (<Mainbar-Preferences>      name: toolbar location: second
+      (<Status-Preferences>     name: status  location: second
+        (<Splitter-Preferences>         name: top     location: first orientation: horz mode: relative division: 18 insets: {Rect 5 5 5 5}
+          (<Splitter-Preferences>                     location: first orientation: vert mode: relative division: 52
+            (<Splitter-Preferences>                   location: first orientation: vert mode: relative division: 65
+              (<Docked-Preferences>                   location: first model-name: Toolbox-Manager)
+              (<Docked-Preferences>                   location: second model-name: Branches-Editor))
+            (<Docked-Preferences>                     location: second model-name: View-Descendants-Editor))
+          (<Splitter-Preferences>                     location: second orientation: horz division: -300
+            (<Splitter-Preferences>                   location: first orientation: vert division: 58
+              (<Splitter-Preferences>                 location: first orientation: horz division: 146
+                (<Docked-Preferences>                 location: first model-name: Designer-Manager)
+                (<Docked-Preferences>                 location: second model-name: Alignment-Editor))
+              (<Stage-Preferences>                    location: second))
+            (<Splitter-Preferences>                   location: second orientation: vert mode: relative division: -20
+              (<Docked-Preferences>                   location: first model-name: Properties-Manager)
+              (<Docked-Preferences>                   location: second model-name: Lisp-Console-Manager))))))))

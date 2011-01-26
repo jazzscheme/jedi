@@ -1,0 +1,65 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(import (jazz.editor.jazz))
+
+
+(form
+  (<Project>                 name: jedi                  catalog?: #t catalog-extensions: :jazz include-extensions: :jazz documentation: {File :context "doc" "jedi.jml"}
+    (<*>                                                 tag-reference: {File :context "jedi.project"})
+    (<Project-Directory>                                 directory: {Directory :context "src"}
+      (<Project-Directory>                               directory: {Directory :context "src" "jedi"}
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "application"}
+          (<Jazz-File>       name: Jedi-Menubar          source: {File :context "src" "jedi" "application" "Jedi-Menubar.jazz"})
+          (<Jazz-File>       name: Jedi-Status           source: {File :context "src" "jedi" "application" "Jedi-Status.jazz"})
+          (<Jazz-File>       name: Jedi-Toolbar          source: {File :context "src" "jedi" "application" "Jedi-Toolbar.jazz"})
+          (<Jazz-File>       name: Jedi-Toplevel         source: {File :context "src" "jedi" "application" "Jedi-Toplevel.jazz"})
+          (<Jazz-File>       name: Jedi                  source: {File :context "src" "jedi" "application" "Jedi.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "development"}
+          (<Jazz-File>       name: _development          source: {File :context "src" "jedi" "development" "_development.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "generator"}
+          (<Jazz-File>       name: Code-Generator        source: {File :context "src" "jedi" "generator" "Code-Generator.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "parameters"})
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "preference"}
+          (<Jazz-File>       name: Jedi-Actions          source: {File :context "src" "jedi" "preference" "Jedi-Actions.jazz"})
+          (<Jazz-File>       name: Jedi-Bindings         source: {File :context "src" "jedi" "preference" "Jedi-Bindings.jazz"})
+          (<Jazz-File>       name: Jedi-Preferences      source: {File :context "src" "jedi" "preference" "Jedi-Preferences.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "profile"}
+          (<Jazz-File>       name: Jedi-Profile          source: {File :context "src" "jedi" "profile" "Jedi-Profile.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "search"}
+          (<Jazz-File>       name: Jedi-Search           source: {File :context "src" "jedi" "search" "Jedi-Search.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "showcase"}
+          (<Jazz-File>       name: Outline-Showcase      source: {File :context "src" "jedi" "showcase" "Outline-Showcase.jazz"})
+          (<Jazz-File>       name: Scaled-View           source: {File :context "src" "jedi" "showcase" "Scaled-View.jazz"})
+          (<Jazz-File>       name: Showcase              source: {File :context "src" "jedi" "showcase" "Showcase.jazz"})
+          (<Jazz-File>       name: Text-Showcase         source: {File :context "src" "jedi" "showcase" "Text-Showcase.jazz"})
+          (<Jazz-File>       name: Threads-Showcase      source: {File :context "src" "jedi" "showcase" "Threads-Showcase.jazz"})
+          (<Jazz-File>       name: Tree-Showcase-Actions source: {File :context "src" "jedi" "showcase" "Tree-Showcase-Actions.jazz"})
+          (<Jazz-File>       name: Tree-Showcase         source: {File :context "src" "jedi" "showcase" "Tree-Showcase.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "smoker"}
+          (<Jazz-File>       name: Smoker-Builder        source: {File :context "src" "jedi" "smoker" "Smoker-Builder.jazz"})
+          (<Jazz-File>       name: Smoker-Suite          source: {File :context "src" "jedi" "smoker" "Smoker-Suite.jazz"})
+          (<Jazz-File>       name: Smoker                source: {File :context "src" "jedi" "smoker" "Smoker.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "test"}
+          (<Jazz-File>       name: Horizontal-View       source: {File :context "src" "jedi" "test" "Horizontal-View.jazz"})
+          (<Jazz-File>       name: Vertical-View         source: {File :context "src" "jedi" "test" "Vertical-View.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "text"}
+          (<Jazz-File>       name: Completion-Popup      source: {File :context "src" "jedi" "text" "Completion-Popup.jazz"}))
+        (<Jazz-File>         name: _jedi                 source: {File :context "src" "jedi" "_jedi.jazz"})
+        (<Jazz-File>         name: autoload              source: {File :context "src" "jedi" "autoload.jazz"})
+        (<Jazz-File>         name: run                   source: {File :context "src" "jedi" "run.jazz"})
+        (<Project-File>                                  source: {File :context "src" "jedi" "install.scm"})
+        (<Jazz-File>         name: services              source: {File :context "src" "jedi" "services.jazz"})
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "data"}
+          (<Jazz-File>       name: bindings              source: {File :context "src" "jedi" "data" "bindings.jazz"})
+          (<Jazz-File>       name: preferences           source: {File :context "src" "jedi" "data" "preferences.jazz"}))
+        (<Project-Directory>                             directory: {Directory :context "src" "jedi" "convert"}
+          (<Jazz-File>       name: _convert              source: {File :context "src" "jedi" "convert" "_convert.jazz"})))))))

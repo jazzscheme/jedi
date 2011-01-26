@@ -1,0 +1,13 @@
+"_benchmark"
+ ({Lisp-File-Entry {File jazz.benchmark "src" "jazz" "benchmark" "_benchmark.jazz"} 1288732032
+    {Lisp-Entry "jazz.benchmark" module #f 37 8 37 22 ("command-argument" "benchmarks" "run-benchmarks" "jazz")
+      {Lisp-Entry "all-benchmarks" define #f 49 8 49 22 ("catalog")}
+      {Lisp-Entry "benchmarks" define #f 53 9 53 19 ("split" "error" "memq?" "string->symbol" "benchmark" "let" "str" "lambda" "map" "all-benchmarks" "not" "if" "cmd")}
+      {Lisp-Entry "run-benchmarks" define #f 64 9 64 23 ("catalog-benchmark" "catalog" "case" "benchmark" "lambda" "for-each" "initialize-aliases" "benchmarks")}}})
+"_catalog"
+ ({Lisp-File-Entry {File jazz.benchmark "src" "jazz" "benchmark" "catalog" "_catalog.jazz"} 1288732032
+    {Lisp-Entry "jazz.benchmark.catalog" module #f 37 8 37 30 ("jazz")
+      {Lisp-Entry "catalog-benchmark" definition #f 44 20 44 37 ("get-modification-time" "parse" "time" "Jazz-Parser" "new" "parser" "jazz.benchmark" "File" "file" "let")}}})
+"run"
+ ({Lisp-File-Entry {File jazz.benchmark "src" "jazz" "benchmark" "run.jazz"} 1288732032
+    {Lisp-Entry "jazz.benchmark.run" module #f 37 8 37 26 ("jazz.benchmark" "'jazz.benchmark" "load-unit" "descriptor" "lambda" "benchmark" "'benchmark" "register-product-run" "jazz")}})

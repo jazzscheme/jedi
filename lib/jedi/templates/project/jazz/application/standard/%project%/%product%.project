@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jazz-Project
+;;;
+
+
+(data jazz.debugger.jazz.data.project
+
+
+(form
+  (<Jazz-Project> name: %project-title% directory: {Directory Projects} product: %product%)))

@@ -1,0 +1,30 @@
+(<Workspace-Preferences>                          title: "Debugger" icon: {Image-Resource "WorkspaceDebugger"} shortcut: {Shortcut :alt :shift #\D}
+  (<Menubar-Preferences>            name: menubar location: root
+    (<Mainbar-Preferences>          name: toolbar location: second
+      (<Status-Preferences>         name: status  location: second
+        (<Splitter-Preferences>     name: top     location: first orientation: vert mode: relative division: 23 insets: {Rect 5 5 5 5}
+          (<Splitter-Preferences>                 location: first orientation: horz division: 668
+            (<Splitter-Preferences>               location: first orientation: horz division: 160
+              (<Docked-Preferences>               location: first model-name: Processes-View)
+              (<Splitter-Preferences>             location: second orientation: horz division: 250
+                (<Docked-Preferences>             location: first model-name: Threads-View)
+                (<Pad-Preferences>                location: second
+                  (<Docked-Preferences>           location: selection model-name: Exception-View)
+                  (<Docked-Preferences>           location: {} model-name: Frames-View))))
+            (<Docked-Preferences>                 location: second model-name: Variables-View))
+          (<Splitter-Preferences>                 location: second orientation: horz mode: relative division: 33
+            (<Splitter-Preferences>               location: first mode: relative division: 50 orientation: horz
+              (<Pad-Preferences>                  location: first
+                (<Docked-Preferences>             location: selection model-name: Workbench-Manager)
+                (<Docked-Preferences>             location: {} model-name: Repositories-Manager))
+              (<Splitter-Preferences>             location: second mode: relative division: 31 orientation: vert
+                (<Docked-Preferences>             location: first model-name: Chapters-Browser)
+                (<Docked-Preferences>             location: second model-name: Hierarchy-Browser)))
+            (<Splitter-Preferences>               location: second orientation: vert mode: relative division: -29
+              (<Stage-Preferences>                location: first)
+              (<Pad-Preferences>                  location: second
+                (<Docked-Preferences>             location: selection model-name: Lisp-Console-Manager)
+                (<Docked-Preferences>             location: {} model-name: Properties-Manager)
+                (<Docked-Preferences>             location: {} model-name: Search-Results)
+                (<Docked-Preferences>             location: {} model-name: Profile-Results)
+                (<Docked-Preferences>             location: {} model-name: Web-Servers-Manager)))))))))
