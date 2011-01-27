@@ -239,6 +239,15 @@
   
   (method override (settings-version)
     (update-version (car settings-updates)))
+
+  
+  ;;;
+  ;;;; Templates
+  ;;;
+  
+  
+  (method override (templates-directory)
+    {Directory Jedi "lib" "jedi" "templates"})
   
 
   ;;;
@@ -248,10 +257,6 @@
   
   (method override (install-profiles)
     (register-repository-aliases (install-repository (parse~ {Directory Settings "profiles"}))))
-  
-  
-  (method override (profile-template-directory)
-    {Directory Jazz "lib" "jedi" "templates" "profile"})
   
   
   ;;;
