@@ -250,10 +250,6 @@
     (register-repository-aliases (install-repository (parse~ {Directory Settings "profiles"}))))
   
   
-  (method override (choose-profile-appl)
-    'jedi)
-  
-  
   (method override (profile-template-directory)
     {Directory Jazz "lib" "jedi" "templates" "profile"})
   
