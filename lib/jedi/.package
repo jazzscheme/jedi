@@ -14,8 +14,9 @@
                           jedi.services)
                   (build (jedi include-compiler?: #t resources: "resources"))
                   (dependencies all
-                                samples
                                 jedi.install))
             (jedi.install (update jedi.install)
-                          (dependencies jazz)))
+                          (dependencies jazz))
+            (jedi.all (dependencies jedi
+                                    samples)))
   (project ".project"))
