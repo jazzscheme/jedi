@@ -10,4 +10,4 @@
 
 
 (form
-  (<Jazz-Project> name: Jedi directory: {Directory :context "../.."} configuration: "build/debug" product: jedi)))
+  (<Jazz-Project> name: Jedi directory: {Directory :context} configuration: "build/debug" product: jedi)))
