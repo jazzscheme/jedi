@@ -1,0 +1,14 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(form
+  (<Project> name: jedi catalog?: #t catalog-extensions: :jazz include-extensions: :jazz
+    (<*>                tag-reference: {File :context "lib" "jedi" ".project"}))))
