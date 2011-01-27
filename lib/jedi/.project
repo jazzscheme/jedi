@@ -15,6 +15,7 @@
 (form
   (<Project>                 name: jedi                  catalog?: #t catalog-extensions: :jazz include-extensions: :jazz documentation: {File :context "doc" "jedi.jml"}
     (<*>                                                 tag-reference: {File :context "jedi.project"})
+    (<*>                                                 tag-reference: {File :context "jedi-release.project"})
     (<Project-Directory>                                 directory: {Directory :context "src"}
       (<Project-Directory>                               directory: {Directory :context "src" "jedi"}
         (<Project-Directory>                             directory: {Directory :context "src" "jedi" "application"}
