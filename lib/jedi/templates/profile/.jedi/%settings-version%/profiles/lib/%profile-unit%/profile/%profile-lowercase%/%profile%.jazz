@@ -16,6 +16,7 @@
         (jazz.network)
         (jazz.platform)
         (jazz.profile)
+        (jazz.project)
         (jazz.system)
         (jazz.ui)
         (jazz.ui.clipboard)
