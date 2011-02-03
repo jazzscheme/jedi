@@ -1,3 +1,29 @@
 #!/bin/sh
 
-exec jazz/jam "$@"
+REL="$(dirname "$0")"
+
+JAM="jazz/jam"
+
+bootstrap_init () {
+	cd "$REL"
+    git submodule init
+}
+
+bootstrap_update () {
+	cd "$REL"
+    git submodule update
+}
+
+bootstrap () {
+    (bootstrap_init) &&
+    (bootstrap_update)
+}
+
+bootstrap
+
+if [ ! -f "$JAM" ]; then
+	echo "Unable to find jazz/jam."
+	exit 1
+fi
+
+exec "$JAM" "$@"
