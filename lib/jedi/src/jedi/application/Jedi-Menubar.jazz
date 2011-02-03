@@ -175,21 +175,24 @@
   
   
   (form
-    (<install>                                title: "Project"
-      (<Label-Item>     name: select          title: "Select..." icon: {Image-Resource "ConcreteProject"} action-handler: {Action ide select-project})
-      @waiting
-      (<Label-Item>     name: clean           title: "Clean" action-handler: {Action ide clean-project})
-      @waiting
-      (<Label-Item>     name: view-log        title: "View Log" action-handler: {Action ide view-project-log})
+    (<install>                                 title: "Project"
+      (<Label-Item>     name: select           title: "Select..." icon: {Image-Resource "ConcreteProject"} action-handler: {Action ide select-project})
       (<Separator-Item>)
-      (<Label-Item>     name: test            title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
-      (<Label-Item>     name: debug           title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
-      (<Label-Item>     name: debug-with      title: "Debug With..." action-handler: {Action ide debug-project-with})
-      (<Label-Item>     name: run             title: "Run" icon: {Image-Resource "Link"} action-handler: {Action ide run-project})
-      (<Separator-Item>)
-      (<Label-Item>     name: build           title: "Build" icon: {Image-Resource "Build"} action-handler: {Action ide build-project})
+      (<Label-Item>     name: projects-manager title: "Projects Manager" icon: {Image-Resource "Catalog"} action-handler: {Action ide projects-manager})
+      (<Label-Item>                            title: "Update Catalogs" action-handler: {Action ide update-catalogs})
       @waiting
-      (<Label-Item>     name: compile         title: "Compile" icon: {Image-Resource "Compile"} action-handler: {Action ide compile-file})
+      (<Label-Item>     name: clean            title: "Clean" action-handler: {Action ide clean-project})
+      @waiting
+      (<Label-Item>     name: view-log         title: "View Log" action-handler: {Action ide view-project-log})
+      (<Separator-Item>)
+      (<Label-Item>     name: test             title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
+      (<Label-Item>     name: debug            title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
+      (<Label-Item>     name: debug-with       title: "Debug With..." action-handler: {Action ide debug-project-with})
+      (<Label-Item>     name: run              title: "Run" icon: {Image-Resource "Link"} action-handler: {Action ide run-project})
+      (<Separator-Item>)
+      (<Label-Item>     name: build            title: "Build" icon: {Image-Resource "Build"} action-handler: {Action ide build-project})
+      @waiting
+      (<Label-Item>     name: compile          title: "Compile" icon: {Image-Resource "Compile"} action-handler: {Action ide compile-file})
       )))
 
 
@@ -243,9 +246,6 @@
       (<Label-Item>     name: view-bindings          title: "View Shortcut Bindings..." icon: {Image-Resource "Link"} action-handler: {Action ide view-bindings})
       (<Separator-Item>)
       (<Label-Item>     name: skins-manager          title: "Skins Manager" icon: {Image-Resource "Grab"} action-handler: {Action ide skins-manager})
-      (<Separator-Item>)
-      (<Label-Item>                                  title: "Catalogs Manager" icon: {Image-Resource "Catalog"} action-handler: {Action ide catalogs-manager})
-      (<Label-Item>                                  title: "Update Main Catalogs" action-handler: {Action ide update-catalogs})
       (<Separator-Item>)
       (<Label-Item>     name: compare-directories    title: "Compare Directories" icon: {Image-Resource "CompareDirectories"} action-handler: {Action ide compare-directories})
       (<Label-Item>     name: compare-files          title: "Compare Files" icon: {Image-Resource "CompareFiles"} action-handler: {Action ide compare-files})
