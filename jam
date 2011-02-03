@@ -19,7 +19,12 @@ bootstrap () {
     (bootstrap_update)
 }
 
-bootstrap
+case "$1" in
+	"bootstrap" )
+		bootstrap
+		exit
+		;;
+esac
 
 if [ ! -f "$JAM" ]; then
 	echo "Unable to find jazz/jam."
