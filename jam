@@ -19,15 +19,37 @@ bootstrap () {
     (bootstrap_update)
 }
 
+bootstrap_dispatch () {
+    case "$1" in
+	"init" )
+	    bootstrap_init
+	    ;;
+	"update" )
+	    bootstrap_update
+	    ;;
+	"" )
+	    bootstrap
+	    ;;
+	* )
+	    echo "Unknown bootstrap option : $1"
+	    return 1
+	    ;;
+    esac
+}
+
 case "$1" in
 	"bootstrap" )
-		bootstrap
+		bootstrap_dispatch $2
 		exit
 		;;
 esac
 
 if [ ! -f "$JAM" ]; then
-	echo "Unable to find jazz/jam."
+	bootstrap
+fi
+
+if [ ! -f "$JAM" ]; then
+	echo "Unable to find jazz/jam"
 	exit 1
 fi
 
