@@ -16,7 +16,5 @@
                   (dependencies all
                                 jedi.install))
             (jedi.install (update jedi.install)
-                          (dependencies jazz))
-            (jedi.all (dependencies jedi
-                                    samples)))
+                          (dependencies jazz)))
   (project ".project"))
