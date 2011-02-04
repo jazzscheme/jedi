@@ -5,5 +5,22 @@
                        (run %product-unit%.run)
                        (update %product-unit%.application
                                %product-unit%.run)
-                       (dependencies jazz)))
+                       (dependencies jazz
+                                     jazz.debuggee
+                                     jazz.designer
+                                     jazz.editor.jazz
+                                     jazz.graphic
+                                     jazz.io
+                                     jazz.jml
+                                     jazz.jrm
+                                     jazz.library
+                                     jazz.media
+                                     jazz.network
+                                     jazz.platform
+                                     jazz.profile
+                                     jazz.system
+                                     jazz.ui
+                                     contrib.irregex
+                                     srfi-19
+                                     profiler)))
   (project ".project"))
