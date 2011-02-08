@@ -10,7 +10,7 @@
 
 
 (form
-  (<Project> name: jedi catalog?: #t catalog-extensions: :jazz include-extensions: :jazz
+  (<Project> name: jedi
     (<*>                tag-reference: {File :context "jedi-debug.project"})
     (<*>                tag-reference: {File :context "jedi-release.project"})
     (<*>                tag-reference: {File :context "lib" "jedi" ".project"}))))

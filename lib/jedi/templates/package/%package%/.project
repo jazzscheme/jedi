@@ -10,4 +10,4 @@
 
 
 (form
-  (<Project> name: %package% catalog?: #t catalog-extensions: :text include-extensions: :text)))
+  (<Project> name: %package%)))

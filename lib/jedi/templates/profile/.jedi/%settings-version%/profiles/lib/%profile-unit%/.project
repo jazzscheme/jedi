@@ -13,7 +13,7 @@
 
 
 (form
-  (<Project>             name: %profile-lowercase% catalog?: #t catalog-extensions: :jazz include-extensions: :jazz
+  (<Project>             name: %profile-lowercase%
     (<Jazz-File>         name: %profile%           source: {File Profile "%profile%.jazz"})
     (<Project-Directory>                           directory: {Directory Profile "settings"}
       (<Project-File>                              source: {File Profile "settings" "Bindings.jml"})

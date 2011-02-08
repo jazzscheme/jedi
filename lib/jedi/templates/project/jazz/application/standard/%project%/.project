@@ -10,5 +10,5 @@
 
 
 (form
-  (<Project> name: %product-unit% catalog?: #t catalog-extensions: :text include-extensions: :text
+  (<Project> name: %product-unit%
     (<*>                          tag-reference: {File Projects "lib" "%package%" "%product%.project"}))))

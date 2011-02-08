@@ -13,7 +13,7 @@
 
 
 (form
-  (<Project>                 name: jedi                  catalog?: #t catalog-extensions: :jazz include-extensions: :jazz documentation: {File :context "doc" "jedi.jml"}
+  (<Project>                 name: jedi                  documentation: {File :context "doc" "jedi.jml"}
     (<Project-Directory>                                 directory: {Directory :context "src"}
       (<Project-Directory>                               directory: {Directory :context "src" "jedi"}
         (<Project-Directory>                             directory: {Directory :context "src" "jedi" "application"}
