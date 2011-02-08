@@ -52,9 +52,9 @@
         (<Tab-Sheet>              name: text               title: "Text"
           (<!>                    name: content            layout-type: fill
             (<Text-Search>        name: text-search)))
-        (<Tab-Sheet>              name: directories        title: "Directories"
-          (<!>                    name: content            layout-type: fill
-            (<Directories-Search> name: directories-search)))
         (<Tab-Sheet>              name: projects           title: "Projects"
           (<!>                    name: content            layout-type: fill
-            (<Projects-Search>    name: projects-search))))))))
+            (<Projects-Search>    name: projects-search)))
+        (<Tab-Sheet>              name: directories        title: "Directories"
+          (<!>                    name: content            layout-type: fill
+            (<Directories-Search> name: directories-search))))))))
