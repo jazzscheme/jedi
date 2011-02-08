@@ -134,7 +134,7 @@
           (output (new-file~ {Directory Profile "catalogs"} (format "{a}.jcat" name))))
       (let ((catalog (new Filing-Catalog name output directory extensions char-encoding heuristics #t)))
         (add-catalog~ cataloguer catalog)
-        (activate~ catalog report?: #f))))
+        (load-content~ catalog report?: #f))))
 
   
   ;;;
