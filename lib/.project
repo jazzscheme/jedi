@@ -1,0 +1,17 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(import (jazz.project))
+
+
+(form
+  (<Project> name: jedi.lib title: "lib"
+    (<*>                    tag-reference: {File :context "jedi" ".project"}))))
