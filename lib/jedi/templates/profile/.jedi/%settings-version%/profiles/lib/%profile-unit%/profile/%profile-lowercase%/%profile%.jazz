@@ -13,6 +13,7 @@
         (jazz.graphic)
         (jazz.io)
         (jazz.jml)
+        (jazz.library)
         (jazz.network)
         (jazz.platform)
         (jazz.profile)
