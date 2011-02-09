@@ -13,5 +13,5 @@
 
 
 (form
-  (<Project> name: jedi.lib title: "lib"
-    (<*>                    tag-reference: {File :context "jedi" ".project"}))))
+  (<Project> name: lib
+    (<*>               tag-reference: {File :context "jedi" ".project"}))))
