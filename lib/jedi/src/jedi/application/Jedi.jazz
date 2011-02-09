@@ -380,7 +380,7 @@
     (define (new-documentation-cataloguer)
       (let ((cataloguer (new Cataloguer))
             (workbench (get-workbench)))
-        (for-each-project~ workbench
+        (for-each-active-project~ workbench
           (lambda (project)
             (let ((file (get-documentation~ project)))
               (when file
