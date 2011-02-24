@@ -1,18 +1,19 @@
 #!/bin/sh
 
 REL="$(dirname "$0")"
-ABS="$(cd "$REL"; pwd)"
 
-JAZ="$ABS/jazz"
-JAM="jazz/jam"
+JAZ="$REL/jazz"
+JAM="$JAZ/jam"
+
+UPDATE_SUBMODULES="true"
 
 bootstrap_init () {
-	cd "$REL"
+    cd "$REL"
     git submodule init
 }
 
 bootstrap_update () {
-	cd "$REL"
+    cd "$REL"
     git submodule update
 }
 
@@ -39,17 +40,38 @@ bootstrap_dispatch () {
     esac
 }
 
-display_info () {
-	echo "Jedi"
+display_module_info () {
+    echo "$1"
+    if [ -d "$2" ]; then
+	cd "$2" &&
 	git log -1
-
-	echo
-	echo "Jazz"
-	if [ -d "$JAZ" ]; then
-		cd "$JAZ" &&
-		git log -1
-	fi
+    fi
 }
+
+display_info () {
+    (display_module_info "Jedi" "$REL")
+    echo
+    (display_module_info "Jazz" "$JAZ")
+}
+
+update_submodules () {
+    cd "$REL"
+    git submodule update
+}
+
+while getopts "l" OPTION; do
+    case $OPTION in
+	"l" )
+	    UPDATE_SUBMODULES="false"
+	    ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+if $UPDATE_SUBMODULES; then
+    (update_submodules)
+fi
 
 case "$1" in
 	"bootstrap" )
