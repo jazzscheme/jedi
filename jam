@@ -1,8 +1,9 @@
 #!/bin/sh
 
 REL="$(dirname "$0")"
+ABS="$(cd "$REL"; pwd)"
 
-JAZ="$REL/jazz"
+JAZ="$ABS/jazz"
 JAM="jazz/jam"
 
 bootstrap_init () {
