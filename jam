@@ -2,6 +2,7 @@
 
 REL="$(dirname "$0")"
 
+JAZ="$REL/jazz"
 JAM="jazz/jam"
 
 bootstrap_init () {
@@ -37,9 +38,26 @@ bootstrap_dispatch () {
     esac
 }
 
+display_info () {
+	echo "Jedi"
+	git log -1
+
+	echo
+	echo "Jazz"
+	if [ -d "$JAZ" ]; then
+		cd "$JAZ" &&
+		git log -1
+	fi
+}
+
 case "$1" in
 	"bootstrap" )
 		bootstrap_dispatch $2
+		exit
+		;;
+
+	"info" )
+		display_info
 		exit
 		;;
 esac
