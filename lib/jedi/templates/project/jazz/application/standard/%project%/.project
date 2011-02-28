@@ -11,4 +11,4 @@
 
 (form
   (<Project> name: %product-unit%
-    (<*>                          tag-reference: {File Projects "lib" "%package%" "%product%.project"}))))
+    (<*>                          tag-reference: {File :context "%product%.project"}))))
