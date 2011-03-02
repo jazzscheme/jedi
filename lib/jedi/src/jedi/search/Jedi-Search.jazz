@@ -57,4 +57,7 @@
             (<Projects-Search>    name: projects-search)))
         (<Tab-Sheet>              name: directories        title: "Directories"
           (<!>                    name: content            layout-type: fill
-            (<Directories-Search> name: directories-search))))))))
+            (<Directories-Search> name: directories-search)))
+        (<Tab-Sheet>              name: user               title: "User"
+          (<!>                    name: content            layout-type: fill
+            (<User-Search>        name: user-search))))))))

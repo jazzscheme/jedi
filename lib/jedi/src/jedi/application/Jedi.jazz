@@ -210,11 +210,11 @@
   
   (define (convert-settings dir old)
     (define (convert-initial)
-      (jedi.convert.convert-settings-initial (new Directory (tokenise-filename dir)))
+      (jedi.convert:convert-settings-initial (new Directory (tokenise-filename dir)))
       205000)
     
     (define (convert-205000)
-      (jedi.convert.convert-settings-205000 (new Directory (tokenise-filename dir)))
+      (jedi.convert:convert-settings-205000 (new Directory (tokenise-filename dir)))
       205001)
     
     (case old
@@ -600,7 +600,7 @@
                 (<Pad-Preferences>                                     location: first
                   (<Docked-Preferences>                                location: selection model: Workbench-Manager)
                   (<Docked-Preferences>                                location: #f model: Repositories-Manager)))))))
-      (<Workspace-Preferences>                name: text               title: "Text" icon: {Image-Resource "WorkspaceText"} shortcut: {Shortcut :shift :alt #\S} frame-model: jazz.editor.jazz.Jazz-Text-View
+      (<Workspace-Preferences>                name: text               title: "Text" icon: {Image-Resource "WorkspaceText"} shortcut: {Shortcut :shift :alt #\S} frame-model: jazz.editor.jazz:Jazz-Text-View
         (<Menubar-Preferences>                name: menubar            location: root
           (<Mainbar-Preferences>              name: toolbar            location: second
             (<Status-Preferences>             name: status             location: second
