@@ -1,8 +1,0 @@
-"_world"
- ({Lisp-File-Entry {File Jazz "lib" "jazz.sample.world" "src" "jazz" "sample" "world" "_world.jazz"} 1288732034
-    {Lisp-Entry "jazz.sample.world" module #f 37 8 37 25 ("jazz")
-      {Lisp-Entry "World" class #f 44 7 44 12 ("Process")
-        {Lisp-Entry "start-process" method #f 47 20 47 33 ("exit-process" "system-message")}}}})
-"run"
- ({Lisp-File-Entry {File jazz.sample.world "src" "jazz" "sample" "world" "run.jazz"} 1288732034
-    {Lisp-Entry "jazz.sample.world.run" module #f 37 8 37 29 ("World" "new" "boot-environment" "descriptor" "lambda" "jazz.sample.world" "'jazz.sample.world" "register-product-run" "jazz")}})

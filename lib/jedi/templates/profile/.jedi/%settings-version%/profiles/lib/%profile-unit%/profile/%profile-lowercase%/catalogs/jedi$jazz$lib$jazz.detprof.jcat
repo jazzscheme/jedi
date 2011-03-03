@@ -1,0 +1,25 @@
+"_detprof"
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "_detprof.jazz"} 1299092273 jazz
+    {Lisp-Entry "jazz.detprof" module #f 37 8 37 20 ("lambda" "register-service" "jazz.detprof" "detprof" "profiler-ignore-module" "jazz")
+      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.detprof.syntax")}
+      {Lisp-Entry "import" anonymous #f 43 1 43 7 ("profiler" "jazz.system" "jazz.jml" "jazz.detprof.syntax")}
+      {Lisp-Entry "profiling-advice" definition #f 54 20 54 36 ("time" "if" "apply" "with-profiling" "call-original" "define" "rest" "procedure?" "when" "let" "set" "original" "locator" "field" "lambda" "time?" "time?:" "profile")}
+      {Lisp-Entry "profile-advice" definition #f 69 20 69 34 ("apply" "profile-code" "rest" "lambda" "procedure?" "when" "let" "set" "original" "locator" "field")}
+      {Lisp-Entry "time-spent-in-children" define #f 83 8 83 30 ("0" "make-parameter")}
+      {Lisp-Entry "profile-code" definition #f 87 20 87 32 ("+" "get-outer-epsilon" "profile-register-call" "get-inner-epsilon" "total-elapsed-time" "inner-start-time" "0" "time-spent-in-children" "parameterize" "result" "profiler-performance-counter" "outer-start-time" "profile-profiler" "1" "profile-depth" "-" "identify-call" "cons" "if" "cont" "lambda" "continuation-capture" "profile-stack" "define" "procedure-locat" "locat->file/line/col" "list" "and" "original-call" "active-profile" "profile" "let" "proc" "original")}
+      {Lisp-Entry "outer-epsilon" define #f 116 8 116 21 ()}
+      {Lisp-Entry "inner-epsilon" define #f 119 8 119 21 ()}
+      {Lisp-Entry "get-outer-epsilon" define #f 123 9 123 26 ("setup-epsilon" "outer-epsilon" "not" "when")}
+      {Lisp-Entry "get-inner-epsilon" define #f 128 9 128 26 ("setup-epsilon" "inner-epsilon" "not" "when")}
+      {Lisp-Entry "setup-epsilon" define #f 134 9 134 22 ("inner-epsilon" "outer-epsilon" "set!" "0" "parameterize" "3" "2" "test-proc" "apply" "inner-start-time" "estimate-inner-epsilon" "100" "-" "quotient" "99" "unroll" "1" "+" "time-spent-in-children" "profiler-performance-counter" "outer-start-time" "let" "estimate-outer-epsilon" "define")}
+      {Lisp-Entry "test-proc" define #f 156 9 156 18 ("rest")}
+      {Lisp-Entry "profile->jml" definition #f 165 20 165 32 ("cddr" "key" "key:" "table->list" ">" "sort" "list" "properties" "properties:" "JML-Element" "new" "duration" "count" "name" "bind" "lambda" "map" "profile")}
+      {Lisp-Entry "detprof" definition #f 177 19 177 26 ("1" "detprof" "make-profiler")}}})
+"install"
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "install.scm"} 1299164969 scheme
+    {Lisp-Entry "jazz.detprof.install" unit #f 37 6 37 26 ("jazz.detprof" "detprof" "jazz:register-service")}})
+"syntax"
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "syntax.jazz"} 1296083297 jazz
+    {Lisp-Entry "jazz.detprof.syntax" module #f 37 18 37 37 ("jazz")
+      {Lisp-Entry "unroll" macro ("macro") 40 15 40 21 ("make-list" "append" "apply" "begin" "rest" "n")}
+      {Lisp-Entry "profile" macro #f 45 16 45 23 ("lambda" "profile-code" ",@body" "begin" "not" "if" "sourcify-if" "name:" "name" "not-found" "not-found:" "key" "key:" "on?:" "getf" "on?" "cddr" "body" "cadr" "source-code" "control" "let" "form-src")}}})

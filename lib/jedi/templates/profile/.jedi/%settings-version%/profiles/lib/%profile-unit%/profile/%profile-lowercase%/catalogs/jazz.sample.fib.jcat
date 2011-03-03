@@ -1,7 +1,0 @@
-"_fib"
- ({Lisp-File-Entry {File Jazz "lib" "jazz.sample.fib" "src" "jazz" "sample" "fib" "_fib.jazz"} 1288732034
-    {Lisp-Entry "jazz.sample.fib" module #f 0 8 0 23 ("fib" "terminal" "36" "to" "1" "from" "i" "for" "loop" "time" "jazz")
-      {Lisp-Entry "fib" definition #f 2 13 2 16 ("2" "-" "fib" "+" "1" "0" "=" "or" "if" "n")}}})
-"fib"
- ({Lisp-File-Entry {File Jazz "lib" "jazz.sample.fib" "fib" "fib.scm"} 1288732034
-    {Lisp-Entry "fib" define #f 6 9 6 12 ("2" "-" "fib" "+" "1" "0" "=" "or" "if" "n")}})

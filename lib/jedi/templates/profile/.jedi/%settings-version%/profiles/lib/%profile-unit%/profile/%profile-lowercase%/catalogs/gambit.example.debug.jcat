@@ -1,9 +1,0 @@
-"example"
- ({Lisp-File-Entry {File Jazz "lib" "gambit.example.debug" "gambit" "example.scm"} 1288732032
-    {Lisp-Entry "fact" define #f 4 9 4 13 ("1" "-" "fact" "*" "i" "0" "=" "if" "n")}
-    {Lisp-Entry "fib" define #f 9 9 9 12 ("2" "-" "fib" "+" "m" "1" "0" "=" "or" "if" "n")}})
-"product"
- ({Lisp-File-Entry {File Jazz "lib" "gambit.example.debug" "src" "gambit" "example" "debug" "product.jazz"} 1288732032
-    {Lisp-Entry "gambit.example.debug.product" module #f 37 8 37 36 ("build" "build:" "run" "run:" "title:" "gambit-debug" "'gambit-debug" "register-product" "jazz")
-      {Lisp-Entry "run" definition #f 48 13 48 16 ("load" "Jazz" "Directory" "set-current-directory" "initialize-aliases" "descriptor")}
-      {Lisp-Entry "build" definition #f 59 13 59 18 ("2.5" "thread-sleep!" "terminal" "descriptor")}}})
