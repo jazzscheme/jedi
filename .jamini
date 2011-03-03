@@ -6,5 +6,5 @@
 ;;;
 
 
-(jazz.default-safety 'release)
-(jazz.default-target 'jedi)
+(jazz:default-safety 'release)
+(jazz:default-target 'jedi)

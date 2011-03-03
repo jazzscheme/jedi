@@ -597,12 +597,12 @@
     ;; temp hack to obtain the same format as when sub-modules are well integrated
     (define (extract-locator declaration)
       (let ((locator (get-locator~ declaration)))
-        (let ((names (reverse! (split-identifier locator))))
+        (let ((names (reverse! (split-reference locator))))
           (let ((len (length names)))
             (cond ((and (>= len 2) (eq? (first names) (second names)))
-                   (apply compose-identifier (reverse! (cons (first names) (cddr names)))))
+                   (apply compose-reference (reverse! (cons (first names) (cddr names)))))
                   ((and (>= len 3) (eq? (second names) (third names)))
-                   (apply compose-identifier (reverse! (cons (first names) (cons (second names) (cdddr names))))))
+                   (apply compose-reference (reverse! (cons (first names) (cons (second names) (cdddr names))))))
                   (else
                    locator))))))
     

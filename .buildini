@@ -6,5 +6,5 @@
 ;;;
 
 
-(jazz.jazz-repository "jazz")
-(jazz.repositories ".")
+(jazz:jazz-repository "jazz")
+(jazz:repositories ".")
