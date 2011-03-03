@@ -600,9 +600,9 @@
         (let ((names (reverse! (split-identifier locator))))
           (let ((len (length names)))
             (cond ((and (>= len 2) (eq? (first names) (second names)))
-                   (apply compose-name (reverse! (cons (first names) (cddr names)))))
+                   (apply compose-identifier (reverse! (cons (first names) (cddr names)))))
                   ((and (>= len 3) (eq? (second names) (third names)))
-                   (apply compose-name (reverse! (cons (first names) (cons (second names) (cdddr names))))))
+                   (apply compose-identifier (reverse! (cons (first names) (cons (second names) (cdddr names))))))
                   (else
                    locator))))))
     
