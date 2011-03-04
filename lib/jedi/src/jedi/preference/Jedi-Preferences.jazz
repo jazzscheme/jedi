@@ -85,5 +85,4 @@
   @wait (<Python-Text-Preferences>         name: python-text)
         (<Tex-Text-Preferences>            name: tex-text)
   @wait (<XML-Text-Preferences>            name: xml-text))
-      (<Repositories-Preferences>          name: repositories)
       (<Wallpaper-Preferences>             name: wallpaper)))))
