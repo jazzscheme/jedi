@@ -285,7 +285,7 @@
     (define (collect-runs text)
       (let ((queue (new-queue)))
         (for-each-range~ text (if (has-selection?~ text) (get-selection~ text) (text-range~ text))
-          (lambda (paragraph start end)
+          (lambda (line paragraph start end)
             (let ((runs (range-runs~ paragraph start end)))
               (enqueue queue runs))))
         (queue-list queue)))
