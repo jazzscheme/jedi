@@ -50,6 +50,7 @@
         (jazz.runtime)
         (jazz.system)
         (jazz.tie)
+        (jazz.ui)
         (jazz.ui.activity)
         (jazz.ui.clipboard)
         (jazz.ui.view)
@@ -80,21 +81,19 @@
             (queue (new-queue))
             (from (subtract-duration (current-time) (make-time time-duration 0 (or elapse 3600))))
             (ignored-toplevel-directories '("Crashes" "Debug" "Release" "Work" "bin" "build" "bootstrap" "gambit" ".git"))
-            (ignored-extensions '("obj" "o" "o1" "o2" "o3" "o4" "o5" "o6" "o7" "o8" "o9" "a" "dll" "exe" "mnf"))
+            (ignored-extensions Binary-Extensions)
             (directory-feedback (make-directory-feedback)))
         (iterate-directory~ directory
           (lambda (file)
             (directory-feedback file)
             (when (and (not (member? (get-extension~ file) ignored-extensions test: ci=?))
                        (time>? (get-modification-time~ file) from))
-              (enqueue queue (list file #f #f))))
+              (enqueue queue (new File-Search-Location #f file))))
           ignored-toplevel-directories: ignored-toplevel-directories)
         (let ((files (queue-list queue)))
           (let ((count (length files)))
             (user-feedback "Found {a} file{a}" count (format-plural count))
-            (set-mode~ results 'text)
-            (add-results~ results files #f)
-            (select-results~ results))))))
+            (select-result~ results #f files))))))
   
   
   (method (search-licenseless-files)
@@ -111,13 +110,12 @@
                   (let ((line (read-line port)))
                     (when (and (not (eof-object? line))
                                (not (equal? line ";;;==============")))
-                      (enqueue queue (list file #f #f))))))))))
+                      (enqueue queue (new File-Search-Location #f file))))))))))
       (let ((files (queue-list queue)))
         (let ((count (length files)))
           (user-feedback "Found {a} file{a}" count (format-plural count))
           (set-mode~ results 'text)
-          (add-results~ results (queue-list queue) #f)
-          (select-results~ results)))))
+          (select-result~ results #f files)))))
   
   
   (method (search-trailing-whitespace . rest)
@@ -125,7 +123,7 @@
       (let ((results (get-search-results~ (get-application)))
             (queue (new-queue))
             (ignored-toplevel-directories '("Crashes" "Debug" "Release" "Work" "bin" "build" "bootstrap" "gambit" ".git"))
-            (ignored-extensions '("obj" "o" "o1" "o2" "o3" "o4" "o5" "o6" "o7" "o8" "o9" "a" "dll" "exe" "cxx" "swg" "mnf" "jpg" "png" "ppt" "ttf" "wav"))
+            (ignored-extensions Binary-Extensions)
             (directory-feedback (make-directory-feedback)))
         (iterate-directory~ directory
           (lambda (file)
@@ -141,7 +139,8 @@
                                               (if (whitespace? c)
                                                   (set! trailing-whitespace #t)
                                                 (when trailing-whitespace
-                                                  (enqueue queue (list file rank (+ n 1))))
+                                                  (let ((pos (new Cell rank (+ n 1))))
+                                                    (enqueue queue (new File-Search-Location #f file position: pos))))
                                                 (continuation-return done #f)))))))))
                           lines
                           (naturals 0 (length lines))))))
@@ -150,8 +149,7 @@
           (let ((count (length files)))
             (user-feedback "Found {a} file{a}" count (format-plural count))
             (set-mode~ results 'text)
-            (add-results~ results (queue-list queue) #f)
-            (select-results~ results))))))
+            (select-result~ results #f files))))))
   
   
   (method (inspect-binary file)

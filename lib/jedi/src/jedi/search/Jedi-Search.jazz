@@ -48,16 +48,16 @@
 
   (form
     (<install>
-      (<!>                        name: tab
-        (<Tab-Sheet>              name: text               title: "Text"
-          (<!>                    name: content            layout-type: fill
-            (<Text-Search>        name: text-search)))
-        (<Tab-Sheet>              name: projects           title: "Projects"
-          (<!>                    name: content            layout-type: fill
-            (<Projects-Search>    name: projects-search)))
-        (<Tab-Sheet>              name: directories        title: "Directories"
-          (<!>                    name: content            layout-type: fill
-            (<Directories-Search> name: directories-search)))
-        (<Tab-Sheet>              name: user               title: "User"
-          (<!>                    name: content            layout-type: fill
-            (<User-Search>        name: user-search))))))))
+      (<!>                             name: tab
+        (<Tab-Sheet>                   name: text               title: "Text"
+          (<!>                         name: content            layout-type: fill
+            (<Text-Search-View>        name: text-search)))
+        (<Tab-Sheet>                   name: projects           title: "Projects"
+          (<!>                         name: content            layout-type: fill
+            (<Projects-Search-View>    name: projects-search)))
+        (<Tab-Sheet>                   name: directories        title: "Directories"
+          (<!>                         name: content            layout-type: fill
+            (<Directories-Search-View> name: directories-search)))
+        (<Tab-Sheet>                   name: user               title: "User"
+          (<!>                         name: content            layout-type: fill
+            (<User-Search-View>        name: user-search))))))))

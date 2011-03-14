@@ -110,8 +110,8 @@
 
   (method (run-searches)
     (let* ((appl (get-application))
-           (frame (get-search-manager~ appl))
-           (manager (get-guest~ frame))
+           (manager (get-search-manager~ appl))
+           (frame (get-host~ manager))
            (view (get-search~ manager))
            (tree (locate~ view 'targets)))
       (set-visible?~ frame #t)
