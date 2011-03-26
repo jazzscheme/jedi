@@ -1,31 +1,31 @@
 "_irregex"
- ({Lisp-File-Entry {File :context "src" "irregex" "_irregex.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "irregex" "_irregex.jazz"} 1288870739 jazz
     {Lisp-Entry "irregex" module #f 37 8 37 15 ("scheme")
       {Lisp-Entry "require" anonymous #f 40 1 40 8 ("irregex.implementation.irregex")}
-      {Lisp-Entry "irregex" native #f 43 8 43 15 ()}
-      {Lisp-Entry "string->irregex" native #f 44 8 44 23 ()}
-      {Lisp-Entry "sre->irregex" native #f 45 8 45 20 ()}
-      {Lisp-Entry "irregex?" native #f 46 8 46 16 ()}
-      {Lisp-Entry "irregex-num-submatches" native #f 47 8 47 30 ()}
-      {Lisp-Entry "make-irregex-chunker" native #f 48 8 48 28 ()}
-      {Lisp-Entry "irregex-match" native #f 49 8 49 21 ()}
-      {Lisp-Entry "irregex-match/chunked" native #f 50 8 50 29 ()}
-      {Lisp-Entry "irregex-search" native #f 51 8 51 22 ()}
-      {Lisp-Entry "irregex-search/chunked" native #f 52 8 52 30 ()}
-      {Lisp-Entry "irregex-match-data?" native #f 53 8 53 27 ()}
-      {Lisp-Entry "irregex-match-valid-index?" native #f 54 8 54 34 ()}
-      {Lisp-Entry "irregex-match-substring" native #f 55 8 55 31 ()}
-      {Lisp-Entry "irregex-match-subchunk" native #f 56 8 56 30 ()}
-      {Lisp-Entry "irregex-match-start-chunk" native #f 57 8 57 33 ()}
-      {Lisp-Entry "irregex-match-start-index" native #f 58 8 58 33 ()}
-      {Lisp-Entry "irregex-match-end-chunk" native #f 59 8 59 31 ()}
-      {Lisp-Entry "irregex-match-end-index" native #f 60 8 60 31 ()}
-      {Lisp-Entry "irregex-replace" native #f 61 8 61 23 ()}
-      {Lisp-Entry "irregex-replace/all" native #f 62 8 62 27 ()}
-      {Lisp-Entry "irregex-fold" native #f 63 8 63 20 ()}
-      {Lisp-Entry "irregex-fold/chunked" native #f 64 8 64 28 ()}}})
+      {Lisp-Entry "irregex" native ("native") 43 8 43 15 ()}
+      {Lisp-Entry "string->irregex" native ("native") 44 8 44 23 ()}
+      {Lisp-Entry "sre->irregex" native ("native") 45 8 45 20 ()}
+      {Lisp-Entry "irregex?" native ("native") 46 8 46 16 ()}
+      {Lisp-Entry "irregex-num-submatches" native ("native") 47 8 47 30 ()}
+      {Lisp-Entry "make-irregex-chunker" native ("native") 48 8 48 28 ()}
+      {Lisp-Entry "irregex-match" native ("native") 49 8 49 21 ()}
+      {Lisp-Entry "irregex-match/chunked" native ("native") 50 8 50 29 ()}
+      {Lisp-Entry "irregex-search" native ("native") 51 8 51 22 ()}
+      {Lisp-Entry "irregex-search/chunked" native ("native") 52 8 52 30 ()}
+      {Lisp-Entry "irregex-match-data?" native ("native") 53 8 53 27 ()}
+      {Lisp-Entry "irregex-match-valid-index?" native ("native") 54 8 54 34 ()}
+      {Lisp-Entry "irregex-match-substring" native ("native") 55 8 55 31 ()}
+      {Lisp-Entry "irregex-match-subchunk" native ("native") 56 8 56 30 ()}
+      {Lisp-Entry "irregex-match-start-chunk" native ("native") 57 8 57 33 ()}
+      {Lisp-Entry "irregex-match-start-index" native ("native") 58 8 58 33 ()}
+      {Lisp-Entry "irregex-match-end-chunk" native ("native") 59 8 59 31 ()}
+      {Lisp-Entry "irregex-match-end-index" native ("native") 60 8 60 31 ()}
+      {Lisp-Entry "irregex-replace" native ("native") 61 8 61 23 ()}
+      {Lisp-Entry "irregex-replace/all" native ("native") 62 8 62 27 ()}
+      {Lisp-Entry "irregex-fold" native ("native") 63 8 63 20 ()}
+      {Lisp-Entry "irregex-fold/chunked" native ("native") 64 8 64 28 ()}}})
 "irregex"
- ({Lisp-File-Entry {File :context "src" "irregex" "implementation" "irregex.scm"} 1296083296 scheme
+ ({Lisp-File-Entry {File :context "src" "irregex" "implementation" "irregex.scm"} 1288870739 scheme
     {Lisp-Entry "irregex.implementation.irregex" unit #f 57 6 57 36 ()
       {Lisp-Entry "irregex-tag" define #f 61 8 61 19 ("*irregex-tag*")}
       {Lisp-Entry "make-irregex" define #f 63 9 63 21 ("irregex-tag" "vector" "names" "lengths" "submatches" "flags" "nfa" "dfa/extract" "dfa/search" "dfa")}

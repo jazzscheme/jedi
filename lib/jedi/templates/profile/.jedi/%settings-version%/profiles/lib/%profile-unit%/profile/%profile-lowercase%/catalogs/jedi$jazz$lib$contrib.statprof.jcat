@@ -1,10 +1,10 @@
 "_statprof"
- ({Lisp-File-Entry {File :context "src" "statprof" "_statprof.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "statprof" "_statprof.jazz"} 1292697265 jazz
     {Lisp-Entry "statprof" module #f 37 8 37 16 ("lambda" "statprof" "register-service" "jazz")
       {Lisp-Entry "require" anonymous #f 40 1 40 8 ("statprof.implementation" "profiler")}
-      {Lisp-Entry "statprof" native #f 44 8 44 16 ()}}})
+      {Lisp-Entry "statprof" native ("native") 44 8 44 16 ()}}})
 "implementation"
- ({Lisp-File-Entry {File :context "src" "statprof" "implementation.scm"} 1298656786 scheme
+ ({Lisp-File-Entry {File :context "src" "statprof" "implementation.scm"} 1292697265 scheme
     {Lisp-Entry "statprof.implementation" unit #f 10 16 10 39 ()
       {Lisp-Entry "*statprof-running?*" define #f 26 8 26 27 ()}
       {Lisp-Entry "statprof-running?" define #f 30 9 30 26 ("*statprof-running?*")}
@@ -15,5 +15,5 @@
       {Lisp-Entry "register-continuation" define #f 67 9 67 30 ("profile-register-call" "profile-profiler" "profile-depth" "identify-call" "stack" "1" "max" "-" "profile-last-counter-set!" "profile-last-counter" "last-counter" "profiler-performance-counter" "counter" "let" "duration" "define" "cont" "profile")}
       {Lisp-Entry "statprof" define #f 84 8 84 16 ("2" "stop-statprof" "start-statprof" "statprof" "make-profiler")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "statprof" "install.scm"} 1299164970 scheme
-    {Lisp-Entry "statprof.install" unit #f 37 6 37 22 ("statprof" "jazz:register-service")}})
+ ({Lisp-File-Entry {File :context "src" "statprof" "install.scm"} 1299704434 scheme
+    {Lisp-Entry "statprof.install" unit #f 37 6 37 22 ("statprof" "register-service" "jazz:register-service")}})

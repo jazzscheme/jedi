@@ -1,9 +1,9 @@
 "Gomoku-AI"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "Gomoku-AI.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "Gomoku-AI.jazz"} 1288870740 jazz
     {Lisp-Entry "jazz.sample.gomoku.Gomoku-AI" module #f 38 18 38 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.sample.gomoku" "jazz.sample.game.minimax")}
       {Lisp-Entry "proclaim" anonymous #f 45 1 45 9 ("optimizations" "warn")}
-      {Lisp-Entry "Gomoku-AI" class #f 48 7 48 16 ("Search-Depth" "0" "initialize" "fx" "Gomoku-Player")
+      {Lisp-Entry "Gomoku-AI" class #f 48 7 48 16 ("Search-Depth" "0" "initialize" "fx" "<fx>" "Gomoku-Player")
         {Lisp-Entry "current-eval" slot #f 51 8 51 20 ()}
         {Lisp-Entry "get-current-eval" accessor #f 51 60 51 68 ()}
         {Lisp-Entry "set-current-eval" accessor #f 51 60 51 68 ()}
@@ -17,28 +17,28 @@
         {Lisp-Entry "player-kind" method #f 61 20 61 31 ("computer")}
         {Lisp-Entry "move-played" method #f 65 20 65 31 ("evaluate-move-delta" "+" "current-eval" "set!" "token" "move")}
         {Lisp-Entry "computer-move" method #f 69 20 69 33 ("search-depth" "search-depth:" "current-eval" "current-eval:" "evaluate-move-delta" "evaluate-position" "unplay" "play" "iterate-candidates" "me" "minimax")}
-        {Lisp-Entry "iterate-moves" method #f 80 11 80 24 ("game" "get-available-moves" "in" "move" "for" "loop" "proc")}
+        {Lisp-Entry "iterate-moves" method #f 80 11 80 24 ("game" "get-available-moves" "get-available-moves~" "in" "move" "for" "loop" "proc")}
         {Lisp-Entry "iterate-candidates" method #f 85 11 85 29 ("Candidates" "iterate-moves" "for-each" "proc" "gather-candidates" "token")}
-        {Lisp-Entry "play" method #f 89 11 89 15 ("game" "play" "token" "move")}
-        {Lisp-Entry "unplay" method #f 93 11 93 17 ("game" "unplay" "move")}
-        {Lisp-Entry "evaluate-position" method #f 102 11 102 28 ("evaluate-line" "increase!" "all-lines" "in" "line" "for" "loop" "0" "total" "let" "fx")}
-        {Lisp-Entry "evaluate-line" method #f 109 11 109 24 ("evaluate-count" "+" "0" ">" "and" "if" "opponent" "opponent-count" "me" "count-token" "me-count" "let" "fx" "5-Line" "line")}
-        {Lisp-Entry "evaluate-move-delta" method #f 119 11 119 30 ("+" "set!" "evaluate-count" "else" "evaluate-line-delta" "=" "1" ">" "and" "cond" "delta" "-1" "*" "other-count" "count-token" "who-count" "get-lines" "in" "line" "for" "loop" "0" "total" "let" "fx" "token" "Square" "square")}
-        {Lisp-Entry "evaluate-line-delta" definition #f 135 15 135 34 ("10" "1" "90" "2" "900" "3" "9000" "4" "990000" "5" "case" "cast" "*" "token" "fx" "count")}
-        {Lisp-Entry "evaluate-count" definition #f 145 15 145 29 ("0" "10" "1" "100" "2" "1000" "3" "10000" "4" "1000000" "5" "case" "cast" "*" "token" "fx" "count")}
-        {Lisp-Entry "setup-lines" method #f 161 11 161 22 ("get-lines" "cons" "line=?" "test" "test:" "member?" "not" "when" "line" "lambda" "for-each" "board-ref" "square" "let" "game" "get-board-size" "below" "0" "from" "rank" "for" "loop" "all-lines" "set!")}}}})
+        {Lisp-Entry "play" method #f 89 11 89 15 ("game" "play" "play~" "token" "move")}
+        {Lisp-Entry "unplay" method #f 93 11 93 17 ("game" "unplay" "unplay~" "move")}
+        {Lisp-Entry "evaluate-position" method #f 102 11 102 28 ("evaluate-line" "increase!" "all-lines" "in" "line" "for" "loop" "0" "total" "let" "fx" "<fx>")}
+        {Lisp-Entry "evaluate-line" method #f 109 11 109 24 ("evaluate-count" "+" "0" ">" "and" "if" "opponent" "opponent-count" "me" "count-token" "count-token~" "me-count" "let" "fx" "<fx>" "5-Line" "<5-Line>" "line")}
+        {Lisp-Entry "evaluate-move-delta" method #f 119 11 119 30 ("+" "set!" "evaluate-count" "else" "evaluate-line-delta" "=" "1" ">" "and" "cond" "delta" "-1" "*" "other-count" "count-token" "count-token~" "who-count" "get-lines" "get-lines~" "in" "line" "for" "loop" "0" "total" "let" "fx" "<fx>" "token" "Square" "<Square>" "square")}
+        {Lisp-Entry "evaluate-line-delta" definition #f 135 15 135 34 ("10" "1" "90" "2" "900" "3" "9000" "4" "990000" "5" "case" "cast" "*" "token" "fx" "<fx>" "count")}
+        {Lisp-Entry "evaluate-count" definition #f 145 15 145 29 ("0" "10" "1" "100" "2" "1000" "3" "10000" "4" "1000000" "5" "case" "cast" "*" "token" "fx" "<fx>" "count")}
+        {Lisp-Entry "setup-lines" method #f 161 11 161 22 ("get-lines" "get-lines~" "cons" "line=?" "test:" "member?" "not" "when" "line" "lambda" "for-each" "board-ref" "board-ref~" "square" "let" "game" "get-board-size" "get-board-size~" "below" "0" "from" "rank" "for" "loop" "all-lines" "set!")}}}})
 "Gomoku-Application"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "Gomoku-Application.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "Gomoku-Application.jazz"} 1288870740 jazz
     {Lisp-Entry "jazz.sample.gomoku.Gomoku-Application" module #f 38 18 38 55 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.ui.view" "jazz.ui" "jazz.system.application" "jazz.sample.gomoku" "jazz.jml")}
       {Lisp-Entry "Gomoku-Application" class #f 53 7 53 25 ("Application")
         {Lisp-Entry "process-name" method #f 56 20 56 32 ()}
         {Lisp-Entry "new-toplevel" method #f 60 20 60 32 ("Gomoku-Toplevel" "new")}
-        {Lisp-Entry "finish-process" method #f 64 20 64 34 ("Gomoku-Board" "new-frame" "current-stage" "maximize" "nextmethod")}}
+        {Lisp-Entry "finish-process" method #f 64 20 64 34 ("Gomoku-Board" "new-frame" "current-stage" "maximize" "maximize~" "nextmethod")}}
       {Lisp-Entry "Gomoku-Toplevel" class #f 75 7 75 22 ("Toplevel")
-        {Lisp-Entry "form" anonymous #f 78 3 78 7 ("775" "800" "Dimension" "size" "size:" "100" "Point" "position" "position:" "caption-base" "caption-base:" "install")}}}})
+        {Lisp-Entry "form" anonymous #f 78 3 78 7 ("775" "800" "Dimension" "size:" "100" "Point" "position:" "caption-base:" "install" "<install>")}}}})
 "Gomoku-Board"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "Gomoku-Board.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "Gomoku-Board.jazz"} 1301161838 jazz
     {Lisp-Entry "jazz.sample.gomoku.Gomoku-Board" module #f 38 18 38 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.ui.window" "jazz.ui" "jazz.sample.gomoku" "jazz.media" "jazz.library" "jazz.io" "jazz.graphic")}
       {Lisp-Entry "Gomoku-Board" class #f 55 7 55 19 ("White" "Black" "Color" "20" "50" "100" "initialize" "View")
@@ -54,39 +54,39 @@
         {Lisp-Entry "host-title" method #f 73 25 73 35 ()}
         {Lisp-Entry "host-position" method #f 77 25 77 38 ("10" "50" "Point")}
         {Lisp-Entry "host-size" method #f 81 25 81 34 ("640" "700" "Dimension")}
-        {Lisp-Entry "finish" method #f 85 20 85 26 ("initialize-board" "WHITE" "Gomoku-AI" "BLACK" "Gomoku-Human" "list" "register-players" "columns:" "rows:" "Gomoku-Game" "new" "game" "24" "19" "large" "13" "medium" "12" "square-spacing" "35" "square-width" "9" "set!" "case" "columns" "rows" "small" "size" "let" "nextmethod" "rest")}
+        {Lisp-Entry "finish" method #f 85 20 85 26 ("initialize-board" "WHITE" "Gomoku-AI" "BLACK" "Gomoku-Human" "list" "register-players" "register-players~" "columns:" "rows:" "Gomoku-Game" "new" "game" "24" "19" "large" "13" "medium" "12" "square-spacing" "35" "square-width" "9" "set!" "case" "columns" "rows" "small" "size" "let" "nextmethod" "rest")}
         {Lisp-Entry "destroy" method #f 111 20 111 27 ("nextmethod" "close-ambiance")}
-        {Lisp-Entry "initialize-board" method #f 117 11 117 27 ("play-move" "game" "computer-move" "move" "let" "COMPUTER" "HUMAN" "who" "eq?" "cond" "invalidate-view")}
-        {Lisp-Entry "play-move" method #f 132 11 132 20 ("play-defeat" "COMPUTER" "play-victory" "HUMAN" "who" "cond" "computer-move" "computer?" "get-next-player" "player" "let" "play" "game" "get-status" "eq?" "when" "redraw-view" "board-play" "move")}
-        {Lisp-Entry "board-play" method #f 145 11 145 21 ("invalidate-view" "game" "play-move" "move")}
-        {Lisp-Entry "draw" method #f 150 20 150 24 ("draw" "get-winner" "present" "format" "win" "case" "white-color" "WHITE" "black-color" "ellipse" "BLACK" "eq?" "cond" "Rect" "new" "rect" "get-square" "get-token" "token" "get-board-columns" "col" "row" "line" "below" "0" "from" "n" "for" "loop" "1" "set-line-width" "line-color" "set-color" "get-board-rows" "*" "-" "total-board" "2" "fxfloor/" "half-width" "square-spacing" "square-width" "+" "total-width" "let*" "when" "game" "get-status" "status" "let" "30" "square-offset" "Yellow" "Dark-Blue" "Color" "get-bounds" "fill-rect" "530" "100" "draw-text" "Heading1" "Font" "set-font" "set-text-color" "color" "message" "draw-status" "define" "lv" "lh" "context" "surface")}
+        {Lisp-Entry "initialize-board" method #f 117 11 117 27 ("play-move" "game" "computer-move" "computer-move~" "move" "let" "COMPUTER" "HUMAN" "who" "eq?" "cond" "invalidate-view")}
+        {Lisp-Entry "play-move" method #f 132 11 132 20 ("play-defeat" "COMPUTER" "play-victory" "HUMAN" "who" "cond" "computer-move" "computer-move~" "computer?" "computer?~" "get-next-player" "get-next-player~" "player" "let" "play" "game" "get-status" "get-status~" "eq?" "when" "redraw-view" "board-play" "move")}
+        {Lisp-Entry "board-play" method #f 145 11 145 21 ("invalidate-view" "game" "play-move" "play-move~" "move")}
+        {Lisp-Entry "draw" method #f 150 20 150 24 ("draw" "get-winner" "get-winner~" "present" "present~" "format" "win" "case" "white-color" "WHITE" "black-color" "ellipse" "ellipse~" "BLACK" "eq?" "cond" "Rect" "new" "rect" "get-square" "get-square~" "get-token" "get-token~" "token" "get-board-columns" "get-board-columns~" "col" "row" "line" "line~" "below" "0" "from" "n" "for" "loop" "1" "set-line-width" "set-line-width~" "line-color" "set-color" "set-color~" "get-board-rows" "get-board-rows~" "*" "-" "total-board" "2" "fxfloor/" "half-width" "square-spacing" "square-width" "+" "total-width" "let*" "when" "game" "get-status" "get-status~" "status" "let" "30" "square-offset" "Yellow" "Dark-Blue" "Color" "get-bounds" "fill-rect" "fill-rect~" "530" "100" "draw-text" "draw-text~" "Heading1" "Font" "set-font" "set-font~" "set-text-color" "set-text-color~" "color" "message" "draw-status" "define" "lv" "lh" "context" "surface")}
         {Lisp-Entry "cursor-update" method #f 185 20 185 33 (":arrow" ":finger" "if" "set-cursor" "legal-sqr" "square" "let" "pos")}
         {Lisp-Entry "mouse-down" method #f 190 20 190 30 ("play-move" "when" "legal-sqr" "square" "let" "pos")}
-        {Lisp-Entry "legal-sqr" method #f 196 11 196 20 ("EMPTY" "get-token" "get-square" "square" "col" "90" "/" "truncate" "row" "get-board-rows" "-" "get-board-columns" "*" "<" "square-offset" ">=" "and" "square-spacing" "square-width" "+" "total-width" "get-v" "v" "get-h" "h" "let" "play" "game" "get-status" "eq?" "if" "pos")}
+        {Lisp-Entry "legal-sqr" method #f 196 11 196 20 ("EMPTY" "get-token" "get-token~" "get-square" "get-square~" "square" "col" "90" "/" "truncate" "row" "get-board-rows" "get-board-rows~" "-" "get-board-columns" "get-board-columns~" "*" "<" "square-offset" ">=" "and" "square-spacing" "square-width" "+" "total-width" "get-v" "get-v~" "v" "get-h" "get-h~" "h" "let" "play" "game" "get-status" "get-status~" "eq?" "if" "pos")}
         {Lisp-Entry "restart-game" method #f 218 11 218 23 ("self" "initialize-game" "who")}
-        {Lisp-Entry "set-search-depth" method #f 222 11 222 27 ("invalidate-view" "+" "board-unplay" "computer-move" "get-current-eval" "-" "set-current-eval" "board-play" "EMPTY" "set-token" "evaluate-move-delta" "delta" "-1" "get-current-next" "*" "who" "let" "get-last-move" "when" "game" "set-search-depth" "depth")}
-        {Lisp-Entry "play-computer" method #f 237 11 237 24 ("play-move" "computer-move" "move" "let" "play" "game" "get-status" "eq?" "when")}
-        {Lisp-Entry "key-press" method #f 243 20 243 29 ("play-computer" "9" "8" "7" "6" "5" "4" "3" "2" "1" "set-search-depth" "exit" "self" "load-board" "COMPUTER" "HUMAN" "game" "get-who-starts" "or" "restart-game" "case" "c")}}
+        {Lisp-Entry "set-search-depth" method #f 222 11 222 27 ("invalidate-view" "+" "board-unplay" "board-unplay~" "computer-move" "computer-move~" "get-current-eval" "get-current-eval~" "-" "set-current-eval" "set-current-eval~" "board-play" "board-play~" "EMPTY" "set-token" "set-token~" "evaluate-move-delta" "evaluate-move-delta~" "delta" "-1" "get-current-next" "get-current-next~" "*" "who" "let" "get-last-move" "get-last-move~" "when" "game" "set-search-depth" "set-search-depth~" "depth")}
+        {Lisp-Entry "play-computer" method #f 237 11 237 24 ("play-move" "play-move~" "computer-move" "computer-move~" "move" "let" "play" "game" "get-status" "get-status~" "eq?" "when")}
+        {Lisp-Entry "key-press" method #f 243 20 243 29 ("play-computer" "9" "8" "7" "6" "5" "4" "3" "2" "1" "set-search-depth" "exit" "self" "load-board" "COMPUTER" "HUMAN" "game" "get-who-starts" "get-who-starts~" "or" "restart-game" "case" "c")}}
       {Lisp-Entry "play-intro?" definition #f 271 12 271 23 ()}
       {Lisp-Entry "play-ambiance?" definition #f 274 12 274 26 ()}
       {Lisp-Entry "intro-directory" definition #f 278 12 278 27 ("Home" "Directory")}
       {Lisp-Entry "ambiance-directory" definition #f 281 12 281 30 ("Home" "Directory")}
       {Lisp-Entry "victory-directory" definition #f 284 12 284 29 ("Home" "Directory")}
       {Lisp-Entry "defeat-directory" definition #f 287 12 287 28 ("Home" "Directory")}
-      {Lisp-Entry "play-intro" definition #f 291 13 291 23 ("asynchronous?" "asynchronous?:" "play-sound" "intro-directory" "random-file" "sound" "let" "play-intro?" "when")}
+      {Lisp-Entry "play-intro" definition #f 291 13 291 23 ("asynchronous?:" "play-sound" "intro-directory" "random-file" "sound" "let" "play-intro?" "when")}
       {Lisp-Entry "play-ambiance" definition #f 298 13 298 26 ("play-music" "open-music" "ambiance-directory" "random-file" "music" "let" "play-ambiance?" "when")}
       {Lisp-Entry "close-ambiance" definition #f 305 13 305 27 ("close-music")}
       {Lisp-Entry "play-victory" definition #f 309 13 309 25 ("play-sound" "when" "victory-directory" "random-file" "sound" "let")}
       {Lisp-Entry "play-defeat" definition #f 314 13 314 24 ("play-sound" "when" "defeat-directory" "random-file" "sound" "let")}
-      {Lisp-Entry "random-file" definition #f 320 13 320 24 ("random-element" "not-null?" "get-extension" "ci=?" "file" "lambda" "collect-files" "files" "let" "exists?" "if" "extension" "directory")}}})
+      {Lisp-Entry "random-file" definition #f 320 13 320 24 ("random-element" "not-null?" "get-extension" "get-extension~" "extension=?" "file" "lambda" "collect-files" "collect-files~" "files" "let" "exists?" "exists?~" "if" "extension" "directory")}}})
 "_gomoku"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "_gomoku.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "_gomoku.jazz"} 1292705246 jazz
     {Lisp-Entry "jazz.sample.gomoku" module #f 38 8 38 26 ("jazz")
       {Lisp-Entry "export" anonymous #f 41 1 41 7 ("jazz.sample.gomoku.autoload")}
       {Lisp-Entry "import" anonymous #f 43 1 43 7 ("jazz.sample.game")}
-      {Lisp-Entry "EMPTY" definition #f 46 20 46 25 ("0" "fx")}
-      {Lisp-Entry "BLACK" definition #f 49 20 49 25 ("-1" "fx")}
-      {Lisp-Entry "WHITE" definition #f 52 20 52 25 ("1" "fx")}
+      {Lisp-Entry "EMPTY" definition #f 46 20 46 25 ("0" "fx" "<fx>")}
+      {Lisp-Entry "BLACK" definition #f 49 20 49 25 ("-1" "fx" "<fx>")}
+      {Lisp-Entry "WHITE" definition #f 52 20 52 25 ("1" "fx" "<fx>")}
       {Lisp-Entry "Search-Depth" definition #f 56 20 56 32 ("4")}
       {Lisp-Entry "Candidates" definition #f 59 20 59 30 ("8")}
       {Lisp-Entry "Gomoku-Player" class #f 68 7 68 20 ("Player")
@@ -101,7 +101,7 @@
         {Lisp-Entry "present" method #f 89 11 89 18 ("BLACK" "me" "eq?" "if")}}
       {Lisp-Entry "Gomoku-Human" class #f 100 7 100 19 ("Gomoku-Player")
         {Lisp-Entry "player-kind" method #f 103 20 103 31 ("human")}}
-      {Lisp-Entry "Square" class #f 112 7 112 13 ("list" "fx" "Object")
+      {Lisp-Entry "Square" class #f 112 7 112 13 ("list" "<list>" "fx" "<fx>" "Object")
         {Lisp-Entry "game" slot #f 115 8 115 12 ()}
         {Lisp-Entry "get-game" accessor #f 115 28 115 36 ()}
         {Lisp-Entry "line" slot #f 116 8 116 12 ()}
@@ -117,10 +117,10 @@
         {Lisp-Entry "initialize" method #f 122 20 122 30 ("EMPTY" "token" "token~self" "col~self" "line~self" "self" "game~self" "set!" "nextmethod" "col" "line" "game")}
         {Lisp-Entry "print" method #f 130 20 130 25 ("token" "game" "present-move" "format" "lambda" "self" "print-unreadable" "readably" "output")}}
       {Lisp-Entry "moku-square?" definition #f 136 21 136 33 ("=" "or" "and" "c" "2" "/" "b" "1" "-" "a" "19" "else" "13" "medium" "9" "small" "case" "width" "3" "4" "large" "eq?" "if" "border" "let" "col" "row" "size")}
-      {Lisp-Entry "present-line" definition #f 146 21 146 33 ("get-board-rows" "-" "->string" "line" "game")}
+      {Lisp-Entry "present-line" definition #f 146 21 146 33 ("get-board-rows" "get-board-rows~" "-" "->string" "line" "game")}
       {Lisp-Entry "present-col" definition #f 150 21 150 32 ("Uppercase-Chars" "element" "->string" "col" "game")}
-      {Lisp-Entry "present-move" definition #f 154 21 154 33 ("present-line" "present-col" "format" "get-col" "col" "get-line" "line" "let" "move" "game")}
-      {Lisp-Entry "5-Line" class #f 167 7 167 13 ("Square" "Object")
+      {Lisp-Entry "present-move" definition #f 154 21 154 33 ("present-line" "present-col" "format" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "move" "game")}
+      {Lisp-Entry "5-Line" class #f 167 7 167 13 ("Square" "<Square>" "Object")
         {Lisp-Entry "first" slot #f 170 8 170 13 ()}
         {Lisp-Entry "get-first" accessor #f 170 31 170 39 ()}
         {Lisp-Entry "second" slot #f 171 8 171 14 ()}
@@ -132,8 +132,8 @@
         {Lisp-Entry "fifth" slot #f 174 8 174 13 ()}
         {Lisp-Entry "get-fifth" accessor #f 174 31 174 39 ()}
         {Lisp-Entry "initialize" method #f 177 20 177 30 ("fifth~self" "fourth~self" "third~self" "second~self" "self" "first~self" "set!" "nextmethod" "fifth" "fourth" "third" "second" "first")}
-        {Lisp-Entry "count-token" method #f 186 11 186 22 ("fifth" "fourth" "third" "second" "0" "1" "first" "get-token" "=" "if" "+" "fx" "who")}}
-      {Lisp-Entry "line=?" definition #f 194 21 194 27 ("get-fifth" "get-fourth" "get-third" "get-second" "get-first" "eq?" "and" "l2" "l1")}
+        {Lisp-Entry "count-token" method #f 186 11 186 22 ("fifth" "fourth" "third" "second" "0" "1" "first" "get-token" "get-token~" "=" "if" "+" "fx" "<fx>" "who")}}
+      {Lisp-Entry "line=?" definition #f 194 21 194 27 ("get-fifth" "get-fifth~" "get-fourth" "get-fourth~" "get-third" "get-third~" "get-second" "get-second~" "get-first" "get-first~" "eq?" "and" "l2" "l1")}
       {Lisp-Entry "Gomoku-Game" class #f 207 7 207 18 ("initialize" "Game")
         {Lisp-Entry "board-rows" slot #f 211 8 211 18 ()}
         {Lisp-Entry "get-board-rows" accessor #f 211 49 211 57 ()}
@@ -154,38 +154,38 @@
         {Lisp-Entry "make-board" method #f 236 11 236 21 ("self" "Square" "new" "vector-set!" "square-rank" "rank" "board-columns" "col" "board-rows" "below" "0" "from" "row" "for" "loop" "board-size" "make-vector" "board" "let")}
         {Lisp-Entry "make-availables" method #f 245 11 245 26 ("List" "board" "coerce")}
         {Lisp-Entry "directions" definition #f 254 14 254 24 ("-1" "1" "0")}
-        {Lisp-Entry "setup-lines" method #f 261 11 261 22 ("compute-lines" "set-lines" "board-ref" "square" "let" "board-size" "below" "0" "from" "rank" "for" "loop")}
-        {Lisp-Entry "compute-lines" method #f 267 11 267 24 ("5-Line" "new" "cons" "set!" "and" "if" "4" "e" "3" "d" "2" "c" "1" "b" "+" "find-next" "a" "0" "to" "-4" "from" "n" "directions" "in" "dir" "for" "loop" "lines" "get-col" "col" "get-line" "line" "let" "square")}
+        {Lisp-Entry "setup-lines" method #f 261 11 261 22 ("compute-lines" "set-lines" "set-lines~" "board-ref" "square" "let" "board-size" "below" "0" "from" "rank" "for" "loop")}
+        {Lisp-Entry "compute-lines" method #f 267 11 267 24 ("5-Line" "new" "cons" "set!" "and" "if" "4" "e" "3" "d" "2" "c" "1" "b" "+" "find-next" "a" "0" "to" "-4" "from" "n" "directions" "in" "dir" "for" "loop" "lines" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "square")}
         {Lisp-Entry "find-next" method #f 283 11 283 20 ("cdr" "car" "*" "+" "find-square" "n" "col" "row" "dir")}
         {Lisp-Entry "iterate-board" method #f 293 18 293 31 ("get-square" "do" "board-columns" "col" "board-rows" "below" "0" "from" "row" "for" "loop" "proc")}
-        {Lisp-Entry "board-ref" method #f 299 18 299 27 ("board" "vector-ref" "Square" "rank")}
-        {Lisp-Entry "square-rank" method #f 303 18 303 29 ("board-columns" "*" "+" "fx" "col" "row")}
-        {Lisp-Entry "get-square" method #f 307 18 307 28 ("square-rank" "board-ref" "Square" "col" "row")}
-        {Lisp-Entry "find-square" method #f 311 11 311 22 ("get-square" "board-columns" "board-rows" "<" "0" ">=" "and" "if" "Square+" "col" "row")}
-        {Lisp-Entry "play" method #f 323 20 323 24 ("remove!" "available-moves" "set!" "set-token" "token" "move")}
-        {Lisp-Entry "unplay" method #f 328 20 328 26 ("EMPTY" "set-token" "cons" "available-moves" "set!" "move")}
-        {Lisp-Entry "play-move" method #f 338 20 338 29 ("check-status" "inform-players" "add-move" "play" "get-me" "token" "next-player!" "player" "let" "move")}
-        {Lisp-Entry "win?" method #f 347 20 347 24 ("get-lines" "some?" "5" "count-token" "=" "line" "line?" "define" "token" "move")}
+        {Lisp-Entry "board-ref" method #f 299 18 299 27 ("board" "vector-ref" "Square" "<Square>" "rank")}
+        {Lisp-Entry "square-rank" method #f 303 18 303 29 ("board-columns" "*" "+" "fx" "<fx>" "col" "row")}
+        {Lisp-Entry "get-square" method #f 307 18 307 28 ("square-rank" "board-ref" "Square" "<Square>" "col" "row")}
+        {Lisp-Entry "find-square" method #f 311 11 311 22 ("get-square" "board-columns" "board-rows" "<" "0" ">=" "and" "if" "Square+" "<Square+>" "col" "row")}
+        {Lisp-Entry "play" method #f 323 20 323 24 ("remove!" "available-moves" "set!" "set-token" "set-token~" "token" "move")}
+        {Lisp-Entry "unplay" method #f 328 20 328 26 ("EMPTY" "set-token" "set-token~" "cons" "available-moves" "set!" "move")}
+        {Lisp-Entry "play-move" method #f 338 20 338 29 ("check-status" "inform-players" "add-move" "play" "get-me" "get-me~" "token" "next-player!" "player" "let" "move")}
+        {Lisp-Entry "win?" method #f 347 20 347 24 ("get-lines" "get-lines~" "some?" "5" "count-token" "count-token~" "=" "line" "line?" "define" "token" "move")}
         {Lisp-Entry "draw?" method #f 354 20 354 25 ("available-moves" "null?" "token" "move")}
         {Lisp-Entry "save-board" method #f 364 11 364 21 ()}
-        {Lisp-Entry "load-board" method #f 369 11 369 21 ("invalidate-view" ">=" "if" "set-column-move" "length" "move" "COMPUTER" "O" "X" "case" "set-token" "get-square" "square" "let" "downto" "1" "get-board-rows" "-" "row" "token" "get-board-columns" "below" "0" "from" "col" "saved-board" "in" "tokens" "for" "loop" "HUMAN" "initialize-game" "game")}
-        {Lisp-Entry "inspect-board" method #f 391 11 391 24 ("newline" "COMPUTER" "HUMAN" "EMPTY" "eq?" "cond" "display" "get-square" "get-token" "token" "let" "get-board-columns" "col" "get-board-rows" "below" "0" "from" "row" "for" "loop" "game")}}}})
+        {Lisp-Entry "load-board" method #f 369 11 369 21 ("invalidate-view" "invalidate-view~" ">=" "if" "set-column-move" "length" "move" "COMPUTER" "O" "X" "case" "set-token" "set-token~" "get-square" "square" "let" "downto" "1" "get-board-rows" "get-board-rows~" "-" "row" "token" "get-board-columns" "get-board-columns~" "below" "0" "from" "col" "saved-board" "in" "tokens" "for" "loop" "HUMAN" "initialize-game" "game")}
+        {Lisp-Entry "inspect-board" method #f 391 11 391 24 ("newline" "COMPUTER" "HUMAN" "EMPTY" "eq?" "cond" "display" "get-square" "get-square~" "get-token" "get-token~" "token" "let" "get-board-columns" "get-board-columns~" "col" "get-board-rows" "get-board-rows~" "below" "0" "from" "row" "for" "loop" "game")}}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "autoload.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "autoload.jazz"} 1288870740 jazz
     {Lisp-Entry "jazz.sample.gomoku.autoload" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Gomoku-Board" "jazz.sample.gomoku.Gomoku-Board" "Gomoku-Application" "jazz.sample.gomoku.Gomoku-Application" "Gomoku-AI" "autoload" "jazz.sample.gomoku.Gomoku-AI")}}})
 "graphics"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "graphics.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "graphics.jazz"} 1288870740 jazz
     {Lisp-Entry "jazz.sample.gomoku.graphics" module #f 38 8 38 35 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.system" "jazz.sample.gameserver.imagemagick" "jazz.io")}
       {Lisp-Entry "Gomoku-Images" definition #f 46 12 46 25 ("Jazz" "Directory")}
-      {Lisp-Entry "generate-gomoku" definition #f 50 13 50 28 ("large" "medium" "small" "generate-stone" "symbol->string" "new-directory" "create-directories" "user-message" "size" "for-each" "lambda" "Gomoku-Images" "parse" "with-current-directory")}
-      {Lisp-Entry "generate-stone" definition #f 64 13 64 27 ("list" "error?" "error?:" "Gomoku-Images" "new-file" "delete-file" "location" "lambda" "for-each" "17" "13" "image-composite" "20" "30" "28" "format" "image-convert" "10" "inner" "5" "outer" "last" "0" "first" "2" "1" "-" "/" "half" "let" "*" "fxround/" "x" "prop" "shadow" "moku" "width" "receive" "8" "71" "large" "6" "49" "medium" "4" "3" "35" "values" "small" "case" "parameters" "define" "size" "color" "name")}}})
+      {Lisp-Entry "generate-gomoku" definition #f 50 13 50 28 ("large" "medium" "small" "generate-stone" "symbol->string" "new-directory" "new-directory~" "create-directories" "create-directories~" "user-message" "size" "for-each" "lambda" "Gomoku-Images" "parse" "parse~" "with-current-directory")}
+      {Lisp-Entry "generate-stone" definition #f 64 13 64 27 ("list" "error?:" "Gomoku-Images" "new-file" "new-file~" "delete-file" "delete-file~" "location" "lambda" "for-each" "17" "13" "image-composite" "20" "30" "28" "format" "image-convert" "10" "inner" "5" "outer" "last" "0" "first" "2" "1" "-" "/" "half" "let" "*" "fxround/" "x" "prop" "shadow" "moku" "width" "receive" "8" "71" "large" "6" "49" "medium" "4" "3" "35" "values" "small" "case" "parameters" "define" "size" "color" "name")}}})
 "run"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "run.jazz"} 1296083298 jazz
-    {Lisp-Entry "jazz.sample.gomoku.run" module #f 37 8 37 30 ("Gomoku-Application" "new" "boot-environment" "Gomoku-AI" "jazz.sample.gomoku.Gomoku-AI" "warn-minimax-interpreted" "descriptor" "lambda" "gomoku" "jazz.sample" "jazz.sample.gomoku" "register-product-run" "jazz")
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "run.jazz"} 1288870740 jazz
+    {Lisp-Entry "jazz.sample.gomoku.run" module #f 37 8 37 30 ("Gomoku-Application" "new" "boot-environment" "boot-environment~" "jazz.sample.gomoku.Gomoku-AI" "warn-minimax-interpreted" "descriptor" "lambda" "jazz.sample.gomoku" "register-product-run" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.sample.game.minimax" "jazz.sample.gomoku")}}})
 "test"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "test.jazz"} 1296083298 jazz
-    {Lisp-Entry "jazz.sample.gomoku.test" module #f 37 8 37 31 ("Gomoku-Board" "new-frame" "Gomoku-AI" "jazz.sample.gomoku" "jazz.sample.gomoku.Gomoku-AI" "warn-minimax-interpreted" "jazz")
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gomoku" "test.jazz"} 1291384841 jazz
+    {Lisp-Entry "jazz.sample.gomoku.test" module #f 37 8 37 31 ("Gomoku-Board" "new-frame" "jazz.sample.gomoku.Gomoku-AI" "warn-minimax-interpreted" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.sample.game.minimax" "jazz.sample.gomoku")}}})
