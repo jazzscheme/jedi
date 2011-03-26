@@ -86,7 +86,7 @@
         (iterate-directory~ directory
           (lambda (file)
             (directory-feedback file)
-            (when (and (not (member? (get-extension~ file) ignored-extensions test: ci=?))
+            (when (and (not (member? (get-extension~ file) ignored-extensions test: extension=?))
                        (time>? (get-modification-time~ file) from))
               (enqueue queue (new File-Search-Result #f file))))
           ignored-toplevel-directories: ignored-toplevel-directories)
@@ -103,7 +103,7 @@
       (iterate-directory~ {Directory Jazz}
         (lambda (file)
           (let ((ext (get-extension~ file)))
-            (when (member? ext '("jazz") test: ci=?)
+            (when (member? ext '("jazz") test: extension=?)
               (directory-feedback file)
               (call-with-input-file (path-settings file eol-encoding: 'cr-lf readtable: jazz-readtable)
                 (lambda (port)
@@ -128,7 +128,7 @@
         (iterate-directory~ directory
           (lambda (file)
             (directory-feedback file)
-            (when (not (member? (get-extension~ file) ignored-extensions test: ci=?))
+            (when (not (member? (get-extension~ file) ignored-extensions test: extension=?))
               (let ((lines (load-lines~ file char-encoding-errors: #f)))
                 (for-each (lambda (line rank)
                             (continuation-capture
@@ -863,7 +863,7 @@
   (method (generate-all-disabled directory extensions)
     (iterate-directory~ directory
       (lambda (file)
-        (when (member? (get-extension~ file) extensions test: ci=?)
+        (when (member? (get-extension~ file) extensions test: extension=?)
           (user-feedback "Generating disabled for {a}..." (get-name~ file))
           (generate-disabled file))))
     (user-feedback "Done"))
@@ -872,7 +872,7 @@
   (method (delete-all-disabled directory extensions)
     (iterate-directory~ directory
       (lambda (file)
-        (when (and (member? (get-extension~ file) extensions test: ci=?)
+        (when (and (member? (get-extension~ file) extensions test: extension=?)
                    (ends-with? (get-base~ file) "_"))
           (user-message "Deleting disabled {a}..." (get-name~ file))
           (delete-file~ file))))
@@ -1893,7 +1893,7 @@
       (iterate-directory~ dir
         (lambda (file)
           (let ((ext (get-extension~ file)))
-            (when (and ext (not (member? ext extensions test: ci=?)))
+            (when (and ext (not (member? ext extensions test: extension=?)))
               (set! extensions (cons (downcase ext) extensions))))))
       (sort string<? extensions)))
 

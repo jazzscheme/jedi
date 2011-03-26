@@ -270,7 +270,7 @@
 
 
   (method override (known-extension-frame-class ext)
-    (cond ((member? ext '("txt" "text") test: ci=?) Jazz-Plain-Text-View)
+    (cond ((member? ext '("txt" "text") test: extension=?) Jazz-Plain-Text-View)
           (else (nextmethod ext))))
 
 
@@ -282,8 +282,8 @@
   (method override (edit-file file)
     (let ((ext (get-extension~ file)))
       (cond
-      @wait ((ci=? ext "class") (browse-java-classfile file))
-      @wait ((ci=? ext "jar") (browse-java-jarfile file))
+      @wait ((extension=? ext "class") (browse-java-classfile file))
+      @wait ((extension=? ext "jar") (browse-java-jarfile file))
             (else (nextmethod file)))))
   
   

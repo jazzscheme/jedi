@@ -176,14 +176,14 @@
   
   (form
     (<install>                                 title: "Project"
-      (<Label-Item>     name: select           title: "Select..." icon: {Image-Resource "ConcreteProject"} action-handler: {Action ide select-project})
-      (<Separator-Item>)
       (<Label-Item>     name: projects-manager title: "Projects Manager" icon: {Image-Resource "Catalog"} action-handler: {Action ide projects-manager})
       (<Label-Item>                            title: "Update Catalogs" action-handler: {Action ide update-catalogs})
       @waiting
       (<Label-Item>     name: clean            title: "Clean" action-handler: {Action ide clean-project})
       @waiting
       (<Label-Item>     name: view-log         title: "View Log" action-handler: {Action ide view-project-log})
+      (<Separator-Item>)
+      (<Label-Item>     name: select           title: "Select..." icon: {Image-Resource "ConcreteProject"} action-handler: {Action ide select-project})
       (<Separator-Item>)
       (<Label-Item>     name: test             title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
       (<Label-Item>     name: debug            title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
