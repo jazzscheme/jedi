@@ -1,0 +1,12 @@
+"_json"
+ ({Lisp-File-Entry {File :context "src" "jazz" "json" "_json.jazz"} 1301161838 jazz
+    {Lisp-Entry "jazz.json" module #f 37 8 37 17 ("jazz")
+      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.io")}
+      {Lisp-Entry "make-json-readtable" definition #f 48 13 48 32 (":invalid" "readtable-paren-keyword-set!" ":object" "readtable-brace-keyword-set!" ":array" "readtable-bracket-keyword-set!" "readtable-char-handler" "readtable-char-handler-set!" "make-standard-readtable" "readtable" "let")}
+      {Lisp-Entry "json-readtable" definition #f 58 19 58 33 ("make-json-readtable")}
+      {Lisp-Entry "read-json" definition #f 67 20 67 29 ("read" "error" "null" "false" "true" "sym" ":array" "cdr" ":object" "car" "case" "map" "elements" "convert-array" "cons" "if" "value" "key" "lambda" "map-property" "list->table" "members" "convert-object" "invalid" "else" "convert-symbol" "symbol?" "convert-pair" "pair?" "number?" "string?" "cond" "obj" "convert" "define" "port")}
+      {Lisp-Entry "print-json" definition #f 109 20 109 30 ("0" "not-null?" "when" "1" "+" "format" "newline" "value" "key" "bind" "remain" "remainder" "car" "key:" "table->list" "string<?" "sort" "in" "pair" "for" "loop" "set!" "if" "element" "lambda" "for-each" "first?" "let" "print-object" "table?" "print-array" "pair?" "number?" "write" "string?" "null?" "display" "eq?" "cond" "depth" "obj" "print" "define" "port" "json")}
+      {Lisp-Entry "load-json" definition #f 153 20 153 29 ("read-json" "json-readtable" "readtable:" "path-settings" "call-with-input-file" "file")}
+      {Lisp-Entry "save-json" definition #f 158 20 158 29 ("newline" "print-json" "output" "lambda" "path-settings" "call-with-output-file" "file" "json")}
+      {Lisp-Entry "string->json" definition #f 165 20 165 32 ("read-json" "json-readtable" "readtable:" "init:" "list" "call-with-input-string" "str")}
+      {Lisp-Entry "json->string" definition #f 170 20 170 32 ("get-output-string" "print-json" "open-output-string" "output" "let" "json")}}})
