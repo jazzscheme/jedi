@@ -78,7 +78,7 @@
   (method (recent-files . rest)
     (bind-keywords ((directory {Directory Jazz}) (elapse #f)) rest
       (let ((results (get-search-results~ (get-application)))
-            (queue (new-queue))
+            (resultset (new Search-Resultset #f))
             (from (subtract-duration (current-time) (make-time time-duration 0 (or elapse 3600))))
             (ignored-toplevel-directories '("Crashes" "Debug" "Release" "Work" "bin" "build" "bootstrap" "deploy" "gambit" ".git"))
             (ignored-extensions Binary-Extensions)
@@ -88,17 +88,16 @@
             (directory-feedback file)
             (when (and (not (member? (get-extension~ file) ignored-extensions test: extension=?))
                        (time>? (get-modification-time~ file) from))
-              (enqueue queue (new File-Search-Result #f file))))
+              (add-result~ resultset (new File-Search-Result resultset file))))
           ignored-toplevel-directories: ignored-toplevel-directories)
-        (let ((files (queue-list queue)))
-          (let ((count (length files)))
-            (user-feedback "Found {a} file{a}" count (format-plural count))
-            (select-results~ results #f files))))))
+        (let ((count (length (get-results~ resultset))))
+          (user-feedback "Found {a} file{a}" count (format-plural count))
+          (select-results~ results resultset)))))
   
   
   (method (search-licenseless-files)
     (let ((results (get-search-results~ (get-application)))
-          (queue (new-queue))
+          (resultset (new Search-Resultset #f))
           (directory-feedback (make-directory-feedback)))
       (iterate-directory~ {Directory Jazz}
         (lambda (file)
@@ -110,18 +109,16 @@
                   (let ((line (read-line port)))
                     (when (and (not (eof-object? line))
                                (not (equal? line ";;;==============")))
-                      (enqueue queue (new File-Search-Result #f file))))))))))
-      (let ((files (queue-list queue)))
-        (let ((count (length files)))
-          (user-feedback "Found {a} file{a}" count (format-plural count))
-          (set-mode~ results 'text)
-          (select-results~ results #f files)))))
+                      (add-result~ resultset (new File-Search-Result resultset file))))))))))
+      (let ((count (length (get-results~ resultset))))
+        (user-feedback "Found {a} file{a}" count (format-plural count))
+        (select-results~ results resultset))))
   
   
   (method (search-trailing-whitespace . rest)
     (bind-keywords ((directory {Directory Jazz})) rest
       (let ((results (get-search-results~ (get-application)))
-            (queue (new-queue))
+            (resultset (new Search-Resultset #f))
             (ignored-toplevel-directories '("Crashes" "Debug" "Release" "Work" "bin" "build" "bootstrap" "deploy" "gambit" ".git"))
             (ignored-extensions Binary-Extensions)
             (directory-feedback (make-directory-feedback)))
@@ -140,16 +137,14 @@
                                                   (set! trailing-whitespace #t)
                                                 (when trailing-whitespace
                                                   (let ((pos (new Cell rank (+ n 1))))
-                                                    (enqueue queue (new File-Search-Result #f file position: pos))))
+                                                    (add-result~ resultset (new File-Search-Result resultset file position: pos))))
                                                 (continuation-return done #f)))))))))
                           lines
                           (naturals 0 (length lines))))))
           ignored-toplevel-directories: ignored-toplevel-directories)
-        (let ((files (queue-list queue)))
-          (let ((count (length files)))
-            (user-feedback "Found {a} file{a}" count (format-plural count))
-            (set-mode~ results 'text)
-            (select-results~ results #f files))))))
+        (let ((count (length (get-results~ resultset))))
+          (user-feedback "Found {a} file{a}" count (format-plural count))
+          (select-results~ results resultset)))))
   
   
   (method (inspect-binary file)
