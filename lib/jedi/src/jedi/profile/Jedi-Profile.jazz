@@ -1137,7 +1137,7 @@
   
   
   @wait
-  (method (text-macro text)
+  (method (user-code text)
     (let* ((start (get-line~ (get-start~ text)))
            (end (get-line~ (get-end~ text)))
            (col (get-column~ text start))
