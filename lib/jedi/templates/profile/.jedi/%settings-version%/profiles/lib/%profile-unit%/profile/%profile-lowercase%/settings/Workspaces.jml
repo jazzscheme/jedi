@@ -121,7 +121,7 @@
                 (<Pad-Preferences>                             location: second
                   (<Docked-Preferences>                        location: selection model: {Reference SQL-Tree-Output})
                   (<Docked-Preferences>                        location: #f model: {Reference SQL-Text-Output}))))))))
-    (<Workspace-Preferences>                  name: designer   title: "Designer" icon: {Image-Resource "Designer"} shortcut: {Shortcut :shift :alt #\X} frame-model: {Reference View-Editor}
+    (<Workspace-Preferences>                  name: designer   title: "Designer" icon: {Image-Resource "Designer"} shortcut: {Shortcut :shift :alt #\Z} frame-model: {Reference View-Editor}
       (<Menubar-Preferences>                  name: menubar    location: root
         (<Mainbar-Preferences>                name: toolbar    location: second
           (<Status-Preferences>               name: status     location: second
