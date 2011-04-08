@@ -455,6 +455,7 @@
           (set-action-enabled? {Action text select-outer} text?)
           (set-action-enabled? {Action code-text transpose-expr} code?)
           (set-action-enabled? {Action lisp-text tabulate} lisp?)
+          (set-action-enabled? {Action lisp-text highlight-declaration} lisp?)
           (set-action-enabled? {Action lisp-text highlight-selection} lisp?)
           (set-action-enabled? {Action lisp-text remove-highlights} lisp?)
           (set-action-enabled? {Action code-text find-imports} (or jazz? console?))
