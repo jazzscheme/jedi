@@ -1,5 +1,5 @@
 "_io"
- ({Lisp-File-Entry {File :context "src" "jazz" "io" "_io.jazz"} 1301161838 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "io" "_io.jazz"} 1301518487 jazz
     {Lisp-Entry "jazz.io" module #f 37 8 37 15 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("time" "jazz.system.access")}
       {Lisp-Entry "*eol-encoding*" definition #f 52 12 52 26 ("kernel-platform" "platform-eol-encoding")}
@@ -222,18 +222,18 @@
       {Lisp-Entry "effective-catalog-extensions" definition #f 1504 21 1504 49 ("else" ":textual" "Text-Catalog-Extensions" ":text" "C-Catalog-Extensions" ":c" "Jazz-Catalog-Extensions" ":jazz" "CommonLisp-Catalog-Extensions" ":commonlisp" "Scheme-Catalog-Extensions" ":scheme" "case" "Textual-Catalog-Extensions" "not" "if" "extensions")}
       {Lisp-Entry "extension-constituent-test" definition #f 1517 20 1517 46 ("word-constituent?" "else" "sql-constituent?" "SQL-Extensions" "c-constituent?" "C-Extensions" "scheme-constituent?" "Scheme-Extensions" "jazz-constituent?" "extension=?" "test:" "Jazz-Extensions" "member?" "cond" "ext")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "jazz" "io" "install.scm"} 1299704434 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "io" "install.scm"} 1299165064 scheme
     {Lisp-Entry "jazz.io.install" unit #f 37 6 37 21 ()
       {Lisp-Entry "File" define ("literal") 40 21 40 25 ("construct-file" "jazz.io.literals" "jazz.io.literals:construct-file")}
       {Lisp-Entry "Directory" define ("literal") 41 21 41 30 ("construct-directory" "jazz.io.literals" "jazz.io.literals:construct-directory")}}})
 "literals"
- ({Lisp-File-Entry {File :context "src" "jazz" "io" "literals.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "io" "literals.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.io.literals" module #f 37 8 37 24 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.io")}
       {Lisp-Entry "construct-file" definition #f 48 21 48 35 ("File" "new" "rest")}
       {Lisp-Entry "construct-directory" definition #f 57 21 57 40 ("Directory" "new" "rest")}}})
 "protocol"
- ({Lisp-File-Entry {File :context "src" "jazz" "io" "protocol.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "io" "protocol.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.io.protocol" module #f 37 8 37 24 ("Directory-Group-Class" "<Directory-Group-Class>" "Directory-Class" "<Directory-Class>" "File-Class" "<File-Class>" "Moniker-Class" "<Moniker-Class>" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.ui" "jazz.library" "jazz.io")}
       {Lisp-Entry "moniker-modal" generic/specific ("<Moniker-Class>") 52 10 52 23 ("rest")}

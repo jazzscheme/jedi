@@ -1,5 +1,5 @@
 "_profiler"
- ({Lisp-File-Entry {File :context "src" "profiler" "_profiler.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "profiler" "_profiler.jazz"} 1296083298 jazz
     {Lisp-Entry "profiler" module #f 37 8 37 16 ("jazz")
       {Lisp-Entry "require" anonymous #f 40 1 40 8 ("profiler.implementation")}
       {Lisp-Entry "default-profiler-depth" native ("native") 43 8 43 30 ()}
@@ -59,7 +59,7 @@
       {Lisp-Entry "profiler-performance-counter-set!" native ("native") 97 8 97 41 ()}
       {Lisp-Entry "identify-call" native ("native") 98 8 98 21 ()}}})
 "implementation"
- ({Lisp-File-Entry {File :context "src" "profiler" "implementation.scm"} 1299704435 scheme
+ ({Lisp-File-Entry {File :context "src" "profiler" "implementation.scm"} 1299180551 scheme
     {Lisp-Entry "profiler.implementation" unit #f 37 16 37 39 ("tick-performance-counter" "1" "real-time" "seconds->milliseconds" "profiler-performance-counter" "1000" "lambda" "profiler-performance-frequency" "set!")
       {Lisp-Entry "default-profiler" define-macro ("setting") 48 21 48 37 ("statprof")}
       {Lisp-Entry "default-profiler-ignored-procedures" define-macro ("setting") 51 21 51 56 ("##primordial-exception-handler-hook" "##thread-start-action!" "##call-with-values" "##dynamic-env-bind" "%%list")}

@@ -1,5 +1,5 @@
 "Mandelbrot"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "Mandelbrot.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "Mandelbrot.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.mandelbrot.Mandelbrot" module #f 38 18 38 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.ui.view" "jazz.ui" "jazz.graphic")}
       {Lisp-Entry "Mandelbrot" class #f 46 7 46 17 ("List-Factory" "new" "10" "initialize" "View")
@@ -48,14 +48,14 @@
         {Lisp-Entry "set-color" accessor #f 268 24 268 32 ()}
         {Lisp-Entry "initialize" method #f 271 20 271 30 ("color~self" "iter~self" "pos~self" "self" "c~self" "set!" "nextmethod" "color" "iter" "pos" "c")}}}})
 "_mandelbrot"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "_mandelbrot.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "_mandelbrot.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.mandelbrot" module #f 38 8 38 30 ("jazz")
       {Lisp-Entry "export" anonymous #f 41 1 41 7 ("jazz.sample.mandelbrot.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "autoload.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "autoload.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.mandelbrot.autoload" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Mandelbrot" "autoload" "jazz.sample.mandelbrot.Mandelbrot")}}})
 "test"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "test.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mandelbrot" "test.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.mandelbrot.test" module #f 37 8 37 35 ("Mandelbrot" "new-frame" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.sample.mandelbrot")}}})

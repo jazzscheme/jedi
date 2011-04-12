@@ -1,5 +1,5 @@
 "_detprof"
- ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "_detprof.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "_detprof.jazz"} 1299092273 jazz
     {Lisp-Entry "jazz.detprof" module #f 37 8 37 20 ("lambda" "register-service" "jazz.detprof" "detprof" "profiler-ignore-module" "jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.detprof.syntax")}
       {Lisp-Entry "import" anonymous #f 43 1 43 7 ("profiler" "jazz.system" "jazz.jml" "jazz.detprof.syntax")}
@@ -16,10 +16,10 @@
       {Lisp-Entry "profile->jml" definition #f 165 20 165 32 ("cddr" "key:" "table->list" ">" "sort" "list" "properties:" "JML-Element" "new" "duration" "count" "name" "bind" "lambda" "map" "profile")}
       {Lisp-Entry "detprof" definition #f 177 19 177 26 ("1" "detprof" "make-profiler")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "install.scm"} 1299704434 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "install.scm"} 1299164969 scheme
     {Lisp-Entry "jazz.detprof.install" unit #f 37 6 37 26 ("jazz.detprof" "detprof" "register-service" "jazz:register-service")}})
 "syntax"
- ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "syntax.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "syntax.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.detprof.syntax" module #f 37 18 37 37 ("jazz")
       {Lisp-Entry "unroll" macro ("macro") 40 15 40 21 ("make-list" "append" "apply" "begin" "rest" "n")}
       {Lisp-Entry "profile" macro #f 45 16 45 23 ("lambda" "profile-code" ",@body" "begin" "not" "if" "sourcify-if" "name:" "name" "not-found:" "key:" "on?:" "getf" "on?" "cddr" "body" "cadr" "source-code" "control" "let" "form-src")}}})

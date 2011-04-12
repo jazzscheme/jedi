@@ -1,5 +1,5 @@
 "Debuggee-Frame"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Frame.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Frame.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Frame" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.editor.jazz.inspector")}
       {Lisp-Entry "Debuggee-Frame" class #f 43 7 43 21 ("Object")
@@ -21,7 +21,7 @@
         {Lisp-Entry "get-location" method #f 72 11 72 23 ("get-continuation-location" "continuation" "serial->object" "cont" "let" "location" "or")}
         {Lisp-Entry "get-variables" method #f 79 11 79 24 ("get-continuation-dynamic-environment" "append" ":all" "get-continuation-lexical-environment" ":lexical" "case" "mutable?:" "package-info" "cons" "mutable?" "value" "name" "bind" "variable" "lambda" "map" "continuation" "serial->object" "cont" "let" "kind")}}}})
 "Debuggee-Process"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Process.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Process.jazz"} 1299092212 jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Process" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("profiler" "jazz.system" "jazz.editor.jazz.inspector" "jazz.debuggee.stub" "jazz.debuggee")}
       {Lisp-Entry "Debuggee-Process" class #f 47 7 47 23 ("Object")
@@ -47,7 +47,7 @@
         {Lisp-Entry "profile-reset" method #f 323 18 323 31 ("require-service" "and" "reset-profile" "when" "find-selected-profile" "profile" "let" "depth" "profiler")}
         {Lisp-Entry "inspect-serial" method #f 334 18 334 32 ("serial->object" "inspect-value" "serial")}}}})
 "Debuggee-Restart"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Restart.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Restart.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Restart" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "Debuggee-Restart" class #f 40 7 40 23 ("Object")
         {Lisp-Entry "thread" slot #f 43 8 43 14 ()}
@@ -61,7 +61,7 @@
         {Lisp-Entry "get-name" method #f 57 18 57 26 ("restart" "get-name" "get-name~")}
         {Lisp-Entry "get-message" method #f 61 18 61 29 ("restart" "get-message" "get-message~")}}}})
 "Debuggee-Stop"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Stop.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Stop.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Stop" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee.stub" "jazz.debuggee")}
       {Lisp-Entry "Debuggee-Stop" class #f 44 7 44 20 ("Object")
@@ -96,7 +96,7 @@
         {Lisp-Entry "get-id" method #f 85 18 85 24 ("self" "object->serial")}
         {Lisp-Entry "get-frames" method #f 94 18 94 28 ("stack" "length" "naturals" "lambda" "map" "Debuggee-Frame-Local-Proxy" "object->serial" "Debuggee-Frame" "new" "0" "=" "stepper" "and" "when" "location" "let" "hidden?" "name" "cont" "bind" "frame" "id" "make-frame" "define")}}}})
 "Debuggee-Thread"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Thread.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Thread.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Thread" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee")}
       {Lisp-Entry "Debuggee-Thread" class #f 43 7 43 22 ("Object")
@@ -110,7 +110,7 @@
         {Lisp-Entry "get-stops" method #f 66 18 66 27 ("thread" "get-thread-stops")}
         {Lisp-Entry "set-repl-frame" method #f 70 11 70 25 ("set-box!" "box?" "when" "current-repl-frame" "box" "lambda" "set-repl-frame" "thread" "thread-post" "get-object" "get-object~" "and" "frame" "let" "frame-proxy")}}}})
 "Log-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Log-View.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Log-View.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.view.Log-View" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.platform" "jazz.library" "jazz.jml" "jazz.debuggee")}
       {Lisp-Entry "Log-View" class #f 47 7 47 15 ("initialize" "Layout-View")
@@ -126,7 +126,7 @@
         {Lisp-Entry "view-content" method #f 111 11 111 23 ("extract-log-content" "insert-node" "node" "for-each-reversed" "log" "when" "lambda" "with-update-locked" "with-update-locked~" "remove-every-row" "remove-every-row~" "get-tree" "tree" "let")}
         {Lisp-Entry "insert-node" method #f 122 11 122 22 ("get-children" "get-children~" "insert-node" "subnode" "lambda" "for-each" "user-data:" "Tree-Label" "image:" "title:" "Tree-Node" "new" "list" "children:" "father:" "add-row" "add-row~" "subfather" "data" "message" "image" "get-property" "get-property~" "or" "->string" "name" "let*" "else" "problem" "Image-Resource" "resources" "get-tag" "get-tag~" "case" "node-image" "define" "node" "father" "tree")}}}})
 "Profiler-Manager"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-Manager.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-Manager.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.view.Profiler-Manager" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("profiler" "jazz.ui" "jazz.library" "jazz.jml" "jazz.debuggee")}
       {Lisp-Entry "Profiler-Manager" class #f 47 7 47 23 ("Layout-View")
@@ -144,7 +144,7 @@
         {Lisp-Entry "on-double-click" method #f 122 11 122 26 ("profile-view" "locate" "edit-profile" "edit-profile~" "evt")}
         {Lisp-Entry "update-profile" method #f 131 11 131 25 ("profile-view" "locate" "update-profile" "update-profile~")}}}})
 "Profiler-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-View.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-View.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.view.Profiler-View" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("profiler" "jazz.ui" "jazz.system" "jazz.log" "jazz.library" "jazz.jml" "jazz.detprof")}
       {Lisp-Entry "Profiler-View" class #f 49 7 49 20 ("Layout-View")
@@ -157,7 +157,7 @@
         {Lisp-Entry "call-total" definition #f 144 15 144 25 ("total" "get-property" "get-property~" "call")}
         {Lisp-Entry "edit-call" method #f 153 18 153 27 ("call-name" "edit-definitions" "edit-definitions~" "get-application" "appl" "get-row" "get-row~" "get-user-data" "get-user-data~" "call" "let" "bell" "null?" "if" "get-single-selection" "get-single-selection~" "selection" "profile" "locate" "tree" "let*")}}}})
 "Resources-Monitor"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-Monitor.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-Monitor.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.view.Resources-Monitor" module #f 37 18 37 54 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.dialog" "jazz.ui" "jazz.log" "jazz.library" "jazz.jml" "jazz.io" "jazz.debuggee")}
       {Lisp-Entry "Resources-Monitor" class #f 49 7 49 24 ("Layout-View")
@@ -175,7 +175,7 @@
         {Lisp-Entry "on-clear" method #f 136 11 136 19 ("clear" "clear~" "get-resource-view" "resource-view" "let" "evt")}
         {Lisp-Entry "update" method #f 146 11 146 17 ("update" "update~" "get-resource-view" "resource-view" "let")}}}})
 "Resources-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-View.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-View.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.view.Resources-View" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.platform" "jazz.library" "jazz.jml" "jazz.graphic" "jazz.debuggee")}
       {Lisp-Entry "Resources-View" class #f 48 7 48 21 ("eq?" "test:" "make-table" "0" "after" "initialize" "Layout-View")
@@ -215,7 +215,7 @@
         {Lisp-Entry "on-set-reference" method #f 348 11 348 27 ("client" "set-reference" "set-reference~" "evt")}
         {Lisp-Entry "on-clear-reference" method #f 352 11 352 29 ("client" "clear-reference" "clear-reference~" "evt")}}}})
 "View-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "View-Debugger.jazz"} 1296060125 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "View-Debugger.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.view.View-Debugger" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.ui.picker" "jazz.ui.development" "jazz.ui" "jazz.system" "jazz.jml" "jazz.debuggee.view" "jazz.debuggee")}
       {Lisp-Entry "View-Debugger" class #f 50 7 50 20 ("Object")
@@ -228,7 +228,7 @@
       {Lisp-Entry "Debug-View-Menu" class #f 161 7 161 22 ("Context-Menu")
         {Lisp-Entry "form" anonymous #f 164 3 164 7 ("describe-state" "describe" "Image-Resource" "icon:" "Separator-Item" "<Separator-Item>" "debug" "action:" "on-debug-action" ":view-debugger" "Event-Handler" "action-handler:" "default?:" "title:" "Label-Item" "<Label-Item>" "install" "<install>")}}}})
 "_debuggee"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "_debuggee.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "_debuggee.jazz"} 1299260138 jazz
     {Lisp-Entry "jazz.debuggee" module #f 37 8 37 21 ("memq?" "get-exception-hook" "get-exception-debugger" "frame" "hidden-frame?-set!" "with-exception-filter" "with-system-exception-debugger" "with-exception-debugger" "list" "hidden" "hidden-frame?" "previous" "continuation-return" "eq?" "when" "proc" "locator" "*advices*" "iterate-table" "return" "continuation-capture" "or" "procedure" "lambda" "procedure-name-set!" "procedure-name" "original-procedure-name" "let" "in-command" "in" "register-console-command" "jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.debuggee.autoload")}
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.system.access" "jazz.network" "jazz.jrm" "jazz.editor.jazz.inspector" "jazz.debuggee.stub" "jazz.debuggee.autoload")}
@@ -337,7 +337,7 @@
       {Lisp-Entry "*current-view-debugger*" definition #f 1039 12 1039 35 ()}
       {Lisp-Entry "current-view-debugger" definition #f 1043 20 1043 41 ("View-Debugger" "new" "set!" "*current-view-debugger*" "not" "when")}}})
 "_view"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "_view.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "_view.jazz"} 1299091924 jazz
     {Lisp-Entry "jazz.debuggee.view" module #f 37 8 37 26 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.system" "jazz.library" "jazz.designer.view" "jazz.designer" "jazz.debuggee")}
       {Lisp-Entry "edit" definition #f 54 20 54 24 ("unspecified" "class-of" "category-name" "get-application" "edit-definitions" "edit-definitions~" "object")}
@@ -345,15 +345,15 @@
       {Lisp-Entry "design-in-place" definition #f 68 20 68 35 ("host-visible?:" "client:" "View-Editor" "jazz.designer" "jazz.designer:View-Editor" "new-frame" "view")}
       {Lisp-Entry "reprint" definition #f 72 20 72 27 ("save" "save~" "form:" "Designer" "new" "designer" "get-class-form" "get-class-form~" "form" "class-of" "class?" "if" "class" "let*" "class/component")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "autoload.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "autoload.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.autoload" module #f 37 18 37 40 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("View-Debugger" "jazz.debuggee.view.View-Debugger" "Resources-View" "jazz.debuggee.view.Resources-View" "Resources-Monitor" "jazz.debuggee.view.Resources-Monitor" "Profiler-View" "jazz.debuggee.view.Profiler-View" "Profiler-Manager" "jazz.debuggee.view.Profiler-Manager" "Log-View" "jazz.debuggee.view.Log-View" "Debuggee-Thread-Stub" "Debuggee-Stop-Stub" "Debuggee-Restart-Stub" "Debuggee-Process-Stub" "Debuggee-Frame-Stub" "jazz.debuggee.stub" "Debuggee-Thread" "jazz.debuggee.Debuggee-Thread" "Debuggee-Stop" "jazz.debuggee.Debuggee-Stop" "Debuggee-Restart" "jazz.debuggee.Debuggee-Restart" "Debuggee-Process" "jazz.debuggee.Debuggee-Process" "Debuggee-Frame" "autoload" "jazz.debuggee.Debuggee-Frame")}}})
 "setup"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "setup.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "setup.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.setup" module #f 37 8 37 27 ("setup-debuggee" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee")}}})
 "stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "stub.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "stub.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.stub" module #f 37 8 37 26 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Debuggee-Process" remotable-stub "~stub" 48 16 48 32 ()
@@ -405,6 +405,6 @@
         {Lisp-Entry "get-location" method #f 132 23 132 35 ()}
         {Lisp-Entry "get-variables" method #f 133 23 133 36 ("kind")}}}})
 "update"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "update.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "update.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debuggee.update" module #f 37 8 37 28 ("update-debuggee-process" "update-debuggee-arguments" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee")}}})

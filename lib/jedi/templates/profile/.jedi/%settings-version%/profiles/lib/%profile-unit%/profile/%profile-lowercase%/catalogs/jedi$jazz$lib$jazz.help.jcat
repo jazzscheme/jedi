@@ -1,5 +1,5 @@
 "Help-Contents"
- ({Lisp-File-Entry {File :context "src" "jazz" "help" "Help-Contents.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "help" "Help-Contents.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.help.Help-Contents" module #f 37 18 37 41 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.platform" "jazz.library" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "Help-Contents" class #f 48 7 48 20 ("Component-Editor")
@@ -13,7 +13,7 @@
         {Lisp-Entry "on-synchronize" method #f 124 11 124 25 ("evt")}
         {Lisp-Entry "synchronize-tree" method #f 133 11 133 27 ("contents-sheet" "tab" "set-selection-name" "set-selection-name~" "row->line" "row->line~" "set-single-selection" "set-single-selection~" "ensure-expanded" "ensure-expanded~" "bell" "null?" "if" "component-row" "component-row~" "row" "descendants" "locate" "tree" "let*" "component")}}}})
 "Help-Index"
- ({Lisp-File-Entry {File :context "src" "jazz" "help" "Help-Index.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "help" "Help-Index.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.help.Help-Index" module #f 37 18 37 38 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.platform" "jazz.library" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "Help-Index" class #f 48 7 48 17 ("Component-Editor")
@@ -33,10 +33,10 @@
         {Lisp-Entry "synchronize-tree" method #f 207 11 207 27 ("contents-sheet" "tab" "set-selection-name" "set-selection-name~" "row->line" "row->line~" "set-single-selection" "set-single-selection~" "ensure-expanded" "ensure-expanded~" "bell" "null?" "if" "component-row" "component-row~" "row" "descendants" "locate" "tree" "let*" "component")}
         {Lisp-Entry "search" method #f 222 11 222 17 ("search" "locate" "set-target" "set-target~" "target")}}}})
 "_help"
- ({Lisp-File-Entry {File :context "src" "jazz" "help" "_help.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "help" "_help.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.help" module #f 37 8 37 17 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.help.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "help" "autoload.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "help" "autoload.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.help.autoload" module #f 37 18 37 36 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Help-Index" "jazz.help.Help-Index" "Help-Contents" "autoload" "jazz.help.Help-Contents")}}})

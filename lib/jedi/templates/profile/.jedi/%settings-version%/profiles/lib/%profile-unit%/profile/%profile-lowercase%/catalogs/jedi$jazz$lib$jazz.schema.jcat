@@ -1,5 +1,5 @@
 "Archive-Schema-Browser"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "archive" "Archive-Schema-Browser.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "archive" "Archive-Schema-Browser.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.archive.Archive-Schema-Browser" module #f 37 18 37 60 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.schema" "jazz.jml" "jazz.graphic" "jazz.database")}
       {Lisp-Entry "Archive-Schema-Browser" class #f 48 20 48 42 ("View")
@@ -18,7 +18,7 @@
         {Lisp-Entry "form" anonymous #f 168 3 168 7 ("condensed?:" "install" "<install>")}
         {Lisp-Entry "update-choices" method #f 173 11 173 25 ("update-schema-combo")}}}})
 "Archive-Schema-Source"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "archive" "Archive-Schema-Source.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "archive" "Archive-Schema-Source.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.archive.Archive-Schema-Source" module #f 37 18 37 59 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Archive-Schema-Source" class #f 43 20 43 41 ("Schema-Source" "Object")
@@ -31,7 +31,7 @@
         {Lisp-Entry "present-detailed" method #f 67 20 67 36 ("schema" "file" "get-name" "get-name~" "format" ":bulleted" "list")}
         {Lisp-Entry "get-data-schema" method #f 79 20 79 35 ("get-schema" "get-schema~" "load-archive" "load-archive~" "archive" "=" "assert" "provider" "name" "bind" "schemas:" "getf" "let" "file" "Schema-Archive" "read-header" "read-header~" "properties" "version" "receive" "assoc" "or" "error" "empty-string?" "if" "schemas" "schema" "valid-schema" "define" "reporter" "reporter:")}}}})
 "Data-Column"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Column.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Column.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Column" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Column" class #f 43 7 43 18 ("Data-Object")
@@ -48,7 +48,7 @@
         {Lisp-Entry "auto-generate?" method #f 105 18 105 32 ("identity?" "get-property" "timestamp?" "has-property?" "and" "or")}
         {Lisp-Entry "get-prefered-width" method #f 115 18 115 36 ("10" "datatype" "get-size" "get-size~" "or" "50")}}}})
 "Data-Constraint"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Constraint.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Constraint.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Constraint" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Constraint" class #f 43 7 43 22 ("Data-Object")
@@ -56,7 +56,7 @@
         {Lisp-Entry "get-kind" method #f 63 20 63 28 ("constraint")}
         {Lisp-Entry "property-names" method #f 72 20 72 34 ("exclude-replication?" "checked?" "text")}}}})
 "Data-Container"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Container.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Container.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Container" module #f 38 18 38 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("time" "jazz.tie" "jazz.schema")}
       {Lisp-Entry "Data-Container" class #f 46 7 46 21 ("Object")
@@ -75,7 +75,7 @@
         {Lisp-Entry "format-column" definition #f 117 15 117 28 ("string-append" "name")}
         {Lisp-Entry "format-value" definition #f 121 15 121 27 ("error" "else" "number->string" "number?" "present-date-day" "date?" "true?" "if" "truth?" "sql-sanitize-string" "string-append" "string?" "not" "cond" "value")}}}})
 "Data-Entity"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Entity.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Entity.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Entity" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Entity" class #f 43 20 43 31 ("initialize" "Data-Object")
@@ -87,7 +87,7 @@
         {Lisp-Entry "create" method #f 68 26 68 32 ("name" "kind")}
         {Lisp-Entry "add" method #f 72 26 72 29 ("object" "kind")}}}})
 "Data-Index"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Index.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Index.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Index" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Index" class #f 43 7 43 17 ("Data-Object")
@@ -101,7 +101,7 @@
           {Lisp-Entry "form" anonymous #f 101 3 101 7 (">" "<properties" "<properties~>" "install" "<install>")}
           {Lisp-Entry "component-present-property" method #f 106 20 106 46 ("nextmethod" "else" "second" "first" "field/order" "lambda" "map" "format" "fields/orders" "case" "value" "property" "component")}}}}})
 "Data-Object"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Object.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Object.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Object" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema" "jazz.library")}
       {Lisp-Entry "Data-Object" class #f 44 20 44 31 ("initialize" "Object")
@@ -124,7 +124,7 @@
         {Lisp-Entry "get-property" method #f 103 26 103 38 ("error" "neq?" "if" "Inexistant" "not-found:" "properties" "getf" "value" "let" "Error" "not-found" "keyword")}
         {Lisp-Entry "set-property" method #f 112 26 112 38 ("list" "append!" "set!" "cdr" "set-car!" "if" "properties" "getprop" "pair" "let" "value" "keyword")}}}})
 "Data-Primary-Key"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Primary-Key.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Primary-Key.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Primary-Key" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Primary-Key" class #f 43 7 43 23 ("Data-Object")
@@ -138,7 +138,7 @@
           {Lisp-Entry "form" anonymous #f 101 3 101 7 (">" "<properties" "<properties~>" "install" "<install>")}
           {Lisp-Entry "component-present-property" method #f 106 20 106 46 ("nextmethod" "else" "second" "first" "field/order" "lambda" "map" "format" "fields/orders" "case" "value" "property" "component")}}}}})
 "Data-Procedure"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Procedure.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Procedure.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Procedure" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Procedure" class #f 43 7 43 21 ("Data-Entity")
@@ -146,7 +146,7 @@
         {Lisp-Entry "get-kind" method #f 63 20 63 28 ("procedure")}
         {Lisp-Entry "property-names" method #f 72 20 72 34 ("text")}}}})
 "Data-Relation"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Relation.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Relation.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Relation" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Relation" class #f 43 7 43 20 ("initialize" "Data-Entity")
@@ -171,7 +171,7 @@
           {Lisp-Entry "form" anonymous #f 142 3 142 7 (">" "<properties" "<properties~>" "install" "<install>")}
           {Lisp-Entry "component-present-property" method #f 147 20 147 46 ("nextmethod" "else" "format" "foreign-columns" "primary-columns" "case" "value" "property" "component")}}}}})
 "Data-Row"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Row.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Row.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Row" module #f 38 18 38 43 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.schema")}
       {Lisp-Entry "Data-Row" class #f 44 7 44 15 ("Data-Container")
@@ -182,7 +182,7 @@
         {Lisp-Entry "get" method #f 75 20 75 23 ("get" "map" "else" "error" "continuation-return" "get-name" "get-name~" "ci=?" "when" "value" "column" "for-each" "table" "get-columns" "get-columns~" "columns" "let" "return" "lambda" "continuation-capture" "string?" "values" "element" "integer?" "cond" "name/rank")}
         {Lisp-Entry "set" method #f 92 18 92 21 ("cdr" "set-car!" "get-name" "get-name~" "ci=?" "car" "column" "error" "null?" "or" "if" "values" "scan" "table" "get-columns" "get-columns~" "columns" "iterate" "let" "value" "name")}}}})
 "Data-Schema"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Schema.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Schema.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Schema" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.schema" "jazz.library")}
       {Lisp-Entry "Data-Schema" class #f 45 7 45 18 ("equal?" "test:" "make-table" "initialize" "Entity" "Data-Entity")
@@ -240,7 +240,7 @@
         {Lisp-Entry "can-view-properties?" method #f 564 20 564 40 ()}
         {Lisp-Entry "get-categorized-properties" method #f 568 20 568 46 ()}}}})
 "Data-Schema-Factory"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "factory" "Data-Schema-Factory.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "factory" "Data-Schema-Factory.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.factory.Data-Schema-Factory" module #f 37 18 37 57 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema" "jazz.library")}
       {Lisp-Entry "Data-Schema-Factory" class #f 44 20 44 39 ("Entity-Factory")
@@ -252,7 +252,7 @@
         {Lisp-Entry "get-factory-presentation" method #f 67 20 67 44 ()}
         {Lisp-Entry "get-factory-image" method #f 71 20 71 37 ("Image-Resource")}}}})
 "Data-Source"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Source.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Source.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Source" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.schema" "jazz.library" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "Data-Source" class #f 47 7 47 18 ("initialize" "Schema-Source" "Component")
@@ -279,7 +279,7 @@
           {Lisp-Entry "class-name->presentation" method #f 156 20 156 44 ("name" "class")}
           {Lisp-Entry "class-persist-property?" method #f 160 20 160 43 ("nextmethod" "else" "persist-passwords?" "persist-passwords?~" "password:" "persist-usernames?" "persist-usernames?~" "username:" "case" "get-process" "process" "let" "property" "class")}}}}})
 "Data-Sources"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Sources.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Sources.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Sources" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.jml" "jazz.database")}
       {Lisp-Entry "Data-Sources" class #f 45 20 45 32 ("initialize" "Group")
@@ -294,7 +294,7 @@
           {Lisp-Entry "component-get-presentation" method #f 79 20 79 46 ("component")}
           {Lisp-Entry "component-get-categorized-addable-classes" method #f 83 20 83 61 ("Data-Group" "reference" "list" "component")}}}}})
 "Data-Table"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Table.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Table.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Table" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Table" class #f 43 7 43 17 ("initialize" "Data-Entity")
@@ -352,7 +352,7 @@
         {Lisp-Entry "filter!" method #f 424 18 424 25 ("car" "set!" "cddr" "set-cdr!" "not" "if" "cadr" "row" "cdr" "while" "scan" "let" "rows" "when" "predicate")}
         {Lisp-Entry "sort-by" method #f 441 18 441 25 ("get" "get~" "row" "lambda" "key:" "sort" "rows" "set!" ">" "<" "if" "fn" "let" "ascending?" "ascending?:" "name")}}}})
 "Data-Trigger"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Trigger.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-Trigger.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-Trigger" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-Trigger" class #f 43 7 43 19 ("Data-Object")
@@ -360,7 +360,7 @@
         {Lisp-Entry "get-kind" method #f 63 20 63 28 ("trigger")}
         {Lisp-Entry "property-names" method #f 72 20 72 34 ("text")}}}})
 "Data-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-View.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Data-View.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Data-View" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Data-View" class #f 43 7 43 16 ("Data-Entity")
@@ -368,7 +368,7 @@
         {Lisp-Entry "get-kind" method #f 63 20 63 28 ("view")}
         {Lisp-Entry "property-names" method #f 72 20 72 34 ("text")}}}})
 "Datatype"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Datatype.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Datatype.jazz"} 1302177595 jazz
     {Lisp-Entry "jazz.schema.data.Datatype" module #f 37 18 37 43 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Datatype" class #f 43 7 43 15 ("Object")
@@ -396,7 +396,7 @@
         {Lisp-Entry "get-default-value" method #f 160 18 160 35 ("get-default-value" "get-default-value~" "and" "name" "self" "class-of" "find-systype" "find-systype~" "systype" "let")}
         {Lisp-Entry "present" method #f 170 26 170 33 ("else" "scale" "precision" "null?" "name" "format" "size" "cond")}}}})
 "Logical-Datatype"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Logical-Datatype.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "data" "Logical-Datatype.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.data.Logical-Datatype" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Logical-Datatype" class #f 43 7 43 23 ("Object")
@@ -415,7 +415,7 @@
         {Lisp-Entry "has-scale?" method #f 102 18 102 28 ("scale" "not-null?")}
         {Lisp-Entry "present" method #f 111 26 111 33 ("scale" "name" "format" "precision" "size" "null?" "if")}}}})
 "Schema-Archive"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "archive" "Schema-Archive.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "archive" "Schema-Archive.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.archive.Schema-Archive" module #f 37 18 37 52 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library")}
       {Lisp-Entry "Schema-Archive" class #f 43 20 43 34 ("Entity" "Object")}
@@ -460,7 +460,7 @@
         {Lisp-Entry "can-view-properties?" method #f 270 11 270 31 ()}
         {Lisp-Entry "get-categorized-properties" method #f 274 11 274 37 ()}}}})
 "Schema-Source"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "source" "Schema-Source.jazz"} 1288870741 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "source" "Schema-Source.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.source.Schema-Source" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "Schema-Source" interface #f 43 24 43 37 ()
@@ -468,7 +468,7 @@
         {Lisp-Entry "present-detailed" method #f 47 35 47 51 ()}
         {Lisp-Entry "get-data-schema" method #f 48 35 48 50 ("rest")}}}})
 "Table-Inspector"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "inspector" "Table-Inspector.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "inspector" "Table-Inspector.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.inspector.Table-Inspector" module #f 37 18 37 55 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.schema" "jazz.jml" "jazz.graphic")}
       {Lisp-Entry "Table-Inspector" class #f 46 7 46 22 ("initialize" "Layout-View")
@@ -481,12 +481,12 @@
         {Lisp-Entry "inspect-table" method #f 92 18 92 31 ("set-filled-column" "set-filled-column~" "display-table" "24" "get-prefered-width" "get-prefered-width~" "+" "column" "lambda" "map" "widths" "length" "affected" "get-rows" "get-rows~" "rows" "get-columns" "get-columns~" "columns" "get-tree" "tree" "let*" "self" "table~self" "set!" "filled-column" "filled-column:" "table")}
         {Lisp-Entry "display-table" method #f 103 11 103 24 ("Tree-Label" "map" "Tree-Node" "new" "cons" "children:" "add-row" "add-row~" "cdr" "rest" "first" "get-values" "get-values~" "values" "row" "set-display-images?" "set-display-images?~" "when" "Tree-Label-Column" "width:" "get-name" "get-name~" "title:" "toplevel-controls?:" "Tree-Node-Column" "class:" "add-column" "add-column~" "eq?" "node?" "let*" "width" "column" "lambda" "for-each" "car" "first-column" "let" "remove-columns" "remove-columns~" "->string" "not" "if" "value" "present-value" "define" "widths" "affected" "rows" "columns" "tree")}}}})
 "Table-Inspector-Tree"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "inspector" "Table-Inspector-Tree.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "inspector" "Table-Inspector-Tree.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.inspector.Table-Inspector-Tree" module #f 37 18 37 60 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui")}
       {Lisp-Entry "Table-Inspector-Tree" class #f 43 20 43 40 ("Tree-View")}}})
 "_schema"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "_schema.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "_schema.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema" module #f 37 8 37 19 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("syntax" "phase" "jazz.schema.syntax" "jazz.schema.autoload")}
       {Lisp-Entry "sql-sanitize-string" definition #f 49 20 49 39 ("1" "substring" "string-append" "2" "+" "string-ref" "eq?" "<" "if" "string-length" "size" "result" "0" "i" "iterate" "let" "str")}
@@ -494,11 +494,11 @@
       {Lisp-Entry "collect-hierarchical-data" definition #f 87 33 87 58 ("get-output" "get-output~" "put" "put~" "when" "object" "row" "lambda" "iterate-hierarchical-data" "List-Factory" "new" "fact" "let" "key" "size" "data" "proc")}
       {Lisp-Entry "sorted-hierarchical-data" definition #f 101 33 101 57 ("key:" "list" "collect-hierarchical-data" "sort" "third" "second" "first" "lambda" "collect" "sort-key" "sort-test" "key" "size" "data" "proc")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "autoload.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "autoload.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.autoload" module #f 37 18 37 38 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Schema-Source" "jazz.schema.source.Schema-Source" "Table-Inspector-Tree" "jazz.schema.inspector.Table-Inspector-Tree" "Table-Inspector" "jazz.schema.inspector.Table-Inspector" "Data-Schema-Factory" "jazz.schema.factory.Data-Schema-Factory" "Logical-Datatype" "jazz.schema.data.Logical-Datatype" "Datatype" "jazz.schema.data.Datatype" "Data-View" "jazz.schema.data.Data-View" "Data-Trigger" "jazz.schema.data.Data-Trigger" "Data-Table" "jazz.schema.data.Data-Table" "Data-Sources" "jazz.schema.data.Data-Sources" "Data-Source-Descriptor" "Data-Source" "jazz.schema.data.Data-Source" "Data-Schema" "jazz.schema.data.Data-Schema" "Data-Row" "jazz.schema.data.Data-Row" "Data-Relation" "jazz.schema.data.Data-Relation" "Data-Procedure" "jazz.schema.data.Data-Procedure" "Data-Primary-Key" "jazz.schema.data.Data-Primary-Key" "Data-Object" "jazz.schema.data.Data-Object" "Data-Index" "jazz.schema.data.Data-Index" "Data-Entity" "jazz.schema.data.Data-Entity" "Data-Container" "jazz.schema.data.Data-Container" "Data-Constraint" "jazz.schema.data.Data-Constraint" "Data-Column" "jazz.schema.data.Data-Column" "Schema-Archive" "jazz.schema.archive.Schema-Archive" "Archive-Schema-Source" "jazz.schema.archive.Archive-Schema-Source" "Archive-Schema-Browser" "autoload" "jazz.schema.archive.Archive-Schema-Browser")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "install.scm"} 1299704434 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "install.scm"} 1299165064 scheme
     {Lisp-Entry "jazz.schema.install" unit #f 37 6 37 25 ()
       {Lisp-Entry "Datatype" define ("literal") 45 21 45 29 ("construct-datatype" "jazz.schema.literals" "jazz.schema.literals:construct-datatype")}
       {Lisp-Entry "Data-Schema" define ("literal") 53 21 53 32 ("construct-data-schema" "jazz.schema.literals" "jazz.schema.literals:construct-data-schema")}
@@ -512,7 +512,7 @@
       {Lisp-Entry "Data-Trigger" define ("literal") 61 21 61 33 ("construct-data-trigger" "jazz.schema.literals" "jazz.schema.literals:construct-data-trigger")}
       {Lisp-Entry "Data-View" define ("literal") 62 21 62 30 ("construct-data-view" "jazz.schema.literals" "jazz.schema.literals:construct-data-view")}}})
 "literals"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "literals.jazz"} 1288870741 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "literals.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.literals" module #f 37 8 37 28 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "construct-datatype" definition #f 48 21 48 39 ("Datatype" "new" "not" "integer?" "or" "assert" "scale" "precision" "size" "name")}
@@ -527,6 +527,6 @@
       {Lisp-Entry "construct-data-trigger" definition #f 92 21 92 43 ("properties:" "name:" "Data-Trigger" "new" "properties" "name")}
       {Lisp-Entry "construct-data-view" definition #f 96 21 96 40 ("properties:" "name:" "Data-View" "new" "properties" "name")}}})
 "syntax"
- ({Lisp-File-Entry {File :context "src" "jazz" "schema" "syntax.jazz"} 1288870741 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "schema" "syntax.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.schema.syntax" module #f 37 18 37 36 ("jazz")
       {Lisp-Entry "datacontainer" macro ("macro") 40 15 40 28 (",access" "set!" "format" "string->symbol" "access" "nextmethod" ",@fields" ",table" "initialize" "definition" ",field" "slot" ",rank" ":location" "attribute" "increase!" "field" "lambda" "map" "Data-Container" "extends" ",name" "class" "1" "rank" "generate-symbol" "table" "let" "fields" "name" "bind" "form")}}})

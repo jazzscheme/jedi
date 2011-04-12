@@ -464,7 +464,7 @@
     (define (extract-toplevel-doc info)
       (bind (name . units) info
         (user-feedback "Extracting {a}..." name)
-        (let ((reference-dir {Directory jazz.website "reference"}))
+        (let ((reference-dir {Directory Jazz "lib" "jazz.website" "reference"}))
           (create-directories~ reference-dir)
           (call-with-output-file (path-settings (new-file~ reference-dir (format "{a}.jml" name)))
             (lambda (port)
@@ -622,10 +622,10 @@
   
   
   (definition JazzWebsite-Site
-    {File jazz.website "site" "JazzWebsite.jml"})
+    {File Jazz "lib" "jazz.website" "site" "JazzWebsite.jml"})
   
   (definition JazzWebsite-Content
-    {Directory jazz.website "content"})
+    {Directory Jazz "lib" "jazz.website" "content"})
   
   
   (method (regenerate-jazzwebsite)

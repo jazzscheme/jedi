@@ -1,5 +1,5 @@
 "_git"
- ({Lisp-File-Entry {File :context "src" "jazz" "git" "_git.jazz"} 1301161838 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "git" "_git.jazz"} 1301518487 jazz
     {Lisp-Entry "jazz.git" module #f 37 8 37 16 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.io")}
       {Lisp-Entry "*depot*" definition #f 44 12 44 19 ()}
@@ -54,7 +54,7 @@
         {Lisp-Entry "git-pull" method #f 479 18 479 26 ()}
         {Lisp-Entry "git-push" method #f 483 18 483 26 ()}}}})
 "ui"
- ({Lisp-File-Entry {File :context "src" "jazz" "git" "ui.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "git" "ui.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.git.ui" module #f 37 8 37 19 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.ui" "jazz.library" "jazz.jml" "jazz.io" "jazz.graphic" "jazz.git" "jazz.editor.diff")}
       {Lisp-Entry "Git-Explorer" class #f 56 7 56 19 ("initialize" "Layout-View")

@@ -1,5 +1,5 @@
 "_json"
- ({Lisp-File-Entry {File :context "src" "jazz" "json" "_json.jazz"} 1301161838 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "json" "_json.jazz"} 1301518487 jazz
     {Lisp-Entry "jazz.json" module #f 37 8 37 17 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.io")}
       {Lisp-Entry "make-json-readtable" definition #f 48 13 48 32 (":invalid" "readtable-paren-keyword-set!" ":object" "readtable-brace-keyword-set!" ":array" "readtable-bracket-keyword-set!" "readtable-char-handler" "readtable-char-handler-set!" "make-standard-readtable" "readtable" "let")}

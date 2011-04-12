@@ -1,29 +1,29 @@
 "_dialect"
- ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "_dialect.scm"} 1288870741 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "_dialect.scm"} 1296083298 scheme
     {Lisp-Entry "scheme.dialect" module #f 37 18 37 32 ("core")
       {Lisp-Entry "require" anonymous #f 40 1 40 8 ("scheme.dialect.runtime" "scheme.dialect.runtime-classes" "scheme.dialect.dialect" "syntax" "phase" "scheme.dialect.classes" "core.module")}
       {Lisp-Entry "export" anonymous #f 47 1 47 7 ("scheme.dialect.kernel")}}})
 "_scheme"
- ({Lisp-File-Entry {File :context "src" "scheme" "_scheme.scm"} 1288870741 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "_scheme.scm"} 1296083298 scheme
     {Lisp-Entry "scheme" module #f 37 8 37 14 ("core")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("syntax" "phase" "scheme.dialect")}}})
 "_syntax-rules"
- ({Lisp-File-Entry {File :context "src" "scheme" "syntax-rules" "_syntax-rules.scm"} 1299704435 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "syntax-rules" "_syntax-rules.scm"} 1299165943 scheme
     {Lisp-Entry "scheme.syntax-rules" module #f 37 8 37 27 ("scheme")
       {Lisp-Entry "generate-symbol" native ("native") 40 16 40 36 ()}
       {Lisp-Entry "source?" native ("native") 41 16 41 28 ()}
       {Lisp-Entry "error" native ("native") 42 16 42 26 ()}
       {Lisp-Entry "syntax-rules" define-macro #f 45 22 45 34 ("clause" ",_or" ",_er-macro-transformer" "res" ",many" ",_append" "=" "-" "d" "do" "many" ",ell-vars" ",_lambda" ",_map" "nest" "ell-vars" "ell-dim" "depth" ",t" ",_rename" "<=" "t" ">=" "cell" "f" "free" "free-vars" "source?" "syntactic-closure?" "caar" "id" "assoc-id" "ellipse-tail" "ellipse-depth" "ellipse-quote?" ",_strip-source-info" ",_equal?" ",_vector->list" ",_vector?" ",once" ",_pair?" ",_reverse" ",_null?" ",_if" "list" ",l" ",_cons" ",_lp" "_" ",w" ",_car" "once" "symbol->string" "ls-vars" "all-vars" "new-vars" "w" ",_list?" "error" "not" "ellipse?" "else" ",p" ",_quote" ",_compare" ",_and" "l" "cond" ",x" ",v" ",_let" "v" ",_begin" "expand-template" "k" "vars" "dim" ",_expr" ",_unwrap-syntactic-closure" ",_cdr" "p" "tmpl" "pat" "expand-pattern" "ls" "pred" "any" "number->string" "string-append" "1" "+" "set!" "next-v" "_compare" "_rename" "generate-symbol" "_expr" "list->vector" "_list->vector" "vector->list" "_vector->list" "reverse" "_reverse" "lp" "_lp" "list?" "_list?" "vector?" "_vector?" "map" "_map" "append" "_append" "apply" "_apply" "quote" "_quote" "null?" "_null?" "pair?" "_pair?" "cons" "_cons" "cdr" "_cdr" "car" "_car" "equal?" "_equal?" "eq?" "_eq?" "or" "_or" "and" "_and" "_if" "begin" "_begin" "let" "_let" "_lambda" "strip-syntactic-closures" "_strip-syntactic-closures" "strip-source-info" "_strip-source-info" "_unwrap-syntactic-closure" "er-macro-transformer" "_er-macro-transformer" "0" "count" "..." "ellipse" "cddr" "cdddr" "forms" "caddr" "if" "lits" "cadr" "identifier?" "srfi-46?" "unwrap-syntactic-closure" "let*" "identifier=?" "y" "compare" "make-syntactic-closure" "x" "rename" "define" "mac-env" "expr" "lambda" "rsc-macro-transformer")}}})
 "classes"
- ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "classes.scm"} 1299704435 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "classes.scm"} 1299165942 scheme
     {Lisp-Entry "scheme.dialect.classes" unit #f 37 16 37 38 ()
-      {Lisp-Entry "Define-Declaration" define-class ("class") 45 19 45 42 ("%%set-define-declaration-value" "%%get-define-declaration-value" "value" "%%get-define-declaration-signature" "signature" "allocate-define-declaration" "jazz:allocate-define-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
-      {Lisp-Entry "Define-Special-Form-Declaration" define-class ("class") 55 19 55 55 ("%%set-define-special-form-body" "%%get-define-special-form-body" "body" "%%set-define-special-form-signature" "%%get-define-special-form-signature" "signature" "allocate-define-special-form-declaration" "jazz:allocate-define-special-form-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
-      {Lisp-Entry "Define-Macro-Declaration" define-class ("class") 65 19 65 48 ("%%set-define-macro-body" "%%get-define-macro-body" "body" "%%set-define-macro-signature" "%%get-define-macro-signature" "signature" "allocate-define-macro-declaration" "jazz:allocate-define-macro-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
-      {Lisp-Entry "Scheme-Dialect" define-class ("class") 75 19 75 38 ("allocate-scheme-dialect" "jazz:allocate-scheme-dialect" "Object-Class" "jazz:Object-Class" "bindings" "Dialect" "jazz:Dialect")}
-      {Lisp-Entry "Scheme-Walker" define-class ("class") 84 19 84 37 ("allocate-scheme-walker" "jazz:allocate-scheme-walker" "Object-Class" "jazz:Object-Class" "autoloads" "references" "variables" "literals" "errors" "warnings" "Walker" "jazz:Walker")}}})
+      {Lisp-Entry "Define-Declaration" define-class ("class syntax") 45 19 45 42 ("%%set-define-declaration-value" "%%get-define-declaration-value" "value" "%%get-define-declaration-signature" "signature" "allocate-define-declaration" "jazz:allocate-define-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
+      {Lisp-Entry "Define-Special-Form-Declaration" define-class ("class syntax") 55 19 55 55 ("%%set-define-special-form-body" "%%get-define-special-form-body" "body" "%%set-define-special-form-signature" "%%get-define-special-form-signature" "signature" "allocate-define-special-form-declaration" "jazz:allocate-define-special-form-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
+      {Lisp-Entry "Define-Macro-Declaration" define-class ("class syntax") 65 19 65 48 ("%%set-define-macro-body" "%%get-define-macro-body" "body" "%%set-define-macro-signature" "%%get-define-macro-signature" "signature" "allocate-define-macro-declaration" "jazz:allocate-define-macro-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
+      {Lisp-Entry "Scheme-Dialect" define-class ("class syntax") 75 19 75 38 ("allocate-scheme-dialect" "jazz:allocate-scheme-dialect" "Object-Class" "jazz:Object-Class" "bindings" "Dialect" "jazz:Dialect")}
+      {Lisp-Entry "Scheme-Walker" define-class ("class syntax") 84 19 84 37 ("allocate-scheme-walker" "jazz:allocate-scheme-walker" "Object-Class" "jazz:Object-Class" "autoloads" "references" "variables" "literals" "errors" "warnings" "Walker" "jazz:Walker")}}})
 "dialect"
- ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "dialect.scm"} 1299704435 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "dialect.scm"} 1302177595 scheme
     {Lisp-Entry "scheme.dialect.dialect" unit #f 37 16 37 38 ("Scheme-Walker" "jazz:Scheme-Walker" "Scheme-Dialect" "jazz:Scheme-Dialect" "Define-Macro-Declaration" "jazz:Define-Macro-Declaration" "Define-Special-Form-Declaration" "jazz:Define-Special-Form-Declaration" "encapsulate-class" "jazz:encapsulate-class" "Define-Declaration" "jazz:Define-Declaration")
       {Lisp-Entry "Define-Declaration" define-class ("class runtime") 45 27 45 50 ()}
       {Lisp-Entry "new-define-declaration" define #f 48 9 48 36 ("setup-declaration" "jazz:setup-declaration" "uptodate" "private" "Define-Declaration" "jazz:Define-Declaration" "allocate-define-declaration" "jazz:allocate-define-declaration" "new-declaration" "let" "signature" "parent" "type" "name")}
@@ -107,7 +107,7 @@
       {Lisp-Entry "delay" define ("special") 751 28 751 33 ("walk-delay" "jazz:walk-delay" "scheme")}
       {Lisp-Entry "quasiquote" define ("special") 752 28 752 38 ("walk-quasiquote" "jazz:walk-quasiquote" "scheme")}}})
 "kernel"
- ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "kernel.scm"} 1288870741 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "kernel.scm"} 1299266169 scheme
     {Lisp-Entry "scheme.dialect.kernel" module #f 37 18 37 39 ("core")
       {Lisp-Entry "eq?" native ("native") 55 8 55 11 ("object^object:bool" "<object^object:bool>")}
       {Lisp-Entry "eqv?" native ("native") 56 8 56 12 ("object^object:bool" "<object^object:bool>")}
@@ -322,12 +322,12 @@
       {Lisp-Entry "sc-macro-transformer" native ("native") 376 8 376 28 ()}
       {Lisp-Entry "rsc-macro-transformer" native ("native") 377 8 377 29 ()}}})
 "runtime"
- ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "runtime.scm"} 1299704435 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "runtime.scm"} 1299165959 scheme
     {Lisp-Entry "scheme.dialect.runtime" unit #f 37 16 37 38 ("Define" "jazz:Define" "encapsulate-class" "jazz:encapsulate-class")
       {Lisp-Entry "Define" define-class ("class runtime") 45 27 45 38 ()}
       {Lisp-Entry "new-define" define #f 48 9 48 24 ("Define" "jazz:Define" "allocate-define" "jazz:allocate-define" "locator" "name")}
       {Lisp-Entry "register-define" define #f 55 9 55 29 ("new-define" "jazz:new-define" "register-module-entry" "jazz:register-module-entry" "locator" "name" "module-name")}}})
 "runtime-classes"
- ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "runtime-classes.scm"} 1299704435 scheme
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "runtime-classes.scm"} 1299165960 scheme
     {Lisp-Entry "scheme.dialect.runtime-classes" unit #f 37 16 37 46 ()
-      {Lisp-Entry "Define" define-class ("class") 45 19 45 30 ("%%get-define-locator" "locator" "allocate-define" "jazz:allocate-define" "Object-Class" "jazz:Object-Class" "name" "Field" "jazz:Field")}}})
+      {Lisp-Entry "Define" define-class ("class syntax") 45 19 45 30 ("%%get-define-locator" "locator" "allocate-define" "jazz:allocate-define" "Object-Class" "jazz:Object-Class" "name" "Field" "jazz:Field")}}})

@@ -1,5 +1,5 @@
 "_irregex"
- ({Lisp-File-Entry {File :context "src" "irregex" "_irregex.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "irregex" "_irregex.jazz"} 1296083296 jazz
     {Lisp-Entry "irregex" module #f 37 8 37 15 ("scheme")
       {Lisp-Entry "require" anonymous #f 40 1 40 8 ("irregex.implementation.irregex")}
       {Lisp-Entry "irregex" native ("native") 43 8 43 15 ()}
@@ -25,7 +25,7 @@
       {Lisp-Entry "irregex-fold" native ("native") 63 8 63 20 ()}
       {Lisp-Entry "irregex-fold/chunked" native ("native") 64 8 64 28 ()}}})
 "irregex"
- ({Lisp-File-Entry {File :context "src" "irregex" "implementation" "irregex.scm"} 1288870739 scheme
+ ({Lisp-File-Entry {File :context "src" "irregex" "implementation" "irregex.scm"} 1296083296 scheme
     {Lisp-Entry "irregex.implementation.irregex" unit #f 57 6 57 36 ()
       {Lisp-Entry "irregex-tag" define #f 61 8 61 19 ("*irregex-tag*")}
       {Lisp-Entry "make-irregex" define #f 63 9 63 21 ("irregex-tag" "vector" "names" "lengths" "submatches" "flags" "nfa" "dfa/extract" "dfa/search" "dfa")}

@@ -1,5 +1,5 @@
 "Bitmap"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Bitmap.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Bitmap.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.platform.windows.Bitmap" module #f 37 18 37 54 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform")}
       {Lisp-Entry "Bitmap" class #f 43 20 43 26 ("Object")
@@ -9,7 +9,7 @@
         {Lisp-Entry "get-handle" method #f 65 11 65 21 ("handle")}
         {Lisp-Entry "get-size" method #f 69 18 69 26 ("BITMAP-bmHeight-ref" "BITMAP-bmWidth-ref" "Dimension" "new" "BITMAP-sizeof" "handle" "GetObject" "BITMAP-make" "info" "let")}}}})
 "Color"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Color.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Color.jazz"} 1302177595 jazz
     {Lisp-Entry "jazz.graphic.Color" module #f 37 18 37 36 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library.exemplar" "jazz.graphic")}
       {Lisp-Entry "Color" class #f 44 7 44 12 ("0" "initialize" "attributes" "Exemplar")
@@ -31,7 +31,7 @@
         {Lisp-Entry "determine-color" method #f 77 18 77 33 ("self" "else" "get-opposite" "Dark" "registered-color" "not" "cond" "selected?" "enabled?")}
         {Lisp-Entry "get-opposite" method #f 84 18 84 30 ("else" "Gray" "Dark-Gray" "Yellow" "Dark-Red" "registered-color" "self" "color-similar?" "cond")}}}})
 "Concrete-Font"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "Concrete-Font.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "Concrete-Font.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.font.Concrete-Font" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.cairo" "jazz.library.exemplar" "jazz.graphic.font" "jazz.graphic")}
       {Lisp-Entry "Concrete-Font" class #f 46 7 46 20 ("initialize" "Object")
@@ -65,7 +65,7 @@
         {Lisp-Entry "get-widths" method #f 195 18 195 28 ("get-char-widths" "get-char-widths~" "font" "work-surface" "set-font" "set-font~" "rest")}
         {Lisp-Entry "get-char-width" method #f 200 18 200 32 ("get-char-width" "get-char-width~" "font" "work-surface" "set-font" "set-font~" "get-all-widths" "vector-ref" "256" "<" "if" "char->integer" "n" "let" "c")}}}})
 "DC-Snapshot"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "DC-Snapshot.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "DC-Snapshot.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.DC-Snapshot" module #f 37 18 37 42 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.graphic")}
       {Lisp-Entry "DC-Snapshot" class #f 43 20 43 31 ("Viewable" "Object")}
@@ -85,7 +85,7 @@
         {Lisp-Entry "client" property #f 104 12 104 18 ()}
         {Lisp-Entry "draw" method #f 107 11 107 15 ("get-size" "destination-size:" "size:" "bit-blit" "bit-blit~" "client" "get-memory-dc" "get-memory-dc~" "memory-dc" "Snapshot-Size" "size" "let" "lv" "lh" "context" "surface")}}}})
 "Font"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "Font.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "Font.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.font.Font" module #f 37 18 37 40 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.cairo" "jazz.library.exemplar" "jazz.graphic.font" "jazz.graphic")}
       {Lisp-Entry "Font" class #f 46 7 46 11 ("equal?" "test" "initialize" "attributes" "Exemplar")
@@ -125,7 +125,7 @@
         {Lisp-Entry "get-widths" method #f 126 18 126 28 ("concrete-font" "get-widths" "get-widths~")}
         {Lisp-Entry "get-char-width" method #f 130 18 130 32 ("concrete-font" "get-char-width" "get-char-width~" "c")}}}})
 "Font-Metrics"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Font-Metrics.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Font-Metrics.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.Font-Metrics" module #f 37 18 37 43 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.cairo")}
       {Lisp-Entry "Font-Metrics" class #f 43 7 43 19 ("Object")
@@ -138,7 +138,7 @@
         {Lisp-Entry "get-ascent" method #f 79 18 79 28 ("metrics" "cairo_font_extents_t-ascent-ref" "fxround" "fx" "<fx>")}
         {Lisp-Entry "get-max-char-width" method #f 83 18 83 36 ("metrics" "cairo_font_extents_t-max_x_advance-ref" "fxround" "fx" "<fx>")}}}})
 "Gradient"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Gradient.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Gradient.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.Gradient" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.graphic")}
       {Lisp-Entry "Gradient" class #f 43 7 43 15 ("Object")
@@ -151,7 +151,7 @@
         {Lisp-Entry "compare-object" method #f 60 20 60 34 (":not-equal" "else" ":equal" "get-parts" "get-parts~" "parts" "equal?" "get-kind" "get-kind~" "kind" "eq?" "and" ":incompatible" "Gradient" "is-not?" "cond" "target")}
         {Lisp-Entry "print" method #f 70 20 70 25 ("parts" "not-null?" "kind" "self" "class-of" "category-name" "format" "readably" "output")}}}})
 "Image"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "Image.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "Image.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.image.Image" module #f 37 18 37 42 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.cairo" "jazz.io" "jazz.graphic.image" "jazz.graphic" "jazz.geometry")}
       {Lisp-Entry "Image" class #f 47 7 47 12 ("explicit" "0" "Point" "initialize" "Object")
@@ -181,7 +181,7 @@
         {Lisp-Entry "set-moniker" method #f 114 18 114 29 ("image" "load-image" "handle" "when" "moniker" "set!" "mnk")}
         {Lisp-Entry "image-size" method #f 125 18 125 28 ("else" "get-cairo-image-surface-size" "handle" "cond")}}}})
 "Memory-Surface"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Memory-Surface.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Memory-Surface.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.Memory-Surface" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.cairo" "jazz.graphic")}
       {Lisp-Entry "Memory-Surface" class #f 44 7 44 21 ("Surface")
@@ -190,7 +190,7 @@
         {Lisp-Entry "initialize" method #f 50 20 50 30 ("self" "size~self" "set!" "nextmethod" "get-height" "get-height~" "get-width" "get-width~" "create-cairo-image-surface" "surface" "let" "size" "compatibility")}
         {Lisp-Entry "renew-context" method #f 56 19 56 32 ("surface" "cairo_create" "context" "set!" "destroy-context")}}}})
 "Picture"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Picture.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Picture.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.platform.windows.Picture" module #f 37 18 37 55 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.graphic")}
       {Lisp-Entry "Picture" class #f 43 7 43 14 ("Surface")}
@@ -200,7 +200,7 @@
         {Lisp-Entry "get-metafile" method #f 66 18 66 30 ("set!" "CloseEnhMetaFile" "prog1" "hdc" "not" "unless")}
         {Lisp-Entry "delete-metafile" method #f 72 23 72 38 ("DeleteEnhMetaFile" "metafile")}}}})
 "Picture-Job"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Picture-Job.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Picture-Job.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.platform.windows.Picture-Job" module #f 37 18 37 59 ("jazz")
       {Lisp-Entry "Picture-Job" class #f 40 20 40 31 ("Object")}
       {Lisp-Entry "Picture-Job" class #f 44 20 44 31 ("Print-Job")
@@ -210,7 +210,7 @@
         {Lisp-Entry "start-page" method #f 62 11 62 21 ("1" "+" "filename" "format" "directory" "new-file" "new-file~" "file:" "Picture" "new" "surface" "set!" "no")}
         {Lisp-Entry "end-page" method #f 66 11 66 19 ("Picture" "delete-metafile" "delete-metafile~" "close" "close~" "surface" "get-metafile" "get-metafile~" "metafile" "let" "no")}}}})
 "Portfolio"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "Portfolio.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "Portfolio.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.image.Portfolio" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.cairo" "jazz.library" "jazz.graphic.image" "jazz.graphic" "jazz.geometry")}
       {Lisp-Entry "Portfolio" class #f 47 7 47 16 ("equal?" "test:" "make-table" "initialize" "Component")
@@ -223,14 +223,14 @@
         {Lisp-Entry "draw-image" method #f 127 18 127 28 ("draw-image" "draw-image~" "get-image" "image" "let" "v" "h" "resource" "context" "surface")}
         {Lisp-Entry "draw-opaque-image" method #f 132 18 132 35 ("get-surface" "get-surface~" "draw-image" "draw-image~" "get-opaque-image" "image" "let" "v" "h" "background" "resource" "context" "surface")}}}})
 "Portfolio-Domain"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "Portfolio-Domain.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "Portfolio-Domain.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.image.Portfolio-Domain" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.locale" "jazz.library" "jazz.jml" "jazz.graphic" "jazz.designer")}
       {Lisp-Entry "Portfolio-Domain" class #f 47 20 47 36 ("Text-Domain")
         {Lisp-Entry "present" method #f 55 20 55 27 ("get-name" "get-name~" "Portfolio" "is?" "symbol->string" "not" "if" "value")}
         {Lisp-Entry "parse" method #f 69 20 69 25 ("read-string-element" "equal?" "if" "text")}}}})
 "Rectangles-Region"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Rectangles-Region.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Rectangles-Region.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.Rectangles-Region" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.geometry")}
       {Lisp-Entry "Rectangles-Region" class #f 44 7 44 24 ("initialize" "Object")
@@ -246,7 +246,7 @@
         {Lisp-Entry "intersects-rect?" method #f 101 26 101 42 ("get-box" "rect-intersect?" "bool" "<bool>" "rect")}
         {Lisp-Entry "get-box" method #f 105 26 105 33 ("bounding-box" "Rect" "<Rect>")}}}})
 "Region"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "carbon" "Region.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "carbon" "Region.jazz"} 1298925349 jazz
     {Lisp-Entry "jazz.graphic.platform.carbon.Region" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform" "jazz.library" "jazz.geometry" "jazz.graphic")}
       {Lisp-Entry "Region" class #f 46 7 46 13 ("Rectangles-Region")
@@ -259,7 +259,7 @@
         {Lisp-Entry "empty?" method #f 84 20 84 26 ("0" "Rect" "get-box" "=" "bool" "<bool>")}
         {Lisp-Entry "intersects-rect?" method #f 88 20 88 36 ("get-box" "rect-intersect?" "bool" "<bool>" "rect")}
         {Lisp-Entry "get-box" method #f 92 20 92 27 ("new" "handle" "GetRegionBounds" "r" "b" "t" "l" "receive" "Rect" "<Rect>")}}}}
-  {Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Region.jazz"} 1288870739 jazz
+  {Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "windows" "Region.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.platform.windows.Region" module #f 37 18 37 54 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform" "jazz.geometry" "jazz.graphic")}
       {Lisp-Entry "Region" class #f 45 7 45 13 ("Rectangles-Region")
@@ -272,13 +272,13 @@
         {Lisp-Entry "empty?" method #f 89 20 89 26 ("0" "Rect" "get-box" "=" "bool" "<bool>")}
         {Lisp-Entry "intersects-rect?" method #f 93 20 93 36 ("empty?" "empty?~" "not" "and" "self" "combine!" "combine!~" "Region" "new" "region" "with" "bool" "<bool>" "rect")}
         {Lisp-Entry "get-box" method #f 99 20 99 27 ("RECT-free" "RECT->rect" "prog1" "handle" "GetRgnBox" "RECT-make" "rect" "let" "Rect" "<Rect>")}}}}
-  {Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "x11" "Region.jazz"} 1288870739 jazz
+  {Lisp-File-Entry {File :context "src" "jazz" "graphic" "platform" "x11" "Region.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.platform.x11.Region" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.geometry" "jazz.graphic")}
       {Lisp-Entry "Region" class #f 45 7 45 13 ("Rectangles-Region")
         {Lisp-Entry "initialize" method #f 48 20 48 30 ("nextmethod" "rest")}}}})
 "Surface"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Surface.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Surface.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.Surface" module #f 38 18 38 38 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.platform.cairo" "jazz.platform" "jazz.library" "jazz.io" "jazz.graphic.image" "jazz.graphic.font" "jazz.graphic" "jazz.geometry")}
       {Lisp-Entry "Surface" class #f 55 7 55 14 ("Region+" "<Region+>" "Dimension+" "<Dimension+>" "symbol+" "<symbol+>" "bool" "<bool>" "fx" "<fx>" "0" "new" "initialize" "Rect" "<Rect>" "Object")
@@ -391,7 +391,7 @@
         {Lisp-Entry "cairo-surface-status" method #f 1173 18 1173 38 ("surface" "cairo_surface_status")}
         {Lisp-Entry "proclaim" anonymous #f 1177 3 1177 11 ("optimizations" "warn" "not")}}}})
 "Texture"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Texture.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Texture.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.Texture" module #f 37 18 37 38 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.graphic")}
       {Lisp-Entry "Texture" class #f 43 7 43 14 ("Object")
@@ -408,17 +408,17 @@
         {Lisp-Entry "get-attribute" method #f 86 18 86 31 ("symbol->keyword" "attributes" "getf" "not-found" "not-found:" "name")}
         {Lisp-Entry "get-content" method #f 95 18 95 29 ("parts" "car")}}}})
 "Viewable"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Viewable.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "Viewable.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.Viewable" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "Viewable" interface #f 40 24 40 32 ()
         {Lisp-Entry "get-title" method #f 43 35 43 44 ()}
         {Lisp-Entry "get-viewer-class" method #f 44 35 44 51 ()}}}})
 "_font"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "_font.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "_font.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.font" module #f 37 8 37 25 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("x11" "windows" "jazz.graphic.font.platform.logfont" "carbon" "cond" "jazz.graphic.font.platform.freetype")}}})
 "_graphic"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "_graphic.jazz"} 1299782587 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "_graphic.jazz"} 1299619589 jazz
     {Lisp-Entry "jazz.graphic" module #f 37 8 37 20 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.graphic.autoload" "jazz.graphic.syntax")}
       {Lisp-Entry "import" anonymous #f 43 1 43 7 ("jazz.library.exemplar" "jazz.geometry" "jazz.graphic.autoload")}
@@ -457,7 +457,7 @@
       {Lisp-Entry "debug-paint?" definition #f 293 19 293 31 ("make-parameter")}
       {Lisp-Entry "debug-painting?" definition #f 296 19 296 34 ("make-parameter")}}})
 "_image"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "_image.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "image" "_image.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.image" module #f 37 8 37 26 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.platform.cairo" "jazz.library")}
       {Lisp-Entry "load-image" definition #f 50 20 50 30 ("resource?" "case" "Image-Load-Error" "new" "signal" "0" "cairo_surface_status" "/=" "if" "parse" "parse~" "cairo_image_surface_create_from_png" "handle" "let" "file" "create-cairo-surface-from-png" "find-image-file" "get-name" "get-name~" "icon" "get-application" "get-resource" "get-resource~" "resource" "find-icon-file" "define" "image" "type")}
@@ -466,7 +466,7 @@
       {Lisp-Entry "Image-Load-Error" class #f 107 15 107 31 ("Error")
         {Lisp-Entry "get-message" method #f 110 20 110 31 ()}}}})
 "_literals"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "literals" "_literals.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "literals" "_literals.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.literals" module #f 37 8 37 29 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library.exemplar" "jazz.library" "jazz.graphic")}
       {Lisp-Entry "construct-color" definition #f 50 21 50 36 ("Color" "construct-exemplar" "rest")}
@@ -474,11 +474,11 @@
       {Lisp-Entry "construct-gradient" definition #f 68 21 68 39 ("Gradient" "new" "apply" "rest" "kind")}
       {Lisp-Entry "construct-texture" definition #f 77 21 77 38 ("Texture" "new" "parse-attributes" "parts" "attributes" "receive" "rest" "mode")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "autoload.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "autoload.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.autoload" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("x11" "jazz.graphic.platform.x11.Region" "jazz.graphic.platform.windows.Region" "Region" "carbon" "jazz.graphic.platform.carbon.Region" "Viewable" "jazz.graphic.Viewable" "Texture" "jazz.graphic.Texture" "Surface" "jazz.graphic.Surface" "Rectangles-Region" "jazz.graphic.Rectangles-Region" "Picture-Job" "jazz.graphic.platform.windows.Picture-Job" "Picture" "jazz.graphic.platform.windows.Picture" "Portfolio-Domain" "jazz.graphic.image.Portfolio-Domain" "Portfolio" "jazz.graphic.image.Portfolio" "Image" "jazz.graphic.image.Image" "Gradient" "jazz.graphic.Gradient" "Font-Metrics" "jazz.graphic.Font-Metrics" "Font" "jazz.graphic.font.Font" "Concrete-Font" "jazz.graphic.font.Concrete-Font" "DC-Snapshot" "jazz.graphic.DC-Snapshot" "Color" "jazz.graphic.Color" "Memory-Surface" "jazz.graphic.Memory-Surface" "Bitmap" "autoload" "windows" "cond" "jazz.graphic.platform.windows.Bitmap")}}})
 "colors"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "literals" "colors.jazz"} 1300813586 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "literals" "colors.jazz"} 1300125956 jazz
     {Lisp-Entry "jazz.graphic.literals.colors" module #f 37 8 37 36 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.graphic")}
       {Lisp-Entry "Black" define ("color") 48 14 48 19 ("blue:" "green:" "0" "red:")}
@@ -540,7 +540,7 @@
       {Lisp-Entry "Boundary" define ("color") 132 14 132 22 ("blue:" "242" "green:" "114" "red:")}
       {Lisp-Entry "Frame" define ("color") 133 14 133 19 ("blue:" "146" "green:" "254" "red:")}}})
 "fonts"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "literals" "fonts.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "literals" "fonts.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.literals.fonts" module #f 37 8 37 35 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.graphic")}
       {Lisp-Entry "Label" define ("font") 46 19 46 24 ("8" "point-size:" "font-name:")}
@@ -584,7 +584,7 @@
       {Lisp-Entry "Doc-Heading3" define ("font") 87 19 87 31 ("14" "point-size:" "vera-sans" "font-name:")}
       {Lisp-Entry "Doc-Heading4" define ("font") 88 19 88 31 ("12" "point-size:" "vera-sans" "font-name:")}}})
 "freetype"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "platform" "freetype.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "platform" "freetype.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.font.platform.freetype" module #f 37 18 37 53 ("10x20" "droid-serif" "droid-mono" "droid-sans" "vera-serif" "vera-mono" "vera-sans" "freetype-font-table" "table-set!" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.freetype" "jazz.platform.cairo")}
       {Lisp-Entry "freetype-font-table" definition #f 49 12 49 31 ("make-table")}
@@ -595,14 +595,14 @@
       {Lisp-Entry "destroy-font-handle" definition #f 107 20 107 39 ("FcPatternDestroy" "free-FT_Face" "if" "handle" "local?")}
       {Lisp-Entry "destroy-cairo-font-face" definition #f 113 20 113 43 ("cairo_font_face_destroy" "handle")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "install.scm"} 1299704434 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "install.scm"} 1299165064 scheme
     {Lisp-Entry "jazz.graphic.install" unit #f 37 6 37 26 ()
       {Lisp-Entry "Color" define ("literal") 40 21 40 26 ("construct-color" "jazz.graphic.literals" "jazz.graphic.literals:construct-color")}
       {Lisp-Entry "Font" define ("literal") 41 21 41 25 ("construct-font" "jazz.graphic.literals" "jazz.graphic.literals:construct-font")}
       {Lisp-Entry "Gradient" define ("literal") 42 21 42 29 ("construct-gradient" "jazz.graphic.literals" "jazz.graphic.literals:construct-gradient")}
       {Lisp-Entry "Texture" define ("literal") 43 21 43 28 ("construct-texture" "jazz.graphic.literals" "jazz.graphic.literals:construct-texture")}}})
 "logfont"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "platform" "logfont.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "font" "platform" "logfont.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.font.platform.logfont" module #f 37 18 37 52 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.cairo" "jazz.platform")}
       {Lisp-Entry "create-font-handle" definition #f 44 20 44 38 ("DEFAULT_PITCH" "DEFAULT_QUALITY" "CLIP_DEFAULT_PRECIS" "OUT_DEFAULT_PRECIS" "ANSI_CHARSET" "1" "FW_NORMAL" "FW_BOLD" "0" "calculate-height" "fxround" "CreateFont" "error" "if" "underline?" "underline?:" "italic?" "italic?:" "bold?" "bold?:" "point-size" "point-size:" "font-name" "font-name:" "local?")}
@@ -612,7 +612,7 @@
       {Lisp-Entry "destroy-font-handle" definition #f 86 20 86 39 ("DeleteObject" "handle" "local?")}
       {Lisp-Entry "destroy-cairo-font-face" definition #f 90 20 90 43 ("cairo_font_face_destroy" "handle")}}})
 "syntax"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "syntax.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "syntax.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.graphic.syntax" module #f 37 18 37 37 ("jazz")
       {Lisp-Entry "define-color" macro ("macro") 40 15 40 27 (",@rest" "Color" "new" ",name" "register-color" "rest" "name")}
       {Lisp-Entry "define-font" macro ("macro") 45 15 45 26 (",@rest" "Font" "new" ",name" "register-font" "rest" "name")}}})

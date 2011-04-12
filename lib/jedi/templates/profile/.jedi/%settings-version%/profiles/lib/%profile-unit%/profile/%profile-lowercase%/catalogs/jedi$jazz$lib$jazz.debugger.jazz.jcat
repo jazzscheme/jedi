@@ -1,5 +1,5 @@
 "Jazz-Configuration"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Configuration.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Configuration.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Jazz-Configuration" module #f 37 18 37 55 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.system" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide" "jazz.designer" "jazz.debugger.gambit")}
       {Lisp-Entry "Jazz-Configuration" class #f 50 7 50 25 ("Gambit-Configuration")
@@ -9,7 +9,7 @@
         {Lisp-Entry "Jazz-Configuration-Descriptor" class #f 73 7 73 36 ("Gambit-Configuration-Descriptor")
           {Lisp-Entry "form" anonymous #f 76 3 76 7 ("title" "categorized:" ">" "<properties" "<properties~>" "install" "<install>")}}}}})
 "Jazz-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Debugger.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Debugger.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Jazz-Debugger" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.workspace" "jazz.ui.window" "jazz.ui.view" "jazz.system" "jazz.network" "jazz.media" "jazz.jrm" "jazz.editor.jazz" "jazz.io" "jazz.debugger" "jazz.debuggee" "jazz.console")}
       {Lisp-Entry "Jazz-Debugger" class #f 54 7 54 20 ("initialize" "Debugger")
@@ -78,7 +78,7 @@
         {Lisp-Entry "register-stop" method #f 485 18 485 31 ("get-debugger-manager" "register-stop" "register-stop~" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "step?" "step?:" "stop" "thread" "process")}
         {Lisp-Entry "unregister-stop" method #f 494 18 494 33 ("get-debugger-manager" "unregister-stop" "unregister-stop~" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "stop" "thread" "process")}}}})
 "Jazz-Project"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Project.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Project.jazz"} 1297261649 jazz
     {Lisp-Entry "jazz.debugger.jazz.Jazz-Project" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.system" "jazz.network" "jazz.project" "jazz.library" "jazz.jrm" "jazz.jml" "jazz.io" "jazz.ide" "jazz.designer" "jazz.debugger")}
       {Lisp-Entry "Jazz-Project" class #f 54 7 54 19 ("initialize" "Project")
@@ -115,7 +115,7 @@
         {Lisp-Entry "Jazz-Project-Descriptor" class #f 257 7 257 30 ("Project-Descriptor")
           {Lisp-Entry "form" anonymous #f 260 3 260 7 ("name:" "Property-Descriptor" "<Property-Descriptor>" "profile" "product" "configuration" "directory" "title" "categorized:" ">" "<properties" "<properties~>" "Image-Resource" "image:" "install" "<install>")}}}}})
 "Snapshot-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Snapshot-Debugger.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Snapshot-Debugger.jazz"} 1298391694 jazz
     {Lisp-Entry "jazz.debugger.jazz.Snapshot-Debugger" module #f 37 18 37 54 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.workspace" "jazz.ui.window" "jazz.ui.view" "jazz.system" "jazz.network" "jazz.media" "jazz.jrm" "jazz.editor.jazz.inspector" "jazz.editor.jazz" "jazz.io" "jazz.debugger" "jazz.debuggee" "jazz.console" "jazz.catalog")}
       {Lisp-Entry "Snapshot-Debugger" class #f 56 7 56 24 ("initialize" "Debugger")
@@ -168,7 +168,7 @@
         {Lisp-Entry "attach-process" method #f 338 11 338 25 ("get-debugger-manager" "attach-process" "attach-process~" "self" "Debugged-Process" "new" "debugged-process" "let" "list" "append!" "set!" "setup-values" "lambda" "call-event" "process=?" "test:" "processes" "member?" "unless" "focus?" "process")}
         {Lisp-Entry "detach-process" method #f 349 11 349 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "remove!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "when" "process")}}}})
 "Swank-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Debugger.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Debugger.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Swank-Debugger" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.workspace" "jazz.ui.window" "jazz.ui.view" "jazz.system" "jazz.network" "jazz.media" "jazz.jrm" "jazz.editor.jazz.inspector" "jazz.editor.jazz" "jazz.io" "jazz.debugger.jazz" "jazz.debugger" "jazz.debuggee" "jazz.console")}
       {Lisp-Entry "Swank-Debugger" class #f 56 7 56 21 ("initialize" "Debugger")
@@ -244,7 +244,7 @@
         {Lisp-Entry "process-swank-problem" method #f 567 11 567 32 ("swank" "debug" "problem" "process")}
         {Lisp-Entry "process-swank-event" method #f 572 11 572 30 ("swank" "debug" "else" "caddr" "swank-debug-return" ":debug-return" ":indentation-update" ":new-features" "cadr" "console-write" ":write-string" "case" "car" "kind" "let" "event" "process")}}}})
 "Swank-Process"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Process.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Process.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Swank-Process" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
       {Lisp-Entry "Swank-Process" class #f 45 7 45 20 ("1" "initialize" "Object")
@@ -269,7 +269,7 @@
         {Lisp-Entry "initialize" method #f 57 20 57 30 ("self" "port~self" "set!" "port")}
         {Lisp-Entry "generate-unique-id" method #f 61 18 61 36 ("increase!" "unique-id" "prog1")}}}})
 "Swank-Restart"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Restart.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Restart.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Swank-Restart" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
       {Lisp-Entry "Swank-Restart" class #f 45 7 45 20 ("Object")
@@ -281,7 +281,7 @@
         {Lisp-Entry "get-rank" accessor #f 50 23 50 31 ()}
         {Lisp-Entry "initialize" method #f 53 20 53 30 ("rank~self" "message~self" "self" "title~self" "set!" "nextmethod" "rank" "message" "title")}}}})
 "Swank-Snooper"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Snooper.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Snooper.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Swank-Snooper" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.io")}
       {Lisp-Entry "Swank-Snooper" class #f 44 7 44 20 ("Object")
@@ -292,7 +292,7 @@
         {Lisp-Entry "start" method #f 60 11 60 16 ("snooper" "unless" "connection" "received" "read" "snooper-port-number" "open-tcp-server" "server-port" "snooper-stop?" "append:" "get-eol-encoding" "eol-encoding:" "path:" "call-with-output-file" "snooper-thread" "set!" "continuation-capture" "newline" "pp" "<---" "display" "force-output" "read-string-element" "format" "--->" "message" "16" "string->number" "count" "0" "read-substring" "=" "when" "6" "make-string" "header" "loop" "exc" "with-exception-catcher" "close-port" "thread-join!" "snoop-swank" "swank-thread" "slime" "snoop-slime" "lambda" "new-thread" "thread-start!" "slime-thread" "at" "to" "connected" "swank-port-number" "port-number:" "list" "open-tcp-client" "swank-port" "let" "swank" "for" "waiting" "done" "file-port" "slime-port" "snoop" "define" "feedback")}
         {Lisp-Entry "stop" method #f 144 11 144 15 ("done" "snooper" "thread-exit" "snooper-thread" "thread-interrupt!" "snooper-stop?" "set!" "feedback")}}}})
 "Swank-Stop"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Stop.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Stop.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Swank-Stop" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
       {Lisp-Entry "Swank-Stop" class #f 45 7 45 17 ("Object")
@@ -310,7 +310,7 @@
         {Lisp-Entry "get-frames" accessor #f 53 25 53 33 ()}
         {Lisp-Entry "initialize" method #f 56 20 56 30 ("frames~self" "restarts~self" "condition~self" "level~self" "id~self" "self" "thread~self" "set!" "nextmethod" "frames" "restarts" "condition" "level" "id" "thread")}}}})
 "Swank-Thread"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Thread.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Thread.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.Swank-Thread" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
       {Lisp-Entry "Swank-Thread" class #f 45 7 45 19 ("Object")
@@ -320,19 +320,19 @@
         {Lisp-Entry "get-id" accessor #f 49 23 49 31 ()}
         {Lisp-Entry "initialize" method #f 52 20 52 30 ("id~self" "self" "process~self" "set!" "nextmethod" "id" "process")}}}})
 "_jazz"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "_jazz.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "_jazz.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz" module #f 37 8 37 26 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.debugger.jazz.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "autoload.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "autoload.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.autoload" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Jazz-Debugger-Stub" "jazz.debugger.jazz.stub" "Swank-Thread" "jazz.debugger.jazz.Swank-Thread" "Swank-Stop" "jazz.debugger.jazz.Swank-Stop" "Swank-Snooper" "jazz.debugger.jazz.Swank-Snooper" "Swank-Restart" "jazz.debugger.jazz.Swank-Restart" "Swank-Process" "jazz.debugger.jazz.Swank-Process" "Swank-Debugger" "jazz.debugger.jazz.Swank-Debugger" "Snapshot-Debugger" "jazz.debugger.jazz.Snapshot-Debugger" "Jazz-Project-Descriptor" "Jazz-Project" "jazz.debugger.jazz.Jazz-Project" "Jazz-Debugger" "autoload" "jazz.debugger.jazz.Jazz-Debugger")}}})
 "project"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "data" "project.jazz"} 1296053993 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "data" "project.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.data.project" module #f 37 8 37 39 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.ide.data.project" "jazz.debugger.jazz")}}})
 "stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.stub" module #f 37 8 37 31 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Jazz-Debugger" remotable-stub "~stub" 43 16 43 29 ()
@@ -351,6 +351,6 @@
         {Lisp-Entry "unregister-stop" method #f 58 23 58 38 ("stop" "thread" "process")}
         {Lisp-Entry "inspect" method #f 59 23 59 30 ("info" "process")}}}})
 "stub-autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub-autoload.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub-autoload.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.debugger.jazz.stub-autoload" module #f 37 8 37 40 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Jazz-Debugger-Stub" "autoload" "jazz.debugger.jazz.stub")}}})

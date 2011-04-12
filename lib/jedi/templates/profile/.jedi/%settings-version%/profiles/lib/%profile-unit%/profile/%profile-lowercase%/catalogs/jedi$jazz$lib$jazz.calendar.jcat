@@ -1,11 +1,11 @@
 "Calendar-Actions"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Actions.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Actions.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Calendar-Actions" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.jml")}
       {Lisp-Entry "Calendar-Actions" class #f 45 7 45 23 ("Actions")
         {Lisp-Entry "form" anonymous #f 48 3 48 7 ("Next" "on-next" "next" "Prior" "Shortcut" "shortcut:" "on-prior" ":focus" "Event-Handler" "action-handler:" "prior" "name:" "Action-Item" "<Action-Item>" "install" "<install>")}}}})
 "Calendar-Day"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Day.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Day.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Calendar-Day" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.locale" "jazz.graphic")}
       {Lisp-Entry "Calendar-Day" class #f 46 7 46 19 ("initialize" "View")
@@ -38,7 +38,7 @@
         {Lisp-Entry "draw-day" method #f 182 11 182 19 ("set!" "11" "3" "<=" "if" "increase!" "10" "+" "Rect" "new" "get-color" "get-color~" "color" "event" "lambda" "for-each" "get-client" "get-client~" "get-holiday-color" "get-holiday-color~" "fill-rect" "fill-rect~" "get-bounds" "bounds" "let" "when" "col" "0" "row" "15" "v" "1" "h" "get-date" "get-date~" "key:" "append" "<" "sort" "displayed" "collect-events" "events" "collect-holidays" "holidays" "collect-recurring" "recurring" "get-editor" "get-editor~" "editor" "get-calendar" "calendar" "let*" "nextmethod" "surface")}
         {Lisp-Entry "focused?" method #f 215 29 215 37 ("parent" "get-focus" "eq?")}}}})
 "Calendar-Dialog"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Dialog.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Dialog.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Calendar-Dialog" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.jml" "jazz.calendar")}
       {Lisp-Entry "Calendar-Dialog" class #f 46 7 46 22 ("initialize" "Layout-View")
@@ -61,7 +61,7 @@
         {Lisp-Entry "on-escape-press" method #f 108 20 108 35 ("cancel-modal" "cancel-modal~" "get-host" "dialog" "let" "evt")}
         {Lisp-Entry "get-modal-result" method #f 118 20 118 36 ("get-selection" "get-selection~" "get-date" "get-date~" "get-calendar" "get-calendar~" "calendar" "locate" "navigator" "let*")}}}})
 "Calendar-Navigator"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Navigator.jazz"} 1295977563 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-Navigator.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Calendar-Navigator" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.locale" "jazz.library" "jazz.jml" "jazz.graphic" "jazz.calendar")}
       {Lisp-Entry "Calendar-Navigator" class #f 48 7 48 25 ("Layout-View")
@@ -76,7 +76,7 @@
       {Lisp-Entry "Navigator-Calendar" class #f 129 7 129 25 ("Calendar-View")
         {Lisp-Entry "date-update" method #f 132 20 132 31 ("date" "parent" "get-parent" "get-parent~" "update-month" "update-month~" "nextmethod")}}}})
 "Calendar-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-View.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Calendar-View.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Calendar-View" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.platform" "jazz.calendar")}
       {Lisp-Entry "Calendar-View" class #f 45 7 45 20 ("1" "explicit" "initialize" "View")
@@ -120,7 +120,7 @@
         {Lisp-Entry "goto-next-month" method #f 286 18 286 33 ("date" "next-month" "next-month~" "goto-month")}
         {Lisp-Entry "goto-month" method #f 290 11 290 21 ("find-calendar-day" "set-selection" "set-date" "month")}}}})
 "Date-Domain"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Date-Domain.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Date-Domain.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Date-Domain" module #f 37 18 37 43 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("time" "jazz.library" "jazz.designer" "jazz.calendar")}
       {Lisp-Entry "Date-Domain" class #f 46 7 46 18 ("Domain")
@@ -128,7 +128,7 @@
         {Lisp-Entry "present" method #f 64 20 64 27 ("present-date-day" "not" "if" "value")}
         {Lisp-Entry "setup-entry" method #f 75 20 75 31 ("self" "domain:" "parent:" "Date-Entry" "new" "client" "view")}}}})
 "Date-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Date-Entry.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Date-Entry.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Date-Entry" module #f 37 18 37 42 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("time" "jazz.ui.view" "jazz.locale" "jazz.library" "jazz.jml" "jazz.designer" "jazz.calendar")}
       {Lisp-Entry "Date-Entry" class #f 49 7 49 17 ("String-Entry")
@@ -139,7 +139,7 @@
         {Lisp-Entry "layout" method #f 98 20 98 26 ("0" "22" "get-width" "get-width~" "-" "Point" "new" "action" "locate" "set-position" "set-position~" "get-size" "size" "let")}
         {Lisp-Entry "on-choose-date" method #f 108 11 108 25 ("set-modified?" "get-value" "initial-date:" "Calendar-Dialog" "get-modal" "set-value" "evt")}}}})
 "Date-Row"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Date-Row.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Date-Row.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Date-Row" module #f 37 18 37 40 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.designer")}
       {Lisp-Entry "Date-Row" class #f 43 7 43 15 ("Combo-Row")}
@@ -153,7 +153,7 @@
         {Lisp-Entry "get-edited-value" method #f 109 11 109 27 ("Date" "parse-date" "parse-date~" "=" "empty-string?" "or" "if" "editor" "get-body" "get-body~" "get-string-content" "get-string-content~" "string" "let")}
         {Lisp-Entry "set-edited-value" method #f 116 11 116 27 ("present" "editor" "get-body" "get-body~" "set-string-content" "set-string-content~" "value")}}}})
 "Periods-Chooser"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Periods-Chooser.jazz"} 1292697265 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "Periods-Chooser.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.Periods-Chooser" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("time" "jazz.ui.view" "jazz.ui" "jazz.library" "jazz.jml" "jazz.graphic" "jazz.calendar")}
       {Lisp-Entry "Periods-Chooser" class #f 49 7 49 22 ("initialize" "View")
@@ -180,10 +180,10 @@
         {Lisp-Entry "update-buttons" method #f 202 11 202 25 ("remove-period" "add-period" "edit-end" "edit-start" "locate" "set-enabled?" "set-enabled?~" "begin" "null?" "if" "get-single-selection" "get-single-selection~" "selection" "get-tree" "tree" "let*")}
         {Lisp-Entry "get-modal-result" method #f 222 20 222 36 ("get-output" "get-output~" "put" "put~" "get-user-data" "get-user-data~" "period" "rank" "row" "lambda" "for-each-visible-row" "for-each-visible-row~" "List-Factory" "new" "periods" "get-tree" "tree" "let")}}}})
 "_calendar"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "_calendar.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "_calendar.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar" module #f 37 8 37 21 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.calendar.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "autoload.jazz"} 1288870739 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "calendar" "autoload.jazz"} 1296083296 jazz
     {Lisp-Entry "jazz.calendar.autoload" module #f 37 18 37 40 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Periods-Chooser" "jazz.calendar.Periods-Chooser" "Date-Row" "jazz.calendar.Date-Row" "Date-Entry" "jazz.calendar.Date-Entry" "Date-Domain" "jazz.calendar.Date-Domain" "Calendar-View" "jazz.calendar.Calendar-View" "Calendar-Navigator" "jazz.calendar.Calendar-Navigator" "Calendar-Dialog" "jazz.calendar.Calendar-Dialog" "Calendar-Day" "jazz.calendar.Calendar-Day" "Calendar-Actions" "autoload" "jazz.calendar.Calendar-Actions")}}})

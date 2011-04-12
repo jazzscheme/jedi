@@ -1,5 +1,5 @@
 "Sample"
- ({C-File-Entry {File :context "files" "c" "Sample.cpp"} 1288870740 c
+ ({C-File-Entry {File :context "files" "c" "Sample.cpp"} 1296083298 c
     {C-Category-Entry "Sample"}
     {C-Include-Entry "Jazz.h" 9 10 9 16}
     {C-Include-Entry "JSample.h" 10 10 10 19}
@@ -7,17 +7,17 @@
     {C-Export-Entry "METHOD" 23 0 23 6}
     {C-Export-Entry "EXTERN" 30 0 30 6}
     {C-Export-Entry "EXTERN" 37 0 37 6}}
-  {C-File-Entry {File :context "files" "c" "Sample.h"} 1288870740 c
+  {C-File-Entry {File :context "files" "c" "Sample.h"} 1296083298 c
     {C-Define-Entry "JSample" 11 8 11 15}
     {C-Define-Entry "MACRO" 21 8 21 13}}
-  {Lisp-File-Entry {File :context "files" "scheme" "Sample.scm"} 1288870740 scheme
+  {Lisp-File-Entry {File :context "files" "scheme" "Sample.scm"} 1296083298 scheme
     {Lisp-Entry "f" define #f 7 9 7 10 ("a")}
     {Lisp-Entry "v" define #f 12 8 12 9 ("x" "y" "h" "list")}
     {Lisp-Entry "g" define #f 15 9 15 10 ("e" "b" "a" "x")}
     {Lisp-Entry "h" define #f 22 11 22 12 ("k")}
     {Lisp-Entry "i" define #f 25 11 25 12 ("l" "e" "d" "c" "k" "j" "define")}})
 "_error"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "_error.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "_error.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.error" module #f 8 8 8 25 ("f~" "x~a" "~x" "cond" "a" "let" "jazz.sample.error.lib.not-found" "sort" "sqr" "3" "case" "2" "Yo" "set!" "if" "z" "y" "x" "native" "void" "c-type" "f" "generic" "extra" "s" "slot" "InnerInterface" "interface" "InnerClass" "Object" "extends" "X" "class" "jazz")
       {Lisp-Entry "import" anonymous #f 11 1 11 7 ("jazz.sample.error.lib")}
       {Lisp-Entry "X" class #f 76 7 76 8 ("Object")}
@@ -26,21 +26,21 @@
         {Lisp-Entry "f" generic/specific ("") 104 13 104 14 ()}
         {Lisp-Entry "not-found" generic/specific ("") 107 11 107 20 ("a" "<A>" "specific" "x" "<X>" "g" "generic" "A" "X" "optimizations" "warn" "proclaim" "I" "interface" "Z" "o" "override" "v" "virtual" "f" "method" "Object" "extends" "W" "class" "3" "define" "2" "foo" "definition")}}}})
 "_mod"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "_mod.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "_mod.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.mod" module #f 8 8 8 23 ("jazz")
       {Lisp-Entry "export" anonymous #f 11 1 11 7 ("T" "t-a" "make-t" "autoload" "jazz.sample.mod.t")}}})
 "empty"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "empty.jazz"} 1288870740 jazz})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "empty.jazz"} 1296083298 jazz})
 "extraneous"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "extraneous.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "extraneous.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.error.unit.extraneous" module #f 8 8 8 41 ()}})
 "invalid"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "invalid.jazz"} 1288870740 jazz})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "invalid.jazz"} 1296083298 jazz})
 "module"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "module.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "module.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.error.lib" module #f 8 8 8 29 ("jazz")
       {Lisp-Entry "Yo" definition #f 11 19 11 21 ()}}}
-  {Lisp-File-Entry {File :context "src" "jazz" "sample" "module.jazz"} 1295977563 jazz
+  {Lisp-File-Entry {File :context "src" "jazz" "sample" "module.jazz"} 1301518487 jazz
     {Lisp-Entry "jazz.sample.module" module #f 16 8 16 26 ("L" "<L>" "K" "<K>" "name" "#<<end-of-c-code\n...some c code...\nend-of-c-code\n" "#<<end-of-c-code\nN = 2;\nend-of-c-code\n" "x" "defspe" "define-special-form" "jazz")
       {Lisp-Entry "import" anonymous #f 19 1 19 7 ("jazz.tie" "jazz.sample.mod" "jazz.library" "jazz.jrm" "jazz.jml")}
       {Lisp-Entry "x" define #f 28 10 28 11 ()}
@@ -81,7 +81,7 @@
       {Lisp-Entry "cbool" c-type #f 347 8 347 13 ("bool" "native")}
       {Lisp-Entry "cuint" c-type #f 349 8 349 13 ("unsigned-int" "native")}
       {Lisp-Entry "cstruct" c-structure #f 353 13 353 20 ("a" "cuint")}
-      {Lisp-Entry "cext" external #f 358 19 358 23 ()}
+      {Lisp-Entry "cext" external #f 358 13 358 17 ("cbool")}
       {Lisp-Entry "cfunc" definition #f 362 12 362 17 ("cbool" "cuint" "c-function")}
       {Lisp-Entry "cdef" c-definition #f 368 15 368 19 ("b" "a" "x" "cuint" "cbool")}
       {Lisp-Entry "S" remotable-stub "~stub" 392 16 392 17 ()
@@ -135,11 +135,11 @@
       {Lisp-Entry "h" generic/specific ("<K>") 573 10 573 11 ("x" "a")}
       {Lisp-Entry "h" generic/specific ("<L>") 576 11 576 12 ("x" "a")}}})
 "sample"
- ({Lisp-File-Entry {File :context "files" "lisp" "sample.lisp"} 1288870740 commonlisp
+ ({Lisp-File-Entry {File :context "files" "lisp" "sample.lisp"} 1296083298 commonlisp
     {Lisp-Entry "hello-world" define #f 0 7 0 18 ("t" "format")}
     {Lisp-Entry "verbose-sum" define #f 3 7 3 18 ("+" "t" "format" "y" "x")}})
 "t"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "t.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "t.jazz"} 1296083298 jazz
     {Lisp-Entry "jazz.sample.mod.t" module #f 8 8 8 25 ("jazz")
       {Lisp-Entry "make-t" definition #f 11 20 11 26 ("T" "new" "a")}
       {Lisp-Entry "t-a" definition #f 15 27 15 30 ("get-a" "get-a~" "t")}
@@ -147,5 +147,5 @@
         {Lisp-Entry "a" slot #f 22 8 22 9 ()}
         {Lisp-Entry "initialize" method #f 25 11 25 21 ("self" "a~self" "set!" "nextmethod" "a")}}}})
 "unit"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "unit.scm"} 1288870740 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "unit.scm"} 1296083298 scheme
     {Lisp-Entry "jazz.sample.unit" unit #f 8 6 8 22 ()}})

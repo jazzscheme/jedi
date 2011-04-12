@@ -1,10 +1,10 @@
 "Me"
- ({Lisp-File-Entry {File :context "src" "jazz" "profile" "Me.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "Me.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.profile.Me" module #f 37 18 37 33 ("Me" "register-profile-class" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.profile" "jazz.development")}
       {Lisp-Entry "Me" class #f 44 7 44 9 ("Profile")}}})
 "Profile"
- ({Lisp-File-Entry {File :context "src" "jazz" "profile" "Profile.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "Profile.jazz"} 1301518487 jazz
     {Lisp-Entry "jazz.profile.Profile" module #f 37 18 37 38 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system")}
       {Lisp-Entry "Profile" class #f 43 7 43 14 ("Object")
@@ -25,7 +25,7 @@
         {Lisp-Entry "test8" method #f 114 26 114 31 ()}
         {Lisp-Entry "test9" method #f 118 26 118 31 ()}
         {Lisp-Entry "toplevel-title" method #f 127 26 127 40 ("get-preferences" "get-toplevel-title" "get-toplevel-title~")}
-        {Lisp-Entry "text-macro" method #f 136 26 136 36 ("view")}
+        {Lisp-Entry "user-code" method #f 136 26 136 35 ("view")}
         {Lisp-Entry "console-command" method #f 145 26 145 41 ("arguments" "command")}
         {Lisp-Entry "profile-packages" method #f 149 26 149 42 ()}
         {Lisp-Entry "play-recording" method #f 158 26 158 40 ()}
@@ -40,7 +40,7 @@
         {Lisp-Entry "extension-frame-class" method #f 209 26 209 47 ("ext")}
         {Lisp-Entry "get-source" method #f 213 26 213 36 ("class-name")}}}})
 "_profile"
- ({Lisp-File-Entry {File :context "src" "jazz" "profile" "_profile.jazz"} 1299704434 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "_profile.jazz"} 1299094696 jazz
     {Lisp-Entry "jazz.profile" module #f 37 8 37 20 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.profile.autoload")}
       {Lisp-Entry "Profile-Classes" definition #f 48 12 48 27 ("eq?" "test:" "make-table")}
@@ -50,6 +50,6 @@
       {Lisp-Entry "register-profile-class" definition #f 65 20 65 42 ("category-name" "set-profile-class" "class")}
       {Lisp-Entry "load-profile-class" definition #f 69 20 69 38 ("identifier-name" "require-profile-class" "load-unit" "class-unit")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "profile" "autoload.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "autoload.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.profile.autoload" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Me" "jazz.profile.Me" "Profile" "autoload" "jazz.profile.Profile")}}})

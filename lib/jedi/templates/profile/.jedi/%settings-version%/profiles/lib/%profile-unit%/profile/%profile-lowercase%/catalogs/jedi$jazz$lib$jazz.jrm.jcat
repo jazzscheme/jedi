@@ -1,5 +1,5 @@
 "IOR"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "IOR.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "IOR.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.remote.IOR" module #f 37 18 37 37 ("jazz")
       {Lisp-Entry "IOR" class #f 40 7 40 10 ("Object")
         {Lisp-Entry "host" slot #f 43 8 43 12 ()}
@@ -15,7 +15,7 @@
         {Lisp-Entry "initialize" method #f 50 20 50 30 ("values~self" "reference~self" "stub-interface~self" "service~self" "self" "host~self" "set!" "nextmethod" "values" "reference" "stub-interface" "service" "host")}
         {Lisp-Entry "print" method #f 59 20 59 25 ("values" "reference" "stub-interface" "service" "host" "self" "class-of" "category-name" "format" "readably" "output")}}}})
 "Local-Proxy"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Local-Proxy.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Local-Proxy.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.remote.Local-Proxy" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Local-Proxy" class #f 43 7 43 18 ("Proxy")
@@ -27,12 +27,12 @@
         {Lisp-Entry "proxy-values" method #f 61 29 61 41 ()}
         {Lisp-Entry "live?" method #f 65 20 65 25 ()}}}})
 "Proxy"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Proxy.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Proxy.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.remote.Proxy" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "Proxy" class #f 40 7 40 12 ("Object")
         {Lisp-Entry "live?" method #f 43 35 43 40 ()}}}})
 "Register"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "Register.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "Register.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.register.Register" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm.register.stub")}
       {Lisp-Entry "Register" class #f 43 7 43 15 ("eq?" "test:" "make-table" "initialize" "Object")
@@ -43,12 +43,12 @@
         {Lisp-Entry "register-object" method #f 69 18 69 33 ("objects" "table-set!" "error" "find-object" "if" "error?" "error?:" "object" "name")}
         {Lisp-Entry "unregister-object" method #f 78 18 78 35 ("objects" "table-clear" "error" "find-object" "not" "if" "error?" "error?:" "name")}}}})
 "Remotable-Stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remotable-Stub.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remotable-Stub.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.remote.Remotable-Stub" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "Remotable-Stub" interface #f 40 11 40 25 ()
         {Lisp-Entry "stub-reference" method #f 43 35 43 49 ()}}}})
 "Remote-Listener"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Listener.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Listener.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.remote.Remote-Listener" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.network" "jazz.jrm")}
       {Lisp-Entry "Remote-Listener" class #f 44 7 44 22 ("TCP-Server")
@@ -57,7 +57,7 @@
         {Lisp-Entry "create-thread" method #f 60 20 60 33 ("new-system-thread" "apply" "rest")}
         {Lisp-Entry "accept-connection" method #f 69 20 69 37 ("process-remote" "port")}}}})
 "Remote-Proxy"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Proxy.jazz"} 1292705246 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Proxy.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.remote.Remote-Proxy" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Remote-Proxy" class #f 43 7 43 19 ("Proxy")
@@ -71,13 +71,13 @@
         {Lisp-Entry "proxy-value" method #f 68 18 68 29 ("cadr" "if" "values" "getprop" "prop" "let" "thunk" "keyword")}
         {Lisp-Entry "live?" method #f 75 20 75 25 ("self" "remote-proxy-live?")}}}})
 "Stub-Interface"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Stub-Interface.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Stub-Interface.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.remote.Stub-Interface" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "Stub-Interface" class #f 40 7 40 21 ("Interface")
         {Lisp-Entry "local-class" method #f 43 35 43 46 ()}
         {Lisp-Entry "remote-class" method #f 44 35 44 47 ()}}}})
 "_jrm"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "_jrm.jazz"} 1291384841 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "_jrm.jazz"} 1298658588 jazz
     {Lisp-Entry "jazz.jrm" module #f 37 8 37 16 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.jrm.autoload")}
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.network" "jazz.jrm.autoload")}
@@ -136,20 +136,20 @@
       {Lisp-Entry "encoded?" definition #f 585 13 585 21 ("encoded-marker" "car" "eq?" "pair?" "and" "object")}
       {Lisp-Entry "decode" definition #f 595 13 595 19 ("error" "else" "cdr" "cons" "pair?" "unspecified" "true" "false" "case" "car" "read-string-element" "lambda" "with-jazz-readtable" "walk-for" "parameterize" "not" "if" "kind" "receive" "encoded?" "eof-object?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "decode" "IOR" "new" "reference" "stub-interface" "service" "host" "bind" "info" "decode-ior" "cddr" "cadr" "values" "encoded" "decode-info" "define" "object")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "autoload.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "autoload.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.autoload" module #f 37 18 37 35 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Stub-Interface" "jazz.jrm.remote.Stub-Interface" "Remote-Listener" "jazz.jrm.remote.Remote-Listener" "Remotable-Stub" "jazz.jrm.remote.Remotable-Stub" "Remote-Proxy" "jazz.jrm.remote.Remote-Proxy" "Proxy" "jazz.jrm.remote.Proxy" "Local-Proxy" "jazz.jrm.remote.Local-Proxy" "IOR" "jazz.jrm.remote.IOR" "Register-Stub" "jazz.jrm.register.stub" "Register" "autoload" "jazz.jrm.register.Register")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "install.scm"} 1299704434 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "install.scm"} 1299165064 scheme
     {Lisp-Entry "jazz.jrm.install" unit #f 37 6 37 22 ()
       {Lisp-Entry "IOR" define ("literal") 40 21 40 24 ("construct-ior" "jazz.jrm.literals" "jazz.jrm.literals:construct-ior")}}})
 "literals"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "literals.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "literals.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.literals" module #f 37 8 37 25 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "construct-ior" definition #f 48 21 48 34 ("IOR" "new" "values" "reference" "remotable" "port" "host")}}})
 "stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "stub.jazz"} 1288870740 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "stub.jazz"} 1296083297 jazz
     {Lisp-Entry "jazz.jrm.register.stub" module #f 37 8 37 30 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Register" remotable-stub "~stub" 43 16 43 24 ()
