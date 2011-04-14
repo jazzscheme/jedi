@@ -13,7 +13,7 @@
                           jedi.run
                           jedi.services)
                   (build (jedi include-compiler?: #t resources: "resources"))
-                  (dependencies all
+                  (dependencies preinstalled
                                 jedi.install))
             (jedi.install (update jedi.install)
                           (dependencies jazz)))
