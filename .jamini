@@ -7,4 +7,5 @@
 
 
 (jazz:default-safety 'release)
+(jazz:default-optimize? #f)
 (jazz:default-target 'jedi)
