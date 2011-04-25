@@ -14,19 +14,6 @@ Cairo
   and development packages you should install the cairo-dev development
   package.
 
-MinGW
-  On Windows, the only backend fully tested to work with JazzScheme is MinGW.
-  Note that some people have reported problems when building JazzScheme with
-  old versions of MinGW. You can get the latest version of MinGW from
-  http://www.mingw.org/. Another reported problem was from someone having both
-  Cygwin and MinGW installed, where MinGW would wrongly call Cygwin's gcc.
-  Uninstalling Cygwin fixed the problem.
-
-  Also, as both MinGW and Git come with their own shell, the simplest way to
-  have a shell supporting both, which is required to build Jazz, is to select
-  the "Run Git and included Unix tools from the Windows Command Prompt" when
-  installing Git and then using the MinGW shell.
-
 Macports
   You install macports from http://www.macports.org/. Note that a standard
   Mac OS X Package (.pkg) Installer is available. After the installation, you
@@ -39,6 +26,19 @@ X11 on the Mac
   on the Mac, you will need to install the latest X11 from Apple's official
   site for X11: http://xquartz.macosforge.org/. Note that depending on your
   settings, X11 may need to be manually started before launching the Jedi IDE.
+
+MinGW
+  On Windows, the only backend fully tested to work with JazzScheme is MinGW.
+  Note that some people have reported problems when building JazzScheme with
+  old versions of MinGW. You can get the latest version of MinGW from
+  http://www.mingw.org/. Another reported problem was from someone having both
+  Cygwin and MinGW installed, where MinGW would wrongly call Cygwin's gcc.
+  Uninstalling Cygwin fixed the problem.
+
+  Also, as both MinGW and Git come with their own shell, the simplest way to
+  have a shell supporting both, which is required to build Jazz, is to select
+  the "Run Git and included Unix tools from the Windows Command Prompt" when
+  installing Git and then using the MinGW shell.
 
 
 Sources
