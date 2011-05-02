@@ -261,7 +261,7 @@
   
   
   (method (unit-subunits unit-name)
-    (load-unit 'core.unit.builder)
+    (load-build)
     (let ((subunits '()))
       (for-each-subunit unit-name
         (lambda (subunit-name declaration phase)
@@ -472,7 +472,7 @@
                 (print-form-data form port)))))))
     
     (define (extract-unit/module-doc name units)
-      (load-unit 'core.unit.builder)
+      (load-build)
       (let ((unit (outline-unit (if (null? units) name (car units)))))
         (typecase unit
           ((Unit-Declaration) (extract-unit-doc name unit))
