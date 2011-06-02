@@ -230,7 +230,7 @@
       (create-directories~ dot-jedi-dir)
       (let ((settings-path (tokenise-filename (versioned-directory (parse~ dot-jedi-dir) 'settings settings-updates convert-settings))))
         (register-alias 'Settings settings-path)
-        (set-snapshots-directory {Directory Settings "crashes"})
+        (snapshots-directory {Directory Settings "crashes"})
         (let ((file {File Settings ".settings"}))
           (unless (exists?~ file)
             (create~ file))
