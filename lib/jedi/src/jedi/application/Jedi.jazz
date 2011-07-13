@@ -528,10 +528,6 @@
     (new-frame Java-Manager))
   
   
-  (method (on-showcase evt)
-    (new-frame Showcase))
-  
-  
   (method (on-profiler-manager evt)
     @convert/wait
     (show-palette Profiler-Manager))

@@ -140,7 +140,9 @@
                 (<Minibuffer-Preferences>                      location: second state: split
                   (<Splitter-Preferences>                      location: first orientation: vert mode: relative division: -27
                     (<Docked-Preferences>                      location: first model: {Reference Properties-Manager})
-                    (<Docked-Preferences>                      location: second model: {Reference Lisp-Console-Manager})))))))))
+                    (<Pad-Preferences>                         location: second
+                      (<Docked-Preferences>                    location: selection model: {Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                    location: #f model: {Reference Search-Results}))))))))))
     (<Workspace-Preferences>                  name: formatted  title: "Formatted" icon: {Image-Resource "ForegroundColor"} shortcut: {Shortcut :shift :alt #\T} frame-model: {Reference Plain-Formatted-Text-View}
       (<Menubar-Preferences>                  name: menubar    location: root
         (<Mainbar-Preferences>                name: toolbar    location: second
