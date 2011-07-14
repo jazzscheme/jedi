@@ -9,7 +9,6 @@
                           jedi.convert
                           jedi.data.bindings
                           jedi.data.preferences
-                          jedi.development
                           jedi.run
                           jedi.services)
                   (build (jedi include-compiler?: #t resources: "resources"))

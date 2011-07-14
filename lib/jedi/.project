@@ -22,8 +22,6 @@
           (<Jazz-File>       name: Jedi-Toolbar     source: {File :context "src" "jedi" "application" "Jedi-Toolbar.jazz"})
           (<Jazz-File>       name: Jedi-Toplevel    source: {File :context "src" "jedi" "application" "Jedi-Toplevel.jazz"})
           (<Jazz-File>       name: Jedi             source: {File :context "src" "jedi" "application" "Jedi.jazz"}))
-        (<Project-Directory>                        directory: {Directory :context "src" "jedi" "development"}
-          (<Jazz-File>       name: _development     source: {File :context "src" "jedi" "development" "_development.jazz"}))
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "generator"}
           (<Jazz-File>       name: Code-Generator   source: {File :context "src" "jedi" "generator" "Code-Generator.jazz"}))
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "parameters"})
