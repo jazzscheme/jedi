@@ -504,10 +504,6 @@
   ;;;
   
   
-  (method (on-new-project evt)
-    (add-project-to~ (get-workbench-manager) (get-workbench)))
-  
-  
   (method (on-event-spy evt)
     @convert/wait
     (new-palette Event-Spy))

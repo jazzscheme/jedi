@@ -71,7 +71,7 @@
     (nextmethod rest)
     (with-update-locked
       (lambda ()
-        (new Label-Item parent: self name: 'file      content: (new Jedi-File-Menu))
+        (new Label-Item parent: self name: 'file      content: (new IDE-File-Menu))
         (new Label-Item parent: self name: 'edit      content: (new Edit-Menu))
         (new Label-Item parent: self name: 'source    content: (new Source-Menu))
         (new Label-Item parent: self name: 'recorder  content: (new Recorder-Menu))
@@ -84,20 +84,6 @@
         (new Label-Item parent: self name: 'view      content: (new View-Menu))
         (new Label-Item parent: self name: 'window    content: (new Window-Advanced-Menu))
         (new Label-Item parent: self name: 'help      content: (new Help-Menu))))))
-
-
-;;;
-;;;; File
-;;;
-
-
-(class Jedi-File-Menu extends IDE-File-Menu
-  
-  
-  (form
-    (<install>
-      (<Label-Item> name: on-new-project title: {Locales english: "New Project..." french: "Nouveau Projet..."} before: on-new action-handler: {Action ide new-project})
-      (<!>          name: on-new         title: {Locales english: "New File" french: "Nouveau Fichier"}))))
 
 
 ;;;
