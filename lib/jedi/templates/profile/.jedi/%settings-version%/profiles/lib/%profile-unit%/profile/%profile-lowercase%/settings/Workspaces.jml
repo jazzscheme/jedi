@@ -130,7 +130,7 @@
                 (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: 65
                   (<Docked-Preferences>                        location: first model: {Reference Toolbox-Manager})
                   (<Docked-Preferences>                        location: second model: {Reference Traits-Editor}))
-                (<Docked-Preferences>                          location: second model: {Reference View-Descendants-Editor}))
+                (<Docked-Preferences>                          location: second model: {Reference Descendants-Manager}))
               (<Splitter-Preferences>                          location: second orientation: horz division: -300
                 (<Splitter-Preferences>                        location: first orientation: vert division: 58
                   (<Splitter-Preferences>                      location: first orientation: horz division: 146
