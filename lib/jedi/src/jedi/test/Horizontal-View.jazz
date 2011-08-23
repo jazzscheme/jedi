@@ -84,5 +84,5 @@
   ;;;
   
   
-  (method (draw surface context lh lv)
+  (method (draw surface context)
     (fill-rect~ surface (get-bounds) {Color Dark-Red}))))
