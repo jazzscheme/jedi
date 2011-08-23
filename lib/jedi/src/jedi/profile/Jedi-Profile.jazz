@@ -1854,7 +1854,7 @@
       context: self
       execute: (lambda (activity)
                  (let ((max (+ 5 (random 50)))
-                       (wait (+ .3 (/ (random 500) 1000.)))
+                       (wait (+ .3 (/ (cast <fl> (random 500)) 1000)))
                        (keep? (zero? (random 2)))
                        (no activity-no)
                        (n 0))
