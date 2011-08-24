@@ -10,6 +10,8 @@
 
 
 (import (irregex)
+        (jazz.ide)
+        (jazz.ide.development)
         (jazz.graphic)
         (jazz.io)
         (jazz.jml)
@@ -24,7 +26,6 @@
         (jazz.ui.dialog)
         (jazz.ui.view)
         (jedi)
-        (jedi.development)
         (time))
 
 
