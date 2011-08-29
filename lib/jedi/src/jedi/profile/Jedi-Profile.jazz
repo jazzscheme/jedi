@@ -1362,7 +1362,7 @@
   (method (test-bitmap)
     (with-profile
       (lambda (node)
-        (new Bitmap :dc (desktop-dc) width: 16 height: 16))
+        (new Bitmap surface: (desktop-surface) width: 16 height: 16))
       name: "Bitmap"))
   
   
