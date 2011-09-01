@@ -1,0 +1,539 @@
+"_fmt"
+ ({Lisp-File-Entry {File :context "src" "fmt" "_fmt.jazz"} 236918187. jazz
+    {Lisp-Entry "fmt" module #f 37 8 37 11 ("scheme")
+      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("fmt.implementation.fmt")}}})
+"fmt"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.implementation.fmt" module #f 7 8 7 30 ("scheme")
+      {Lisp-Entry "export" anonymous #f 9 1 9 7 ("line-numbers" "tabular" "columnar" "fmt-columns" "write-to-string" "display-to-string" "make-nl-space" "make-space" "make-string-fmt-transformer" "justify" "fold-lines" "wrap-lines" "with-width" "decimal-char" "comma-char" "pad-char" "titlecase" "downcase" "upcase" "ellipses" "decimal-align" "fix" "radix" "num/comma" "num/fit" "num/si" "num" "maybe-slashified" "slashified" "dsp" "wrt/unshared" "wrt" "space-to" "tab-to" "fit/both" "fit/left" "fit" "trim/length" "trim/both" "trim/left" "trim" "pad/both" "pad/left" "pad/right" "pad" "fmt-join/range" "fmt-join/suffix" "fmt-join/prefix" "fmt-join/dot" "fmt-join/last" "fmt-join" "nl-str" "fl" "nl" "apply-cat" "cat" "fmt-try-fit" "fmt-file" "fmt-set-decimal-sep!" "fmt-decimal-sep" "fmt-set-port!" "fmt-port" "fmt-set-writer!" "fmt-writer" "fmt-set-width!" "fmt-width" "fmt-set-properties!" "fmt-properties" "fmt-set-precision!" "fmt-precision" "fmt-set-radix!" "fmt-radix" "fmt-set-row!" "fmt-row" "fmt-set-col!" "fmt-col" "fmt-set-property!" "fmt-add-properties!" "fmt-set!" "fmt-ref" "fmt-null" "fmt-bind" "fmt-let" "fmt-capture" "fmt-if" "fmt-start" "fmt" "new-fmt-state")}
+      {Lisp-Entry "import" anonymous #f 30 1 30 7 ("srfi-69" "srfi-13" "srfi-1" "fmt.implementation.string-ports" "fmt.implementation.mantissa" "syntax" "phase" "fmt.implementation.let-optionals")}
+      {Lisp-Entry "error" native ("native") 39 16 39 26 ()}
+      {Lisp-Entry "unspecified" native ("native") 40 16 40 32 ()}
+      {Lisp-Entry "write-to-string" define #f 47 9 47 24 ("write" "p" "lambda" "call-with-output-string2" "x")}
+      {Lisp-Entry "display-to-string" define #f 50 9 50 26 ("display" "p" "lambda" "call-with-output-string2" "string?" "if" "x")}
+      {Lisp-Entry "nl-str" define #f 55 8 55 14 ("newline" "call-with-output-string2")}
+      {Lisp-Entry "make-space" define #f 58 9 58 19 ("make-string" "n")}
+      {Lisp-Entry "make-nl-space" define #f 59 9 59 22 ("make-string" "nl-str" "string-append" "n")}
+      {Lisp-Entry "take*" define #f 64 9 64 14 ("else" "1" "-" "cdr" "take*" "car" "cons" "pair?" "zero?" "cond" "n" "ls")}
+      {Lisp-Entry "drop*" define #f 69 9 69 14 ("else" "1" "-" "cdr" "drop*" "pair?" "zero?" "cond" "n" "ls")}
+      {Lisp-Entry "*default-fmt-state*" define #f 81 8 81 27 ("78" "10" "0" "vector")}
+      {Lisp-Entry "fmt-state?" define #f 84 8 84 18 ("vector?")}
+      {Lisp-Entry "new-fmt-state" define #f 86 9 86 22 ("fmt-write" "*default-fmt-state*" "copy-fmt-state" "fmt-set-port!" "fmt-set-writer!" "vector?" "current-output-port" "car" "pair?" "if" "st" "let" "o")}
+      {Lisp-Entry "copy-fmt-state" define #f 94 9 94 23 ("fmt-properties" "cdr" "car" "cons" "x" "lambda" "map" "fmt-set-properties!" "vector-ref" "vector-set!" "=" "1" "+" "0" "i" "do" "make-vector" "res" "vector-length" "len" "let*" "st")}
+      {Lisp-Entry "fmt-row" define #f 104 9 104 16 ("0" "vector-ref" "st")}
+      {Lisp-Entry "fmt-col" define #f 105 9 105 16 ("1" "vector-ref" "st")}
+      {Lisp-Entry "fmt-radix" define #f 106 9 106 18 ("2" "vector-ref" "st")}
+      {Lisp-Entry "fmt-properties" define #f 107 9 107 23 ("3" "vector-ref" "st")}
+      {Lisp-Entry "fmt-pad-char" define #f 108 9 108 21 ("4" "vector-ref" "st")}
+      {Lisp-Entry "fmt-precision" define #f 109 9 109 22 ("5" "vector-ref" "st")}
+      {Lisp-Entry "fmt-width" define #f 110 9 110 18 ("6" "vector-ref" "st")}
+      {Lisp-Entry "fmt-writer" define #f 111 9 111 19 ("7" "vector-ref" "st")}
+      {Lisp-Entry "fmt-port" define #f 112 9 112 17 ("8" "vector-ref" "st")}
+      {Lisp-Entry "fmt-decimal-sep" define #f 113 9 113 24 ("9" "vector-ref" "st")}
+      {Lisp-Entry "fmt-decimal-align" define #f 114 9 114 26 ("10" "vector-ref" "st")}
+      {Lisp-Entry "fmt-string-width" define #f 115 9 115 25 ("11" "vector-ref" "st")}
+      {Lisp-Entry "fmt-ellipses" define #f 116 9 116 21 ("12" "vector-ref" "st")}
+      {Lisp-Entry "fmt-set-row!" define #f 118 9 118 21 ("0" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-col!" define #f 119 9 119 21 ("1" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-radix!" define #f 120 9 120 23 ("2" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-properties!" define #f 121 9 121 28 ("3" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-pad-char!" define #f 122 9 122 26 ("4" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-precision!" define #f 123 9 123 27 ("5" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-width!" define #f 124 9 124 23 ("6" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-writer!" define #f 125 9 125 24 ("7" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-port!" define #f 126 9 126 22 ("8" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-decimal-sep!" define #f 127 9 127 29 ("9" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-decimal-align!" define #f 128 9 128 31 ("10" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-string-width!" define #f 129 9 129 30 ("11" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-set-ellipses!" define #f 130 9 130 26 ("12" "vector-set!" "x" "st")}
+      {Lisp-Entry "fmt-ref" define #f 132 9 132 16 ("car" "pair?" "cdr" "=>" "assq" "cond" "else" "fmt-ellipses" "ellipses" "fmt-string-width" "string-width" "fmt-decimal-align" "decimal-align" "fmt-decimal-sep" "decimal-sep" "fmt-width" "width" "fmt-pad-char" "pad-char" "fmt-precision" "precision" "fmt-port" "port" "fmt-writer" "writer" "fmt-properties" "properties" "fmt-radix" "radix" "fmt-col" "col" "fmt-row" "row" "case" "o" "key" "st")}
+      {Lisp-Entry "fmt-set-property!" define #f 151 9 151 26 ("cons" "fmt-set-properties!" "else" "set-cdr!" "cell" "lambda" "=>" "fmt-properties" "assq" "cond" "val" "key" "st")}
+      {Lisp-Entry "fmt-set!" define #f 158 9 158 17 ("fmt-set-property!" "else" "fmt-set-ellipses!" "ellipses" "fmt-set-string-width!" "string-width" "fmt-set-decimal-align!" "decimal-align" "fmt-set-decimal-sep!" "decimal-sep" "fmt-set-width!" "width" "fmt-set-port!" "port" "fmt-set-writer!" "writer" "fmt-set-precision!" "precision" "fmt-set-pad-char!" "pad-char" "fmt-set-properties!" "properties" "fmt-set-radix!" "radix" "fmt-set-col!" "col" "fmt-set-row!" "row" "case" "val" "key" "st")}
+      {Lisp-Entry "fmt-add-properties!" define #f 175 9 175 28 ("cdr" "car" "fmt-set!" "x" "lambda" "for-each" "alist" "st")}
+      {Lisp-Entry "fmt-let" define #f 179 9 179 16 ("apply-cat" "fmt-set!" "fmt-ref" "orig-val" "let" "st" "lambda" "ls" "val" "key")}
+      {Lisp-Entry "fmt-bind" define #f 184 9 184 17 ("fmt-set!" "apply-cat" "st" "lambda" "ls" "val" "key")}
+      {Lisp-Entry "fix" define #f 187 9 187 12 ("apply-cat" "precision" "fmt-let" "ls" "prec")}
+      {Lisp-Entry "radix" define #f 188 9 188 14 ("apply-cat" "radix" "fmt-let" "ls" "rad")}
+      {Lisp-Entry "pad-char" define #f 189 9 189 17 ("apply-cat" "pad-char" "fmt-let" "ls" "ch")}
+      {Lisp-Entry "comma-char" define #f 190 9 190 19 ("apply-cat" "comma-char" "fmt-let" "ls" "ch")}
+      {Lisp-Entry "decimal-char" define #f 191 9 191 21 ("apply-cat" "decimal-sep" "fmt-let" "ls" "ch")}
+      {Lisp-Entry "decimal-align" define #f 192 9 192 22 ("apply-cat" "decimal-align" "fmt-let" "ls" "n")}
+      {Lisp-Entry "with-width" define #f 193 9 193 19 ("apply-cat" "width" "fmt-let" "ls" "w")}
+      {Lisp-Entry "ellipses" define #f 194 9 194 17 ("apply-cat" "ellipses" "fmt-let" "ls" "ell")}
+      {Lisp-Entry "fmt-start" define #f 199 9 199 18 ("error" "else" "open-output-string" "fmt-port" "get-output-string" "current-output-port" "eq?" "if" "fmt-state?" "output-port?" "or" "cond" "proc" "initializer" "st")}
+      {Lisp-Entry "fmt" define #f 212 9 212 12 ("apply-cat" "new-fmt-state" "fmt-start" "args" "st")}
+      {Lisp-Entry "fmt-update" define #f 215 9 215 19 ("fmt-col" "-" "fmt-set-col!" "fmt-set-row!" "0" "string-count" "1" "fmt-row" "+" "row" "if" "fmt-string-width" "str-width" "string-index-right" "nli" "string-length" "len" "let" "st" "str")}
+      {Lisp-Entry "fmt-write" define #f 231 9 231 18 ("fmt-update" "fmt-port" "display" "st" "str")}
+      {Lisp-Entry "apply-cat" define #f 235 9 235 18 ("car" "dsp" "cdr" "null?" "if" "ls" "loop" "let" "st" "lambda" "procs")}
+      {Lisp-Entry "cat" define #f 242 9 242 12 ("apply-cat" "ls")}
+      {Lisp-Entry "fmt-null" define #f 244 9 244 17 ("st")}
+      {Lisp-Entry "fmt-if" define #f 249 9 249 15 ("dsp" "st" "x" "lambda" "car" "pair?" "if" "fail" "let" "o" "pass" "check")}
+      {Lisp-Entry "fmt-try-fit" define #f 253 9 253 20 ("string-concatenate-reverse" "fmt-writer" "open-output-string" "copy-fmt-state" "fmt-set-writer!" "fmt-set-port!" "fmt-update" "cons" "set!" "begin" "string-length" "fmt-string-width" "or" "len" "let*" "1" "fmt-try-fit" "apply" "-" "+" ">" "string-index" "nli" "fmt-col" "col" "0" "i" "lp" "st" "str" "output*" "define" "return" "call-with-current-continuation" "buffer" "fmt-width" "width" "let" "orig-st" "lambda" "null?" "if" "fail" "proc")}
+      {Lisp-Entry "fits-in-width" define #f 283 9 283 22 ("get-output-string" "copy-fmt-state" "fmt-set-writer!" "fmt-set-port!" "display" "begin" "fmt-col" ">" "if" "fmt-update" "str" "output*" "define" "return" "call-with-current-continuation" "open-output-string" "port" "fmt-writer" "output" "let" "st" "lambda" "width" "gen")}
+      {Lisp-Entry "fits-in-columns" define #f 300 9 300 24 ("else" "reverse" "null?" "string-length" "fmt-string-width" "or" "max" "cons" "cdr" "and" "car" "fits-in-width" "str" "pair?" "cond" "0" "widest" "res" "lp" "2" "quotient" "max-w" "let" "st" "lambda" "width" "write" "ls")}
+      {Lisp-Entry "fmt-capture" define #f 315 9 315 20 ("get-output-string" "fmt-write" "copy-fmt-state" "fmt-set-port!" "fmt-set-writer!" "open-output-string" "port" "let" "st" "lambda" "consumer" "producer")}
+      {Lisp-Entry "fmt-to-string" define #f 322 9 322 22 ("st" "str" "lambda" "fmt-capture" "producer")}
+      {Lisp-Entry "nl" define #f 328 9 328 11 ("nl-str" "fmt-writer" "st")}
+      {Lisp-Entry "fl" define #f 332 9 332 11 ("nl" "fmt-col" "zero?" "if" "st")}
+      {Lisp-Entry "tab-to" define #f 336 9 336 15 ("fmt-pad-char" "-" "make-string" "fmt-writer" "positive?" "fmt-col" "modulo" "rem" "8" "car" "pair?" "if" "tab-width" "let*" "st" "lambda" "o")}
+      {Lisp-Entry "space-to" define #f 347 9 347 17 ("fmt-pad-char" "make-string" "fmt-writer" "positive?" "if" "fmt-col" "-" "width" "let" "st" "lambda" "col")}
+      {Lisp-Entry "fmt-join" define #f 354 9 354 17 ("cdr" "lp" "null?" "st" "lambda" "car" "pair?" "if" "dsp" "sep" "let" "o" "ls" "fmt")}
+      {Lisp-Entry "fmt-join/prefix" define #f 365 9 365 24 ("fmt-join" "cat" "car" "pair?" "dsp" "sep" "let" "fmt-null" "null?" "if" "o" "ls" "fmt")}
+      {Lisp-Entry "fmt-join/suffix" define #f 370 9 370 24 ("fmt-join" "cat" "car" "pair?" "dsp" "sep" "let" "fmt-null" "null?" "if" "o" "ls" "fmt")}
+      {Lisp-Entry "fmt-join/last" define #f 376 9 376 22 ("lp" "else" "cdr" "null?" "cond" "st" "lambda" "car" "pair?" "if" "dsp" "sep" "let" "o" "ls" "fmt/last" "fmt")}
+      {Lisp-Entry "fmt-join/dot" define #f 391 9 391 21 ("else" "null?" "cdr" "lp" "cond" "st" "lambda" "car" "pair?" "if" "dsp" "sep" "let" "o" "ls" "fmt/dot" "fmt")}
+      {Lisp-Entry "fmt-join/range" define #f 405 9 405 23 ("dsp" ">=" "and" "if" "1" "+" "i" "lp" "let" "st" "lambda" "sep" "end" "let-optionals*" "o" "start" "fmt")}
+      {Lisp-Entry "pad/both" define #f 413 9 413 17 ("1" "+" "even?" "right" "fmt-pad-char" "make-string" "left" "2" "quotient" "diff/2" "let*" "positive?" "if" "fmt-writer" "output" "string-length" "fmt-string-width" "or" "-" "diff" "let" "st" "str" "lambda" "apply-cat" "fmt-capture" "ls" "width")}
+      {Lisp-Entry "pad" define #f 429 9 429 12 ("apply-cat" "cat" "fmt-pad-char" "make-string" "fmt-writer" "positive?" "if" "-" "diff" "let" "padder" "fmt-col" "col" "let*" "st" "lambda" "ls" "width")}
+      {Lisp-Entry "pad/right" define #f 440 8 440 17 ("pad")}
+      {Lisp-Entry "pad/left" define #f 442 9 442 17 ("fmt-pad-char" "make-string" "positive?" "if" "fmt-writer" "-" "diff" "string-length" "fmt-string-width" "or" "str-width" "let*" "st" "str" "lambda" "apply-cat" "fmt-capture" "ls" "width")}
+      {Lisp-Entry "trim/buffered" define #f 455 9 455 22 ("positive?" "if" "fmt-writer" "-" "diff" "string-length" "fmt-string-width" "or" "str-width" "let*" "st" "str" "lambda" "fmt-capture" "proc" "fmt" "width")}
+      {Lisp-Entry "trim" define #f 468 9 468 13 ("writer" "fmt-let" "fmt-set-writer!" "positive?" "fmt-string-width" "or" "len" "output*" "define" "return" "call-with-current-continuation" "fmt-col" "start-col" "fmt-writer" "output" "0" "substring/shared" "string-append" "negative?" "+" "-" "string-length" "ell-len" "string" "char?" "let*" "diff" "str-width" "str" "apply-cat" "trim/buffered" "if" "fmt-ellipses" "ell" "let" "st" "lambda" "ls" "width")}
+      {Lisp-Entry "trim/length" define #f 500 9 500 20 ("apply-cat" "writer" "fmt-let" "-" "substring/shared" "fmt-set-writer!" ">" "if" "+" "set!" "string-length" "len" "str" "output*" "define" "0" "sum" "fmt-writer" "output" "let" "return" "call-with-current-continuation" "st" "lambda" "ls" "width")}
+      {Lisp-Entry "trim/left" define #f 517 9 517 18 ("substring/shared" "string-append" "negative?" "+" "-" "string-length" "ell-len" "string" "char?" "let*" "if" "fmt-ellipses" "ell" "let" "st" "diff" "str-width" "str" "lambda" "apply-cat" "trim/buffered" "ls" "width")}
+      {Lisp-Entry "trim/both" define #f 532 9 532 18 ("substring/shared" "string-append" "negative?" "1" "right" "2" "quotient" "left" "+" "-" "string-length" "ell-len" "string" "char?" "let*" "if" "fmt-ellipses" "ell" "let" "st" "diff" "str-width" "str" "lambda" "apply-cat" "trim/buffered" "ls" "width")}
+      {Lisp-Entry "fit" define #f 551 9 551 12 ("apply-cat" "trim" "pad" "ls" "width")}
+      {Lisp-Entry "fit/left" define #f 553 9 553 17 ("apply-cat" "trim/left" "pad/left" "ls" "width")}
+      {Lisp-Entry "fit/both" define #f 555 9 555 17 ("apply-cat" "trim/both" "pad/both" "ls" "width")}
+      {Lisp-Entry "make-string-fmt-transformer" define #f 561 9 561 36 ("apply-cat" "str" "writer" "fmt-let" "fmt-writer" "base-writer" "let" "st" "ls" "lambda" "proc")}
+      {Lisp-Entry "upcase" define #f 570 8 570 14 ("string-upcase" "make-string-fmt-transformer")}
+      {Lisp-Entry "downcase" define #f 571 8 571 16 ("string-downcase" "make-string-fmt-transformer")}
+      {Lisp-Entry "titlecase" define #f 572 8 572 17 ("string-titlecase" "make-string-fmt-transformer")}
+      {Lisp-Entry "*min-e*" define #f 577 8 577 15 ("-1024")}
+      {Lisp-Entry "*bot-f*" define #f 578 8 578 15 ("52" "2" "expt")}
+      {Lisp-Entry "integer-log" define #f 581 9 581 20 ("1" "+" "log" "/" "ceiling" "inexact->exact" "0" "zero?" "if" "base" "a")}
+      {Lisp-Entry "integer-length*" define #f 585 9 585 24 ("2" "1" "-" "integer-log" "negative?" "if" "a")}
+      {Lisp-Entry "invlog2of" define #f 590 8 590 17 ("vector-ref" "36" "<=" "if" "lambda" "/" "vector-set!" "=" "1" "+" "b" "do" "2" "log" "log2" "37" "make-vector" "table" "let")}
+      {Lisp-Entry "fast-expt" define #f 601 8 601 17 ("expt" "truncate" "inexact->exact" "vector-ref" "<=" "and" "if" "b" "lambda" "vector-set!" "=" "10" "*" "v" "1" "+" "0" "k" "do" "326" "make-vector" "table" "let")}
+      {Lisp-Entry "mirror-of" define #f 611 9 611 18 ("else" "case" "c")}
+      {Lisp-Entry "default-digits" define #f 614 8 614 22 ("string->list" "list->vector")}
+      {Lisp-Entry "num->string" define #f 628 9 628 20 ("real-part" "write-char" "exact?" "error" "36" "imag-part" "imag" "mirror-of" "abs" "writer" "wrap-sign" "find" "prev" "n2" "denominator" "numerator" "integer-log" "q" "get-scale" "p" "write-fixed-rational" "be1" "be" "2.0" "expt" "*bot-f*" "*min-e*" "odd?" "pair?" "d2" "i0" "list" "min" "make-list" "2" "remainder" "quotient" "gen" "generate-all" "generate-fixed" "integer?" "write" "-4" "14" "lead" "skale" "fast-expt" "fixup" "negative?" "1.0e-10" "-1" "integer-length*" "*" "ceiling" "est" "m-" "m+" "s" "r" "scale" "inexact?" "pad-all" "modulo" "0" "i" "pad" ">" ">=" "bigger" "<=" "smaller" "even?" "round?" "invlog2of" "inv-base" "cadr" "e" "f" "exact->inexact" "mantissa+exponent" "m+e" "write-real" "fmt-pad-char" "make-string" "positive?" "string-length" "zero?" "diff" "string" "char?" "string?" "let*" "k" "prefix" "write-prefix" "<" "digit" "output" "+" "append" "else" "1" "-" "=" "cdr" "car" "not" "cons" "null?" "cond" "res" "lp" "let" "flush/rounded" "set!" "reverse" "flush" "number?" "x" "for-each" "ls" "write-digit-list" "truncate" "inexact->exact" "vector-ref" "display" "d" "write-digit" "define" "stack" "default-digits" "digit-vec" "fmt-decimal-align" "align" "3" "eq?" "comma-rule" "eqv?" "if" "fmt-decimal-sep" "or" "decimal-sep" "comma-char" "fmt-ref" "and" "comma-sep" "commify?" "sign?" "fmt-precision" "digits" "fmt-radix" "base" "let-optionals*" "port" "lambda" "call-with-output-string2" "opt" "st" "n")}
+      {Lisp-Entry "num" define #f 963 9 963 12 ("num->string" "apply" "fmt-writer" "st" "lambda" "opt" "n")}
+      {Lisp-Entry "num/comma" define #f 966 9 966 18 ("num" "eqv?" "if" "fmt-decimal-sep" "or" "decimal-sep" "comma-char" "fmt-ref" "comma-sep" "3" "comma-rule" "sign?" "fmt-precision" "digits" "fmt-radix" "base" "let-optionals*" "st" "lambda" "o" "n")}
+      {Lisp-Entry "num/si" define #f 986 8 986 14 ("zero?" "vector-ref" "exact->inexact" "number->string" "integer?" "cat" "10" "expt" "*" "round" "n2" "vector-length" "log" "/" "floor" "inexact->exact" "min" "k" "=" "if" "names" "suffix" "1024" "base" "let-optionals*" "o" "n" "vector->list" "cddr" "string-append" "s" "lambda" "map" "cons" "list->vector" "names2" "#" "names10" "let*")}
+      {Lisp-Entry "roman-numerals" define #f 1005 8 1005 22 ("1" "5" "10" "50" "100" "500" "1000")}
+      {Lisp-Entry "num/old-roman" define #f 1009 9 1009 22 ("reverse-list->string" "fmt-write" "cdr" "cons" "-" "roman-numerals" "car" ">=" "x" "find" "ch" "positive?" "if" "res" "lp" "let" "st" "lambda" "num")}
+      {Lisp-Entry "num/roman" define #f 1017 9 1017 18 ("reverse-list->string" "fmt-write" "else" "=>" "1" "+" "<=" "x" "c" "find" "2" "*" ">" "and" "cdr" "cons" "-" ">=" "cond" "big-n" "car" "big" "let*" "roman-numerals" "ls" "lp2" "positive?" "if" "res" "lp1" "let" "st" "lambda" "num")}
+      {Lisp-Entry "num/fit" define #f 1042 9 1042 16 ("fmt-writer" "make-string" "positive?" "cat" "1" "char?" "+" "-" "diff" "comma-sep" "eqv?" "fmt-ref" "or" "decimal-sep" "let*" "fmt-precision" "cadr" "cdr" "pair?" "and" "prec" "let" "string-length" ">" "if" "st" "str" "lambda" "num" "apply" "fmt-capture" "args" "n" "width")}
+      {Lisp-Entry "eq?-table-ref" define #f 1068 9 1068 22 ("hash-table-ref/default" "x" "tab")}
+      {Lisp-Entry "eq?-table-set!" define #f 1069 9 1069 23 ("hash-table-set!" "v" "x" "tab")}
+      {Lisp-Entry "make-shared-ref-table" define #f 1072 9 1072 30 ("set!" "cons" "begin" ">" "if" "count" "hash-table-walk" "vector-ref" ">=" "do" "vector-length" "len" "vector?" "cdr" "car" "pair?" "eof-object?" "null?" "boolean?" "char?" "number?" "symbol?" "or" "not" "1" "+" "eq?-table-set!" "i" "lambda" "=>" "eq?-table-ref" "cond" "walk" "0" "index" "res" "make-eq?-table" "tab" "let" "obj")}
+      {Lisp-Entry "gen-shared-ref" define #f 1100 9 1100 23 ("number->string" "string-append" "suffix" "i")}
+      {Lisp-Entry "maybe-gen-shared-ref" define #f 1103 9 1103 29 ("else" "car" "gen-shared-ref" "fmt-writer" "1" "+" "set-cdr!" "cdr" "set-car!" "pair?" "cond" "shares" "cell" "st")}
+      {Lisp-Entry "call-with-shared-ref" define #f 1112 9 1112 29 ("maybe-gen-shared-ref" "gen-shared-ref" "fmt-writer" "cdr" "pair?" "and" "if" "car" "eq?-table-ref" "cell" "let" "proc" "shares" "st" "obj")}
+      {Lisp-Entry "call-with-shared-ref/cdr" define #f 1118 9 1118 33 ("else" "maybe-gen-shared-ref" "gen-shared-ref" "cdr" "pair?" "and" "cond" "fmt-writer" "output" "car" "eq?-table-ref" "cell" "let" "sep" "proc" "shares" "st" "obj")}
+      {Lisp-Entry "slashified" define #f 1133 9 1133 19 ("else" "c2" "=>" "1" "+" "eqv?" "cond" "string-ref" "c" ">=" "substring/shared" "=" "collect" "define" "j" "0" "i" "lp" "let" "or" "char?" "if" "esc-str" "string" "quot-str" "fmt-writer" "output" "string-length" "len" "let*" "st" "x" "lambda" "rename" "esc" "quot" "let-optionals*" "o" "str")}
+      {Lisp-Entry "maybe-slashified" define #f 1163 9 1163 25 ("dsp" "slashified" "cat" "string-index" "if" "eqv?" "or" "c" "esc?" "define" "x" "lambda" "rename" "esc" "quot" "let-optionals*" "o" "pred" "str")}
+      {Lisp-Entry "fmt-write-string" define #f 1170 9 1170 25 ("slashified" "else" "case" "c" "rename" "define" "str")}
+      {Lisp-Entry "dsp" define #f 1177 9 1177 12 ("wrt" "else" "string" "dsp" "char?" "fmt-writer" "st" "lambda" "string?" "procedure?" "cond" "obj")}
+      {Lisp-Entry "write-with-shares" define #f 1184 9 1184 26 ("write-to-string" "boolean?" "number?" "fmt-write-string" "string?" "+" ">=" "0" "vector-ref" "1" "i" "zero?" "if" "vector-length" "len" "vector?" "dsp" "call-with-shared-ref/cdr" "null?" "rest" "car" "ls" "lp" "pair?" "call-with-shared-ref" "wr" "else" "num" "cdr" "prefix" "let" "cell" "=>" "2" "8" "16" "assv" "number->string" "n" "fmt-decimal-align" "fmt-precision" "not" "fmt-radix" "10" "=" "and" "cond" "wr-num" "fmt-writer" "output" "let*" "st" "lambda" "shares" "obj")}
+      {Lisp-Entry "wrt" define #f 1238 9 1238 12 ("0" "make-shared-ref-table" "cons" "write-with-shares" "obj")}
+      {Lisp-Entry "wrt/unshared" define #f 1245 9 1245 21 ("0" "make-eq?-table" "cons" "write-with-shares" "obj")}}})
+"fmt-c"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-c.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-in-macro?" define #f 8 9 8 22 ("in-macro?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-expression?" define #f 9 9 9 24 ("expression?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-return?" define #f 10 9 10 20 ("return?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-default-type" define #f 11 9 11 25 ("int" "default-type" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-newline-before-brace?" define #f 12 9 12 34 ("newline-before-brace?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-braceless-bodies?" define #f 13 9 13 30 ("braceless-bodies?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-non-spaced-ops?" define #f 14 9 14 28 ("non-spaced-ops?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-no-wrap?" define #f 15 9 15 21 ("no-wrap?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-indent-space" define #f 16 9 16 25 ("indent-space" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-switch-indent-space" define #f 17 9 17 32 ("switch-indent-space" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-op" define #f 18 9 18 15 ("stmt" "op" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-gen" define #f 19 9 19 16 ("gen" "fmt-ref" "st")}
+    {Lisp-Entry "c-in-expr" define #f 21 9 21 18 ("expression?" "fmt-let" "proc")}
+    {Lisp-Entry "c-in-stmt" define #f 22 9 22 18 ("expression?" "fmt-let" "proc")}
+    {Lisp-Entry "c-in-test" define #f 23 9 23 18 ("c-in-expr" "in-cond?" "fmt-let" "proc")}
+    {Lisp-Entry "c-with-op" define #f 24 9 24 18 ("fmt-let" "proc" "op")}
+    {Lisp-Entry "c-op-precedence" define #f 29 9 29 24 ("94" "xor" "93" "and" "92" "not" "=>" "90" "comma" ">>=" "<<=" "^=" "&=" "%=" "/=" "*=" "=" "80" "?" "70" "&&" "60" "^" "55" "&" "cmp" "ne" "eq" "50" "!=" "==" "ge" "le" "gt" "lt" "45" ">=" "<=" ">" "<" "40" ">>" "<<" "35" "-" "+" "30" "%" "/" "*" "25" "!~" "=~" "sizeof" "unary-&" "unary-*" "cast" "~" "!" "unary-" "unary+" "15" "**" "post-increment" "post-decrement" "arrow" "dot" "5" "bracket" "paren" "case" "95" "else" "85" "75" "65" "20" "10" "string=?" "or" "cond" "string?" "if" "x")}
+    {Lisp-Entry "c-op<" define #f 68 9 68 14 ("c-op-precedence" "<" "y" "x")}
+    {Lisp-Entry "c-paren" define #f 70 9 70 16 ("cat" "x")}
+    {Lisp-Entry "c-maybe-paren" define #f 72 9 72 22 ("c-paren" "fmt-op" "c-op<" "fmt-in-macro?" "or" "if" "fmt-let" "st" "lambda" "x" "op")}
+    {Lisp-Entry "c-control-operator?" define #f 83 9 83 28 ("begin" "fun" "for" "do" "repeat" "switch" "while" "if" "memq" "x")}
+    {Lisp-Entry "c-literal?" define #f 86 9 86 19 ("boolean?" "char?" "string?" "number?" "or" "x")}
+    {Lisp-Entry "char->c-char" define #f 89 9 89 21 ("16" "number->string" "string-append" "else" "13" "12" "11" "10" "9" "8" "7" "case" "string" "eqv?" "or" "127" "char->integer" "32" "<" "if" "c")}
+    {Lisp-Entry "c-format-number" define #f 100 9 100 24 ("dsp" "else" "8" "number->string" "string-upcase" "cat" "16" "fmt-radix" "case" "st" "lambda" "exact?" "integer?" "and" "if" "x")}
+    {Lisp-Entry "c-simple-literal" define #f 110 9 110 25 ("write-to-string" "else" "eof-object?" "null?" "c-format-number" "number?" "if" "boolean?" "char->c-char" "dsp" "char?" "cond" "c-wrap-stmt" "x")}
+    {Lisp-Entry "c-literal" define #f 119 9 119 18 ("c-simple-literal" "c-paren" "c-literal?" "not" "fmt-op" "paren" "c-op<" "fmt-in-macro?" "and" "if" "st" "lambda" "x")}
+    {Lisp-Entry "c-expr/sexp" define #f 130 9 130 20 ("c-literal" "nl" "make-nl-space" "string-append" "sep" "fmt-col" "col" "let*" "vector->list" "fmt-join" "no-wrap?" "fmt-let" "fmt-try-fit" "vector?" "string->symbol" "eq?" "else" "%->" "%field" "%." "%or" "bit-or=" "bitwise-ior=" "arithmetic-shift" "bit-not" "bitwise-not" "bit-xor" "bitwise-xor" "bit-or" "bitwise-ior" "bit-and" "bitwise-and" "c-op" "<<=" ">>=" "^=" "&=" "%=" "/=" "*=" "=" ">>" "<<" "!=" "==" ">=" "<=" ">" "<" "&&" "^" "~" "!" "%" "/" "*" "&" "-" "+" "c-cast" "%cast" "c-label" ":" "c-comment" "%comment" "c-braced-block" "%block" "cpp-endif" "%endif" "cpp-if/aux" "%elif" "%ifndef" "%ifdef" "%if" "1" "symbol->string" "substring/shared" "cpp-generic" "%warning" "%error" "%pragma" "cpp-line" "%line" "c-attribute" "%attribute" "%begin" "c-var" "%var" "c-prototype" "%prototype" "caar" "cadar" "cdar" "c-begin" "cddar" "cons" "reverse" "null?" "res" "ls" "lp" "let" "%cond" "c-fun" "%fun" "cpp-include" "%include" "cpp-define" "%define" "c-apply" "%apply" "c-extern/C" "extern/C" "cadddr" "c-in-expr" "c=" "vector-set!" "caddr" "cadr" "c-expr" "c-wrap-stmt" "vector-ref" "apply-cat" "cat" "static" "extern" "volatile" "register" "restrict" "auto" "inline" "c-enum" "enum" "c-struct/aux" "class" "union" "struct" "c-typedef" "typedef" "c-goto" "goto" "c-return" "return" "c-continue" "continue" "c-break" "break" "c-default" "default" "c-case/fallthrough" "case/fallthrough" "c-case" "c-switch" "switch" "c-while" "while" "c-for" "for" "cdr" "c-if" "apply" "car" "case" "pair?" "cond" "st" "lambda" "procedure?" "if" "x")}
+    {Lisp-Entry "c-apply" define #f 236 9 236 16 ("make-nl-space" "string-append" "sep" "fmt-col" "col" "let*" "st" "lambda" "fmt-try-fit" "c-paren" "fmt-no-wrap?" "fmt-if" "cdr" "fmt-join" "no-wrap?" "fmt-let" "flat" "let" "car" "c-expr" "cat" "paren" "c-with-op" "c-wrap-stmt" "ls")}
+    {Lisp-Entry "c-expr" define #f 253 9 253 15 ("c-expr/sexp" "fmt-gen" "or" "st" "lambda" "x")}
+    {Lisp-Entry "make-comment-writer" define #f 259 9 259 28 ("<" "+" "substring/shared" "string-ref" "eqv?" ">" "and" "if" "string-index" "j" "0" "i" "lp" "1" "string-length" "-" "lim" "str" "lambda" "writer" "fmt-ref" "output" "let" "st")}
+    {Lisp-Entry "c-comment" define #f 278 9 278 18 ("apply-cat" "make-comment-writer" "writer" "fmt-let" "cat" "st" "lambda" "args")}
+    {Lisp-Entry "make-block-comment-writer" define #f 285 9 285 34 ("substring/shared" "if" "string-index" "j" "0" "i" "lp" "string-length" "lim" "str" "lambda" "1" "fmt-col" "+" "make-nl-space" "string-append" "indent" "make-comment-writer" "output" "let" "st")}
+    {Lisp-Entry "c-block-comment" define #f 297 9 297 24 ("fl" "else" "dsp" "=" "cond" "apply-cat" "make-block-comment-writer" "writer" "fmt-let" "cat" "c-current-indent-string" "indent" "fmt-row" "row" "fmt-col" "col" "let" "st" "lambda" "args")}
+    {Lisp-Entry "make-cpp-writer" define #f 314 9 314 24 ("substring/shared" "nl-str" "1" "+" "if" "string-index" "j" "0" "i" "lp" "str" "lambda" "writer" "fmt-ref" "output" "let" "st")}
+    {Lisp-Entry "cpp-include" define #f 326 9 326 20 ("wrt" "fl" "cat" "string?" "if" "file")}
+    {Lisp-Entry "list-dot" define #f 331 9 331 17 ("else" "null?" "cdr" "list-dot" "pair?" "cond" "x")}
+    {Lisp-Entry "replace-tree" define #f 336 9 336 21 ("else" "cdr" "car" "cons" "pair?" "eq?" "cond" "replace" "let" "x" "to" "from")}
+    {Lisp-Entry "cpp-define" define #f 342 9 342 19 ("dsp" "fmt-join/dot" "fl" "c-begin" "apply" "c-in-expr" "c-paren" "car" "c-literal?" "cdr" "null?" "not" "or" "in-macro?" "make-cpp-writer" "writer" "fmt-let" "cat" "tail" "else" "__VA_ARGS__" "replace-tree" "..." "eq?" "dot" "=>" "list-dot" "and" "cond" "let*" "st" "lambda" "cadr" "pair?" "if" "c-expr" "name-of" "define" "body" "x")}
+    {Lisp-Entry "cpp-expr" define #f 376 9 376 17 ("c-expr" "dsp" "string?" "symbol?" "or" "if" "x")}
+    {Lisp-Entry "cpp-if/aux" define #f 379 9 379 19 ("equal?" "c-comment" "member" "or" "if" "cpp-expr" "fl" "cat" "c-current-indent-string" "indent" "st" "lambda" "cadr" "cdr" "fail" "car" "pair?" "and" "pass" "let" "o" "check" "name")}
+    {Lisp-Entry "cpp-if" define #f 400 9 400 15 ("cpp-if/aux" "apply" "o" "check")}
+    {Lisp-Entry "cpp-ifdef" define #f 402 9 402 18 ("cpp-if/aux" "apply" "o" "check")}
+    {Lisp-Entry "cpp-ifndef" define #f 404 9 404 19 ("cpp-if/aux" "apply" "o" "check")}
+    {Lisp-Entry "cpp-elif" define #f 406 9 406 17 ("cpp-if/aux" "apply" "o" "check")}
+    {Lisp-Entry "cpp-endif" define #f 408 9 408 18 ("car" "c-comment" "pair?" "if" "fl" "cat" "o")}
+    {Lisp-Entry "cpp-wrap-header" define #f 411 9 411 24 ("apply" "nl" "cpp-define" "c-begin" "cpp-ifndef" "let" "body" "name")}
+    {Lisp-Entry "cpp-line" define #f 415 9 415 17 ("car" "pair?" "if" "fl" "cat" "o" "num")}
+    {Lisp-Entry "cpp-generic" define #f 418 9 418 20 ("apply-cat" "fl" "cat" "ls" "name")}
+    {Lisp-Entry "cpp-undef" define #f 421 9 421 18 ("cpp-generic" "apply" "args")}
+    {Lisp-Entry "cpp-pragma" define #f 422 9 422 19 ("cpp-generic" "apply" "args")}
+    {Lisp-Entry "cpp-error" define #f 423 9 423 18 ("cpp-generic" "apply" "args")}
+    {Lisp-Entry "cpp-warning" define #f 424 9 424 20 ("cpp-generic" "apply" "args")}
+    {Lisp-Entry "cpp-stringify" define #f 426 9 426 22 ("cat" "x")}
+    {Lisp-Entry "cpp-sym-cat" define #f 429 9 429 20 ("dsp" "fmt-join" "args")}
+    {Lisp-Entry "c-current-indent-string" define #f 435 9 435 32 ("car" "pair?" "if" "fmt-col" "+" "0" "max" "make-space" "o" "st")}
+    {Lisp-Entry "c-indent" define #f 438 9 438 17 ("car" "pair?" "if" "4" "fmt-indent-space" "or" "fmt-col" "+" "0" "max" "make-space" "dsp" "o" "st")}
+    {Lisp-Entry "c-indent/switch" define #f 442 9 442 24 ("4" "fmt-switch-indent-space" "or" "fmt-col" "+" "make-space" "dsp" "st")}
+    {Lisp-Entry "c-open-brace" define #f 445 9 445 21 ("c-current-indent-string" "nl" "cat" "fmt-newline-before-brace?" "if" "st")}
+    {Lisp-Entry "c-close-brace" define #f 450 9 450 22 ("dsp" "st")}
+    {Lisp-Entry "c-wrap-stmt" define #f 453 9 453 20 ("nl" "c-in-expr" "fmt-return?" "cat" "c-expr" "fmt-expression?" "fmt-if" "x")}
+    {Lisp-Entry "c-block" define #f 462 9 462 16 ("0" "c-block/aux" "apply" "args")}
+    {Lisp-Entry "c-block/aux" define #f 465 9 465 20 ("c-indent" "fl" "cat" "fmt-braceless-bodies?" "st" "lambda" "c-braced-block/aux" "car" "c-control-operator?" "and" "c-literal?" "not" "pair?" "or" "if" "c-begin" "apply" "inner" "let" "body" "body0" "header" "offset")}
+    {Lisp-Entry "c-braced-block" define #f 477 9 477 23 ("0" "c-braced-block/aux" "apply" "args")}
+    {Lisp-Entry "c-braced-block/aux" define #f 480 9 480 27 ("c-close-brace" "c-current-indent-string" "fl" "c-begin" "apply" "c-indent" "c-open-brace" "cat" "st" "lambda" "body" "header" "offset")}
+    {Lisp-Entry "c-begin" define #f 487 9 487 16 ("c-begin/aux" "apply" "args")}
+    {Lisp-Entry "c-begin/aux" define #f 490 9 490 20 ("and" "fmt-set!" "fl" "return?" "x" "fmt-join/last" "fmt-return?" "orig-ret?" "nl" "cat" "c-current-indent-string" "indent" "let" "cons" "fmt-join" "no-wrap?" "fmt-let" "fmt-try-fit" "fmt-expression?" "st" "lambda" "c-expr" "null?" "if" "body" "body0" "ret?")}
+    {Lisp-Entry "c-struct/aux" define #f 511 9 511 21 ("dsp" "pair?" "c-expr" "c-param" "map" "c-begin" "apply" "list?" "c-in-stmt" "equal?" "not" "and" "c-braced-block" "cat" "c-wrap-stmt" "cdr" "car" "body" "string?" "symbol?" "or" "null?" "if" "name" "let*" "o" "x" "type")}
+    {Lisp-Entry "c-struct" define #f 526 9 526 17 ("c-struct/aux" "apply" "args")}
+    {Lisp-Entry "c-union" define #f 527 9 527 16 ("c-struct/aux" "apply" "args")}
+    {Lisp-Entry "c-class" define #f 528 9 528 16 ("c-struct/aux" "apply" "args")}
+    {Lisp-Entry "c-enum" define #f 530 9 530 15 ("map" "c-begin" "apply" "c-in-expr" "c-braced-block" "c-wrap-stmt" "vals" "string?" "symbol?" "or" "null?" "name" "let*" "dsp" "cadr" "c-expr" "car" "cat" "pair?" "if" "c-enum-one" "define" "o" "x")}
+    {Lisp-Entry "c-attribute" define #f 541 9 541 20 ("c-expr" "fmt-join" "cat" "args")}
+    {Lisp-Entry "c-while" define #f 547 9 547 16 ("fl" "c-begin" "apply" "c-in-stmt" "c-in-test" "c-block" "cat" "body" "check")}
+    {Lisp-Entry "c-for" define #f 552 9 552 14 ("fl" "c-begin" "apply" "c-in-stmt" "c-in-test" "c-expr" "c-in-expr" "c-block" "cat" "body" "update" "check" "init")}
+    {Lisp-Entry "c-param" define #f 561 9 561 16 ("fmt-default-type" "st" "lambda" "cat" "else" "cadr" "car" "c-type" "pair?" "procedure?" "cond" "x")}
+    {Lisp-Entry "c-param-list" define #f 567 9 567 21 ("dsp" "dot" "lambda" "c-param" "fmt-join/dot" "c-in-expr" "ls")}
+    {Lisp-Entry "c-fun" define #f 570 9 570 14 ("fl" "c-begin" "apply" "c-in-stmt" "void" "eq?" "not" "return?" "fmt-let" "c-prototype" "c-in-expr" "c-block" "cat" "body" "params" "name" "type")}
+    {Lisp-Entry "c-prototype" define #f 576 9 576 20 ("fmt-join/prefix" "c-param-list" "c-expr" "c-type" "cat" "c-wrap-stmt" "o" "params" "name" "type")}
+    {Lisp-Entry "c-static" define #f 581 9 581 17 ("c-expr" "cat" "x")}
+    {Lisp-Entry "c-const" define #f 582 9 582 16 ("c-expr" "cat" "x")}
+    {Lisp-Entry "c-restrict" define #f 583 9 583 19 ("c-expr" "cat" "x")}
+    {Lisp-Entry "c-volatile" define #f 584 9 584 19 ("c-expr" "cat" "x")}
+    {Lisp-Entry "c-auto" define #f 585 9 585 15 ("c-expr" "cat" "x")}
+    {Lisp-Entry "c-inline" define #f 586 9 586 17 ("c-expr" "cat" "x")}
+    {Lisp-Entry "c-extern" define #f 587 9 587 17 ("c-expr" "cat" "x")}
+    {Lisp-Entry "c-extern/C" define #f 588 9 588 19 ("c-begin" "apply" "nl" "cat" "body")}
+    {Lisp-Entry "c-type" define #f 591 9 591 15 ("int" "fmt-default-type" "st" "not" "fmt-join/last" "else" "c-struct/aux" "class" "union" "struct" "cdr" "c-enum" "apply" "enum" "c-paren" "caadr" "eq?" "*" "%pointer" "c-expr" "cddr" "if" "%array" "caddr" "x" "lambda" "fmt-join" "or" "cadr" "c-type" "cat" "%fun" "case" "cond" "car" "pair?" "and" "name" "let" "o" "type")}
+    {Lisp-Entry "c-var" define #f 621 9 621 14 ("fmt-join" "car" "c-expr" "c-type" "cat" "pair?" "if" "c-wrap-stmt" "init" "name" "type")}
+    {Lisp-Entry "c-cast" define #f 629 9 629 15 ("c-expr" "c-type" "cat" "expr" "type")}
+    {Lisp-Entry "c-typedef" define #f 632 9 632 18 ("c-expr" "fmt-join/prefix" "c-type" "cat" "c-wrap-stmt" "o" "alias" "type")}
+    {Lisp-Entry "c-if/stmt" define #f 642 9 642 18 ("c-expr" "c-in-test" "x" "0" "cddr" "cadr" "car" "cdr" "pair?" "tail" "fl" "-1" "c-block/aux" "cat" "error" "null?" "not" "else" "eq?" "or" "if" "ls" "lp" "c-current-indent-string" "indent" "let" "st" "lambda" "rest" "p" "c")}
+    {Lisp-Entry "c-if/expr" define #f 662 9 662 18 ("c-or" "cddr" "cadr" "car" "cdr" "c-in-test" "cat" "pair?" "c-expr" "error" "null?" "not" "if" "else" "eq?" "or" "cond" "ls" "lp" "let" "rest" "p" "c")}
+    {Lisp-Entry "c-if" define #f 677 9 677 13 ("c-if/stmt" "c-if/expr" "apply" "fmt-expression?" "fmt-if" "args")}
+    {Lisp-Entry "c-label" define #f 685 9 685 16 ("fl" "cat" "2" "fmt-col" "-" "0" "max" "make-space" "indent" "let" "st" "lambda" "name")}
+    {Lisp-Entry "c-break" define #f 690 8 690 15 ("dsp" "c-wrap-stmt")}
+    {Lisp-Entry "c-continue" define #f 692 8 692 18 ("dsp" "c-wrap-stmt")}
+    {Lisp-Entry "c-return" define #f 694 9 694 17 ("dsp" "car" "c-expr" "cat" "c-wrap-stmt" "pair?" "if" "result")}
+    {Lisp-Entry "c-goto" define #f 698 9 698 15 ("c-expr" "cat" "c-wrap-stmt" "label")}
+    {Lisp-Entry "c-switch" define #f 701 9 701 17 ("c-close-brace" "c-current-indent-string" "fl" "c-switch-clause" "map" "c-begin/aux" "apply" "c-in-stmt" "c-indent/switch" "c-open-brace" "c-in-expr" "cat" "st" "lambda" "clauses" "val")}
+    {Lisp-Entry "c-switch-clause/breaks" define #f 709 9 709 31 ("c-break" "fl" "fmt-return?" "not" "and" "cddr" "fmt-join" "4" "fmt-indent-space" "or" "make-space" "list" "c-expr" "y" "map" "cadr" "pair?" "if" "dsp" "fmt-join/suffix" "c-in-expr" "cat" "nl-str" "string-append" "sep" "c-indent" "indent-body" "c-current-indent-string" "indent" "car" "break?" "let*" "st" "lambda" "x")}
+    {Lisp-Entry "c-switch-clause" define #f 730 9 730 24 ("cons" "c-switch-clause/breaks" "procedure?" "if" "x")}
+    {Lisp-Entry "c-switch-clause/no-break" define #f 732 9 732 33 ("cons" "c-switch-clause/breaks" "procedure?" "if" "x")}
+    {Lisp-Entry "c-case" define #f 735 9 735 15 ("list" "pair?" "if" "cons" "c-switch-clause" "body" "x")}
+    {Lisp-Entry "c-case/fallthrough" define #f 737 9 737 27 ("list" "pair?" "if" "cons" "c-switch-clause/no-break" "body" "x")}
+    {Lisp-Entry "c-default" define #f 739 9 739 18 ("else" "cons" "c-switch-clause/breaks" "body")}
+    {Lisp-Entry "c-op" define #f 745 9 745 13 ("c-binary-op" "apply" "c-unary-op" "null?" "if" "rest" "first" "op")}
+    {Lisp-Entry "c-binary-op" define #f 750 9 750 20 ("fmt-col" "2" "+" "make-space" "nl" "cat" "fmt-try-fit" "fmt-no-wrap?" "fmt-if" "string-append" "every" "fmt-non-spaced-ops?" "and" "st" "lambda" "no-wrap?" "fmt-let" "flat" "c-expr" "fmt-join" "equal?" "if" "c-maybe-paren" "c-wrap-stmt" "display-to-string" "str" "let" "symbol?" "c-literal?" "or" "x" "lit-op?" "define" "ls" "op")}
+    {Lisp-Entry "c-unary-op" define #f 779 9 779 19 ("c-expr" "c-maybe-paren" "display-to-string" "cat" "c-wrap-stmt" "x" "op")}
+    {Lisp-Entry "c++" define #f 785 9 785 12 ("c-op" "apply" "args")}
+    {Lisp-Entry "c--" define #f 786 9 786 12 ("c-op" "apply" "args")}
+    {Lisp-Entry "c+" define #f 787 9 787 11 ("+" "c-op" "apply" "args")}
+    {Lisp-Entry "c-" define #f 788 9 788 11 ("-" "c-op" "apply" "args")}
+    {Lisp-Entry "c*" define #f 789 9 789 11 ("*" "c-op" "apply" "args")}
+    {Lisp-Entry "c/" define #f 790 9 790 11 ("/" "c-op" "apply" "args")}
+    {Lisp-Entry "c%" define #f 791 9 791 11 ("%" "c-op" "apply" "args")}
+    {Lisp-Entry "c&" define #f 792 9 792 11 ("&" "c-op" "apply" "args")}
+    {Lisp-Entry "c^" define #f 794 9 794 11 ("^" "c-op" "apply" "args")}
+    {Lisp-Entry "c~" define #f 795 9 795 11 ("~" "c-op" "apply" "args")}
+    {Lisp-Entry "c!" define #f 796 9 796 11 ("!" "c-op" "apply" "args")}
+    {Lisp-Entry "c&&" define #f 797 9 797 12 ("&&" "c-op" "apply" "args")}
+    {Lisp-Entry "c<<" define #f 799 9 799 12 ("<<" "c-op" "apply" "args")}
+    {Lisp-Entry "c>>" define #f 800 9 800 12 (">>" "c-op" "apply" "args")}
+    {Lisp-Entry "c==" define #f 801 9 801 12 ("==" "c-op" "apply" "args")}
+    {Lisp-Entry "c!=" define #f 802 9 802 12 ("!=" "c-op" "apply" "args")}
+    {Lisp-Entry "c<" define #f 803 9 803 11 ("<" "c-op" "apply" "args")}
+    {Lisp-Entry "c>" define #f 804 9 804 11 (">" "c-op" "apply" "args")}
+    {Lisp-Entry "c<=" define #f 805 9 805 12 ("<=" "c-op" "apply" "args")}
+    {Lisp-Entry "c>=" define #f 806 9 806 12 (">=" "c-op" "apply" "args")}
+    {Lisp-Entry "c=" define #f 807 9 807 11 ("=" "c-op" "apply" "args")}
+    {Lisp-Entry "c+=" define #f 808 9 808 12 ("c-op" "apply" "args")}
+    {Lisp-Entry "c-=" define #f 809 9 809 12 ("c-op" "apply" "args")}
+    {Lisp-Entry "c*=" define #f 810 9 810 12 ("*=" "c-op" "apply" "args")}
+    {Lisp-Entry "c/=" define #f 811 9 811 12 ("/=" "c-op" "apply" "args")}
+    {Lisp-Entry "c%=" define #f 812 9 812 12 ("%=" "c-op" "apply" "args")}
+    {Lisp-Entry "c&=" define #f 813 9 813 12 ("&=" "c-op" "apply" "args")}
+    {Lisp-Entry "c^=" define #f 815 9 815 12 ("^=" "c-op" "apply" "args")}
+    {Lisp-Entry "c<<=" define #f 816 9 816 13 ("<<=" "c-op" "apply" "args")}
+    {Lisp-Entry "c>>=" define #f 817 9 817 13 (">>=" "c-op" "apply" "args")}
+    {Lisp-Entry "c." define #f 819 9 819 11 ("c-op" "apply" "args")}
+    {Lisp-Entry "c->" define #f 820 9 820 12 ("c-op" "apply" "args")}
+    {Lisp-Entry "c-bit-or" define #f 822 9 822 17 ("c-op" "apply" "args")}
+    {Lisp-Entry "c-or" define #f 823 9 823 13 ("c-op" "apply" "args")}
+    {Lisp-Entry "c-bit-or=" define #f 824 9 824 18 ("c-op" "apply" "args")}
+    {Lisp-Entry "c++/post" define #f 826 9 826 17 ("c-expr" "post-increment" "c-maybe-paren" "cat" "x")}
+    {Lisp-Entry "c--/post" define #f 828 9 828 17 ("c-expr" "post-decrement" "c-maybe-paren" "cat" "x")}})
+"fmt-c-chicken"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-c-chicken.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-c" module #f 8 1 8 6 ("include" "c-attribute" "c-block-comment" "c-comment" "cpp-sym-cat" "cpp-stringify" "cpp-warning" "cpp-error" "cpp-line" "cpp-pragma" "cpp-wrap-header" "cpp-define" "cpp-include" "cpp-undef" "cpp-endif" "cpp-elif" "cpp-ifndef" "cpp-ifdef" "cpp-if" "c-bit-or=" "c-or" "c-bit-or" "c->" "c." "c--/post" "c++/post" "c>>=" "c<<=" "c^=" "c&=" "c%=" "c/=" "c*=" "c-=" "c+=" "c=" "c>=" "c<=" "c>" "c<" "c!=" "c==" "c>>" "c<<" "c&&" "c!" "c~" "c^" "c&" "c%" "c/" "c*" "c-" "c+" "c--" "c++" "c-inline" "c-restrict" "c-auto" "c-volatile" "c-extern" "c-const" "c-static" "c-label" "c-goto" "c-return" "c-continue" "c-break" "c-default" "c-case/fallthrough" "c-case" "c-switch" "c-if" "c-for" "c-while" "c-param-list" "c-param" "c-prototype" "c-var" "c-fun" "c-begin" "c-braced-block" "c-block" "c-close-brace" "c-open-brace" "c-wrap-stmt" "c-current-indent-string" "c-indent" "c-op" "c-apply" "c-expr/sexp" "c-expr" "c-cast" "c-typedef" "c-enum" "c-class" "c-union" "c-struct" "char->c-char" "c-literal" "c-literal?" "c-type" "c-maybe-paren" "c-paren" "c-in-test" "c-in-stmt" "c-in-expr" "fmt-gen" "fmt-op" "fmt-switch-indent-space" "fmt-indent-space" "fmt-braceless-bodies?" "fmt-newline-before-brace?" "fmt-default-type" "fmt-return?" "fmt-expression?" "fmt-in-macro?")
+      {Lisp-Entry "import" anonymous #f 33 1 33 7 ("srfi-13" "srfi-1" "fmt" "chicken" "scheme")}}})
+"fmt-c-gauche"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-c-gauche.scm"} 236918187. scheme})
+"fmt-c-mzscheme"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-c-mzscheme.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-c" module #f 5 8 5 13 ("c-block-comment" "c-comment" "cpp-sym-cat" "cpp-stringify" "cpp-warning" "cpp-error" "cpp-line" "cpp-pragma" "cpp-wrap-header" "cpp-define" "cpp-include" "cpp-undef" "cpp-endif" "cpp-elif" "cpp-ifndef" "cpp-ifdef" "cpp-if" "c-bit-or=" "c-or" "c-bit-or" "c->" "c." "c--/post" "c++/post" "c>>=" "c<<=" "c^=" "c&=" "c%=" "c/=" "c*=" "c-=" "c+=" "c=" "c>=" "c<=" "c>" "c<" "c!=" "c==" "c>>" "c<<" "c&&" "c!" "c~" "c^" "c&" "c%" "c/" "c*" "c-" "c+" "c--" "c++" "c-inline" "c-restrict" "c-auto" "c-volatile" "c-extern" "c-const" "c-static" "c-label" "c-goto" "c-return" "c-continue" "c-break" "c-default" "c-case/fallthrough" "c-case" "c-switch" "c-if" "c-for" "c-while" "c-param-list" "c-param" "c-prototype" "c-var" "c-fun" "c-begin" "c-braced-block" "c-block" "c-close-brace" "c-open-brace" "c-wrap-stmt" "c-current-indent-string" "c-indent" "c-op" "c-apply" "c-expr/sexp" "c-expr" "c-cast" "c-typedef" "c-attribute" "c-enum" "c-class" "c-union" "c-struct" "char->c-char" "c-literal" "c-literal?" "c-type" "c-maybe-paren" "c-paren" "c-in-test" "c-in-stmt" "c-in-expr" "fmt-gen" "fmt-op" "fmt-switch-indent-space" "fmt-indent-space" "fmt-braceless-bodies?" "fmt-newline-before-brace?" "fmt-default-type" "fmt-return?" "fmt-expression?" "fmt-in-macro?" "provide" "mzscheme")
+      {Lisp-Entry "require" anonymous #f 6 2 6 9 ("string-suffix?" "string-prefix?" "string-pad" "string-tokenize" "string-concatenate-reverse" "string-concatenate" "string-count" "string-index-right" "string-index" "substring/shared" "every" "filter" "remove" "length+" "fold" "find" "lib" "only")}}})
+"fmt-chicken"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-chicken.scm"} 236918187. scheme
+    {Lisp-Entry "fmt" module #f 6 1 6 4 ("include" "data-structures" "extras" "srfi-13" "require-library" "srfi-69" "srfi-1" "ports" "require-extension" "mantissa+exponent" "line-numbers" "tabular" "columnar" "fmt-columns" "write-to-string" "display-to-string" "make-nl-space" "make-space" "make-string-fmt-transformer" "justify" "fold-lines" "wrap-lines" "with-width" "decimal-char" "comma-char" "pad-char" "titlecase" "downcase" "upcase" "num/old-roman" "num/roman" "ellipses" "decimal-align" "fix" "radix" "num/comma" "num/fit" "num/si" "num" "maybe-slashified" "slashified" "pretty/unshared" "pretty" "dsp" "wrt/unshared" "wrt" "space-to" "tab-to" "fit/both" "fit/left" "fit" "trim/length" "trim/both" "trim/left" "trim" "pad/both" "pad/left" "pad/right" "pad" "fmt-join/range" "fmt-join/suffix" "fmt-join/prefix" "fmt-join/dot" "fmt-join/last" "fmt-join" "nl-str" "fl" "nl" "apply-cat" "cat" "fmt-try-fit" "fmt-file" "copy-fmt-state" "fmt-set-decimal-sep!" "fmt-decimal-sep" "fmt-set-port!" "fmt-port" "fmt-set-writer!" "fmt-writer" "fmt-set-width!" "fmt-width" "fmt-set-properties!" "fmt-properties" "fmt-set-precision!" "fmt-precision" "fmt-set-radix!" "fmt-radix" "fmt-set-row!" "fmt-row" "fmt-set-col!" "fmt-col" "fmt-set-property!" "fmt-add-properties!" "fmt-set!" "fmt-ref" "fmt-null" "fmt-bind" "fmt-let" "fmt-capture" "fmt-if" "fmt-start" "fmt" "new-fmt-state")
+      {Lisp-Entry "import" anonymous #f 32 1 32 7 ("chicken" "scheme")}
+      {Lisp-Entry "import" anonymous #f 35 1 35 7 ("string-split" "data-structures" "read-line" "extras" "only" "string-tokenize" "srfi-13" "except" "foreign")}
+      {Lisp-Entry "make-eq?-table" define #f 40 9 40 23 ("eq?" "make-hash-table")}
+      {Lisp-Entry "%mantissa" define #f 46 12 46 21 ("f" "double" "number" "foreign-lambda*")}
+      {Lisp-Entry "%exponent" define #f 51 12 51 21 ("f" "double" "number" "foreign-lambda*")}
+      {Lisp-Entry "%mantissa" define #f 57 12 57 21 ("f" "double" "number" "foreign-lambda*")}
+      {Lisp-Entry "%exponent" define #f 62 12 62 21 ("f" "double" "number" "foreign-lambda*")}
+      {Lisp-Entry "mantissa+exponent" define #f 67 11 67 28 ("52" "#x3FF" "-" "30" "22" "1" "arithmetic-shift" "*" "+" "else" "zero?" "0" "list" "#x7FF" "=" "cond" "%mantissa" "m" "%exponent" "e" "let" "num")}
+      {Lisp-Entry "mantissa+exponent" define #f 80 11 80 28 ("else" "-" "<" "1" "+" "quotient" ">=" "cond" "e" "n" "lp" "let" "*" "top" "expt" "bot" "let*" "11" "exp-size" "52" "mant-size" "2" "base" "let-optionals*" "0" "list" "zero?" "if" "opt" "num")}
+      {Lisp-Entry "string-tokenize" define #f 98 9 98 24 ("string-split" "s")}}})
+"fmt-color"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-color.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-color" define #f 5 9 5 18 ("color" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-in-html?" define #f 6 9 6 21 ("in-html?" "fmt-ref" "st")}
+    {Lisp-Entry "fmt-use-html-font?" define #f 7 9 7 27 ("use-html-font?" "fmt-ref" "st")}
+    {Lisp-Entry "color->ansi" define #f 9 9 9 20 ("white" "cyan" "magenta" "yellow" "black" "underline" "dark" "bold" "case" "else" "green" "blue" "red" ">" "cond" "color->ansi" "b" "#xFF" "-8" "bitwise-and" "g" "-16" "arithmetic-shift" "r" "let" "number?" "if" "x")}
+    {Lisp-Entry "ansi-escape" define #f 34 9 34 20 ("color->ansi" "27" "integer->char" "cat" "color")}
+    {Lisp-Entry "fmt-in-html" define #f 37 9 37 20 ("apply-cat" "in-html?" "fmt-let" "args")}
+    {Lisp-Entry "fmt-colored" define #f 40 9 40 20 ("reset" "memv" "or" "ansi-escape" "fmt-let" "fmt-color" "old-color" "st" "lambda" "fmt-use-html-font?" "number?" "if" "cname" "let" "else" "underline" "apply-cat" "cat" "bold" "eq?" "cond" "fmt-in-html?" "fmt-if" "args" "color")}
+    {Lisp-Entry "fmt-red" define #f 66 9 66 16 ("apply-cat" "red" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-blue" define #f 67 9 67 17 ("apply-cat" "blue" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-green" define #f 68 9 68 18 ("apply-cat" "green" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-cyan" define #f 69 9 69 17 ("apply-cat" "cyan" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-yellow" define #f 70 9 70 19 ("apply-cat" "yellow" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-magenta" define #f 71 9 71 20 ("apply-cat" "magenta" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-white" define #f 72 9 72 18 ("apply-cat" "white" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-black" define #f 73 9 73 18 ("apply-cat" "black" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-bold" define #f 74 9 74 17 ("apply-cat" "bold" "fmt-colored" "args")}
+    {Lisp-Entry "fmt-underline" define #f 75 9 75 22 ("apply-cat" "underline" "fmt-colored" "args")}})
+"fmt-color-chicken"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-color-chicken.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-color" module #f 8 1 8 10 ("include" "fmt-in-html" "fmt-color" "fmt-underline" "fmt-bold" "fmt-black" "fmt-white" "fmt-magenta" "fmt-yellow" "fmt-cyan" "fmt-green" "fmt-blue" "fmt-red")
+      {Lisp-Entry "import" anonymous #f 23 1 23 7 ("fmt" "chicken" "scheme")}}})
+"fmt-color-gauche"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-color-gauche.scm"} 236918187. scheme})
+"fmt-color-mzscheme"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-color-mzscheme.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-color" module #f 5 8 5 17 ("fmt-underline" "fmt-bold" "fmt-white" "fmt-black" "fmt-magenta" "fmt-yellow" "fmt-cyan" "fmt-green" "fmt-blue" "fmt-red" "fmt-colored" "fmt-use-html-font?" "fmt-in-html?" "fmt-color" "fmt-in-html" "provide" "mzscheme")
+      {Lisp-Entry "require" anonymous #f 6 9 6 16 ()}}})
+"fmt-column"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-column.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.implementation.fmt-column" module #f 19 8 19 37 ("scheme")
+      {Lisp-Entry "export" anonymous #f 21 1 21 7 ("fmt-columns")}
+      {Lisp-Entry "import" anonymous #f 23 1 23 7 ("syntax" "phase" "fmt.implementation.let-optionals" "fmt.implementation.fmt")}
+      {Lisp-Entry "fmt-columns" define #f 26 9 26 20 ("cadr" "dsp" "open-output-string" "fmt-set-port!" "col" "equal?" "s" "-" "copy-fmt-state" "fmt-set-writer!" "fmt-update" "1" "+" "substring/shared" "string-concatenate-reverse" "line" "string-index" "nli" "0" "i" "lp" "output*" "acc" "gen" "st" "make-col" "*ignored*" "blank" "make-empty-col" "else" "finish" "positive?" "not" "cont" "next" "nl" "for-each" "cond" "write-line" "if" "finite?" "str" "fmt" "write-column" "line-non-empty?" "line-buf" "null?" "line-done?" "reverse" "line-init!" "car" "deq!" "cons" "set!" "proc" "enq!" "remove" "length" "remaining" "q2" "q1" "let" "caddr" "cddr" "cdr" "pair?" "and" "x" "infinite?" "define" "return" "call-with-current-continuation" "orig-st" "lambda" "ls")}
+      {Lisp-Entry "columnar" define #f 112 9 112 17 ("procedure?" "symbol?" "infinite" "string-length" "string-index" "string?" "cddar" "cdddar" "caddar" "append" "caar" "null?" "res" "strs" "lp" "reverse" "fmt-columns" "apply" "finish" "cdr" "cons" "col" "error" "negative?" "/" "exact->inexact" "zero?" "rest" "length" "denom" "scaled-ls" "map" "+" "fold" "fixed-total" ">=" "car" "filter" "fixed-ls" "let*" "border-width" "adjust-widths" "with-width" "dsp" "eq?" "not" "pad" "let" "list" "string-concatenate" "cat" "pair?" "cond" "x" "affix" "pad/right" "else" "pad/both" "center" "pad/left" "str" "lambda" "right" "case" "if" "padder" "fmt-width" "-" "*" "truncate" "inexact->exact" "max" "scale-width" "infinite?" "left" "align" "prefix" "gen" "tail" "last?" "width" "fixed-width" "let-optionals*" "build-column" "fmt-pad-char" "char-whitespace?" "st" "whitespace-pad?" "1.0" "=" "inexact?" "1" "0" "<" "or" "number?" "and" "w" "proportional-width?" "define" "ls")}
+      {Lisp-Entry "max-line-width" define #f 221 9 221 23 ("string-length" "substring" "max" "1" "+" "if" "string-index" "j" "hi" "0" "i" "lp" "let" "str" "string-width")}
+      {Lisp-Entry "pad-finite" define #f 228 9 228 19 ("max" "exact?" "integer?" "and" "if" "cat" "list" "string-length" "fmt-string-width" "or" "max-line-width" "w" "copy-fmt-state" "fmt-to-string" "str" "let*" "width" "proc" "st")}
+      {Lisp-Entry "tabular" define #f 236 9 236 16 ("else" "append" "pad-finite" "gen+width" "if" "procedure?" "cons" "infinite" "eq?" "cdr" "car" "number?" "reverse" "columnar" "apply" "null?" "cond" "res" "width" "infinite?" "lp" "let" "st" "lambda" "ls")}
+      {Lisp-Entry "fold-lines" define #f 257 9 257 19 ("apply-cat" "1" "+" "string-index" "nli" "lp" "writer" "fmt-let" "0" "nl-str" "substring/shared" "else" "positive?" "not" "<=" "cond" "fmt-col" "fmt-width" "-" "space" "string-length" "fmt-string-width" "or" "len" "let" "str" "kons-in-line" "fmt-writer" "output" "define" "st" "lambda" "ls")}
+      {Lisp-Entry "wrap-fold-words" define #f 288 9 288 24 ("break" "acc" "zero?" "cons" "reverse" ">" "res" "sub-list" "<" "max" "break-penalty" "<=" "k" "3" "expt" "vector-set!" "0" "min-penalty!" "else" ">=" "cond" "vector-ref" "width" "+" "j" "lp" "let" "i" "largest-fit" "define" "vector->list" "map" "widths" "penalties" "make-vector" "breaks" "1" "-" "len-1" "vector-length" "len" "list->vector" "list?" "vec" "car" "pair?" "if" "last-line" "let*" "o" "line" "get-width" "max-width" "knil" "seq")}
+      {Lisp-Entry "wrap-fold" define #f 350 9 350 18 ("string-tokenize" "wrap-fold-words" "apply" "o" "str")}
+      {Lisp-Entry "wrap-lines" define #f 353 9 353 19 ("string-length" "fmt-string-width" "or" "fmt-width" "string-concatenate-reverse" "wrap-fold" "apply-cat" "cons" "set!" "str" "writer" "fmt-let" "lambda" "buffer" "dsp" "fmt-join" "nl" "st" "print-line" "define" "ls")}
+      {Lisp-Entry "justify" define #f 368 9 368 16 ("string-concatenate-reverse" "wrap-fold" "apply-cat" "cons" "set!" "str" "writer" "fmt-let" "dsp" "fmt-join" "justify-last" "newline" "write-char" "<=" "pair?" "cond" "i" "cdr" "lp" "car" "display" "p" "call-with-output-string" "remainder" "rem" "quotient" "1" "=" "make-string" "sep" "-" "max" "diff" "length" "len" "0" "+" "n" "s" "fold" "sum" "let*" "nl" "null?" "if" "justify-line" "define" "buffer" "fmt-writer" "output" "string-length" "fmt-string-width" "or" "string-width" "fmt-width" "width" "let" "st" "lambda" "ls")}
+      {Lisp-Entry "fmt-file" define #f 410 9 410 17 ("dsp" "nl" "eof-object?" "if" "read-line" "line" "lp" "let" "p" "call-with-input-file" "st" "lambda" "path")}
+      {Lisp-Entry "line-numbers" define #f 420 9 420 21 ("nl-str" "dsp" "fmt-join/range" "1" "car" "pair?" "if" "start" "let" "o")}}})
+"fmt-gauche"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-gauche.scm"} 236918187. scheme
+    {Lisp-Entry "make-eq?-table" define #f 36 9 36 23 ("eq?" "make-hash-table")}
+    {Lisp-Entry "hash-table-ref/default" define #f 38 8 38 30 ("hash-table-get")}
+    {Lisp-Entry "hash-table-set!" define #f 39 8 39 23 ("hash-table-put!")}
+    {Lisp-Entry "hash-table-walk" define #f 40 9 40 24 ("hash-table-for-each" "proc" "tab")}
+    {Lisp-Entry "mantissa+exponent" define #f 42 9 42 26 ("1" "0" "vector-ref" "list" "decode-float" "vec" "let" "num")}})
+"fmt-js"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-js.scm"} 236918187. scheme
+    {Lisp-Entry "js-expr" define #f 7 9 7 16 ("js-expr/sexp" "fmt-gen" "or" "st" "lambda" "x")}
+    {Lisp-Entry "js-expr/sexp" define #f 10 9 10 21 ("string" "js-expr/sexp" "char?" "if" "cat" "boolean?" "vector?" "c-expr/sexp" "else" "js-comment" "%comment" "js-object" "%object" "js-array" "%array" "js>>>" ">>>" "js===" "===" "eq?" "js-var" "var" "%var" "cdr" "js-function" "apply" "function" "%fun" "car" "case" "pair?" "procedure?" "cond" "x")}
+    {Lisp-Entry "js-function" define #f 29 9 29 20 ("c-begin" "apply" "c-in-stmt" "return?" "fmt-let" "fmt-join" "or" "dsp" "cat" "c-block" "cdr" "cddr" "body" "cadr" "if" "params" "car" "symbol?" "and" "name" "let*" "x")}
+    {Lisp-Entry "js-var" define #f 38 9 38 15 ("var" "c-var" "apply" "x")}
+    {Lisp-Entry "js===" define #f 41 9 41 14 ("c-op" "apply" "args")}
+    {Lisp-Entry "js>>>" define #f 44 9 44 14 ("c-op" "apply" "args")}
+    {Lisp-Entry "js-comment" define #f 47 9 47 19 ("apply-cat" "columnar" "args")}
+    {Lisp-Entry "js-array" define #f 50 9 50 17 ("nl" "make-nl-space" "string-append" "sep" "fmt-col" "col" "let*" "st" "lambda" "js-expr" "fmt-join" "cat" "no-wrap?" "fmt-let" "fmt-try-fit" "c-wrap-stmt" "vector->list" "ls" "let" "x")}
+    {Lisp-Entry "js-pair" define #f 60 9 60 16 ("cdr" "car" "js-expr" "cat" "x")}
+    {Lisp-Entry "js-object" define #f 63 9 63 18 ("nl" "make-nl-space" "string-append" "sep" "fmt-col" "col" "let*" "st" "lambda" "js-pair" "fmt-join" "cat" "no-wrap?" "fmt-let" "fmt-try-fit" "c-in-expr" "ls")}})
+"fmt-js-chicken"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-js-chicken.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-js" module #f 8 1 8 7 ("include" "js>>>" "js===" "js-object" "js-array" "js-comment" "js-var" "js-function" "js-expr")
+      {Lisp-Entry "import" anonymous #f 11 1 11 7 ("fmt-c" "fmt" "chicken" "scheme")}}})
+"fmt-js-gauche"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-js-gauche.scm"} 236918187. scheme})
+"fmt-mzscheme"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-mzscheme.scm"} 236918187. scheme
+    {Lisp-Entry "fmt" module #f 5 8 5 11 ("line-numbers" "tabular" "columnar" "fmt-columns" "write-to-string" "display-to-string" "make-nl-space" "make-space" "make-string-fmt-transformer" "justify" "fold-lines" "wrap-lines" "with-width" "decimal-char" "comma-char" "pad-char" "titlecase" "downcase" "upcase" "ellipses" "decimal-align" "fix" "radix" "num/comma" "num/fit" "num/si" "num" "maybe-slashified" "slashified" "pretty/unshared" "pretty" "dsp" "wrt/unshared" "wrt" "space-to" "tab-to" "fit/both" "fit/left" "fit" "trim/length" "trim/both" "trim/left" "trim" "pad/both" "pad/left" "pad/right" "pad" "fmt-join/range" "fmt-join/suffix" "fmt-join/prefix" "fmt-join/dot" "fmt-join/last" "fmt-join" "nl-str" "fl" "nl" "apply-cat" "cat" "fmt-try-fit" "fmt-file" "copy-fmt-state" "fmt-set-decimal-sep!" "fmt-decimal-sep" "fmt-set-port!" "fmt-port" "fmt-set-writer!" "fmt-writer" "fmt-set-width!" "fmt-width" "fmt-set-properties!" "fmt-properties" "fmt-set-precision!" "fmt-precision" "fmt-set-radix!" "fmt-radix" "fmt-set-row!" "fmt-row" "fmt-set-col!" "fmt-col" "fmt-set-property!" "fmt-add-properties!" "fmt-set!" "fmt-ref" "fmt-null" "fmt-bind" "fmt-let" "fmt-capture" "fmt-if" "fmt-start" "fmt" "new-fmt-state" "provide" "mzscheme")
+      {Lisp-Entry "require" anonymous #f 6 9 6 16 ("string-suffix?" "string-prefix?" "string-pad" "string-tokenize" "string-concatenate-reverse" "string-concatenate" "string-count" "string-index-right" "string-index" "substring/shared" "every" "filter" "remove" "length+" "fold" "find" "lib" "only")}
+      {Lisp-Entry "make-eq?-table" define #f 52 9 52 23 ("make-hash-table")}
+      {Lisp-Entry "hash-table-ref/default" define #f 53 8 53 30 ("hash-table-get")}
+      {Lisp-Entry "hash-table-set!" define #f 54 8 54 23 ("hash-table-put!")}
+      {Lisp-Entry "hash-table-walk" define #f 55 8 55 23 ("hash-table-for-each")}}})
+"fmt-pretty"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-pretty.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.implementation.fmt-pretty" module #f 8 8 8 37 ("scheme")
+      {Lisp-Entry "export" anonymous #f 10 1 10 7 ("pretty")}
+      {Lisp-Entry "import" anonymous #f 12 1 12 7 ("fmt.implementation.fmt")}
+      {Lisp-Entry "fmt-shares" define #f 14 9 14 19 ("shares" "fmt-ref" "st")}
+      {Lisp-Entry "fmt-set-shares!" define #f 15 9 15 24 ("shares" "fmt-set!" "x" "st")}
+      {Lisp-Entry "fmt-copy-shares" define #f 16 9 16 24 ("fmt-shares" "copy-shares" "copy-fmt-state" "fmt-set-shares!" "st")}
+      {Lisp-Entry "copy-shares" define #f 19 9 19 20 ("cdr" "cons" "eq?-table-set!" "x" "obj" "lambda" "car" "hash-table-walk" "make-eq?-table" "tab" "let" "shares")}
+      {Lisp-Entry "fmt-shared-write" define #f 29 9 29 25 ("1" "+" "set-cdr!" "set-car!" "else" "gen-shared-ref" "fmt-writer" "cdr" "cond" "pair?" "if" "car" "eq?-table-ref" "and" "cell" "fmt-shares" "shares" "let*" "st" "lambda" "proc" "obj")}
+      {Lisp-Entry "fmt-join/shares" define #f 44 9 44 24 ("else" "call-with-shared-ref/cdr" "cond" "cdr" "rest" "lp" "fmt-writer" "output" "tab" "fmt-shares" "shares" "let*" "null?" "st" "lambda" "car" "pair?" "if" "dsp" "sep" "let" "o" "ls" "fmt")}
+      {Lisp-Entry "non-app?" define #f 66 9 66 17 ("symbol?" "car" "non-app?" "cdr" "null?" "not" "or" "pair?" "if" "x")}
+      {Lisp-Entry "syntax-abbrevs" define #f 72 8 72 22 ("unquote-splicing" "unquote" "quasiquote" "quote")}
+      {Lisp-Entry "pp-let" define #f 76 9 76 15 ("1" "2" "pp-with-indent" "cadr" "symbol?" "cdr" "pair?" "and" "if" "ls")}
+      {Lisp-Entry "indent-rules" define #f 81 8 81 20 ("0" "call-with-current-continuation" "rec" "guard" "condition-case" "test" "dolist" "dotimes" "do" "until" "while" "case" "unless" "when" "3" "if" "match-let*" "match-let" "match" "syntax-case" "syntax-rules" "letrec-syntax" "let-syntax" "parameterize" "receive" "let*-values" "let-values" "2" "let1" "and-let*" "letrec*" "letrec" "let*" "loop" "pp-let" ",pp-let" "let" "define" "1" "lambda")}
+      {Lisp-Entry "indent-prefix-rules" define #f 94 8 94 27 ("1" "-1")}
+      {Lisp-Entry "indent-suffix-rules" define #f 98 8 98 27 ("1")}
+      {Lisp-Entry "pp-indentation" define #f 102 9 102 23 ("1" "length+" "+" "-" "0" "max" "negative?" "number?" "if" "else" "indent-suffix-rules" "string-suffix?" "indent-prefix-rules" "string-prefix?" "rx" "lambda" "find" "or" "symbol->string" "str" "symbol?" "and" "cdr" "=>" "indent-rules" "car" "assq" "cond" "indent" "let" "form")}
+      {Lisp-Entry "pp-with-indent" define #f 118 9 118 23 ("fmt-try-fit" "fmt-null" "else" "length+" ">" "pair?" "null?" "not" "2" "if" "fmt-width" "string-length" "<" "cond" "+" "make-nl-space" "sep" "let" "default" "pp-flat" "fmt-join/shares" "fmt-to-string" "first-line" "fmt-copy-shares" "st2" "drop*" "tail" "1" "or" "cdr" "take*" "fixed" "col2" "car" "pp-object" "cat" "fmt-col" "col1" "let*" "st" "lambda" "ls" "indent-rule")}
+      {Lisp-Entry "pp-app" define #f 165 9 165 15 ("pp-with-indent" "procedure?" "if" "pp-indentation" "indent-rule" "let" "ls")}
+      {Lisp-Entry "proper-non-shared-list?" define #f 173 9 173 32 ("cdr" "eq?-table-ref" "not" "pair?" "and" "null?" "or" "lp" "car" "tab" "let" "shares" "ls")}
+      {Lisp-Entry "pp-flat" define #f 181 9 181 16 ("fmt-shares" "write-with-shares" "st" "vector->list" "vector?" "fmt-join/shares" "else" "cadr" "pp-flat" "cat" "abbrev" "lambda" "=>" "syntax-abbrevs" "car" "assq" "cddr" "null?" "cdr" "and" "fmt-shared-write" "pair?" "cond" "x")}
+      {Lisp-Entry "pp-pair" define #f 200 9 200 16 ("pp-app" "pp-data-list" "fmt-shares" "proper-non-shared-list?" "non-app?" "if" "fmt-copy-shares" "pp-flat" "st" "fmt-try-fit" "else" "cadr" "abbrev" "lambda" "=>" "syntax-abbrevs" "assq" "cddr" "pair?" "and" "car" "pp-object" "cat" "cdr" "null?" "cond" "fmt-shared-write" "ls")}
+      {Lisp-Entry "pp-data-list" define #f 221 9 221 21 ("pp-object" "fmt-join" "cat" "make-space" "string-length" "pad" ">=" "if" "else" "null?" "i" "lp" "let" "quotient" "columns" "car" "widest" "1" "+" "make-nl-space" "prefix" "=>" "pp-flat" "fits-in-columns" "cdddr" "cddr" "cdr" "pair?" "and" "cond" "fmt-copy-shares" "st2" "fmt-width" "-" "width" "fmt-col" "col" "fmt-writer" "output" "let*" "st" "lambda" "ls")}
+      {Lisp-Entry "pp-vector" define #f 253 9 253 18 ("vector->list" "pp-data-list" "cat" "fmt-shared-write" "vec")}
+      {Lisp-Entry "pp-object" define #f 256 9 256 18 ("fmt-shares" "write-with-shares" "st" "lambda" "else" "pp-vector" "vector?" "pp-pair" "pair?" "cond" "obj")}
+      {Lisp-Entry "pretty" define #f 262 9 262 15 ("fl" "pp-object" "cat" "0" "make-shared-ref-table" "cons" "shares" "fmt-bind" "obj")}
+      {Lisp-Entry "pretty/unshared" define #f 266 9 266 24 ("fl" "pp-object" "cat" "0" "make-eq?-table" "cons" "shares" "fmt-bind" "obj")}}})
+"fmt-scheme48"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-scheme48.scm"} 236918187. scheme})
+"fmt-unicode"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-unicode.scm"} 236918187. scheme
+    {Lisp-Entry "low-non-spacing-chars" define #f 9 8 9 29 ("#xe2" "#x87" "#x38" "#x0f" "#x1c" "#xfd" "#xe0" "#xdf" "#xa0" "#x80" "#xf2" "#x7c" "#x7f" "#xc1" "#x04" "#x40" "#x0e" "#x90" "#x30" "#x03" "#x20" "#x0c" "#x1e" "#x21" "#x10" "#x06" "#x07" "#x02" "#xc0" "#x01" "#xf8" "#x3f" "#x1f" "#xfe" "#x78" "0" "#xff" "u8vector")}
+    {Lisp-Entry "unicode-char-width" define #f 73 9 73 27 ("else" "#xE01EF" "#xE0100" "#x1D1AD" "#x1D1AA" "#x1D18B" "#x1D185" "#x1D182" "#x1D17B" "#x1D169" "#x1D167" "#xFE23" "#xFE00" "#xFB1E" "=" "#x309A" "#x3099" "#x302F" "#x302A" "0" "1" "arithmetic-shift" "low-non-spacing-chars" "u8vector-ref" "bitwise-and" "zero?" "if" "remainder" "off" "8" "quotient" "byte" "-" "i" "let*" "#x3029" "#x0300" "#x30000" "#x20000" "#xFFE6" "#xFFE0" "#xFF60" "#xFF01" "#xFE6B" "#xFE10" "#xFAD9" "#xF900" "#xD7A3" "#xAC00" "#xA4C6" "#x4E00" "#x4DB5" "#x2E80" "2" "#x115F" "#x1100" "<=" "cond" "char->integer" "ci" "let" "c")}
+    {Lisp-Entry "unicode-string-width" define #f 107 9 107 29 ("unicode-char-width" "#x80" "else" "memv" "2" "lp2" "eqv?" "1" "+" "<" "char->integer" "27" "=" "cond" "string-ref" "c" ">=" "width" "i" "lp1" "string-length" "cadr" "cdr" "and" "end" "0" "car" "pair?" "if" "start" "let" "o" "str")}
+    {Lisp-Entry "fmt-unicode" define #f 132 9 132 20 ("apply-cat" "unicode-string-width" "string-width" "fmt-let" "args")}})
+"fmt-unicode-chicken"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-unicode-chicken.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-unicode" module #f 8 1 8 12 ("fmt-unicode" "unicode-string-width" "unicode-char-width")
+      {Lisp-Entry "import" anonymous #f 11 1 11 7 ("utf8-lolevel" "fmt" "srfi-4" "chicken" "scheme")}
+      {Lisp-Entry "low-non-spacing-chars" define #f 17 8 17 29 ("#xe2" "#x87" "#x38" "#x0f" "#x1c" "#xfd" "#xe0" "#xdf" "#xa0" "#x80" "#xf2" "#x7c" "#x7f" "#xc1" "#x04" "#x40" "#x0e" "#x90" "#x30" "#x03" "#x20" "#x0c" "#x1e" "#x21" "#x10" "#x06" "#x07" "#x02" "#xc0" "#x01" "#xf8" "#x3f" "#x1f" "#xfe" "#x78" "0" "#xff" "#u8")}
+      {Lisp-Entry "unicode-char-width" define #f 81 9 81 27 ("else" "#xE01EF" "#xE0100" "#x1D1AD" "#x1D1AA" "#x1D18B" "#x1D185" "#x1D182" "#x1D17B" "#x1D169" "#x1D167" "#xFE23" "#xFE00" "#xFB1E" "=" "#x309A" "#x3099" "#x302F" "#x302A" "0" "1" "arithmetic-shift" "low-non-spacing-chars" "u8vector-ref" "bitwise-and" "zero?" "if" "remainder" "off" "8" "quotient" "byte" "-" "i" "let*" "#x3029" "#x0300" "#x30000" "#x20000" "#xFFE6" "#xFFE0" "#xFF60" "#xFF01" "#xFE6B" "#xFE10" "#xFAD9" "#xF900" "#xD7A3" "#xAC00" "#xA4C6" "#x4E00" "#x4DB5" "#x2E80" "2" "#x115F" "#x1100" "<=" "cond" "char->integer" "ci" "let" "c")}
+      {Lisp-Entry "unicode-string-width" define #f 115 9 115 29 ("sp-ref" "unicode-char-width" "utf8-start-byte->length" "c-len" "chicken" "cond-expand" "#x80" "else" "memv" "2" "lp2" "eqv?" "1" "+" "<" "char->integer" "27" "=" "cond" "string-ref" "c" ">=" "width" "i" "lp1" "string-length" "cadr" "cdr" "and" "end" "0" "car" "pair?" "if" "start" "let" "o" "str")}
+      {Lisp-Entry "fmt-unicode" define #f 146 9 146 20 ("apply-cat" "unicode-string-width" "string-width" "fmt-let" "args")}}})
+"fmt-unicode-gauche"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-unicode-gauche.scm"} 236918187. scheme})
+"fmt-unicode-mzscheme"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "fmt-unicode-mzscheme.scm"} 236918187. scheme
+    {Lisp-Entry "fmt-unicode" module #f 5 8 5 19 ("fmt-unicode" "unicode-string-width" "unicode-char-width" "provide" "mzscheme")
+      {Lisp-Entry "require" anonymous #f 6 2 6 9 ("lib")}}})
+"let-optionals"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "let-optionals.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.implementation.let-optionals" module #f 0 8 0 40 ("scheme")
+      {Lisp-Entry "import" anonymous #f 2 1 2 7 ("scheme.syntax-rules")}
+      {Lisp-Entry "error" native ("native") 4 16 4 26 ()}
+      {Lisp-Entry "let-optionals*" define-macro #f 22 22 22 36 ("tail" "cdr" "tmp2" "car" "pair?" "if" "rest" "default" "var" "let-optionals*" "tmp" "vars" "args" "op" "let" "body" "opt-ls" "_" "syntax-rules")}}})
+"make-eq-table"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "make-eq-table.scm"} 236918187. scheme
+    {Lisp-Entry "make-eq?-table" define #f 1 9 1 23 ("eq?" "make-hash-table")}})
+"mantissa"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "mantissa.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.implementation.mantissa" module #f 4 8 4 35 ("scheme")
+      {Lisp-Entry "export" anonymous #f 6 1 6 7 ("mantissa+exponent")}
+      {Lisp-Entry "import" anonymous #f 8 1 8 7 ("syntax" "phase" "fmt.implementation.let-optionals")}
+      {Lisp-Entry "mantissa+exponent" define #f 10 9 10 26 ("else" "-" "<" "1" "+" "quotient" ">=" "cond" "e" "n" "lp" "let" "*" "top" "expt" "bot" "let*" "11" "exp-size" "52" "mant-size" "2" "base" "let-optionals*" "0" "list" "zero?" "if" "opt" "num")}}})
+"read-line"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "read-line.scm"} 236918187. scheme
+    {Lisp-Entry "read-line" define #f 1 9 1 18 ("cons" "reverse" "list->string" "eqv?" "eof-object?" "or" "read-char" "c" "res" "lp" "current-input-port" "car" "pair?" "if" "port" "let" "o")}})
+"srfi-33"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "srfi-33.scm"} 236918187. scheme
+    {Lisp-Entry "arithmetic-shift" define #f 1 9 1 25 ("*" "-" "2" "expt" "quotient" "negative?" "if" "k" "n")}
+    {Lisp-Entry "bitwise-and" define #f 6 9 6 20 ("expt" "odd?" "2" "quotient" "1" "+" "zero?" "and" "if" "res" "0" "i" "lp" "let" "m" "n")}
+    {Lisp-Entry "bitwise-ior" define #f 17 9 17 20 ("expt" "odd?" "or" "2" "quotient" "1" "+" "zero?" "and" "if" "res" "0" "i" "lp" "let" "m" "n")}})
+"srfi-69"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "srfi-69.scm"} 236918187. scheme
+    {Lisp-Entry "*default-bound*" define #f 23 8 23 23 ("3" "29" "2" "expt" "-")}
+    {Lisp-Entry "%string-hash" define #f 25 9 25 21 ("*default-bound*" "string-ref" "char->integer" "37" "*" "set!" "modulo" ">=" "1" "+" "0" "index" "do" "string-length" "len" "31" "hash" "let" "bound" "ch-conv" "s")}
+    {Lisp-Entry "string-hash" define #f 34 9 34 20 ("x" "lambda" "%string-hash" "car" "*default-bound*" "null?" "if" "bound" "let" "maybe-bound" "s")}
+    {Lisp-Entry "string-ci-hash" define #f 38 9 38 23 ("char-downcase" "%string-hash" "car" "*default-bound*" "null?" "if" "bound" "let" "maybe-bound" "s")}
+    {Lisp-Entry "symbol-hash" define #f 42 9 42 20 ("x" "lambda" "symbol->string" "%string-hash" "car" "*default-bound*" "null?" "if" "bound" "let" "maybe-bound" "s")}
+    {Lisp-Entry "hash" define #f 48 9 48 13 ("1" "else" "error" "procedure?" "not" "0" "cdr" "pair?" "vector-hash" "vector?" "char->integer" "char?" "imag-part" "3" "*" "real-part" "hash" "number?" "denominator" "numerator" "+" "real?" "symbol-hash" "symbol?" "string-hash" "string?" "inexact->exact" "modulo" "integer?" "cond" "car" "*default-bound*" "null?" "if" "bound" "let" "maybe-bound" "obj")}
+    {Lisp-Entry "hash-by-identity" define #f 68 8 68 24 ("hash")}
+    {Lisp-Entry "vector-hash" define #f 70 9 70 20 ("*default-bound*" "vector-ref" "hash" "257" "*" "set!" "modulo" ">=" "1" "+" "0" "index" "do" "vector-length" "len" "571" "hashvalue" "let" "bound" "v")}
+    {Lisp-Entry "%make-hash-node" define #f 78 8 78 23 ("cons")}
+    {Lisp-Entry "%hash-node-set-value!" define #f 79 8 79 29 ("set-cdr!")}
+    {Lisp-Entry "%hash-node-key" define #f 80 8 80 22 ("car")}
+    {Lisp-Entry "%hash-node-value" define #f 81 8 81 24 ("cdr")}
+    {Lisp-Entry "*default-table-size*" define #f 92 8 92 28 ("64")}
+    {Lisp-Entry "appropriate-hash-function-for" define #f 94 9 94 38 ("hash" "string-ci-hash" "string-ci=?" "string-hash" "string=?" "hash-by-identity" "eq?" "and" "or" "comparison")}
+    {Lisp-Entry "make-hash-table" define #f 100 9 100 24 ("make-vector" "0" "%make-hash-table" "else" "caar" "cond" "alist" "val" "lambda" "associate" "letrec" "assoc" "assv" "eqv?" "assq" "eq?" "and" "association" "caddr" "*default-table-size*" "cddr" "size" "cadr" "appropriate-hash-function-for" "cdr" "or" "hash" "car" "equal?" "null?" "if" "comparison" "let*" "args")}
+    {Lisp-Entry "make-hash-table-maker" define #f 121 9 121 30 ("cons" "make-hash-table" "apply" "args" "lambda" "hash" "comp")}
+    {Lisp-Entry "make-symbol-hash-table" define #f 123 8 123 30 ("symbol-hash" "eq?" "make-hash-table-maker")}
+    {Lisp-Entry "make-string-hash-table" define #f 125 8 125 30 ("string-hash" "string=?" "make-hash-table-maker")}
+    {Lisp-Entry "make-string-ci-hash-table" define #f 127 8 127 33 ("string-ci-hash" "string-ci=?" "make-hash-table-maker")}
+    {Lisp-Entry "make-integer-hash-table" define #f 129 8 129 31 ("modulo" "=" "make-hash-table-maker")}
+    {Lisp-Entry "%hash-table-hash" define #f 132 9 132 25 ("hash-table-entries" "vector-length" "hash-table-hash-function" "key" "hash-table")}
+    {Lisp-Entry "%hash-table-find" define #f 136 9 136 25 ("vector-ref" "key" "hash" "associate" "entries")}
+    {Lisp-Entry "%hash-table-add!" define #f 139 9 139 25 ("vector-ref" "%make-hash-node" "cons" "vector-set!" "value" "key" "hash" "entries")}
+    {Lisp-Entry "%hash-table-delete!" define #f 144 9 144 28 ("set-cdr!" "previous" "current" "loop" "else" "cdr" "vector-set!" "caar" "null?" "cond" "vector-ref" "entrylist" "let" "key" "hash" "compare" "entries")}
+    {Lisp-Entry "%hash-table-walk" define #f 156 9 156 25 ("vector-ref" "for-each" "0" "<" "1" "vector-length" "-" "index" "do" "entries" "proc")}
+    {Lisp-Entry "%hash-table-maybe-resize!" define #f 160 9 160 34 ("hash-table-set-entries!" "%hash-node-value" "%hash-node-key" "%hash-table-add!" "node" "lambda" "%hash-table-walk" "hash-table-hash-function" "hash" "make-vector" "new-entries" "2" "*" "new-length" "hash-table-size" ">" "if" "vector-length" "hash-length" "hash-table-entries" "old-entries" "let*" "hash-table")}
+    {Lisp-Entry "hash-table-ref" define #f 175 9 175 23 ("car" "else" "error" "null?" "%hash-node-value" "=>" "%hash-table-hash" "hash-table-association-function" "hash-table-entries" "%hash-table-find" "cond" "maybe-default" "key" "hash-table")}
+    {Lisp-Entry "hash-table-ref/default" define #f 184 9 184 31 ("lambda" "hash-table-ref" "default" "key" "hash-table")}
+    {Lisp-Entry "hash-table-set!" define #f 187 9 187 24 ("%hash-table-maybe-resize!" "hash-table-size" "1" "+" "hash-table-set-size!" "%hash-table-add!" "else" "%hash-node-set-value!" "node" "lambda" "=>" "hash-table-association-function" "%hash-table-find" "cond" "hash-table-entries" "entries" "%hash-table-hash" "hash" "let" "value" "key" "hash-table")}
+    {Lisp-Entry "hash-table-update!" define #f 199 9 199 27 ("%hash-table-maybe-resize!" "hash-table-size" "1" "+" "hash-table-set-size!" "car" "%hash-table-add!" "else" "error" "null?" "%hash-node-value" "%hash-node-set-value!" "node" "lambda" "=>" "hash-table-association-function" "%hash-table-find" "cond" "hash-table-entries" "entries" "%hash-table-hash" "hash" "let" "maybe-default" "function" "key" "hash-table")}
+    {Lisp-Entry "hash-table-update!/default" define #f 216 9 216 35 ("lambda" "hash-table-update!" "default" "function" "key" "hash-table")}
+    {Lisp-Entry "hash-table-delete!" define #f 219 9 219 27 ("1" "hash-table-size" "-" "hash-table-set-size!" "%hash-table-hash" "hash-table-equivalence-function" "hash-table-entries" "%hash-table-delete!" "if" "key" "hash-table")}
+    {Lisp-Entry "hash-table-exists?" define #f 225 9 225 27 ("%hash-table-hash" "hash-table-association-function" "hash-table-entries" "%hash-table-find" "and" "key" "hash-table")}
+    {Lisp-Entry "hash-table-walk" define #f 230 9 230 24 ("hash-table-entries" "%hash-node-value" "%hash-node-key" "node" "lambda" "%hash-table-walk" "proc" "hash-table")}
+    {Lisp-Entry "hash-table-fold" define #f 235 9 235 24 ("set!" "value" "key" "lambda" "hash-table-walk" "acc" "f" "hash-table")}
+    {Lisp-Entry "alist->hash-table" define #f 240 9 240 26 ("x" "hash-table-update!/default" "elem" "lambda" "for-each" "make-hash-table" "hash-table" "caddr" "length" "2" "*" "*default-table-size*" "max" "cddr" "size" "cadr" "appropriate-hash-function-for" "cdr" "or" "hash" "car" "equal?" "null?" "if" "comparison" "let*" "args" "alist")}
+    {Lisp-Entry "hash-table->alist" define #f 256 9 256 26 ("cons" "acc" "val" "key" "lambda" "hash-table-fold" "hash-table")}
+    {Lisp-Entry "hash-table-copy" define #f 260 9 260 24 ("hash-table-set!" "value" "key" "lambda" "hash-table-walk" "hash-table-size" "2" "*" "*default-table-size*" "max" "hash-table-hash-function" "hash-table-equivalence-function" "make-hash-table" "new" "let" "hash-table")}
+    {Lisp-Entry "hash-table-merge!" define #f 269 9 269 26 ("hash-table-set!" "value" "key" "lambda" "hash-table-walk" "hash-table2" "hash-table1")}
+    {Lisp-Entry "hash-table-keys" define #f 275 9 275 24 ("cons" "acc" "val" "key" "lambda" "hash-table-fold" "hash-table")}
+    {Lisp-Entry "hash-table-values" define #f 278 9 278 26 ("cons" "acc" "val" "key" "lambda" "hash-table-fold" "hash-table")}})
+"string-ports"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "string-ports.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.implementation.string-ports" module #f 1 8 1 39 ("scheme")
+      {Lisp-Entry "export" anonymous #f 3 1 3 7 ("call-with-output-string2")}
+      {Lisp-Entry "call-with-output-string2" define #f 6 9 6 33 ("get-output-string" "open-output-string" "p" "let" "proc")}}})
+"test"
+ ({Lisp-File-Entry {File :context "src" "fmt" "test.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.test" module #f 0 8 0 16 ("jazz")
+      {Lisp-Entry "export" anonymous #f 2 1 2 7 ("test" "test-end" "test-begin")}
+      {Lisp-Entry "import" anonymous #f 6 1 6 7 ("scheme.syntax-rules")}
+      {Lisp-Entry "test-begin" define #f 8 9 8 19 ("newline" "write" "title")}
+      {Lisp-Entry "test-end" define #f 12 9 12 17 ()}
+      {Lisp-Entry "test" define-macro #f 15 15 15 19 ("error" ",expr" "not" "if" "newline" ",message" "display" "begin" "desourcify" "->string" "message" "third" "expr" "source-code" "second" "value" "let" "macro-environment" "usage-environment" "form-src" "lambda")}
+      {Lisp-Entry "test-pretty" define-macro #f 28 15 28 26 (",sexp" "pretty" "fmt" ",str" "test" "read" "with-input-from-string" "sexp" "let" "str")}}})
+"test-fmt"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "test-fmt.scm"} 236918187. scheme
+    {Lisp-Entry "fmt.implementation.test-fmt" module #f 1 8 1 35 ("test-end" "slashified" "cat" "x" "lambda" "11" "wrt/unshared" "twos" "sym" "syms" "cons" "set-cdr!" "list" "ones" "let" "dsp" "fmt-join" "fit/both" "fit/left" "fit" "ellipses" "trim/both" "trim/left" "trim/length" "trim" "pad/both" "pad/left" "pad" "12345.12355" "608" "1000" "3986" "num/si" "12.345" "1.2345" "num/fit" "100000" "299792458.0" "comma-char" "num/comma" "299792458" "#x33" "#x22" "#x11" "-47" "4" "47" "1000000000000000000000000000000" "123456789012345678901234567890" "10/7" "1/11" "2/3" "1/3000" "1/300" "1/30" "1/3" "10/3" "100/3" "1000/3" "30" "exact?" "cond" "-31415.9" "-3141.59" "-314.159" "-31.4159" "-3.14159" "31415.9" "3141.59" "314.159" "31.4159" "decimal-align" "8" "7" "6" "0.000004" "20" "1e-17" "1.099" "3." "3.14" "2" "fix" "3.14159" "33" "17" "#x10000" "#x1000" "#x100" "/" "exact->inexact" "1234" "16" "radix" "#xDEAD" "num" "100" "10" "1" "0" "-1" "3" "5" "tab-to" "titlecase" "downcase" "upcase" "wrt" "fmt" "test-begin" "text.fmt" "gauche.test" "load" "test" "use" "scheme")
+      {Lisp-Entry "import" anonymous #f 7 3 7 9 ("fmt")}
+      {Lisp-Entry "test-begin" define #f 11 10 11 20 ("test-start")}
+      {Lisp-Entry "orig-test" define #f 12 10 12 19 ("test" "gauche.test" "with-module")}
+      {Lisp-Entry "test" define-macro #f 13 17 13 21 ("string-length" "60" "min" "0" "substring" "write" "with-output-to-string" "s" "let" "lambda" "orig-test" "else" "e" "guard" "expr" "expected" "name" "test" "syntax-rules")}
+      {Lisp-Entry "import" anonymous #f 23 3 23 9 ("srfi-13" "fmt.test" "fmt")}
+      {Lisp-Entry "error" native ("native") 29 18 29 28 ()}
+      {Lisp-Entry "unspecified" native ("native") 30 18 30 34 ()}
+      {Lisp-Entry "compose" define #f 32 11 32 18 ("x" "lambda" "g" "f")}
+      {Lisp-Entry "cut" define #f 36 11 36 14 ("rest")}
+      {Lisp-Entry "<>" define #f 39 11 39 13 ("=" "not" "y" "x")}
+      {Lisp-Entry "string-split" define #f 42 11 42 23 ("c" "str")}}})
+"test-fmt-c"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "test-fmt-c.scm"} 236918187. scheme
+    {Lisp-Entry "test-begin" define #f 8 10 8 20 ("test-start")}
+    {Lisp-Entry "orig-test" define #f 9 10 9 19 ("test" "gauche.test" "with-module")}
+    {Lisp-Entry "test" define-macro #f 10 17 10 21 ("string-length" "60" "min" "0" "substring" "write" "with-output-to-string" "s" "let" "lambda" "orig-test" "expr" "expected" "name" "test" "syntax-rules")}})
+"test-fmt-js"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "test-fmt-js.scm"} 236918187. scheme
+    {Lisp-Entry "import" anonymous #f 4 3 4 9 ("fmt")}
+    {Lisp-Entry "import" anonymous #f 5 3 5 9 ("fmt-js")}
+    {Lisp-Entry "test-begin" define #f 10 10 10 20 ("test-start")}
+    {Lisp-Entry "orig-test" define #f 11 10 11 19 ("test" "gauche.test" "with-module")}
+    {Lisp-Entry "test" define-macro #f 12 17 12 21 ("string-length" "60" "min" "0" "substring" "write" "with-output-to-string" "s" "let" "lambda" "orig-test" "expr" "expected" "name" "test" "syntax-rules")}})
+"test-round"
+ ({Lisp-File-Entry {File :context "src" "fmt" "implementation" "test-round.scm"} 236918187. scheme
+    {Lisp-Entry "check-representation" define #f 4 9 4 29 ("2" "num" "fmt" "exact->inexact" "test" "else" "<" "sprintf" "0" "=" "cond" "expected-result" "add1" "100" "-" "set!" "begin" "99" ">" "if" "quotient" "pounds" "10" "1000" "modulo" "/" "round" "inexact->exact" "pence" "define" "n")}})
