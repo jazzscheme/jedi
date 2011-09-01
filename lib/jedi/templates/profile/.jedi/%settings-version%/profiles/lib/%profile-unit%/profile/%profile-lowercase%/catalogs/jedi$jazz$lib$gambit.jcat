@@ -1,19 +1,19 @@
 "_dialect"
- ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "_dialect.scm"} 1296083296 scheme
+ ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "_dialect.scm"} 236918187. scheme
     {Lisp-Entry "gambit.dialect" module #f 37 18 37 32 ("core")
       {Lisp-Entry "require" anonymous #f 40 1 40 8 ("gambit.dialect.dialect" "gambit.dialect.classes" "syntax" "phase" "scheme" "core.module")}
       {Lisp-Entry "export" anonymous #f 46 1 46 7 ("gambit.dialect.kernel")}}})
 "_gambit"
- ({Lisp-File-Entry {File :context "src" "gambit" "_gambit.scm"} 1296083296 scheme
+ ({Lisp-File-Entry {File :context "src" "gambit" "_gambit.scm"} 236918187. scheme
     {Lisp-Entry "gambit" module #f 37 8 37 14 ("scheme")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("syntax" "phase" "gambit.dialect" "scheme")}}})
 "classes"
- ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "classes.scm"} 1299181774 scheme
+ ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "classes.scm"} 236918187. scheme
     {Lisp-Entry "gambit.dialect.classes" unit #f 37 16 37 38 ()
       {Lisp-Entry "Gambit-Dialect" define-class ("class syntax") 45 19 45 38 ("allocate-gambit-dialect" "jazz:allocate-gambit-dialect" "Object-Class" "jazz:Object-Class" "bindings" "Scheme-Dialect" "jazz:Scheme-Dialect")}
       {Lisp-Entry "Gambit-Walker" define-class ("class syntax") 54 19 54 37 ("allocate-gambit-walker" "jazz:allocate-gambit-walker" "Object-Class" "jazz:Object-Class" "autoloads" "references" "variables" "literals" "errors" "warnings" "Scheme-Walker" "jazz:Scheme-Walker")}}})
 "dialect"
- ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "dialect.scm"} 1299181769 scheme
+ ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "dialect.scm"} 236918187. scheme
     {Lisp-Entry "gambit.dialect.dialect" unit #f 37 16 37 38 ("Gambit-Walker" "jazz:Gambit-Walker" "encapsulate-class" "jazz:encapsulate-class" "Gambit-Dialect" "jazz:Gambit-Dialect")
       {Lisp-Entry "Gambit-Dialect" define-class ("class runtime") 45 27 45 46 ()}
       {Lisp-Entry "new-gambit-dialect" define #f 48 9 48 32 ("Gambit-Dialect" "jazz:Gambit-Dialect" "allocate-gambit-dialect" "jazz:allocate-gambit-dialect")}
@@ -24,7 +24,7 @@
       {Lisp-Entry "walker-bindings" generic/specific ("jazz:Gambit-Walker") 83 21 83 41 ("walker" "nextmethod" "gambit" "get-dialect" "jazz:get-dialect" "%%get-dialect-bindings" "append")}
       {Lisp-Entry "gambit" define ("dialect") 93 21 93 27 ("new-gambit-dialect" "jazz:new-gambit-dialect")}}})
 "kernel"
- ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "kernel.scm"} 1299266131 scheme
+ ({Lisp-File-Entry {File :context "src" "gambit" "dialect" "kernel.scm"} 236918187. scheme
     {Lisp-Entry "gambit.dialect.kernel" module #f 37 18 37 39 ("scheme")
       {Lisp-Entry "default-random-source" native ("native") 40 8 40 29 ()}
       {Lisp-Entry "abandoned-mutex-exception?" native ("native") 41 8 41 34 ()}

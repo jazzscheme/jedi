@@ -1,5 +1,5 @@
 "CLike-Syntax"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "text" "CLike-Syntax.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "text" "CLike-Syntax.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.clike.text.CLike-Syntax" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.library.automata" "jazz.library")}
       {Lisp-Entry "CLike-Syntax" class #f 46 7 46 19 ("Code-Syntax")
@@ -12,7 +12,7 @@
         {Lisp-Entry "compute-syntax-automata" method #f 104 20 104 43 ("c-constituent?" "syntax-targets" "build-search-automata")}
         {Lisp-Entry "colorize-type" method #f 108 20 108 33 ("nextmethod" "else" "Profile-Type" "profile-type" "Profile-Keyword" "profile-keyword" "Profile-Macro" "profile-macro" "Keyword" "colorize-keyword" "keyword" "Title" "Line-Comment" "colorize-line-comment" "line-comment" "colorize-balanced-comment-backward" "balanced-comment-backward" "Balanced-Comment" "colorize-balanced-comment" "balanced-comment" "case" "recolorize?" "colorizer" "end" "start" "type" "found")}}}})
 "CLike-Text-Preferences"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "text" "CLike-Text-Preferences.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "text" "CLike-Text-Preferences.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.clike.text.CLike-Text-Preferences" module #f 37 18 37 63 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "CLike-Text-Preferences" class #f 45 7 45 29 ("initialize" "Code-Text-Preferences")
@@ -59,7 +59,7 @@
         {Lisp-Entry "CLike-Text-Preferences-Descriptor" class #f 86 7 86 40 ("Document-Preferences-Descriptor")
           {Lisp-Entry "form" anonymous #f 89 3 89 7 ("domain" "Completions-Domain" "<Completions-Domain>" "name:" "Property-Descriptor" "<Property-Descriptor>" "profile-type-style" "profile-macro-style" "profile-keyword-style" "keyword-style" "balanced-comment-style" "line-comment-style" "definition-style" "title-style" "completions" "types" "keywords" "macros" "categorized:" ">" "<properties" "<properties~>" "install" "<install>")}}}}})
 "CLike-Text-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "text" "CLike-Text-View.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "text" "CLike-Text-View.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.clike.text.CLike-Text-View" module #f 37 18 37 56 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.editor.clike" "jazz.editor.c")}
       {Lisp-Entry "CLike-Text-View" class #f 46 7 46 22 ("Code-Text-View")
@@ -70,10 +70,10 @@
         {Lisp-Entry "headers" constant #f 100 12 100 19 ("string" "concatenate" "list")}
         {Lisp-Entry "get-headers" method #f 106 20 106 31 ("headers")}}}})
 "_clike"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "_clike.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "_clike.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.clike" module #f 37 8 37 25 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.editor.clike.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "autoload.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "clike" "autoload.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.clike.autoload" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("CLike-Text-View" "jazz.editor.clike.text.CLike-Text-View" "CLike-Text-Preferences" "jazz.editor.clike.text.CLike-Text-Preferences" "CLike-Syntax" "autoload" "jazz.editor.clike.text.CLike-Syntax")}}})

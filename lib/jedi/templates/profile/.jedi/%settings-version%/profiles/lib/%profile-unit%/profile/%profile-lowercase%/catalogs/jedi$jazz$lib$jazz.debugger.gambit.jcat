@@ -1,5 +1,5 @@
 "Gambit-Configuration"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "Gambit-Configuration.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "Gambit-Configuration.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debugger.gambit.Gambit-Configuration" module #f 37 18 37 59 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.system" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide" "jazz.designer")}
       {Lisp-Entry "Gambit-Configuration" class #f 49 7 49 27 ("initialize" "Configuration")
@@ -15,12 +15,12 @@
         {Lisp-Entry "Gambit-Configuration-Descriptor" class #f 76 7 76 38 ("Configuration-Descriptor")
           {Lisp-Entry "form" anonymous #f 79 3 79 7 ("maximum-heap" "minimum-heap" "name:" "Property-Descriptor" "<Property-Descriptor>" "title" "categorized:" ">" "<properties" "<properties~>" "install" "<install>")}}}}})
 "Gambit-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "Gambit-Debugger.jazz"} 1296083296 jazz
-    {Lisp-Entry "jazz.debugger.gambit.Gambit-Debugger" module #f 37 18 37 54 ("frame-variable-value" "variable" "frame-variable-name" "frame-variables" "frame-location" "frame" "frame-name" "command" "step-stop" "continue-stop" "stop-frames" "stop-reason" "stop" "stop-kind" "restart" "restart-stop" "break-thread" "thread-stops" "thread-state" "thread" "thread-name" "process-exit" "process-detach" "col" "line" "container" "string" "syntax" "evaluate-expressions" "present-process" "process-threads" "process-icon" "process-title" "process" "process-live?" "y" "x" "process=?" "detach-processes" "public" "validate-liveness?" "validate-liveness?:" "get-processes" "stop-debugger" "gambit-debugger-server" "rdi-debugger-init" "lambda" "new-system-thread" "thread-start!" "rdi-function" "rdi-init" "user-message" "start-debugger" "method" "Debugger" "extends" "Gambit-Debugger" "class" "jazz")
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "Gambit-Debugger.jazz"} 236918187. jazz
+    {Lisp-Entry "jazz.debugger.gambit.Gambit-Debugger" module #f 37 18 37 54 ("get-external-representation" "max-length" "$obj" "rdi-get-external-representation" "get-threads" "rdi-get-threads" "user-interrupt" "rdi-user-interrupt" "console-input" "rdi-remote-call" "debugger-console-output" "table-ref" "output" "gambit-console-pump" "rdi-console-input" "rdi-console-input-eof" "not" "if" "str" "start-pump" "rdi-console-input-pump-start!" "table-set!" "console-port" "console-text" "console-id" "make-table" "rdi-console-table" "error" "else" "rdi-console-output" "console-output" "rdi-register-console" "case" "fn" "rdi-force-connection" "rdi-create-server" "set!" "rdi" "start-debugger-console-pump" "set-console-pump" "set-console-pump~" "thread-proxy" "process-proxy" "set-console-port" "set-console-port~" "permanent-close:" "list" "open-string-pipe" "tail" "head" "receive" "object->serial" "register-debugger-resource" "unregister-debugger-console" "Debugger-Resource" "console" "register-debugger-console" "self" "Debugged-Process" "new" "debugged-process" "call-event" "setup-debugger-console-ports" "values" "register-console" "register-console~" "text" "increase!" "format" "title" "get-console-manager" "manager" "let" "open-console-window" "1" "console-no" "definition" "frame-variable-value" "variable" "frame-variable-name" "frame-variables" "frame-location" "frame" "frame-name" "command" "step-stop" "continue-stop" "stop-frames" "stop-reason" "stop" "stop-kind" "restart" "restart-stop" "break-thread" "thread-stops" "thread-state" "thread" "thread-name" "process-exit" "process-detach" "col" "line" "container" "string" "syntax" "evaluate-expressions" "present-process" "process-threads" "process-icon" "process-title" "process" "process-live?" "y" "x" "process=?" "detach-processes" "public" "validate-liveness?" "validate-liveness?:" "get-processes" "stop-debugger" "gambit-debugger-server" "rdi-debugger-init" "lambda" "new-system-thread" "thread-start!" "rdi-function" "rdi-init" "user-message" "start-debugger" "method" "Debugger" "extends" "Gambit-Debugger" "class" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debugger" "gambit")}
       {Lisp-Entry "Gambit-Debugger" class #f 44 7 44 22 ("Debugger")}}})
 "Gambit-Project"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "Gambit-Project.jazz"} 1296316303 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "Gambit-Project.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debugger.gambit.Gambit-Project" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.jml" "jazz.ide" "jazz.debugger.jazz" "jazz.debugger.gambit")}
       {Lisp-Entry "Gambit-Project" class #f 47 7 47 21 ("Jazz-Project")
@@ -34,14 +34,14 @@
         {Lisp-Entry "Gambit-Project-Descriptor" class #f 116 7 116 32 ("Jazz-Project-Descriptor")
           {Lisp-Entry "form" anonymous #f 119 3 119 7 ("title" "categorized:" ">" "<properties" "<properties~>" "Image-Resource" "image:" "install" "<install>")}}}}})
 "_gambit"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "_gambit.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "_gambit.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debugger.gambit" module #f 37 8 37 28 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.debugger.gambit.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "autoload.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "autoload.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debugger.gambit.autoload" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Gambit-Project" "jazz.debugger.gambit.Gambit-Project" "Gambit-Debugger" "autoload" "jazz.debugger.gambit.Gambit-Debugger")}}})
 "project"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "data" "project.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "gambit" "data" "project.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debugger.gambit.data.project" module #f 37 8 37 41 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.ide.data.project" "jazz.debugger.gambit")}}})

@@ -1,5 +1,5 @@
 "IOR"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "IOR.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "IOR.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.remote.IOR" module #f 37 18 37 37 ("jazz")
       {Lisp-Entry "IOR" class #f 40 7 40 10 ("Object")
         {Lisp-Entry "host" slot #f 43 8 43 12 ()}
@@ -15,7 +15,7 @@
         {Lisp-Entry "initialize" method #f 50 20 50 30 ("values~self" "reference~self" "stub-interface~self" "service~self" "self" "host~self" "set!" "nextmethod" "values" "reference" "stub-interface" "service" "host")}
         {Lisp-Entry "print" method #f 59 20 59 25 ("values" "reference" "stub-interface" "service" "host" "self" "class-of" "category-name" "format" "readably" "output")}}}})
 "Local-Proxy"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Local-Proxy.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Local-Proxy.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.remote.Local-Proxy" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Local-Proxy" class #f 43 7 43 18 ("Proxy")
@@ -27,12 +27,12 @@
         {Lisp-Entry "proxy-values" method #f 61 29 61 41 ()}
         {Lisp-Entry "live?" method #f 65 20 65 25 ()}}}})
 "Proxy"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Proxy.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Proxy.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.remote.Proxy" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "Proxy" class #f 40 7 40 12 ("Object")
         {Lisp-Entry "live?" method #f 43 35 43 40 ()}}}})
 "Register"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "Register.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "Register.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.register.Register" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm.register.stub")}
       {Lisp-Entry "Register" class #f 43 7 43 15 ("eq?" "test:" "make-table" "initialize" "Object")
@@ -43,12 +43,12 @@
         {Lisp-Entry "register-object" method #f 69 18 69 33 ("objects" "table-set!" "error" "find-object" "if" "error?" "error?:" "object" "name")}
         {Lisp-Entry "unregister-object" method #f 78 18 78 35 ("objects" "table-clear" "error" "find-object" "not" "if" "error?" "error?:" "name")}}}})
 "Remotable-Stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remotable-Stub.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remotable-Stub.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.remote.Remotable-Stub" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "Remotable-Stub" interface #f 40 11 40 25 ()
         {Lisp-Entry "stub-reference" method #f 43 35 43 49 ()}}}})
 "Remote-Listener"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Listener.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Listener.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.remote.Remote-Listener" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.network" "jazz.jrm")}
       {Lisp-Entry "Remote-Listener" class #f 44 7 44 22 ("TCP-Server")
@@ -57,7 +57,7 @@
         {Lisp-Entry "create-thread" method #f 60 20 60 33 ("new-system-thread" "apply" "rest")}
         {Lisp-Entry "accept-connection" method #f 69 20 69 37 ("process-remote" "port")}}}})
 "Remote-Proxy"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Proxy.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Remote-Proxy.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.remote.Remote-Proxy" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Remote-Proxy" class #f 43 7 43 19 ("Proxy")
@@ -71,85 +71,85 @@
         {Lisp-Entry "proxy-value" method #f 68 18 68 29 ("cadr" "if" "values" "getprop" "prop" "let" "thunk" "keyword")}
         {Lisp-Entry "live?" method #f 75 20 75 25 ("self" "remote-proxy-live?")}}}})
 "Stub-Interface"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Stub-Interface.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "remote" "Stub-Interface.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.remote.Stub-Interface" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "Stub-Interface" class #f 40 7 40 21 ("Interface")
         {Lisp-Entry "local-class" method #f 43 35 43 46 ()}
         {Lisp-Entry "remote-class" method #f 44 35 44 47 ()}}}})
 "_jrm"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "_jrm.jazz"} 1298658588 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "_jrm.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm" module #f 37 8 37 16 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.jrm.autoload")}
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.network" "jazz.jrm.autoload")}
       {Lisp-Entry "*debug?*" definition #f 45 12 45 20 ()}
       {Lisp-Entry "*debug-arguments?*" definition #f 48 12 48 30 ()}
       {Lisp-Entry "*debug-locally?*" definition #f 51 12 51 28 ()}
-      {Lisp-Entry "Remote-Listener-Host" definition #f 60 12 60 32 ("host-name")}
-      {Lisp-Entry "Remote-Listener-Service" definition #f 63 12 63 35 ("any")}
-      {Lisp-Entry "remote-listener" definition #f 67 12 67 27 ()}
-      {Lisp-Entry "get-remote-listener" definition #f 71 20 71 39 ("remote-listener")}
-      {Lisp-Entry "set-remote-listener" definition #f 74 20 74 39 ("remote-listener" "set!" "server")}
-      {Lisp-Entry "require-remote-listener" definition #f 78 20 78 43 ("error" "remote-listener" "not" "if")}
-      {Lisp-Entry "start-remote-listener" definition #f 84 20 84 41 ("error" "set!" "error?:" "wait-started" "wait-started~" "if" "start" "start~" "Remote-Listener-Service" "service:" "Remote-Listener-Host" "or" "host:" "Remote-Listener" "new" "server" "let" "command-host/service" "service" "host" "receive" "remote-listener" "unless" "default-service" "default-service:" "default-host" "default-host:")}
-      {Lisp-Entry "stop-remote-listener" definition #f 94 20 94 40 ("set!" "stop" "stop~" "remote-listener" "when")}
-      {Lisp-Entry "Remote-Connection-Broke" class #f 105 7 105 30 ("Exception")}
-      {Lisp-Entry "throw-remote-connection-broke" definition #f 108 13 108 42 ("Remote-Connection-Broke" "new" "throw")}
-      {Lisp-Entry "live-timeout" definition #f 117 12 117 24 ("0.5")}
-      {Lisp-Entry "live-request" definition #f 120 12 120 24 ("live?")}
-      {Lisp-Entry "live-response" definition #f 123 12 123 25 ("alive")}
-      {Lisp-Entry "remote-proxy-live?" definition #f 127 21 127 39 ("live-response" "eq?" "close-port" "receive-remote-result" "result" "live-request" "send-remote-message" "receive-timeout" "live-timeout" "send-timeout" "parameterize" "lambda" "with-exception-catcher" "port-number:" "server-address:" "list" "open-tcp-client" "port" "live?" "***client***" "terminal" "*debug?*" "when" "get-service" "get-service~" "service" "get-host" "get-host~" "host" "marshall" "proxy-ior" "let" "exc" "Remote-Connection-Broke" "catch" "remote-proxy")}
-      {Lisp-Entry "send-timeout" definition #f 153 12 153 24 ("2" "make-parameter")}
-      {Lisp-Entry "receive-timeout" definition #f 156 12 156 27 ("10" "make-parameter")}
-      {Lisp-Entry "post-remote" definition #f 160 20 160 31 ("post" "invoke-remote" "arguments" "remote-proxy" "method-name")}
-      {Lisp-Entry "exec-remote" definition #f 164 20 164 31 ("exec" "invoke-remote" "arguments" "remote-proxy" "method-name")}
-      {Lisp-Entry "call-remote" definition #f 168 20 168 31 ("call" "invoke-remote" "arguments" "remote-proxy" "method-name")}
-      {Lisp-Entry "invoke-remote" definition #f 172 13 172 26 ("unmarshall" "call" "error" "if" "result" "err" "bind" "->" "receive-remote-result" "received" "exec" "unspecified" "post" "case" "send-remote-message" "port" "lambda" "port-number:" "server-address:" "list" "call-with-tcp-client" "*debug-arguments?*" "and" "***client***" "terminal" "*debug?*" "when" "get-service" "get-service~" "service" "get-host" "get-host~" "host" "proxy-ior" "marshall" "let" "arguments" "remote-proxy" "method-name" "kind")}
-      {Lisp-Entry "send-remote-message" definition #f 204 13 204 32 ("write-port" "throw-remote-connection-broke" "output-port-timeout-set!" "when" "send-timeout" "timeout" "let" "port" "info")}
-      {Lisp-Entry "receive-remote-result" definition #f 211 13 211 34 ("throw-remote-connection-broke" "eof-object?" "if" "read-port" "info" "input-port-timeout-set!" "when" "receive-timeout" "timeout" "let" "port")}
-      {Lisp-Entry "process-remote" definition #f 226 21 226 35 ("call" "unspecified" "marshall" "list" "result" "err" "receive" "exec" "post" "case" "*debug-arguments?*" "and" "kind" "bind" "live-response" "live-request" "eq?" "message" "write-port" "output-port-timeout-set!" "send-timeout" "send-remote-result" "throw-remote-connection-broke" "eof-object?" "read-port" "info" "input-port-timeout-set!" "receive-timeout" "timeout" "receive-remote-message" "class-of" "dispatch" "apply" "local-proxy" "unmarshall" "let" "exception-reason" "display-continuation-backtrace" "display-exception" "exception" "***server***" "terminal" "*debug?*" "when" "cont" "exc" "with-exception-handler" "return" "lambda" "continuation-capture" "dispatch-remote" "values" "*debug-locally?*" "if" "arguments" "proxy-ior" "method-name" "execute-remote" "define" "port")}
-      {Lisp-Entry "proxy?" definition #f 291 20 291 26 ("Proxy" "is?" "object")}
-      {Lisp-Entry "proxy=?" definition #f 295 20 295 27 ("else" "local-proxy=?" "local-proxy?" "remote-proxy=?" "remote-proxy?" "and" "cond" "y" "x")}
-      {Lisp-Entry "proxy-server=?" definition #f 304 20 304 34 ("else" "local-proxy?" "get-ior" "get-ior~" "ior-server=?" "remote-proxy?" "and" "cond" "y" "x")}
-      {Lisp-Entry "marshall-proxy" definition #f 314 13 314 27 ("remote-proxy?" "get-ior" "get-ior~" "marshall-remote-proxy" "proxy-values" "proxy-values~" "marshall" "stub-reference" "stub-reference~" "serialize-runtime-reference" "listening-port" "listening-port~" "listening-host" "listening-host~" "IOR" "new" "require-remote-listener" "server" "object->serial" "cons" "*Temp-Mega-Patch*" "set!" "get-object" "get-object~" "object" "let" "local-register" "proxy=?" "if" "local-proxy->reference" "local-proxy" "marshall-local-proxy" "define" "proxy")}
-      {Lisp-Entry "local-proxy?" definition #f 344 20 344 32 ("Local-Proxy" "is?" "object")}
-      {Lisp-Entry "local-proxy=?" definition #f 348 20 348 33 ("get-object" "get-object~" "eq?" "y" "x")}
-      {Lisp-Entry "remote-proxy?" definition #f 358 20 358 33 ("Remote-Proxy" "is?" "object")}
-      {Lisp-Entry "remote-proxy=?" definition #f 362 20 362 34 ("get-ior" "get-ior~" "ior=?" "y" "x")}
-      {Lisp-Entry "local-register" definition #f 372 12 372 26 ()}
-      {Lisp-Entry "get-local-register" definition #f 376 20 376 38 ("Register" "new-local-proxy" "new-local-proxy~" "set!" "local-register" "not" "when")}
-      {Lisp-Entry "new-remote-register" definition #f 382 20 382 39 ("Register-Stub" "reference" "serialize-runtime-reference" "IOR" "new" "unmarshall" "port" "host")}
-      {Lisp-Entry "*Temp-Mega-Patch*" definition #f 392 12 392 29 ()}
-      {Lisp-Entry "ior?" definition #f 396 20 396 24 ("IOR" "is?" "object")}
-      {Lisp-Entry "local-ior?" definition #f 400 20 400 30 ("listening-port" "listening-port~" "get-service" "get-service~" "service=?" "listening-host" "listening-host~" "get-host" "get-host~" "host=?" "and" "require-remote-listener" "server" "let" "ior")}
-      {Lisp-Entry "ior=?" definition #f 406 20 406 25 ("get-reference" "get-reference~" "reference=?" "get-service" "get-service~" "service=?" "get-host" "get-host~" "host=?" "and" "y" "x")}
-      {Lisp-Entry "ior-server=?" definition #f 412 20 412 32 ("get-service" "get-service~" "service=?" "get-host" "get-host~" "host=?" "and" "y" "x")}
-      {Lisp-Entry "host=?" definition #f 417 20 417 26 ("equal?" "y" "x")}
-      {Lisp-Entry "service=?" definition #f 421 20 421 29 ("eqv?" "y" "x")}
-      {Lisp-Entry "reference=?" definition #f 425 20 425 31 ("eqv?" "y" "x")}
-      {Lisp-Entry "unmarshall-ior" definition #f 429 20 429 34 ("local-ior?" "get-stub-interface" "get-stub-interface~" "deserialize-runtime-reference" "resolve-runtime-reference" "get-values" "get-values~" "unmarshall" "remote-class~" "remote-class" "let" "unmarshall-remote-ior" "get-reference" "get-reference~" "serial->object" "local-class" "local-class~" "new" "local-register" "not" "if" "reference" "reference->local-proxy" "stub-interface" "unmarshall-local-ior" "define" "ior")}
-      {Lisp-Entry "marshall" definition #f 453 13 453 21 ("error" "else" "cdr" "car" "marshall" "cons" "pair?" "marshall-proxy" "proxy?" "Walk-Location" "Exception-Detail" "is?" "ior?" "unspecified?" "u8vector?" "eq?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "object")}
-      {Lisp-Entry "unmarshall" definition #f 492 13 492 23 ("error" "else" "cdr" "car" "unmarshall" "cons" "pair?" "unmarshall-ior" "ior?" "Walk-Location" "Exception-Detail" "is?" "unspecified?" "u8vector?" "eq?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "object")}
-      {Lisp-Entry "write-port" definition #f 529 13 529 23 ("force-output" "newline" "encode" "write" "info" "port")}
-      {Lisp-Entry "read-port" definition #f 535 13 535 22 ("read" "decode" "port")}
-      {Lisp-Entry "encode" definition #f 544 13 544 19 (":reader" "->string" "else" "cdr" "car" "pair?" "ior?" "unspecified" "unspecified?" "true" "false" "eq?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "get-values" "get-values~" "encode" "get-reference" "get-reference~" "get-stub-interface" "get-stub-interface~" "get-service" "get-service~" "get-host" "get-host~" "IOR" "ior" "encode-ior" "encoded-marker" "cons" "info" "kind" "encode-info" "define" "object")}
-      {Lisp-Entry "encoded-marker" definition #f 581 12 581 26 ("ENCODED")}
-      {Lisp-Entry "encoded?" definition #f 585 13 585 21 ("encoded-marker" "car" "eq?" "pair?" "and" "object")}
-      {Lisp-Entry "decode" definition #f 595 13 595 19 ("error" "else" "cdr" "cons" "pair?" "unspecified" "true" "false" "case" "car" "read-string-element" "lambda" "with-jazz-readtable" "walk-for" "parameterize" "not" "if" "kind" "receive" "encoded?" "eof-object?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "decode" "IOR" "new" "reference" "stub-interface" "service" "host" "bind" "info" "decode-ior" "cddr" "cadr" "values" "encoded" "decode-info" "define" "object")}}})
+      {Lisp-Entry "Remote-Listener-Host" definition #f 60 12 60 32 ()}
+      {Lisp-Entry "Remote-Listener-Service" definition #f 65 12 65 35 ("any")}
+      {Lisp-Entry "remote-listener" definition #f 69 12 69 27 ()}
+      {Lisp-Entry "get-remote-listener" definition #f 73 20 73 39 ("remote-listener")}
+      {Lisp-Entry "set-remote-listener" definition #f 76 20 76 39 ("remote-listener" "set!" "server")}
+      {Lisp-Entry "require-remote-listener" definition #f 80 20 80 43 ("error" "remote-listener" "not" "if")}
+      {Lisp-Entry "start-remote-listener" definition #f 86 20 86 41 ("error" "set-remote-listener" "error?:" "wait-started" "wait-started~" "if" "start" "start~" "Remote-Listener-Service" "service:" "Remote-Listener-Host" "or" "host:" "Remote-Listener" "new" "server" "let" "command-host/service" "service" "host" "receive" "remote-listener" "unless" "default-service" "default-service:" "default-host" "default-host:")}
+      {Lisp-Entry "stop-remote-listener" definition #f 96 20 96 40 ("set-remote-listener" "stop" "stop~" "remote-listener" "when")}
+      {Lisp-Entry "Remote-Connection-Broke" class #f 107 7 107 30 ("Exception")}
+      {Lisp-Entry "throw-remote-connection-broke" definition #f 110 13 110 42 ("Remote-Connection-Broke" "new" "throw")}
+      {Lisp-Entry "live-timeout" definition #f 119 12 119 24 ("0.5")}
+      {Lisp-Entry "live-request" definition #f 122 12 122 24 ("live?")}
+      {Lisp-Entry "live-response" definition #f 125 12 125 25 ("alive")}
+      {Lisp-Entry "remote-proxy-live?" definition #f 129 21 129 39 ("live-response" "eq?" "close-port" "receive-remote-result" "result" "live-request" "send-remote-message" "receive-timeout" "live-timeout" "send-timeout" "parameterize" "lambda" "with-exception-catcher" "port-number:" "server-address:" "list" "open-tcp-client" "port" "live?" "***client***" "terminal" "*debug?*" "when" "get-service" "get-service~" "service" "get-host" "get-host~" "host" "marshall" "proxy-ior" "let" "exc" "Remote-Connection-Broke" "catch" "remote-proxy")}
+      {Lisp-Entry "send-timeout" definition #f 155 12 155 24 ("2" "make-parameter")}
+      {Lisp-Entry "receive-timeout" definition #f 158 12 158 27 ("10" "make-parameter")}
+      {Lisp-Entry "post-remote" definition #f 162 20 162 31 ("post" "invoke-remote" "arguments" "remote-proxy" "method-name")}
+      {Lisp-Entry "exec-remote" definition #f 166 20 166 31 ("exec" "invoke-remote" "arguments" "remote-proxy" "method-name")}
+      {Lisp-Entry "call-remote" definition #f 170 20 170 31 ("call" "invoke-remote" "arguments" "remote-proxy" "method-name")}
+      {Lisp-Entry "invoke-remote" definition #f 174 13 174 26 ("unmarshall" "call" "error" "if" "result" "err" "bind" "->" "receive-remote-result" "received" "exec" "unspecified" "post" "case" "send-remote-message" "port" "lambda" "port-number:" "server-address:" "list" "call-with-tcp-client" "*debug-arguments?*" "and" "***client***" "terminal" "*debug?*" "when" "get-service" "get-service~" "service" "get-host" "get-host~" "host" "proxy-ior" "marshall" "let" "arguments" "remote-proxy" "method-name" "kind")}
+      {Lisp-Entry "send-remote-message" definition #f 206 13 206 32 ("write-port" "throw-remote-connection-broke" "output-port-timeout-set!" "when" "send-timeout" "timeout" "let" "port" "info")}
+      {Lisp-Entry "receive-remote-result" definition #f 213 13 213 34 ("throw-remote-connection-broke" "eof-object?" "if" "read-port" "info" "input-port-timeout-set!" "when" "receive-timeout" "timeout" "let" "port")}
+      {Lisp-Entry "process-remote" definition #f 228 21 228 35 ("call" "unspecified" "marshall" "list" "result" "err" "receive" "exec" "post" "case" "*debug-arguments?*" "and" "kind" "bind" "live-response" "live-request" "eq?" "message" "write-port" "output-port-timeout-set!" "send-timeout" "send-remote-result" "throw-remote-connection-broke" "eof-object?" "read-port" "info" "input-port-timeout-set!" "receive-timeout" "timeout" "receive-remote-message" "class-of" "dispatch" "apply" "local-proxy" "unmarshall" "let" "exception-reason" "display-continuation-backtrace" "display-exception" "exception" "***server***" "terminal" "*debug?*" "when" "cont" "exc" "with-exception-handler" "return" "lambda" "continuation-capture" "dispatch-remote" "values" "*debug-locally?*" "if" "arguments" "proxy-ior" "method-name" "execute-remote" "define" "port")}
+      {Lisp-Entry "proxy?" definition #f 293 20 293 26 ("Proxy" "is?" "object")}
+      {Lisp-Entry "proxy=?" definition #f 297 20 297 27 ("else" "local-proxy=?" "local-proxy?" "remote-proxy=?" "remote-proxy?" "and" "cond" "y" "x")}
+      {Lisp-Entry "proxy-server=?" definition #f 306 20 306 34 ("else" "local-proxy?" "get-ior" "get-ior~" "ior-server=?" "remote-proxy?" "and" "cond" "y" "x")}
+      {Lisp-Entry "marshall-proxy" definition #f 316 13 316 27 ("remote-proxy?" "get-ior" "get-ior~" "marshall-remote-proxy" "proxy-values" "proxy-values~" "marshall" "stub-reference" "stub-reference~" "serialize-runtime-reference" "listening-port" "listening-port~" "listening-host" "listening-host~" "IOR" "new" "require-remote-listener" "server" "object->serial" "cons" "*Temp-Mega-Patch*" "set!" "get-object" "get-object~" "object" "let" "local-register" "proxy=?" "if" "local-proxy->reference" "local-proxy" "marshall-local-proxy" "define" "proxy")}
+      {Lisp-Entry "local-proxy?" definition #f 346 20 346 32 ("Local-Proxy" "is?" "object")}
+      {Lisp-Entry "local-proxy=?" definition #f 350 20 350 33 ("get-object" "get-object~" "eq?" "y" "x")}
+      {Lisp-Entry "remote-proxy?" definition #f 360 20 360 33 ("Remote-Proxy" "is?" "object")}
+      {Lisp-Entry "remote-proxy=?" definition #f 364 20 364 34 ("get-ior" "get-ior~" "ior=?" "y" "x")}
+      {Lisp-Entry "local-register" definition #f 374 12 374 26 ()}
+      {Lisp-Entry "get-local-register" definition #f 378 20 378 38 ("Register" "new-local-proxy" "new-local-proxy~" "set!" "local-register" "not" "when")}
+      {Lisp-Entry "new-remote-register" definition #f 384 20 384 39 ("Register-Stub" "reference" "serialize-runtime-reference" "IOR" "new" "unmarshall" "port" "host")}
+      {Lisp-Entry "*Temp-Mega-Patch*" definition #f 394 12 394 29 ()}
+      {Lisp-Entry "ior?" definition #f 398 20 398 24 ("IOR" "is?" "object")}
+      {Lisp-Entry "local-ior?" definition #f 402 20 402 30 ("listening-port" "listening-port~" "get-service" "get-service~" "service=?" "listening-host" "listening-host~" "get-host" "get-host~" "host=?" "and" "require-remote-listener" "server" "let" "ior")}
+      {Lisp-Entry "ior=?" definition #f 408 20 408 25 ("get-reference" "get-reference~" "reference=?" "get-service" "get-service~" "service=?" "get-host" "get-host~" "host=?" "and" "y" "x")}
+      {Lisp-Entry "ior-server=?" definition #f 414 20 414 32 ("get-service" "get-service~" "service=?" "get-host" "get-host~" "host=?" "and" "y" "x")}
+      {Lisp-Entry "host=?" definition #f 419 20 419 26 ("equal?" "y" "x")}
+      {Lisp-Entry "service=?" definition #f 423 20 423 29 ("eqv?" "y" "x")}
+      {Lisp-Entry "reference=?" definition #f 427 20 427 31 ("eqv?" "y" "x")}
+      {Lisp-Entry "unmarshall-ior" definition #f 431 20 431 34 ("local-ior?" "get-stub-interface" "get-stub-interface~" "deserialize-runtime-reference" "resolve-runtime-reference" "get-values" "get-values~" "unmarshall" "remote-class~" "remote-class" "let" "unmarshall-remote-ior" "get-reference" "get-reference~" "serial->object" "local-class" "local-class~" "new" "local-register" "not" "if" "reference" "reference->local-proxy" "stub-interface" "unmarshall-local-ior" "define" "ior")}
+      {Lisp-Entry "marshall" definition #f 455 13 455 21 ("error" "else" "cdr" "car" "marshall" "cons" "pair?" "marshall-proxy" "proxy?" "Walk-Location" "Exception-Detail" "is?" "ior?" "unspecified?" "u8vector?" "eq?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "object")}
+      {Lisp-Entry "unmarshall" definition #f 494 13 494 23 ("error" "else" "cdr" "car" "unmarshall" "cons" "pair?" "unmarshall-ior" "ior?" "Walk-Location" "Exception-Detail" "is?" "unspecified?" "u8vector?" "eq?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "object")}
+      {Lisp-Entry "write-port" definition #f 531 13 531 23 ("force-output" "newline" "encode" "write" "info" "port")}
+      {Lisp-Entry "read-port" definition #f 537 13 537 22 ("read" "decode" "port")}
+      {Lisp-Entry "encode" definition #f 546 13 546 19 (":reader" "->string" "else" "cdr" "car" "pair?" "ior?" "unspecified" "unspecified?" "true" "false" "eq?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "get-values" "get-values~" "encode" "get-reference" "get-reference~" "get-stub-interface" "get-stub-interface~" "get-service" "get-service~" "get-host" "get-host~" "IOR" "ior" "encode-ior" "encoded-marker" "cons" "info" "kind" "encode-info" "define" "object")}
+      {Lisp-Entry "encoded-marker" definition #f 583 12 583 26 ("ENCODED")}
+      {Lisp-Entry "encoded?" definition #f 587 13 587 21 ("encoded-marker" "car" "eq?" "pair?" "and" "object")}
+      {Lisp-Entry "decode" definition #f 597 13 597 19 ("error" "else" "cdr" "cons" "pair?" "unspecified" "true" "false" "case" "car" "read-string-element" "lambda" "with-jazz-readtable" "walk-for" "parameterize" "not" "if" "kind" "receive" "encoded?" "eof-object?" "keyword?" "symbol?" "string?" "number?" "null?" "cond" "decode" "IOR" "new" "reference" "stub-interface" "service" "host" "bind" "info" "decode-ior" "cddr" "cadr" "values" "encoded" "decode-info" "define" "object")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "autoload.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "autoload.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.autoload" module #f 37 18 37 35 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Stub-Interface" "jazz.jrm.remote.Stub-Interface" "Remote-Listener" "jazz.jrm.remote.Remote-Listener" "Remotable-Stub" "jazz.jrm.remote.Remotable-Stub" "Remote-Proxy" "jazz.jrm.remote.Remote-Proxy" "Proxy" "jazz.jrm.remote.Proxy" "Local-Proxy" "jazz.jrm.remote.Local-Proxy" "IOR" "jazz.jrm.remote.IOR" "Register-Stub" "jazz.jrm.register.stub" "Register" "autoload" "jazz.jrm.register.Register")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "install.scm"} 1299165064 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "install.scm"} 236918188. scheme
     {Lisp-Entry "jazz.jrm.install" unit #f 37 6 37 22 ()
       {Lisp-Entry "IOR" define ("literal") 40 21 40 24 ("construct-ior" "jazz.jrm.literals" "jazz.jrm.literals:construct-ior")}}})
 "literals"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "literals.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "literals.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.literals" module #f 37 8 37 25 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "construct-ior" definition #f 48 21 48 34 ("IOR" "new" "values" "reference" "remotable" "port" "host")}}})
 "stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "stub.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jrm" "register" "stub.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jrm.register.stub" module #f 37 8 37 30 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Register" remotable-stub "~stub" 43 16 43 24 ()

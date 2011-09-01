@@ -1,5 +1,5 @@
 "ADO-Connection"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Connection.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Connection.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.connection.ADO-Connection" module #f 37 18 37 61 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform" "jazz.database.ado" "jazz.database")}
       {Lisp-Entry "ADO-Connection" class #f 45 7 45 21 ("initialize" "Connection")
@@ -15,7 +15,7 @@
         {Lisp-Entry "commit-transaction" method #f 118 20 118 38 ("handle" "Connection15$CommitTrans")}
         {Lisp-Entry "rollback-transaction" method #f 122 20 122 40 ("handle" "Connection15$RollbackTrans")}}}})
 "ADO-Data-Source"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "ADO-Data-Source.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "ADO-Data-Source.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.ADO-Data-Source" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema" "jazz.jml" "jazz.designer" "jazz.database.ado")}
       {Lisp-Entry "ADO-Data-Source" class #f 46 7 46 22 ("initialize" "Data-Source")
@@ -32,13 +32,13 @@
         {Lisp-Entry "ADO-Data-Source-Descriptor" class #f 99 7 99 33 ("Data-Source-Descriptor")
           {Lisp-Entry "form" anonymous #f 102 3 102 7 ("domain" "String-Domain" "<String-Domain>" "name:" "Property-Descriptor" "<Property-Descriptor>" "password" "username" "dsn" "class-info" "categorized:" ">" "<properties" "<properties~>" "title:" "install" "<install>")}}}}})
 "ADO-Datatype"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Datatype.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Datatype.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Datatype" module #f 37 18 37 58 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.schema")}
       {Lisp-Entry "get-types" definition #f 43 13 43 22 ()}
       {Lisp-Entry "ADO-Datatype" class #f 47 7 47 19 ("Datatype")}}})
 "ADO-Inventory"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory" module #f 37 18 37 59 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory" class #f 43 7 43 20 ("Inventory")}
@@ -51,7 +51,7 @@
         {Lisp-Entry "get-views" method #f 89 11 89 20 ("get-Item" "get-Item~" "self" "ADO-Inventory-View" "new" "collect" "get-Count" "get-Count~" "below" "0" "from" "n" "for" "loop" "handle" "get-Views" "get-Views~" "views" "with")}
         {Lisp-Entry "get-procedures" method #f 95 11 95 25 ("get-Item" "get-Item~" "self" "ADO-Inventory-Procedure" "new" "collect" "get-Count" "get-Count~" "below" "0" "from" "n" "for" "loop" "handle" "get-Procedures" "get-Procedures~" "procedures" "with")}}}})
 "ADO-Inventory-Column"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Column.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Column.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory-Column" module #f 37 18 37 66 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory-Column" class #f 43 7 43 27 ("Inventory-Column")}
@@ -69,7 +69,7 @@
         {Lisp-Entry "get-fixed?" method #f 99 11 99 21 ("adColFixed" "handle" "get-Attributes" "get-Attributes~" "mask-bit-set?")}
         {Lisp-Entry "get-description" method #f 103 11 103 26 ()}}}})
 "ADO-Inventory-Constraint"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Constraint.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Constraint.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory-Constraint" module #f 37 18 37 70 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory-Constraint" class #f 43 7 43 31 ("Inventory-Constraint")}
@@ -79,7 +79,7 @@
         {Lisp-Entry "destroy" method #f 61 11 61 18 ("nextmethod" "handle" "com-release")}
         {Lisp-Entry "get-title" method #f 71 11 71 20 ("handle" "get-Name" "get-Name~")}}}})
 "ADO-Inventory-Index"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Index.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Index.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory-Index" module #f 37 18 37 65 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory-Index" class #f 43 7 43 26 ("Inventory-Index")}
@@ -94,7 +94,7 @@
         {Lisp-Entry "get-primary?" method #f 87 11 87 23 ("handle" "get-PrimaryKey" "get-PrimaryKey~")}
         {Lisp-Entry "get-fields" method #f 91 11 91 21 ("get-Item" "get-Item~" "self" "inventory" "ADO-Inventory-Column" "new" "collect" "get-Count" "get-Count~" "below" "0" "from" "n" "for" "loop" "handle" "get-Columns" "get-Columns~" "fields" "with")}}}})
 "ADO-Inventory-Procedure"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Procedure.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Procedure.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory-Procedure" module #f 37 18 37 69 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory-Procedure" class #f 43 7 43 30 ("Inventory-Procedure")}
@@ -105,7 +105,7 @@
         {Lisp-Entry "get-title" method #f 71 11 71 20 ("handle" "get-Name" "get-Name~")}
         {Lisp-Entry "get-text" method #f 75 11 75 19 ("get-text" "unimplemented")}}}})
 "ADO-Inventory-Table"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Table.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Table.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory-Table" module #f 37 18 37 65 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory-Table" class #f 43 7 43 26 ("Inventory-Table")}
@@ -120,7 +120,7 @@
         {Lisp-Entry "get-triggers" method #f 99 11 99 23 ()}
         {Lisp-Entry "get-constraints" method #f 103 11 103 26 ()}}}})
 "ADO-Inventory-Trigger"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Trigger.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-Trigger.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory-Trigger" module #f 37 18 37 67 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory-Trigger" class #f 43 7 43 28 ("Inventory-Trigger")}
@@ -130,7 +130,7 @@
         {Lisp-Entry "destroy" method #f 61 11 61 18 ("nextmethod" "handle" "com-release")}
         {Lisp-Entry "get-title" method #f 71 11 71 20 ("handle" "get-Name" "get-Name~")}}}})
 "ADO-Inventory-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-View.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADO-Inventory-View.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.inventory.ADO-Inventory-View" module #f 37 18 37 64 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database")}
       {Lisp-Entry "ADO-Inventory-View" class #f 43 7 43 25 ("Inventory-View")}
@@ -140,31 +140,31 @@
         {Lisp-Entry "destroy" method #f 61 11 61 18 ("nextmethod" "handle" "com-release")}
         {Lisp-Entry "get-title" method #f 71 11 71 20 ("handle" "get-Name" "get-Name~")}}}})
 "ADO-Recordset"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Recordset.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Recordset.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.connection.ADO-Recordset" module #f 37 18 37 60 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform" "jazz.database.ado" "jazz.database")}
       {Lisp-Entry "ADO-Recordset" class #f 45 7 45 20 ("initialize" "Recordset")
         {Lisp-Entry "handle" slot #f 48 8 48 14 ()}
         {Lisp-Entry "get-handle" accessor #f 48 36 48 44 ()}
         {Lisp-Entry "setup-recordset" method #f 51 20 51 35 ("Recordset-class" "com-create" "handle" "set!" "nextmethod" "initargs")}
-        {Lisp-Entry "destroy-recordset" method #f 56 20 56 37 ("nextmethod" "set!" "com-release" "Recordset15$Close" "adStateClosed" "Recordset15$get-State" "/=" "handle" "and" "when")}
-        {Lisp-Entry "opened?" method #f 69 20 69 27 ("handle" "boolean")}
-        {Lisp-Entry "open" method #f 73 20 73 24 ("Recordset15$Open" "1" "+" "handle" "put-MaxRecords" "put-MaxRecords~" "neq?" "when" "else" "format" "get-handle" "get-handle~" "cond" "let" "adCmdText" "options" "options:" "adLockReadOnly" "lock-type" "lock-type:" "adOpenForwardOnly" "cursor-type" "cursor-type:" "max-load" "max-load:" "data-source" "data-source:" "connection" "connection:" "command")}
-        {Lisp-Entry "get-state" method #f 96 20 96 29 ("unknown" "else" "closed" "adStateClosed" "open" "adStateOpen" "=" "cond" "handle" "Recordset15$get-State" "state" "let")}
-        {Lisp-Entry "new-recordset-metadata" method #f 108 20 108 42 ("handle" "Recordset15$get-Fields" "ADO-Recordset-Metadata" "new")}
-        {Lisp-Entry "get-field-type" method #f 112 20 112 34 ("get-Type" "get-Type~" "field" "metadata")}
-        {Lisp-Entry "get-field-value" method #f 116 20 116 35 ("Field20$get-Value" "field" "metadata")}
-        {Lisp-Entry "safe-field-value" method #f 120 20 120 36 ("else" "adVarBinary" "adLongVarBinary" "get-field-type" "ecase" "get-field-value" "field" "metadata")}
-        {Lisp-Entry "next-recordset!" method #f 134 20 134 35 ("set!" "destroy-recordset" "handle" "Recordset15$NextRecordset" "new-handle" "records-affected" "receive")}
-        {Lisp-Entry "move-first" method #f 145 20 145 30 ("handle" "Recordset15$MoveFirst")}
-        {Lisp-Entry "move-last" method #f 149 20 149 29 ("handle" "Recordset15$MoveLast")}
-        {Lisp-Entry "move-next" method #f 153 20 153 29 ("handle" "Recordset15$MoveNext")}
-        {Lisp-Entry "move-previous" method #f 157 20 157 33 ("handle" "Recordset15$MovePrevious")}
-        {Lisp-Entry "at-bof?" method #f 161 20 161 27 ("handle" "Recordset15$get-BOF")}
-        {Lisp-Entry "at-eof?" method #f 165 20 165 27 ("handle" "Recordset15$get-EOF")}
-        {Lisp-Entry "iterate-records" method #f 169 20 169 35 ("move-next" "not" "and" "while" "move-first" "at-eof?" "unless" "proc")}}}})
+        {Lisp-Entry "destroy-recordset" method #f 56 20 56 37 ("nextmethod" "set!" "com-release" "Recordset15$Close" "adStateClosed" "Recordset15$get-State" "/=" "handle" "when")}
+        {Lisp-Entry "opened?" method #f 70 20 70 27 ("handle" "boolean")}
+        {Lisp-Entry "open" method #f 74 20 74 24 ("Recordset15$Open" "1" "+" "handle" "put-MaxRecords" "put-MaxRecords~" "neq?" "when" "else" "format" "get-handle" "get-handle~" "cond" "let" "adCmdText" "options" "options:" "adLockReadOnly" "lock-type" "lock-type:" "adOpenForwardOnly" "cursor-type" "cursor-type:" "max-load" "max-load:" "data-source" "data-source:" "connection" "connection:" "command")}
+        {Lisp-Entry "get-state" method #f 97 20 97 29 ("unknown" "else" "closed" "adStateClosed" "open" "adStateOpen" "=" "cond" "handle" "Recordset15$get-State" "state" "let")}
+        {Lisp-Entry "new-recordset-metadata" method #f 109 20 109 42 ("handle" "Recordset15$get-Fields" "ADO-Recordset-Metadata" "new")}
+        {Lisp-Entry "get-field-type" method #f 113 20 113 34 ("get-Type" "get-Type~" "field" "metadata")}
+        {Lisp-Entry "get-field-value" method #f 117 20 117 35 ("Field20$get-Value" "field" "metadata")}
+        {Lisp-Entry "safe-field-value" method #f 121 20 121 36 ("else" "adVarBinary" "adLongVarBinary" "get-field-type" "ecase" "get-field-value" "field" "metadata")}
+        {Lisp-Entry "next-recordset!" method #f 135 20 135 35 ("set!" "destroy-recordset" "handle" "Recordset15$NextRecordset" "new-handle" "records-affected" "receive")}
+        {Lisp-Entry "move-first" method #f 146 20 146 30 ("handle" "Recordset15$MoveFirst")}
+        {Lisp-Entry "move-last" method #f 150 20 150 29 ("handle" "Recordset15$MoveLast")}
+        {Lisp-Entry "move-next" method #f 154 20 154 29 ("handle" "Recordset15$MoveNext")}
+        {Lisp-Entry "move-previous" method #f 158 20 158 33 ("handle" "Recordset15$MovePrevious")}
+        {Lisp-Entry "at-bof?" method #f 162 20 162 27 ("handle" "Recordset15$get-BOF")}
+        {Lisp-Entry "at-eof?" method #f 166 20 166 27 ("handle" "Recordset15$get-EOF")}
+        {Lisp-Entry "iterate-records" method #f 170 20 170 35 ("move-next" "not" "and" "while" "move-first" "at-eof?" "unless" "proc")}}}})
 "ADO-Recordset-Metadata"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Recordset-Metadata.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Recordset-Metadata.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.connection.ADO-Recordset-Metadata" module #f 37 18 37 69 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform" "jazz.database.ado" "jazz.database")}
       {Lisp-Entry "ADO-Recordset-Metadata" class #f 45 7 45 29 ("Recordset-Metadata")
@@ -180,13 +180,13 @@
         {Lisp-Entry "get-field-size" method #f 88 20 88 34 ("get-DefinedSize" "get-DefinedSize~" "field")}
         {Lisp-Entry "get-field-precision" method #f 92 20 92 39 ("get-Precision" "get-Precision~" "field")}}}})
 "ADO-Request"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Request.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADO-Request.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.connection.ADO-Request" module #f 37 18 37 58 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.database.ado" "jazz.database")}
       {Lisp-Entry "ADO-Request" class #f 44 7 44 18 ("Request")
         {Lisp-Entry "new-recordset" method #f 47 20 47 33 ("connection" "connection:" "ADO-Recordset" "new" "apply" "trace-ado" "rest" "request")}}}})
 "ADODB"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADODB.jazz"} 1301518487 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "connection" "ADODB.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.connection.ADODB" module #f 37 18 37 52 ("0" "HRESULT" "LPVOID*" "DWORD" "IUnknown*" "GUID*" "c-function" "c" "let" "lambda" "register-com-patch" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform")}
       {Lisp-Entry "CursorTypeEnum" c-enumeration #f 59 15 59 29 ("3" "adOpenStatic" "2" "adOpenDynamic" "1" "adOpenKeyset" "0" "adOpenForwardOnly" "-1" "adOpenUnspecified")}
@@ -596,21 +596,21 @@
       {Lisp-Entry "Field15$get-UnderlyingValue" com-external #f 1768 15 1768 42 ("20" "Field15" "HRESULT" "VARIANT*" "out")}
       {Lisp-Entry "Parameter-class" definition #f 1776 19 1776 34 ("_Parameter" "com-class")}}})
 "ADOX"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADOX.jazz"} 1296083296 jazz
-    {Lisp-Entry "jazz.database.ado.inventory.ADOX" module #f 37 18 37 50 ("Refresh" "IUnknown&" "_NewEnum" "int&" "out" "<out>" "get-Count" "hresult" "abstract" "virtual" "com-external" "GUID" "guid:" "properties" "IDispatch" "extends" "_Collection" "public" "interface" "jazz")}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "inventory" "ADOX.jazz"} 236918187. jazz
+    {Lisp-Entry "jazz.database.ado.inventory.ADOX" module #f 37 18 37 50 ("Catalog" "User" "ChangePassword" "_User" "User&" "Users" "adInheritNoPropogate" "adInheritBoth" "adInheritContainers" "adInheritObjects" "adInheritNone" "adAccessRevoke" "adAccessDeny" "adAccessSet" "adAccessGrant" "-2147483648" "adRightRead" "1073741824" "adRightUpdate" "536870912" "adRightExecute" "268435456" "adRightFull" "33554432" "adRightMaximumAllowed" "524288" "adRightWriteOwner" "262144" "adRightWritePermissions" "131072" "adRightReadPermissions" "65536" "adRightDelete" "32768" "adRightInsert" "16384" "adRightCreate" "8192" "adRightReference" "4096" "adRightWithGrant" "2048" "adRightWriteDesign" "1024" "adRightReadDesign" "512" "adRightExclusive" "256" "adRightDrop" "adRightNone" "adPermObjView" "adPermObjProcedure" "adPermObjDatabase" "adPermObjColumn" "adPermObjTable" "-1" "adPermObjProviderSpecific" "Group" "InheritTypeEnum" "RightsEnum" "ActionEnum" "SetPermissions" "RightsEnum&" "GetPermissions" "_Group" "Group&" "Groups" "View" "View&" "Views" "putref-Command" "put-Command" "get-Command" "Procedure" "Procedure&" "Procedures" "adKeyUnique" "adKeyForeign" "adKeyPrimary" "adRISetDefault" "adRISetNull" "adRICascade" "adRINone" "Key" "put-UpdateRule" "get-UpdateRule" "put-RelatedTable" "get-RelatedTable" "KeyTypeEnum&" "RuleEnum" "put-DeleteRule" "RuleEnum&" "get-DeleteRule" "_Key" "KeyTypeEnum" "Key&" "Keys" "adIndexNullsIgnoreAny" "adIndexNullsIgnore" "adIndexNullsDisallow" "adIndexNullsAllow" "Index" "put-Unique" "get-Unique" "put-PrimaryKey" "get-PrimaryKey" "AllowNullsEnum" "put-IndexNulls" "AllowNullsEnum&" "get-IndexNulls" "vtbool" "put-Clustered" "vtbool&" "get-Clustered" "_Index" "Index&" "Indexes" "put-Value" "get-Value" "Property" "Property&" "Properties" "139" "adVarNumeric" "138" "adPropVariant" "64" "adFileTime" "136" "adChapter" "205" "adLongVarBinary" "204" "adVarBinary" "128" "adBinary" "203" "adLongVarWChar" "202" "adVarWChar" "130" "adWChar" "201" "adLongVarChar" "200" "adVarChar" "129" "adChar" "8" "adBSTR" "135" "adDBTimeStamp" "134" "adDBTime" "133" "adDBDate" "7" "adDate" "72" "adGUID" "13" "adIUnknown" "9" "adIDispatch" "12" "adVariant" "132" "adUserDefined" "10" "adError" "11" "adBoolean" "131" "adNumeric" "14" "adDecimal" "6" "adCurrency" "5" "adDouble" "4" "adSingle" "21" "adUnsignedBigInt" "19" "adUnsignedInt" "18" "adUnsignedSmallInt" "17" "adUnsignedTinyInt" "20" "adBigInt" "3" "adInteger" "adSmallInt" "16" "adTinyInt" "0" "adEmpty" "adSortDescending" "adSortAscending" "2" "adColNullable" "1" "adColFixed" "c-enumeration" "Column" "put-Type" "DataTypeEnum&" "SortOrderEnum" "put-SortOrder" "SortOrderEnum&" "get-SortOrder" "put-RelatedColumn" "get-RelatedColumn" "put-Precision" "get-Precision" "byte" "put-NumericScale" "byte&" "get-NumericScale" "put-DefinedSize" "get-DefinedSize" "ColumnAttributesEnum" "put-Attributes" "ColumnAttributesEnum&" "get-Attributes" "_Column" "int" "DataTypeEnum" "Column&" "Columns" "external?:" "implements" "CoObject" "Table" "class" "putref-ParentCatalog" "put-ParentCatalog" "_Catalog&" "get-ParentCatalog" "get-DateModified" "get-DateCreated" "Properties&" "get-Properties" "Keys&" "get-Keys" "Indexes&" "get-Indexes" "get-Type" "put-Name" "get-Name" "Columns&" "get-Columns" "_Table" "Table&" "get-Item" "Tables" "SetObjectOwner" "string&" "ObjectTypeEnum" "GetObjectOwner" "string" "Create" "Users&" "get-Users" "Groups&" "get-Groups" "Views&" "get-Views" "Procedures&" "get-Procedures" "putref-ActiveConnection" "put-ActiveConnection" "variant&" "get-ActiveConnection" "Tables&" "get-Tables" "_Catalog" "variant" "Delete" "in" "<in>" "Append" "_DynaCollection" "Refresh" "IUnknown&" "_NewEnum" "int&" "out" "<out>" "get-Count" "hresult" "abstract" "virtual" "com-external" "GUID" "guid:" "properties" "IDispatch" "extends" "_Collection" "public" "interface" "jazz")}})
 "_ado"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "_ado.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "_ado.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado" module #f 37 8 37 25 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.database.ado.inventory.ADOX" "jazz.database.ado.connection.ADODB" "jazz.database.ado.autoload")}
       {Lisp-Entry "import" anonymous #f 44 1 44 7 ("jazz.system")}
       {Lisp-Entry "trace-ado?" definition #f 52 13 52 23 ("debug.trace" "get-setting")}
       {Lisp-Entry "trace-ado" definition #f 56 20 56 29 ("terminal" "trace-ado?" "when" "cmd")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "autoload.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "autoload.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.database.ado.autoload" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("ADO-Inventory-View" "jazz.database.ado.inventory.ADO-Inventory-View" "ADO-Inventory-Trigger" "jazz.database.ado.inventory.ADO-Inventory-Trigger" "ADO-Inventory-Table" "jazz.database.ado.inventory.ADO-Inventory-Table" "ADO-Inventory-Procedure" "jazz.database.ado.inventory.ADO-Inventory-Procedure" "ADO-Inventory-Index" "jazz.database.ado.inventory.ADO-Inventory-Index" "ADO-Inventory-Constraint" "jazz.database.ado.inventory.ADO-Inventory-Constraint" "ADO-Inventory-Column" "jazz.database.ado.inventory.ADO-Inventory-Column" "ADO-Inventory" "jazz.database.ado.inventory.ADO-Inventory" "ADO-Datatype" "jazz.database.ado.inventory.ADO-Datatype" "ADO-Request" "jazz.database.ado.connection.ADO-Request" "ADO-Recordset-Metadata" "jazz.database.ado.connection.ADO-Recordset-Metadata" "ADO-Recordset" "jazz.database.ado.connection.ADO-Recordset" "ADO-Connection" "jazz.database.ado.connection.ADO-Connection" "ADO-Data-Source" "autoload" "jazz.database.ado.ADO-Data-Source")}}})
 "product"
- ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "product.scm"} 1299181915 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "database" "ado" "product.scm"} 236918187. scheme
     {Lisp-Entry "jazz.database.ado.product" unit #f 37 6 37 31 ("build-ado" "jazz:build-ado" "build:" "jazz.database.ado" "register-product" "jazz:register-product")
-      {Lisp-Entry "build-ado" define #f 42 13 42 27 ("update-product-descriptor" "jazz:update-product-descriptor" "force?:" "unit:" "custom-compile/build" "jazz:custom-compile/build" "ld-options:" "cc-options:" "jazz.database.ado.connection.ADODB" "unit-specs" "let" "force?" "unit" "#!key" "descriptor")}
+      {Lisp-Entry "build-ado" define #f 42 13 42 27 ("build-product-descriptor" "jazz:build-product-descriptor" "force?:" "unit:" "custom-compile/build" "jazz:custom-compile/build" "ld-options:" "cc-options:" "jazz.database.ado.connection.ADODB" "unit-specs" "let" "force?" "unit" "#!key" "descriptor")}
       {Lisp-Entry "build-ado" define #f 48 13 48 27 ("descriptor")}}})

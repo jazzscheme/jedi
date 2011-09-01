@@ -1,7 +1,7 @@
 "Experiments"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "experiments" "Experiments.jazz"} 1296083297 jazz})
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "experiments" "Experiments.jazz"} 236918188. jazz})
 "JML-Element"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "model" "JML-Element.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "model" "JML-Element.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.model.JML-Element" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.jml")}
       {Lisp-Entry "JML-Element" class #f 44 7 44 18 ("initialize" "JML-Node")
@@ -39,7 +39,7 @@
         {Lisp-Entry "properties->jml" method #f 229 18 229 33 ("get-output" "get-output~" "properties" "put" "put~" "value" "lambda" "for-each-property" "List-Factory" "new" "fact" "let" "symbol->keyword" "property" "property->jml" "define")}
         {Lisp-Entry "children->jml" method #f 241 18 241 31 ("children" "->jml" "->jml~" "child" "lambda" "map")}}}})
 "JML-Node"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "model" "JML-Node.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "model" "JML-Node.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.model.JML-Node" module #f 37 18 37 41 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jml")}
       {Lisp-Entry "JML-Node" class #f 43 7 43 15 ("Object")
@@ -57,7 +57,7 @@
         {Lisp-Entry "->jml" method #f 128 35 128 40 ()}
         {Lisp-Entry "pretty-print" method #f 137 18 137 30 ("car" "null?" "=" "children" "neq?" "length" "pres" "get-property" "get-property~" "7" "has-property?" "has-property?~" "-" "pad" "not-null?" ":human" "case" "properties" "single-line?" "single-line?~" "get-text" "get-text~" "text" "JML-Text" "if" "receive" "first?" "output" "with-printer" "values" "self" "get-children" "get-children~" "1" "child" "for-each" "get-properties" "get-properties~" "table-set!" "table-ref" "max" "eq?" "format" "string" "<string>" "cast" "value" "property" "lambda" "for-each-property" "set!" ">" "not" "or" "2" "*" "cardinality" "+" "width" "cons" "symbol->string" "name" "get-tag" "get-tag~" "tag" "let*" "JML-Element" "is?" "when" "level" "path" "node" "iter" "equal?" "test:" "make-table" "and" "maxes" "max-name" "max-tag" "let" "compute-maxes" "define" ":reader" "readably" "readably:" "align-properties?" "align-properties?:" "align-name?" "align-name?:" "space-properties?" "space-properties?:" "0" "base" "base:" "indent-first?" "indent-first?:" "printer")}}}})
 "JML-Parser"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "parser" "JML-Parser.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "parser" "JML-Parser.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.parser.JML-Parser" module #f 37 18 37 44 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.jml")}
       {Lisp-Entry "JML-Parser" class #f 44 7 44 17 ("Object")
@@ -69,7 +69,7 @@
         {Lisp-Entry "validate-tag" method #f 176 29 176 41 ("error" "tag-valid?" "unless" "tag")}
         {Lisp-Entry "get-alias" method #f 186 29 186 38 ("error" "rest" "name")}}}})
 "JML-Preferences"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "preference" "JML-Preferences.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "preference" "JML-Preferences.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.preference.JML-Preferences" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "JML-Preferences" class #f 45 7 45 22 ("2" "initialize" "Component")
@@ -97,7 +97,7 @@
         {Lisp-Entry "JML-Preferences-Descriptor" class #f 76 7 76 33 ("Component-Descriptor")
           {Lisp-Entry "form" anonymous #f 79 3 79 7 ("Integer-Domain" "<Integer-Domain>" "Boolean-Domain" "<Boolean-Domain>" "Directory-Domain" "<Directory-Domain>" "domain" "String-Domain" "<String-Domain>" "name:" "Property-Descriptor" "<Property-Descriptor>" "tab-size" "debug-colors?" "debug-tables?" "html-directory" "jml-directory" "target" "categorized:" ">" "<properties" "<properties~>" "Image-Resource" "image:" "title:" "install" "<install>")}}}}})
 "JML-Renderer"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "renderer" "JML-Renderer.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "renderer" "JML-Renderer.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.renderer.JML-Renderer" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "JML-Renderer" class #f 40 7 40 19 ("Object")
         {Lisp-Entry "preferences" slot #f 43 8 43 19 ()}
@@ -105,7 +105,7 @@
         {Lisp-Entry "render" method #f 56 26 56 32 ("output" "jml")}
         {Lisp-Entry "render-node" method #f 60 26 60 37 ("output" "level" "mix?" "simple?" "jml" "context")}}}})
 "JML-Text"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "model" "JML-Text.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "model" "JML-Text.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.model.JML-Text" module #f 37 18 37 41 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jml")}
       {Lisp-Entry "JML-Text" class #f 43 7 43 15 ("JML-Node")
@@ -118,7 +118,7 @@
         {Lisp-Entry "multi-line?" method #f 74 18 74 29 ("text" "find-in")}
         {Lisp-Entry "single-line?" method #f 78 18 78 30 ("multi-line?" "not")}}}})
 "JML-Transformation"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "transformation" "JML-Transformation.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "transformation" "JML-Transformation.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.transformation.JML-Transformation" module #f 37 18 37 60 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jml")}
       {Lisp-Entry "JML-Transformation" class #f 43 7 43 25 ("Object")
@@ -127,14 +127,14 @@
         {Lisp-Entry "transform" method #f 59 26 59 35 ("transform-jml" "parser" "parse" "parse~" "node")}
         {Lisp-Entry "transform-jml" method #f 63 18 63 31 ("get-children" "get-children~" "transform-jml" "map" "properties->jml" "properties->jml~" "tag->jml" "tag->jml~" "get-text" "get-text~" "JML-Text" "new-node" "class-of" "find-dispatch" "get-tag" "get-tag~" "name->tag" "tag" "JML-Element" "is?" "and" "self" "parser" "parse" "parse~" "if" "node-pattern" "pattern" "let" "transform-one" "define" "node")}}}})
 "XHTML-Parser"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "xhtml" "XHTML-Parser.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "xhtml" "XHTML-Parser.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.xhtml.XHTML-Parser" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jml")}
       {Lisp-Entry "XHTML-Parser" class #f 43 7 43 19 ("JML-Parser")
         {Lisp-Entry "Valid-Tags" definition #f 51 14 51 24 ("var" "ul" "u" "tt" "tr" "title" "thead" "th" "tfoot" "textarea" "td" "tbody" "table" "sup" "sub" "style" "strong" "strike" "span" "small" "select" "script" "samp" "s" "q" "pre" "param" "p" "option" "optgroup" "ol" "object" "noscript" "noframes" "meta" "menu" "map" "link" "li" "legend" "label" "kbd" "isindex" "ins" "input" "img" "iframe" "i" "html" "hr" "head" "h6" "h5" "h4" "h3" "h2" "h1" "frameset" "frame" "form" "font" "fieldset" "em" "dt" "dl" "div" "dir" "dfn" "del" "dd" "colgroup" "col" "code" "cite" "center" "caption" "button" "br" "body" "blockquote" "big" "bdo" "basefont" "base" "b" "area" "applet" "address" "acronym" "abbr" "a")}
         {Lisp-Entry "tag-valid?" method #f 145 20 145 30 ("Valid-Tags" "memq?" "tag")}}}})
 "XHTML-Renderer"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "xhtml" "XHTML-Renderer.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "xhtml" "XHTML-Renderer.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.xhtml.XHTML-Renderer" module #f 40 18 40 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 43 1 43 7 ("jazz.jml")}
       {Lisp-Entry "XHTML-Renderer" class #f 46 7 46 21 ("JML-Renderer")
@@ -154,7 +154,7 @@
         {Lisp-Entry "output-text" method #f 162 11 162 22 ("format" "apply" "text" "let" "when" "parameters" "format-string" "output" "context")}
         {Lisp-Entry "end-tag" definition #f 168 15 168 22 ("format" "tag")}}}})
 "_jml"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "_jml.jazz"} 1299130336 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "_jml.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml" module #f 37 8 37 16 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.jml.parse" "jazz.jml.autoload" "syntax" "phase" "jazz.jml.syntax")}
       {Lisp-Entry "import" anonymous #f 43 1 43 7 ("jazz.library" "jazz.io" "jazz.jml.autoload")}
@@ -177,17 +177,17 @@
       {Lisp-Entry "read-jml" definition #f 272 20 272 28 ("read" "jazz-readtable" "readtable:" "cr-lf" "eol-encoding:" "path-settings" "call-with-input-file" "walk-for" "parameterize" "file")}
       {Lisp-Entry "load-jml" definition #f 278 20 278 28 ("read-jml" "parse" "parse~" "JML-Preferences" "preferences:" "JML-Parser" "new" "parser" "let" "file")}}})
 "_syntax"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "syntax" "_syntax.jazz"} 1299092218 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "syntax" "_syntax.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.syntax" module #f 37 18 37 33 ("jazz")
       {Lisp-Entry "<form>" macro ("macro") 49 15 49 21 ("locators-ref" "symbol" ",locators-code" "list->table" "locators" ",form" "construct-form" "locators-code" "table->list" ",reference" "car" "pair" "map" "list" "cons" "locators-builder" "walk-references" "walk-references~" "for-each" "process-value" "value" "name" "lambda" "for-each-property" "symbol->string" "last" "memv?" "~" "!" "*" "install" "memq?" "or" "unless" "parse-jml-expr" "jazz.jml.parse" "jazz.jml.parse:parse-jml-expr" "children" "properties" "tag" "receive" "process-form" "table-set!" "reference" "walk-reference" "eq?" "test:" "make-table" "references" "let" "gather-references" "define" "form")}
       {Lisp-Entry "form" macro ("macro") 86 15 86 19 ("nextmethod" "cons" "get-class-forms" "declaration-path" "get-class-form-with-origin" "get-class-form" "set!" "set-class-form" "override" "method" ",form" "<form>" "class-form" "meta" "definition" "begin" "form")}
       {Lisp-Entry "pattern" macro ("macro") 107 15 107 22 (",@body" ",@parameters" ",tag" "method" "tag" "let" "body" "parameters" "bind" "symbol->string" "string-append" "string->symbol" "name" "name->tag" "define" "rest")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "autoload.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "autoload.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.autoload" module #f 37 18 37 35 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("XHTML-Renderer" "jazz.jml.xhtml.XHTML-Renderer" "XHTML-Parser" "jazz.jml.xhtml.XHTML-Parser" "JML-Transformation" "jazz.jml.transformation.JML-Transformation" "JML-Renderer" "jazz.jml.renderer.JML-Renderer" "JML-Preferences" "jazz.jml.preference.JML-Preferences" "JML-Parser" "jazz.jml.parser.JML-Parser" "JML-Text" "jazz.jml.model.JML-Text" "JML-Node" "jazz.jml.model.JML-Node" "JML-Element" "autoload" "jazz.jml.model.JML-Element")}}})
 "parse"
- ({Lisp-File-Entry {File :context "src" "jazz" "jml" "parse.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "jml" "parse.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.jml.parse" module #f 37 8 37 22 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library")}
       {Lisp-Entry "tag?" definition #f 48 20 48 24 ("symbol->string" "tag-string?" "symbol?" "and" "expr")}

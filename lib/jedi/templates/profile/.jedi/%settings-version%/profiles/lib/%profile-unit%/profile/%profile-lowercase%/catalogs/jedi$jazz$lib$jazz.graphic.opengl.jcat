@@ -1,5 +1,5 @@
 "OpenGL-Window"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "OpenGL-Window.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "OpenGL-Window.jazz"} 240045310. jazz
     {Lisp-Entry "jazz.graphic.opengl.platform.OpenGL-Window" module #f 37 18 37 60 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.graphic.opengl" "jazz.debuggee")}
       {Lisp-Entry "OpenGL-Window" class #f 46 7 46 20 ("initialize" "Window")
@@ -14,12 +14,12 @@
         {Lisp-Entry "set-render" accessor #f 53 39 53 47 ()}
         {Lisp-Entry "initialize-opengl" method #f 56 29 56 46 ("GL_NICEST" "GL_PERSPECTIVE_CORRECTION_HINT" "gl-hint" "GL_FILL" "GL_FRONT_AND_BACK" "glPolygonMode" "GL_LEQUAL" "gl-depth-func" "GL_DEPTH_TEST" "GL_COLOR_MATERIAL" "GL_POLYGON_SMOOTH" "GL_LINE_SMOOTH" "gl-enable" "1.0" "gl-clear-depth" "0.5" "0.0" "gl-clear-color" "GL_SMOOTH" "gl-shade-model")}
         {Lisp-Entry "close-window" method #f 72 20 72 32 ("exit" "self" "eq?" "not" "or" "when" "get-toplevel" "toplevel" "let" "nextmethod")}
-        {Lisp-Entry "resize-scene" method #f 79 29 79 41 ("GL_MODELVIEW" "100.0" "0.1" "fl/" "45.0" "glu-perspective" "gl-load-identity" "GL_PROJECTION" "gl-matrix-mode" "0" "gl-viewport" "height" "width")}
+        {Lisp-Entry "resize-scene" method #f 79 29 79 41 ("GL_MODELVIEW" "100.0" "0.1" "/" "45.0" "glu-perspective" "gl-load-identity" "GL_PROJECTION" "gl-matrix-mode" "0" "gl-viewport" "height" "fl" "<fl>" "width")}
         {Lisp-Entry "draw-scene" method #f 88 29 88 39 ()}
         {Lisp-Entry "render-scene" method #f 92 29 92 41 ("swap-buffers" "draw-scene" "render" "self" "make-render-current")}
         {Lisp-Entry "timer-pulse" method #f 98 20 98 31 ("render-scene" "0" "current-repl-level" ">" "unless")}}}})
 "WinOpenGL"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "WinOpenGL.jazz"} 1301518487 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "WinOpenGL.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.platform.WinOpenGL" module #f 37 18 37 56 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform.windows.WinTypes")}
       {Lisp-Entry "HGLRC" c-type #f 48 8 48 13 ("handle" "struct" "pointer")}
@@ -41,7 +41,7 @@
       {Lisp-Entry "wglGetCurrentContext" external #f 111 13 111 33 ("HGLRC")}
       {Lisp-Entry "SwapBuffers" external #f 112 13 112 24 ("BOOL" "HDC")}}})
 "_opengl"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "_opengl.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "_opengl.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl" module #f 37 8 37 27 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.graphic.opengl.platform" "jazz.graphic.opengl.foreign.glut" "jazz.graphic.opengl.foreign.glu" "jazz.graphic.opengl.foreign.glext" "jazz.graphic.opengl.foreign.gl" "jazz.graphic.opengl.autoload")}
       {Lisp-Entry "import" anonymous #f 47 1 47 7 ("jazz.graphic.opengl.foreign.glut" "jazz.graphic.opengl.foreign.glu" "jazz.graphic.opengl.foreign.glext" "jazz.graphic.opengl.foreign.gl")}
@@ -84,15 +84,15 @@
       {Lisp-Entry "glu-perspective" definition #f 277 20 277 35 ("gluPerspective" "lambda" "glu-perspective" "with-gl-error" "zfar" "znear" "aspect" "fovy")}
       {Lisp-Entry "glu-look-at" definition #f 283 20 283 31 ("gluLookAt" "lambda" "glu-look-at" "with-gl-error" "upz" "upy" "upx" "centerz" "centery" "centerx" "eyez" "eyey" "yex")}}})
 "_platform"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "_platform.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "_platform.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.platform" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("x11" "jazz.graphic.opengl.platform.x11" "windows" "cond" "jazz.graphic.opengl.platform.windows")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "autoload.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "autoload.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.autoload" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("windows" "cond" "OpenGL-Window" "autoload" "jazz.graphic.opengl.platform.OpenGL-Window")}}})
 "gl"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "gl.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "gl.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.foreign.gl" module #f 0 18 0 48 ("jazz")
       {Lisp-Entry "export" anonymous #f 3 1 3 7 ("jazz.graphic.opengl.foreign.gl-header")}
       {Lisp-Entry "import" anonymous #f 4 1 4 7 ("jazz.platform.types" "syntax" "phase" "jazz.platform.types-syntax" "jazz.graphic.opengl.foreign.gl-header")}
@@ -439,7 +439,7 @@
       {Lisp-Entry "glPushName" definition #f 524 20 524 30 ("void" "GLuint" "c-function")}
       {Lisp-Entry "glPopName" definition #f 525 20 525 29 ("void" "c-function")}}})
 "gl-header"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "gl-header.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "gl-header.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.foreign.gl-header" module #f 0 18 0 55 ("jazz")
       {Lisp-Entry "GLenum" c-type #f 3 8 3 14 ("unsigned-int" "native")}
       {Lisp-Entry "GLboolean" c-type #f 4 8 4 17 ("unsigned-char" "native")}
@@ -1002,7 +1002,7 @@
       {Lisp-Entry "GL_ALL_CLIENT_ATTRIB_BITS" constant #f 792 10 792 35 ("#xFFFFFFFF")}
       {Lisp-Entry "GL_CLIENT_ALL_ATTRIB_BITS" constant #f 793 10 793 35 ("#xFFFFFFFF")}}})
 "glu"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glu.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glu.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.foreign.glu" module #f 0 18 0 49 ("jazz")
       {Lisp-Entry "export" anonymous #f 3 1 3 7 ("jazz.graphic.opengl.foreign.glu-header")}
       {Lisp-Entry "import" anonymous #f 4 1 4 7 ("jazz.platform.types" "jazz.graphic.opengl.foreign.glu-header")}
@@ -1055,7 +1055,7 @@
       {Lisp-Entry "gluTessProperty" definition #f 67 20 67 35 ("void" "GLdouble" "GLenum" "GLUtesselator*" "c-function")}
       {Lisp-Entry "gluTessVertex" definition #f 68 20 68 33 ("void" "GLvoid*" "GLdouble*" "GLUtesselator*" "c-function")}}})
 "glu-header"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glu-header.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glu-header.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.foreign.glu-header" module #f 0 18 0 56 ("jazz")
       {Lisp-Entry "export" anonymous #f 3 1 3 7 ("jazz.graphic.opengl.foreign.gl-header")}
       {Lisp-Entry "import" anonymous #f 4 1 4 7 ("jazz.graphic.opengl.foreign.gl-header")}
@@ -1230,7 +1230,7 @@
       {Lisp-Entry "GLU_TESS_WINDING_ABS_GEQ_TWO" define #f 313 8 313 36 ("100134")}
       {Lisp-Entry "GLU_TESS_MAX_COORD" define #f 316 8 316 26 ("1e150")}}})
 "glut"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glut.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glut.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.foreign.glut" module #f 0 18 0 50 ("jazz")
       {Lisp-Entry "export" anonymous #f 3 1 3 7 ("jazz.graphic.opengl.foreign.glut-header")}
       {Lisp-Entry "import" anonymous #f 4 1 4 7 ("jazz.platform" "jazz.graphic.opengl.foreign.glut-header")}
@@ -1368,7 +1368,7 @@
       {Lisp-Entry "glutExtensionSupported" definition #f 319 20 319 42 ("int" "char-string" "c-function")}
       {Lisp-Entry "glutReportErrors" definition #f 320 20 320 36 ("void" "c-function")}}})
 "glut-header"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glut-header.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "foreign" "glut-header.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.foreign.glut-header" module #f 0 18 0 57 ("jazz")
       {Lisp-Entry "export" anonymous #f 3 1 3 7 ("jazz.graphic.opengl.foreign.glu-header")}
       {Lisp-Entry "import" anonymous #f 4 1 4 7 ("jazz.graphic.opengl.foreign.glu-header")}
@@ -1539,15 +1539,15 @@
       {Lisp-Entry "GLUT_GAME_MODE_REFRESH_RATE" define #f 277 8 277 35 ("#x0005")}
       {Lisp-Entry "GLUT_GAME_MODE_DISPLAY_CHANGED" define #f 278 8 278 38 ("#x0006")}}})
 "product"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "product.scm"} 1299181903 scheme
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "product.scm"} 236918188. scheme
     {Lisp-Entry "jazz.graphic.opengl.product" unit #f 37 6 37 33 ("build-opengl" "jazz:build-opengl" "build:" "jazz.graphic.opengl" "register-product" "jazz:register-product")
       {Lisp-Entry "copy-opengl-files" define #f 47 13 47 35 ("feedback" "jazz:feedback" "feedback:" "copy-file" "jazz:copy-file" "source-file" "string-append" "path" "build-file" "define" "kernel-source" "jazz:kernel-source" "source" "Build-Repository" "jazz:Build-Repository" "%%repository-directory" "build" "let")}
       {Lisp-Entry "copy-opengl-files" define #f 58 13 58 35 ()}
       {Lisp-Entry "opengl-units" define #f 64 12 64 29 ("string-append" "jazz.graphic.opengl.foreign.glut" "jazz.graphic.opengl.foreign.glut-header" "jazz.graphic.opengl.foreign.glu" "jazz.graphic.opengl.foreign.glu-header" "jazz.graphic.opengl.foreign.glext" "jazz.graphic.opengl.foreign.glext-header" "jazz.graphic.opengl.foreign.gl" "jazz.graphic.opengl.foreign.gl-header" "ld-options:" "cc-options:" "jazz.graphic.opengl.platform.WinOpenGL" "glut-lib-path" "quote-jazz-pathname" "jazz:quote-jazz-pathname" "glut-include-path" "let")}
       {Lisp-Entry "opengl-units" define #f 77 12 77 29 ()}
-      {Lisp-Entry "build-opengl" define #f 81 9 81 26 ("update-product-descriptor" "jazz:update-product-descriptor" "copy-opengl-files" "jazz:copy-opengl-files" "pre-build:" "custom-compile/build" "jazz:custom-compile/build" "apply" "opengl-units" "jazz:opengl-units" "unit-specs" "let" "rest" "descriptor")}}})
+      {Lisp-Entry "build-opengl" define #f 81 9 81 26 ("build-product-descriptor" "jazz:build-product-descriptor" "copy-opengl-files" "jazz:copy-opengl-files" "pre-build:" "custom-compile/build" "jazz:custom-compile/build" "apply" "opengl-units" "jazz:opengl-units" "unit-specs" "let" "rest" "descriptor")}}})
 "windows"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "windows.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "windows.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.platform.windows" module #f 37 18 37 54 ("OpenGL-Window" "<OpenGL-Window>" "register-window-class" "jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.graphic.opengl.platform.WinOpenGL")}
       {Lisp-Entry "import" anonymous #f 42 1 42 7 ("jazz.ui.window" "jazz.system" "jazz.platform" "jazz.graphic.opengl.platform.WinOpenGL" "jazz.graphic.opengl.foreign.glu" "jazz.graphic.opengl.foreign.gl" "jazz.graphic.opengl.autoload")}
@@ -1563,7 +1563,7 @@
       {Lisp-Entry "set-fullscreen-mode" definition #f 167 20 167 39 ("CDS_FULLSCREEN" "ChangeDisplaySettings" "DM_PELSHEIGHT" "DM_PELSWIDTH" "DM_BITSPERPEL" "bitwise-ior" "DEVMODE-dmFields-set!" "DEVMODE-dmBitsPerPel-set!" "DEVMODE-dmPelsHeight-set!" "DEVMODE-dmPelsWidth-set!" "DEVMODE-sizeof" "DEVMODE-dmSize-set!" "DEVMODE-make" "devmode" "32" "bits" "1024" "height" "1280" "width" "let")}
       {Lisp-Entry "reset-fullscreen-mode" definition #f 180 20 180 41 ("0" "NULL" "ChangeDisplaySettings")}}})
 "x11"
- ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "x11.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "graphic" "opengl" "platform" "x11.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.graphic.opengl.platform.x11" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "swap-buffers" definition #f 40 21 40 33 ("unimplemented" "window")}
       {Lisp-Entry "make-render-current" definition #f 44 21 44 40 ("unimplemented" "render" "window")}}})

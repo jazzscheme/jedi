@@ -1,5 +1,5 @@
 "_game"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "game" "_game.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "game" "_game.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.game" module #f 38 8 38 24 ("jazz")
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.library")}
       {Lisp-Entry "Player" class #f 49 7 49 13 ("Object")
@@ -51,7 +51,7 @@
         {Lisp-Entry "initialize" method #f 247 20 247 30 ("self" "move~self" "set!" "nextmethod" "move")}
         {Lisp-Entry "print" method #f 252 20 252 25 ("move" "format" "lambda" "self" "print-unreadable" "readably" "output")}}}})
 "minimax"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "game" "minimax.jazz"} 1298567847 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "game" "minimax.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.game.minimax" module #f 37 8 37 32 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.platform")}
       {Lisp-Entry "proclaim" anonymous #f 43 1 43 9 ("optimizations" "warn")}

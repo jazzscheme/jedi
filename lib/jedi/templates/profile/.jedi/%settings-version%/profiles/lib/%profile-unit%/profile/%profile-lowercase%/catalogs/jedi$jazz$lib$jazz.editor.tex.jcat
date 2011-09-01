@@ -1,10 +1,10 @@
 "Tex-Explorer"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Explorer.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Explorer.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.editor.tex.text.Tex-Explorer" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.editor.tex" "jazz.editor.c")}
       {Lisp-Entry "Tex-Explorer" class #f 45 7 45 19 ("C-Explorer")}}})
 "Tex-Syntax"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Syntax.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Syntax.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.editor.tex.text.Tex-Syntax" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.library.automata" "jazz.library" "jazz.editor.tex")}
       {Lisp-Entry "Tex-Syntax" class #f 47 7 47 17 ("Code-Syntax")
@@ -32,7 +32,7 @@
         {Lisp-Entry "Comment-Styles" definition #f 239 14 239 28 ("Line-Comment" "Title")}
         {Lisp-Entry "comment-style?" method #f 243 20 243 34 ("Comment-Styles" "inherits?" "inherits?~" "style-name" "lambda" "some?" "style")}}}})
 "Tex-Text-Preferences"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Text-Preferences.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Text-Preferences.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.editor.tex.text.Tex-Text-Preferences" module #f 37 18 37 59 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.jml" "jazz.graphic" "jazz.editor.tex" "jazz.designer")}
       {Lisp-Entry "Tex-Text-Preferences" class #f 47 7 47 27 ("initialize" "Code-Text-Preferences")
@@ -61,7 +61,7 @@
         {Lisp-Entry "Tex-Text-Preferences-Descriptor" class #f 87 7 87 38 ("Document-Preferences-Descriptor")
           {Lisp-Entry "form" anonymous #f 90 3 90 7 ("domain" "Completions-Domain" "<Completions-Domain>" "keyword-style" "definition-style" "line-comment-style" "title:" "title-style" "name:" "Property-Descriptor" "<Property-Descriptor>" "keyword-color" "definition-color" "line-comment-color" "title-color" "completions" "keywords" "categorized:" ">" "<properties" "<properties~>" "install" "<install>")}}}}})
 "Tex-Text-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Text-View.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "text" "Tex-Text-View.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.editor.tex.text.Tex-Text-View" module #f 37 18 37 52 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.library.automata" "jazz.library" "jazz.jml" "jazz.editor.tex")}
       {Lisp-Entry "Tex-Text-View" class #f 48 7 48 20 ("Code-Text-View")
@@ -72,11 +72,11 @@
         {Lisp-Entry "host-workspaces" method #f 77 20 77 35 ("text")}
         {Lisp-Entry "new-syntax" method #f 86 20 86 30 ("model" "Tex-Syntax" "new")}}}})
 "_tex"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "_tex.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "_tex.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.editor.tex" module #f 37 8 37 23 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.editor.tex.autoload")}
       {Lisp-Entry "tex-constituent?" definition #f 48 20 48 36 ("eqv?" "alphanumeric?" "or" "c")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "autoload.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "tex" "autoload.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.editor.tex.autoload" module #f 37 18 37 42 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Tex-Text-View" "jazz.editor.tex.text.Tex-Text-View" "Tex-Text-Preferences" "jazz.editor.tex.text.Tex-Text-Preferences" "Tex-Syntax" "jazz.editor.tex.text.Tex-Syntax" "Tex-Explorer" "autoload" "jazz.editor.tex.text.Tex-Explorer")}}})

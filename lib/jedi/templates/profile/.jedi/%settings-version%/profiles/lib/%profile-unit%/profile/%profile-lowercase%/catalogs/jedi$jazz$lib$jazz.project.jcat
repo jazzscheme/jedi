@@ -1,12 +1,12 @@
 "Bitmap-File"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Bitmap-File.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Bitmap-File.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.resource.Bitmap-File" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library")}
       {Lisp-Entry "Bitmap-File" class #f 44 7 44 18 ("Resource-File")
         {Lisp-Entry "resource-class" method #f 47 20 47 34 ("Image-Resource")}
         {Lisp-Entry "resource-marker" method #f 51 20 51 35 ()}}}})
 "Configuration"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Configuration.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Configuration.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.project.Configuration" module #f 37 18 37 52 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.system" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide" "jazz.designer")}
       {Lisp-Entry "Configuration" class #f 49 7 49 20 ("initialize" "Component")
@@ -23,21 +23,21 @@
           {Lisp-Entry "component-set-presentation" method #f 92 20 92 46 ("title:" "set-property" "set-property~" "presentation" "designer" "component")}
           {Lisp-Entry "component-property-domain" method #f 96 20 96 45 ("nextmethod" "else" "nullable?:" "String-Domain" "new" "title" "field-name" "case" "property" "component")}}}}})
 "Cursor-File"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Cursor-File.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Cursor-File.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.resource.Cursor-File" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library")}
       {Lisp-Entry "Cursor-File" class #f 44 7 44 18 ("Resource-File")
         {Lisp-Entry "resource-class" method #f 47 20 47 34 ("Cursor-Resource")}
         {Lisp-Entry "resource-marker" method #f 51 20 51 35 ()}}}})
 "Icon-File"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Icon-File.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Icon-File.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.resource.Icon-File" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library")}
       {Lisp-Entry "Icon-File" class #f 44 7 44 16 ("Resource-File")
         {Lisp-Entry "resource-class" method #f 47 20 47 34 ("Icon-Resource")}
         {Lisp-Entry "resource-marker" method #f 51 20 51 35 ()}}}})
 "New-Document-Dialog"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "New-Document-Dialog.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "New-Document-Dialog.jazz"} 240045310. jazz
     {Lisp-Entry "jazz.project.workbench.New-Document-Dialog" module #f 37 18 37 60 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.runtime" "jazz.library" "jazz.jml" "jazz.io" "jazz.graphic")}
       {Lisp-Entry "New-Document-Dialog" class #f 49 7 49 26 ("initialize" "View")
@@ -63,9 +63,9 @@
         {Lisp-Entry "update-ok" method #f 229 11 229 20 ("name-text" "get-string-content" "get-string-content~" "empty-string?" "not" "directory" "get-moniker" "get-moniker~" "kind" "selected-kind" "get-property" "get-property~" "and" "ok" "locate" "set-enabled?" "set-enabled?~")}
         {Lisp-Entry "validate-name" definition #f 233 15 233 28 ("else" "memv?" "numeric?" "char" "lambda" "every?" "alphabetic?" "eqv?" "or" "not" "first" "let" "jazz" "memq?" "parse" "parse~" "format" "exists?" "exists?~" "cond" "destination" "name" "kind")}
         {Lisp-Entry "Header-Color" definition #f 258 14 258 26 ("255" "blue:" "green:" "120" "red:" "Color" "new")}
-        {Lisp-Entry "draw" method #f 262 20 262 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "lv" "lh" "context" "surface")}}}})
+        {Lisp-Entry "draw" method #f 262 20 262 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "context" "surface")}}}})
 "New-Package-Dialog"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "New-Package-Dialog.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "New-Package-Dialog.jazz"} 240045310. jazz
     {Lisp-Entry "jazz.project.repositories.New-Package-Dialog" module #f 37 18 37 62 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.library" "jazz.jml" "jazz.io" "jazz.graphic")}
       {Lisp-Entry "New-Package-Dialog" class #f 48 7 48 25 ("initialize" "View")
@@ -90,9 +90,9 @@
         {Lisp-Entry "update-ok" method #f 188 11 188 20 ("name-text" "get-string-content" "get-string-content~" "empty-string?" "not" "ok" "locate" "set-enabled?" "set-enabled?~")}
         {Lisp-Entry "validate-name" definition #f 192 15 192 28 ("else" "memv?" "numeric?" "char" "lambda" "every?" "alphabetic?" "eqv?" "or" "not" "first" "let" "parse" "parse~" "format" "exists?" "exists?~" "cond" "destination" "name")}
         {Lisp-Entry "Header-Color" definition #f 214 14 214 26 ("255" "blue:" "green:" "120" "red:" "Color" "new")}
-        {Lisp-Entry "draw" method #f 218 20 218 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "lv" "lh" "context" "surface")}}}})
+        {Lisp-Entry "draw" method #f 218 20 218 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "context" "surface")}}}})
 "New-Project-Dialog"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "New-Project-Dialog.jazz"} 1302528729 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "New-Project-Dialog.jazz"} 240045310. jazz
     {Lisp-Entry "jazz.project.workbench.New-Project-Dialog" module #f 37 18 37 59 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.library" "jazz.jml" "jazz.io" "jazz.graphic")}
       {Lisp-Entry "New-Project-Dialog" class #f 48 7 48 25 ("View")
@@ -116,9 +116,9 @@
         {Lisp-Entry "update-ok" method #f 223 11 223 20 ("name" "get-string-content" "get-string-content~" "empty-string?" "not" "empty?" "or" "kind" "get-property" "get-property~" "and" "ok" "locate" "set-enabled?" "set-enabled?~" "selected-kind" "node" "let")}
         {Lisp-Entry "validate-name" definition #f 230 15 230 28 ("else" "memv?" "numeric?" "char" "lambda" "every?" "alphabetic?" "eqv?" "or" "first" "let" "empty-string?" "not" "and" "parse" "parse~" "format" "exists?" "exists?~" "cond" "destination" "name" "kind")}
         {Lisp-Entry "Header-Color" definition #f 253 14 253 26 ("255" "blue:" "green:" "120" "red:" "Color" "new")}
-        {Lisp-Entry "draw" method #f 257 20 257 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "lv" "lh" "context" "surface")}}}})
+        {Lisp-Entry "draw" method #f 257 20 257 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "context" "surface")}}}})
 "New-Repository-Dialog"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "New-Repository-Dialog.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "New-Repository-Dialog.jazz"} 240045310. jazz
     {Lisp-Entry "jazz.project.repositories.New-Repository-Dialog" module #f 37 18 37 65 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.library" "jazz.jml" "jazz.graphic")}
       {Lisp-Entry "New-Repository-Dialog" class #f 47 7 47 28 ("initialize" "View")
@@ -140,9 +140,9 @@
         {Lisp-Entry "update-ok" method #f 168 11 168 20 ("dirname-text" "get-string-content" "get-string-content~" "empty-string?" "not" "directory" "get-moniker" "get-moniker~" "and" "ok" "locate" "set-enabled?" "set-enabled?~")}
         {Lisp-Entry "validate-name" definition #f 172 15 172 28 ("else" "memv?" "numeric?" "char" "lambda" "every?" "alphabetic?" "eqv?" "or" "not" "first" "let" "string->symbol" "find-repository" "parse" "parse~" "format" "exists?" "exists?~" "cond" "dirname" "destination" "name")}
         {Lisp-Entry "Header-Color" definition #f 206 14 206 26 ("255" "blue:" "green:" "120" "red:" "Color" "new")}
-        {Lisp-Entry "draw" method #f 210 20 210 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "lv" "lh" "context" "surface")}}}})
+        {Lisp-Entry "draw" method #f 210 20 210 24 ("Header-Color" "1" "White" "Color" "list" "50" "get-width" "get-width~" "0" "Rect" "new" "gradient-fill" "gradient-fill~" "get-size" "size" "let" "context" "surface")}}}})
 "Package"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Package.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Package.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.repositories.Package" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "Package" class #f 46 7 46 14 ("initialize" "Component")
@@ -161,7 +161,7 @@
           {Lisp-Entry "component-addable-class?" method #f 101 20 101 44 ("Project-Group" "Project-File" "subtype?" "or" "class" "component")}
           {Lisp-Entry "component-get-categorized-addable-classes" method #f 106 20 106 61 ("Project-Group" "reference" "list" "component")}}}}})
 "Project"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Project.jazz"} 1301518487 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Project.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.project.Project" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.system" "jazz.project" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide" "jazz.designer")}
       {Lisp-Entry "Project" class #f 51 7 51 14 ("initialize" "Project-File")
@@ -212,42 +212,44 @@
         {Lisp-Entry "project-context" method #f 112 18 112 33 ("get-file-form" "get-data" "get-data~" "get-context" "get-context~")}
         {Lisp-Entry "contextualize-pathname" method #f 116 18 116 40 ("set-context" "set-context~" ":context" "cons" "class-of" "context-pathname" "get-path" "get-path~" "File" "new" "subpath~" "subpath" "not" "if" "project-context" "context" "let" "pathname")}
         {Lisp-Entry "catalog-name" method #f 133 29 133 41 ("title" "string->symbol" "name" "or")}
-        {Lisp-Entry "load-catalogs" method #f 144 18 144 31 ("load-catalog" "load-catalog~" "for-each-project" "include-inactives?" "include-inactives?:")}
-        {Lisp-Entry "load-catalog" method #f 148 18 148 30 ("require-catalog")}
-        {Lisp-Entry "require-catalog" method #f 152 18 152 33 ("load-content" "load-content~" "set!" "unless" "get-application" "get-cataloguer" "get-cataloguer~" "add-catalog" "add-catalog~" "create-catalog" "catalog" "let" "create/register-catalog" "define" "report?" "report?:")}
-        {Lisp-Entry "create-catalog" method #f 164 11 164 25 ("catalog-output" "catalog-name" "self" "Project-Catalog" "new")}
-        {Lisp-Entry "catalog-output-base" method #f 168 29 168 48 ("catalog-name~" "format" "Workbench" "is?" "not" "or" "if" "get-parent-project" "get-parent-project~" "parent" "catalog-name" "name" "self" "project" "iterate" "let")}
-        {Lisp-Entry "catalog-output" method #f 178 29 178 43 ("catalog-output-base" "format" "Profile" "list" "File" "new")}
-        {Lisp-Entry "has-content?" method #f 182 19 182 31 ("children" "not-null?")}
-        {Lisp-Entry "get-effective-editable?" method #f 191 26 191 49 ("get-parent-project" "get-effective-editable?" "get-effective-editable?~" "editable?" "unspecified?" "if")}
-        {Lisp-Entry "for-each-project" method #f 202 18 202 34 ("or" "when" "level" "descendant" "lambda" "for-each-descendant" "get-active?" "get-active?~" "Project" "is?" "self" "neq?" "not" "and" "project" "inactive?" "define" "stop-test" "stop-test:" "include-inactives?" "include-inactives?:" "include-self?" "include-self?:" "proc")}
-        {Lisp-Entry "fold-projects" method #f 221 18 221 31 ("self" "get-children" "get-children~" "c" "lambda" "for-each" ":skip" "eq?" "get-active?" "get-active?~" "or" "Project" "is?" "and" "if" "ps" "let" "s" "f" "x" "fold" "define" "include-inactives?" "include-inactives?:" "seed" "proc")}
-        {Lisp-Entry "for-each-file" method #f 243 18 243 31 ("is?" "when" "level" "descendant" "lambda" "for-each-descendant" "Project-File" "type" "proc")}
-        {Lisp-Entry "collect-files" method #f 250 18 250 31 ("get-output" "get-output~" "put" "put~" "is?" "when" "file" "lambda" "for-each-file" "List-Factory" "new" "fact" "let" "Project-File" "type")}
-        {Lisp-Entry "fold-files" method #f 259 18 259 28 ("self" "get-children" "get-children~" "c" "lambda" "for-each" ":skip" "eq?" "is?" "if" "ps" "let" "s" "f" "x" "fold" "define" "Project-File" "type" "seed" "proc")}
-        {Lisp-Entry "iterate-files" method #f 274 18 274 31 ("extension=?" "test:" "member?" "not" "or" "get-extension" "get-extension~" "ext" "when" "get-source" "get-source~" "file" "let" ":skip" "Project" "is?" "self" "neq?" "and" "if" "seed" "project-file" "lambda" "fold-files" "extensions" "extensions:" "proc")}
-        {Lisp-Entry "iterate-catalog-files" method #f 287 18 287 39 ("catalog-extensions" "effective-catalog-extensions" "extensions:" "iterate-files" "proc")}
-        {Lisp-Entry "project-name" method #f 296 26 296 38 ()}
-        {Lisp-Entry "project-test" method #f 305 26 305 38 ("message-box" "rest")}
-        {Lisp-Entry "project-run" method #f 314 26 314 37 ("message-box" "rest")}
-        {Lisp-Entry "run-arguments" method #f 318 26 318 39 ()}
-        {Lisp-Entry "project-debug" method #f 327 26 327 39 ("message-box" "rest")}
-        {Lisp-Entry "debug-arguments" method #f 331 26 331 41 ()}
-        {Lisp-Entry "project-build" method #f 340 26 340 39 ("message-box")}
-        {Lisp-Entry "project-clean" method #f 349 26 349 39 ("message-box")}
-        {Lisp-Entry "get-class-descriptor" method #f 358 25 358 45 ("Project-Descriptor" "new")}}
-      {Lisp-Entry "design" submodule #f 367 11 367 17 ()
-        {Lisp-Entry "import" anonymous #f 370 1 370 7 ("jazz.designer")}
-        {Lisp-Entry "Project-Descriptor" class #f 373 7 373 25 ("Project-File-Descriptor")
-          {Lisp-Entry "form" anonymous #f 376 3 376 7 ("editable?" "title:" "name:" "Property-Descriptor" "<Property-Descriptor>" "catalog-heuristics" "catalog-extensions" "active?" "documentation" "include-extensions" "version" "copyright" "owner" "icon" "title" "categorized:" ">" "<properties" "<properties~>" "Image-Resource" "image:" "install" "<install>")}
-          {Lisp-Entry "component-presentation-property?" method #f 392 20 392 52 ("title" "field-name" "memq?" "property" "component")}
-          {Lisp-Entry "component-get-presentation" method #f 396 20 396 46 ("project-title" "project-title~" "component")}
-          {Lisp-Entry "component-set-presentation" method #f 400 20 400 46 ("title:" "set-property" "set-property~" "presentation" "designer" "component")}
-          {Lisp-Entry "component-addable-class?" method #f 404 20 404 44 ("Project-Group" "Project-File" "subtype?" "or" "class" "component")}
-          {Lisp-Entry "component-get-categorized-addable-classes" method #f 409 20 409 61 ("Project-Group" "reference" "list" "component")}
-          {Lisp-Entry "component-property-domain" method #f 419 20 419 45 ("nextmethod" "else" "Boolean-Domain" "active?" "File-Domain" "documentation" "Value-Domain" "catalog-heuristics" "catalog-extensions" "include-extensions" "nullable?:" "String-Domain" "new" "title" "field-name" "case" "property" "component")}}}}})
+        {Lisp-Entry "save-catalogs" method #f 144 18 144 31 ("save" "save~" "for-each-catalog")}
+        {Lisp-Entry "load-catalogs" method #f 148 18 148 31 ("load-catalog" "load-catalog~" "for-each-project" "include-inactives?" "include-inactives?:")}
+        {Lisp-Entry "load-catalog" method #f 152 18 152 30 ("require-catalog")}
+        {Lisp-Entry "require-catalog" method #f 156 18 156 33 ("load-content" "load-content~" "set!" "unless" "get-application" "get-cataloguer" "get-cataloguer~" "add-catalog" "add-catalog~" "create-catalog" "catalog" "let" "create/register-catalog" "define" "report?" "report?:")}
+        {Lisp-Entry "create-catalog" method #f 168 11 168 25 ("catalog-output" "catalog-name" "self" "Project-Catalog" "new")}
+        {Lisp-Entry "catalog-output-base" method #f 172 29 172 48 ("catalog-name~" "format" "Workbench" "is?" "not" "or" "if" "get-parent-project" "get-parent-project~" "parent" "catalog-name" "name" "self" "project" "iterate" "let")}
+        {Lisp-Entry "catalog-output" method #f 182 29 182 43 ("catalog-output-base" "format" "Profile" "list" "File" "new")}
+        {Lisp-Entry "has-content?" method #f 186 19 186 31 ("children" "not-null?")}
+        {Lisp-Entry "for-each-catalog" method #f 190 18 190 34 ("get-active?" "get-active?~" "when" "report?:" "require-catalog" "require-catalog~" "catalog" "let" "project" "lambda" "for-each-project" "proc")}
+        {Lisp-Entry "get-effective-editable?" method #f 204 26 204 49 ("get-parent-project" "get-effective-editable?" "get-effective-editable?~" "editable?" "unspecified?" "if")}
+        {Lisp-Entry "for-each-project" method #f 215 18 215 34 ("or" "when" "level" "descendant" "lambda" "for-each-descendant" "get-active?" "get-active?~" "Project" "is?" "self" "neq?" "not" "and" "project" "inactive?" "define" "stop-test" "stop-test:" "include-inactives?" "include-inactives?:" "include-self?" "include-self?:" "proc")}
+        {Lisp-Entry "fold-projects" method #f 234 18 234 31 ("self" "get-children" "get-children~" "c" "lambda" "for-each" ":skip" "eq?" "get-active?" "get-active?~" "or" "Project" "is?" "and" "if" "ps" "let" "s" "f" "x" "fold" "define" "include-inactives?" "include-inactives?:" "seed" "proc")}
+        {Lisp-Entry "for-each-file" method #f 256 18 256 31 ("is?" "when" "level" "descendant" "lambda" "for-each-descendant" "Project-File" "type" "proc")}
+        {Lisp-Entry "collect-files" method #f 263 18 263 31 ("get-output" "get-output~" "put" "put~" "is?" "when" "file" "lambda" "for-each-file" "List-Factory" "new" "fact" "let" "Project-File" "type")}
+        {Lisp-Entry "fold-files" method #f 272 18 272 28 ("self" "get-children" "get-children~" "c" "lambda" "for-each" ":skip" "eq?" "is?" "if" "ps" "let" "s" "f" "x" "fold" "define" "Project-File" "type" "seed" "proc")}
+        {Lisp-Entry "iterate-files" method #f 287 18 287 31 ("extension=?" "test:" "member?" "not" "or" "get-extension" "get-extension~" "ext" "when" "get-source" "get-source~" "file" "let" ":skip" "Project" "is?" "self" "neq?" "and" "if" "seed" "project-file" "lambda" "fold-files" "extensions" "extensions:" "proc")}
+        {Lisp-Entry "iterate-catalog-files" method #f 300 18 300 39 ("catalog-extensions" "effective-catalog-extensions" "extensions:" "iterate-files" "proc")}
+        {Lisp-Entry "project-name" method #f 309 26 309 38 ()}
+        {Lisp-Entry "project-test" method #f 318 26 318 38 ("message-box" "rest")}
+        {Lisp-Entry "project-run" method #f 327 26 327 37 ("message-box" "rest")}
+        {Lisp-Entry "run-arguments" method #f 331 26 331 39 ()}
+        {Lisp-Entry "project-debug" method #f 340 26 340 39 ("message-box" "rest")}
+        {Lisp-Entry "debug-arguments" method #f 344 26 344 41 ()}
+        {Lisp-Entry "project-build" method #f 353 26 353 39 ("message-box")}
+        {Lisp-Entry "project-clean" method #f 362 26 362 39 ("message-box")}
+        {Lisp-Entry "get-class-descriptor" method #f 371 25 371 45 ("Project-Descriptor" "new")}}
+      {Lisp-Entry "design" submodule #f 380 11 380 17 ()
+        {Lisp-Entry "import" anonymous #f 383 1 383 7 ("jazz.designer")}
+        {Lisp-Entry "Project-Descriptor" class #f 386 7 386 25 ("Project-File-Descriptor")
+          {Lisp-Entry "form" anonymous #f 389 3 389 7 ("editable?" "title:" "name:" "Property-Descriptor" "<Property-Descriptor>" "catalog-heuristics" "catalog-extensions" "active?" "documentation" "include-extensions" "version" "copyright" "owner" "icon" "title" "categorized:" ">" "<properties" "<properties~>" "Image-Resource" "image:" "install" "<install>")}
+          {Lisp-Entry "component-presentation-property?" method #f 405 20 405 52 ("title" "field-name" "memq?" "property" "component")}
+          {Lisp-Entry "component-get-presentation" method #f 409 20 409 46 ("project-title" "project-title~" "component")}
+          {Lisp-Entry "component-set-presentation" method #f 413 20 413 46 ("title:" "set-property" "set-property~" "presentation" "designer" "component")}
+          {Lisp-Entry "component-addable-class?" method #f 417 20 417 44 ("Project-Group" "Project-File" "subtype?" "or" "class" "component")}
+          {Lisp-Entry "component-get-categorized-addable-classes" method #f 422 20 422 61 ("Project-Group" "reference" "list" "component")}
+          {Lisp-Entry "component-property-domain" method #f 432 20 432 45 ("nextmethod" "else" "Boolean-Domain" "active?" "File-Domain" "documentation" "Value-Domain" "catalog-heuristics" "catalog-extensions" "include-extensions" "nullable?:" "String-Domain" "new" "title" "field-name" "case" "property" "component")}}}}})
 "Project-Catalog"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Project-Catalog.jazz"} 1298321488 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Project-Catalog.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.project.Project-Catalog" module #f 37 18 37 54 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.io" "jazz.catalog")}
       {Lisp-Entry "Project-Catalog" class #f 45 7 45 22 ("Filing-Catalog")
@@ -260,13 +262,13 @@
         {Lisp-Entry "setup-content" method #f 78 20 78 33 ("nextmethod" "set-context" "set-context~" "context-alias?" "context-alias?~" "when" "get-file" "get-file~" "file" "file-entry" "for-each" "file-entries" "key" "lambda" "iterate-content" "project" "project-context" "project-context~" "context" "let" "setup-contexts" "define")}
         {Lisp-Entry "iterate-files" method #f 98 20 98 33 ("project" "iterate-catalog-files" "iterate-catalog-files~" "proc")}}}})
 "Project-Designer"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Project-Designer.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "project" "Project-Designer.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.project.Project-Designer" module #f 37 18 37 55 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.designer")}
       {Lisp-Entry "Project-Designer" class #f 43 7 43 23 ("Designer")
         {Lisp-Entry "print" method #f 46 20 46 25 ("reference" "format" "lambda" "self" "print-unreadable" "readably" "output")}}}})
 "Project-Directory"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "file" "Project-Directory.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "file" "Project-Directory.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.file.Project-Directory" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "Project-Directory" class #f 45 7 45 24 ("initialize" "Project-Group")
@@ -280,7 +282,7 @@
           {Lisp-Entry "form" anonymous #f 74 3 74 7 ("domain" "Directory-Domain" "<Directory-Domain>" "title:" "name:" "Property-Descriptor" "<Property-Descriptor>" "directory" "categorized:" ">" "<properties" "<properties~>" "can-rename?:" "install" "<install>")}
           {Lisp-Entry "component-get-presentation" method #f 81 20 81 46 ("get-name" "get-name~" "if" "get-directory" "get-directory~" "directory" "let" "component")}}}}})
 "Project-File"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "file" "Project-File.jazz"} 1297220039 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "file" "Project-File.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.file.Project-File" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "Project-File" class #f 45 7 45 19 ("initialize" "Component")
@@ -300,7 +302,7 @@
           {Lisp-Entry "component-presentation-property?" method #f 97 20 97 52 ("source" "field-name" "memq?" "property" "component")}
           {Lisp-Entry "component-get-presentation" method #f 101 20 101 46 ("get-name" "get-name~" "if" "get-source" "get-source~" "source" "let" "component")}}}}})
 "Project-Group"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "file" "Project-Group.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "file" "Project-Group.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.file.Project-Group" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library" "jazz.jml")}
       {Lisp-Entry "Project-Group" class #f 45 7 45 20 ("Group")
@@ -315,7 +317,7 @@
           {Lisp-Entry "component-addable-class?" method #f 90 20 90 44 ("Project-Group" "Project-File" "subtype?" "or" "class" "component")}
           {Lisp-Entry "component-get-categorized-addable-classes" method #f 95 20 95 61 ("Project-Group" "reference" "list" "component")}}}}})
 "Project-Selector"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Project-Selector.jazz"} 1298564215 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Project-Selector.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Project-Selector" module #f 37 18 37 57 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.project" "jazz.library" "jazz.jml" "jazz.ide")}
       {Lisp-Entry "Project-Selector" class #f 47 7 47 23 ("initialize" "Layout-View")
@@ -340,7 +342,7 @@
         {Lisp-Entry "on-escape-press" method #f 199 20 199 35 ("cancel-modal" "cancel-modal~" "get-host" "dialog" "let" "evt")}
         {Lisp-Entry "selected-project" method #f 209 11 209 27 ("concrete?" "concrete?~" "Project" "is?" "and" "when" "get-tree" "get-single-selected-data" "get-single-selected-data~" "file" "let")}}}})
 "Projects-Manager"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Projects-Manager.jazz"} 1298642347 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Projects-Manager.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Projects-Manager" module #f 37 18 37 57 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.window" "jazz.ui.view" "jazz.ui" "jazz.system" "jazz.project" "jazz.library" "jazz.jml" "jazz.catalog")}
       {Lisp-Entry "Projects-Manager" class #f 50 20 50 36 ("initialize" "Layout-View")
@@ -368,7 +370,7 @@
         {Lisp-Entry "confirm-close" method #f 258 20 258 33 ("save-session" "rest")}
         {Lisp-Entry "save-session" method #f 262 20 262 32 ("Opened-Windows" "properties" "push-property" "push-property~" "get-size" "size:" "get-position" "position:" "external-name" "list" "info" "let")}}}})
 "Repositories"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repositories.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repositories.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.repositories.Repositories" module #f 37 18 37 56 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.jml")}
       {Lisp-Entry "Repositories" class #f 44 7 44 19 ("Component")
@@ -378,7 +380,7 @@
         {Lisp-Entry "Repositories-Descriptor" class #f 67 7 67 30 ("Component-Descriptor")
           {Lisp-Entry "form" anonymous #f 70 3 70 7 (">" "<properties" "<properties~>" "Image-Resource" "image:" "install" "<install>")}}}}})
 "Repositories-Manager"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repositories-Manager.jazz"} 1299272539 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repositories-Manager.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.repositories.Repositories-Manager" module #f 37 18 37 64 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.ui" "jazz.system" "jazz.runtime" "jazz.project" "jazz.library.template" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide")}
       {Lisp-Entry "Repositories-Manager" class #f 53 7 53 27 ("Layout-View")
@@ -392,7 +394,7 @@
         {Lisp-Entry "focus-default" method #f 101 20 101 33 ("acquire-focus" "acquire-focus~" "get-tree" "tree" "let")}
         {Lisp-Entry "get-tree" method #f 111 11 111 19 ("repositories" "locate")}
         {Lisp-Entry "update" method #f 120 11 120 17 ("get-repositories" "collapsed" "add-repository" "repository" "for-each" "user-data:" "Image-Resource" "image:" "title:" "Tree-Node" "new" "list" "children:" "expanded" "state:" "add-row" "add-row~" "repositories-row" "lambda" "with-update-locked" "with-update-locked~" "remove-every-row" "remove-every-row~" "get-tree" "tree" "let")}
-        {Lisp-Entry "add-repository" method #f 131 11 131 25 ("package-name" "key:" "repository-packages" "string<=?" "sort" "add-package" "package" "lambda" "for-each" "user-data:" "image:" "title:" "Tree-Node" "new" "list" "children:" "state:" "father:" "add-row" "add-row~" "repository-row" "Image-Resource" "image" "->string" "title" "repository-name" "name" "let" "repository" "state" "father" "tree")}
+        {Lisp-Entry "add-repository" method #f 131 11 131 25 ("package-name" "key:" "repository-packages" "string<?" "sort" "add-package" "package" "lambda" "for-each" "user-data:" "image:" "title:" "Tree-Node" "new" "list" "children:" "state:" "father:" "add-row" "add-row~" "repository-row" "Image-Resource" "image" "->string" "title" "repository-name" "name" "let" "repository" "state" "father" "tree")}
         {Lisp-Entry "add-package" method #f 142 11 142 22 ("user-data:" "image:" "title:" "Tree-Node" "new" "list" "children:" "father:" "add-row" "add-row~" "else" "get-workbench" "find-project-by-file" "find-project-by-file~" "Image-Resource" "not" "cond" "image" "->string" "title" "package-project-file" "file" "package-name" "name" "let" "package" "father" "tree")}
         {Lisp-Entry "on-new-repository" method #f 157 11 157 28 ("install/add-repository" "copy-template" "cons" "list" "associations" "empty-string?" "if" "effective-name" "destination" "get-application" "templates-directory" "templates-directory~" "new-directory" "new-directory~" "template" "let" "get-current-directory" "directory:" "New-Repository-Dialog" "get-modal" "name" "dirname" "directory" "receive" "evt")}
         {Lisp-Entry "on-register-repository" method #f 167 11 167 33 ("install/add-repository" "format" "message-box" "find-repository" "name" "exists?" "exists?~" "if" "new-file" "new-file~" "repository-file" "choose-directory" "dir" "cadr" "read" "form" "let" "input" "lambda" "path-settings" "call-with-input-file" "file" "load-repository-name" "define" "evt")}
@@ -424,13 +426,13 @@
       {Lisp-Entry "Package-Menu" class #f 444 7 444 19 ("Context-Menu")
         {Lisp-Entry "form" anonymous #f 447 3 447 7 ("install-in-workbench" "install-package" "install-package-separator" "Separator-Item" "<Separator-Item>" "repositories-manager" "Action" "action-handler:" "Image-Resource" "icon:" "title:" "edit-package" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}}})
 "Repositories-Manager-Actions"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repositories-Manager-Actions.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repositories-Manager-Actions.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.repositories.Repositories-Manager-Actions" module #f 37 18 37 72 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.jml")}
       {Lisp-Entry "Repositories-Manager-Actions" class #f 45 7 45 35 ("Actions")
         {Lisp-Entry "form" anonymous #f 48 3 48 7 ("on-install-in-workbench" "install-in-workbench" "on-edit-package" "edit-package" "on-unregister-repository" "unregister-repository" "on-scan-new-packages" "scan-new-packages" "on-new-package" "new-package" "on-edit-repository" "edit-repository" "on-register-repository" "register-repository" "on-new-repository" ":repositories-manager" "Event-Handler" "action-handler:" "new-repository" "name:" "Action-Item" "<Action-Item>" "install" "<install>")}}}})
 "Repository"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repository.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "repositories" "Repository.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.repositories.Repository" module #f 37 18 37 54 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library" "jazz.jml" "jazz.designer")}
       {Lisp-Entry "Repository" class #f 46 7 46 17 ("initialize" "Component")
@@ -452,27 +454,27 @@
           {Lisp-Entry "component-addable-class?" method #f 103 20 103 44 ("Project-Group" "Project-File" "subtype?" "or" "class" "component")}
           {Lisp-Entry "component-get-categorized-addable-classes" method #f 108 20 108 61 ("Project-Group" "reference" "list" "component")}}}}})
 "Resource-File"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Resource-File.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Resource-File.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.resource.Resource-File" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project")}
       {Lisp-Entry "Resource-File" class #f 43 7 43 20 ("Project-File")
         {Lisp-Entry "resource-class" method #f 46 26 46 40 ()}
         {Lisp-Entry "resource-marker" method #f 50 26 50 41 ()}}}})
 "Sound-File"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Sound-File.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "resource" "Sound-File.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.resource.Sound-File" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library")}
       {Lisp-Entry "Sound-File" class #f 44 7 44 17 ("Resource-File")
         {Lisp-Entry "resource-class" method #f 47 20 47 34 ("Sound-Resource")}}}})
 "Synchronize-Box"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Synchronize-Box.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Synchronize-Box.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Synchronize-Box" module #f 37 18 37 56 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.jml")}
       {Lisp-Entry "Synchronize-Box" class #f 45 7 45 22 ("Message-Box")
         {Lisp-Entry "form" anonymous #f 48 3 48 7 ("on-no-action" "535" "no-action" "on-copy-left" "513" "copy-left" "on-copy-right" ":form" "Event-Handler" "action-handler:" ":images" "portfolio:" "Image-Resource" "resource:" "tooltip-text:" "tooltip?:" "22" "Dimension" "size:" "9" "491" "Point" "position:" "copy-right" "name:" "Push-Tool" "<Push-Tool>" "install" "<install>")}
         {Lisp-Entry "layout-box" method #f 60 20 60 30 ("get-height" "get-height~" "400" "Dimension" "new" "set-size" "set-size~" "border" "locate" "border-view" "nextmethod" "dialog-size" "let" "default" "actions" "content" "icon" "size" "title" "selection" "text")}}}})
 "Synchronize-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Synchronize-Entry.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Synchronize-Entry.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Synchronize-Entry" module #f 37 18 37 58 ("jazz")
       {Lisp-Entry "Synchronize-Entry" class #f 40 7 40 24 ("Object")
         {Lisp-Entry "kind" slot #f 43 18 43 22 ()}
@@ -482,7 +484,7 @@
         {Lisp-Entry "initialize" method #f 49 20 49 30 ("action" "action~self" "right~self" "left~self" "self" "kind~self" "set!" "nextmethod" "right-value" "right" "left-value" "left" "kind")}
         {Lisp-Entry "print" method #f 57 20 57 25 ("action" "right" "left" "format" "lambda" "self" "print-unreadable" "readably" "output")}}}})
 "Synchronize-Tree"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Synchronize-Tree.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Synchronize-Tree.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Synchronize-Tree" module #f 37 18 37 57 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.jml")}
       {Lisp-Entry "Synchronize-Tree" class #f 45 7 45 23 ("Tree-View")
@@ -500,7 +502,7 @@
         {Lisp-Entry "present?" method #f 123 20 123 28 ("get-right" "get-right~" "data")}
         {Lisp-Entry "present-image" method #f 127 20 127 33 ("Image-Resource" "data")}}}})
 "Workbench"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench.jazz"} 1298926079 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.system" "jazz.project" "jazz.library.component" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide" "jazz.editor.jazz")}
       {Lisp-Entry "Workbench" class #f 51 7 51 16 ("Project")
@@ -524,15 +526,15 @@
           {Lisp-Entry "component-get-presentation" method #f 233 20 233 46 ("component")}
           {Lisp-Entry "component-get-categorized-addable-classes" method #f 237 20 237 61 ("Project-Group" "reference" "list" "component")}}}}})
 "Workbench-Cataloguer"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Cataloguer.jazz"} 1297889380 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Cataloguer.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench-Cataloguer" module #f 37 18 37 61 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.project" "jazz.catalog")}
       {Lisp-Entry "Workbench-Cataloguer" class #f 45 7 45 27 ("Cataloguer")
-        {Lisp-Entry "for-each-catalog" method #f 53 20 53 36 ("get-active?" "get-active?~" "when" "report?:" "require-catalog" "require-catalog~" "catalog" "lambda" "for-each-project" "for-each-project~" "get-workbench" "or" "project" "let" "proc" "context")}
-        {Lisp-Entry "add-catalog" method #f 63 20 63 31 ("catalog")}
-        {Lisp-Entry "remove-catalog" method #f 67 20 67 34 ("catalog")}}}})
+        {Lisp-Entry "for-each-catalog" method #f 53 20 53 36 ("for-each-catalog" "for-each-catalog~" "get-workbench" "or" "project" "let" "proc" "context")}
+        {Lisp-Entry "add-catalog" method #f 59 20 59 31 ("catalog")}
+        {Lisp-Entry "remove-catalog" method #f 63 20 63 34 ("catalog")}}}})
 "Workbench-Designer"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Designer.jazz"} 1297876132 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Designer.jazz"} 239936558. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench-Designer" module #f 37 18 37 59 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.library.component" "jazz.designer")}
       {Lisp-Entry "Workbench-Designer" class #f 45 7 45 25 ("initialize" "Designer")
@@ -549,23 +551,25 @@
         {Lisp-Entry "copy-components" method #f 141 20 141 35 ("copy-components" "copy-components~" "get-project-designer" "designer" "let" "nextmethod" "reference" "eq?" "if" "find-modification-owner" "owner" "get-parents" "parents" "let*" "components")}
         {Lisp-Entry "paste-clipboard" method #f 150 20 150 35 ("paste-clipboard" "~" "get-project-designer" "designer" "nextmethod" "apply" "reference" "eq?" "if" "find-modification-owner" "owner" "let" "rest" "parent")}
         {Lisp-Entry "get-parents" method #f 158 11 158 22 ("get-parent" "get-parent~" "map" "components")}
-        {Lisp-Entry "find-modification-owner" method #f 167 11 167 34 ("get-presentation-property" "get-presentation-property~" "get-effective-editable?" "get-effective-editable?~" "not" "owner" "car" "error" "1" "length" ">" "map" "remove-duplicates" "owners" "let" "pair?" "get-parent" "get-parent~" "Project" "is?" "reference" "eq?" "or" "if" "component" "find-owner-project" "find-components-owner" "define" "components")}
-        {Lisp-Entry "add-designer" method #f 192 11 192 23 ("add-project-designer" "reference:" "form:" "Designer" "new" "designer" "when" "error" "Project-Not-Found" "get-model" "get-model~" "eq?" "if" "else" "get-tag-reference" "get-tag-reference~" "registered-file-form" "instantiate" "get-action" "get-action~" "case" "form" "get-form" "get-form~" "project-form" "let" "project")}
-        {Lisp-Entry "add-project-designer" method #f 204 11 204 31 ("cons" "project-designers" "set!" "designer" "project")}
-        {Lisp-Entry "remove-designer" method #f 208 11 208 26 ("assq" "remove!" "project-designers" "set!" "project")}
-        {Lisp-Entry "get-project-designer" method #f 212 21 212 41 ("project-designers" "assq-value" "project")}
-        {Lisp-Entry "for-each-designer" method #f 216 11 216 28 ("project-designers" "designer" "project" "bind" "pair" "lambda" "for-each" "proc")}
-        {Lisp-Entry "project-add" method #f 223 21 223 32 ("add-designer" "Project" "is?" "when" "level" "descendant" "lambda" "for-each-descendant" "for-each-descendant~" "project")}
-        {Lisp-Entry "project-remove" method #f 230 21 230 35 ("cleanup-project-designers" "project")}
-        {Lisp-Entry "save-designer" method #f 242 21 242 34 ("save~" "get-modified?~" "designer" "project" "lambda" "for-each-designer" "save" "set!" "get-modified?" "when" "some-modified?" "let")}}}})
+        {Lisp-Entry "find-owner-project" method #f 167 11 167 29 ("get-parent" "get-parent~" "find-owner-project" "Project" "is?" "reference" "eq?" "or" "if" "component")}
+        {Lisp-Entry "component-owned-by-reference?" method #f 173 20 173 49 ("get-project-designer" "component-owned-by-reference?" "component-owned-by-reference?~" "form" "component-owned?" "reference" "eq?" "if" "and" "find-owner-project" "owner-project" "let" "component")}
+        {Lisp-Entry "find-modification-owner" method #f 181 11 181 34 ("get-presentation-property" "get-presentation-property~" "get-effective-editable?" "get-effective-editable?~" "not" "owner" "car" "error" "1" "length" ">" "find-owner-project" "map" "remove-duplicates" "owners" "let" "pair?" "if" "find-components-owner" "define" "components")}
+        {Lisp-Entry "add-designer" method #f 201 11 201 23 ("add-project-designer" "reference:" "form:" "Designer" "new" "designer" "when" "error" "Project-Not-Found" "get-model" "get-model~" "eq?" "if" "else" "get-tag-reference" "get-tag-reference~" "registered-file-form" "instantiate" "get-action" "get-action~" "case" "form" "get-form" "get-form~" "project-form" "let" "project")}
+        {Lisp-Entry "add-project-designer" method #f 213 11 213 31 ("cons" "project-designers" "set!" "designer" "project")}
+        {Lisp-Entry "remove-designer" method #f 217 11 217 26 ("assq" "remove!" "project-designers" "set!" "project")}
+        {Lisp-Entry "get-project-designer" method #f 221 21 221 41 ("project-designers" "assq-value" "project")}
+        {Lisp-Entry "for-each-designer" method #f 225 11 225 28 ("project-designers" "designer" "project" "bind" "pair" "lambda" "for-each" "proc")}
+        {Lisp-Entry "project-add" method #f 232 21 232 32 ("add-designer" "Project" "is?" "when" "level" "descendant" "lambda" "for-each-descendant" "for-each-descendant~" "project")}
+        {Lisp-Entry "project-remove" method #f 239 21 239 35 ("cleanup-project-designers" "project")}
+        {Lisp-Entry "save-designer" method #f 251 21 251 34 ("save~" "get-modified?~" "designer" "project" "lambda" "for-each-designer" "save" "set!" "get-modified?" "when" "some-modified?" "let")}}}})
 "Workbench-Editor"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Editor.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Editor.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench-Editor" module #f 37 18 37 57 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.project" "jazz.designer")}
       {Lisp-Entry "Workbench-Editor" class #f 44 7 44 23 ("Descendants-Editor")
         {Lisp-Entry "form-model" method #f 47 20 47 30 ("nextmethod" "else" "Workbench-Tree" "tree" "get-name" "get-name~" "case" "form")}}}})
 "Workbench-Manager"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Manager.jazz"} 1302625178 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Manager.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench-Manager" module #f 37 18 37 58 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.ui" "jazz.system.process" "jazz.system" "jazz.runtime" "jazz.project" "jazz.platform" "jazz.library.template" "jazz.library.component" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide" "jazz.groupware" "jazz.graphic" "jazz.editor.jazz" "jazz.designer.menu" "jazz.designer" "jazz.catalog")}
       {Lisp-Entry "Workbench-Manager" class #f 62 7 62 24 ("Exit-Listener" "Component-Editor")
@@ -632,63 +636,63 @@
         {Lisp-Entry "synchronize-content" method #f 629 11 629 30 ("content:" "confirmation" "type:" "Synchronize-Box" "class:" "reverse" "bind" "info" "for-each" "children:" "add-row" "add-row~" "Image-Resource" "image:" "join" "title:" "Tree-Node" "c0" "add" "locate" "locate~" "tree" "200" "500" "Dimension" "size:" "Synchronize-Border" "border" "null?" "get-output" "get-output~" "out-of-synch" "case-insensitive?:" "right-key:" "left-key:" "key:" "ci<?" "sort" "directory?" "when" ":same" ":right" "list" "put" "put~" ":left" "case" "cons" "right" "left" "key" "what" "lambda" "merge-ordered" "get-content" "get-content~" "content" "get-children" "get-children~" "children" "path" "fold" "pathname" "pathname-name" "get-name" "get-name~" "->string" "component" "component-name" "define" "List-Factory" "new" "fact" "error" "let*" "descendants" "process-refresh" "process-refresh~" "import-content" "designer" "remove-children" "remove-children~" "parse" "parse~" "format" "message-box" "exists?" "exists?~" "not" "if" "must-exist?:" "default-import-directory" "directory" "ascendant-project" "project" "selected-object" "object" "let")}
         {Lisp-Entry "validate-pathnames" method #f 690 11 690 29 ("for-each" "get-entry" "get-entry~" "jazz-file" "get-base" "get-base~" "string->symbol" "name" "let*" "Jazz-File" "eq?" "get-extension" "get-extension~" "extension-model" "model" "import-filter?" "when" "File" "Ignored-Directories" "ignored-directories:" "recursive?:" "sort?:" "directories?:" "files?:" "iterate-directory" "iterate-directory~" "Directory" "typecase" "pathname" "iterate" "define" "get-workbench" "workbench" "let" "report" "lambda" "validate" "pathnames" "project")}
         {Lisp-Entry "validate" method #f 716 11 716 19 ("message-box" "when" "0" "subseq" "get-presentation-property" "get-presentation-property~" "get-name" "get-name~" ":link" ":bulleted" "list" "highlight-document-component" "close-modal-dialog" "action" "get-project" "get-project~" "project" "map" ",header" "text" "format-is/are" "format-y/ies" "format-plural" "format" "header" ">" "too-many?" "10" "max-displayed" "length" "count" "let*" "null?" "if" "get-output" "get-output~" "put" "put~" "jazz-file" "lambda" "List-Factory" "new" "already-defined" "get-workbench" "workbench" "let" "iterate")}
-        {Lisp-Entry "set-project-active?" method #f 760 19 760 38 ("0" "Cell" "new" "invalidate-cell" "invalidate-cell~" "row->line" "row->line~" "line" "component-color" "component-color~" "set-color" "set-color~" "component-image" "component-image~" "set-image" "set-image~" "first-child" "first-child~" "node" "when" "component-row" "component-row~" "row" "get-tree" "tree" "let" "load-catalogs" "load-catalogs~" "use-owner?:" "active?" "designer" "set-property" "set-property~" "flag" "project")}
-        {Lisp-Entry "activate-selection" method #f 779 18 779 36 ("selected-object" "activate-object")}
-        {Lisp-Entry "activate-object" method #f 783 11 783 26 ("bell" "concrete-descendant" "let" "activate-project" "if" "include-self?:" "continuation-return" "concrete?" "concrete?~" "Project" "is?" "and" "when" "level" "descendant" "for-each-descendant" "for-each-descendant~" "return" "lambda" "continuation-capture" "find-concrete-descendant" "define" "object")}
-        {Lisp-Entry "activate-project" method #f 805 11 805 27 ("update-project-actions" "update-project-actions~" "get-application" "appl" "highlight-component" "highlight-component~" "ensure-expanded" "ensure-expanded~" "include-invisibles?:" "user-data-row" "user-data-row~" "row" "set-active-project" "unhighlight-component" "unhighlight-component~" "when" "get-tree" "tree" "let" "get-active-project" "eq?" "unless" "project")}
-        {Lisp-Entry "update-catalog" method #f 825 11 825 25 ("selected-objects" "objects" "let" "lambda" ":wait" "with-cursor" "get-children" "get-children~" "for-each" "Project-Group" "update-project-catalog" "Project" "typecase" "object" "update" "define")}
-        {Lisp-Entry "update-project-catalog" method #f 839 11 839 33 ("update" "update~" "load-content" "load-content~" "report?:" "require-catalog" "require-catalog~" "catalog" "let" "for-each-project" "for-each-project~" "lambda" "post-catalog" "project")}
-        {Lisp-Entry "search-project" method #f 854 11 854 25 ("set-value" "set-value~" "locate" "locate~" "combo" "selected-object" "project" "let" "projects-search" "lambda" "selector:" "projects" "get-application" "update-search" "update-search~")}
-        {Lisp-Entry "test-current" method #f 867 18 867 30 ("project-test" "project-test~" "current-project" "project" "let")}
-        {Lisp-Entry "run-current" method #f 877 18 877 29 ("run-project" "current-project" "project" "let")}
-        {Lisp-Entry "run-selection" method #f 882 18 882 31 ()}
-        {Lisp-Entry "run-project" method #f 886 11 886 22 ("get-application" "run-project" "run-project~" "project")}
-        {Lisp-Entry "debug-current" method #f 895 18 895 31 ("current-project" "debug-project" "executable" "executable:")}
-        {Lisp-Entry "debug-selection" method #f 899 18 899 33 ("debug-project" "current-project" "project" "let")}
-        {Lisp-Entry "debug-project" method #f 904 11 904 24 ("debugger-interactive?:" "get-application" "debug-project" "debug-project~" "executable" "executable:" "project")}
-        {Lisp-Entry "launch-selection" method #f 913 18 913 34 ("selected-components" "selected-components~" "edit-document" "edit-document~" "get-extension" "get-extension~" "ext" "get-source" "get-source~" "file" "let*" "Project-File" "debug-project" "Project" "typecase" "component" "lambda" "for-each" "get-tree" "tree" "get-application" "appl" "let")}
-        {Lisp-Entry "on-build-current" method #f 932 11 932 27 ("build-project" "bell" "not" "if" "current-project" "project" "let" "evt")}
-        {Lisp-Entry "build-current" method #f 939 18 939 31 ("build-project" "current-project" "project" "let")}
-        {Lisp-Entry "build-project" method #f 944 11 944 24 ("project-build" "project-build~" "project")}
-        {Lisp-Entry "compile-current" method #f 953 18 953 33 ("compile-moniker" "get-controller" "get-controller~" "get-moniker" "get-moniker~" "moniker" "save" "save~" "get-modified?" "get-modified?~" "Document" "is?" "and" "when" "current-document" "guest" "let")}
-        {Lisp-Entry "compile-moniker" method #f 962 18 962 33 ("compile-file" "error" "not" "if" "find-source" "find-source~" "project-file" "get-workbench" "workbench" "let*" "moniker")}
-        {Lisp-Entry "compile-file" method #f 970 11 970 23 ("show-console?:" "->string" "list" "arguments:" "launch-executable" "get-project" "get-project~" "project-kernel" "project-kernel~" "kernel" "bell" "not" "if" "parse" "parse~" "find-pathname-unit" "name" "let" "project-file" "moniker")}
-        {Lisp-Entry "preprocess-current" method #f 983 18 983 36 ("error" "not" "if" "find-source" "find-source~" "get-workbench" "workbench" "get-controller" "get-controller~" "get-moniker" "get-moniker~" "let*" "save" "save~" "get-modified?" "get-modified?~" "Document" "is?" "and" "when" "current-document" "guest" "cpu-duration" "cpu-duration~" "force?:" "preprocess" "preprocess~" "Output-Log" "select-docked" "select-resultset" "select-resultset~" "clear-results" "clear-results~" "Timer" "new" "timer" "get-output-log" "output" "user-message" "prepare-directories" "prepare-directories~" "prepare-maps" "prepare-maps~" "get-project" "get-project~" "project" "thread" "lambda" "proc" "let" "file" "moniker" "preprocess-file" "define")}
-        {Lisp-Entry "clean-current" method #f 1017 18 1017 31 ("clean-project" "current-project" "project" "let")}
-        {Lisp-Entry "clean-project" method #f 1022 11 1022 24 ("bell" "concrete?" "concrete?~" "if" "project")}
-        {Lisp-Entry "on-distribute-current" method #f 1034 11 1034 32 ("distribute-project" "bell" "not" "if" "selected-project" "project" "let" "evt")}
-        {Lisp-Entry "distribute-current" method #f 1041 18 1041 36 ("distribute-project" "current-project" "project" "let")}
-        {Lisp-Entry "distribute-selection" method #f 1046 11 1046 31 ("selected-project" "distribute-project")}
-        {Lisp-Entry "distribute-project" method #f 1050 11 1050 29 ("focus-host" "focus-host~" "get-guest" "get-guest~" "compare-trees" "compare-trees~" "lambda" ":wait" "with-cursor" "host-visible?:" "ignored-extensions:" "ignored-leaves:" "ignored-nodes:" "left-content:" "right-moniker:" "left-moniker:" "Compare-Directories" "new-frame" "frame" "extensions" "files" "list" "ignored-dirs" "project-distribution-list" "project-distribution-list~" "content" "project-distribution-directory" "project-distribution-directory~" "right" "project-distribution" "project-distribution~" "left" "backup" "mode" "let*" "project")}
-        {Lisp-Entry "selected-object" method #f 1070 11 1070 26 ("selected-component" "selected-component~" "get-tree" "tree" "let")}
-        {Lisp-Entry "selected-objects" method #f 1075 11 1075 27 ("selected-components" "selected-components~" "get-tree" "tree" "let")}
-        {Lisp-Entry "selected-project" method #f 1080 11 1080 27 ("Project" "is?" "when" "selected-object" "object" "let")}
-        {Lisp-Entry "selected-concrete-project" method #f 1086 11 1086 36 ("concrete?" "concrete?~" "Project" "is?" "and" "when" "selected-object" "object" "let")}
-        {Lisp-Entry "current-project" method #f 1093 11 1093 26 ("error" "get-active-project" "not" "if")}
-        {Lisp-Entry "new-menu" method #f 1104 18 1104 26 ("else" "concrete?" "concrete?~" "if" "Project" "Project-Group" "Workbench" "typecase" "selected-object" "set-current-directory" "synchronize-content" "import-directory" "import-files" "install-project" "add-document" "add-project" "1" "get-selection" "get-selection~" "length" ">" "when" "locate-component" "locate-component~" "item" "name" "hide-item" "Element-Menu" "new-element-menu" "Project-Menu" "new-project-menu" "Concrete-Project-Menu" "new-concrete-project-menu" "search-project" "update-catalog" "locate" "locate~" "set-visible?" "set-visible?~" "has-content?" "has-content?~" "content?" "Workbench-Menu" "new-workbench-menu" "layout-menu" "layout-menu~" "cleanup-separators" "cleanup-separators~" "update-group/project-menu" "selected-components" "selected-components~" "update-component-menu" "client:" "Group-Menu" "new" "menu" "object" "new-group-menu" "define" "get-tree" "tree" "let")}
-        {Lisp-Entry "describe-state" method #f 1185 11 1185 25 ("category" "name" "get-categories-table" "get-categories-table~" "table-keys/values" "when" "0" "subseq" "if" "project" "bind" "for-each" "5" "length" ">" "more?" "car" "class-of" "category-identifier" "pair" "lambda" "key:" "designer" "get-project-designers" "get-project-designers~" "<" "sort" "pairs" "let*" "get-active-project" ":console" "format" "get-workbench" "workbench" "let" "pos")}}
-      {Lisp-Entry "Workbench-Manager-Controller" class #f 1213 7 1213 35 ("Component-Editor-Controller")
-        {Lisp-Entry "document-status" method #f 1216 20 1216 35 ()}}
-      {Lisp-Entry "Synchronize-Border" class #f 1225 7 1225 25 ("Border-View")
-        {Lisp-Entry "form" anonymous #f 1228 3 1228 7 ("tree" "Synchronize-Tree" "<Synchronize-Tree>" "Tree-Header" "<Tree-Header>" "fill" "layout-type:" "content" "name:" "!" "<!>" "vscroll?:" "hscroll?:" "tool" "style:" "Scroller-View" "<Scroller-View>" "Outline-Border" "Color" "border-color:" "solid" "border-type:" "install" "<install>")}}
-      {Lisp-Entry "Group-Menu" class #f 1242 7 1242 17 ("Component-Menu")
-        {Lisp-Entry "form" anonymous #f 1245 3 1245 7 ("delete-selection" "!" "<!>" "set-current-directory" "Separator-Item" "<Separator-Item>" "synchronize-content" "import-directory" "import-files" "cut" "install-project" "Image-Resource" "icon:" "add-document" "workbench-manager" "Action" "action-handler:" "add-item" "before:" "title:" "add-project" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}
-      {Lisp-Entry "Project-Menu" class #f 1266 7 1266 19 ("Component-Menu")
-        {Lisp-Entry "form" anonymous #f 1269 3 1269 7 ("delete-selection" "!" "<!>" "update-catalog" "search-project" "synchronize-content" "import-directory" "import-files" "cut" "install-project" "add-document" "add-project" "Separator-Item" "<Separator-Item>" "workbench-manager" "Action" "action-handler:" "Image-Resource" "icon:" "add-item" "before:" "title:" "edit-source" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}
-      {Lisp-Entry "Concrete-Project-Menu" class #f 1292 7 1292 28 ("Project-Menu")
-        {Lisp-Entry "form" anonymous #f 1295 3 1295 7 ("Separator-Item" "<Separator-Item>" "workbench-manager" "Action" "action-handler:" "default?:" "cut" "before:" "title:" "activate" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}
-      {Lisp-Entry "Workbench-Menu" class #f 1306 7 1306 21 ("Project-Menu")
-        {Lisp-Entry "form" anonymous #f 1309 3 1309 7 ("visible?:" "synchronize-content" "name:" "!" "<!>" "install" "<install>")}}
-      {Lisp-Entry "Element-Menu" class #f 1320 7 1320 19 ("Component-Menu")
-        {Lisp-Entry "form" anonymous #f 1323 3 1323 7 ("delete-selection" "!" "<!>" "Separator-Item" "<Separator-Item>" "launch" "workbench-manager" "Action" "action-handler:" "Image-Resource" "icon:" "default?:" "cut" "before:" "title:" "edit-source" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}}})
+        {Lisp-Entry "set-project-active?" method #f 760 19 760 38 ("0" "Cell" "new" "invalidate-cell" "invalidate-cell~" "row->line" "row->line~" "line" "component-color" "component-color~" "set-color" "set-color~" "component-image" "component-image~" "set-image" "set-image~" "first-child" "first-child~" "node" "component-row" "component-row~" "row" "get-tree" "tree" "let" "load-catalogs" "load-catalogs~" "use-owner?:" "active?" "designer" "set-property" "set-property~" "save-catalogs" "save-catalogs~" "not" "when" "flag" "project")}
+        {Lisp-Entry "activate-selection" method #f 782 18 782 36 ("selected-object" "activate-object")}
+        {Lisp-Entry "activate-object" method #f 786 11 786 26 ("bell" "concrete-descendant" "let" "activate-project" "if" "include-self?:" "continuation-return" "concrete?" "concrete?~" "Project" "is?" "and" "when" "level" "descendant" "for-each-descendant" "for-each-descendant~" "return" "lambda" "continuation-capture" "find-concrete-descendant" "define" "object")}
+        {Lisp-Entry "activate-project" method #f 808 11 808 27 ("update-project-actions" "update-project-actions~" "get-application" "appl" "highlight-component" "highlight-component~" "ensure-expanded" "ensure-expanded~" "include-invisibles?:" "user-data-row" "user-data-row~" "row" "set-active-project" "unhighlight-component" "unhighlight-component~" "when" "get-tree" "tree" "let" "get-active-project" "eq?" "unless" "project")}
+        {Lisp-Entry "update-catalog" method #f 828 11 828 25 ("selected-objects" "objects" "let" "lambda" ":wait" "with-cursor" "get-children" "get-children~" "for-each" "Project-Group" "update-project-catalog" "Project" "typecase" "object" "update" "define")}
+        {Lisp-Entry "update-project-catalog" method #f 842 11 842 33 ("update" "update~" "load-content" "load-content~" "report?:" "require-catalog" "require-catalog~" "catalog" "let" "for-each-project" "for-each-project~" "lambda" "post-catalog" "project")}
+        {Lisp-Entry "search-project" method #f 857 11 857 25 ("set-value" "set-value~" "locate" "locate~" "combo" "selected-object" "project" "let" "projects-search" "lambda" "selector:" "projects" "get-application" "update-search" "update-search~")}
+        {Lisp-Entry "test-current" method #f 870 18 870 30 ("project-test" "project-test~" "current-project" "project" "let")}
+        {Lisp-Entry "run-current" method #f 880 18 880 29 ("run-project" "current-project" "project" "let")}
+        {Lisp-Entry "run-selection" method #f 885 18 885 31 ()}
+        {Lisp-Entry "run-project" method #f 889 11 889 22 ("get-application" "run-project" "run-project~" "project")}
+        {Lisp-Entry "debug-current" method #f 898 18 898 31 ("current-project" "debug-project" "executable" "executable:")}
+        {Lisp-Entry "debug-selection" method #f 902 18 902 33 ("debug-project" "current-project" "project" "let")}
+        {Lisp-Entry "debug-project" method #f 907 11 907 24 ("debugger-interactive?:" "get-application" "debug-project" "debug-project~" "executable" "executable:" "project")}
+        {Lisp-Entry "launch-selection" method #f 916 18 916 34 ("selected-components" "selected-components~" "edit-document" "edit-document~" "get-extension" "get-extension~" "ext" "get-source" "get-source~" "file" "let*" "Project-File" "debug-project" "Project" "typecase" "component" "lambda" "for-each" "get-tree" "tree" "get-application" "appl" "let")}
+        {Lisp-Entry "on-build-current" method #f 935 11 935 27 ("build-project" "bell" "not" "if" "current-project" "project" "let" "evt")}
+        {Lisp-Entry "build-current" method #f 942 18 942 31 ("build-project" "current-project" "project" "let")}
+        {Lisp-Entry "build-project" method #f 947 11 947 24 ("project-build" "project-build~" "project")}
+        {Lisp-Entry "compile-current" method #f 956 18 956 33 ("compile-moniker" "get-controller" "get-controller~" "get-moniker" "get-moniker~" "moniker" "save" "save~" "get-modified?" "get-modified?~" "Document" "is?" "and" "when" "current-document" "guest" "let")}
+        {Lisp-Entry "compile-moniker" method #f 965 18 965 33 ("compile-file" "error" "not" "if" "find-source" "find-source~" "project-file" "get-workbench" "workbench" "let*" "moniker")}
+        {Lisp-Entry "compile-file" method #f 973 11 973 23 ("show-console?:" "->string" "list" "arguments:" "launch-executable" "get-project" "get-project~" "project-kernel" "project-kernel~" "kernel" "bell" "not" "if" "parse" "parse~" "find-pathname-unit" "name" "let" "project-file" "moniker")}
+        {Lisp-Entry "preprocess-current" method #f 986 18 986 36 ("error" "not" "if" "find-source" "find-source~" "get-workbench" "workbench" "get-controller" "get-controller~" "get-moniker" "get-moniker~" "let*" "save" "save~" "get-modified?" "get-modified?~" "Document" "is?" "and" "when" "current-document" "guest" "cpu-duration" "cpu-duration~" "force?:" "preprocess" "preprocess~" "Output-Log" "select-docked" "select-resultset" "select-resultset~" "clear-results" "clear-results~" "Timer" "new" "timer" "get-output-log" "output" "user-message" "prepare-directories" "prepare-directories~" "prepare-maps" "prepare-maps~" "get-project" "get-project~" "project" "thread" "lambda" "proc" "let" "file" "moniker" "preprocess-file" "define")}
+        {Lisp-Entry "clean-current" method #f 1020 18 1020 31 ("clean-project" "current-project" "project" "let")}
+        {Lisp-Entry "clean-project" method #f 1025 11 1025 24 ("bell" "concrete?" "concrete?~" "if" "project")}
+        {Lisp-Entry "on-distribute-current" method #f 1037 11 1037 32 ("distribute-project" "bell" "not" "if" "selected-project" "project" "let" "evt")}
+        {Lisp-Entry "distribute-current" method #f 1044 18 1044 36 ("distribute-project" "current-project" "project" "let")}
+        {Lisp-Entry "distribute-selection" method #f 1049 11 1049 31 ("selected-project" "distribute-project")}
+        {Lisp-Entry "distribute-project" method #f 1053 11 1053 29 ("focus-host" "focus-host~" "get-guest" "get-guest~" "compare-trees" "compare-trees~" "lambda" ":wait" "with-cursor" "host-visible?:" "ignored-extensions:" "ignored-leaves:" "ignored-nodes:" "left-content:" "right-moniker:" "left-moniker:" "Compare-Directories" "new-frame" "frame" "extensions" "files" "list" "ignored-dirs" "project-distribution-list" "project-distribution-list~" "content" "project-distribution-directory" "project-distribution-directory~" "right" "project-distribution" "project-distribution~" "left" "backup" "mode" "let*" "project")}
+        {Lisp-Entry "selected-object" method #f 1073 11 1073 26 ("selected-component" "selected-component~" "get-tree" "tree" "let")}
+        {Lisp-Entry "selected-objects" method #f 1078 11 1078 27 ("selected-components" "selected-components~" "get-tree" "tree" "let")}
+        {Lisp-Entry "selected-project" method #f 1083 11 1083 27 ("Project" "is?" "when" "selected-object" "object" "let")}
+        {Lisp-Entry "selected-concrete-project" method #f 1089 11 1089 36 ("concrete?" "concrete?~" "Project" "is?" "and" "when" "selected-object" "object" "let")}
+        {Lisp-Entry "current-project" method #f 1096 11 1096 26 ("error" "get-active-project" "not" "if")}
+        {Lisp-Entry "new-menu" method #f 1107 18 1107 26 ("else" "concrete?" "concrete?~" "if" "Project" "Project-Group" "Workbench" "typecase" "selected-object" "set-current-directory" "synchronize-content" "import-directory" "import-files" "install-project" "add-document" "add-project" "1" "get-selection" "get-selection~" "length" ">" "when" "locate-component" "locate-component~" "item" "name" "hide-item" "Element-Menu" "new-element-menu" "Project-Menu" "new-project-menu" "Concrete-Project-Menu" "new-concrete-project-menu" "search-project" "update-catalog" "locate" "locate~" "set-visible?" "set-visible?~" "has-content?" "has-content?~" "content?" "Workbench-Menu" "new-workbench-menu" "layout-menu" "layout-menu~" "cleanup-separators" "cleanup-separators~" "update-group/project-menu" "selected-components" "selected-components~" "update-component-menu" "client:" "Group-Menu" "new" "menu" "object" "new-group-menu" "define" "get-tree" "tree" "let")}
+        {Lisp-Entry "describe-state" method #f 1188 11 1188 25 ("category" "name" "get-categories-table" "get-categories-table~" "table-keys/values" "when" "0" "subseq" "if" "project" "bind" "for-each" "5" "length" ">" "more?" "car" "class-of" "category-identifier" "pair" "lambda" "key:" "designer" "get-project-designers" "get-project-designers~" "<" "sort" "pairs" "let*" "get-active-project" ":console" "format" "get-workbench" "workbench" "let" "pos")}}
+      {Lisp-Entry "Workbench-Manager-Controller" class #f 1216 7 1216 35 ("Component-Editor-Controller")
+        {Lisp-Entry "document-status" method #f 1219 20 1219 35 ()}}
+      {Lisp-Entry "Synchronize-Border" class #f 1228 7 1228 25 ("Border-View")
+        {Lisp-Entry "form" anonymous #f 1231 3 1231 7 ("tree" "Synchronize-Tree" "<Synchronize-Tree>" "Tree-Header" "<Tree-Header>" "fill" "layout-type:" "content" "name:" "!" "<!>" "vscroll?:" "hscroll?:" "tool" "style:" "Scroller-View" "<Scroller-View>" "Outline-Border" "Color" "border-color:" "solid" "border-type:" "install" "<install>")}}
+      {Lisp-Entry "Group-Menu" class #f 1245 7 1245 17 ("Component-Menu")
+        {Lisp-Entry "form" anonymous #f 1248 3 1248 7 ("delete-selection" "!" "<!>" "set-current-directory" "Separator-Item" "<Separator-Item>" "synchronize-content" "import-directory" "import-files" "cut" "install-project" "Image-Resource" "icon:" "add-document" "workbench-manager" "Action" "action-handler:" "add-item" "before:" "title:" "add-project" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}
+      {Lisp-Entry "Project-Menu" class #f 1269 7 1269 19 ("Component-Menu")
+        {Lisp-Entry "form" anonymous #f 1272 3 1272 7 ("delete-selection" "!" "<!>" "update-catalog" "search-project" "synchronize-content" "import-directory" "import-files" "cut" "install-project" "add-document" "add-project" "Separator-Item" "<Separator-Item>" "workbench-manager" "Action" "action-handler:" "Image-Resource" "icon:" "add-item" "before:" "title:" "edit-source" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}
+      {Lisp-Entry "Concrete-Project-Menu" class #f 1295 7 1295 28 ("Project-Menu")
+        {Lisp-Entry "form" anonymous #f 1298 3 1298 7 ("Separator-Item" "<Separator-Item>" "workbench-manager" "Action" "action-handler:" "default?:" "cut" "before:" "title:" "activate" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}
+      {Lisp-Entry "Workbench-Menu" class #f 1309 7 1309 21 ("Project-Menu")
+        {Lisp-Entry "form" anonymous #f 1312 3 1312 7 ("visible?:" "synchronize-content" "name:" "!" "<!>" "install" "<install>")}}
+      {Lisp-Entry "Element-Menu" class #f 1323 7 1323 19 ("Component-Menu")
+        {Lisp-Entry "form" anonymous #f 1326 3 1326 7 ("delete-selection" "!" "<!>" "Separator-Item" "<Separator-Item>" "launch" "workbench-manager" "Action" "action-handler:" "Image-Resource" "icon:" "default?:" "cut" "before:" "title:" "edit-source" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}}})
 "Workbench-Manager-Actions"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Manager-Actions.jazz"} 1298725029 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Manager-Actions.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench-Manager-Actions" module #f 37 18 37 66 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.jml")}
       {Lisp-Entry "Workbench-Manager-Actions" class #f 45 7 45 32 ("Actions")
         {Lisp-Entry "form" anonymous #f 48 3 48 7 ("on-launch" "launch" "on-add-dependency" "add-dependency" "on-activate" "activate" "on-search-project" "search-project" "on-update-catalog" "update-catalog" "on-edit-source" "edit-source" "on-set-current-directory" "set-current-directory" "on-synchronize-content" "synchronize-content" "on-import-directory" "import-directory" "on-import-files" "import-files" "on-install-project" "install-project" "on-add-group" "add-group" "on-add-document" "add-document" ":control" "Shortcut" "shortcut:" "on-add-project" ":workbench-manager" "Event-Handler" "action-handler:" "add-project" "name:" "Action-Item" "<Action-Item>" "install" "<install>")}}}})
 "Workbench-Preferences"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "preference" "Workbench-Preferences.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "preference" "Workbench-Preferences.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.preference.Workbench-Preferences" module #f 37 18 37 63 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.jml")}
       {Lisp-Entry "Workbench-Preferences" class #f 44 7 44 28 ("initialize" "Preferences")
@@ -702,7 +706,7 @@
         {Lisp-Entry "Workbench-Preferences-Descriptor" class #f 74 7 74 39 ("Preferences-Descriptor")
           {Lisp-Entry "form" anonymous #f 77 3 77 7 ("active-project" "name:" "Property-Descriptor" "<Property-Descriptor>" ">" "<properties" "<properties~>" "can-copy?:" "can-move?:" "can-delete?:" "can-rename?:" "install" "<install>")}}}}})
 "Workbench-Tree"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Tree.jazz"} 1297194231 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Tree.jazz"} 237593609. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench-Tree" module #f 37 18 37 55 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.project" "jazz.platform" "jazz.library" "jazz.jml" "jazz.ide" "jazz.graphic" "jazz.designer")}
       {Lisp-Entry "Workbench-Tree" class #f 50 7 50 21 ("Descendants-Tree")
@@ -723,36 +727,40 @@
         {Lisp-Entry "row-state" method #f 129 20 129 29 ("collapsed" "expanded" "1" "<" "if" "level" "update?" "component")}
         {Lisp-Entry "double-click" method #f 135 20 135 32 ("launch-selection" "launch-selection~" "Group" "or" "unless" "nextmethod" "activate-selection" "activate-selection~" "concrete?" "concrete?~" "Project" "is?" "and" "if" "selected-component" "component" "get-manager" "manager" "let" "pos")}
         {Lisp-Entry "return-press" method #f 146 20 146 32 ("launch-selection" "launch-selection~" "Group" "unless" "activate-selection" "activate-selection~" "Project" "is?" "if" "selected-component" "component" "get-manager" "manager" "let" "key")}
-        {Lisp-Entry "receive-files" method #f 155 20 155 33 ("bell" "ascendant-project" "ascendant-project~" "import-pathnames" "import-pathnames~" "Project-Group" "Project" "is?" "or" "get-manager" "manager" "get-line" "get-line~" "get-row" "get-user-data" "get-user-data~" "get-workbench" "not" "if" "data" "view->tree" "cell" "let*" "pathnames" "pos")}
-        {Lisp-Entry "addable-root-classes" method #f 166 11 166 31 ("Module" "Project" "Group" "reference" "list")}}}})
+        {Lisp-Entry "receive-files" method #f 155 20 155 33 ("bell" "ascendant-project" "ascendant-project~" "import-pathnames" "import-pathnames~" "Project-Group" "Project" "is?" "or" "get-manager" "manager" "get-line" "get-line~" "get-row" "get-user-data" "get-user-data~" "get-workbench" "not" "if" "data" "view->tree" "cell" "let*" "pathnames" "pos")}}}})
 "Workbench-Tree-Actions"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Tree-Actions.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "workbench" "Workbench-Tree-Actions.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.workbench.Workbench-Tree-Actions" module #f 37 18 37 63 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.jml")}
       {Lisp-Entry "Workbench-Tree-Actions" class #f 45 7 45 29 ("Actions")
         {Lisp-Entry "form" anonymous #f 48 3 48 7 ("on-add-group" "add-group" "on-add-document" "add-document" ":control" "Shortcut" "shortcut:" "on-add-project" ":focus" "Event-Handler" "action-handler:" "add-project" "name:" "Action-Item" "<Action-Item>" "install" "<install>")}}}})
 "_project"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "_project.jazz"} 1298564205 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "_project.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project" module #f 37 8 37 20 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.project.autoload")}
-      {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.system" "jazz.io" "jazz.ide" "jazz.project.autoload")}
-      {Lisp-Entry "find-kernel" definition #f 52 20 52 31 ("kernel-platform" "executable-extension" "add-extension" "concatenate" "tokenise-filename" "File" "new" "kernel-source" "destination-directory" "dir" "let" "destination")}
-      {Lisp-Entry "require-kernel" definition #f 57 20 57 34 ("error" "exists?" "exists?~" "if" "find-kernel" "kernel" "let" "destination")}
-      {Lisp-Entry "find-actual-kernel" definition #f 64 20 64 38 ("tokenise-filename" "File" "new" "kernel-platform" "executable-extension" "add-extension" "kernel-install" "concatenate" "filename" "let")}
-      {Lisp-Entry "require-actual-kernel" definition #f 69 20 69 41 ("error" "exists?" "exists?~" "if" "find-actual-kernel" "kernel" "let")}
-      {Lisp-Entry "launch-executable" definition #f 76 20 76 37 ("show-console:" "stderr-redirection:" "stdout-redirection:" "stdin-redirection:" "and" "parse" "parse~" "path:" "list" "open-process" "debug" "append" "arguments-arg" "or" "runtime-arg" "let*" "wait?" "wait?:" "show-console?" "show-console?:" "arguments" "arguments:" "runtime-arguments" "runtime-arguments:" "directory" "directory:" "executable")}
-      {Lisp-Entry "*active-repositories*" definition #f 100 12 100 33 ()}
-      {Lisp-Entry "get-active-repositories" definition #f 104 13 104 36 ("*active-repositories*")}
-      {Lisp-Entry "set-active-repositories" definition #f 108 13 108 36 ("*active-repositories*" "set!" "repositories")}
-      {Lisp-Entry "*active-workbench*" definition #f 117 12 117 30 ()}
-      {Lisp-Entry "get-workbench" definition #f 121 20 121 33 ("*active-workbench*")}
-      {Lisp-Entry "set-workbench" definition #f 125 20 125 33 ("*active-workbench*" "set!" "workbench")}
-      {Lisp-Entry "*active-project*" definition #f 134 12 134 28 ()}
-      {Lisp-Entry "get-active-project" definition #f 138 20 138 38 ("*active-project*")}
-      {Lisp-Entry "set-active-project" definition #f 142 20 142 38 ("*active-project*" "set!" "project")}
-      {Lisp-Entry "collect-concrete-projects" definition #f 146 20 146 45 ("queue-list" "enqueue" "concrete?" "concrete?~" "when" "file" "lambda" "for-each-project" "for-each-project~" "new-queue" "projects" "let" "project")}
-      {Lisp-Entry "build-preferences" definition #f 160 13 160 30 ("build" "get-preferences")}}})
+      {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.system" "jazz.io" "jazz.ide" "jazz.editor.lisp" "jazz.catalog" "jazz.project.autoload")}
+      {Lisp-Entry "find-kernel" definition #f 54 20 54 31 ("kernel-platform" "executable-extension" "add-extension" "concatenate" "tokenise-filename" "File" "new" "kernel-source" "destination-directory" "dir" "let" "destination")}
+      {Lisp-Entry "require-kernel" definition #f 59 20 59 34 ("error" "exists?" "exists?~" "if" "find-kernel" "kernel" "let" "destination")}
+      {Lisp-Entry "find-actual-kernel" definition #f 66 20 66 38 ("tokenise-filename" "File" "new" "kernel-platform" "executable-extension" "add-extension" "kernel-install" "concatenate" "filename" "let")}
+      {Lisp-Entry "require-actual-kernel" definition #f 71 20 71 41 ("error" "exists?" "exists?~" "if" "find-actual-kernel" "kernel" "let")}
+      {Lisp-Entry "launch-executable" definition #f 78 20 78 37 ("show-console:" "stderr-redirection:" "stdout-redirection:" "stdin-redirection:" "and" "parse" "parse~" "path:" "list" "open-process" "debug" "append" "arguments-arg" "or" "runtime-arg" "let*" "wait?" "wait?:" "show-console?" "show-console?:" "arguments" "arguments:" "runtime-arguments" "runtime-arguments:" "directory" "directory:" "executable")}
+      {Lisp-Entry "*active-repositories*" definition #f 102 12 102 33 ()}
+      {Lisp-Entry "get-active-repositories" definition #f 106 13 106 36 ("*active-repositories*")}
+      {Lisp-Entry "set-active-repositories" definition #f 110 13 110 36 ("*active-repositories*" "set!" "repositories")}
+      {Lisp-Entry "*active-workbench*" definition #f 119 12 119 30 ()}
+      {Lisp-Entry "get-workbench" definition #f 123 20 123 33 ("*active-workbench*")}
+      {Lisp-Entry "set-workbench" definition #f 127 20 127 33 ("*active-workbench*" "set!" "workbench")}
+      {Lisp-Entry "*active-project*" definition #f 136 12 136 28 ()}
+      {Lisp-Entry "get-active-project" definition #f 140 20 140 38 ("*active-project*")}
+      {Lisp-Entry "set-active-project" definition #f 144 20 144 38 ("*active-project*" "set!" "project")}
+      {Lisp-Entry "collect-concrete-projects" definition #f 148 20 148 45 ("queue-list" "enqueue" "concrete?" "concrete?~" "when" "file" "lambda" "for-each-project" "for-each-project~" "new-queue" "projects" "let" "project")}
+      {Lisp-Entry "unit->entry" definition #f 162 20 162 31 ("module" "block" "get-kind" "get-kind~" "memq?" "Lisp-Entry" "is?" "and" "when" "get-definition" "get-definition~" "entry" "get-application" "get-cataloguer" "get-cataloguer~" "cataloguer" "let" "unit")}
+      {Lisp-Entry "unit->file" definition #f 170 20 170 30 ("get-file-definition" "get-file-definition~" "get-file" "get-file~" "when" "unit->entry" "entry" "let" "unit")}
+      {Lisp-Entry "locator->entry" definition #f 176 20 176 34 ("child" "child~" "when" "unit->entry" "unit-entry" "let" "split-reference" "path" "unit" "bind" "locator")}
+      {Lisp-Entry "container->file" definition #f 183 20 183 35 ("else" "unit->file" "symbol?" "tokenise-filename" "File" "new" "string?" "file?" "cond" "container")}
+      {Lisp-Entry "locat->file/line/col" definition #f 194 20 194 40 ("list" "when" "container->file" "file" "let" "locat->container/line/col" "col" "line" "container" "bind" "locat")}
+      {Lisp-Entry "build-preferences" definition #f 206 13 206 30 ("build" "get-preferences")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "project" "autoload.jazz"} 1299272367 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "project" "autoload.jazz"} 236918188. jazz
     {Lisp-Entry "jazz.project.autoload" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Workbench-Preferences" "jazz.project.preference.Workbench-Preferences" "Workbench-Tree-Actions" "jazz.project.workbench.Workbench-Tree-Actions" "Workbench-Tree" "jazz.project.workbench.Workbench-Tree" "Workbench-Manager-Actions" "jazz.project.workbench.Workbench-Manager-Actions" "Workbench-Manager" "jazz.project.workbench.Workbench-Manager" "Workbench-Editor" "jazz.project.workbench.Workbench-Editor" "Workbench-Designer" "jazz.project.workbench.Workbench-Designer" "Workbench-Cataloguer" "jazz.project.workbench.Workbench-Cataloguer" "Workbench" "jazz.project.workbench.Workbench" "Synchronize-Tree" "jazz.project.workbench.Synchronize-Tree" "Synchronize-Entry" "jazz.project.workbench.Synchronize-Entry" "Synchronize-Box" "jazz.project.workbench.Synchronize-Box" "Projects-Manager" "jazz.project.workbench.Projects-Manager" "Project-Selector" "jazz.project.workbench.Project-Selector" "New-Project-Dialog" "jazz.project.workbench.New-Project-Dialog" "New-Document-Dialog" "jazz.project.workbench.New-Document-Dialog" "Sound-File" "jazz.project.resource.Sound-File" "Resource-File" "jazz.project.resource.Resource-File" "Icon-File" "jazz.project.resource.Icon-File" "Cursor-File" "jazz.project.resource.Cursor-File" "Bitmap-File" "jazz.project.resource.Bitmap-File" "Repositories-Manager-Actions" "jazz.project.repositories.Repositories-Manager-Actions" "Repositories-Manager" "jazz.project.repositories.Repositories-Manager" "Repositories" "jazz.project.repositories.Repositories" "Repository" "jazz.project.repositories.Repository" "Package" "jazz.project.repositories.Package" "New-Repository-Dialog" "jazz.project.repositories.New-Repository-Dialog" "New-Package-Dialog" "jazz.project.repositories.New-Package-Dialog" "Project-Not-Found" "jazz.project.project.Project-Not-Found" "Project-Designer" "jazz.project.project.Project-Designer" "Project-Catalog" "jazz.project.project.Project-Catalog" "Project-Descriptor" "Project" "jazz.project.project.Project" "Configuration-Descriptor" "Configuration" "jazz.project.project.Configuration" "Project-Group-Descriptor" "Project-Group" "jazz.project.file.Project-Group" "Project-File-Descriptor" "Project-File" "jazz.project.file.Project-File" "Project-Directory" "autoload" "jazz.project.file.Project-Directory")}}})

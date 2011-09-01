@@ -1,5 +1,5 @@
 "Debuggee-Frame"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Frame.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Frame.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Frame" module #f 37 18 37 46 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.editor.jazz.inspector")}
       {Lisp-Entry "Debuggee-Frame" class #f 43 7 43 21 ("Object")
@@ -21,33 +21,33 @@
         {Lisp-Entry "get-location" method #f 72 11 72 23 ("get-continuation-location" "continuation" "serial->object" "cont" "let" "location" "or")}
         {Lisp-Entry "get-variables" method #f 79 11 79 24 ("get-continuation-dynamic-environment" "append" ":all" "get-continuation-lexical-environment" ":lexical" "case" "mutable?:" "package-info" "cons" "mutable?" "value" "name" "bind" "variable" "lambda" "map" "continuation" "serial->object" "cont" "let" "kind")}}}})
 "Debuggee-Process"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Process.jazz"} 1299092212 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Process.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Process" module #f 37 18 37 48 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("profiler" "jazz.system" "jazz.editor.jazz.inspector" "jazz.debuggee.stub" "jazz.debuggee")}
-      {Lisp-Entry "Debuggee-Process" class #f 47 7 47 23 ("Object")
-        {Lisp-Entry "get-title" method #f 50 18 50 27 ("current-process-present")}
-        {Lisp-Entry "get-icon" method #f 54 18 54 26 ("current-process-icon")}
-        {Lisp-Entry "detach-process" method #f 63 18 63 32 ("detach-from-controller")}
-        {Lisp-Entry "reload-process" method #f 67 18 67 32 ("get-process" "reload-process" "reload-process~")}
-        {Lisp-Entry "exit-process" method #f 71 18 71 30 ("exit" "detach-from-controller" "exit-process~" "lambda" "exit-process" "thread-post" "thread-loop?" "and" "if" "primordial-thread" "primordial" "get-process" "process" "let")}
-        {Lisp-Entry "get-toplevel-hwnd" method #f 87 18 87 35 ("get-toplevel" "get-handle" "get-handle~")}
-        {Lisp-Entry "get-threads" method #f 97 11 97 22 ("top-threads" "Debuggee-Thread" "Debuggee-Thread-Local-Proxy" "new" "thread" "lambda" "map")}
-        {Lisp-Entry "break-thread" definition #f 108 15 108 27 ("break" "lambda" "thread-interrupt!" "get-object" "get-object~" "get-thread" "get-thread~" "thread" "let" "thread-proxy")}
-        {Lisp-Entry "restart-stop" method #f 120 11 120 23 ("invoke-restart" "lambda" "restart-stop" "thread-post" "get-restart" "get-restart~" "restart" "get-thread" "get-thread~" "thread" "get-object" "get-object~" "debuggee-restart" "let" "restart-proxy")}
-        {Lisp-Entry "continue-stop" method #f 134 11 134 24 ("continuation-return" "lambda" "continue-stop" "thread-post" "get-continuation" "get-continuation~" "continuation" "get-thread" "get-thread~" "thread" "get-object" "get-object~" "stop" "let" "stop-proxy")}
-        {Lisp-Entry "step-stop" method #f 143 11 143 20 ("lambda" "step-stop" "thread-post" "get-stepper" "get-stepper~" "stepper" "get-thread" "get-thread~" "thread" "get-object" "get-object~" "stop" "let" "command" "stop-proxy")}
-        {Lisp-Entry "console-input" method #f 157 11 157 24 ("force-output" "display" "close-port" "not" "if" "thread-console-pump-port" "port" "get-object" "get-object~" "get-thread" "get-thread~" "thread" "let" "str" "thread-proxy")}
-        {Lisp-Entry "evaluate-expressions" method #f 171 11 171 31 ("0" "generate-symbol-counter" "generate-symbol-context" "eval-count" "generate-symbol-for" "requested-unit-name" "outline-unit" "load-unit" "cdr" "access" "unit-name" "receive" "eq?" "begin" "cons" "evaluate" "read-source-all" "port" "call-with-input-string" "jazz-readtable" "jazz" "scheme-readtable" "scheme" "case" "with-readtable" "eval" "walk-for" "parameterize" "expressions" "evaluate-expressions" "primordial-thread" "thread-call" "force-output" "current-repl-level" "get-console-port" "display-prompt" ":console" "format" "value" "for-each" "list" "lambda" "call-with-values" "specified?" "when" "result" "present" "cadr" "values" "public" "protected" "if" "first" "let" "parse-unit/module" "module" "unit" "car" "memq?" "source-code" "pair?" "and" "expr" "unit/module-form?" "define" "col" "line" "container" "str" "syntax")}
-        {Lisp-Entry "profiler-start" method #f 223 18 223 32 ("start-profiler" "active-profile" "when" "find-selected-profile" "profile" "let")}
-        {Lisp-Entry "profiler-stop" method #f 230 18 230 31 ("active-profile" "stop-profiler" "when" "find-selected-profile" "profile" "let")}
-        {Lisp-Entry "profiler-profiles" method #f 237 18 237 35 ("get-profile-names")}
-        {Lisp-Entry "profiler-selected-profile" method #f 241 18 241 43 ("get-selected-profile")}
-        {Lisp-Entry "profiler-selected-profile-set!" method #f 245 18 245 48 ("set-selected-profile" "name")}
-        {Lisp-Entry "profiler-profile" method #f 249 18 249 34 ("table->list" "count" "stack" "pair" "profile-frames" "profiler-name" "get-remote-profile" "get-remote-profile~" "and" "label" "find-selected-profile" "profile-call-duration-set!" "profile-call-count" "profile-call-count-set!" "begin" "table-ref" "temp-call" "map" "key" "iterate-table" "performance-frequency" "*" "/" "floor" "inexact->exact" "=" "cons" "table-set!" "profile-frame-duration" "profile-call-duration" "-" "duration" "car" "eq?" "call" "proc" "lambda" "iterate-table-safe" "get-application" "get-profile-link-method" "get-profile-link-method~" "link-method" "add-calls" "profile-calls" "temp-calls" "profile-unknown-duration" "profile-unknown-duration-set!" "profile-unknown-count" "profile-unknown-count-set!" "profile-total-duration" "adjust-duration" "profile-total-duration-set!" "0" "profile-total-count" "+" "profile-total-count-set!" "performance-frequency:" "profile-depth" "depth:" "profile-profiler" "profiler:" "profile-label" "label:" "new-profile" "temp-profile" ">=" "max-performance-frequency" "remote-frequency" "profile-performance-frequency" "local-frequency" "remote-profile" "profile" "merge-profile" "list" "get-procedure-name" "symbol?" "if" "name" "let" "locat" "creator" "bind" "when" "or" "frame" "frame->symbol" "define")}
-        {Lisp-Entry "profile-reset" method #f 323 18 323 31 ("require-service" "and" "reset-profile" "when" "find-selected-profile" "profile" "let" "depth" "profiler")}
-        {Lisp-Entry "inspect-serial" method #f 334 18 334 32 ("serial->object" "inspect-value" "serial")}}}})
+      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("profiler" "jazz.system" "jazz.runtime" "jazz.editor.jazz.inspector" "jazz.debuggee.stub" "jazz.debuggee")}
+      {Lisp-Entry "Debuggee-Process" class #f 48 7 48 23 ("Object")
+        {Lisp-Entry "get-title" method #f 51 18 51 27 ("current-process-present")}
+        {Lisp-Entry "get-icon" method #f 55 18 55 26 ("current-process-icon")}
+        {Lisp-Entry "detach-process" method #f 64 18 64 32 ("detach-from-controller")}
+        {Lisp-Entry "reload-process" method #f 68 18 68 32 ("get-process" "reload-process" "reload-process~")}
+        {Lisp-Entry "exit-process" method #f 72 18 72 30 ("exit" "detach-from-controller" "exit-process~" "lambda" "exit-process" "thread-post" "thread-loop?" "and" "if" "primordial-thread" "primordial" "get-process" "process" "let")}
+        {Lisp-Entry "get-toplevel-hwnd" method #f 88 18 88 35 ("get-toplevel" "get-handle" "get-handle~")}
+        {Lisp-Entry "get-threads" method #f 98 11 98 22 ("top-threads" "Debuggee-Thread" "Debuggee-Thread-Local-Proxy" "new" "thread" "lambda" "map")}
+        {Lisp-Entry "break-thread" definition #f 109 15 109 27 ("break" "lambda" "thread-interrupt!" "get-object" "get-object~" "get-thread" "get-thread~" "thread" "let" "thread-proxy")}
+        {Lisp-Entry "restart-stop" method #f 121 11 121 23 ("invoke-restart" "lambda" "restart-stop" "thread-post" "get-restart" "get-restart~" "restart" "get-thread" "get-thread~" "thread" "get-object" "get-object~" "debuggee-restart" "let" "restart-proxy")}
+        {Lisp-Entry "continue-stop" method #f 135 11 135 24 ("continuation-return" "lambda" "continue-stop" "thread-post" "get-continuation" "get-continuation~" "continuation" "get-thread" "get-thread~" "thread" "get-object" "get-object~" "stop" "let" "stop-proxy")}
+        {Lisp-Entry "step-stop" method #f 144 11 144 20 ("lambda" "step-stop" "thread-post" "get-stepper" "get-stepper~" "stepper" "get-thread" "get-thread~" "thread" "get-object" "get-object~" "stop" "let" "command" "stop-proxy")}
+        {Lisp-Entry "console-input" method #f 158 11 158 24 ("force-output" "display" "close-port" "not" "if" "thread-console-pump-port" "port" "get-object" "get-object~" "get-thread" "get-thread~" "thread" "let" "str" "thread-proxy")}
+        {Lisp-Entry "evaluate-expressions" method #f 172 11 172 31 ("0" "generate-symbol-counter" "generate-symbol-context" "eval-count" "generate-symbol-for" "requested-unit-name" "outline-unit" "load-unit" "cdr" "access" "unit-name" "receive" "eq?" "begin" "cons" "evaluate" "read-source-all" "port" "call-with-input-string" "jazz-readtable" "jazz" "scheme-readtable" "scheme" "case" "with-readtable" "eval" "walk-for" "parameterize" "expressions" "evaluate-expressions" "primordial-thread" "thread-call" "force-output" "current-repl-level" "get-console-port" "display-prompt" ":console" "format" "value" "for-each" "list" "lambda" "call-with-values" "specified?" "when" "result" "present" "cadr" "values" "public" "protected" "if" "first" "let" "parse-unit/module" "module" "unit" "car" "memq?" "source-code" "pair?" "and" "expr" "unit/module-form?" "define" "col" "line" "container" "str" "syntax")}
+        {Lisp-Entry "profiler-start" method #f 224 18 224 32 ("start-profiler" "active-profile" "when" "find-selected-profile" "profile" "let")}
+        {Lisp-Entry "profiler-stop" method #f 231 18 231 31 ("active-profile" "stop-profiler" "when" "find-selected-profile" "profile" "let")}
+        {Lisp-Entry "profiler-profiles" method #f 238 18 238 35 ("get-profile-names")}
+        {Lisp-Entry "profiler-selected-profile" method #f 242 18 242 43 ("get-selected-profile")}
+        {Lisp-Entry "profiler-selected-profile-set!" method #f 246 18 246 48 ("set-selected-profile" "name")}
+        {Lisp-Entry "profiler-profile" method #f 250 18 250 34 ("table->list" "profile-process-info" "profiler-type" "get-remote-profile" "get-remote-profile~" "get-application" "and" "label" "find-selected-profile" "profile-calls" "temp-calls" "profile-process-stop-info" "profile-process-stop-info-set!" "profile-process-start-info" "profile-process-start-info-set!" "profile-calls-duration" "profile-calls-duration-set!" "0" "profile-calls-count" "profile-calls-count-set!" "profile-depth" "depth:" "profile-profiler" "profiler:" "profile-label" "label:" "new-profile" "temp-profile" "second" "first" "+" "table-set!" "table-ref" "temp-call" "map" "key" "let*" "count-duration" "proc" "lambda" "iterate-table" "source-calls" "calls" "merge-calls" "list" "get-procedure-name" "symbol?" "if" "name" "let" "locat" "creator" "bind" "when" "or" "frame" "frame->symbol" "remote-profile" "profile" "merge-profiles" "define")}
+        {Lisp-Entry "profile-reset" method #f 305 18 305 31 ("require-service" "and" "reset-profile" "when" "find-selected-profile" "profile" "let" "depth" "profiler")}
+        {Lisp-Entry "inspect-serial" method #f 316 18 316 32 ("serial->object" "inspect-value" "serial")}}}})
 "Debuggee-Restart"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Restart.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Restart.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Restart" module #f 37 18 37 48 ("jazz")
       {Lisp-Entry "Debuggee-Restart" class #f 40 7 40 23 ("Object")
         {Lisp-Entry "thread" slot #f 43 8 43 14 ()}
@@ -61,7 +61,7 @@
         {Lisp-Entry "get-name" method #f 57 18 57 26 ("restart" "get-name" "get-name~")}
         {Lisp-Entry "get-message" method #f 61 18 61 29 ("restart" "get-message" "get-message~")}}}})
 "Debuggee-Stop"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Stop.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Stop.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Stop" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee.stub" "jazz.debuggee")}
       {Lisp-Entry "Debuggee-Stop" class #f 44 7 44 20 ("Object")
@@ -92,11 +92,11 @@
         {Lisp-Entry "stepper" slot #f 55 8 55 15 ()}
         {Lisp-Entry "get-stepper" accessor #f 55 31 55 39 ()}
         {Lisp-Entry "set-stepper" accessor #f 55 31 55 39 ()}
-        {Lisp-Entry "initialize" method #f 58 20 58 30 ("stack~self" "restarts~self" "stepper~self" "continuation~self" "location~self" "detail~self" "reason~self" "kind~self" "self" "thread~self" "set!" "or" "locat->file/line/col" "location" "nextmethod" "first" "exception-location" "and" "third" "not" "data" "find-if" "found" "let" "stack" "stop-location" "get-continuation-stack" "continuation-parent" "hidden-frame?" "boolean" "get-continuation-name" "list" "lambda" "map" "cont" "collect-continuation-stack" "1000" "max-depth" "define" "stepper" "locat" "restarts" "continuation" "exc" "detail" "reason" "kind" "thread")}
+        {Lisp-Entry "initialize" method #f 58 20 58 30 ("stack~self" "restarts~self" "stepper~self" "continuation~self" "location~self" "detail~self" "reason~self" "kind~self" "self" "thread~self" "set!" "or" "locat->container/line/col" "location" "nextmethod" "first" "exception-location" "and" "third" "not" "data" "find-if" "found" "let" "stack" "stop-location" "get-continuation-stack" "continuation-parent" "hidden-frame?" "boolean" "get-continuation-name" "list" "lambda" "map" "cont" "collect-continuation-stack" "1000" "max-depth" "define" "stepper" "locat" "restarts" "continuation" "exc" "detail" "reason" "kind" "thread")}
         {Lisp-Entry "get-id" method #f 85 18 85 24 ("self" "object->serial")}
         {Lisp-Entry "get-frames" method #f 94 18 94 28 ("stack" "length" "naturals" "lambda" "map" "Debuggee-Frame-Local-Proxy" "object->serial" "Debuggee-Frame" "new" "0" "=" "stepper" "and" "when" "location" "let" "hidden?" "name" "cont" "bind" "frame" "id" "make-frame" "define")}}}})
 "Debuggee-Thread"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Thread.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "Debuggee-Thread.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.Debuggee-Thread" module #f 37 18 37 47 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee")}
       {Lisp-Entry "Debuggee-Thread" class #f 43 7 43 22 ("Object")
@@ -110,7 +110,7 @@
         {Lisp-Entry "get-stops" method #f 66 18 66 27 ("thread" "get-thread-stops")}
         {Lisp-Entry "set-repl-frame" method #f 70 11 70 25 ("set-box!" "box?" "when" "current-repl-frame" "box" "lambda" "set-repl-frame" "thread" "thread-post" "get-object" "get-object~" "and" "frame" "let" "frame-proxy")}}}})
 "Log-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Log-View.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Log-View.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.view.Log-View" module #f 37 18 37 45 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.platform" "jazz.library" "jazz.jml" "jazz.debuggee")}
       {Lisp-Entry "Log-View" class #f 47 7 47 15 ("initialize" "Layout-View")
@@ -126,7 +126,7 @@
         {Lisp-Entry "view-content" method #f 111 11 111 23 ("extract-log-content" "insert-node" "node" "for-each-reversed" "log" "when" "lambda" "with-update-locked" "with-update-locked~" "remove-every-row" "remove-every-row~" "get-tree" "tree" "let")}
         {Lisp-Entry "insert-node" method #f 122 11 122 22 ("get-children" "get-children~" "insert-node" "subnode" "lambda" "for-each" "user-data:" "Tree-Label" "image:" "title:" "Tree-Node" "new" "list" "children:" "father:" "add-row" "add-row~" "subfather" "data" "message" "image" "get-property" "get-property~" "or" "->string" "name" "let*" "else" "problem" "Image-Resource" "resources" "get-tag" "get-tag~" "case" "node-image" "define" "node" "father" "tree")}}}})
 "Profiler-Manager"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-Manager.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-Manager.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.view.Profiler-Manager" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("profiler" "jazz.ui" "jazz.library" "jazz.jml" "jazz.debuggee")}
       {Lisp-Entry "Profiler-Manager" class #f 47 7 47 23 ("Layout-View")
@@ -144,20 +144,20 @@
         {Lisp-Entry "on-double-click" method #f 122 11 122 26 ("profile-view" "locate" "edit-profile" "edit-profile~" "evt")}
         {Lisp-Entry "update-profile" method #f 131 11 131 25 ("profile-view" "locate" "update-profile" "update-profile~")}}}})
 "Profiler-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-View.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Profiler-View.jazz"} 240458554. jazz
     {Lisp-Entry "jazz.debuggee.view.Profiler-View" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("profiler" "jazz.ui" "jazz.system" "jazz.log" "jazz.library" "jazz.jml" "jazz.detprof")}
       {Lisp-Entry "Profiler-View" class #f 49 7 49 20 ("Layout-View")
         {Lisp-Entry "form" anonymous #f 52 3 52 7 ("toplevel-percentage" "parent-percentage" "total" "average" "100" "count" "Tree-Label-Column" "<Tree-Label-Column>" "279" "width:" "title:" "Tree-Node-Column" "<Tree-Node-Column>" "on-double-click" ":form" "Event-Handler" "double-click-handler:" "row" "selection-mode:" ":images" "portfolio:" "name" "filled-column:" "profile" "Tree-View" "<Tree-View>" "header" "Tree-Header" "<Tree-Header>" "content" "!" "<!>" "tool" "vscroll?:" "document" "style:" "scroller" "name:" "Scroller-View" "<Scroller-View>" "fill" "layout-type:" "install" "<install>")}
         {Lisp-Entry "update-profile" method #f 72 18 72 32 ("active-profile" "profile->jml" "view-profile")}
-        {Lisp-Entry "view-profile" method #f 76 18 76 30 ("with-update-locked" "with-update-locked~" "remove-every-row" "remove-every-row~" "locate" "profiler-performance-frequency" "seconds->microseconds" "child" "lambda" "for-each" "calls" "get-children" "get-children~" "insert-calls" "neq?" "not" "or" "100" "call-toplevel" "toplevel" "percentage" "get-tag" "get-tag~" "eq?" "and" "when" "call-parent" "parent" "user-data:" "format" "if" "Tree-Label" "title:" "Image-Resource" "image:" "Tree-Node" "new" "list" "children:" "expanded" "state:" "father:" "add-row" "add-row~" "call-toplevel-percentage" "toplevel-percentage" "call-parent-percentage" "parent-percentage" "/" "average" "call-total" "calculate-time" "total" "call-count" "count" "call-name" "name" "let*" "insert-children" "insert-content" "row" "let" "call" "father" "tree" "insert-call" "define" "profile")}
-        {Lisp-Entry "call-parent" definition #f 132 15 132 26 ("get-parent" "get-parent~" "call")}
-        {Lisp-Entry "call-name" definition #f 136 15 136 24 ("name" "get-property" "get-property~" "call")}
-        {Lisp-Entry "call-count" definition #f 140 15 140 25 ("count" "get-property" "get-property~" "call")}
-        {Lisp-Entry "call-total" definition #f 144 15 144 25 ("total" "get-property" "get-property~" "call")}
-        {Lisp-Entry "edit-call" method #f 153 18 153 27 ("call-name" "edit-definitions" "edit-definitions~" "get-application" "appl" "get-row" "get-row~" "get-user-data" "get-user-data~" "call" "let" "bell" "null?" "if" "get-single-selection" "get-single-selection~" "selection" "profile" "locate" "tree" "let*")}}}})
+        {Lisp-Entry "view-profile" method #f 76 18 76 30 ("with-update-locked" "with-update-locked~" "remove-every-row" "remove-every-row~" "locate" "child" "lambda" "for-each" "calls" "get-children" "get-children~" "insert-calls" "neq?" "not" "or" "100" "call-toplevel" "toplevel" "percentage" "get-tag" "get-tag~" "eq?" "and" "when" "call-parent" "parent" "user-data:" "format" "if" "Tree-Label" "title:" "Image-Resource" "image:" "Tree-Node" "new" "list" "children:" "expanded" "state:" "father:" "add-row" "add-row~" "call-toplevel-percentage" "toplevel-percentage" "call-parent-percentage" "parent-percentage" "fl" "<fl>" "cast" "/" "average" "call-total" "total" "call-count" "count" "call-name" "name" "let*" "insert-children" "insert-content" "row" "let" "call" "father" "tree" "insert-call" "define" "profile")}
+        {Lisp-Entry "call-parent" definition #f 129 15 129 26 ("get-parent" "get-parent~" "call")}
+        {Lisp-Entry "call-name" definition #f 133 15 133 24 ("name" "get-property" "get-property~" "call")}
+        {Lisp-Entry "call-count" definition #f 137 15 137 25 ("count" "get-property" "get-property~" "call")}
+        {Lisp-Entry "call-total" definition #f 141 15 141 25 ("total" "get-property" "get-property~" "call")}
+        {Lisp-Entry "edit-call" method #f 150 18 150 27 ("call-name" "edit-definitions" "edit-definitions~" "get-application" "appl" "get-row" "get-row~" "get-user-data" "get-user-data~" "call" "let" "bell" "null?" "if" "get-single-selection" "get-single-selection~" "selection" "profile" "locate" "tree" "let*")}}}})
 "Resources-Monitor"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-Monitor.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-Monitor.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.view.Resources-Monitor" module #f 37 18 37 54 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.dialog" "jazz.ui" "jazz.log" "jazz.library" "jazz.jml" "jazz.io" "jazz.debuggee")}
       {Lisp-Entry "Resources-Monitor" class #f 49 7 49 24 ("Layout-View")
@@ -175,7 +175,7 @@
         {Lisp-Entry "on-clear" method #f 136 11 136 19 ("clear" "clear~" "get-resource-view" "resource-view" "let" "evt")}
         {Lisp-Entry "update" method #f 146 11 146 17 ("update" "update~" "get-resource-view" "resource-view" "let")}}}})
 "Resources-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-View.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "Resources-View.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.view.Resources-View" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.platform" "jazz.library" "jazz.jml" "jazz.graphic" "jazz.debuggee")}
       {Lisp-Entry "Resources-View" class #f 48 7 48 21 ("eq?" "test:" "make-table" "0" "after" "initialize" "Layout-View")
@@ -215,7 +215,7 @@
         {Lisp-Entry "on-set-reference" method #f 348 11 348 27 ("client" "set-reference" "set-reference~" "evt")}
         {Lisp-Entry "on-clear-reference" method #f 352 11 352 29 ("client" "clear-reference" "clear-reference~" "evt")}}}})
 "View-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "View-Debugger.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "View-Debugger.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.view.View-Debugger" module #f 37 18 37 50 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.ui.picker" "jazz.ui.development" "jazz.ui" "jazz.system" "jazz.jml" "jazz.debuggee.view" "jazz.debuggee")}
       {Lisp-Entry "View-Debugger" class #f 50 7 50 20 ("Object")
@@ -228,8 +228,8 @@
       {Lisp-Entry "Debug-View-Menu" class #f 161 7 161 22 ("Context-Menu")
         {Lisp-Entry "form" anonymous #f 164 3 164 7 ("describe-state" "describe" "Image-Resource" "icon:" "Separator-Item" "<Separator-Item>" "debug" "action:" "on-debug-action" ":view-debugger" "Event-Handler" "action-handler:" "default?:" "title:" "Label-Item" "<Label-Item>" "install" "<install>")}}}})
 "_debuggee"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "_debuggee.jazz"} 1299260138 jazz
-    {Lisp-Entry "jazz.debuggee" module #f 37 8 37 21 ("memq?" "get-exception-hook" "get-exception-debugger" "frame" "hidden-frame?-set!" "with-exception-filter" "with-system-exception-debugger" "with-exception-debugger" "list" "hidden" "hidden-frame?" "previous" "continuation-return" "eq?" "when" "proc" "locator" "*advices*" "iterate-table" "return" "continuation-capture" "or" "procedure" "lambda" "procedure-name-set!" "procedure-name" "original-procedure-name" "let" "in-command" "in" "register-console-command" "jazz")
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "_debuggee.jazz"} 239682323. jazz
+    {Lisp-Entry "jazz.debuggee" module #f 37 8 37 21 ("memq?" "get-exception-hook" "get-exception-debugger" "frame" "hidden-frame?-set!" "with-exception-filter" "with-system-exception-debugger" "with-exception-debugger" "list" "hidden" "hidden-frame?" "previous" "release-catalog-entries" "catalog-entries" "mutex-unlock!" "current-thread" "mutex-owner" "get-load-mutex" "load-mutex" "enable-interrupts!" "enable-interrupts" "add-debugger-release" "continuation-return" "eq?" "when" "proc" "locator" "*advices*" "iterate-table" "return" "continuation-capture" "or" "procedure" "lambda" "procedure-name-set!" "procedure-name" "original-procedure-name" "let" "in-command" "in" "register-console-command" "jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.debuggee.autoload")}
       {Lisp-Entry "import" anonymous #f 41 1 41 7 ("jazz.system.access" "jazz.network" "jazz.jrm" "jazz.editor.jazz.inspector" "jazz.debuggee.stub" "jazz.debuggee.autoload")}
       {Lisp-Entry "local-process" definition #f 54 12 54 25 ()}
@@ -251,109 +251,115 @@
       {Lisp-Entry "register-stop" definition #f 164 13 164 26 ("list" "append" "*stops*" "set!" "lambda" "with-stops-mutex" "stop")}
       {Lisp-Entry "unregister-stop" definition #f 170 13 170 28 ("remove!" "*stops*" "set!" "lambda" "with-stops-mutex" "stop")}
       {Lisp-Entry "get-thread-stops" definition #f 176 21 176 37 ("queue-list" "*stops*" "Debuggee-Stop-Local-Proxy" "new" "enqueue" "get-thread" "get-thread~" "eq?" "when" "stop" "for-each" "lambda" "with-stops-mutex" "new-queue" "queue" "let" "thread")}
-      {Lisp-Entry "post-stop" definition #f 187 20 187 29 ("exception" "invoke-debugger" "primordial-thread" "thread-write" "exception-detail" "detail" "exception-reason" "reason" "let" "continuation" "lambda" "continuation-capture" "exc")}
-      {Lisp-Entry "post-continuation" definition #f 198 20 198 37 ("exception" "invoke-debugger" "lambda" "primordial-thread" "thread-write" "exception-detail" "detail" "exception-reason" "reason" "message:" "Error" "new" "exc" "let" "cont")}
-      {Lisp-Entry "Loop" class #f 213 7 213 11 ("Object")
-        {Lisp-Entry "level" slot #f 216 8 216 13 ()}
-        {Lisp-Entry "get-level" accessor #f 216 24 216 32 ()}
-        {Lisp-Entry "set-level" accessor #f 216 24 216 32 ()}
-        {Lisp-Entry "initialize" method #f 219 20 219 30 ("self" "level~self" "set!" "level")}}
-      {Lisp-Entry "current-loop" definition #f 223 19 223 31 ("make-parameter")}
-      {Lisp-Entry "with-current-loop" definition #f 227 20 227 37 ("parameterize" "0" "1" "get-level" "get-level~" "+" "if" "Loop" "new" "loop" "current-loop" "current" "let" "thunk")}
-      {Lisp-Entry "Console" class #f 239 7 239 14 ("Object")
-        {Lisp-Entry "remote" slot #f 242 8 242 14 ()}
-        {Lisp-Entry "get-remote" accessor #f 242 25 242 33 ()}
-        {Lisp-Entry "pump" slot #f 243 8 243 12 ()}
-        {Lisp-Entry "get-pump" accessor #f 243 25 243 33 ()}
-        {Lisp-Entry "tail" slot #f 244 8 244 12 ()}
-        {Lisp-Entry "get-tail" accessor #f 244 25 244 33 ()}
-        {Lisp-Entry "head" slot #f 245 8 245 12 ()}
-        {Lisp-Entry "get-head" accessor #f 245 25 245 33 ()}
-        {Lisp-Entry "readtable" slot #f 246 8 246 17 ()}
-        {Lisp-Entry "get-readtable" accessor #f 246 28 246 36 ()}
-        {Lisp-Entry "set-readtable" accessor #f 246 28 246 36 ()}
-        {Lisp-Entry "context" slot #f 247 8 247 15 ()}
-        {Lisp-Entry "get-context" accessor #f 247 28 247 36 ()}
-        {Lisp-Entry "set-context" accessor #f 247 28 247 36 ()}
-        {Lisp-Entry "history" slot #f 248 8 248 15 ()}
-        {Lisp-Entry "get-history" accessor #f 248 28 248 36 ()}
-        {Lisp-Entry "set-history" accessor #f 248 28 248 36 ()}
-        {Lisp-Entry "initialize" method #f 251 20 251 30 ("history" "history~self" "unspecified" "context" "context~self" "readtable" "readtable~self" "head~self" "tail~self" "pump~self" "self" "remote~self" "set!" "head" "tail" "pump" "remote")}}
-      {Lisp-Entry "*consoles*" definition #f 261 12 261 22 ("eq?" "test:" "make-table")}
-      {Lisp-Entry "with-consoles-mutex" definition #f 265 12 265 31 ("mutex-unlock!" "prog1" "mutex-lock!" "thunk" "lambda" "consoles" "make-mutex" "mutex" "let")}
-      {Lisp-Entry "thread-console" definition #f 273 21 273 35 ("table-set!" "Debuggee-Thread" "Debuggee-Thread-Local-Proxy" "new" "make-debuggee-console" "console" "*consoles*" "table-ref" "lambda" "with-consoles-mutex" "not" "if" "controller-debugger" "or" "let" "select?" "select?:" "debugger" "debugger:" "thread")}
-      {Lisp-Entry "thread-console-pump-port" definition #f 285 21 285 45 ("thread-console" "get-tail" "get-tail~" "thread")}
-      {Lisp-Entry "thread-console-port" definition #f 288 21 288 40 ("thread-console" "get-head" "get-head~" "thread")}
-      {Lisp-Entry "current-console" definition #f 292 13 292 28 ("current-thread" "thread-console")}
-      {Lisp-Entry "current-console-context" definition #f 295 12 295 35 ("make-parameter")}
-      {Lisp-Entry "make-debuggee-console" definition #f 299 13 299 34 ("Console" "new" "start-debuggee-console-pump" "pump" "local-process" "register-console" "register-console~" "console" "let" "jazz-readtable" "readtable:" "permanent-close:" "list" "open-string-pipe" "tail" "head" "receive" "select?" "debugger" "thread-proxy")}
-      {Lisp-Entry "select-console" definition #f 306 21 306 35 ("select?:" "current-thread" "thread-console" "get-remote" "get-remote~" "controller-debugger" "select-console" "select-console~")}
-      {Lisp-Entry "console-port-getter" definition #f 310 13 310 32 ("current-console" "get-head" "get-head~" "terminal-port" "controller-debugger" "not" "if")}
-      {Lisp-Entry "detach-consoles" definition #f 316 13 316 28 ("table-keys/values" "bind" "pair" "for-each" "lambda" "with-consoles-mutex" "*consoles*" "table-clear" "get-head" "get-head~" "get-tail" "get-tail~" "close-port" "get-pump" "get-pump~" "stop-debuggee-console-pump" "console" "thread" "detach-console" "define")}
-      {Lisp-Entry "start-debuggee-console-pump" definition #f 336 13 336 40 ("debuggee-console-pump" "console-output" "console-output~" "when" "str" "start-pump" "lambda" "new-system-thread" "thread-start!" "port" "console" "debugger")}
-      {Lisp-Entry "stop-debuggee-console-pump" definition #f 347 13 347 39 ("thread-exit" "thread-interrupt!" "thread")}
-      {Lisp-Entry "current-repl-level" definition #f 357 20 357 38 ("0" "make-parameter")}
-      {Lisp-Entry "current-repl-frame" definition #f 360 20 360 38 ("make-parameter")}
-      {Lisp-Entry "with-repl-thread" definition #f 364 13 364 29 ("thread-exit" "thread-interrupt!" "unwind-protect" "start-repl-thread" "let" "current-repl-level" "parameterize" "step?" "step?:" "thunk" "level" "port" "reason" "thread")}
-      {Lisp-Entry "start-repl-thread" definition #f 373 20 373 37 ("string->symbol" "repl" "if" "read-eval-print-loop" "display-prompt" "not" ">" "and" "newline" "display" "format" "display-banner" "=" "when" "lambda" "new-system-thread" "thread-start!" "step?" "step?:" "0" "level" "port" "reason" "thread")}
-      {Lisp-Entry "display-banner" definition #f 391 21 391 35 ("force-output" "format" "not" "if" "current-process-version" "version" "current-process-title" "title" "let" "port")}
-      {Lisp-Entry "display-prompt" definition #f 401 21 401 35 ("force-output" "format" "0" ">" "if" "prompt" "define" "level" "port")}
-      {Lisp-Entry "*eval-count*" definition #f 412 12 412 24 ("0")}
-      {Lisp-Entry "eval-count" definition #f 416 20 416 30 ("increase!" "*eval-count*" "prog1")}
-      {Lisp-Entry "read-eval-print-loop" definition #f 426 13 426 33 ("continuation-capture" "iterate" "proper-tail-calls" "declare" "thread-call" "invoke-restart" "second" "restart" "newline" "1" "length" ">" "find-restarts" "restarts" "resume-loop" "eof-object?" "force-output" "display-prompt" "value" "for-each" "list" "call-with-values" "repl-result-history-add" "specified?" "thread-call-result?" "result" "console-print" "registered-console-command" "command" "arguments" "cmd" "console-context" "current-console" "jazz.debuggee" "jazz.debuggee:current-console-context" "with-dynamic-self" ",class-name" "class" "break-reference" "class-name" "receive" "class-of" "category-identifier" "class-identifier" ",expr" ",local-names" "with-local-variables" "get-dialect-name" "get-dialect-name~" ",unit-name" "module" "generate-symbol-context" "requested-unit-name" "outline-unit" "module-declaration" "load-unit" "unit-name" "thunk" "0" "generate-symbol-counter" "eval-count" "format" "generate-symbol-for" "not" "effective-context" ":lexical" "get-variables" "get-variables~" "local-variables" "current-console-context" "pp" "set!" "ev" "object?" "object" "serial" "string=?" "when" "find-object" "local-self" "string->symbol" "var" "map" "variables" "local-names" "evaluator" "context" "eval-in-context" "eval-within-no-winding" "runner" "get-continuation" "get-continuation~" "serial->object" "cont" "frame" "frame-evaluator" "unbox" "current-repl-frame" "frame-box" "current-frame" "else" "values" "symbol?" "cond" "cadr" "unquoted" "cdr" "unquote" "car" "eq?" "pair?" "if" "parse-unquote-command" "expr" "console-eval" "read" "continuation-return" "throw" "exception" "thread-post" "exc" "with-exception-filter" "lambda" "scheme-readtable" "get-readtable" "get-readtable~" "and" "or" "with-readtable" "thread-console" "console" "let" "eval" "walk-for" "parameterize" "console-read" "resume" "read-eval-print" "define" "level" "port" "thread")}
-      {Lisp-Entry "default-context" definition #f 592 12 592 27 (":not-set")}
-      {Lisp-Entry "get-default-context" definition #f 595 20 595 39 ("default-context")}
-      {Lisp-Entry "set-default-context" definition #f 598 20 598 39 ("default-context" "set!" "ctx")}
-      {Lisp-Entry "context-alias" definition #f 602 13 602 26 ("else" "context-alias" ":me" ":process" ":profile" "process-alias" "process-alias~" "or" "Me" "jazz.profile" "module-ref" "new" "not" "cond" "get-process" "process" "let" ":not-set" "default-context" "neq?" ":default" "eq?" "and" "if" "enumerator?" "when" "context")}
-      {Lisp-Entry "console-context" define #f 621 9 621 24 ("not" "set-context" "set-context~" ":default" "initial-console-context" "initial-console-context~" "context-alias" "get-process" "process" "new-context" "unspecified?" "if" "get-context" "get-context~" "context" "let" "context-init" "define" "console")}
-      {Lisp-Entry "*console-commands*" definition #f 644 12 644 30 ("eq?" "test:" "make-table")}
-      {Lisp-Entry "register-console-command" definition #f 648 20 648 44 ("*console-commands*" "table-set!" "proc" "cmd")}
-      {Lisp-Entry "registered-console-command" definition #f 652 20 652 46 ("error" "*console-commands*" "table-ref" "or" "cmd")}
-      {Lisp-Entry "in-command" define #f 657 9 657 19 ("jazz-readtable" "set-readtable" "set-readtable~" "set-context" "set-context~" "load-unit" "symbol?" "when" "context-alias" "new-context" "car" "ctx" "null?" "not" "or" "if" "console-context" "context" "let" "print" "eval" "read" "console" "arguments" "cmd")}
-      {Lisp-Entry "jazz-exception-debugger" definition #f 679 20 679 43 ("exception" "invoke-debugger" "exception-detail" "detail" "exception-reason" "reason" "continuation" "continuation-capture" "once" "eq?" "when" "lambda" "with-system-exception-debugger" "system-exception-hook" "invoke-exception-hook" "not" "or" "if" "use-debugger?" "use" "get-controller-debugger" "debugger" "let" "exc")}
-      {Lisp-Entry "with-jazz-exception-debugger" definition #f 695 20 695 48 ("jazz-exception-debugger" "with-exception-debugger" "thunk")}
-      {Lisp-Entry "local-debugger?" definition #f 700 20 700 35 ("local-proxy?" "controller-debugger" "jazz-exception-debugger" "current-exception-debugger" "eq?" "and")}
-      {Lisp-Entry "without-local-debugger" definition #f 706 20 706 42 ("with-system-exception-debugger" "local-debugger?" "if" "thunk")}
-      {Lisp-Entry "break-internal" definition #f 713 23 713 37 ("break" "invoke-debugger" "continuation" "lambda" "continuation-capture" "reason" "reason:")}
-      {Lisp-Entry "start-repl-internal" definition #f 719 23 719 42 ("invoke-repl" "select-console" "when" "continuation" "lambda" "continuation-capture" "select?" "select?:" "reason" "reason:")}
-      {Lisp-Entry "install-step" definition #f 732 20 732 32 ("continuation-graft" "cmd" "stepper:" "locat:" "break" "invoke-debugger" "cont" "continuation-capture" "executer" "locat" "lambda" "install-step-handler" "proper-tail-calls" "declare")}
-      {Lisp-Entry "inspect-internal" definition #f 751 23 751 39 ("local-process" "controller-debugger" "inspect" "inspect~" "package-info" "info" "let" ":value" "kind" "kind:" "object")}
-      {Lisp-Entry "*advices*" definition #f 761 12 761 21 ("eq?" "test:" "make-table")}
-      {Lisp-Entry "get-advices" definition #f 765 20 765 31 ("*advices*")}
-      {Lisp-Entry "advise-internal" definition #f 770 23 770 38 ("class?" "null/pair?" "symbol?" "not" "cond" "table-set!" "table-clear" "eq?" "*advices*" "or" "original" "set" "ref" "update-method" "find-dispatch" "compose-reference" "get-name" "get-name~" "Method" "Slot" "advise-method" "method" "iterate-class-overrides" "get-fields" "get-fields~" "iterate-table-safe" "class" "field-set!" "field-set!~" "value" "field-ref" "field-ref~" "call-proc" "field-locator" "field-locator~" "locator" "field" "advise-class" "Class" "advise-field" "Field" "typecase" "starts-with?" "when" "car" "category-field" "advise-class-field" "category?" "advise-entry" "get-entries" "get-entries~" "table-ref" "entry" "require-module" "advise-prefixed" "2" "cardinality" "-" "0" "substring" "prefix" "name" "let" "null?" "assert" "symbol->string" "ends-with?" "if" "rest" "bind" "path" "split-symbol" "advise-path" "symbol" "advise-symbol" "advise-module" "module" "module-name" "lambda" "get-modules" "iterate-table" "advise-all" "define" "proc" "what")}
-      {Lisp-Entry "unadvise-internal" definition #f 872 23 872 40 ("set" "original" "locator" "field" "lambda" "advise" "what")}
-      {Lisp-Entry "debug-advice-internal" definition #f 896 23 896 44 ("debug" "set" "original" "locator" "field")}
-      {Lisp-Entry "counts" definition #f 905 12 905 18 ("eq?" "test:" "make-table")}
-      {Lisp-Entry "get-counts" definition #f 908 20 908 30 ("counts")}
-      {Lisp-Entry "count-advice-internal" definition #f 912 20 912 41 ("apply" "1" "0" "table-ref" "+" "counts" "table-set!" "rest" "lambda" "procedure?" "when" "let" "set" "original" "locator" "field")}
-      {Lisp-Entry "trace-depth" define #f 925 8 925 19 ("0" "make-parameter")}
-      {Lisp-Entry "trace-advice-internal" definition #f 929 23 929 44 ("apply" "1" "+" "parameterize" "result" "not-null?" "present-reference" ":terminal" "format" "2" "trace-depth" "*" "column" "rest" "lambda" "procedure?" "when" "let" "set" "original" "locator" "field")}
-      {Lisp-Entry "trace-internal" definition #f 941 23 941 37 ("trace-advice-internal" "advise" "what")}
-      {Lisp-Entry "untrace-internal" definition #f 945 23 945 39 ("unadvise" "what")}
-      {Lisp-Entry "invoke-repl" definition #f 954 13 954 24 ("process-debuggee-loop" "process-debuggee-loop~" "debuggee-loop" "get-process" "process" "with-current-loop" "box" "current-repl-frame" "parameterize" "lambda" "with-repl-thread" "1" "current-repl-level" "+" "0" "current-loop" "not" "if" "level" "get-console-port" "port" "current-thread" "thread" "let" "continuation" "detail" "reason")}
-      {Lisp-Entry "invoke-debugger" definition #f 969 20 969 35 ("unregister-stop~" "unregister-stop" "process-debuggee-loop" "process-debuggee-loop~" "debuggee-loop" "not" "if" "get-process" "process" "with-current-loop" "boolean" "step?:" "local-process" "controller-debugger" "register-stop~" "register-stop" "dynamic-wind" "Debuggee-Stop-Local-Proxy" "stop-proxy" "Debuggee-Thread" "Debuggee-Thread-Local-Proxy" "thread-proxy" "Debuggee-Stop" "stop" "box" "current-repl-frame" "parameterize" "with-repl-thread" "1" "current-repl-level" "+" "level" "get-console-port" "port" "release-catalog-entries" "current-restarts" "Debuggee-Restart" "Debuggee-Restart-Local-Proxy" "new" "restart" "lambda" "map" "thread" "compute-restarts" "mutex-unlock!" "current-thread" "mutex-owner" "eq?" "when" "get-load-mutex" "load-mutex" "let" "release-load-mutex!" "define" "stepper" "stepper:" "locat" "locat:" "continuation" "exc" "detail" "reason" "kind")}
-      {Lisp-Entry "debuggee-loop" definition #f 1014 21 1014 34 ("with-jazz-exception-debugger" "thread-read" "thunk" "lambda" "present-current-loop-restart" "resume-loop" "with-restart-catcher" "loop" "let")}
-      {Lisp-Entry "present-current-loop-restart" definition #f 1024 21 1024 49 ("0" "=" "if" "format" "get-level" "get-level~" "level" "when" "current-loop" "loop" "let")}
-      {Lisp-Entry "*current-view-debugger*" definition #f 1039 12 1039 35 ()}
-      {Lisp-Entry "current-view-debugger" definition #f 1043 20 1043 41 ("View-Debugger" "new" "set!" "*current-view-debugger*" "not" "when")}}})
+      {Lisp-Entry "post-stop" definition #f 187 20 187 29 ("jazz-handle-exception" "primordial-thread" "thread-write" "cont" "lambda" "continuation-capture" "exc")}
+      {Lisp-Entry "post-continuation" definition #f 196 20 196 37 ("jazz-handle-exception" "lambda" "primordial-thread" "thread-write" "message:" "Error" "new" "exc" "let" "cont")}
+      {Lisp-Entry "Loop" class #f 209 7 209 11 ("Object")
+        {Lisp-Entry "level" slot #f 212 8 212 13 ()}
+        {Lisp-Entry "get-level" accessor #f 212 24 212 32 ()}
+        {Lisp-Entry "set-level" accessor #f 212 24 212 32 ()}
+        {Lisp-Entry "initialize" method #f 215 20 215 30 ("self" "level~self" "set!" "level")}}
+      {Lisp-Entry "current-loop" definition #f 219 19 219 31 ("make-parameter")}
+      {Lisp-Entry "with-current-loop" definition #f 223 20 223 37 ("parameterize" "0" "1" "get-level" "get-level~" "+" "if" "Loop" "new" "loop" "current-loop" "current" "let" "thunk")}
+      {Lisp-Entry "Console" class #f 235 7 235 14 ("Object")
+        {Lisp-Entry "remote" slot #f 238 8 238 14 ()}
+        {Lisp-Entry "get-remote" accessor #f 238 25 238 33 ()}
+        {Lisp-Entry "pump" slot #f 239 8 239 12 ()}
+        {Lisp-Entry "get-pump" accessor #f 239 25 239 33 ()}
+        {Lisp-Entry "tail" slot #f 240 8 240 12 ()}
+        {Lisp-Entry "get-tail" accessor #f 240 25 240 33 ()}
+        {Lisp-Entry "head" slot #f 241 8 241 12 ()}
+        {Lisp-Entry "get-head" accessor #f 241 25 241 33 ()}
+        {Lisp-Entry "readtable" slot #f 242 8 242 17 ()}
+        {Lisp-Entry "get-readtable" accessor #f 242 28 242 36 ()}
+        {Lisp-Entry "set-readtable" accessor #f 242 28 242 36 ()}
+        {Lisp-Entry "context" slot #f 243 8 243 15 ()}
+        {Lisp-Entry "get-context" accessor #f 243 28 243 36 ()}
+        {Lisp-Entry "set-context" accessor #f 243 28 243 36 ()}
+        {Lisp-Entry "history" slot #f 244 8 244 15 ()}
+        {Lisp-Entry "get-history" accessor #f 244 28 244 36 ()}
+        {Lisp-Entry "set-history" accessor #f 244 28 244 36 ()}
+        {Lisp-Entry "initialize" method #f 247 20 247 30 ("history" "history~self" "unspecified" "context" "context~self" "readtable" "readtable~self" "head~self" "tail~self" "pump~self" "self" "remote~self" "set!" "head" "tail" "pump" "remote")}}
+      {Lisp-Entry "*consoles*" definition #f 257 12 257 22 ("eq?" "test:" "make-table")}
+      {Lisp-Entry "with-consoles-mutex" definition #f 261 12 261 31 ("mutex-unlock!" "prog1" "mutex-lock!" "thunk" "lambda" "consoles" "make-mutex" "mutex" "let")}
+      {Lisp-Entry "thread-console" definition #f 269 21 269 35 ("table-set!" "Debuggee-Thread" "Debuggee-Thread-Local-Proxy" "new" "make-debuggee-console" "console" "*consoles*" "table-ref" "lambda" "with-consoles-mutex" "not" "if" "controller-debugger" "or" "let" "select?" "select?:" "debugger" "debugger:" "thread")}
+      {Lisp-Entry "thread-console-pump-port" definition #f 281 21 281 45 ("thread-console" "get-tail" "get-tail~" "thread")}
+      {Lisp-Entry "thread-console-port" definition #f 284 21 284 40 ("thread-console" "get-head" "get-head~" "thread")}
+      {Lisp-Entry "current-console" definition #f 288 13 288 28 ("current-thread" "thread-console")}
+      {Lisp-Entry "current-console-context" definition #f 291 12 291 35 ("make-parameter")}
+      {Lisp-Entry "make-debuggee-console" definition #f 295 13 295 34 ("Console" "new" "start-debuggee-console-pump" "pump" "local-process" "register-console" "register-console~" "console" "let" "jazz-readtable" "readtable:" "permanent-close:" "list" "open-string-pipe" "tail" "head" "receive" "select?" "debugger" "thread-proxy")}
+      {Lisp-Entry "select-console" definition #f 302 21 302 35 ("select?:" "current-thread" "thread-console" "get-remote" "get-remote~" "controller-debugger" "select-console" "select-console~")}
+      {Lisp-Entry "console-port-getter" definition #f 306 13 306 32 ("current-console" "get-head" "get-head~" "terminal-port" "controller-debugger" "not" "if")}
+      {Lisp-Entry "detach-consoles" definition #f 312 13 312 28 ("table-keys/values" "bind" "pair" "for-each" "lambda" "with-consoles-mutex" "*consoles*" "table-clear" "get-head" "get-head~" "get-tail" "get-tail~" "close-port" "get-pump" "get-pump~" "stop-debuggee-console-pump" "console" "thread" "detach-console" "define")}
+      {Lisp-Entry "start-debuggee-console-pump" definition #f 332 13 332 40 ("debuggee-console-pump" "console-output" "console-output~" "when" "str" "start-pump" "lambda" "new-system-thread" "thread-start!" "port" "console" "debugger")}
+      {Lisp-Entry "stop-debuggee-console-pump" definition #f 343 13 343 39 ("thread-exit" "thread-interrupt!" "thread")}
+      {Lisp-Entry "current-repl-level" definition #f 353 20 353 38 ("0" "make-parameter")}
+      {Lisp-Entry "current-repl-frame" definition #f 356 20 356 38 ("make-parameter")}
+      {Lisp-Entry "with-repl-thread" definition #f 360 13 360 29 ("thread-exit" "thread-interrupt!" "unwind-protect" "start-repl-thread" "let" "current-repl-level" "parameterize" "step?" "step?:" "thunk" "level" "port" "reason" "thread")}
+      {Lisp-Entry "start-repl-thread" definition #f 369 20 369 37 ("string->symbol" "repl" "if" "read-eval-print-loop" "display-prompt" "not" ">" "and" "newline" "display" "format" "display-banner" "=" "when" "lambda" "new-system-thread" "thread-start!" "step?" "step?:" "0" "level" "port" "reason" "thread")}
+      {Lisp-Entry "display-banner" definition #f 387 21 387 35 ("force-output" "format" "not" "if" "current-process-version" "version" "current-process-title" "title" "let" "port")}
+      {Lisp-Entry "display-prompt" definition #f 397 21 397 35 ("force-output" "format" "0" ">" "if" "prompt" "define" "level" "port")}
+      {Lisp-Entry "*eval-count*" definition #f 408 12 408 24 ("0")}
+      {Lisp-Entry "eval-count" definition #f 412 20 412 30 ("increase!" "*eval-count*" "prog1")}
+      {Lisp-Entry "evaluate-in-unit" definition #f 417 20 417 36 (",expr" "get-dialect-name" "get-dialect-name~" ",unit-name" "module" "0" "generate-symbol-counter" "generate-symbol-context" "eval-count" "format" "generate-symbol-for" "requested-unit-name" "parameterize" "outline-unit" "module-declaration" "let" "load-unit" "evaluator" "expr" "unit-name")}
+      {Lisp-Entry "read-eval-print-loop" definition #f 433 13 433 33 ("continuation-capture" "iterate" "proper-tail-calls" "declare" "thread-call" "invoke-restart" "second" "restart" "newline" "1" "length" ">" "find-restarts" "restarts" "resume-loop" "eof-object?" "force-output" "display-prompt" "value" "for-each" "list" "call-with-values" "repl-result-history-add" "specified?" "thread-call-result?" "result" "unspecified" "display-exception" "problems" "Walk-Problems" "catch" "console-print" "registered-console-command" "command" "arguments" "cmd" "console-context" "current-console" "jazz.debuggee" "jazz.debuggee:current-console-context" "with-dynamic-self" ",class-name" "class" "break-reference" "class-name" "receive" "class-of" "category-identifier" "class-identifier" ",expr" ",local-names" "with-local-variables" "evaluate-in-unit" "unit-name" "thunk" "0" "generate-symbol-counter" "eval-count" "format" "generate-symbol-for" "not" "effective-context" ":lexical" "get-variables" "get-variables~" "local-variables" "current-console-context" "pp" "set!" "ev" "object?" "object" "serial" "string=?" "when" "find-object" "local-self" "string->symbol" "var" "map" "variables" "local-names" "evaluator" "context" "eval-in-context" "eval-within-no-winding" "runner" "get-continuation" "get-continuation~" "serial->object" "cont" "frame" "frame-evaluator" "unbox" "current-repl-frame" "frame-box" "current-frame" "else" "values" "symbol?" "cond" "cadr" "unquoted" "cdr" "unquote" "car" "eq?" "pair?" "if" "parse-unquote-command" "expr" "console-eval" "read" "continuation-return" "throw" "exception" "thread-post" "exc" "with-exception-filter" "lambda" "scheme-readtable" "get-readtable" "get-readtable~" "and" "or" "with-readtable" "thread-console" "console" "let" "eval" "walk-for" "parameterize" "console-read" "resume" "read-eval-print" "define" "level" "port" "thread")}
+      {Lisp-Entry "default-context" definition #f 596 12 596 27 (":not-set")}
+      {Lisp-Entry "get-default-context" definition #f 599 20 599 39 ("default-context")}
+      {Lisp-Entry "set-default-context" definition #f 602 20 602 39 ("default-context" "set!" "ctx")}
+      {Lisp-Entry "context-alias" definition #f 606 13 606 26 ("else" "context-alias" ":me" ":process" ":profile" "process-alias" "process-alias~" "or" "Me" "jazz.profile" "module-ref" "new" "not" "cond" "get-process" "process" "let" ":not-set" "default-context" "neq?" ":default" "eq?" "and" "if" "enumerator?" "when" "context")}
+      {Lisp-Entry "console-context" define #f 625 9 625 24 ("not" "set-context" "set-context~" ":default" "initial-console-context" "initial-console-context~" "context-alias" "get-process" "process" "new-context" "unspecified?" "if" "get-context" "get-context~" "context" "let" "context-init" "define" "console")}
+      {Lisp-Entry "*console-commands*" definition #f 648 12 648 30 ("eq?" "test:" "make-table")}
+      {Lisp-Entry "register-console-command" definition #f 652 20 652 44 ("*console-commands*" "table-set!" "proc" "cmd")}
+      {Lisp-Entry "registered-console-command" definition #f 656 20 656 46 ("error" "*console-commands*" "table-ref" "or" "cmd")}
+      {Lisp-Entry "in-command" define #f 661 9 661 19 ("jazz-readtable" "set-readtable" "set-readtable~" "set-context" "set-context~" "load-unit" "symbol?" "when" "context-alias" "new-context" "car" "ctx" "null?" "not" "or" "if" "console-context" "context" "let" "print" "eval" "read" "console" "arguments" "cmd")}
+      {Lisp-Entry "jazz-exception-debugger" definition #f 683 20 683 43 ("jazz-handle-exception" "cont" "lambda" "continuation-capture" "exc")}
+      {Lisp-Entry "with-jazz-exception-debugger" definition #f 689 20 689 48 ("jazz-exception-debugger" "with-exception-debugger" "thunk")}
+      {Lisp-Entry "jazz-handle-exception" definition #f 694 13 694 34 ("exception" "invoke-debugger" "exception-detail" "detail" "exception-reason" "reason" "once" "eq?" "when" "lambda" "with-system-exception-debugger" "system-exception-hook" "invoke-exception-hook" "not" "or" "if" "use-debugger?" "use" "get-controller-debugger" "debugger" "let" "cont" "exc")}
+      {Lisp-Entry "local-debugger?" definition #f 708 20 708 35 ("local-proxy?" "controller-debugger" "jazz-exception-debugger" "current-exception-debugger" "eq?" "and")}
+      {Lisp-Entry "without-local-debugger" definition #f 714 20 714 42 ("with-system-exception-debugger" "local-debugger?" "if" "thunk")}
+      {Lisp-Entry "break-internal" definition #f 721 23 721 37 ("break" "invoke-debugger" "continuation" "lambda" "continuation-capture" "reason" "reason:")}
+      {Lisp-Entry "start-repl-internal" definition #f 727 23 727 42 ("invoke-repl" "select-console" "when" "continuation" "lambda" "continuation-capture" "select?" "select?:" "reason" "reason:")}
+      {Lisp-Entry "install-step" definition #f 740 20 740 32 ("continuation-graft" "cmd" "stepper:" "locat:" "break" "invoke-debugger" "cont" "continuation-capture" "executer" "locat" "lambda" "install-step-handler" "proper-tail-calls" "declare")}
+      {Lisp-Entry "inspect-internal" definition #f 759 23 759 39 ("local-process" "controller-debugger" "inspect" "inspect~" "package-info" "info" "let" ":value" "kind" "kind:" "object")}
+      {Lisp-Entry "*advices*" definition #f 769 12 769 21 ("eq?" "test:" "make-table")}
+      {Lisp-Entry "get-advices" definition #f 773 20 773 31 ("*advices*")}
+      {Lisp-Entry "advise-internal" definition #f 778 23 778 38 ("class?" "null/pair?" "symbol?" "cond" "table-set!" "table-clear" "eq?" "*advices*" "or" "original" "set" "ref" "update-method" "find-dispatch" "compose-reference" "get-name" "get-name~" "Method" "Slot" "advise-method" "method" "iterate-class-overrides" "get-fields" "get-fields~" "iterate-table-safe" "class" "field-set!" "field-set!~" "value" "field-ref" "field-ref~" "call-proc" "field-locator" "field-locator~" "locator" "field" "advise-class" "Class" "advise-field" "Field" "typecase" "starts-with?" "when" "car" "category-field" "advise-class-field" "category?" "advise-entry" "get-entries" "get-entries~" "table-ref" "entry" "require-module" "advise-prefixed" "2" "cardinality" "-" "0" "substring" "prefix" "let" "null?" "assert" "symbol->string" "ends-with?" "rest" "bind" "path" "split-symbol" "not" "if" "cons" "advise-path" "break-reference" "name" "receive" "symbol" "advise-symbol" "advise-module" "module" "module-name" "lambda" "get-modules" "iterate-table" "advise-all" "define" "proc" "what")}
+      {Lisp-Entry "unadvise-internal" definition #f 881 23 881 40 ("set" "original" "locator" "field" "lambda" "advise" "what")}
+      {Lisp-Entry "debug-advice-internal" definition #f 905 23 905 44 ("debug" "set" "original" "locator" "field")}
+      {Lisp-Entry "counts" definition #f 914 12 914 18 ("eq?" "test:" "make-table")}
+      {Lisp-Entry "get-counts" definition #f 917 20 917 30 ("counts")}
+      {Lisp-Entry "count-advice-internal" definition #f 921 20 921 41 ("apply" "1" "0" "table-ref" "+" "counts" "table-set!" "rest" "lambda" "procedure?" "when" "let" "set" "original" "locator" "field")}
+      {Lisp-Entry "time-advice-internal" definition #f 934 20 934 40 ("apply" "time" "rest" "lambda" "procedure?" "when" "let" "set" "original" "locator" "field")}
+      {Lisp-Entry "trace-depth" define #f 946 8 946 19 ("0" "make-parameter")}
+      {Lisp-Entry "trace-advice-internal" definition #f 950 23 950 44 ("apply" "1" "+" "parameterize" "result" "not-null?" "present-reference" ":terminal" "format" "2" "trace-depth" "*" "column" "rest" "lambda" "procedure?" "when" "let" "set" "original" "locator" "field")}
+      {Lisp-Entry "trace-internal" definition #f 962 23 962 37 ("trace-advice-internal" "advise" "what")}
+      {Lisp-Entry "untrace-internal" definition #f 966 23 966 39 ("unadvise" "what")}
+      {Lisp-Entry "invoke-repl" definition #f 975 13 975 24 ("process-debuggee-loop" "process-debuggee-loop~" "debuggee-loop" "get-process" "process" "with-current-loop" "box" "current-repl-frame" "parameterize" "lambda" "with-repl-thread" "1" "current-repl-level" "+" "0" "current-loop" "not" "if" "level" "get-console-port" "port" "current-thread" "thread" "let" "continuation" "detail" "reason")}
+      {Lisp-Entry "invoke-debugger" definition #f 990 20 990 35 ("unregister-stop~" "when" "unregister-stop" "process-debuggee-loop" "process-debuggee-loop~" "debuggee-loop" "not" "if" "get-process" "process" "with-current-loop" "boolean" "step?:" "local-process" "controller-debugger" "register-stop~" "register-stop" "dynamic-wind" "Debuggee-Stop-Local-Proxy" "stop-proxy" "Debuggee-Thread" "Debuggee-Thread-Local-Proxy" "thread-proxy" "Debuggee-Stop" "stop" "box" "current-repl-frame" "parameterize" "with-repl-thread" "1" "current-repl-level" "+" "level" "get-console-port" "port" "current-thread" "let" "current-restarts" "Debuggee-Restart" "Debuggee-Restart-Local-Proxy" "new" "restart" "map" "thread" "compute-restarts" "get-debugger-releases" "proc" "lambda" "for-each" "invoke-releases" "define" "stepper" "stepper:" "locat" "locat:" "continuation" "exc" "detail" "reason" "kind")}
+      {Lisp-Entry "debuggee-loop" definition #f 1029 21 1029 34 ("with-jazz-exception-debugger" "thread-read" "thunk" "lambda" "present-current-loop-restart" "resume-loop" "with-restart-catcher" "loop" "let")}
+      {Lisp-Entry "present-current-loop-restart" definition #f 1039 21 1039 49 ("0" "=" "if" "format" "get-level" "get-level~" "level" "when" "current-loop" "loop" "let")}
+      {Lisp-Entry "*debugger-releases*" definition #f 1054 12 1054 31 ("new-queue")}
+      {Lisp-Entry "get-debugger-releases" definition #f 1057 20 1057 41 ("*debugger-releases*" "queue-list")}
+      {Lisp-Entry "add-debugger-release" definition #f 1060 20 1060 40 ("*debugger-releases*" "enqueue" "proc" "name")}
+      {Lisp-Entry "*current-view-debugger*" definition #f 1089 12 1089 35 ()}
+      {Lisp-Entry "current-view-debugger" definition #f 1093 20 1093 41 ("View-Debugger" "new" "set!" "*current-view-debugger*" "not" "when")}}})
 "_view"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "_view.jazz"} 1299091924 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "view" "_view.jazz"} 239511689. jazz
     {Lisp-Entry "jazz.debuggee.view" module #f 37 8 37 26 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.system" "jazz.library" "jazz.designer.view" "jazz.designer" "jazz.debuggee")}
       {Lisp-Entry "edit" definition #f 54 20 54 24 ("unspecified" "class-of" "category-name" "get-application" "edit-definitions" "edit-definitions~" "object")}
-      {Lisp-Entry "design" definition #f 64 20 64 26 ("edit-component" "target")}
+      {Lisp-Entry "design" definition #f 64 20 64 26 ("open-component" "target")}
       {Lisp-Entry "design-in-place" definition #f 68 20 68 35 ("host-visible?:" "client:" "View-Editor" "jazz.designer" "jazz.designer:View-Editor" "new-frame" "view")}
       {Lisp-Entry "reprint" definition #f 72 20 72 27 ("save" "save~" "form:" "Designer" "new" "designer" "get-class-form" "get-class-form~" "form" "class-of" "class?" "if" "class" "let*" "class/component")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "autoload.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "autoload.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.autoload" module #f 37 18 37 40 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("View-Debugger" "jazz.debuggee.view.View-Debugger" "Resources-View" "jazz.debuggee.view.Resources-View" "Resources-Monitor" "jazz.debuggee.view.Resources-Monitor" "Profiler-View" "jazz.debuggee.view.Profiler-View" "Profiler-Manager" "jazz.debuggee.view.Profiler-Manager" "Log-View" "jazz.debuggee.view.Log-View" "Debuggee-Thread-Stub" "Debuggee-Stop-Stub" "Debuggee-Restart-Stub" "Debuggee-Process-Stub" "Debuggee-Frame-Stub" "jazz.debuggee.stub" "Debuggee-Thread" "jazz.debuggee.Debuggee-Thread" "Debuggee-Stop" "jazz.debuggee.Debuggee-Stop" "Debuggee-Restart" "jazz.debuggee.Debuggee-Restart" "Debuggee-Process" "jazz.debuggee.Debuggee-Process" "Debuggee-Frame" "autoload" "jazz.debuggee.Debuggee-Frame")}}})
 "setup"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "setup.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "setup.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.setup" module #f 37 8 37 27 ("setup-debuggee" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee")}}})
 "stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "stub.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "stub.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.stub" module #f 37 8 37 26 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
       {Lisp-Entry "Debuggee-Process" remotable-stub "~stub" 48 16 48 32 ()
@@ -405,6 +411,6 @@
         {Lisp-Entry "get-location" method #f 132 23 132 35 ()}
         {Lisp-Entry "get-variables" method #f 133 23 133 36 ("kind")}}}})
 "update"
- ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "update.jazz"} 1296083296 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "debuggee" "update.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.debuggee.update" module #f 37 8 37 28 ("update-debuggee-process" "update-debuggee-arguments" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.debuggee")}}})

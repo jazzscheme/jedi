@@ -1,15 +1,15 @@
 "JazzScheme-Server"
- ({Lisp-File-Entry {File :context "src" "jazz" "website" "server" "JazzScheme-Server.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "website" "server" "JazzScheme-Server.jazz"} 236918190. jazz
     {Lisp-Entry "jazz.website.server.JazzScheme-Server" module #f 37 18 37 55 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.network")}
       {Lisp-Entry "JazzScheme-Server" class #f 43 7 43 24 ("Web-Server")}}})
 "JazzScheme-Site"
- ({Lisp-File-Entry {File :context "src" "jazz" "website" "server" "JazzScheme-Site.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "website" "server" "JazzScheme-Site.jazz"} 236918190. jazz
     {Lisp-Entry "jazz.website.server.JazzScheme-Site" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.network")}
       {Lisp-Entry "JazzScheme-Site" class #f 43 7 43 22 ("Object")}}})
 "JazzWebsite-Transformation"
- ({Lisp-File-Entry {File :context "src" "jazz" "website" "transformation" "JazzWebsite-Transformation.jazz"} 1302615095 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "website" "transformation" "JazzWebsite-Transformation.jazz"} 236918190. jazz
     {Lisp-Entry "jazz.website.transformation.JazzWebsite-Transformation" module #f 37 18 37 72 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.website" "jazz.system" "jazz.library.component" "jazz.jml" "jazz.io" "jazz.doc" "jazz.catalog")}
       {Lisp-Entry "JazzWebsite-Transformation" class #f 49 7 49 33 ("DocToHTML-Transformation")
@@ -35,7 +35,7 @@
         {Lisp-Entry "index-output" method #f 623 11 623 23 ("width:" "table" "<table>" "h3" "<h3>" "eq?" "test:" "make-table" "user-feedback" "alphabetic?" "get-output" "get-output~" "br" "<br>" "not-null?" "b" "<b>" "table-ref" "car" "letter-set" "process-letter-set" "List-Factory" "new" "alpha" "assv-value" "non-alpha" "alphabetic-partition" "let*" "letters" "index-navigator" "nu<?" "sort" "list" "cons" "set!" "get-effective-title" "get-effective-title~" "get-name" "get-name~" "when" "anchors" "iterate-table" "lst" "third" "first" "upcase" "key:" "gather-anchors" "partition" "letters-partition" ",title" "code" "<code>" "href:" "format" "title" "doc" "info" "lambda" "for-each" "string" ",anchor" "name:" "a" "<a>" "class:" "div" "<div>" "colspan:" "td" "<td>" "tr" "<tr>" "put" "put~" "register-anchor" "anchor" "let" "infos" "char" "bind" "output" "letter-anchors" "letter" "output-letter" "define")}
         {Lisp-Entry "output-article" method #f 691 11 691 25 ("get-children" "get-children~" "error" "+" "output-article" "get-tag" "get-tag~" "JML-Element" "is?" "node" "lambda" "for-each" "children->jml" "children->jml~" "else" "class:" "h4" "<h4>" "2" ",title" "h3" "<h3>" "1" "case" "title" "->string" "name:" "a" "<a>" "not" "if" "get-property" "get-property~" "name" "let" "div" "<div>" "put" "put~" "description" "output-article-description" "define" "output" "level" "article")}}}})
 "Website"
- ({Lisp-File-Entry {File :context "src" "profile" "website" "Website.jazz"} 1302614689 jazz
+ ({Lisp-File-Entry {File :context "src" "profile" "website" "Website.jazz"} 236918190. jazz
     {Lisp-Entry "profile.website.Website" module #f 8 8 8 31 ("Website" "register-profile-class" "jazz")
       {Lisp-Entry "import" anonymous #f 11 1 11 7 ("time" "jedi" "jazz.website" "jazz.ui.view" "jazz.ui.dialog" "jazz.ui.clipboard" "jazz.ui" "jazz.system" "jazz.profile" "jazz.platform" "jazz.network" "jazz.library" "jazz.jml" "jazz.io" "jazz.editor.jazz" "irregex")}
       {Lisp-Entry "Website" class #f 29 7 29 14 ("Jedi-Profile")
@@ -44,11 +44,11 @@
         {Lisp-Entry "test9" method #f 55 20 55 25 ("regenerate" "generate-manual?" "parameterize")}
         {Lisp-Entry "test0" method #f 60 20 60 25 ("regenerate")}}}})
 "_website"
- ({Lisp-File-Entry {File :context "src" "jazz" "website" "_website.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "website" "_website.jazz"} 236918190. jazz
     {Lisp-Entry "jazz.website" module #f 37 8 37 20 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.website.autoload")}
       {Lisp-Entry "generate-manual?" definition #f 48 19 48 35 ("make-parameter")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "website" "autoload.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "website" "autoload.jazz"} 236918190. jazz
     {Lisp-Entry "jazz.website.autoload" module #f 37 18 37 39 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("JazzWebsite-Transformation" "jazz.website.transformation.JazzWebsite-Transformation" "JazzScheme-Site" "jazz.website.server.JazzScheme-Site" "JazzScheme-Server" "autoload" "jazz.website.server.JazzScheme-Server")}}})

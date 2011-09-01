@@ -1,5 +1,5 @@
 "C4-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "C4-Pages.jazz"} 1298567847 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "C4-Pages.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.C4-Pages" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.sample.gameserver.Game-Pages" "jazz.network.http.HTTP-Request" "jazz.sample.game.minimax" "jazz.sample.c4" "jazz.jml")}
       {Lisp-Entry "C4-Pages" class #f 47 7 47 15 ("Game-Pages")
@@ -12,7 +12,7 @@
         {Lisp-Entry "serialize-move" method #f 226 20 226 34 ("format" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "move")}
         {Lisp-Entry "deserialize-move" method #f 232 20 232 36 ("get-square" "get-square~" "cardinality" "1" "+" "col" "0" "substring" "string->number" "row" "search" "pos" "let" "value" "game")}}}})
 "Game-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Pages.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Pages.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.Game-Pages" module #f 37 18 37 51 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jml.xhtml.XHTML-Parser" "jazz.jml.preference.JML-Preferences" "jazz.jml.xhtml.XHTML-Renderer" "jazz.network.http.HTTP-Request" "jazz.network.http.HTTP-Response" "jazz.network.http.Handler" "jazz.network")}
       {Lisp-Entry "Game-Pages" class #f 49 7 49 17 ("HTTP-Request-Handler")
@@ -30,7 +30,7 @@
         {Lisp-Entry "render-game" method #f 133 19 133 30 ("request")}
         {Lisp-Entry "handle-request" method #f 137 20 137 34 ("get-output-string" "render-game" "XHTML-Parser" "parse" "parse~" "JML-Preferences" "XHTML-Renderer" "render" "render~" "open-output-string" "output" "let" "content:" "ok" "code:" "HTTP-Response" "new" "page-name" "get-uri" "get-uri~" "starts-with?" "when" "server" "port" "request")}}}})
 "Game-Server"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Server.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Server.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.Game-Server" module #f 37 18 37 52 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system.process" "jazz.system" "jazz.platform" "jazz.network.http.Directory-Handler" "jazz.sample.gameserver.C4-Pages" "jazz.sample.gameserver.Gomoku-Pages" "jazz.sample.gameserver" "jazz.network" "jazz.io")}
       {Lisp-Entry "Game-Server-Process" class #f 51 7 51 26 ("8080" "initialize" "Process")
@@ -40,13 +40,13 @@
         {Lisp-Entry "start-process" method #f 63 20 63 33 ("start" "start~" "Jazz" "Directory" "root-directory:" "Directory-Handler" "Gomoku-Pages" "C4-Pages" "Games-Pages" "get-dispatcher" "get-dispatcher~" "add-handler" "add-handler~" "port" "port:" "Web-Server" "new" "server" "set!")}
         {Lisp-Entry "stop" method #f 76 18 76 22 ("stop" "stop~" "server" "when")}}}})
 "Games-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Games-Pages.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Games-Pages.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.Games-Pages" module #f 37 18 37 52 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.network.http.HTTP-Request" "jazz.network.http.HTTP-Response" "jazz.network.http.Handler" "jazz.jml.xhtml.XHTML-Parser" "jazz.jml")}
       {Lisp-Entry "Games-Pages" class #f 47 7 47 18 ("HTTP-Request-Handler")
         {Lisp-Entry "handle-request" method #f 50 20 50 34 ("get-output-string" "href:" "a" "<a>" "li" "<li>" "ul" "<ul>" "h3" "<h3>" "body" "<body>" "title" "<title>" "head" "<head>" "html" "<html>" "XHTML-Parser" "parse" "parse~" "JML-Preferences" "XHTML-Renderer" "render" "render~" "open-output-string" "output" "let" "content:" "ok" "code:" "HTTP-Response" "new" "get-uri" "get-uri~" "equal?" "when" "server" "port" "request")}}}})
 "Gomoku-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Gomoku-Pages.jazz"} 1298567847 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Gomoku-Pages.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.Gomoku-Pages" module #f 37 18 37 53 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.sample.gameserver.Game-Pages" "jazz.sample.gomoku" "jazz.sample.game.minimax" "jazz.jml")}
       {Lisp-Entry "Gomoku-Pages" class #f 47 7 47 19 ("Game-Pages")
@@ -55,19 +55,19 @@
         {Lisp-Entry "serialize-move" method #f 271 20 271 34 ("format" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "move")}
         {Lisp-Entry "deserialize-move" method #f 277 20 277 36 ("get-square" "get-square~" "cardinality" "1" "+" "col" "0" "substring" "string->number" "row" "search" "pos" "let" "value" "game")}}}})
 "_gameserver"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "_gameserver.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "_gameserver.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver" module #f 38 8 38 30 ("jazz")
       {Lisp-Entry "export" anonymous #f 41 1 41 7 ("jazz.sample.gameserver.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "autoload.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "autoload.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.autoload" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Games-Pages" "jazz.sample.gameserver.Games-Pages" "Game-Pages" "jazz.sample.gameserver.Game-Pages" "Game-Server-Process" "autoload" "jazz.sample.gameserver.Game-Server")}}})
 "imagemagick"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "imagemagick.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "imagemagick.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.imagemagick" module #f 37 8 37 42 ("jazz")
       {Lisp-Entry "image-convert" definition #f 40 20 40 33 ("error" "0" "/=" "when" "format" "shell-command" "status" "let" "cmd")}
       {Lisp-Entry "image-composite" definition #f 46 20 46 35 ("error" "0" "/=" "when" "format" "shell-command" "status" "let" "cmd")}}})
 "run"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "run.jazz"} 1296083298 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "run.jazz"} 236918189. jazz
     {Lisp-Entry "jazz.sample.gameserver.run" module #f 37 8 37 34 ("Game-Server-Process" "new" "boot-environment" "boot-environment~" "descriptor" "lambda" "jazz.sample.gameserver" "register-product-run" "jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.sample.gameserver.Game-Server" "jazz.io")}}})

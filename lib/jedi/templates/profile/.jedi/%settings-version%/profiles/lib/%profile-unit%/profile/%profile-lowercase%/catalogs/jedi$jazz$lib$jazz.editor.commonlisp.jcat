@@ -1,5 +1,5 @@
 "CommonLisp-Explorer"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Explorer.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Explorer.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp.text.CommonLisp-Explorer" module #f 37 18 37 65 ("jazz")
       {Lisp-Entry "require" anonymous #f 40 1 40 8 ("jazz.editor.commonlisp.forms")}
       {Lisp-Entry "import" anonymous #f 42 1 42 7 ("jazz.editor.lisp" "jazz.editor.commonlisp")}
@@ -10,7 +10,7 @@
         {Lisp-Entry "walk-define-variable" method #f 97 11 97 31 ("code" "walk-expressions" "exit-list" "walk-parameters" "get-marked" "define-variable" "set!" "kind" "eq?" "forward-expr" "and" "enter-list" "when" "0" "char-forward" "eqv?" "list?" "forward-whites" "end" "start" "entry" "let" "doc" "expression" "keyword" "declaration" "form" "symbol" "context")}
         {Lisp-Entry "walk-eval-when" method #f 114 11 114 25 ("walk-declarations" "doc" "expression" "keyword" "declaration" "form" "symbol" "context")}}}})
 "CommonLisp-Parser"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "parser" "CommonLisp-Parser.jazz"} 1299765226 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "parser" "CommonLisp-Parser.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp.parser.CommonLisp-Parser" module #f 37 18 37 65 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.editor.lisp" "jazz.editor.commonlisp")}
       {Lisp-Entry "CommonLisp-Parser" class #f 44 7 44 24 ("Lisp-Parser")
@@ -18,7 +18,7 @@
         {Lisp-Entry "text-view-class" method #f 61 20 61 35 ("CommonLisp-Text-View")}
         {Lisp-Entry "explorer-class" method #f 65 20 65 34 ("CommonLisp-Explorer" "file")}}}})
 "CommonLisp-Syntax"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Syntax.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Syntax.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp.text.CommonLisp-Syntax" module #f 37 18 37 63 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.editor.lisp" "jazz.editor.commonlisp")}
       {Lisp-Entry "CommonLisp-Syntax" class #f 45 7 45 24 ("Lisp-Syntax")
@@ -28,13 +28,13 @@
         {Lisp-Entry "preferences" method #f 75 20 75 31 ("commonlisp-text" "documents" "get-preferences")}
         {Lisp-Entry "declaration-style" method #f 79 20 79 37 ("Declaration" "documented?")}}}})
 "CommonLisp-Text-Preferences"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Text-Preferences.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Text-Preferences.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp.text.CommonLisp-Text-Preferences" module #f 37 18 37 73 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.jml" "jazz.designer" "jazz.graphic" "jazz.editor.lisp" "jazz.editor.commonlisp")}
       {Lisp-Entry "CommonLisp-Text-Preferences" class #f 48 7 48 34 ("Lisp-Text-Preferences")
         {Lisp-Entry "form" anonymous #f 51 3 51 7 ("completions:" "title:" "install" "<install>")}}}})
 "CommonLisp-Text-View"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Text-View.jazz"} 1302467561 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "text" "CommonLisp-Text-View.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp.text.CommonLisp-Text-View" module #f 37 18 37 66 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.locale" "jazz.library" "jazz.jml" "jazz.graphic" "jazz.editor.lisp" "jazz.editor.commonlisp")}
       {Lisp-Entry "CommonLisp-Text-View" class #f 50 7 50 27 ("Lisp-Text-View")
@@ -46,15 +46,15 @@
       {Lisp-Entry "CommonLisp-Text-Menu" class #f 83 7 83 27 ("Context-Menu")
         {Lisp-Entry "form" anonymous #f 86 3 86 7 ("Format-Menu" "<Format-Menu>" "Column-Menu" "<Column-Menu>" "paste" "copy" "view" "french:" "english:" "Locales" "cut" "Separator-Item" "<Separator-Item>" "edit-references" "code-text" "Action" "action-handler:" "Image-Resource" "icon:" "title:" "edit-definitions" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}}})
 "_commonlisp"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "_commonlisp.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "_commonlisp.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp" module #f 37 8 37 30 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.editor.commonlisp.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "autoload.jazz"} 1302095163 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "autoload.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp.autoload" module #f 37 18 37 49 ("jazz")
       {Lisp-Entry "export" anonymous #f 40 1 40 7 ("CommonLisp-Text-View" "jazz.editor.commonlisp.text.CommonLisp-Text-View" "CommonLisp-Text-Preferences" "jazz.editor.commonlisp.text.CommonLisp-Text-Preferences" "CommonLisp-Syntax" "jazz.editor.commonlisp.text.CommonLisp-Syntax" "CommonLisp-Explorer" "jazz.editor.commonlisp.text.CommonLisp-Explorer" "CommonLisp-Parser" "autoload" "jazz.editor.commonlisp.parser.CommonLisp-Parser")}}})
 "forms"
- ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "forms.jazz"} 1296083297 jazz
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "commonlisp" "forms.jazz"} 236918187. jazz
     {Lisp-Entry "jazz.editor.commonlisp.forms" module #f 37 8 37 36 ("jazz")
       {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.editor.commonlisp" "jazz.editor.lisp")}
       {Lisp-Entry "defclass" define ("expression") 49 19 49 27 (":define-variable" "walk:" "2" "tabulate:" "declaration?:" "commonlisp" "dialect:")}
