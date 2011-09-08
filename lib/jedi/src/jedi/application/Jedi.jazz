@@ -228,9 +228,9 @@
   (method override (initialize-settings)
     (define (determine-settings)
       (or (command-argument "settings")
-          (let ((dot-jedi-dir {Directory Home ".jedi"}))
-            (create-directories~ dot-jedi-dir)
-            (versioned-directory (parse~ dot-jedi-dir) 'settings settings-updates convert-settings))))
+          (let ((dot-dir {Directory Home ".jedi"}))
+            (create-directories~ dot-dir)
+            (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings))))
     
     (let ((settings-path (tokenise-filename (determine-settings))))
       (register-alias 'Settings settings-path)
