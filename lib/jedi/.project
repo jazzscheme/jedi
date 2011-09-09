@@ -9,7 +9,8 @@
 (data jazz.ide.data.project
 
 
-(import (jazz.editor.jazz))
+(import (jazz.project)
+        (jazz.editor.jazz))
 
 
 (form
