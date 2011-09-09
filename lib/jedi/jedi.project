@@ -1,0 +1,17 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Project
+;;;
+
+
+(data jazz.debugger.jazz.data.project
+
+
+(form
+  (<Jazz-Project> name: Jedi    initial-trait: Release directory: {Directory :context "../.."} product: jedi
+    (<Trait>      name: Debug
+      (<install>                configuration: "build/debug"))
+    (<Trait>      name: Release
+      (<install>                configuration: "build/release")))))

@@ -171,6 +171,8 @@
       (<Separator-Item>)
       (<Label-Item>     name: select           title: "Select..." icon: {Image-Resource "ConcreteProject"} action-handler: {Action ide select-project})
       (<Separator-Item>)
+      (<Label-Item>     name: configure        title: "Configure" icon: {Image-Resource "Configure"} action-handler: {Action ide configure-project})
+      (<Separator-Item>)
       (<Label-Item>     name: test             title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
       (<Label-Item>     name: debug            title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
       (<Label-Item>     name: debug-with       title: "Debug With..." action-handler: {Action ide debug-project-with})
