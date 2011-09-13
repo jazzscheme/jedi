@@ -75,7 +75,6 @@
         (<C-Text-Preferences>              name: c-text)
   @wait (<CSharp-Text-Preferences>         name: csharp-text)
   @wait (<CSS-Text-Preferences>            name: css-text)
-        (<Compare-Text-Preferences>        name: compare-text)
   @wait (<HTML-Text-Preferences>           name: html-text)
   @wait (<Java-Text-Preferences>           name: java-text)
   @wait (<JavaScript-Text-Preferences>     name: javascript-text)
