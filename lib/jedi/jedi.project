@@ -10,7 +10,7 @@
 
 
 (form
-  (<Jazz-Project> name: Jedi    default-trait: Release directory: {Directory :context "../.."} product: jedi
+  (<Jazz-Project> name: Jedi    default-traits: Release directory: {Directory :context "../.."} product: jedi
     (<Trait>      name: Debug
       (<install>                configuration: "build/debug"))
     (<Trait>      name: Release
