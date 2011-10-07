@@ -1404,7 +1404,7 @@
   (method (test-region)
     (with-profile
       (lambda (node)
-        (new Region 0 0 100 100))
+        (new Region rect: {Rect 0 0 100 100}))
       name: "Region"))
   
   
