@@ -293,11 +293,6 @@
             (else (nextmethod file)))))
   
   
-  (method override (edit-category name)
-    (let ((location (new Jazz-Code-Location (list name 1))))
-      (edit~ location)))
-  
-  
   ;;;
   ;;;; Text
   ;;;
