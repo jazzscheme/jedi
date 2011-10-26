@@ -69,7 +69,7 @@
   
   
   (form
-    (<install>                                                       title: "Jedi Preferences" documented?: #t protocols: ((file . {Reference File}) (dir . {Reference Directory}) (group . {Reference Directory-Group}) (manifest . {Reference Manifest}) (url . {Reference URL}) @wait (item . {Reference Depot-Moniker}) (doc . {Reference Document-Moniker}) (category . {Reference Category-Moniker})) catalog-types: ((filing . {Reference Filing-Catalog}) (doc . {Reference Doc-Catalog})) toolbar-classes: ((:menubar . {Reference Jedi-Menubar}) (:toolbar . {Reference Jedi-Toolbar}) (:command . {Reference Command-Toolbar}) (:minibuffer . {Reference Minibuffer-Toolbar}) (:status . {Reference Jedi-Status}))
+    (<install>                                                       title: "Jedi Preferences" documented?: #t protocols: ((file . {Class-Reference File}) (dir . {Class-Reference Directory}) (group . {Class-Reference Directory-Group}) (manifest . {Class-Reference Manifest}) (url . {Class-Reference URL}) @wait (item . {Class-Reference Depot-Moniker}) (doc . {Class-Reference Document-Moniker}) (category . {Class-Reference Category-Moniker})) catalog-types: ((filing . {Class-Reference Filing-Catalog}) (doc . {Class-Reference Doc-Catalog})) toolbar-classes: ((:menubar . {Class-Reference Jedi-Menubar}) (:toolbar . {Class-Reference Jedi-Toolbar}) (:command . {Class-Reference Command-Toolbar}) (:minibuffer . {Class-Reference Minibuffer-Toolbar}) (:status . {Class-Reference Jedi-Status}))
       (<documents~>
         (<CommonLisp-Text-Preferences>     name: commonlisp-text)
         (<C-Text-Preferences>              name: c-text)
