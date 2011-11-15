@@ -1,7 +1,7 @@
 "_fib"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "fib" "_fib.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.fib" module #f 0 8 0 23 ("fib" "terminal" "36" "to" "1" "from" "i" "for" "loop" "time" "jazz")
-      {Lisp-Entry "fib" definition #f 2 13 2 16 ("2" "-" "fib" "+" "1" "0" "=" "or" "if" "fx" "<fx>" "n")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "fib" "_fib.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.sample.fib" module () #f 0 8 0 23 ("fib" "terminal" "36" "to" "1" "from" "i" "for" "loop" "time" "jazz")
+      {Lisp-Entry "fib" definition () #f 2 13 2 16 ("2" "-" "fib" "+" "1" "0" "=" "or" "if" "fx" "<fx>" "n")}}})
 "fib"
- ({Lisp-File-Entry {File :context "fib" "fib.scm"} 236918189. scheme
-    {Lisp-Entry "fib" define #f 6 9 6 12 ("2" "-" "fib" "+" "1" "0" "=" "or" "if" "n")}})
+ ({Lisp-File-Entry {File :context "fib" "fib.scm"} 222341473. scheme
+    {Lisp-Entry "fib" define #f #f 6 9 6 12 ("2" "-" "fib" "+" "1" "0" "=" "or" "if" "n")}})

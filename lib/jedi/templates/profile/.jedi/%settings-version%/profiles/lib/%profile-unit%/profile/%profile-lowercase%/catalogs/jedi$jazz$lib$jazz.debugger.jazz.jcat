@@ -1,356 +1,345 @@
-"Jazz-Configuration"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Configuration.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Jazz-Configuration" module #f 37 18 37 55 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.system" "jazz.library" "jazz.jml" "jazz.io" "jazz.ide" "jazz.designer" "jazz.debugger.gambit")}
-      {Lisp-Entry "Jazz-Configuration" class #f 50 7 50 25 ("Gambit-Configuration")
-        {Lisp-Entry "get-class-descriptor" method #f 58 25 58 45 ("Jazz-Configuration-Descriptor" "new")}}
-      {Lisp-Entry "design" submodule #f 67 11 67 17 ()
-        {Lisp-Entry "import" anonymous #f 70 1 70 7 ("jazz.designer")}
-        {Lisp-Entry "Jazz-Configuration-Descriptor" class #f 73 7 73 36 ("Gambit-Configuration-Descriptor")
-          {Lisp-Entry "form" anonymous #f 76 3 76 7 ("title" "categorized:" ">" "<properties" "<properties~>" "install" "<install>")}}}}})
 "Jazz-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Debugger.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Jazz-Debugger" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.workspace" "jazz.ui.window" "jazz.ui.view" "jazz.system" "jazz.network" "jazz.media" "jazz.jrm" "jazz.editor.jazz" "jazz.io" "jazz.debugger" "jazz.debuggee" "jazz.console")}
-      {Lisp-Entry "Jazz-Debugger" class #f 54 7 54 20 ("initialize" "Debugger")
-        {Lisp-Entry "processes" slot #f 57 8 57 17 ()}
-        {Lisp-Entry "start-debugger" method #f 65 20 65 34 ()}
-        {Lisp-Entry "stop-debugger" method #f 69 20 69 33 ()}
-        {Lisp-Entry "get-processes" method #f 73 20 73 33 ("processes" "validate-processes" "when" "validate-liveness?" "validate-liveness?:")}
-        {Lisp-Entry "validate-processes" method #f 79 20 79 38 ("queue-list" "set!" "processes" "self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "enqueue" "if" "lambda" "for-each" "new-queue" "valid" "let" "live?" "live?~" "Local-Proxy" "is?" "or" "process" "live-process?" "define")}
-        {Lisp-Entry "detach-processes" method #f 93 20 93 36 ("processes" "detach-process" "detach-process~" "proxy=?" "not" "when" "process" "lambda" "for-each" "get-local-process" "local-process" "let" "validate-processes")}
-        {Lisp-Entry "process=?" method #f 107 20 107 29 ("proxy-server=?" "y" "x")}
-        {Lisp-Entry "process-live?" method #f 111 20 111 33 ("live?" "live?~" "process")}
-        {Lisp-Entry "process-title" method #f 115 20 115 33 ("get-title" "get-title~" "process")}
-        {Lisp-Entry "process-icon" method #f 119 20 119 32 ("get-icon" "get-icon~" "process")}
-        {Lisp-Entry "process-threads" method #f 123 20 123 35 ("get-threads" "get-threads~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "present-process" method #f 129 20 129 35 ("host->string" "format" "get-remote-listener" "listening-host" "listening-host~" "host=?" "get-ior" "get-ior~" "get-host" "get-host~" "host" "local-proxy?" "if" "get-title" "get-title~" "or" "title" "let" "process")}
-        {Lisp-Entry "reload-process" method #f 139 20 139 34 ("reload-process" "reload-process~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "process-focusable?" method #f 145 20 145 38 ("process")}
-        {Lisp-Entry "evaluate-expressions" method #f 149 20 149 40 ("evaluate-expressions" "evaluate-expressions~" "lambda" "with-jrm-exception-handler" "col" "line" "container" "str" "syntax" "process")}
-        {Lisp-Entry "profiler-start" method #f 155 20 155 34 ("profiler-start" "profiler-start~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "profiler-stop" method #f 161 20 161 33 ("profiler-stop" "profiler-stop~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "profiler-profiles" method #f 167 20 167 37 ("profiler-profiles" "profiler-profiles~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "profiler-selected-profile" method #f 173 20 173 45 ("profiler-selected-profile" "profiler-selected-profile~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "profiler-selected-profile-set!" method #f 179 20 179 50 ("profiler-selected-profile-set!" "profiler-selected-profile-set!~" "lambda" "with-jrm-exception-handler" "name" "process")}
-        {Lisp-Entry "profiler-profile" method #f 185 20 185 36 ("profiler-profile" "profiler-profile~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "profile-reset" method #f 191 20 191 33 ("profile-reset" "profile-reset~" "lambda" "with-jrm-exception-handler" "depth" "profiler" "process")}
-        {Lisp-Entry "inspect-serial" method #f 197 20 197 34 ("inspect-serial" "inspect-serial~" "lambda" "with-jrm-exception-handler" "serial" "process")}
-        {Lisp-Entry "process-detach" method #f 203 20 203 34 ("detach-process" "detach-process~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "process-exit" method #f 209 20 209 32 ("exit-process" "exit-process~" "lambda" "with-jrm-exception-handler" "process")}
-        {Lisp-Entry "thread=?" method #f 220 20 220 28 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
-        {Lisp-Entry "thread-name" method #f 225 20 225 31 ("get-name" "get-name~" "thread" "process")}
-        {Lisp-Entry "thread-state" method #f 229 20 229 32 ("get-state" "get-state~" "thread" "process")}
-        {Lisp-Entry "thread-stops" method #f 233 20 233 32 ("get-stops" "get-stops~" "lambda" "with-jrm-exception-handler" "thread" "process")}
-        {Lisp-Entry "thread-active-stop" method #f 239 20 239 38 ("last" "null?" "if" "thread-stops" "stops" "let" "thread" "process")}
-        {Lisp-Entry "break-thread" method #f 246 20 246 32 ("break-thread" "break-thread~" "lambda" "with-jrm-exception-handler" "thread" "process")}
-        {Lisp-Entry "set-repl-frame" method #f 252 20 252 34 ("set-repl-frame" "set-repl-frame~" "lambda" "with-jrm-exception-handler" "frame" "thread" "process")}
-        {Lisp-Entry "restart=?" method #f 263 20 263 29 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
-        {Lisp-Entry "restart-name" method #f 268 20 268 32 ("get-name" "get-name~" "restart" "process")}
-        {Lisp-Entry "restart-message" method #f 272 20 272 35 ("get-message" "get-message~" "restart" "process")}
-        {Lisp-Entry "restart-stop" method #f 276 20 276 32 ("restart-stop" "restart-stop~" "lambda" "with-jrm-exception-handler" "restart" "process")}
-        {Lisp-Entry "stop=?" method #f 287 20 287 26 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
-        {Lisp-Entry "stop-kind" method #f 292 20 292 29 ("get-kind" "get-kind~" "stop" "process")}
-        {Lisp-Entry "stop-reason" method #f 296 20 296 31 ("get-reason" "get-reason~" "stop" "process")}
-        {Lisp-Entry "stop-detail" method #f 300 20 300 31 ("get-detail" "get-detail~" "lambda" "with-jrm-exception-handler" "stop" "process")}
-        {Lisp-Entry "stop-location" method #f 306 20 306 33 ("get-location" "get-location~" "stop" "process")}
-        {Lisp-Entry "stop-restarts" method #f 310 20 310 33 ("get-restarts" "get-restarts~" "lambda" "with-jrm-exception-handler" "stop" "process")}
-        {Lisp-Entry "stop-frames" method #f 316 20 316 31 ("get-frames" "get-frames~" "lambda" "with-jrm-exception-handler" "stop" "process")}
-        {Lisp-Entry "continue-stop" method #f 322 20 322 33 ("continue-stop" "continue-stop~" "lambda" "with-jrm-exception-handler" "stop" "process")}
-        {Lisp-Entry "step-stop" method #f 328 20 328 29 ("step-stop" "step-stop~" "lambda" "with-jrm-exception-handler" "command" "stop" "process")}
-        {Lisp-Entry "frame=?" method #f 339 20 339 27 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
-        {Lisp-Entry "frame-name" method #f 344 20 344 30 ("get-name" "get-name~" "frame" "process")}
-        {Lisp-Entry "frame-interpreted?" method #f 348 20 348 38 ("get-interpreted?" "get-interpreted?~" "frame" "process")}
-        {Lisp-Entry "frame-hidden?" method #f 352 20 352 33 ("get-hidden?" "get-hidden?~" "frame" "process")}
-        {Lisp-Entry "frame-location" method #f 356 20 356 34 ("get-location" "get-location~" "lambda" "with-jrm-exception-handler" "frame" "process")}
-        {Lisp-Entry "frame-variables" method #f 362 20 362 35 ("get-variables" "get-variables~" "lambda" "with-jrm-exception-handler" "kind" "frame" "process")}
-        {Lisp-Entry "inspect" method #f 373 18 373 25 ("client:" "process:" "host-title:" "Inspector-View" "new-frame" ":remote" "cons" "client" "self" "Debugged-Process" "new" "debugged-process" "format" "title" "let" "kind" "mutable?" "more?" "presentation" "class" "serial" "bind" "lambda" "post-event" "info" "process")}
-        {Lisp-Entry "attach-process" method #f 388 11 388 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "attach-process" "attach-process~" "list" "append!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "unless" "focus?" "process")}
-        {Lisp-Entry "ready-process" method #f 396 11 396 24 ("get-registered-cookie" "proc" "let" "when" "lambda" "execute-event" "cookie" "process")}
-        {Lisp-Entry "update-process" method #f 405 11 405 25 ("get-console-manager" "update-console-buttons" "update-console-buttons~" "get-application" "find-status-bar" "find-status-bar~" "update-focused-process" "update-focused-process~" "get-processes-view" "update" "update~" "lambda" "execute-event" "get-values" "get-values~" "set-values" "set-values~" "and" "process=?" "test:" "processes" "find-in" "actual" "let" "remote-proxy?" "when" "process")}
-        {Lisp-Entry "detach-process" method #f 417 11 417 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "remove!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "when" "process")}
-        {Lisp-Entry "register-console" method #f 430 18 430 34 ("object->serial" "register-debugger-resource" "unregister-debugger-console" "Debugger-Resource" "console" "register-debugger-console" "text" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "process=?" "test:" "processes" "find-in" "actual" "let" "lambda" "call-event" "select?" "thread" "process")}
-        {Lisp-Entry "unregister-console" method #f 447 18 447 36 ("serial->object" "close-resource" "close-resource~" "resource")}
-        {Lisp-Entry "select-console" method #f 451 18 451 32 ("get-console-manager" "select-console" "select-console~" "get-console" "get-console~" "console" "serial->object" "get-reference" "get-reference~" "text" "let" "resource")}
-        {Lisp-Entry "console-output" method #f 457 18 457 32 ("debugger-console-output" "serial->object" "get-reference" "get-reference~" "text" "let" "str" "resource")}
-        {Lisp-Entry "status-message" method #f 467 18 467 32 ("user-message" "message")}
-        {Lisp-Entry "get-toplevel-hwnd" method #f 476 18 476 35 ("get-toplevel" "get-handle" "get-handle~")}
-        {Lisp-Entry "register-stop" method #f 485 18 485 31 ("get-debugger-manager" "register-stop" "register-stop~" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "step?" "step?:" "stop" "thread" "process")}
-        {Lisp-Entry "unregister-stop" method #f 494 18 494 33 ("get-debugger-manager" "unregister-stop" "unregister-stop~" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "stop" "thread" "process")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Debugger.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Jazz-Debugger" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui.window" "jazz.ui.view" "jazz.system" "jazz.network" "jazz.jrm" "jazz.editor.jazz" "jazz.debugger" "jazz.debuggee" "jazz.console")}
+      {Lisp-Entry "Jazz-Debugger" class () #f 51 7 51 20 ("initialize" "Debugger")
+        {Lisp-Entry "processes" slot () #f 54 8 54 17 ()}
+        {Lisp-Entry "start-debugger" method (override) #f 62 20 62 34 ()}
+        {Lisp-Entry "stop-debugger" method (override) #f 66 20 66 33 ()}
+        {Lisp-Entry "get-processes" method (override) #f 70 20 70 33 ("processes" "validate-processes" "when" "validate-liveness?" "validate-liveness?:")}
+        {Lisp-Entry "validate-processes" method (override) #f 76 20 76 38 ("queue-list" "set!" "processes" "self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "enqueue" "if" "lambda" "for-each" "new-queue" "valid" "let" "live?" "live?~" "Local-Proxy" "is?" "or" "process" "live-process?" "define")}
+        {Lisp-Entry "detach-processes" method (override) #f 90 20 90 36 ("processes" "detach-process" "detach-process~" "proxy=?" "not" "when" "process" "lambda" "for-each" "get-local-process" "local-process" "let" "validate-processes")}
+        {Lisp-Entry "process=?" method (override) #f 104 20 104 29 ("proxy-server=?" "y" "x")}
+        {Lisp-Entry "process-live?" method (override) #f 108 20 108 33 ("live?" "live?~" "process")}
+        {Lisp-Entry "process-title" method (override) #f 112 20 112 33 ("get-title" "get-title~" "process")}
+        {Lisp-Entry "process-icon" method (override) #f 116 20 116 32 ("get-icon" "get-icon~" "process")}
+        {Lisp-Entry "process-threads" method (override) #f 120 20 120 35 ("get-threads" "get-threads~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "present-process" method (override) #f 126 20 126 35 ("host->string" "format" "get-remote-listener" "listening-host" "listening-host~" "host=?" "get-ior" "get-ior~" "get-host" "get-host~" "host" "local-proxy?" "if" "get-traits" "get-traits~" "get-title" "get-title~" "present-process-title/traits" "title" "let" "process")}
+        {Lisp-Entry "reload-process" method (override) #f 136 20 136 34 ("reload-process" "reload-process~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "process-focusable?" method (override) #f 142 20 142 38 ("process")}
+        {Lisp-Entry "evaluate-expressions" method (override) #f 146 20 146 40 ("evaluate-expressions" "evaluate-expressions~" "lambda" "with-jrm-exception-handler" "col" "line" "container" "str" "syntax" "process")}
+        {Lisp-Entry "profiler-start" method (override) #f 152 20 152 34 ("profiler-start" "profiler-start~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "profiler-stop" method (override) #f 158 20 158 33 ("profiler-stop" "profiler-stop~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "profiler-profiles" method (override) #f 164 20 164 37 ("profiler-profiles" "profiler-profiles~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "profiler-selected-profile" method (override) #f 170 20 170 45 ("profiler-selected-profile" "profiler-selected-profile~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "profiler-selected-profile-set!" method (override) #f 176 20 176 50 ("profiler-selected-profile-set!" "profiler-selected-profile-set!~" "lambda" "with-jrm-exception-handler" "name" "process")}
+        {Lisp-Entry "profiler-profile" method (override) #f 182 20 182 36 ("profiler-profile" "profiler-profile~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "profile-reset" method (override) #f 188 20 188 33 ("profile-reset" "profile-reset~" "lambda" "with-jrm-exception-handler" "depth" "profiler" "process")}
+        {Lisp-Entry "inspect-serial" method (override) #f 194 20 194 34 ("inspect-serial" "inspect-serial~" "lambda" "with-jrm-exception-handler" "max-content" "serial" "process")}
+        {Lisp-Entry "process-detach" method (override) #f 200 20 200 34 ("detach-process" "detach-process~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "process-exit" method (override) #f 206 20 206 32 ("exit-process" "exit-process~" "lambda" "with-jrm-exception-handler" "process")}
+        {Lisp-Entry "thread=?" method (override) #f 217 20 217 28 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
+        {Lisp-Entry "thread-name" method (override) #f 222 20 222 31 ("get-name" "get-name~" "thread" "process")}
+        {Lisp-Entry "thread-state" method (override) #f 226 20 226 32 ("get-state" "get-state~" "thread" "process")}
+        {Lisp-Entry "thread-stops" method (override) #f 230 20 230 32 ("get-stops" "get-stops~" "lambda" "with-jrm-exception-handler" "thread" "process")}
+        {Lisp-Entry "thread-active-stop" method (override) #f 236 20 236 38 ("last" "null?" "if" "thread-stops" "stops" "let" "thread" "process")}
+        {Lisp-Entry "break-thread" method (override) #f 243 20 243 32 ("break-thread" "break-thread~" "lambda" "with-jrm-exception-handler" "thread" "process")}
+        {Lisp-Entry "set-repl-frame" method (override) #f 249 20 249 34 ("set-repl-frame" "set-repl-frame~" "lambda" "with-jrm-exception-handler" "frame" "thread" "process")}
+        {Lisp-Entry "restart=?" method (override) #f 260 20 260 29 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
+        {Lisp-Entry "restart-name" method (override) #f 265 20 265 32 ("get-name" "get-name~" "restart" "process")}
+        {Lisp-Entry "restart-message" method (override) #f 269 20 269 35 ("get-message" "get-message~" "restart" "process")}
+        {Lisp-Entry "restart-stop" method (override) #f 273 20 273 32 ("restart-stop" "restart-stop~" "lambda" "with-jrm-exception-handler" "restart" "process")}
+        {Lisp-Entry "stop=?" method (override) #f 284 20 284 26 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
+        {Lisp-Entry "stop-kind" method (override) #f 289 20 289 29 ("get-kind" "get-kind~" "stop" "process")}
+        {Lisp-Entry "stop-reason" method (override) #f 293 20 293 31 ("get-reason" "get-reason~" "stop" "process")}
+        {Lisp-Entry "stop-detail" method (override) #f 297 20 297 31 ("get-detail" "get-detail~" "lambda" "with-jrm-exception-handler" "stop" "process")}
+        {Lisp-Entry "stop-location" method (override) #f 303 20 303 33 ("get-location" "get-location~" "stop" "process")}
+        {Lisp-Entry "stop-restarts" method (override) #f 307 20 307 33 ("get-restarts" "get-restarts~" "lambda" "with-jrm-exception-handler" "stop" "process")}
+        {Lisp-Entry "stop-frames" method (override) #f 313 20 313 31 ("get-frames" "get-frames~" "lambda" "with-jrm-exception-handler" "stop" "process")}
+        {Lisp-Entry "continue-stop" method (override) #f 319 20 319 33 ("continue-stop" "continue-stop~" "lambda" "with-jrm-exception-handler" "stop" "process")}
+        {Lisp-Entry "step-stop" method (override) #f 325 20 325 29 ("step-stop" "step-stop~" "lambda" "with-jrm-exception-handler" "command" "stop" "process")}
+        {Lisp-Entry "frame=?" method (override) #f 336 20 336 27 ("get-id" "get-id~" "=" "proxy-server=?" "and" "y" "x")}
+        {Lisp-Entry "frame-name" method (override) #f 341 20 341 30 ("get-name" "get-name~" "frame" "process")}
+        {Lisp-Entry "frame-interpreted?" method (override) #f 345 20 345 38 ("get-interpreted?" "get-interpreted?~" "frame" "process")}
+        {Lisp-Entry "frame-hidden?" method (override) #f 349 20 349 33 ("get-hidden?" "get-hidden?~" "frame" "process")}
+        {Lisp-Entry "frame-location" method (override) #f 353 20 353 34 ("get-location" "get-location~" "lambda" "with-jrm-exception-handler" "frame" "process")}
+        {Lisp-Entry "frame-variables" method (override) #f 359 20 359 35 ("get-variables" "get-variables~" "lambda" "with-jrm-exception-handler" "kind" "frame" "process")}
+        {Lisp-Entry "inspect" method (public) #f 370 18 370 25 ("inspect-info" "self" "Debugged-Process" "new" "debugged-process" "let" "lambda" "post-event" "info" "process")}
+        {Lisp-Entry "inspect-info" method (public) #f 377 18 377 30 ("client:" "process:" "Inspector-View" "new-frame" ":remote" "cons" "client" "let" "info" "debugged-process")}
+        {Lisp-Entry "attach-process" method () #f 387 11 387 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "attach-process" "attach-process~" "list" "append!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "unless" "focus?" "process")}
+        {Lisp-Entry "ready-process" method () #f 395 11 395 24 ("get-registered-cookie" "proc" "let" "when" "lambda" "execute-event" "cookie" "process")}
+        {Lisp-Entry "update-process" method () #f 404 11 404 25 ("get-console-manager" "update-console-buttons" "update-console-buttons~" "get-application" "find-status-bar" "find-status-bar~" "update-focused-process" "update-focused-process~" "get-processes-view" "update" "update~" "lambda" "execute-event" "get-values" "get-values~" "set-values" "set-values~" "and" "process=?" "test:" "processes" "find-in" "actual" "let" "remote-proxy?" "when" "process")}
+        {Lisp-Entry "detach-process" method () #f 416 11 416 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "remove!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "when" "process")}
+        {Lisp-Entry "register-console" method (public) #f 429 18 429 34 ("object->serial" "register-debugger-resource" "unregister-debugger-console" "Debugger-Resource" "console" "register-debugger-console" "text" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "process=?" "test:" "processes" "find-in" "actual" "let" "lambda" "call-event" "select?" "thread" "process")}
+        {Lisp-Entry "unregister-console" method (public) #f 446 18 446 36 ("serial->object" "close-resource" "close-resource~" "resource")}
+        {Lisp-Entry "select-console" method (public) #f 450 18 450 32 ("get-console-manager" "select-console" "select-console~" "get-console" "get-console~" "console" "serial->object" "get-reference" "get-reference~" "text" "let" "resource")}
+        {Lisp-Entry "console-output" method (public) #f 456 18 456 32 ("debugger-console-output" "serial->object" "get-reference" "get-reference~" "text" "let" "str" "resource")}
+        {Lisp-Entry "status-message" method (public) #f 466 18 466 32 ("user-message" "message")}
+        {Lisp-Entry "get-toplevel-hwnd" method (public) #f 475 18 475 35 ("get-toplevel" "get-handle" "get-handle~")}
+        {Lisp-Entry "register-stop" method (public) #f 484 18 484 31 ("get-debugger-manager" "register-stop" "register-stop~" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "step?" "step?:" "stop" "thread" "process")}
+        {Lisp-Entry "unregister-stop" method (public) #f 493 18 493 33 ("get-debugger-manager" "unregister-stop" "unregister-stop~" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "stop" "thread" "process")}}}})
 "Jazz-Project"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Project.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Jazz-Project" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.system" "jazz.network" "jazz.project" "jazz.library" "jazz.jrm" "jazz.jml" "jazz.io" "jazz.ide" "jazz.designer" "jazz.debugger")}
-      {Lisp-Entry "Jazz-Project" class #f 54 7 54 19 ("initialize" "Project")
-        {Lisp-Entry "directory" property #f 57 12 57 21 ()}
-        {Lisp-Entry "get-directory" accessor #f 57 50 57 58 ()}
-        {Lisp-Entry "set-directory" accessor #f 57 50 57 58 ()}
-        {Lisp-Entry "configuration" property #f 58 12 58 25 ()}
-        {Lisp-Entry "get-configuration" accessor #f 58 50 58 58 ()}
-        {Lisp-Entry "set-configuration" accessor #f 58 50 58 58 ()}
-        {Lisp-Entry "product" property #f 59 12 59 19 ()}
-        {Lisp-Entry "get-product" accessor #f 59 50 59 58 ()}
-        {Lisp-Entry "set-product" accessor #f 59 50 59 58 ()}
-        {Lisp-Entry "profile" property #f 60 12 60 19 ()}
-        {Lisp-Entry "get-profile" accessor #f 60 50 60 58 ()}
-        {Lisp-Entry "set-profile" accessor #f 60 50 60 58 ()}
-        {Lisp-Entry "debug" property #f 61 12 61 17 ()}
-        {Lisp-Entry "get-debug" accessor #f 61 50 61 58 ()}
-        {Lisp-Entry "set-debug" accessor #f 61 50 61 58 ()}
-        {Lisp-Entry "test" property #f 62 12 62 16 ()}
-        {Lisp-Entry "get-test" accessor #f 62 50 62 58 ()}
-        {Lisp-Entry "set-test" accessor #f 62 50 62 58 ()}
-        {Lisp-Entry "concrete?" method #f 70 20 70 29 ()}
-        {Lisp-Entry "project-test" method #f 79 20 79 32 ("message-box" "else" "debugger?:" "action:" "project-kernel" "executable:" "launch" "product" "load-unit" "test" "cond" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:")}
-        {Lisp-Entry "project-run" method #f 101 20 101 31 ("message-box" "debugger?:" "project-kernel" "executable:" "launch" "product" "if" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:")}
-        {Lisp-Entry "project-debug" method #f 119 20 119 33 ("message-box" "debugger?:" "launch" "product" "parse" "parse~" "load-script" "debug" "if" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:" "debugger-cookie" "debugger-cookie:" "debugger-interactive?" "debugger-interactive?:" "executable" "executable:")}
-        {Lisp-Entry "launch" method #f 141 20 141 26 ("arguments:" "self" "directory~self" "launch-executable" "get-presentation-property" "user-message" "save-all" "save-all~" "append" "arguments" "arguments-arg" "action-arg" "profile-arg" "project-profile" "and" "debugger-interactive-arg" "clear-user-message" "cookie" "process" "lambda" "register-debugger-cookie" "debugger-cookie-arg" "listening-port" "listening-port~" "get-remote-listener" "listening-host" "listening-host~" "encode-host/port" "debugger-arg" "if" "kernel-arguments-arg" "product" "->string" "or" "product-arg" "runtime-arg" "let*" "start-debuggers" "start-debuggers~" "start-remote-server" "start-remote-server~" "when" "get-process" "ide" "let" "kernel-platform" "executable-extension" "list" "extensions:" "title:" "choose-file" "project-kernel" "else" "choose-kernel" ":choose" "eq?" "cond" "determine-kernel" "define" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:" "debugger-interactive?" "debugger-interactive?:" "debugger-cookie" "debugger-cookie:" "debugger?" "debugger?:" "action" "action:" "kernel-arguments" "kernel-arguments:" "directory" "directory:" "executable" "executable:")}
-        {Lisp-Entry "project-profile" method #f 177 29 177 44 ("profile")}
-        {Lisp-Entry "project-kernel" method #f 181 18 181 32 ("throw-cancel" "format" "message-box" "exists?" "exists?~" "and" "error" "else" "find-actual-kernel" "not" "new-file" "new-file~" "string?" "new-directory" "new-directory~" "configuration" "directory?" "cond" "kernel-platform" "executable-extension" "add-extension" "kernel-name" "directory" "if" "executable" "let")}
-        {Lisp-Entry "project-executable" method #f 199 11 199 29 ("throw-cancel" "message-box" "kernel-platform" "executable-extension" "add-extension" "new-brother" "new-brother~" "filename" "project-kernel" "kernel" "product-descriptor-build" "product" "get-product-descriptor" "descriptor" "package" "receive" "symbol->string" "symbol?" "if" "car" "info" "let" "build" "filename-heuristic" "define")}
-        {Lisp-Entry "project-build" method #f 222 20 222 33 ("message-box" "show-console?:" "arguments:" "launch-executable" "append" "arguments" "debug-arg" "->string" "make-arg" "repository-directory" "format" "list" "Projects" "find-repository" "projects" "let" "repositories-arg" "project-kernel" "kernel" "let*" "get-application" "save-all" "save-all~" "begin" "product" "if")}
-        {Lisp-Entry "get-class-descriptor" method #f 242 25 242 45 ("Jazz-Project-Descriptor" "new")}}
-      {Lisp-Entry "design" submodule #f 251 11 251 17 ()
-        {Lisp-Entry "import" anonymous #f 254 1 254 7 ("jazz.designer")}
-        {Lisp-Entry "Jazz-Project-Descriptor" class #f 257 7 257 30 ("Project-Descriptor")
-          {Lisp-Entry "form" anonymous #f 260 3 260 7 ("name:" "Property-Descriptor" "<Property-Descriptor>" "profile" "product" "configuration" "directory" "title" "categorized:" ">" "<properties" "<properties~>" "Image-Resource" "image:" "install" "<install>")}}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Jazz-Project.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Jazz-Project" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.system" "jazz.network" "jazz.project" "jazz.jrm" "jazz.jml" "jazz.io" "jazz.designer" "jazz.debugger.gambit" "jazz.debugger")}
+      {Lisp-Entry "Jazz-Project" class () #f 53 7 53 19 ("initialize" "Gambit-Project")
+        {Lisp-Entry "directory" property () #f 56 12 56 21 ()}
+        {Lisp-Entry "get-directory" accessor #f #f 56 50 56 58 ()}
+        {Lisp-Entry "set-directory" accessor #f #f 56 50 56 58 ()}
+        {Lisp-Entry "configuration" property () #f 57 12 57 25 ()}
+        {Lisp-Entry "get-configuration" accessor #f #f 57 50 57 58 ()}
+        {Lisp-Entry "set-configuration" accessor #f #f 57 50 57 58 ()}
+        {Lisp-Entry "product" property () #f 58 12 58 19 ()}
+        {Lisp-Entry "get-product" accessor #f #f 58 50 58 58 ()}
+        {Lisp-Entry "set-product" accessor #f #f 58 50 58 58 ()}
+        {Lisp-Entry "profile" property () #f 59 12 59 19 ()}
+        {Lisp-Entry "get-profile" accessor #f #f 59 50 59 58 ()}
+        {Lisp-Entry "set-profile" accessor #f #f 59 50 59 58 ()}
+        {Lisp-Entry "debug" property () #f 60 12 60 17 ()}
+        {Lisp-Entry "get-debug" accessor #f #f 60 50 60 58 ()}
+        {Lisp-Entry "set-debug" accessor #f #f 60 50 60 58 ()}
+        {Lisp-Entry "test" property () #f 61 12 61 16 ()}
+        {Lisp-Entry "get-test" accessor #f #f 61 50 61 58 ()}
+        {Lisp-Entry "set-test" accessor #f #f 61 50 61 58 ()}
+        {Lisp-Entry "arguments" property () #f 62 12 62 21 ()}
+        {Lisp-Entry "get-arguments" accessor #f #f 62 50 62 58 ()}
+        {Lisp-Entry "set-arguments" accessor #f #f 62 50 62 58 ()}
+        {Lisp-Entry "project-test" method (override) #f 70 20 70 32 ("message-box" "else" "debugger?:" "action:" "project-kernel" "executable:" "launch" "product" "load-unit" "test" "cond" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:")}
+        {Lisp-Entry "project-run" method (override) #f 92 20 92 31 ("message-box" "debugger?:" "project-kernel" "executable:" "launch" "product" "if" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:")}
+        {Lisp-Entry "project-debug" method (override) #f 110 20 110 33 ("message-box" "debugger?:" "launch" "product" "parse" "parse~" "load-script" "arguments" "or" "self" "cons" "script-arguments" "parameterize" "debug" "if" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:" "debugger-cookie" "debugger-cookie:" "debugger-interactive?" "debugger-interactive?:" "executable" "executable:")}
+        {Lisp-Entry "launch" method (override) #f 133 20 133 26 ("arguments:" "self" "directory~self" "launch-executable" "get-presentation-property" "user-message" "save-all" "save-all~" "append" "arguments" "project-arg" "arguments-arg" "action-arg" "profile-arg" "project-profile" "present-process-traits" "get-default-traits" "traits" "process-traits-arg" "project-title" "process-title-arg" "and" "debugger-interactive-arg" "clear-user-message" "cookie" "process" "lambda" "register-debugger-cookie" "debugger-cookie-arg" "listening-port" "listening-port~" "get-remote-listener" "listening-host" "listening-host~" "encode-host/port" "debugger-arg" "if" "kernel-arguments-arg" "product" "->string" "or" "product-arg" "runtime-arg" "let*" "start-debuggers" "start-debuggers~" "start-remote-server" "start-remote-server~" "when" "get-process" "ide" "let" "kernel-platform" "executable-extension" "list" "extensions:" "title:" "choose-file" "project-kernel" "else" "choose-kernel" ":choose" "eq?" "cond" "determine-kernel" "define" "wait?" "wait?:" "show-console?" "show-console?:" "command-arguments" "command-arguments:" "command-action" "command-action:" "profile" "profile:" "debugger-interactive?" "debugger-interactive?:" "debugger-cookie" "debugger-cookie:" "debugger?" "debugger?:" "action" "action:" "kernel-arguments" "kernel-arguments:" "directory" "directory:" "executable" "executable:")}
+        {Lisp-Entry "project-profile" method (protected virtual) #f 172 29 172 44 ("profile")}
+        {Lisp-Entry "project-kernel" method (public) #f 176 18 176 32 ("throw-cancel" "format" "message-box" "exists?" "exists?~" "and" "error" "else" "find-actual-kernel" "not" "new-file" "new-file~" "string?" "new-directory" "new-directory~" "configuration" "directory?" "cond" "kernel-platform" "executable-extension" "add-extension" "kernel-name" "directory" "if" "executable" "let")}
+        {Lisp-Entry "project-executable" method () #f 194 11 194 29 ("throw-cancel" "message-box" "kernel-platform" "executable-extension" "add-extension" "new-brother" "new-brother~" "filename" "project-kernel" "kernel" "product-descriptor-build" "product" "get-product-descriptor" "descriptor" "package" "receive" "symbol->string" "symbol?" "if" "car" "info" "let" "build" "filename-heuristic" "define")}
+        {Lisp-Entry "project-build" method (override) #f 217 20 217 33 ("message-box" "show-console?:" "arguments:" "launch-executable" "append" "arguments" "debug-arg" "->string" "make-arg" "repository-directory" "format" "list" "Projects" "find-repository" "projects" "let" "repositories-arg" "project-kernel" "kernel" "let*" "get-application" "save-all" "save-all~" "begin" "product" "if")}
+        {Lisp-Entry "get-class-descriptor" method (meta override) #f 237 25 237 45 ("Jazz-Project-Descriptor" "new")}}
+      {Lisp-Entry "design" submodule () #f 246 11 246 17 ()
+        {Lisp-Entry "import" anonymous #f #f 249 1 249 7 ("jazz.designer")}
+        {Lisp-Entry "Jazz-Project-Descriptor" class () #f 252 7 252 30 ("Gambit-Project-Descriptor")
+          {Lisp-Entry "form" anonymous #f #f 255 3 255 7 ("name:" "Property-Descriptor" "<Property-Descriptor>" "arguments" "profile" "product" "configuration" "directory" "maximum-heap" "minimum-heap" "title" "categorized:" ">" "<properties" "<properties~>" "install" "<install>")}}}}})
 "Snapshot-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Snapshot-Debugger.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Snapshot-Debugger" module #f 37 18 37 54 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.workspace" "jazz.ui.window" "jazz.ui.view" "jazz.system" "jazz.project" "jazz.network" "jazz.media" "jazz.jrm" "jazz.editor.jazz.inspector" "jazz.editor.jazz" "jazz.io" "jazz.debugger" "jazz.debuggee" "jazz.console" "jazz.catalog")}
-      {Lisp-Entry "Snapshot-Debugger" class #f 57 7 57 24 ("initialize" "Debugger")
-        {Lisp-Entry "processes" slot #f 60 8 60 17 ()}
-        {Lisp-Entry "start-debugger" method #f 68 20 68 34 ()}
-        {Lisp-Entry "stop-debugger" method #f 72 20 72 33 ()}
-        {Lisp-Entry "get-processes" method #f 76 20 76 33 ("processes" "validate-liveness?" "validate-liveness?:")}
-        {Lisp-Entry "detach-processes" method #f 80 20 80 36 ()}
-        {Lisp-Entry "process=?" method #f 89 20 89 29 ("eq?" "y" "x")}
-        {Lisp-Entry "process-live?" method #f 93 20 93 33 ("process")}
-        {Lisp-Entry "process-title" method #f 97 20 97 33 ("name" "get-property" "get-property~" "process")}
-        {Lisp-Entry "process-icon" method #f 101 20 101 32 ("icon" "get-property" "get-property~" "or" "process")}
-        {Lisp-Entry "process-threads" method #f 105 20 105 35 ("threads" "find-node" "find-node~" "get-children" "get-children~" "process")}
-        {Lisp-Entry "present-process" method #f 109 20 109 35 ("file" "get-property" "get-property~" "get-base" "get-base~" "process")}
-        {Lisp-Entry "reload-process" method #f 113 20 113 34 ("process")}
-        {Lisp-Entry "process-focusable?" method #f 117 20 117 38 ("process")}
-        {Lisp-Entry "evaluate-expressions" method #f 121 20 121 40 ("col" "line" "container" "str" "syntax" "process")}
-        {Lisp-Entry "inspect-serial" method #f 125 20 125 34 ("content" "get-property" "get-property~" "inspect-name/serial" "car" "set!" "pair?" "when" "name" "bind" "info" "lambda" "map" "serial->value" "value" "let" "serial" "process")}
-        {Lisp-Entry "inspect-name/serial" method #f 136 11 136 30 (":raw" "not-null?" "list" "cons" "content" "presentation" "get-property" "get-property~" "class" "unbound" "found" "debug" "begin" "not" "if" "serial->value" "value" "mutable?" "let" "serial" "name" "process")}
-        {Lisp-Entry "process-detach" method #f 149 20 149 34 ("process")}
-        {Lisp-Entry "process-exit" method #f 153 20 153 32 ("detach-process" "process")}
-        {Lisp-Entry "thread=?" method #f 162 20 162 28 ("eq?" "y" "x")}
-        {Lisp-Entry "thread-name" method #f 166 20 166 31 ("name" "get-property" "get-property~" "thread" "process")}
-        {Lisp-Entry "thread-state" method #f 170 20 170 32 ("state" "get-property" "get-property~" "thread" "process")}
-        {Lisp-Entry "thread-stops" method #f 174 20 174 32 ("list" "thread" "process")}
-        {Lisp-Entry "thread-active-stop" method #f 178 20 178 38 ("last" "null?" "if" "thread-stops" "stops" "let" "thread" "process")}
-        {Lisp-Entry "break-thread" method #f 185 20 185 32 ("thread" "process")}
-        {Lisp-Entry "set-repl-frame" method #f 189 20 189 34 ("frame" "thread" "process")}
-        {Lisp-Entry "restart=?" method #f 198 20 198 29 ("eq?" "y" "x")}
-        {Lisp-Entry "restart-name" method #f 202 20 202 32 ("name" "get-property" "get-property~" "restart" "process")}
-        {Lisp-Entry "restart-message" method #f 206 20 206 35 ("message" "get-property" "get-property~" "restart" "process")}
-        {Lisp-Entry "restart-stop" method #f 210 20 210 32 ("restart-stop" "restart-stop~" "restart" "process")}
-        {Lisp-Entry "stop=?" method #f 219 20 219 26 ("eq?" "y" "x")}
-        {Lisp-Entry "stop-kind" method #f 224 20 224 29 ("get-parent" "get-parent~" "first-child" "first-child~" "eq?" "exception" "get-property" "get-property~" "and" "if" "stop" "process")}
-        {Lisp-Entry "stop-reason" method #f 232 20 232 31 ("exception" "get-property" "get-property~" "stop" "process")}
-        {Lisp-Entry "stop-detail" method #f 236 20 236 31 ("detail" "get-property" "get-property~" "stop" "process")}
-        {Lisp-Entry "stop-location" method #f 240 20 240 33 ("location" "get-property" "get-property~" "stop" "process")}
-        {Lisp-Entry "stop-restarts" method #f 244 20 244 33 ("stop" "process")}
-        {Lisp-Entry "stop-frames" method #f 248 20 248 31 ("get-children" "get-children~" "stop" "process")}
-        {Lisp-Entry "continue-stop" method #f 252 20 252 33 ("stop" "process")}
-        {Lisp-Entry "step-stop" method #f 256 20 256 29 ("command" "stop" "process")}
-        {Lisp-Entry "frame=?" method #f 265 20 265 27 ("eq?" "y" "x")}
-        {Lisp-Entry "frame-name" method #f 269 20 269 30 ("name" "get-property" "get-property~" "frame" "process")}
-        {Lisp-Entry "frame-interpreted?" method #f 273 20 273 38 ("interpreted?" "get-property" "get-property~" "frame" "process")}
-        {Lisp-Entry "frame-hidden?" method #f 277 20 277 33 ("hidden?" "get-property" "get-property~" "frame" "process")}
-        {Lisp-Entry "frame-location" method #f 281 20 281 34 ("or" "list" "get-column" "get-column~" "column" "get-line" "get-line~" "line" "get-file-definition" "get-file-definition~" "get-file" "get-file~" "parse" "parse~" "file" "locator->entry" "entry" "when" "name" "let" "location-from-name" "location" "get-property" "get-property~" "location-from-location" "define" "frame" "process")}
-        {Lisp-Entry "frame-variables" method #f 299 20 299 35 ("get-children" "get-children~" "inspect-name/serial" "serial" "get-property" "get-property~" "name" "let" "variable" "lambda" "map" "kind" "frame" "process")}
-        {Lisp-Entry "setup-values" method #f 312 11 312 23 ("set-property" "set-property~" "find-node" "find-node~" "get-children" "get-children~" "table-set!" "get-property" "get-property~" "serial" "value" "lambda" "for-each" "eqv?" "test:" "make-table" "values" "let" "process")}
-        {Lisp-Entry "serial->value" method #f 321 11 321 24 ("values" "get-property" "get-property~" "table-ref" "serial" "process")}
-        {Lisp-Entry "attach-process" method #f 330 11 330 25 ("get-debugger-manager" "attach-process" "attach-process~" "self" "Debugged-Process" "new" "debugged-process" "let" "list" "append!" "set!" "setup-values" "lambda" "call-event" "process=?" "test:" "processes" "member?" "unless" "focus?" "process")}
-        {Lisp-Entry "detach-process" method #f 341 11 341 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "remove!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "when" "process")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Snapshot-Debugger.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Snapshot-Debugger" module (protected) #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui.window" "jazz.project" "jazz.debugger")}
+      {Lisp-Entry "Snapshot-Debugger" class () #f 45 7 45 24 ("initialize" "Debugger")
+        {Lisp-Entry "processes" slot () #f 48 8 48 17 ()}
+        {Lisp-Entry "start-debugger" method (override) #f 56 20 56 34 ()}
+        {Lisp-Entry "stop-debugger" method (override) #f 60 20 60 33 ()}
+        {Lisp-Entry "get-processes" method (override) #f 64 20 64 33 ("processes" "validate-liveness?" "validate-liveness?:")}
+        {Lisp-Entry "detach-processes" method (override) #f 68 20 68 36 ()}
+        {Lisp-Entry "process=?" method (override) #f 77 20 77 29 ("eq?" "y" "x")}
+        {Lisp-Entry "process-live?" method (override) #f 81 20 81 33 ("process")}
+        {Lisp-Entry "process-title" method (override) #f 85 20 85 33 ("name" "get-property" "get-property~" "process")}
+        {Lisp-Entry "process-icon" method (override) #f 89 20 89 32 ("icon" "get-property" "get-property~" "or" "process")}
+        {Lisp-Entry "process-threads" method (override) #f 93 20 93 35 ("threads" "find-node" "find-node~" "get-children" "get-children~" "process")}
+        {Lisp-Entry "present-process" method (override) #f 97 20 97 35 ("file" "get-property" "get-property~" "get-base" "get-base~" "process")}
+        {Lisp-Entry "reload-process" method (override) #f 101 20 101 34 ("process")}
+        {Lisp-Entry "process-focusable?" method (override) #f 105 20 105 38 ("process")}
+        {Lisp-Entry "evaluate-expressions" method (override) #f 109 20 109 40 ("col" "line" "container" "str" "syntax" "process")}
+        {Lisp-Entry "inspect-serial" method (override) #f 113 20 113 34 ("inspect-name/serial" "backward-compatible-key" "rank" "name" "category" "key" "bind" "info" "lambda" "map" "get-property" "get-property~" "content" "serial->value" "value" "let" "max-content" "serial" "process")}
+        {Lisp-Entry "inspect-name/serial" method () #f 123 11 123 30 (":raw" "not-null?" "list" "cons" "content" "presentation" "get-property" "get-property~" "class" "unbound" "found" "debug" "begin" "not" "if" "serial->value" "value" "mutable?" "let" "serial" "rank" "name" "process")}
+        {Lisp-Entry "process-detach" method (override) #f 136 20 136 34 ("process")}
+        {Lisp-Entry "process-exit" method (override) #f 140 20 140 32 ("detach-process" "process")}
+        {Lisp-Entry "thread=?" method (override) #f 149 20 149 28 ("eq?" "y" "x")}
+        {Lisp-Entry "thread-name" method (override) #f 153 20 153 31 ("name" "get-property" "get-property~" "thread" "process")}
+        {Lisp-Entry "thread-state" method (override) #f 157 20 157 32 ("state" "get-property" "get-property~" "thread" "process")}
+        {Lisp-Entry "thread-stops" method (override) #f 161 20 161 32 ("list" "thread" "process")}
+        {Lisp-Entry "thread-active-stop" method (override) #f 165 20 165 38 ("last" "null?" "if" "thread-stops" "stops" "let" "thread" "process")}
+        {Lisp-Entry "break-thread" method (override) #f 172 20 172 32 ("thread" "process")}
+        {Lisp-Entry "set-repl-frame" method (override) #f 176 20 176 34 ("frame" "thread" "process")}
+        {Lisp-Entry "restart=?" method (override) #f 185 20 185 29 ("eq?" "y" "x")}
+        {Lisp-Entry "restart-name" method (override) #f 189 20 189 32 ("name" "get-property" "get-property~" "restart" "process")}
+        {Lisp-Entry "restart-message" method (override) #f 193 20 193 35 ("message" "get-property" "get-property~" "restart" "process")}
+        {Lisp-Entry "restart-stop" method (override) #f 197 20 197 32 ("restart-stop" "restart-stop~" "restart" "process")}
+        {Lisp-Entry "stop=?" method (override) #f 206 20 206 26 ("eq?" "y" "x")}
+        {Lisp-Entry "stop-kind" method (override) #f 211 20 211 29 ("get-parent" "get-parent~" "first-child" "first-child~" "eq?" "exception" "get-property" "get-property~" "and" "if" "stop" "process")}
+        {Lisp-Entry "stop-reason" method (override) #f 219 20 219 31 ("exception" "get-property" "get-property~" "stop" "process")}
+        {Lisp-Entry "stop-detail" method (override) #f 223 20 223 31 ("detail" "get-property" "get-property~" "stop" "process")}
+        {Lisp-Entry "stop-location" method (override) #f 227 20 227 33 ("location" "get-property" "get-property~" "stop" "process")}
+        {Lisp-Entry "stop-restarts" method (override) #f 231 20 231 33 ("stop" "process")}
+        {Lisp-Entry "stop-frames" method (override) #f 235 20 235 31 ("get-children" "get-children~" "stop" "process")}
+        {Lisp-Entry "continue-stop" method (override) #f 239 20 239 33 ("stop" "process")}
+        {Lisp-Entry "step-stop" method (override) #f 243 20 243 29 ("command" "stop" "process")}
+        {Lisp-Entry "frame=?" method (override) #f 252 20 252 27 ("eq?" "y" "x")}
+        {Lisp-Entry "frame-name" method (override) #f 256 20 256 30 ("name" "get-property" "get-property~" "frame" "process")}
+        {Lisp-Entry "frame-interpreted?" method (override) #f 260 20 260 38 ("interpreted?" "get-property" "get-property~" "frame" "process")}
+        {Lisp-Entry "frame-hidden?" method (override) #f 264 20 264 33 ("hidden?" "get-property" "get-property~" "frame" "process")}
+        {Lisp-Entry "frame-location" method (override) #f 268 20 268 34 ("or" "list" "get-column" "get-column~" "column" "get-line" "get-line~" "line" "get-file-definition" "get-file-definition~" "get-file" "get-file~" "parse" "parse~" "file" "locator->entry" "entry" "when" "name" "let" "location-from-name" "location" "get-property" "get-property~" "location-from-location" "define" "frame" "process")}
+        {Lisp-Entry "frame-variables" method (override) #f 286 20 286 35 ("length" "0" "naturals" "inspect-name/serial" "serial" "get-property" "get-property~" "name" "rank" "variable" "lambda" "map" "get-children" "get-children~" "variables" "let" "kind" "frame" "process")}
+        {Lisp-Entry "setup-values" method () #f 301 11 301 23 ("set-property" "set-property~" "find-node" "find-node~" "get-children" "get-children~" "table-set!" "get-property" "get-property~" "serial" "value" "lambda" "for-each" "eqv?" "test:" "make-table" "values" "let" "process")}
+        {Lisp-Entry "serial->value" method () #f 310 11 310 24 ("values" "get-property" "get-property~" "table-ref" "serial" "process")}
+        {Lisp-Entry "attach-process" method () #f 319 11 319 25 ("get-debugger-manager" "attach-process" "attach-process~" "self" "Debugged-Process" "new" "debugged-process" "let" "list" "append!" "set!" "setup-values" "lambda" "call-event" "process=?" "test:" "processes" "member?" "unless" "focus?" "process")}
+        {Lisp-Entry "detach-process" method () #f 330 11 330 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "remove!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "when" "process")}}}})
 "Swank-Debugger"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Debugger.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Swank-Debugger" module #f 37 18 37 51 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.workspace" "jazz.ui.window" "jazz.ui.view" "jazz.system" "jazz.network" "jazz.media" "jazz.jrm" "jazz.editor.jazz.inspector" "jazz.editor.jazz" "jazz.io" "jazz.debugger.jazz" "jazz.debugger" "jazz.debuggee" "jazz.console")}
-      {Lisp-Entry "Swank-Debugger" class #f 56 7 56 21 ("initialize" "Debugger")
-        {Lisp-Entry "processes" slot #f 59 8 59 17 ()}
-        {Lisp-Entry "stops" slot #f 60 8 60 13 ()}
-        {Lisp-Entry "start-debugger" method #f 68 20 68 34 ()}
-        {Lisp-Entry "stop-debugger" method #f 72 20 72 33 ()}
-        {Lisp-Entry "get-processes" method #f 76 20 76 33 ("processes" "validate-liveness?" "validate-liveness?:")}
-        {Lisp-Entry "validate-processes" method #f 80 20 80 38 ()}
-        {Lisp-Entry "detach-processes" method #f 84 20 84 36 ()}
-        {Lisp-Entry "process=?" method #f 93 20 93 29 ("eq?" "y" "x")}
-        {Lisp-Entry "process-live?" method #f 97 20 97 33 ("process")}
-        {Lisp-Entry "process-title" method #f 101 20 101 33 ("get-title" "get-title~" "process")}
-        {Lisp-Entry "process-icon" method #f 105 20 105 32 ("process")}
-        {Lisp-Entry "process-threads" method #f 109 20 109 35 ("stops" "get-process" "get-process~" "process=?" "when" "get-thread" "get-thread~" "thread" "let" "stop" "lambda" "collect" "process")}
-        {Lisp-Entry "present-process" method #f 117 20 117 35 ("process-title" "process")}
-        {Lisp-Entry "reload-process" method #f 121 20 121 34 ("process")}
-        {Lisp-Entry "process-focusable?" method #f 125 20 125 38 ("process")}
-        {Lisp-Entry "evaluate-expressions" method #f 129 20 129 40 ("col" "line" "container" "str" "syntax" "process")}
-        {Lisp-Entry "inspect-serial" method #f 133 20 133 34 ("serial" "process")}
-        {Lisp-Entry "process-detach" method #f 137 20 137 34 ("process")}
-        {Lisp-Entry "process-exit" method #f 141 20 141 32 ("detach-process" "swank-disconnect" "process")}
-        {Lisp-Entry "thread=?" method #f 151 20 151 28 ("get-id" "get-id~" "=" "get-process" "get-process~" "process=?" "and" "y" "x")}
-        {Lisp-Entry "thread-name" method #f 156 20 156 31 ("thread" "process")}
-        {Lisp-Entry "thread-state" method #f 160 20 160 32 ("thread" "process")}
-        {Lisp-Entry "thread-stops" method #f 164 20 164 32 ("stops" "get-thread" "get-thread~" "thread=?" "stop" "lambda" "collect-if" "thread" "process")}
-        {Lisp-Entry "thread-active-stop" method #f 170 20 170 38 ("last" "null?" "if" "thread-stops" "stops" "let" "thread" "process")}
-        {Lisp-Entry "break-thread" method #f 177 20 177 32 ("thread" "process")}
-        {Lisp-Entry "set-repl-frame" method #f 181 20 181 34 ("frame" "thread" "process")}
-        {Lisp-Entry "restart=?" method #f 190 20 190 29 ("eq?" "y" "x")}
-        {Lisp-Entry "restart-name" method #f 194 20 194 32 ("get-title" "get-title~" "restart" "process")}
-        {Lisp-Entry "restart-message" method #f 198 20 198 35 ("get-message" "get-message~" "get-title" "get-title~" "format" "restart" "process")}
-        {Lisp-Entry "restart-stop" method #f 202 20 202 32 ("get-rank" "get-rank~" "swank-restart" "restart" "process")}
-        {Lisp-Entry "stop=?" method #f 211 20 211 26 ("get-id" "get-id~" "=" "get-thread" "get-thread~" "thread=?" "and" "y" "x")}
-        {Lisp-Entry "stop-kind" method #f 216 20 216 29 ("exception" "stop" "process")}
-        {Lisp-Entry "stop-reason" method #f 220 20 220 31 ("get-condition" "get-condition~" "car" "stop" "process")}
-        {Lisp-Entry "stop-detail" method #f 224 20 224 31 ("stop" "process")}
-        {Lisp-Entry "stop-location" method #f 228 20 228 33 ("stop" "process")}
-        {Lisp-Entry "stop-restarts" method #f 232 20 232 33 ("get-restarts" "get-restarts~" "stop" "process")}
-        {Lisp-Entry "stop-frames" method #f 236 20 236 31 ("get-frames" "get-frames~" "stop" "process")}
-        {Lisp-Entry "continue-stop" method #f 240 20 240 33 ("stop" "process")}
-        {Lisp-Entry "step-stop" method #f 244 20 244 29 ("command" "stop" "process")}
-        {Lisp-Entry "frame=?" method #f 253 20 253 27 ("eq?" "y" "x")}
-        {Lisp-Entry "frame-name" method #f 257 20 257 30 ("cadr" "frame" "process")}
-        {Lisp-Entry "frame-interpreted?" method #f 261 20 261 38 ("frame" "process")}
-        {Lisp-Entry "frame-hidden?" method #f 265 20 265 33 ("frame" "process")}
-        {Lisp-Entry "frame-location" method #f 269 20 269 34 ("frame" "process")}
-        {Lisp-Entry "frame-variables" method #f 273 20 273 35 ("car" "swank-frame-variables" "mutable?:" ":raw" "kind:" "package-info" "cons" "mutable?" ":value" "value" ":name" "getf" "name" "let" "variable" "lambda" "map" "kind" "frame" "process")}
-        {Lisp-Entry "attach-process" method #f 287 11 287 25 ("get-debugger-manager" "attach-process" "attach-process~" "self" "Debugged-Process" "new" "debugged-process" "let" "list" "append!" "set!" "lambda" "call-event" "process=?" "test:" "processes" "member?" "unless" "focus?" "process")}
-        {Lisp-Entry "detach-process" method #f 297 11 297 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "remove!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "when" "process")}
-        {Lisp-Entry "swank-port-number" definition #f 310 14 310 31 ("4005")}
-        {Lisp-Entry "swank-connect" method #f 314 11 314 24 ("format" "console-write" "when" "set-console" "set-console~" "register-console" "text" "attach-process" "swank-create-repl" ":name" "and" "set-package-name" "set-package-name~" ":pid" "set-process-id" "set-process-id~" "set-title" "set-title~" ":version" "version" ":type" "type" ":package" "package" ":lisp-implementation" "getf" "implementation" "swank-connection-info" "info" "Swank-Process" "new" "process" "swank-port-number" "port-number:" "list" "open-tcp-client" "port" "let")}
-        {Lisp-Entry "swank-disconnect" method #f 333 11 333 27 ("unregister-console" "get-port" "get-port~" "close-port" "get-console" "get-console~" "console" "let" "process")}
-        {Lisp-Entry "register-console" method #f 339 11 339 27 ("acquire-focus" "acquire-focus~" "when" "set-console-resource" "set-console-resource~" "set-console" "set-console~" "start-swank-repl" "register-debugger-resource" "unregister-console" "lambda" "Debugger-Resource" "new" "resource" "port" "register-console" "register-console~" "get-console-manager" "manager" "let" "set-console-port" "set-console-port~" "permanent-close:" "list" "open-string-pipe" "tail" "head" "receive" "text" "setup-debugger-console-ports" "define" "select?" "title" "process")}
-        {Lisp-Entry "unregister-console" method #f 363 11 363 29 ("get-console-text-manager" "unregister-console" "unregister-console~" "text")}
-        {Lisp-Entry "console-write" method #f 367 11 367 24 ("insert-formatted-line" "insert-formatted-line~" "text-ending" "text-ending~" "set-caret" "set-caret~" "lambda" "execute-event" "get-console" "get-console~" "text" "let" "str" "process")}
-        {Lisp-Entry "start-swank-repl" method #f 375 11 375 27 ("lambda" "new-thread" "thread-start!" "format" ">" "level" "swank-eval" "swank-disconnect" "begin" "eof-object?" "if" "read" "expr" "0" "prompt" "console-write" "loop" "let" "swank-repl" "define" "port" "process")}
-        {Lisp-Entry "register-stop" method #f 399 11 399 24 ("get-debugger-manager" "register-stop" "register-stop~" "cons" "stops" "set!" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "stop" "thread" "process")}
-        {Lisp-Entry "unregister-stop" method #f 409 11 409 26 ("get-debugger-manager" "unregister-stop" "unregister-stop~" "stop=?" "test:" "remove!" "stops" "set!" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "stop" "thread" "process")}
-        {Lisp-Entry "swank-connection-info" method #f 419 11 419 32 ("wait-swank-response" ",id" "t" "connection-info" "swank" "swank:connection-info" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "let" "process")}
-        {Lisp-Entry "swank-create-repl" method #f 425 11 425 28 ("wait-swank-response" ",id" "t" ",package" "nil" "create-repl" "swank" "swank:create-repl" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "process")}
-        {Lisp-Entry "swank-eval" method #f 432 11 432 21 ("wait-swank-response" ",id" ":repl-thread" ",package" ",str" "listener-eval" "swank" "swank:listener-eval" ":emacs-rex" "send-swank-message" "format" "str" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "expr" "process")}
-        {Lisp-Entry "swank-frame-variables" method #f 440 11 440 32 ("swank-decode" "append" "wait-swank-response" "catch-tags" "locals" "bind" ",id" ":repl-thread" ",package" ",frame" "frame-locals-and-catch-tags" "swank" "swank:frame-locals-and-catch-tags" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "kind" "frame" "process")}
-        {Lisp-Entry "swank-decode" method #f 450 11 450 23 ("nil" "eq?" "if" "expr")}
-        {Lisp-Entry "swank-restart" method #f 456 11 456 24 ("wait-swank-response" ",id" "0" ",package" ",n" "1" "invoke-nth-restart-for-emacs" "swank" "swank:invoke-nth-restart-for-emacs" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "n" "process")}
-        {Lisp-Entry "swank-debug-return" method #f 463 11 463 29 ("unregister-stop" "when" "stops" "get-level" "get-level~" "=" "get-thread" "get-thread~" "thread=?" "and" "lambda" "find-if" "stop" "Swank-Thread" "new" "let" "level" "thread" "process")}
-        {Lisp-Entry "swank-unique-id" method #f 473 11 473 26 ("generate-unique-id" "generate-unique-id~" "process")}
-        {Lisp-Entry "send-swank-message" method #f 477 11 477 29 ("force-output" "display" "message-length" ":reader" "->string" "get-port" "get-port~" "port" "let" "cardinality" "format" "message" "encode-length" "define" "expr" "process")}
-        {Lisp-Entry "receive-swank-response" method #f 489 11 489 33 ("read-string-element" "response" "16" "string->number" "count" "0" "read-substring" "=" "when" "6" "make-string" "header" "get-port" "get-port~" "port" "let" "process")}
-        {Lisp-Entry "receive-swank-response-non-blocking" method #f 499 11 499 46 ("read-string-element" "response" "16" "string->number" "count" "0" "read-substring" "=" "when" "0.1" "input-port-timeout-set!" "6" "make-string" "header" "get-port" "get-port~" "port" "let" "process")}
-        {Lisp-Entry "wait-swank-response" method #f 511 11 511 30 ("else" "register-stop" "Swank-Stop" "stop" "Swank-Thread" "memv" "ids" "frames" "condition" "level" "thread" "bind" ":debug" "process-swank-problem" "process-swank-abort" ":abort" ":ok" "=" "caddr" "id" ":return" "case" "kind" "not" "if" "receive-swank-response" "process-swank-event" "when" "receive-swank-response-non-blocking" "response" "loop" "process-events" "length" "0" "naturals" "Swank-Restart" "new" "cadr" "message" "car" "title" "let" "rank" "restart" "lambda" "map" "restarts" "create-restarts" "define" "target-id" "process")}
-        {Lisp-Entry "process-swank-abort" method #f 561 11 561 30 ("swank" "debug" "abort" "process")}
-        {Lisp-Entry "process-swank-problem" method #f 567 11 567 32 ("swank" "debug" "problem" "process")}
-        {Lisp-Entry "process-swank-event" method #f 572 11 572 30 ("swank" "debug" "else" "caddr" "swank-debug-return" ":debug-return" ":indentation-update" ":new-features" "cadr" "console-write" ":write-string" "case" "car" "kind" "let" "event" "process")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Debugger.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Swank-Debugger" module (protected) #f 37 18 37 51 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui.window" "jazz.editor.jazz.inspector" "jazz.debugger.jazz" "jazz.debugger" "jazz.console")}
+      {Lisp-Entry "Swank-Debugger" class () #f 47 7 47 21 ("initialize" "Debugger")
+        {Lisp-Entry "processes" slot () #f 50 8 50 17 ()}
+        {Lisp-Entry "stops" slot () #f 51 8 51 13 ()}
+        {Lisp-Entry "start-debugger" method (override) #f 59 20 59 34 ()}
+        {Lisp-Entry "stop-debugger" method (override) #f 63 20 63 33 ()}
+        {Lisp-Entry "get-processes" method (override) #f 67 20 67 33 ("processes" "validate-liveness?" "validate-liveness?:")}
+        {Lisp-Entry "validate-processes" method (override) #f 71 20 71 38 ()}
+        {Lisp-Entry "detach-processes" method (override) #f 75 20 75 36 ()}
+        {Lisp-Entry "process=?" method (override) #f 84 20 84 29 ("eq?" "y" "x")}
+        {Lisp-Entry "process-live?" method (override) #f 88 20 88 33 ("process")}
+        {Lisp-Entry "process-title" method (override) #f 92 20 92 33 ("get-title" "get-title~" "process")}
+        {Lisp-Entry "process-icon" method (override) #f 96 20 96 32 ("process")}
+        {Lisp-Entry "process-threads" method (override) #f 100 20 100 35 ("stops" "get-process" "get-process~" "process=?" "when" "get-thread" "get-thread~" "thread" "let" "stop" "lambda" "collect" "process")}
+        {Lisp-Entry "present-process" method (override) #f 108 20 108 35 ("process-title" "process")}
+        {Lisp-Entry "reload-process" method (override) #f 112 20 112 34 ("process")}
+        {Lisp-Entry "process-focusable?" method (override) #f 116 20 116 38 ("process")}
+        {Lisp-Entry "evaluate-expressions" method (override) #f 120 20 120 40 ("col" "line" "container" "str" "syntax" "process")}
+        {Lisp-Entry "inspect-serial" method (override) #f 124 20 124 34 ("max-content" "serial" "process")}
+        {Lisp-Entry "process-detach" method (override) #f 128 20 128 34 ("process")}
+        {Lisp-Entry "process-exit" method (override) #f 132 20 132 32 ("detach-process" "swank-disconnect" "process")}
+        {Lisp-Entry "thread=?" method (override) #f 142 20 142 28 ("get-id" "get-id~" "=" "get-process" "get-process~" "process=?" "and" "y" "x")}
+        {Lisp-Entry "thread-name" method (override) #f 147 20 147 31 ("thread" "process")}
+        {Lisp-Entry "thread-state" method (override) #f 151 20 151 32 ("thread" "process")}
+        {Lisp-Entry "thread-stops" method (override) #f 155 20 155 32 ("stops" "get-thread" "get-thread~" "thread=?" "stop" "lambda" "collect-if" "thread" "process")}
+        {Lisp-Entry "thread-active-stop" method (override) #f 161 20 161 38 ("last" "null?" "if" "thread-stops" "stops" "let" "thread" "process")}
+        {Lisp-Entry "break-thread" method (override) #f 168 20 168 32 ("thread" "process")}
+        {Lisp-Entry "set-repl-frame" method (override) #f 172 20 172 34 ("frame" "thread" "process")}
+        {Lisp-Entry "restart=?" method (override) #f 181 20 181 29 ("eq?" "y" "x")}
+        {Lisp-Entry "restart-name" method (override) #f 185 20 185 32 ("get-title" "get-title~" "restart" "process")}
+        {Lisp-Entry "restart-message" method (override) #f 189 20 189 35 ("get-message" "get-message~" "get-title" "get-title~" "format" "restart" "process")}
+        {Lisp-Entry "restart-stop" method (override) #f 193 20 193 32 ("get-rank" "get-rank~" "swank-restart" "restart" "process")}
+        {Lisp-Entry "stop=?" method (override) #f 202 20 202 26 ("get-id" "get-id~" "=" "get-thread" "get-thread~" "thread=?" "and" "y" "x")}
+        {Lisp-Entry "stop-kind" method (override) #f 207 20 207 29 ("exception" "stop" "process")}
+        {Lisp-Entry "stop-reason" method (override) #f 211 20 211 31 ("get-condition" "get-condition~" "car" "stop" "process")}
+        {Lisp-Entry "stop-detail" method (override) #f 215 20 215 31 ("stop" "process")}
+        {Lisp-Entry "stop-location" method (override) #f 219 20 219 33 ("stop" "process")}
+        {Lisp-Entry "stop-restarts" method (override) #f 223 20 223 33 ("get-restarts" "get-restarts~" "stop" "process")}
+        {Lisp-Entry "stop-frames" method (override) #f 227 20 227 31 ("get-frames" "get-frames~" "stop" "process")}
+        {Lisp-Entry "continue-stop" method (override) #f 231 20 231 33 ("stop" "process")}
+        {Lisp-Entry "step-stop" method (override) #f 235 20 235 29 ("command" "stop" "process")}
+        {Lisp-Entry "frame=?" method (override) #f 244 20 244 27 ("eq?" "y" "x")}
+        {Lisp-Entry "frame-name" method (override) #f 248 20 248 30 ("cadr" "frame" "process")}
+        {Lisp-Entry "frame-interpreted?" method (override) #f 252 20 252 38 ("frame" "process")}
+        {Lisp-Entry "frame-hidden?" method (override) #f 256 20 256 33 ("frame" "process")}
+        {Lisp-Entry "frame-location" method (override) #f 260 20 260 34 ("frame" "process")}
+        {Lisp-Entry "frame-variables" method (override) #f 264 20 264 35 ("car" "swank-frame-variables" "mutable?:" ":raw" "kind:" "package-info" "cons" "mutable?" ":value" "value" ":name" "getf" "name" "let" "variable" "lambda" "map" "kind" "frame" "process")}
+        {Lisp-Entry "attach-process" method () #f 278 11 278 25 ("get-debugger-manager" "attach-process" "attach-process~" "self" "Debugged-Process" "new" "debugged-process" "let" "list" "append!" "set!" "lambda" "call-event" "process=?" "test:" "processes" "member?" "unless" "focus?" "process")}
+        {Lisp-Entry "detach-process" method () #f 288 11 288 25 ("self" "Debugged-Process" "new" "get-debugger-manager" "detach-process" "detach-process~" "remove!" "set!" "lambda" "execute-event" "process=?" "test:" "processes" "member?" "when" "process")}
+        {Lisp-Entry "swank-port-number" definition () #f 301 14 301 31 ("4005")}
+        {Lisp-Entry "swank-connect" method () #f 305 11 305 24 ("format" "console-write" "when" "set-console" "set-console~" "register-console" "text" "attach-process" "swank-create-repl" ":name" "and" "set-package-name" "set-package-name~" ":pid" "set-process-id" "set-process-id~" "set-title" "set-title~" ":version" "version" ":type" "type" ":package" "package" ":lisp-implementation" "getf" "implementation" "swank-connection-info" "info" "Swank-Process" "new" "process" "swank-port-number" "port-number:" "list" "open-tcp-client" "port" "let")}
+        {Lisp-Entry "swank-disconnect" method () #f 324 11 324 27 ("unregister-console" "get-port" "get-port~" "close-port" "get-console" "get-console~" "console" "let" "process")}
+        {Lisp-Entry "register-console" method () #f 330 11 330 27 ("acquire-focus" "acquire-focus~" "when" "set-console-resource" "set-console-resource~" "set-console" "set-console~" "start-swank-repl" "register-debugger-resource" "unregister-console" "lambda" "Debugger-Resource" "new" "resource" "port" "register-console" "register-console~" "get-console-manager" "manager" "let" "set-console-port" "set-console-port~" "permanent-close:" "list" "open-string-pipe" "tail" "head" "receive" "text" "setup-debugger-console-ports" "define" "select?" "title" "process")}
+        {Lisp-Entry "unregister-console" method () #f 354 11 354 29 ("get-console-text-manager" "unregister-console" "unregister-console~" "text")}
+        {Lisp-Entry "console-write" method () #f 358 11 358 24 ("insert-formatted-line" "insert-formatted-line~" "text-ending" "text-ending~" "set-caret" "set-caret~" "lambda" "execute-event" "get-console" "get-console~" "text" "let" "str" "process")}
+        {Lisp-Entry "start-swank-repl" method () #f 366 11 366 27 ("lambda" "new-thread" "thread-start!" "format" ">" "level" "swank-eval" "swank-disconnect" "begin" "eof-object?" "if" "read" "expr" "0" "prompt" "console-write" "loop" "let" "swank-repl" "define" "port" "process")}
+        {Lisp-Entry "register-stop" method () #f 390 11 390 24 ("get-debugger-manager" "register-stop" "register-stop~" "cons" "stops" "set!" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "stop" "thread" "process")}
+        {Lisp-Entry "unregister-stop" method () #f 400 11 400 26 ("get-debugger-manager" "unregister-stop" "unregister-stop~" "stop=?" "test:" "remove!" "stops" "set!" "lambda" "execute-event" "Debugged-Stop" "debugged-stop" "Debugged-Thread" "debugged-thread" "self" "Debugged-Process" "new" "debugged-process" "let" "stop" "thread" "process")}
+        {Lisp-Entry "swank-connection-info" method () #f 410 11 410 32 ("wait-swank-response" ",id" "t" "connection-info" "swank" "swank:connection-info" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "let" "process")}
+        {Lisp-Entry "swank-create-repl" method () #f 416 11 416 28 ("wait-swank-response" ",id" "t" ",package" "nil" "create-repl" "swank" "swank:create-repl" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "process")}
+        {Lisp-Entry "swank-eval" method () #f 423 11 423 21 ("wait-swank-response" ",id" ":repl-thread" ",package" ",str" "listener-eval" "swank" "swank:listener-eval" ":emacs-rex" "send-swank-message" "format" "str" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "expr" "process")}
+        {Lisp-Entry "swank-frame-variables" method () #f 431 11 431 32 ("swank-decode" "append" "wait-swank-response" "catch-tags" "locals" "bind" ",id" ":repl-thread" ",package" ",frame" "frame-locals-and-catch-tags" "swank" "swank:frame-locals-and-catch-tags" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "kind" "frame" "process")}
+        {Lisp-Entry "swank-decode" method () #f 441 11 441 23 ("nil" "eq?" "if" "expr")}
+        {Lisp-Entry "swank-restart" method () #f 447 11 447 24 ("wait-swank-response" ",id" "0" ",package" ",n" "1" "invoke-nth-restart-for-emacs" "swank" "swank:invoke-nth-restart-for-emacs" ":emacs-rex" "send-swank-message" "swank-unique-id" "id" "get-package-name" "get-package-name~" "package" "let" "n" "process")}
+        {Lisp-Entry "swank-debug-return" method () #f 454 11 454 29 ("unregister-stop" "when" "stops" "get-level" "get-level~" "=" "get-thread" "get-thread~" "thread=?" "and" "lambda" "find-if" "stop" "Swank-Thread" "new" "let" "level" "thread" "process")}
+        {Lisp-Entry "swank-unique-id" method () #f 464 11 464 26 ("generate-unique-id" "generate-unique-id~" "process")}
+        {Lisp-Entry "send-swank-message" method () #f 468 11 468 29 ("force-output" "display" "message-length" ":reader" "->string" "get-port" "get-port~" "port" "let" "cardinality" "format" "message" "encode-length" "define" "expr" "process")}
+        {Lisp-Entry "receive-swank-response" method () #f 480 11 480 33 ("read-string-element" "response" "16" "string->number" "count" "0" "read-substring" "=" "when" "6" "make-string" "header" "get-port" "get-port~" "port" "let" "process")}
+        {Lisp-Entry "receive-swank-response-non-blocking" method () #f 490 11 490 46 ("read-string-element" "response" "16" "string->number" "count" "0" "read-substring" "=" "when" "0.1" "input-port-timeout-set!" "6" "make-string" "header" "get-port" "get-port~" "port" "let" "process")}
+        {Lisp-Entry "wait-swank-response" method () #f 502 11 502 30 ("else" "register-stop" "Swank-Stop" "stop" "Swank-Thread" "memv" "ids" "frames" "condition" "level" "thread" "bind" ":debug" "process-swank-problem" "process-swank-abort" ":abort" ":ok" "=" "caddr" "id" ":return" "case" "kind" "not" "if" "receive-swank-response" "process-swank-event" "when" "receive-swank-response-non-blocking" "response" "loop" "process-events" "length" "0" "naturals" "Swank-Restart" "new" "cadr" "message" "car" "title" "let" "rank" "restart" "lambda" "map" "restarts" "create-restarts" "define" "target-id" "process")}
+        {Lisp-Entry "process-swank-abort" method () #f 552 11 552 30 ("swank" "debug" "abort" "process")}
+        {Lisp-Entry "process-swank-problem" method () #f 558 11 558 32 ("swank" "debug" "problem" "process")}
+        {Lisp-Entry "process-swank-event" method () #f 563 11 563 30 ("swank" "debug" "else" "caddr" "swank-debug-return" ":debug-return" ":indentation-update" ":new-features" "cadr" "console-write" ":write-string" "case" "car" "kind" "let" "event" "process")}}}})
 "Swank-Process"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Process.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Swank-Process" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
-      {Lisp-Entry "Swank-Process" class #f 45 7 45 20 ("1" "initialize" "Object")
-        {Lisp-Entry "port" slot #f 48 8 48 12 ()}
-        {Lisp-Entry "get-port" accessor #f 48 46 48 54 ()}
-        {Lisp-Entry "title" slot #f 49 8 49 13 ()}
-        {Lisp-Entry "get-title" accessor #f 49 49 49 57 ()}
-        {Lisp-Entry "set-title" accessor #f 49 49 49 57 ()}
-        {Lisp-Entry "console" slot #f 50 8 50 15 ()}
-        {Lisp-Entry "get-console" accessor #f 50 49 50 57 ()}
-        {Lisp-Entry "set-console" accessor #f 50 49 50 57 ()}
-        {Lisp-Entry "console-resource" slot #f 51 8 51 24 ()}
-        {Lisp-Entry "get-console-resource" accessor #f 51 49 51 57 ()}
-        {Lisp-Entry "set-console-resource" accessor #f 51 49 51 57 ()}
-        {Lisp-Entry "package-name" slot #f 52 8 52 20 ()}
-        {Lisp-Entry "get-package-name" accessor #f 52 49 52 57 ()}
-        {Lisp-Entry "set-package-name" accessor #f 52 49 52 57 ()}
-        {Lisp-Entry "process-id" slot #f 53 8 53 18 ()}
-        {Lisp-Entry "get-process-id" accessor #f 53 49 53 57 ()}
-        {Lisp-Entry "set-process-id" accessor #f 53 49 53 57 ()}
-        {Lisp-Entry "unique-id" slot #f 54 8 54 17 ()}
-        {Lisp-Entry "initialize" method #f 57 20 57 30 ("self" "port~self" "set!" "port")}
-        {Lisp-Entry "generate-unique-id" method #f 61 18 61 36 ("increase!" "unique-id" "prog1")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Process.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Swank-Process" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "Swank-Process" class () #f 40 7 40 20 ("1" "initialize" "Object")
+        {Lisp-Entry "port" slot () #f 43 8 43 12 ()}
+        {Lisp-Entry "get-port" accessor #f #f 43 46 43 54 ()}
+        {Lisp-Entry "title" slot () #f 44 8 44 13 ()}
+        {Lisp-Entry "get-title" accessor #f #f 44 49 44 57 ()}
+        {Lisp-Entry "set-title" accessor #f #f 44 49 44 57 ()}
+        {Lisp-Entry "console" slot () #f 45 8 45 15 ()}
+        {Lisp-Entry "get-console" accessor #f #f 45 49 45 57 ()}
+        {Lisp-Entry "set-console" accessor #f #f 45 49 45 57 ()}
+        {Lisp-Entry "console-resource" slot () #f 46 8 46 24 ()}
+        {Lisp-Entry "get-console-resource" accessor #f #f 46 49 46 57 ()}
+        {Lisp-Entry "set-console-resource" accessor #f #f 46 49 46 57 ()}
+        {Lisp-Entry "package-name" slot () #f 47 8 47 20 ()}
+        {Lisp-Entry "get-package-name" accessor #f #f 47 49 47 57 ()}
+        {Lisp-Entry "set-package-name" accessor #f #f 47 49 47 57 ()}
+        {Lisp-Entry "process-id" slot () #f 48 8 48 18 ()}
+        {Lisp-Entry "get-process-id" accessor #f #f 48 49 48 57 ()}
+        {Lisp-Entry "set-process-id" accessor #f #f 48 49 48 57 ()}
+        {Lisp-Entry "unique-id" slot () #f 49 8 49 17 ()}
+        {Lisp-Entry "initialize" method (override) #f 52 20 52 30 ("self" "port~self" "set!" "port")}
+        {Lisp-Entry "generate-unique-id" method (public) #f 56 18 56 36 ("increase!" "unique-id" "prog1")}}}})
 "Swank-Restart"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Restart.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Swank-Restart" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
-      {Lisp-Entry "Swank-Restart" class #f 45 7 45 20 ("Object")
-        {Lisp-Entry "title" slot #f 48 8 48 13 ()}
-        {Lisp-Entry "get-title" accessor #f 48 23 48 31 ()}
-        {Lisp-Entry "message" slot #f 49 8 49 15 ()}
-        {Lisp-Entry "get-message" accessor #f 49 23 49 31 ()}
-        {Lisp-Entry "rank" slot #f 50 8 50 12 ()}
-        {Lisp-Entry "get-rank" accessor #f 50 23 50 31 ()}
-        {Lisp-Entry "initialize" method #f 53 20 53 30 ("rank~self" "message~self" "self" "title~self" "set!" "nextmethod" "rank" "message" "title")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Restart.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Swank-Restart" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "Swank-Restart" class () #f 40 7 40 20 ("Object")
+        {Lisp-Entry "title" slot () #f 43 8 43 13 ()}
+        {Lisp-Entry "get-title" accessor #f #f 43 23 43 31 ()}
+        {Lisp-Entry "message" slot () #f 44 8 44 15 ()}
+        {Lisp-Entry "get-message" accessor #f #f 44 23 44 31 ()}
+        {Lisp-Entry "rank" slot () #f 45 8 45 12 ()}
+        {Lisp-Entry "get-rank" accessor #f #f 45 23 45 31 ()}
+        {Lisp-Entry "initialize" method (override) #f 48 20 48 30 ("rank~self" "message~self" "self" "title~self" "set!" "nextmethod" "rank" "message" "title")}}}})
 "Swank-Snooper"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Snooper.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Swank-Snooper" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.io")}
-      {Lisp-Entry "Swank-Snooper" class #f 44 7 44 20 ("Object")
-        {Lisp-Entry "swank-port-number" definition #f 47 14 47 31 ("4005")}
-        {Lisp-Entry "snooper-port-number" definition #f 50 14 50 33 ("4006")}
-        {Lisp-Entry "snooper-thread" definition #f 53 14 53 28 ()}
-        {Lisp-Entry "snooper-stop?" definition #f 56 14 56 27 ()}
-        {Lisp-Entry "start" method #f 60 11 60 16 ("snooper" "unless" "connection" "received" "read" "snooper-port-number" "open-tcp-server" "server-port" "snooper-stop?" "append:" "get-eol-encoding" "eol-encoding:" "path:" "call-with-output-file" "snooper-thread" "set!" "continuation-capture" "newline" "pp" "<---" "display" "force-output" "read-string-element" "format" "--->" "message" "16" "string->number" "count" "0" "read-substring" "=" "when" "6" "make-string" "header" "loop" "exc" "with-exception-catcher" "close-port" "thread-join!" "snoop-swank" "swank-thread" "slime" "snoop-slime" "lambda" "new-thread" "thread-start!" "slime-thread" "at" "to" "connected" "swank-port-number" "port-number:" "list" "open-tcp-client" "swank-port" "let" "swank" "for" "waiting" "done" "file-port" "slime-port" "snoop" "define" "feedback")}
-        {Lisp-Entry "stop" method #f 144 11 144 15 ("done" "snooper" "thread-exit" "snooper-thread" "thread-interrupt!" "snooper-stop?" "set!" "feedback")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Snooper.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Swank-Snooper" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.io")}
+      {Lisp-Entry "Swank-Snooper" class () #f 43 7 43 20 ("Object")
+        {Lisp-Entry "swank-port-number" definition () #f 46 14 46 31 ("4005")}
+        {Lisp-Entry "snooper-port-number" definition () #f 49 14 49 33 ("4006")}
+        {Lisp-Entry "snooper-thread" definition () #f 52 14 52 28 ()}
+        {Lisp-Entry "snooper-stop?" definition () #f 55 14 55 27 ()}
+        {Lisp-Entry "start" method () #f 59 11 59 16 ("snooper" "unless" "connection" "received" "read" "snooper-port-number" "open-tcp-server" "server-port" "snooper-stop?" "append:" "get-eol-encoding" "eol-encoding:" "path:" "call-with-output-file" "snooper-thread" "set!" "continuation-capture" "newline" "pp" "<---" "display" "force-output" "read-string-element" "format" "--->" "message" "16" "string->number" "count" "0" "read-substring" "=" "when" "6" "make-string" "header" "loop" "exc" "with-exception-catcher" "close-port" "thread-join!" "snoop-swank" "swank-thread" "slime" "snoop-slime" "lambda" "new-thread" "thread-start!" "slime-thread" "at" "to" "connected" "swank-port-number" "port-number:" "list" "open-tcp-client" "swank-port" "let" "swank" "for" "waiting" "done" "file-port" "slime-port" "snoop" "define" "feedback")}
+        {Lisp-Entry "stop" method () #f 143 11 143 15 ("done" "snooper" "thread-exit" "snooper-thread" "thread-interrupt!" "snooper-stop?" "set!" "feedback")}}}})
 "Swank-Stop"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Stop.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Swank-Stop" module #f 37 18 37 47 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
-      {Lisp-Entry "Swank-Stop" class #f 45 7 45 17 ("Object")
-        {Lisp-Entry "thread" slot #f 48 8 48 14 ()}
-        {Lisp-Entry "get-thread" accessor #f 48 25 48 33 ()}
-        {Lisp-Entry "id" slot #f 49 8 49 10 ()}
-        {Lisp-Entry "get-id" accessor #f 49 25 49 33 ()}
-        {Lisp-Entry "level" slot #f 50 8 50 13 ()}
-        {Lisp-Entry "get-level" accessor #f 50 25 50 33 ()}
-        {Lisp-Entry "condition" slot #f 51 8 51 17 ()}
-        {Lisp-Entry "get-condition" accessor #f 51 25 51 33 ()}
-        {Lisp-Entry "restarts" slot #f 52 8 52 16 ()}
-        {Lisp-Entry "get-restarts" accessor #f 52 25 52 33 ()}
-        {Lisp-Entry "frames" slot #f 53 8 53 14 ()}
-        {Lisp-Entry "get-frames" accessor #f 53 25 53 33 ()}
-        {Lisp-Entry "initialize" method #f 56 20 56 30 ("frames~self" "restarts~self" "condition~self" "level~self" "id~self" "self" "thread~self" "set!" "nextmethod" "frames" "restarts" "condition" "level" "id" "thread")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Stop.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Swank-Stop" module (protected) #f 37 18 37 47 ("jazz")
+      {Lisp-Entry "Swank-Stop" class () #f 40 7 40 17 ("Object")
+        {Lisp-Entry "thread" slot () #f 43 8 43 14 ()}
+        {Lisp-Entry "get-thread" accessor #f #f 43 25 43 33 ()}
+        {Lisp-Entry "id" slot () #f 44 8 44 10 ()}
+        {Lisp-Entry "get-id" accessor #f #f 44 25 44 33 ()}
+        {Lisp-Entry "level" slot () #f 45 8 45 13 ()}
+        {Lisp-Entry "get-level" accessor #f #f 45 25 45 33 ()}
+        {Lisp-Entry "condition" slot () #f 46 8 46 17 ()}
+        {Lisp-Entry "get-condition" accessor #f #f 46 25 46 33 ()}
+        {Lisp-Entry "restarts" slot () #f 47 8 47 16 ()}
+        {Lisp-Entry "get-restarts" accessor #f #f 47 25 47 33 ()}
+        {Lisp-Entry "frames" slot () #f 48 8 48 14 ()}
+        {Lisp-Entry "get-frames" accessor #f #f 48 25 48 33 ()}
+        {Lisp-Entry "initialize" method (override) #f 51 20 51 30 ("frames~self" "restarts~self" "condition~self" "level~self" "id~self" "self" "thread~self" "set!" "nextmethod" "frames" "restarts" "condition" "level" "id" "thread")}}}})
 "Swank-Thread"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Thread.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.Swank-Thread" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.network" "jazz.io")}
-      {Lisp-Entry "Swank-Thread" class #f 45 7 45 19 ("Object")
-        {Lisp-Entry "process" slot #f 48 8 48 15 ()}
-        {Lisp-Entry "get-process" accessor #f 48 23 48 31 ()}
-        {Lisp-Entry "id" slot #f 49 8 49 10 ()}
-        {Lisp-Entry "get-id" accessor #f 49 23 49 31 ()}
-        {Lisp-Entry "initialize" method #f 52 20 52 30 ("id~self" "self" "process~self" "set!" "nextmethod" "id" "process")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "Swank-Thread.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.debugger.jazz.Swank-Thread" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "Swank-Thread" class () #f 40 7 40 19 ("Object")
+        {Lisp-Entry "process" slot () #f 43 8 43 15 ()}
+        {Lisp-Entry "get-process" accessor #f #f 43 23 43 31 ()}
+        {Lisp-Entry "id" slot () #f 44 8 44 10 ()}
+        {Lisp-Entry "get-id" accessor #f #f 44 23 44 31 ()}
+        {Lisp-Entry "initialize" method (override) #f 47 20 47 30 ("id~self" "self" "process~self" "set!" "nextmethod" "id" "process")}}}})
 "_jazz"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "_jazz.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz" module #f 37 8 37 26 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.debugger.jazz.autoload")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "_jazz.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.debugger.jazz" module () #f 37 8 37 26 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("jazz.debugger.jazz.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "autoload.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.autoload" module #f 37 18 37 45 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Jazz-Debugger-Stub" "jazz.debugger.jazz.stub" "Swank-Thread" "jazz.debugger.jazz.Swank-Thread" "Swank-Stop" "jazz.debugger.jazz.Swank-Stop" "Swank-Snooper" "jazz.debugger.jazz.Swank-Snooper" "Swank-Restart" "jazz.debugger.jazz.Swank-Restart" "Swank-Process" "jazz.debugger.jazz.Swank-Process" "Swank-Debugger" "jazz.debugger.jazz.Swank-Debugger" "Snapshot-Debugger" "jazz.debugger.jazz.Snapshot-Debugger" "Jazz-Project-Descriptor" "Jazz-Project" "jazz.debugger.jazz.Jazz-Project" "Jazz-Debugger" "autoload" "jazz.debugger.jazz.Jazz-Debugger")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "autoload.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.debugger.jazz.autoload" module (protected) #f 37 18 37 45 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("Jazz-Debugger-Stub" "jazz.debugger.jazz.stub" "Swank-Thread" "jazz.debugger.jazz.Swank-Thread" "Swank-Stop" "jazz.debugger.jazz.Swank-Stop" "Swank-Snooper" "jazz.debugger.jazz.Swank-Snooper" "Swank-Restart" "jazz.debugger.jazz.Swank-Restart" "Swank-Process" "jazz.debugger.jazz.Swank-Process" "Swank-Debugger" "jazz.debugger.jazz.Swank-Debugger" "Snapshot-Debugger" "jazz.debugger.jazz.Snapshot-Debugger" "Jazz-Project-Descriptor" "Jazz-Project" "jazz.debugger.jazz.Jazz-Project" "Jazz-Debugger" "autoload" "jazz.debugger.jazz.Jazz-Debugger")}}})
 "project"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "data" "project.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.data.project" module #f 37 8 37 39 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.ide.data.project" "jazz.debugger.jazz")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "data" "project.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.debugger.jazz.data.project" module () #f 37 8 37 39 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("jazz.ide.data.project" "jazz.debugger.jazz")}}})
 "stub"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.stub" module #f 37 8 37 31 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jrm")}
-      {Lisp-Entry "Jazz-Debugger" remotable-stub "~stub" 43 16 43 29 ()
-        {Lisp-Entry "attach-process" method #f 46 23 46 37 ("focus?" "process")}
-        {Lisp-Entry "ready-process" method #f 47 23 47 36 ("cookie" "process")}
-        {Lisp-Entry "update-process" method #f 48 23 48 37 ("process")}
-        {Lisp-Entry "detach-process" method #f 49 23 49 37 ("process")}
-        {Lisp-Entry "register-console" method #f 50 23 50 39 ("select?" "thread" "process")}
-        {Lisp-Entry "unregister-console" method #f 51 23 51 41 ("console")}
-        {Lisp-Entry "select-console" method #f 52 23 52 37 ("console")}
-        {Lisp-Entry "console-output" method #f 53 23 53 37 ("line" "console")}
-        {Lisp-Entry "status-message" method #f 54 23 54 37 ("message")}
-        {Lisp-Entry "get-toplevel-hwnd" method #f 55 23 55 40 ()}
-        {Lisp-Entry "debuggee-stop" method #f 56 23 56 36 ("reason" "kind" "stop" "thread" "process")}
-        {Lisp-Entry "register-stop" method #f 57 23 57 36 ("rest" "stop" "thread" "process")}
-        {Lisp-Entry "unregister-stop" method #f 58 23 58 38 ("stop" "thread" "process")}
-        {Lisp-Entry "inspect" method #f 59 23 59 30 ("info" "process")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub.jazz"} 229929916. jazz
+    {Lisp-Entry "jazz.debugger.jazz.stub" module () #f 37 8 37 31 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.jrm")}
+      {Lisp-Entry "Jazz-Debugger" remotable-stub () "~stub" 43 16 43 29 ()
+        {Lisp-Entry "attach-process" method (public exec) #f 46 23 46 37 ("focus?" "process")}
+        {Lisp-Entry "ready-process" method (public exec) #f 47 23 47 36 ("cookie" "process")}
+        {Lisp-Entry "update-process" method (public exec) #f 48 23 48 37 ("process")}
+        {Lisp-Entry "detach-process" method (public post) #f 49 23 49 37 ("process")}
+        {Lisp-Entry "register-console" method (public call) #f 50 23 50 39 ("select?" "thread" "process")}
+        {Lisp-Entry "unregister-console" method (public exec) #f 51 23 51 41 ("console")}
+        {Lisp-Entry "select-console" method (public exec) #f 52 23 52 37 ("console")}
+        {Lisp-Entry "console-output" method (public exec) #f 53 23 53 37 ("line" "console")}
+        {Lisp-Entry "status-message" method (public exec) #f 54 23 54 37 ("message")}
+        {Lisp-Entry "get-toplevel-hwnd" method (public call) #f 55 23 55 40 ()}
+        {Lisp-Entry "debuggee-stop" method (public post) #f 56 23 56 36 ("reason" "kind" "stop" "thread" "process")}
+        {Lisp-Entry "register-stop" method (public post) #f 57 23 57 36 ("rest" "stop" "thread" "process")}
+        {Lisp-Entry "unregister-stop" method (public post) #f 58 23 58 38 ("stop" "thread" "process")}
+        {Lisp-Entry "inspect" method (public post) #f 59 23 59 30 ("info" "process")}}}})
 "stub-autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub-autoload.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.debugger.jazz.stub-autoload" module #f 37 8 37 40 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Jazz-Debugger-Stub" "autoload" "jazz.debugger.jazz.stub")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "debugger" "jazz" "stub-autoload.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.debugger.jazz.stub-autoload" module () #f 37 8 37 40 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("Jazz-Debugger-Stub" "autoload" "jazz.debugger.jazz.stub")}}})

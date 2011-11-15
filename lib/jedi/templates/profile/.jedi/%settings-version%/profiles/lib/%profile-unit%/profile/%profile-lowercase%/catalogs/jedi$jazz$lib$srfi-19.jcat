@@ -1,327 +1,328 @@
 "_time"
- ({Lisp-File-Entry {File :context "src" "time" "_time.jazz"} 241161873. jazz
-    {Lisp-Entry "time" module #f 37 8 37 12 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("time.exports")}
-      {Lisp-Entry "import" anonymous #f 41 1 41 7 ("time.exports")}
-      {Lisp-Entry "Time-Class" class #f 44 7 44 17 ("Class")}
-      {Lisp-Entry "Time" class #f 47 17 47 21 ("Object" "Time-Class")
-        {Lisp-Entry "compare-object" method #f 50 20 50 34 (":incompatible" ":greater" "else" ":less" "time<?" ":equal" "self" "time=?" "cond" "time?" "if" "target")}}
-      {Lisp-Entry "Date-Class" class #f 58 7 58 17 ("Class")}
-      {Lisp-Entry "Date" class #f 61 17 61 21 ("Object" "Date-Class")
-        {Lisp-Entry "compare-object" method #f 64 20 64 34 (":incompatible" ":greater" "else" ":less" "time<?" ":equal" "time=?" "cond" "time2" "self" "date->time-utc" "time1" "let" "date?" "if" "target")}}
-      {Lisp-Entry "time->seconds" definition #f 74 20 74 33 ("1000000000." "time-nanosecond" "/" "time-second" "fl" "<fl>" "cast" "+" "time")}
-      {Lisp-Entry "seconds->time" definition #f 78 20 78 33 ("-" "1000000" "*" "time-utc" "make-time" "floor" "inexact->exact" "int-seconds" "let" "seconds")}
-      {Lisp-Entry "date-universal->local" definition #f 84 20 84 41 ("date")}
-      {Lisp-Entry "date-local->universal" definition #f 89 20 89 41 ("date")}
-      {Lisp-Entry "parse-date-day" definition #f 93 20 93 34 ("string->date" "date")}
-      {Lisp-Entry "parse-date-time" definition #f 97 20 97 35 ("string->date" "date")}
-      {Lisp-Entry "parse-date-day-french" definition #f 101 20 101 41 ("string->date" "date")}
-      {Lisp-Entry "present-date" definition #f 105 20 105 32 ("date->string" "date")}
-      {Lisp-Entry "present-date-day" definition #f 109 20 109 36 ("date->string" "date")}
-      {Lisp-Entry "present-date-time" definition #f 113 20 113 37 ("date->string" "date")}
-      {Lisp-Entry "present-date-day-french" definition #f 117 20 117 43 ("date->string" "date")}
-      {Lisp-Entry "present-date-hour" definition #f 121 20 121 37 ("date->string" "date")}
-      {Lisp-Entry "date=" definition #f 130 20 130 25 ("date-zone-offset" "date-nanosecond" "date-second" "date-hour" "date-day" "date-month" "date-year" "=" "and" "d2" "d1")}
-      {Lisp-Entry "date-add" definition #f 140 20 140 28 ("make-date" "date->time-monotonic" "time-monotonic->date" "unimplemented" "else" "increase!" "case" "date-zone-offset" "zone-offset" "date-year" "year" "date-month" "month" "date-day" "day" "date-hour" "hour" "date-minute" "minute" "date-second" "second" "date-nanosecond" "nanosecond" "let" "type" "count" "date")}}})
+ ({Lisp-File-Entry {File :context "src" "time" "_time.jazz"} 241495452. jazz
+    {Lisp-Entry "time" module () #f 37 8 37 12 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("time.exports")}
+      {Lisp-Entry "import" anonymous #f #f 41 1 41 7 ("time.exports")}
+      {Lisp-Entry "Time-Class" class () #f 44 7 44 17 ("Class")}
+      {Lisp-Entry "Time" class (primitive) #f 47 17 47 21 ("Object" "Time-Class")
+        {Lisp-Entry "compare-object" method (override) #f 50 20 50 34 (":incompatible" ":greater" "else" ":less" "time<?" ":equal" "self" "time=?" "cond" "time?" "if" "target")}}
+      {Lisp-Entry "Date-Class" class () #f 58 7 58 17 ("Class")}
+      {Lisp-Entry "Date" class (primitive) #f 61 17 61 21 ("Object" "Date-Class")
+        {Lisp-Entry "compare-object" method (override) #f 64 20 64 34 (":incompatible" ":greater" "else" ":less" "time<?" ":equal" "time=?" "cond" "time2" "self" "date->time-utc" "time1" "let" "date?" "if" "target")}}
+      {Lisp-Entry "time->seconds" definition (public) #f 74 20 74 33 ("1000000000." "time-nanosecond" "/" "time-second" "exact->inexact" "+" "time")}
+      {Lisp-Entry "seconds->time" definition (public) #f 78 20 78 33 ("-" "1000000" "*" "time-utc" "make-time" "floor" "inexact->exact" "int-seconds" "let" "seconds")}
+      {Lisp-Entry "date-universal->local" definition (public) #f 84 20 84 41 ("date")}
+      {Lisp-Entry "date-local->universal" definition (public) #f 89 20 89 41 ("date")}
+      {Lisp-Entry "parse-date-day" definition (public) #f 93 20 93 34 ("string->date" "date")}
+      {Lisp-Entry "parse-date-time" definition (public) #f 97 20 97 35 ("string->date" "date")}
+      {Lisp-Entry "parse-date-day-french" definition (public) #f 101 20 101 41 ("string->date" "date")}
+      {Lisp-Entry "present-date" definition (public) #f 105 20 105 32 ("date->string" "date")}
+      {Lisp-Entry "present-date-day" definition (public) #f 109 20 109 36 ("date->string" "date")}
+      {Lisp-Entry "present-date-time" definition (public) #f 113 20 113 37 ("date->string" "date")}
+      {Lisp-Entry "present-date-day-french" definition (public) #f 117 20 117 43 ("date->string" "date")}
+      {Lisp-Entry "present-date-hour" definition (public) #f 121 20 121 37 ("date->string" "date")}
+      {Lisp-Entry "date=" definition (public) #f 130 20 130 25 ("date-zone-offset" "date-nanosecond" "date-second" "date-hour" "date-day" "date-month" "date-year" "=" "and" "d2" "d1")}
+      {Lisp-Entry "date-add" definition (public) #f 140 20 140 28 ("make-date" "date->time-monotonic" "time-monotonic->date" "unimplemented" "else" "increase!" "case" "date-zone-offset" "zone-offset" "date-year" "year" "date-month" "month" "date-day" "day" "date-hour" "hour" "date-minute" "minute" "date-second" "second" "date-nanosecond" "nanosecond" "let" "type" "count" "date")}}})
 "classes"
- ({Lisp-File-Entry {File :context "src" "time" "classes.scm"} 241161129. scheme
-    {Lisp-Entry "time.classes" unit #f 37 16 37 28 ("date?" "date" "Date" "time:Date" "Date-Class" "time:Date-Class" "register-structure-type" "jazz:register-structure-type" "time?" "type-tests" "jazz:type-tests" "primitive-declarations" "jazz:primitive-declarations" "primitive-types" "jazz:primitive-types" "%%table-set!" "Time" "time:Time" "encapsulate-class" "jazz:encapsulate-class" "Time-Class" "time" "time:Time-Class")
-      {Lisp-Entry "Time-Class" define-class ("class syntax") 45 19 45 34 ("interface-table" "class-table" "core-vtable" "core-virtual-names" "core-virtual-alist" "core-method-alist" "dispatch-table" "level" "instance-size" "instance-slots" "slots" "interfaces" "ascendant" "descendants" "ancestors" "virtual-size" "fields" "name" "Class" "jazz:Class")}
-      {Lisp-Entry "Time" define-class ("class syntax") 46 19 46 28 ("Time-Class" "time" "time:Time-Class" "Object" "jazz:Object")}
-      {Lisp-Entry "Date-Class" define-class ("class syntax") 49 19 49 34 ("interface-table" "class-table" "core-vtable" "core-virtual-names" "core-virtual-alist" "core-method-alist" "dispatch-table" "level" "instance-size" "instance-slots" "slots" "interfaces" "ascendant" "descendants" "ancestors" "virtual-size" "fields" "name" "Class" "jazz:Class")}
-      {Lisp-Entry "Date" define-class ("class syntax") 50 19 50 28 ("Date-Class" "time" "time:Date-Class" "Object" "jazz:Object")}
-      {Lisp-Entry "Time-Class" define-class ("class runtime") 58 27 58 42 ()}
-      {Lisp-Entry "of-type?" generic/specific ("time:Time-Class") 61 21 61 34 ("time?" "object")}
-      {Lisp-Entry "emit-specifier" generic/specific ("time:Time-Class") 65 21 65 40 ("time")}
-      {Lisp-Entry "emit-test" generic/specific ("time:Time-Class") 69 21 69 35 (",value" "time?" "environment" "source-declaration" "value")}
-      {Lisp-Entry "Time" define-class ("class runtime") 76 27 76 36 ()}
-      {Lisp-Entry "Date-Class" define-class ("class runtime") 93 27 93 42 ()}
-      {Lisp-Entry "of-type?" generic/specific ("time:Date-Class") 96 21 96 34 ("date?" "object")}
-      {Lisp-Entry "emit-specifier" generic/specific ("time:Date-Class") 100 21 100 40 ("date")}
-      {Lisp-Entry "emit-test" generic/specific ("time:Date-Class") 104 21 104 35 (",value" "date?" "environment" "source-declaration" "value")}
-      {Lisp-Entry "Date" define-class ("class runtime") 111 27 111 36 ()}}})
+ ({Lisp-File-Entry {File :context "src" "time" "classes.scm"} 240884279. scheme
+    {Lisp-Entry "time.classes" unit (protected) #f 37 16 37 28 ("date?" "date" "Date" "time:Date" "Date-Class" "time:Date-Class" "register-structure-type" "jazz:register-structure-type" "time?" "type-tests" "jazz:type-tests" "primitive-declarations" "jazz:primitive-declarations" "primitive-types" "jazz:primitive-types" "%%table-set!" "Time" "time:Time" "encapsulate-class" "jazz:encapsulate-class" "Time-Class" "time" "time:Time-Class")
+      {Lisp-Entry "Time-Class" define-class #f ("class syntax") 45 19 45 34 ("interface-table" "class-table" "core-vtable" "core-virtual-names" "core-virtual-alist" "core-method-alist" "dispatch-table" "level" "instance-size" "instance-slots" "slots" "interfaces" "ascendant" "descendants" "ancestors" "virtual-size" "fields" "name" "Class" "jazz:Class")}
+      {Lisp-Entry "Time" define-class #f ("class syntax") 46 19 46 28 ("Time-Class" "time" "time:Time-Class" "Object" "jazz:Object")}
+      {Lisp-Entry "Date-Class" define-class #f ("class syntax") 49 19 49 34 ("interface-table" "class-table" "core-vtable" "core-virtual-names" "core-virtual-alist" "core-method-alist" "dispatch-table" "level" "instance-size" "instance-slots" "slots" "interfaces" "ascendant" "descendants" "ancestors" "virtual-size" "fields" "name" "Class" "jazz:Class")}
+      {Lisp-Entry "Date" define-class #f ("class syntax") 50 19 50 28 ("Date-Class" "time" "time:Date-Class" "Object" "jazz:Object")}
+      {Lisp-Entry "Time-Class" define-class #f ("class runtime") 58 27 58 42 ()}
+      {Lisp-Entry "of-type?" generic/specific #f ("time:Time-Class") 61 21 61 34 ("time?" "object")}
+      {Lisp-Entry "emit-specifier" generic/specific #f ("time:Time-Class") 65 21 65 40 ("time")}
+      {Lisp-Entry "emit-test" generic/specific #f ("time:Time-Class") 69 21 69 35 (",value" "time?" "environment" "source-declaration" "value")}
+      {Lisp-Entry "Time" define-class #f ("class runtime") 76 27 76 36 ()}
+      {Lisp-Entry "Date-Class" define-class #f ("class runtime") 93 27 93 42 ()}
+      {Lisp-Entry "of-type?" generic/specific #f ("time:Date-Class") 96 21 96 34 ("date?" "object")}
+      {Lisp-Entry "emit-specifier" generic/specific #f ("time:Date-Class") 100 21 100 40 ("date")}
+      {Lisp-Entry "emit-test" generic/specific #f ("time:Date-Class") 104 21 104 35 (",value" "date?" "environment" "source-declaration" "value")}
+      {Lisp-Entry "Date" define-class #f ("class runtime") 111 27 111 36 ()}}})
 "exports"
- ({Lisp-File-Entry {File :context "src" "time" "exports.jazz"} 236918191. jazz
-    {Lisp-Entry "time.exports" module #f 37 18 37 30 ("jazz")
-      {Lisp-Entry "require" anonymous #f 40 1 40 8 ("time.classes" "time.implementation")}
-      {Lisp-Entry "time-duration" native ("native") 49 8 49 21 ()}
-      {Lisp-Entry "time-monotonic" native ("native") 50 8 50 22 ()}
-      {Lisp-Entry "time-process" native ("native") 51 8 51 20 ()}
-      {Lisp-Entry "time-tai" native ("native") 52 8 52 16 ()}
-      {Lisp-Entry "time-thread" native ("native") 53 8 53 19 ()}
-      {Lisp-Entry "time-utc" native ("native") 54 8 54 16 ()}
-      {Lisp-Entry "current-date" native ("native") 62 8 62 20 ()}
-      {Lisp-Entry "current-julian-day" native ("native") 63 8 63 26 ()}
-      {Lisp-Entry "current-modified-julian-day" native ("native") 64 8 64 35 ()}
-      {Lisp-Entry "tm-current-time" native ("native") 65 8 65 23 ()}
-      {Lisp-Entry "current-time" definition #f 66 19 66 31 ("tm-current-time")}
-      {Lisp-Entry "time-resolution" native ("native") 67 8 67 23 ()}
-      {Lisp-Entry "local-timezone" native ("native") 68 8 68 22 ()}
-      {Lisp-Entry "local-timezone-set!" native ("native") 69 8 69 27 ()}
-      {Lisp-Entry "make-time" native ("native") 77 8 77 17 ()}
-      {Lisp-Entry "time?" native ("native") 78 8 78 13 ()}
-      {Lisp-Entry "time-type" native ("native") 79 8 79 17 ()}
-      {Lisp-Entry "time-nanosecond" native ("native") 80 8 80 23 ()}
-      {Lisp-Entry "time-second" native ("native") 81 8 81 19 ()}
-      {Lisp-Entry "set-time-type!" native ("native") 82 8 82 22 ()}
-      {Lisp-Entry "set-time-nanosecond!" native ("native") 83 8 83 28 ()}
-      {Lisp-Entry "set-time-second!" native ("native") 84 8 84 24 ()}
-      {Lisp-Entry "copy-time" native ("native") 85 8 85 17 ()}
-      {Lisp-Entry "time<=?" native ("native") 93 8 93 15 ()}
-      {Lisp-Entry "time<?" native ("native") 94 8 94 14 ()}
-      {Lisp-Entry "time=?" native ("native") 95 8 95 14 ()}
-      {Lisp-Entry "time>=?" native ("native") 96 8 96 15 ()}
-      {Lisp-Entry "time>?" native ("native") 97 8 97 14 ()}
-      {Lisp-Entry "time-difference" native ("native") 105 8 105 23 ()}
-      {Lisp-Entry "time-difference!" native ("native") 106 8 106 24 ()}
-      {Lisp-Entry "add-duration" native ("native") 107 8 107 20 ()}
-      {Lisp-Entry "add-duration!" native ("native") 108 8 108 21 ()}
-      {Lisp-Entry "subtract-duration" native ("native") 109 8 109 25 ()}
-      {Lisp-Entry "subtract-duration!" native ("native") 110 8 110 26 ()}
-      {Lisp-Entry "make-date" native ("native") 118 8 118 17 ()}
-      {Lisp-Entry "date?" native ("native") 119 8 119 13 ()}
-      {Lisp-Entry "date-nanosecond" native ("native") 120 8 120 23 ()}
-      {Lisp-Entry "date-second" native ("native") 121 8 121 19 ()}
-      {Lisp-Entry "date-minute" native ("native") 122 8 122 19 ()}
-      {Lisp-Entry "date-hour" native ("native") 123 8 123 17 ()}
-      {Lisp-Entry "date-day" native ("native") 124 8 124 16 ()}
-      {Lisp-Entry "date-month" native ("native") 125 8 125 18 ()}
-      {Lisp-Entry "date-year" native ("native") 126 8 126 17 ()}
-      {Lisp-Entry "date-zone-offset" native ("native") 127 8 127 24 ()}
-      {Lisp-Entry "date-year-day" native ("native") 128 8 128 21 ()}
-      {Lisp-Entry "date-week-day" native ("native") 129 8 129 21 ()}
-      {Lisp-Entry "date-week-number" native ("native") 130 8 130 24 ()}
-      {Lisp-Entry "date->julian-day" native ("native") 138 8 138 24 ()}
-      {Lisp-Entry "date->modified-julian-day" native ("native") 139 8 139 33 ()}
-      {Lisp-Entry "date->time-monotonic" native ("native") 140 8 140 28 ()}
-      {Lisp-Entry "date->time-tai" native ("native") 141 8 141 22 ()}
-      {Lisp-Entry "date->time-utc" native ("native") 142 8 142 22 ()}
-      {Lisp-Entry "julian-day->date" native ("native") 143 8 143 24 ()}
-      {Lisp-Entry "julian-day->time-monotonic" native ("native") 144 8 144 34 ()}
-      {Lisp-Entry "julian-day->time-tai" native ("native") 145 8 145 28 ()}
-      {Lisp-Entry "julian-day->time-utc" native ("native") 146 8 146 28 ()}
-      {Lisp-Entry "modified-julian-day->date" native ("native") 147 8 147 33 ()}
-      {Lisp-Entry "modified-julian-day->time-monotonic" native ("native") 148 8 148 43 ()}
-      {Lisp-Entry "modified-julian-day->time-tai" native ("native") 149 8 149 37 ()}
-      {Lisp-Entry "modified-julian-day->time-utc" native ("native") 150 8 150 37 ()}
-      {Lisp-Entry "time-monotonic->date" native ("native") 151 8 151 28 ()}
-      {Lisp-Entry "time-monotonic->julian-day" native ("native") 152 8 152 34 ()}
-      {Lisp-Entry "time-monotonic->modified-julian-day" native ("native") 153 8 153 43 ()}
-      {Lisp-Entry "time-monotonic->time-tai" native ("native") 154 8 154 32 ()}
-      {Lisp-Entry "time-monotonic->time-tai!" native ("native") 155 8 155 33 ()}
-      {Lisp-Entry "time-monotonic->time-utc" native ("native") 156 8 156 32 ()}
-      {Lisp-Entry "time-monotonic->time-utc!" native ("native") 157 8 157 33 ()}
-      {Lisp-Entry "time-tai->date" native ("native") 158 8 158 22 ()}
-      {Lisp-Entry "time-tai->julian-day" native ("native") 159 8 159 28 ()}
-      {Lisp-Entry "time-tai->modified-julian-day" native ("native") 160 8 160 37 ()}
-      {Lisp-Entry "time-tai->time-monotonic" native ("native") 161 8 161 32 ()}
-      {Lisp-Entry "time-tai->time-monotonic!" native ("native") 162 8 162 33 ()}
-      {Lisp-Entry "time-tai->time-utc" native ("native") 163 8 163 26 ()}
-      {Lisp-Entry "time-tai->time-utc!" native ("native") 164 8 164 27 ()}
-      {Lisp-Entry "time-utc->date" native ("native") 165 8 165 22 ()}
-      {Lisp-Entry "time-utc->julian-day" native ("native") 166 8 166 28 ()}
-      {Lisp-Entry "time-utc->modified-julian-day" native ("native") 167 8 167 37 ()}
-      {Lisp-Entry "time-utc->time-monotonic" native ("native") 168 8 168 32 ()}
-      {Lisp-Entry "time-utc->time-monotonic!" native ("native") 169 8 169 33 ()}
-      {Lisp-Entry "time-utc->time-tai" native ("native") 170 8 170 26 ()}
-      {Lisp-Entry "time-utc->time-tai!" native ("native") 171 8 171 27 ()}
-      {Lisp-Entry "date->string" native ("native") 179 8 179 20 ()}
-      {Lisp-Entry "string->date" native ("native") 180 8 180 20 ()}}})
+ ({Lisp-File-Entry {File :context "src" "time" "exports.jazz"} 231466232. jazz
+    {Lisp-Entry "time.exports" module (protected) #f 37 18 37 30 ("jazz")
+      {Lisp-Entry "require" anonymous #f #f 40 1 40 8 ("time.classes" "time.implementation")}
+      {Lisp-Entry "time-duration" native () ("native") 49 8 49 21 ()}
+      {Lisp-Entry "time-monotonic" native () ("native") 50 8 50 22 ()}
+      {Lisp-Entry "time-process" native () ("native") 51 8 51 20 ()}
+      {Lisp-Entry "time-tai" native () ("native") 52 8 52 16 ()}
+      {Lisp-Entry "time-thread" native () ("native") 53 8 53 19 ()}
+      {Lisp-Entry "time-utc" native () ("native") 54 8 54 16 ()}
+      {Lisp-Entry "current-date" native () ("native") 62 8 62 20 ()}
+      {Lisp-Entry "current-julian-day" native () ("native") 63 8 63 26 ()}
+      {Lisp-Entry "current-modified-julian-day" native () ("native") 64 8 64 35 ()}
+      {Lisp-Entry "tm-current-time" native () ("native") 65 8 65 23 ()}
+      {Lisp-Entry "current-time" definition (public) #f 66 19 66 31 ("tm-current-time")}
+      {Lisp-Entry "time-resolution" native () ("native") 67 8 67 23 ()}
+      {Lisp-Entry "local-timezone" native () ("native") 68 8 68 22 ()}
+      {Lisp-Entry "local-timezone-set!" native () ("native") 69 8 69 27 ()}
+      {Lisp-Entry "make-time" native () ("native") 77 8 77 17 ()}
+      {Lisp-Entry "time?" native () ("native") 78 8 78 13 ()}
+      {Lisp-Entry "time-type" native () ("native") 79 8 79 17 ()}
+      {Lisp-Entry "time-nanosecond" native () ("native") 80 8 80 23 ()}
+      {Lisp-Entry "time-second" native () ("native") 81 8 81 19 ()}
+      {Lisp-Entry "set-time-type!" native () ("native") 82 8 82 22 ()}
+      {Lisp-Entry "set-time-nanosecond!" native () ("native") 83 8 83 28 ()}
+      {Lisp-Entry "set-time-second!" native () ("native") 84 8 84 24 ()}
+      {Lisp-Entry "copy-time" native () ("native") 85 8 85 17 ()}
+      {Lisp-Entry "time<=?" native () ("native") 93 8 93 15 ()}
+      {Lisp-Entry "time<?" native () ("native") 94 8 94 14 ()}
+      {Lisp-Entry "time=?" native () ("native") 95 8 95 14 ()}
+      {Lisp-Entry "time>=?" native () ("native") 96 8 96 15 ()}
+      {Lisp-Entry "time>?" native () ("native") 97 8 97 14 ()}
+      {Lisp-Entry "time-difference" native () ("native") 105 8 105 23 ()}
+      {Lisp-Entry "time-difference!" native () ("native") 106 8 106 24 ()}
+      {Lisp-Entry "add-duration" native () ("native") 107 8 107 20 ()}
+      {Lisp-Entry "add-duration!" native () ("native") 108 8 108 21 ()}
+      {Lisp-Entry "subtract-duration" native () ("native") 109 8 109 25 ()}
+      {Lisp-Entry "subtract-duration!" native () ("native") 110 8 110 26 ()}
+      {Lisp-Entry "make-date" native () ("native") 118 8 118 17 ()}
+      {Lisp-Entry "date?" native () ("native") 119 8 119 13 ()}
+      {Lisp-Entry "date-nanosecond" native () ("native") 120 8 120 23 ()}
+      {Lisp-Entry "date-second" native () ("native") 121 8 121 19 ()}
+      {Lisp-Entry "date-minute" native () ("native") 122 8 122 19 ()}
+      {Lisp-Entry "date-hour" native () ("native") 123 8 123 17 ()}
+      {Lisp-Entry "date-day" native () ("native") 124 8 124 16 ()}
+      {Lisp-Entry "date-month" native () ("native") 125 8 125 18 ()}
+      {Lisp-Entry "date-year" native () ("native") 126 8 126 17 ()}
+      {Lisp-Entry "date-zone-offset" native () ("native") 127 8 127 24 ()}
+      {Lisp-Entry "date-year-day" native () ("native") 128 8 128 21 ()}
+      {Lisp-Entry "date-week-day" native () ("native") 129 8 129 21 ()}
+      {Lisp-Entry "date-week-number" native () ("native") 130 8 130 24 ()}
+      {Lisp-Entry "date->julian-day" native () ("native") 138 8 138 24 ()}
+      {Lisp-Entry "date->modified-julian-day" native () ("native") 139 8 139 33 ()}
+      {Lisp-Entry "date->time-monotonic" native () ("native") 140 8 140 28 ()}
+      {Lisp-Entry "date->time-tai" native () ("native") 141 8 141 22 ()}
+      {Lisp-Entry "date->time-utc" native () ("native") 142 8 142 22 ()}
+      {Lisp-Entry "julian-day->date" native () ("native") 143 8 143 24 ()}
+      {Lisp-Entry "julian-day->time-monotonic" native () ("native") 144 8 144 34 ()}
+      {Lisp-Entry "julian-day->time-tai" native () ("native") 145 8 145 28 ()}
+      {Lisp-Entry "julian-day->time-utc" native () ("native") 146 8 146 28 ()}
+      {Lisp-Entry "modified-julian-day->date" native () ("native") 147 8 147 33 ()}
+      {Lisp-Entry "modified-julian-day->time-monotonic" native () ("native") 148 8 148 43 ()}
+      {Lisp-Entry "modified-julian-day->time-tai" native () ("native") 149 8 149 37 ()}
+      {Lisp-Entry "modified-julian-day->time-utc" native () ("native") 150 8 150 37 ()}
+      {Lisp-Entry "time-monotonic->date" native () ("native") 151 8 151 28 ()}
+      {Lisp-Entry "time-monotonic->julian-day" native () ("native") 152 8 152 34 ()}
+      {Lisp-Entry "time-monotonic->modified-julian-day" native () ("native") 153 8 153 43 ()}
+      {Lisp-Entry "time-monotonic->time-tai" native () ("native") 154 8 154 32 ()}
+      {Lisp-Entry "time-monotonic->time-tai!" native () ("native") 155 8 155 33 ()}
+      {Lisp-Entry "time-monotonic->time-utc" native () ("native") 156 8 156 32 ()}
+      {Lisp-Entry "time-monotonic->time-utc!" native () ("native") 157 8 157 33 ()}
+      {Lisp-Entry "time-tai->date" native () ("native") 158 8 158 22 ()}
+      {Lisp-Entry "time-tai->julian-day" native () ("native") 159 8 159 28 ()}
+      {Lisp-Entry "time-tai->modified-julian-day" native () ("native") 160 8 160 37 ()}
+      {Lisp-Entry "time-tai->time-monotonic" native () ("native") 161 8 161 32 ()}
+      {Lisp-Entry "time-tai->time-monotonic!" native () ("native") 162 8 162 33 ()}
+      {Lisp-Entry "time-tai->time-utc" native () ("native") 163 8 163 26 ()}
+      {Lisp-Entry "time-tai->time-utc!" native () ("native") 164 8 164 27 ()}
+      {Lisp-Entry "time-utc->date" native () ("native") 165 8 165 22 ()}
+      {Lisp-Entry "time-utc->julian-day" native () ("native") 166 8 166 28 ()}
+      {Lisp-Entry "time-utc->modified-julian-day" native () ("native") 167 8 167 37 ()}
+      {Lisp-Entry "time-utc->time-monotonic" native () ("native") 168 8 168 32 ()}
+      {Lisp-Entry "time-utc->time-monotonic!" native () ("native") 169 8 169 33 ()}
+      {Lisp-Entry "time-utc->time-tai" native () ("native") 170 8 170 26 ()}
+      {Lisp-Entry "time-utc->time-tai!" native () ("native") 171 8 171 27 ()}
+      {Lisp-Entry "date->string" native () ("native") 179 8 179 20 ()}
+      {Lisp-Entry "string->date" native () ("native") 180 8 180 20 ()}}})
 "implementation"
- ({Lisp-File-Entry {File :context "src" "time" "implementation.scm"} 236918191. scheme
-    {Lisp-Entry "time.implementation" unit #f 82 16 82 35 ("0" "lambda" "local-timezone" "set!" "zone-offset" "year" "month" "day" "hour" "minute" "date" "make-inspector" "second" "nanosecond" "type" "time" "define-struct" "val" "_" "syntax-rules" "car" ",default-value" ",rest" "null?" "if" "default-value" "rest")
-      {Lisp-Entry "receive" define-macro #f 87 18 87 25 ("lambda" "call-with-values" "..." "body" "expression" "formals" "receive" "syntax-rules")}
-      {Lisp-Entry "time-tai" define #f 110 8 110 16 ("time-tai")}
-      {Lisp-Entry "time-utc" define #f 111 8 111 16 ("time-utc")}
-      {Lisp-Entry "time-monotonic" define #f 112 8 112 22 ("time-monotonic")}
-      {Lisp-Entry "time-thread" define #f 113 8 113 19 ("time-thread")}
-      {Lisp-Entry "time-process" define #f 114 8 114 20 ("time-process")}
-      {Lisp-Entry "time-duration" define #f 115 8 115 21 ("time-duration")}
-      {Lisp-Entry "time-gc" define #f 118 8 118 15 ("time-gc")}
-      {Lisp-Entry "locale-number-separator" define #f 122 8 122 34 ()}
-      {Lisp-Entry "locale-abbr-weekday-vector" define #f 124 8 124 37 ("vector")}
-      {Lisp-Entry "locale-long-weekday-vector" define #f 126 8 126 37 ("vector")}
-      {Lisp-Entry "locale-abbr-month-vector" define #f 131 8 131 35 ("vector")}
-      {Lisp-Entry "locale-long-month-vector" define #f 135 8 135 35 ("vector")}
-      {Lisp-Entry "locale-pm" define #f 141 8 141 20 ()}
-      {Lisp-Entry "locale-am" define #f 142 8 142 20 ()}
-      {Lisp-Entry "locale-date-time-format" define #f 145 8 145 34 ()}
-      {Lisp-Entry "locale-short-date-format" define #f 146 8 146 35 ()}
-      {Lisp-Entry "locale-time-format" define #f 147 8 147 29 ()}
-      {Lisp-Entry "iso-8601-date-time-format" define #f 148 8 148 36 ()}
-      {Lisp-Entry "nano" define #f 153 8 153 15 ("9" "10" "expt")}
-      {Lisp-Entry "sid" define #f 154 8 154 14 ("86400")}
-      {Lisp-Entry "sihd" define #f 155 8 155 15 ("43200")}
-      {Lisp-Entry "tai-epoch-in-jd" define #f 156 8 156 26 ("4881175/2")}
-      {Lisp-Entry "time-error-types" define #f 161 8 161 27 ("invalid-month-specification" "bad-date-template-string" "bad-date-format-string" "dates-are-immutable" "not-duration" "incompatible-time-types" "unsupported-clock-type" "invalid-clock-type")}
-      {Lisp-Entry "time-error" define #f 172 9 172 22 ("error" "time-error-types" "tm" "tm:time-error-types" "member" "if" "value" "type" "caller")}
-      {Lisp-Entry "read-tai-utc-data" define #f 189 9 189 29 ("cons" "set!" "1972" ">=" "cdddr" "secs" "cdr" "cadddr" "car" "year" "string-append" "open-input-string" "read" "data" "let*" "begin" "eof-object?" "not" "if" "read-line" "line" "loop" "table" "open-input-file" "port" "let" "sec" "convert-sec" "sid" "tm:sid" "tai-epoch-in-jd" "tm" "tm:tai-epoch-in-jd" "inexact->exact" "-" "*" "jd" "convert-jd" "define" "filename")}
-      {Lisp-Entry "leap-second-table" define #f 210 8 210 28 ("10" "63072000" "11" "78796800" "12" "94694400" "13" "126230400" "14" "157766400" "15" "189302400" "16" "220924800" "17" "252460800" "18" "283996800" "19" "315532800" "20" "362793600" "21" "394329600" "22" "425865600" "23" "489024000" "24" "567993600" "25" "631152000" "26" "662688000" "27" "709948800" "28" "741484800" "29" "773020800" "30" "820454400" "31" "867715200" "32" "915148800" "33" "1136073600")}
-      {Lisp-Entry "read-leap-second-table" define #f 236 9 236 31 ("values" "read-tai-utc-data" "tm:read-tai-utc-data" "leap-second-table" "tm" "tm:leap-second-table" "set!" "filename")}
-      {Lisp-Entry "leap-second-delta" define #f 241 9 241 29 ("leap-second-table" "tm:leap-second-table" "0" "sid" "tm" "tm:sid" "365" "1970" "1972" "-" "*" "<" "if" "cdr" "else" "cdar" "caar" ">=" "cond" "table" "lambda" "lsd" "letrec" "utc-seconds")}
-      {Lisp-Entry "leap-second-neg-delta" define #f 251 9 251 33 ("leap-second-table" "tm:leap-second-table" "sid" "tm" "tm:sid" "365" "1970" "1972" "*" "<" "if" "cdr" "else" "caar" "-" "cdar" "<=" "0" "null?" "cond" "table" "lambda" "lsd" "letrec" "tai-seconds")}
-      {Lisp-Entry "time" define #f 266 17 266 21 ("second" "nanosecond" "type" "b3b7d0d0-9cb7-11de-8a39-0800200c9a66" "id:")}
-      {Lisp-Entry "set-time-type!" define #f 276 12 276 29 ("time-type-set!")}
-      {Lisp-Entry "set-time-nanosecond!" define #f 277 12 277 35 ("time-nanosecond-set!")}
-      {Lisp-Entry "set-time-second!" define #f 278 12 278 31 ("time-second-set!")}
-      {Lisp-Entry "set-time-type!" define #f 280 12 280 29 ("set-time-type!")}
-      {Lisp-Entry "set-time-nanosecond!" define #f 281 12 281 35 ("set-time-nanosecond!")}
-      {Lisp-Entry "set-time-second!" define #f 282 12 282 31 ("set-time-second!")}
-      {Lisp-Entry "copy-time" define #f 286 9 286 18 ("time-second" "time-nanosecond" "time-type" "make-time" "time")}
-      {Lisp-Entry "current-seconds" define #f 305 13 305 28 ("current-time" "time->seconds" "floor" "inexact->exact")}
-      {Lisp-Entry "current-milliseconds" define #f 308 13 308 33 ("current-time" "time->seconds" "1000" "*" "floor" "inexact->exact")}
-      {Lisp-Entry "current-process-milliseconds" define #f 311 13 311 41 ("0")}
-      {Lisp-Entry "current-gc-milliseconds" define #f 314 13 314 36 ("0")}
-      {Lisp-Entry "get-time-of-day" define #f 317 9 317 27 ("values" "1000" "-" "*" "milliseconds" "floor" "inexact->exact" "seconds" "current-time" "time->seconds" "time" "let*")}
-      {Lisp-Entry "current-time-utc" define #f 323 9 323 28 ("1000000" "*" "time-utc" "make-time" "get-time-of-day" "tm" "tm:get-time-of-day" "ms" "seconds" "receive")}
-      {Lisp-Entry "current-time-tai" define #f 327 9 327 28 ("leap-second-delta" "tm:leap-second-delta" "+" "1000000" "*" "time-tai" "make-time" "get-time-of-day" "tm" "tm:get-time-of-day" "ms" "seconds" "receive")}
-      {Lisp-Entry "current-time-ms-time" define #f 336 9 336 32 ("quotient" "1000000" "1000" "remainder" "*" "make-time" "current-ms" "let" "proc" "time-type")}
-      {Lisp-Entry "current-time-monotonic" define #f 348 9 348 34 ("leap-second-delta" "tm:leap-second-delta" "+" "1000000" "*" "time-monotonic" "make-time" "get-time-of-day" "tm" "tm:get-time-of-day" "ms" "seconds" "receive")}
-      {Lisp-Entry "current-time-thread" define #f 356 9 356 31 ("current-process-milliseconds" "time-process" "current-time-ms-time" "tm" "tm:current-time-ms-time")}
-      {Lisp-Entry "current-time-process" define #f 359 9 359 32 ("current-process-milliseconds" "time-process" "current-time-ms-time" "tm" "tm:current-time-ms-time")}
-      {Lisp-Entry "current-time-gc" define #f 362 9 362 27 ("current-gc-milliseconds" "time-gc" "current-time-ms-time" "tm" "tm:current-time-ms-time")}
-      {Lisp-Entry "current-time" define #f 365 9 365 24 ("invalid-clock-type" "current-time" "time-error" "tm:time-error" "else" "current-time-gc" "tm:current-time-gc" "time-gc" "current-time-process" "tm:current-time-process" "time-process" "current-time-thread" "tm:current-time-thread" "time-thread" "current-time-monotonic" "tm:current-time-monotonic" "time-monotonic" "current-time-utc" "tm:current-time-utc" "current-time-tai" "tm" "tm:current-time-tai" "time-tai" "eq?" "cond" "time-utc" ":optional" "let" "clock-type")}
-      {Lisp-Entry "tm-current-time" define #f 376 8 376 23 ("current-time" "tm" "tm:current-time")}
-      {Lisp-Entry "time-resolution" define #f 384 9 384 24 ("invalid-clock-type" "time-resolution" "time-error" "tm" "tm:time-error" "else" "time-gc" "time-process" "time-thread" "time-monotonic" "1000000" "time-tai" "eq?" "cond" "time-utc" ":optional" "let" "clock-type")}
-      {Lisp-Entry "time-compare-check" define #f 397 9 397 30 ("incompatible-time-types" "time-error" "tm" "tm:time-error" "time-type" "eq?" "time?" "and" "not" "or" "if" "caller" "time2" "time1")}
-      {Lisp-Entry "time=?" define #f 403 9 403 15 ("time-nanosecond" "time-second" "=" "and" "time=?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
-      {Lisp-Entry "time>?" define #f 408 9 408 15 ("time-nanosecond" "=" "and" "time-second" ">" "or" "time>?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
-      {Lisp-Entry "time<?" define #f 414 9 414 15 ("time-nanosecond" "=" "and" "time-second" "<" "or" "time<?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
-      {Lisp-Entry "time>=?" define #f 420 9 420 16 ("time-nanosecond" "=" "and" "time-second" ">=" "or" "time>=?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
-      {Lisp-Entry "time<=?" define #f 426 9 426 16 ("time-nanosecond" "=" "and" "time-second" "<=" "or" "time<=?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
-      {Lisp-Entry "time->nanoseconds" define #f 434 9 434 29 ("time-nanosecond" "nano" "tm" "tm:nano" "time-second" "*" "+" "1" "-1" "negative?" "if" "n" "sign1" "define" "time")}
-      {Lisp-Entry "nanoseconds->time" define #f 440 9 440 29 ("quotient" "nano" "tm" "tm:nano" "remainder" "make-time" "nanoseconds" "time-type")}
-      {Lisp-Entry "nanoseconds->values" define #f 445 9 445 31 ("quotient" "nano" "tm" "tm:nano" "remainder" "abs" "values" "nanoseconds")}
-      {Lisp-Entry "time-difference" define #f 449 9 449 27 ("time->nanoseconds" "tm:time->nanoseconds" "-" "nanoseconds->values" "tm:nanoseconds->values" "secs" "nanos" "receive" "set-time-nanosecond!" "tm:set-time-nanosecond!" "0" "set-time-second!" "tm:set-time-second!" "begin" "time=?" "time-duration" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-difference" "time-error" "tm" "tm:time-error" "time-type" "eq?" "time?" "and" "not" "or" "if" "time3" "time2" "time1")}
-      {Lisp-Entry "time-difference" define #f 466 9 466 24 ("make-time" "time-difference" "tm" "tm:time-difference" "time2" "time1")}
-      {Lisp-Entry "time-difference!" define #f 469 9 469 25 ("time-difference" "tm" "tm:time-difference" "time2" "time1")}
-      {Lisp-Entry "add-duration" define #f 472 9 472 24 ("set-time-nanosecond!" "tm:set-time-nanosecond!" "-1" "set-time-second!" "tm:set-time-second!" "begin" "negative?" "quotient" "q" "nano" "tm:nano" "remainder" "r" "time-nanosecond" "nsec-plus" "time-second" "+" "sec-plus" "let" "not-duration" "time-duration" "time-type" "eq?" "incompatible-time-types" "add-duration" "time-error" "tm" "tm:time-error" "time?" "and" "not" "if" "time3" "duration" "time1")}
-      {Lisp-Entry "add-duration" define #f 491 9 491 21 ("time-type" "make-time" "add-duration" "tm" "tm:add-duration" "duration" "time1")}
-      {Lisp-Entry "add-duration!" define #f 494 9 494 22 ("add-duration" "tm" "tm:add-duration" "duration" "time1")}
-      {Lisp-Entry "subtract-duration" define #f 497 9 497 29 ("+" "set-time-nanosecond!" "tm:set-time-nanosecond!" "1" "set-time-second!" "tm:set-time-second!" "begin" "negative?" "quotient" "q" "nano" "tm:nano" "remainder" "r" "time-nanosecond" "nsec-minus" "time-second" "-" "sec-minus" "let" "not-duration" "subtract-duration" "tm:subtract-duration" "time-duration" "time-type" "eq?" "incompatible-time-types" "add-duration" "time-error" "tm" "tm:time-error" "time?" "and" "not" "if" "time3" "duration" "time1")}
-      {Lisp-Entry "subtract-duration" define #f 515 9 515 26 ("time-type" "make-time" "subtract-duration" "tm" "tm:subtract-duration" "duration" "time1")}
-      {Lisp-Entry "subtract-duration!" define #f 518 9 518 27 ("subtract-duration" "tm" "tm:subtract-duration" "duration" "time1")}
-      {Lisp-Entry "time-tai->time-utc!" define #f 524 9 524 31 ("leap-second-neg-delta" "tm:leap-second-neg-delta" "time-second" "-" "set-time-second!" "tm:set-time-second!" "time-nanosecond" "set-time-nanosecond!" "tm:set-time-nanosecond!" "time-utc" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "caller" "time-out" "time-in")}
-      {Lisp-Entry "time-tai->time-utc" define #f 534 9 534 27 ("time-tai->time-utc" "make-time" "time-tai->time-utc!" "tm" "tm:time-tai->time-utc!" "time-in")}
-      {Lisp-Entry "time-tai->time-utc!" define #f 538 9 538 28 ("time-tai->time-utc!" "tm" "tm:time-tai->time-utc!" "time-in")}
-      {Lisp-Entry "time-utc->time-tai!" define #f 542 9 542 31 ("leap-second-delta" "tm:leap-second-delta" "time-second" "+" "set-time-second!" "tm:set-time-second!" "time-nanosecond" "set-time-nanosecond!" "tm:set-time-nanosecond!" "time-tai" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "caller" "time-out" "time-in")}
-      {Lisp-Entry "time-utc->time-tai" define #f 553 9 553 27 ("time-utc->time-tai" "make-time" "time-utc->time-tai!" "tm" "tm:time-utc->time-tai!" "time-in")}
-      {Lisp-Entry "time-utc->time-tai!" define #f 556 9 556 28 ("time-utc->time-tai!" "tm" "tm:time-utc->time-tai!" "time-in")}
-      {Lisp-Entry "time-monotonic->time-utc" define #f 560 9 560 33 ("time-monotonic->time-utc" "time-tai->time-utc!" "tm:time-tai->time-utc!" "time-tai" "set-time-type!" "tm:set-time-type!" "copy-time" "ntime" "let" "incompatible-time-types" "time-monotoinc->time-utc" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "time-monotonic->time-utc!" define #f 567 9 567 34 ("time-monotonic->time-utc" "time-tai->time-utc!" "tm:time-tai->time-utc!" "time-tai" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-monotonic->time-utc!" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "time-monotonic->time-tai" define #f 573 9 573 33 ("time-tai" "set-time-type!" "tm:set-time-type!" "copy-time" "ntime" "let" "incompatible-time-types" "time-monotonic->time-tai" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "time-monotonic->time-tai!" define #f 580 9 580 34 ("time-tai" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-monotonic->time-tai!" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "time-utc->time-monotonic" define #f 586 9 586 33 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "make-time" "time-utc->time-tai!" "tm:time-utc->time-tai!" "ntime" "let" "incompatible-time-types" "time-utc->time-monotonic" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "time-utc->time-monotonic!" define #f 595 9 595 34 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "time-utc->time-monotonic!" "time-utc->time-tai!" "tm:time-utc->time-tai!" "ntime" "let" "incompatible-time-types" "time-utc->time-montonic!" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "time-tai->time-monotonic" define #f 604 9 604 33 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "copy-time" "ntime" "let" "incompatible-time-types" "time-tai->time-monotonic" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "time-tai->time-monotonic!" define #f 611 9 611 34 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-tai->time-monotonic!" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "time-in")}
-      {Lisp-Entry "date" define #f 622 17 622 21 ("zone-offset" "year" "month" "day" "hour" "minute" "second" "nanosecond" "d958b070-9cb7-11de-8a39-0800200c9a66" "id:")}
-      {Lisp-Entry "set-date-nanosecond!" define #f 632 12 632 35 ("date-nanosecond-set!")}
-      {Lisp-Entry "set-date-second!" define #f 633 12 633 31 ("date-second-set!")}
-      {Lisp-Entry "set-date-minute!" define #f 634 12 634 31 ("date-minute-set!")}
-      {Lisp-Entry "set-date-hour!" define #f 635 12 635 29 ("date-hour-set!")}
-      {Lisp-Entry "set-date-day!" define #f 636 12 636 28 ("date-day-set!")}
-      {Lisp-Entry "set-date-month!" define #f 637 12 637 30 ("date-month-set!")}
-      {Lisp-Entry "set-date-year!" define #f 638 12 638 29 ("date-year-set!")}
-      {Lisp-Entry "set-date-zone-offset!" define #f 639 12 639 36 ("date-zone-offset-set!")}
-      {Lisp-Entry "set-date-nanosecond!" define #f 641 12 641 35 ("set-date-nanosecond!")}
-      {Lisp-Entry "set-date-second!" define #f 642 12 642 31 ("set-date-second!")}
-      {Lisp-Entry "set-date-minute!" define #f 643 12 643 31 ("set-date-minute!")}
-      {Lisp-Entry "set-date-hour!" define #f 644 12 644 29 ("set-date-hour!")}
-      {Lisp-Entry "set-date-day!" define #f 645 12 645 28 ("set-date-day!")}
-      {Lisp-Entry "set-date-month!" define #f 646 12 646 30 ("set-date-month!")}
-      {Lisp-Entry "set-date-year!" define #f 647 12 647 29 ("set-date-year!")}
-      {Lisp-Entry "set-date-zone-offset!" define #f 648 12 648 36 ("set-date-zone-offset!")}
-      {Lisp-Entry "set-date-second!" define #f 650 9 650 25 ("dates-are-immutable" "set-date-second!" "time-error" "tm" "tm:time-error" "val" "date")}
-      {Lisp-Entry "set-date-minute!" define #f 654 9 654 25 ("dates-are-immutable" "set-date-minute!" "time-error" "tm" "tm:time-error" "val" "date")}
-      {Lisp-Entry "set-date-day!" define #f 657 9 657 22 ("dates-are-immutable" "set-date-day!" "time-error" "tm" "tm:time-error" "val" "date")}
-      {Lisp-Entry "set-date-month!" define #f 660 9 660 24 ("dates-are-immutable" "set-date-month!" "time-error" "tm" "tm:time-error" "val" "date")}
-      {Lisp-Entry "set-date-year!" define #f 663 9 663 23 ("dates-are-immutable" "set-date-year!" "time-error" "tm" "tm:time-error" "val" "date")}
-      {Lisp-Entry "set-date-zone-offset!" define #f 666 9 666 30 ("dates-are-immutable" "set-date-zone-offset!" "time-error" "tm" "tm:time-error" "val" "date")}
-      {Lisp-Entry "encode-julian-day-number" define #f 670 9 670 36 ("-32045" "400" "100" "4" "365" "5" "2" "153" "3" "*" "m" "0" "-1" "negative?" "if" "4800" "+" "y" "12" "14" "-" "quotient" "a" "let*" "year" "month" "day")}
-      {Lisp-Entry "char-pos" define #f 682 9 682 20 ("1" "+" "char-pos" "tm" "tm:char-pos" "else" "string-ref" "char=?" ">=" "cond" "len" "index" "str" "char")}
-      {Lisp-Entry "fractional-part" define #f 691 9 691 27 ("1" "+" "substring" "string-length" "0" "char-pos" "tm" "tm:char-pos" "ppos" "exact->inexact" "number->string" "str" "let" "integer?" "if" "r")}
-      {Lisp-Entry "decode-julian-day-number" define #f 699 9 699 36 ("0" ">=" "if" "-12" "1" "sid" "tm" "tm:sid" "values" "10" "-4800" "100" "y" "153" "2" "5" "m" "e" "1461" "d" "-" "c" "146097" "3" "4" "*" "quotient" "b" "32044" "+" "a" "truncate" "days" "let*" "jdn")}
-      {Lisp-Entry "local-timezone" define #f 716 8 716 22 ()}
-      {Lisp-Entry "local-timezone-set!" define #f 723 9 723 28 ("local-timezone" "set!" "proc")}
-      {Lisp-Entry "local-tz-offset" define #f 729 13 729 31 ("local-timezone")}
-      {Lisp-Entry "local-tz-offset" define #f 735 13 735 31 ("current-seconds" "seconds->date" "date-time-zone-offset")}
-      {Lisp-Entry "time->julian-day-number" define #f 739 9 739 35 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "sihd" "tm" "tm:sihd" "/" "+" "tz-offset" "seconds")}
-      {Lisp-Entry "find" define #f 746 9 746 16 ("cdr" "find" "tm" "tm:find" "car" "null?" "if" "l" "proc")}
-      {Lisp-Entry "tai-before-leap-second?" define #f 753 9 753 35 ("leap-second-table" "tm:leap-second-table" "1" "cdr" "car" "+" "-" "=" "x" "lambda" "find" "tm" "tm:find" "second")}
-      {Lisp-Entry "time->date" define #f 758 9 758 22 ("time-nanosecond" "make-date" "seconds" "minutes" "remainder" "rem" "60" "*" "quotient" "hours" "time-second" "time->julian-day-number" "tm:time->julian-day-number" "decode-julian-day-number" "tm:decode-julian-day-number" "year" "month" "date" "secs" "receive" "local-tz-offset" "tm:local-tz-offset" ":optional" "offset" "let*" "incompatible-time-types" "time->date" "time-error" "tm" "tm:time-error" "time-type" "eq?" "not" "if" "ttype" "tz-offset" "time")}
-      {Lisp-Entry "time-tai->date" define #f 778 9 778 23 ("60" "set-date-second!" "tm:set-date-second!" "time-utc" "1" "0" "time-duration" "make-time" "time-tai->time-utc" "subtract-duration!" "time->date" "tm:time->date" "d" "let" "time-second" "tai-before-leap-second?" "tm" "tm:tai-before-leap-second?" "if" "tz-offset" "time")}
-      {Lisp-Entry "time-utc->date" define #f 786 9 786 23 ("time-utc" "time->date" "tm" "tm:time->date" "tz-offset" "time")}
-      {Lisp-Entry "time-monotonic->date" define #f 790 9 790 29 ("time-monotonic" "time->date" "tm" "tm:time->date" "tz-offset" "time")}
-      {Lisp-Entry "date->time-utc" define #f 793 9 793 23 ("60" "24" "1/2" "*" "+" "time-utc" "make-time" "tai-epoch-in-jd" "tm:tai-epoch-in-jd" "encode-julian-day-number" "tm" "tm:encode-julian-day-number" "-" "jdays" "date-zone-offset" "offset" "date-year" "year" "date-month" "month" "date-day" "day" "date-hour" "hour" "date-minute" "minute" "date-second" "second" "date-nanosecond" "nanosecond" "let" "date")}
-      {Lisp-Entry "date->time-tai" define #f 814 9 814 23 ("1" "0" "time-duration" "make-time" "date->time-utc" "time-utc->time-tai!" "subtract-duration!" "60" "date-second" "=" "if" "d")}
-      {Lisp-Entry "date->time-monotonic" define #f 819 9 819 29 ("date->time-utc" "time-utc->time-monotonic!" "date")}
-      {Lisp-Entry "leap-year?" define #f 823 9 823 22 ("100" "not" "4" "and" "0" "400" "modulo" "=" "or" "year")}
-      {Lisp-Entry "leap-year?" define #f 827 9 827 19 ("date-year" "leap-year?" "tm" "tm:leap-year?" "date")}
-      {Lisp-Entry "month-assoc" define #f 831 9 831 23 ("334" "11" "304" "10" "273" "9" "243" "8" "212" "7" "181" "6" "151" "5" "120" "4" "90" "3" "59" "2" "31" "1" "0")}
-      {Lisp-Entry "year-day" define #f 835 9 835 20 ("cdr" "+" "2" ">" "leap-year?" "tm:leap-year?" "and" "invalid-month-specification" "date-year-day" "time-error" "tm:time-error" "not" "if" "month-assoc" "tm" "tm:month-assoc" "1" "-" "assoc" "days-pr" "let" "year" "month" "day")}
-      {Lisp-Entry "date-year-day" define #f 843 9 843 22 ("date-year" "date-month" "date-day" "year-day" "tm" "tm:year-day" "date")}
-      {Lisp-Entry "week-day" define #f 847 9 847 20 ("7" "31" "400" "100" "4" "modulo" "-2" "*" "+" "m" "y" "12" "14" "-" "quotient" "a" "let*" "year" "month" "day")}
-      {Lisp-Entry "date-week-day" define #f 855 9 855 22 ("date-year" "date-month" "date-day" "week-day" "tm" "tm:week-day" "date")}
-      {Lisp-Entry "days-before-first-week" define #f 858 9 858 34 ("7" "-" "modulo" "date-week-day" "fdweek-day" "date-year" "1" "0" "make-date" "first-day" "let*" "day-of-week-starting-week" "date")}
-      {Lisp-Entry "date-week-number" define #f 868 9 868 25 ("7" "days-before-first-week" "tm" "tm:days-before-first-week" "date-year-day" "-" "quotient" "day-of-week-starting-week" "date")}
-      {Lisp-Entry "current-date" define #f 873 9 873 21 ("local-tz-offset" "tm:local-tz-offset" ":optional" "time-utc" "current-time" "tm" "tm:current-time" "time-utc->date" "tz-offset")}
-      {Lisp-Entry "natural-year" define #f 878 9 878 24 ("else" "50" "+" "-" "<=" "0" "<" ">=" "cond" "100" "quotient" "*" "current-century" "current-date" "date-year" "current-year" "let*" "n")}
-      {Lisp-Entry "date->julian-day" define #f 889 9 889 25 ("sid" "tm:sid" "nano" "tm:nano" "60" "*" "/" "1/2" "-" "encode-julian-day-number" "tm" "tm:encode-julian-day-number" "+" "date-zone-offset" "offset" "date-year" "year" "date-month" "month" "date-day" "day" "date-hour" "hour" "date-minute" "minute" "date-second" "second" "date-nanosecond" "nanosecond" "let" "date")}
-      {Lisp-Entry "date->modified-julian-day" define #f 904 9 904 34 ("4800001/2" "date->julian-day" "-" "date")}
-      {Lisp-Entry "time-utc->julian-day" define #f 909 9 909 29 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "nano" "tm:nano" "time-nanosecond" "time-second" "/" "+" "incompatible-time-types" "time-utc->julian-day" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "time")}
-      {Lisp-Entry "time-utc->modified-julian-day" define #f 916 9 916 38 ("4800001/2" "time-utc->julian-day" "-" "time")}
-      {Lisp-Entry "time-tai->julian-day" define #f 920 9 920 29 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "nano" "tm:nano" "time-nanosecond" "leap-second-delta" "tm:leap-second-delta" "time-second" "-" "/" "+" "incompatible-time-types" "time-tai->julian-day" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "time")}
-      {Lisp-Entry "time-tai->modified-julian-day" define #f 929 9 929 38 ("4800001/2" "time-tai->julian-day" "-" "time")}
-      {Lisp-Entry "time-monotonic->julian-day" define #f 934 9 934 35 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "nano" "tm:nano" "time-nanosecond" "leap-second-delta" "tm:leap-second-delta" "time-second" "-" "/" "+" "incompatible-time-types" "time-monotonic->julian-day" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time")}
-      {Lisp-Entry "time-monotonic->modified-julian-day" define #f 944 9 944 44 ("4800001/2" "time-monotonic->julian-day" "-" "time")}
-      {Lisp-Entry "julian-day->time-utc" define #f 949 9 949 29 ("/" "floor" "remainder" "time-utc" "make-time" "tai-epoch-in-jd" "tm:tai-epoch-in-jd" "-" "sid" "tm:sid" "nano" "tm" "tm:nano" "*" "nanosecs" "let" "jdn")}
-      {Lisp-Entry "julian-day->time-tai" define #f 955 9 955 29 ("julian-day->time-utc" "time-utc->time-tai!" "jdn")}
-      {Lisp-Entry "julian-day->time-monotonic" define #f 958 9 958 35 ("julian-day->time-utc" "time-utc->time-monotonic!" "jdn")}
-      {Lisp-Entry "julian-day->date" define #f 961 9 961 25 ("julian-day->time-utc" "time-utc->date" "local-tz-offset" "tm" "tm:local-tz-offset" ":optional" "offset" "let" "tz-offset" "jdn")}
-      {Lisp-Entry "modified-julian-day->date" define #f 965 9 965 34 ("4800001/2" "+" "julian-day->date" "local-tz-offset" "tm" "tm:local-tz-offset" ":optional" "offset" "let" "tz-offset" "jdn")}
-      {Lisp-Entry "modified-julian-day->time-utc" define #f 969 9 969 38 ("4800001/2" "+" "julian-day->time-utc" "jdn")}
-      {Lisp-Entry "modified-julian-day->time-tai" define #f 972 9 972 38 ("4800001/2" "+" "julian-day->time-tai" "jdn")}
-      {Lisp-Entry "modified-julian-day->time-monotonic" define #f 975 9 975 44 ("4800001/2" "+" "julian-day->time-monotonic" "jdn")}
-      {Lisp-Entry "current-julian-day" define #f 978 9 978 27 ("time-utc" "current-time" "tm" "tm:current-time" "time-utc->julian-day")}
-      {Lisp-Entry "current-modified-julian-day" define #f 981 9 981 36 ("time-utc" "current-time" "tm" "tm:current-time" "time-utc->modified-julian-day")}
-      {Lisp-Entry "padding" define #f 989 9 989 19 ("string-ref" "string-set!" ">=" "1" "+" "0" "i" "do" "-" "new-str-offset" "make-string" "new-str" "not" ">" "or" "if" "string-length" "str-len" "number->string" "str" "let*" "length" "pad-with" "n")}
-      {Lisp-Entry "last-n-digits" define #f 1004 9 1004 25 ("10" "expt" "remainder" "abs" "n" "i")}
-      {Lisp-Entry "locale-abbr-weekday" define #f 1007 9 1007 31 ("locale-abbr-weekday-vector" "tm" "tm:locale-abbr-weekday-vector" "vector-ref" "n")}
-      {Lisp-Entry "locale-long-weekday" define #f 1010 9 1010 31 ("locale-long-weekday-vector" "tm" "tm:locale-long-weekday-vector" "vector-ref" "n")}
-      {Lisp-Entry "locale-abbr-month" define #f 1013 9 1013 29 ("locale-abbr-month-vector" "tm" "tm:locale-abbr-month-vector" "vector-ref" "n")}
-      {Lisp-Entry "locale-long-month" define #f 1016 9 1016 29 ("locale-long-month-vector" "tm" "tm:locale-long-month-vector" "vector-ref" "n")}
-      {Lisp-Entry "vector-find" define #f 1019 9 1019 23 ("0" "1" "+" "else" "vector-ref" ">=" "cond" "index" "vector-find-int" "tm" "tm:vector-find-int" "define" "vector-length" "len" "let" "comparator" "haystack" "needle")}
-      {Lisp-Entry "locale-abbr-weekday->index" define #f 1028 9 1028 38 ("string=?" "locale-abbr-weekday-vector" "tm:locale-abbr-weekday-vector" "vector-find" "tm" "tm:vector-find" "string")}
-      {Lisp-Entry "locale-long-weekday->index" define #f 1031 9 1031 38 ("string=?" "locale-long-weekday-vector" "tm:locale-long-weekday-vector" "vector-find" "tm" "tm:vector-find" "string")}
-      {Lisp-Entry "locale-abbr-month->index" define #f 1034 9 1034 36 ("string=?" "locale-abbr-month-vector" "tm:locale-abbr-month-vector" "vector-find" "tm" "tm:vector-find" "string")}
-      {Lisp-Entry "locale-long-month->index" define #f 1037 9 1037 36 ("string=?" "locale-long-month-vector" "tm:locale-long-month-vector" "vector-find" "tm" "tm:vector-find" "string")}
-      {Lisp-Entry "locale-print-time-zone" define #f 1045 9 1045 34 ("values" "port" "date")}
-      {Lisp-Entry "locale-am/pm" define #f 1049 9 1049 24 ("locale-am" "tm:locale-am" "locale-pm" "tm" "tm:locale-pm" "11" ">" "if" "hr")}
-      {Lisp-Entry "tz-printer" define #f 1052 9 1052 22 ("2" "padding" "tm" "tm:padding" "remainder" "minutes" "60" "*" "quotient" "abs" "hours" "let" "not" "if" "else" "negative?" "display" "0" "=" "cond" "port" "offset")}
-      {Lisp-Entry "directives" define #f 1068 8 1068 21 ("locale-print-time-zone" "tm:locale-print-time-zone" "date-zone-offset" "tz-printer" "tm:tz-printer" "date-year" "last-n-digits" "tm:last-n-digits" "locale-time-format" "tm:locale-time-format" "locale-short-date-format" "tm:locale-short-date-format" "date-week-number" "0" "days-before-first-week" "tm:days-before-first-week" "9" "integer->char" "date->time-utc" "time-second" "locale-am/pm" "tm:locale-am/pm" "7" "newline" "date-minute" "3" "date-year-day" "-" "12" "hr" "let" "date-hour" "substring" "locale-number-separator" "tm:locale-number-separator" "begin" "string-length" "le" "1.0" "/" "fractional-part" "tm:fractional-part" "ns" "let*" "1" "date-second" "+" "nano" "tm:nano" "date-nanosecond" ">" "if" "2" "date-day" "padding" "tm:padding" "locale-date-time-format" "tm:locale-date-time-format" "date->string" "locale-long-month" "tm:locale-long-month" "date-month" "locale-abbr-month" "tm:locale-abbr-month" "locale-long-weekday" "tm:locale-long-weekday" "date-week-day" "locale-abbr-weekday" "tm" "tm:locale-abbr-weekday" "display" "port" "pad-with" "date" "lambda" "cons" "list")}
-      {Lisp-Entry "get-formatter" define #f 1220 9 1220 25 ("cdr" "if" "directives" "tm" "tm:directives" "assoc" "associated" "let" "char")}
-      {Lisp-Entry "date-printer" define #f 1224 9 1224 24 ("else" "3" "get-formatter" "tm:get-formatter" "formatter" "2" "cond" "pad-char?" "bad-date-format-string" "time-error" "tm:time-error" "=" "1" "+" "date-printer" "tm" "tm:date-printer" "display" "begin" "char=?" "not" "string-ref" "current-char" "let" "values" ">=" "if" "port" "str-len" "format-string" "index" "date")}
-      {Lisp-Entry "date->string" define #f 1280 9 1280 21 ("get-output-string" "string-length" "0" "date-printer" "tm" "tm:date-printer" ":optional" "fmt-str" "open-output-string" "str-port" "let" "format-string" "date")}
-      {Lisp-Entry "char->int" define #f 1286 9 1286 21 ("list" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "else" "9" "8" "7" "6" "5" "4" "3" "2" "1" "0" "char=?" "cond" "ch")}
-      {Lisp-Entry "integer-reader" define #f 1302 9 1302 26 ("0" "1" "read-char" "char->int" "tm" "tm:char->int" "10" "*" "+" ">=" "and" "char-numeric?" "not" "eof-object?" "or" "if" "peek-char" "ch" "let" "nchars" "accum" "accum-int" "define" "port" "upto")}
-      {Lisp-Entry "make-integer-reader" define #f 1314 9 1314 31 ("integer-reader" "tm" "tm:integer-reader" "port" "lambda" "upto")}
-      {Lisp-Entry "integer-reader-exact" define #f 1319 9 1319 32 ("0" "else" "1" "read-char" "char->int" "tm:char->int" "10" "*" "+" "set!" "char-numeric?" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "eof-object?" ">=" "cond" "peek-char" "ch" "nchars" "accum" "accum-int" "define" "padding-ok" "let" "port" "n")}
-      {Lisp-Entry "make-integer-exact-reader" define #f 1342 9 1342 37 ("integer-reader-exact" "tm" "tm:integer-reader-exact" "port" "lambda" "n")}
-      {Lisp-Entry "zone-reader" define #f 1346 9 1346 23 ("-" "+" "60" "10" "char->int" "tm:char->int" "*" "else" "set!" "cond" "begin" "char=?" "or" "list" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "eof-object?" "if" "read-char" "ch" "positive?" "0" "offset" "let" "port")}
-      {Lisp-Entry "locale-reader" define #f 1389 9 1389 25 ("list" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "index" "str" "let*" "get-output-string" "read-char" "write-char" "begin" "char-alphabetic?" "if" "peek-char" "ch" "read-char-string" "define" "open-output-string" "string-port" "let" "indexer" "port")}
-      {Lisp-Entry "make-locale-reader" define #f 1403 9 1403 30 ("locale-reader" "tm" "tm:locale-reader" "port" "lambda" "indexer")}
-      {Lisp-Entry "make-char-id-reader" define #f 1407 9 1407 31 ("bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "read-char" "char=?" "if" "port" "lambda" "char")}
-      {Lisp-Entry "read-directives" define #f 1427 8 1427 26 ("set-date-zone-offset!" "tm:set-date-zone-offset!" "zone-reader" "tm:zone-reader" "char=?" "or" "c" "natural-year" "tm:natural-year" "set-date-year!" "tm:set-date-year!" "set-date-second!" "tm:set-date-second!" "set-date-minute!" "tm:set-date-minute!" "set-date-hour!" "tm:set-date-hour!" "set-date-day!" "tm:set-date-day!" "char-numeric?" "set-date-month!" "tm:set-date-month!" "char-alphabetic?" "make-char-id-reader" "tm:make-char-id-reader" "list" "values" "object" "val" "do-nothing" "ch" "lambda" "char-fail" "locale-long-month->index" "tm:locale-long-month->index" "locale-reader-long-month" "locale-abbr-month->index" "tm:locale-abbr-month->index" "locale-reader-abbr-month" "locale-long-weekday->index" "tm:locale-long-weekday->index" "locale-reader-long-weekday" "locale-abbr-weekday->index" "tm:locale-abbr-weekday->index" "make-locale-reader" "tm:make-locale-reader" "locale-reader-abbr-weekday" "eireader4" "make-integer-exact-reader" "tm:make-integer-exact-reader" "eireader2" "ireaderf" "2" "ireader2" "4" "make-integer-reader" "tm" "tm:make-integer-reader" "ireader4" "let")}
-      {Lisp-Entry "string->date" define #f 1488 9 1488 24 ("2" "val" "cadddr" "actor" "caddr" "reader" "cadr" "read-directives" "tm:read-directives" "assoc" "format-info" "format-char" "let*" ">" "1" "+" "tm:string->date" "or" "port-char" "char=?" "string-ref" "current-char" "values" ">=" "read-char" "begin" "not" "bad-date-format-string" "string->date" "time-error" "tm" "tm:time-error" "eof-object?" "if" "peek-char" "ch" "let" "skipper" "skip-until" "define" "template-string" "port" "str-len" "format-string" "index" "date")}
-      {Lisp-Entry "string->date" define #f 1523 9 1523 21 ("list" "bad-date-format-string" "time-error" "tm:time-error" "if" "open-input-string" "string-length" "string->date" "tm:string->date" "local-tz-offset" "tm:local-tz-offset" "0" "make-date" "newdate" "let" "date-zone-offset" "date-year" "date-month" "date-day" "date-hour" "date-minute" "date-second" "date-nanosecond" "and" "date" "date-ok?" "tm" "tm:date-ok?" "define" "template-string" "input-string")}}})
+ ({Lisp-File-Entry {File :context "src" "time" "implementation.scm"} 243057373. scheme
+    {Lisp-Entry "time.implementation" unit (protected) #f 82 16 82 35 ("0" "lambda" "local-timezone" "set!" "zone-offset" "year" "month" "day" "hour" "minute" "date" "make-inspector" "second" "nanosecond" "type" "time" "define-struct" "val" "_" "syntax-rules" "car" ",default-value" ",rest" "null?" "if" "default-value" "rest")
+      {Lisp-Entry "receive" define-macro () #f 87 18 87 25 ("lambda" "call-with-values" "..." "body" "expression" "formals" "receive" "syntax-rules")}
+      {Lisp-Entry "time-tai" define #f #f 110 8 110 16 ("time-tai")}
+      {Lisp-Entry "time-utc" define #f #f 111 8 111 16 ("time-utc")}
+      {Lisp-Entry "time-monotonic" define #f #f 112 8 112 22 ("time-monotonic")}
+      {Lisp-Entry "time-thread" define #f #f 113 8 113 19 ("time-thread")}
+      {Lisp-Entry "time-process" define #f #f 114 8 114 20 ("time-process")}
+      {Lisp-Entry "time-duration" define #f #f 115 8 115 21 ("time-duration")}
+      {Lisp-Entry "time-gc" define #f #f 118 8 118 15 ("time-gc")}
+      {Lisp-Entry "locale-number-separator" define #f #f 122 8 122 34 ()}
+      {Lisp-Entry "locale-abbr-weekday-vector" define #f #f 124 8 124 37 ("vector")}
+      {Lisp-Entry "locale-long-weekday-vector" define #f #f 126 8 126 37 ("vector")}
+      {Lisp-Entry "locale-abbr-month-vector" define #f #f 131 8 131 35 ("vector")}
+      {Lisp-Entry "locale-long-month-vector" define #f #f 135 8 135 35 ("vector")}
+      {Lisp-Entry "locale-pm" define #f #f 141 8 141 20 ()}
+      {Lisp-Entry "locale-am" define #f #f 142 8 142 20 ()}
+      {Lisp-Entry "locale-date-time-format" define #f #f 145 8 145 34 ()}
+      {Lisp-Entry "locale-short-date-format" define #f #f 146 8 146 35 ()}
+      {Lisp-Entry "locale-time-format" define #f #f 147 8 147 29 ()}
+      {Lisp-Entry "iso-8601-date-time-format" define #f #f 148 8 148 36 ()}
+      {Lisp-Entry "nano" define #f #f 153 8 153 15 ("9" "10" "expt")}
+      {Lisp-Entry "sid" define #f #f 154 8 154 14 ("86400")}
+      {Lisp-Entry "sihd" define #f #f 155 8 155 15 ("43200")}
+      {Lisp-Entry "tai-epoch-in-jd" define #f #f 156 8 156 26 ("4881175/2")}
+      {Lisp-Entry "time-error-types" define #f #f 161 8 161 27 ("invalid-month-specification" "bad-date-template-string" "bad-date-format-string" "dates-are-immutable" "not-duration" "incompatible-time-types" "unsupported-clock-type" "invalid-clock-type")}
+      {Lisp-Entry "time-error" define #f #f 172 9 172 22 ("error" "time-error-types" "tm" "tm:time-error-types" "member" "if" "value" "type" "caller")}
+      {Lisp-Entry "read-tai-utc-data" define #f #f 189 9 189 29 ("cons" "set!" "1972" ">=" "cdddr" "secs" "cdr" "cadddr" "car" "year" "string-append" "open-input-string" "read" "data" "let*" "begin" "eof-object?" "not" "if" "read-line" "line" "loop" "table" "open-input-file" "port" "let" "sec" "convert-sec" "sid" "tm:sid" "tai-epoch-in-jd" "tm" "tm:tai-epoch-in-jd" "inexact->exact" "-" "*" "jd" "convert-jd" "define" "filename")}
+      {Lisp-Entry "leap-second-table" define #f #f 210 8 210 28 ("10" "63072000" "11" "78796800" "12" "94694400" "13" "126230400" "14" "157766400" "15" "189302400" "16" "220924800" "17" "252460800" "18" "283996800" "19" "315532800" "20" "362793600" "21" "394329600" "22" "425865600" "23" "489024000" "24" "567993600" "25" "631152000" "26" "662688000" "27" "709948800" "28" "741484800" "29" "773020800" "30" "820454400" "31" "867715200" "32" "915148800" "33" "1136073600")}
+      {Lisp-Entry "read-leap-second-table" define #f #f 236 9 236 31 ("values" "read-tai-utc-data" "tm:read-tai-utc-data" "leap-second-table" "tm" "tm:leap-second-table" "set!" "filename")}
+      {Lisp-Entry "leap-second-delta" define #f #f 241 9 241 29 ("leap-second-table" "tm:leap-second-table" "0" "sid" "tm" "tm:sid" "365" "1970" "1972" "-" "*" "<" "if" "cdr" "else" "cdar" "caar" ">=" "cond" "table" "lambda" "lsd" "letrec" "utc-seconds")}
+      {Lisp-Entry "leap-second-neg-delta" define #f #f 251 9 251 33 ("leap-second-table" "tm:leap-second-table" "sid" "tm" "tm:sid" "365" "1970" "1972" "*" "<" "if" "cdr" "else" "caar" "-" "cdar" "<=" "0" "null?" "cond" "table" "lambda" "lsd" "letrec" "tai-seconds")}
+      {Lisp-Entry "time" define #f #f 266 17 266 21 ("second" "nanosecond" "type" "b3b7d0d0-9cb7-11de-8a39-0800200c9a66" "id:")}
+      {Lisp-Entry "set-time-type!" define #f #f 276 12 276 29 ("time-type-set!")}
+      {Lisp-Entry "set-time-nanosecond!" define #f #f 277 12 277 35 ("time-nanosecond-set!")}
+      {Lisp-Entry "set-time-second!" define #f #f 278 12 278 31 ("time-second-set!")}
+      {Lisp-Entry "set-time-type!" define #f #f 280 12 280 29 ("set-time-type!")}
+      {Lisp-Entry "set-time-nanosecond!" define #f #f 281 12 281 35 ("set-time-nanosecond!")}
+      {Lisp-Entry "set-time-second!" define #f #f 282 12 282 31 ("set-time-second!")}
+      {Lisp-Entry "copy-time" define #f #f 286 9 286 18 ("time-second" "time-nanosecond" "time-type" "make-time" "time")}
+      {Lisp-Entry "current-seconds" define #f #f 305 13 305 28 ("current-time" "time->seconds" "floor" "inexact->exact")}
+      {Lisp-Entry "current-milliseconds" define #f #f 308 13 308 33 ("current-time" "time->seconds" "1000" "*" "floor" "inexact->exact")}
+      {Lisp-Entry "current-process-milliseconds" define #f #f 311 13 311 41 ("0")}
+      {Lisp-Entry "current-gc-milliseconds" define #f #f 314 13 314 36 ("0")}
+      {Lisp-Entry "get-time-of-day" define #f #f 317 9 317 27 ("values" "1000" "-" "*" "milliseconds" "floor" "inexact->exact" "seconds" "current-time" "time->seconds" "time" "let*")}
+      {Lisp-Entry "current-time-utc" define #f #f 323 9 323 28 ("1000000" "*" "time-utc" "make-time" "get-time-of-day" "tm" "tm:get-time-of-day" "ms" "seconds" "receive")}
+      {Lisp-Entry "current-time-tai" define #f #f 327 9 327 28 ("leap-second-delta" "tm:leap-second-delta" "+" "1000000" "*" "time-tai" "make-time" "get-time-of-day" "tm" "tm:get-time-of-day" "ms" "seconds" "receive")}
+      {Lisp-Entry "current-time-ms-time" define #f #f 336 9 336 32 ("quotient" "1000000" "1000" "remainder" "*" "make-time" "current-ms" "let" "proc" "time-type")}
+      {Lisp-Entry "current-time-monotonic" define #f #f 348 9 348 34 ("leap-second-delta" "tm:leap-second-delta" "+" "1000000" "*" "time-monotonic" "make-time" "get-time-of-day" "tm" "tm:get-time-of-day" "ms" "seconds" "receive")}
+      {Lisp-Entry "current-time-thread" define #f #f 356 9 356 31 ("current-process-milliseconds" "time-process" "current-time-ms-time" "tm" "tm:current-time-ms-time")}
+      {Lisp-Entry "current-time-process" define #f #f 359 9 359 32 ("current-process-milliseconds" "time-process" "current-time-ms-time" "tm" "tm:current-time-ms-time")}
+      {Lisp-Entry "current-time-gc" define #f #f 362 9 362 27 ("current-gc-milliseconds" "time-gc" "current-time-ms-time" "tm" "tm:current-time-ms-time")}
+      {Lisp-Entry "current-time" define #f #f 365 9 365 24 ("invalid-clock-type" "current-time" "time-error" "tm:time-error" "else" "current-time-gc" "tm:current-time-gc" "time-gc" "current-time-process" "tm:current-time-process" "time-process" "current-time-thread" "tm:current-time-thread" "time-thread" "current-time-monotonic" "tm:current-time-monotonic" "time-monotonic" "current-time-utc" "tm:current-time-utc" "current-time-tai" "tm" "tm:current-time-tai" "time-tai" "eq?" "cond" "time-utc" ":optional" "let" "clock-type")}
+      {Lisp-Entry "tm-current-time" define #f #f 376 8 376 23 ("current-time" "tm" "tm:current-time")}
+      {Lisp-Entry "time-resolution" define #f #f 384 9 384 24 ("invalid-clock-type" "time-resolution" "time-error" "tm" "tm:time-error" "else" "time-gc" "time-process" "time-thread" "time-monotonic" "1000000" "time-tai" "eq?" "cond" "time-utc" ":optional" "let" "clock-type")}
+      {Lisp-Entry "time-compare-check" define #f #f 397 9 397 30 ("incompatible-time-types" "time-error" "tm" "tm:time-error" "time-type" "eq?" "time?" "and" "not" "or" "if" "caller" "time2" "time1")}
+      {Lisp-Entry "time=?" define #f #f 403 9 403 15 ("time-nanosecond" "time-second" "=" "and" "time=?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
+      {Lisp-Entry "time>?" define #f #f 408 9 408 15 ("time-nanosecond" "=" "and" "time-second" ">" "or" "time>?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
+      {Lisp-Entry "time<?" define #f #f 414 9 414 15 ("time-nanosecond" "=" "and" "time-second" "<" "or" "time<?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
+      {Lisp-Entry "time>=?" define #f #f 420 9 420 16 ("time-nanosecond" "=" "and" "time-second" ">=" "or" "time>=?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
+      {Lisp-Entry "time<=?" define #f #f 426 9 426 16 ("time-nanosecond" "=" "and" "time-second" "<=" "or" "time<=?" "time-compare-check" "tm" "tm:time-compare-check" "time2" "time1")}
+      {Lisp-Entry "time->nanoseconds" define #f #f 434 9 434 29 ("time-nanosecond" "nano" "tm" "tm:nano" "time-second" "*" "+" "1" "-1" "negative?" "if" "n" "sign1" "define" "time")}
+      {Lisp-Entry "nanoseconds->time" define #f #f 440 9 440 29 ("quotient" "nano" "tm" "tm:nano" "remainder" "make-time" "nanoseconds" "time-type")}
+      {Lisp-Entry "nanoseconds->values" define #f #f 445 9 445 31 ("quotient" "nano" "tm" "tm:nano" "remainder" "abs" "values" "nanoseconds")}
+      {Lisp-Entry "time-difference" define #f #f 449 9 449 27 ("time->nanoseconds" "tm:time->nanoseconds" "-" "nanoseconds->values" "tm:nanoseconds->values" "secs" "nanos" "receive" "set-time-nanosecond!" "tm:set-time-nanosecond!" "0" "set-time-second!" "tm:set-time-second!" "begin" "time=?" "time-duration" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-difference" "time-error" "tm" "tm:time-error" "time-type" "eq?" "time?" "and" "not" "or" "if" "time3" "time2" "time1")}
+      {Lisp-Entry "time-difference" define #f #f 466 9 466 24 ("make-time" "time-difference" "tm" "tm:time-difference" "time2" "time1")}
+      {Lisp-Entry "time-difference!" define #f #f 469 9 469 25 ("time-difference" "tm" "tm:time-difference" "time2" "time1")}
+      {Lisp-Entry "add-duration" define #f #f 472 9 472 24 ("set-time-nanosecond!" "tm:set-time-nanosecond!" "-1" "set-time-second!" "tm:set-time-second!" "begin" "negative?" "quotient" "q" "nano" "tm:nano" "remainder" "r" "time-nanosecond" "nsec-plus" "time-second" "+" "sec-plus" "let" "not-duration" "time-duration" "time-type" "eq?" "incompatible-time-types" "add-duration" "time-error" "tm" "tm:time-error" "time?" "and" "not" "if" "time3" "duration" "time1")}
+      {Lisp-Entry "add-duration" define #f #f 491 9 491 21 ("time-type" "make-time" "add-duration" "tm" "tm:add-duration" "duration" "time1")}
+      {Lisp-Entry "add-duration!" define #f #f 494 9 494 22 ("add-duration" "tm" "tm:add-duration" "duration" "time1")}
+      {Lisp-Entry "subtract-duration" define #f #f 497 9 497 29 ("+" "set-time-nanosecond!" "tm:set-time-nanosecond!" "1" "set-time-second!" "tm:set-time-second!" "begin" "negative?" "quotient" "q" "nano" "tm:nano" "remainder" "r" "time-nanosecond" "nsec-minus" "time-second" "-" "sec-minus" "let" "not-duration" "subtract-duration" "tm:subtract-duration" "time-duration" "time-type" "eq?" "incompatible-time-types" "add-duration" "time-error" "tm" "tm:time-error" "time?" "and" "not" "if" "time3" "duration" "time1")}
+      {Lisp-Entry "subtract-duration" define #f #f 515 9 515 26 ("time-type" "make-time" "subtract-duration" "tm" "tm:subtract-duration" "duration" "time1")}
+      {Lisp-Entry "subtract-duration!" define #f #f 518 9 518 27 ("subtract-duration" "tm" "tm:subtract-duration" "duration" "time1")}
+      {Lisp-Entry "time-tai->time-utc!" define #f #f 524 9 524 31 ("leap-second-neg-delta" "tm:leap-second-neg-delta" "time-second" "-" "set-time-second!" "tm:set-time-second!" "time-nanosecond" "set-time-nanosecond!" "tm:set-time-nanosecond!" "time-utc" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "caller" "time-out" "time-in")}
+      {Lisp-Entry "time-tai->time-utc" define #f #f 534 9 534 27 ("time-tai->time-utc" "make-time" "time-tai->time-utc!" "tm" "tm:time-tai->time-utc!" "time-in")}
+      {Lisp-Entry "time-tai->time-utc!" define #f #f 538 9 538 28 ("time-tai->time-utc!" "tm" "tm:time-tai->time-utc!" "time-in")}
+      {Lisp-Entry "time-utc->time-tai!" define #f #f 542 9 542 31 ("leap-second-delta" "tm:leap-second-delta" "time-second" "+" "set-time-second!" "tm:set-time-second!" "time-nanosecond" "set-time-nanosecond!" "tm:set-time-nanosecond!" "time-tai" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "caller" "time-out" "time-in")}
+      {Lisp-Entry "time-utc->time-tai" define #f #f 553 9 553 27 ("time-utc->time-tai" "make-time" "time-utc->time-tai!" "tm" "tm:time-utc->time-tai!" "time-in")}
+      {Lisp-Entry "time-utc->time-tai!" define #f #f 556 9 556 28 ("time-utc->time-tai!" "tm" "tm:time-utc->time-tai!" "time-in")}
+      {Lisp-Entry "time-monotonic->time-utc" define #f #f 560 9 560 33 ("time-monotonic->time-utc" "time-tai->time-utc!" "tm:time-tai->time-utc!" "time-tai" "set-time-type!" "tm:set-time-type!" "copy-time" "ntime" "let" "incompatible-time-types" "time-monotoinc->time-utc" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "time-monotonic->time-utc!" define #f #f 567 9 567 34 ("time-monotonic->time-utc" "time-tai->time-utc!" "tm:time-tai->time-utc!" "time-tai" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-monotonic->time-utc!" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "time-monotonic->time-tai" define #f #f 573 9 573 33 ("time-tai" "set-time-type!" "tm:set-time-type!" "copy-time" "ntime" "let" "incompatible-time-types" "time-monotonic->time-tai" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "time-monotonic->time-tai!" define #f #f 580 9 580 34 ("time-tai" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-monotonic->time-tai!" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "time-utc->time-monotonic" define #f #f 586 9 586 33 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "make-time" "time-utc->time-tai!" "tm:time-utc->time-tai!" "ntime" "let" "incompatible-time-types" "time-utc->time-monotonic" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "time-utc->time-monotonic!" define #f #f 595 9 595 34 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "time-utc->time-monotonic!" "time-utc->time-tai!" "tm:time-utc->time-tai!" "ntime" "let" "incompatible-time-types" "time-utc->time-montonic!" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "time-tai->time-monotonic" define #f #f 604 9 604 33 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "copy-time" "ntime" "let" "incompatible-time-types" "time-tai->time-monotonic" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "time-tai->time-monotonic!" define #f #f 611 9 611 34 ("time-monotonic" "set-time-type!" "tm:set-time-type!" "incompatible-time-types" "time-tai->time-monotonic!" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "time-in")}
+      {Lisp-Entry "date" define #f #f 622 17 622 21 ("zone-offset" "year" "month" "day" "hour" "minute" "second" "nanosecond" "d958b070-9cb7-11de-8a39-0800200c9a66" "id:")}
+      {Lisp-Entry "set-date-nanosecond!" define #f #f 632 12 632 35 ("date-nanosecond-set!")}
+      {Lisp-Entry "set-date-second!" define #f #f 633 12 633 31 ("date-second-set!")}
+      {Lisp-Entry "set-date-minute!" define #f #f 634 12 634 31 ("date-minute-set!")}
+      {Lisp-Entry "set-date-hour!" define #f #f 635 12 635 29 ("date-hour-set!")}
+      {Lisp-Entry "set-date-day!" define #f #f 636 12 636 28 ("date-day-set!")}
+      {Lisp-Entry "set-date-month!" define #f #f 637 12 637 30 ("date-month-set!")}
+      {Lisp-Entry "set-date-year!" define #f #f 638 12 638 29 ("date-year-set!")}
+      {Lisp-Entry "set-date-zone-offset!" define #f #f 639 12 639 36 ("date-zone-offset-set!")}
+      {Lisp-Entry "set-date-nanosecond!" define #f #f 641 12 641 35 ("set-date-nanosecond!")}
+      {Lisp-Entry "set-date-second!" define #f #f 642 12 642 31 ("set-date-second!")}
+      {Lisp-Entry "set-date-minute!" define #f #f 643 12 643 31 ("set-date-minute!")}
+      {Lisp-Entry "set-date-hour!" define #f #f 644 12 644 29 ("set-date-hour!")}
+      {Lisp-Entry "set-date-day!" define #f #f 645 12 645 28 ("set-date-day!")}
+      {Lisp-Entry "set-date-month!" define #f #f 646 12 646 30 ("set-date-month!")}
+      {Lisp-Entry "set-date-year!" define #f #f 647 12 647 29 ("set-date-year!")}
+      {Lisp-Entry "set-date-zone-offset!" define #f #f 648 12 648 36 ("set-date-zone-offset!")}
+      {Lisp-Entry "set-date-second!" define #f #f 650 9 650 25 ("dates-are-immutable" "set-date-second!" "time-error" "tm" "tm:time-error" "val" "date")}
+      {Lisp-Entry "set-date-minute!" define #f #f 654 9 654 25 ("dates-are-immutable" "set-date-minute!" "time-error" "tm" "tm:time-error" "val" "date")}
+      {Lisp-Entry "set-date-day!" define #f #f 657 9 657 22 ("dates-are-immutable" "set-date-day!" "time-error" "tm" "tm:time-error" "val" "date")}
+      {Lisp-Entry "set-date-month!" define #f #f 660 9 660 24 ("dates-are-immutable" "set-date-month!" "time-error" "tm" "tm:time-error" "val" "date")}
+      {Lisp-Entry "set-date-year!" define #f #f 663 9 663 23 ("dates-are-immutable" "set-date-year!" "time-error" "tm" "tm:time-error" "val" "date")}
+      {Lisp-Entry "set-date-zone-offset!" define #f #f 666 9 666 30 ("dates-are-immutable" "set-date-zone-offset!" "time-error" "tm" "tm:time-error" "val" "date")}
+      {Lisp-Entry "encode-julian-day-number" define #f #f 670 9 670 36 ("-32045" "400" "100" "4" "365" "5" "2" "153" "3" "*" "m" "0" "-1" "negative?" "if" "4800" "+" "y" "12" "14" "-" "quotient" "a" "let*" "year" "month" "day")}
+      {Lisp-Entry "char-pos" define #f #f 682 9 682 20 ("1" "+" "char-pos" "tm" "tm:char-pos" "else" "string-ref" "char=?" ">=" "cond" "len" "index" "str" "char")}
+      {Lisp-Entry "fractional-part" define #f #f 691 9 691 27 ("1" "+" "substring" "string-length" "0" "char-pos" "tm" "tm:char-pos" "ppos" "exact->inexact" "number->string" "str" "let" "integer?" "if" "r")}
+      {Lisp-Entry "decode-julian-day-number" define #f #f 699 9 699 36 ("0" ">=" "if" "-12" "1" "sid" "tm" "tm:sid" "values" "10" "-4800" "100" "y" "153" "2" "5" "m" "e" "1461" "d" "-" "c" "146097" "3" "4" "*" "quotient" "b" "32044" "+" "a" "truncate" "days" "let*" "jdn")}
+      {Lisp-Entry "local-timezone" define #f #f 716 8 716 22 ()}
+      {Lisp-Entry "local-timezone-set!" define #f #f 723 9 723 28 ("local-timezone" "set!" "proc")}
+      {Lisp-Entry "local-tz-offset" define #f #f 729 13 729 31 ("local-timezone")}
+      {Lisp-Entry "local-tz-offset" define #f #f 735 13 735 31 ("current-seconds" "seconds->date" "date-time-zone-offset")}
+      {Lisp-Entry "time->julian-day-number" define #f #f 739 9 739 35 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "sihd" "tm" "tm:sihd" "/" "+" "tz-offset" "seconds")}
+      {Lisp-Entry "find" define #f #f 746 9 746 16 ("cdr" "find" "tm" "tm:find" "car" "null?" "if" "l" "proc")}
+      {Lisp-Entry "tai-before-leap-second?" define #f #f 753 9 753 35 ("leap-second-table" "tm:leap-second-table" "1" "cdr" "car" "+" "-" "=" "x" "lambda" "find" "tm" "tm:find" "second")}
+      {Lisp-Entry "time->date" define #f #f 758 9 758 22 ("time-nanosecond" "make-date" "seconds" "minutes" "remainder" "rem" "60" "*" "quotient" "hours" "time-second" "time->julian-day-number" "tm:time->julian-day-number" "decode-julian-day-number" "tm:decode-julian-day-number" "year" "month" "date" "secs" "receive" "local-tz-offset" "tm:local-tz-offset" ":optional" "offset" "let*" "incompatible-time-types" "time->date" "time-error" "tm" "tm:time-error" "time-type" "eq?" "not" "if" "ttype" "tz-offset" "time")}
+      {Lisp-Entry "time-tai->date" define #f #f 778 9 778 23 ("60" "set-date-second!" "tm:set-date-second!" "time-utc" "1" "0" "time-duration" "make-time" "time-tai->time-utc" "subtract-duration!" "time->date" "tm:time->date" "d" "let" "time-second" "tai-before-leap-second?" "tm" "tm:tai-before-leap-second?" "if" "tz-offset" "time")}
+      {Lisp-Entry "time-utc->date" define #f #f 786 9 786 23 ("time-utc" "time->date" "tm" "tm:time->date" "tz-offset" "time")}
+      {Lisp-Entry "time-monotonic->date" define #f #f 790 9 790 29 ("time-monotonic" "time->date" "tm" "tm:time->date" "tz-offset" "time")}
+      {Lisp-Entry "date->time-utc" define #f #f 793 9 793 23 ("60" "24" "1/2" "*" "+" "time-utc" "make-time" "tai-epoch-in-jd" "tm:tai-epoch-in-jd" "encode-julian-day-number" "tm" "tm:encode-julian-day-number" "-" "jdays" "date-zone-offset" "offset" "date-year" "year" "date-month" "month" "date-day" "day" "date-hour" "hour" "date-minute" "minute" "date-second" "second" "date-nanosecond" "nanosecond" "let" "date")}
+      {Lisp-Entry "date->time-tai" define #f #f 814 9 814 23 ("1" "0" "time-duration" "make-time" "date->time-utc" "time-utc->time-tai!" "subtract-duration!" "60" "date-second" "=" "if" "d")}
+      {Lisp-Entry "date->time-monotonic" define #f #f 819 9 819 29 ("date->time-utc" "time-utc->time-monotonic!" "date")}
+      {Lisp-Entry "leap-year?" define #f #f 823 9 823 22 ("100" "not" "4" "and" "0" "400" "modulo" "=" "or" "year")}
+      {Lisp-Entry "leap-year?" define #f #f 827 9 827 19 ("date-year" "leap-year?" "tm" "tm:leap-year?" "date")}
+      {Lisp-Entry "month-assoc" define #f #f 831 9 831 23 ("334" "11" "304" "10" "273" "9" "243" "8" "212" "7" "181" "6" "151" "5" "120" "4" "90" "3" "59" "2" "31" "1" "0")}
+      {Lisp-Entry "year-day" define #f #f 835 9 835 20 ("cdr" "+" "2" ">" "leap-year?" "tm:leap-year?" "and" "invalid-month-specification" "date-year-day" "time-error" "tm:time-error" "not" "if" "month-assoc" "tm" "tm:month-assoc" "1" "-" "assoc" "days-pr" "let" "year" "month" "day")}
+      {Lisp-Entry "date-year-day" define #f #f 843 9 843 22 ("date-year" "date-month" "date-day" "year-day" "tm" "tm:year-day" "date")}
+      {Lisp-Entry "week-day" define #f #f 847 9 847 20 ("7" "31" "400" "100" "4" "modulo" "-2" "*" "+" "m" "y" "12" "14" "-" "quotient" "a" "let*" "year" "month" "day")}
+      {Lisp-Entry "date-week-day" define #f #f 855 9 855 22 ("date-year" "date-month" "date-day" "week-day" "tm" "tm:week-day" "date")}
+      {Lisp-Entry "days-before-first-week" define #f #f 858 9 858 34 ("7" "-" "modulo" "date-week-day" "fdweek-day" "date-year" "1" "0" "make-date" "first-day" "let*" "day-of-week-starting-week" "date")}
+      {Lisp-Entry "date-week-number" define #f #f 868 9 868 25 ("7" "days-before-first-week" "tm" "tm:days-before-first-week" "date-year-day" "-" "quotient" "day-of-week-starting-week" "date")}
+      {Lisp-Entry "current-date" define #f #f 873 9 873 21 ("local-tz-offset" "tm:local-tz-offset" ":optional" "time-utc" "current-time" "tm" "tm:current-time" "time-utc->date" "tz-offset")}
+      {Lisp-Entry "natural-year" define #f #f 878 9 878 24 ("else" "50" "+" "-" "<=" "0" "<" ">=" "cond" "100" "quotient" "*" "current-century" "current-date" "date-year" "current-year" "let*" "n")}
+      {Lisp-Entry "date->julian-day" define #f #f 889 9 889 25 ("sid" "tm:sid" "nano" "tm:nano" "60" "*" "/" "1/2" "-" "encode-julian-day-number" "tm" "tm:encode-julian-day-number" "+" "date-zone-offset" "offset" "date-year" "year" "date-month" "month" "date-day" "day" "date-hour" "hour" "date-minute" "minute" "date-second" "second" "date-nanosecond" "nanosecond" "let" "date")}
+      {Lisp-Entry "date->modified-julian-day" define #f #f 904 9 904 34 ("4800001/2" "date->julian-day" "-" "date")}
+      {Lisp-Entry "time-utc->julian-day" define #f #f 909 9 909 29 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "nano" "tm:nano" "time-nanosecond" "time-second" "/" "+" "incompatible-time-types" "time-utc->julian-day" "time-error" "tm" "tm:time-error" "time-utc" "time-type" "eq?" "not" "if" "time")}
+      {Lisp-Entry "time-utc->modified-julian-day" define #f #f 916 9 916 38 ("4800001/2" "time-utc->julian-day" "-" "time")}
+      {Lisp-Entry "time-tai->julian-day" define #f #f 920 9 920 29 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "nano" "tm:nano" "time-nanosecond" "leap-second-delta" "tm:leap-second-delta" "time-second" "-" "/" "+" "incompatible-time-types" "time-tai->julian-day" "time-error" "tm" "tm:time-error" "time-tai" "time-type" "eq?" "not" "if" "time")}
+      {Lisp-Entry "time-tai->modified-julian-day" define #f #f 929 9 929 38 ("4800001/2" "time-tai->julian-day" "-" "time")}
+      {Lisp-Entry "time-monotonic->julian-day" define #f #f 934 9 934 35 ("tai-epoch-in-jd" "tm:tai-epoch-in-jd" "sid" "tm:sid" "nano" "tm:nano" "time-nanosecond" "leap-second-delta" "tm:leap-second-delta" "time-second" "-" "/" "+" "incompatible-time-types" "time-monotonic->julian-day" "time-error" "tm" "tm:time-error" "time-monotonic" "time-type" "eq?" "not" "if" "time")}
+      {Lisp-Entry "time-monotonic->modified-julian-day" define #f #f 944 9 944 44 ("4800001/2" "time-monotonic->julian-day" "-" "time")}
+      {Lisp-Entry "julian-day->time-utc" define #f #f 949 9 949 29 ("/" "floor" "remainder" "time-utc" "make-time" "tai-epoch-in-jd" "tm:tai-epoch-in-jd" "-" "sid" "tm:sid" "nano" "tm" "tm:nano" "*" "nanosecs" "let" "jdn")}
+      {Lisp-Entry "julian-day->time-tai" define #f #f 955 9 955 29 ("julian-day->time-utc" "time-utc->time-tai!" "jdn")}
+      {Lisp-Entry "julian-day->time-monotonic" define #f #f 958 9 958 35 ("julian-day->time-utc" "time-utc->time-monotonic!" "jdn")}
+      {Lisp-Entry "julian-day->date" define #f #f 961 9 961 25 ("julian-day->time-utc" "time-utc->date" "local-tz-offset" "tm" "tm:local-tz-offset" ":optional" "offset" "let" "tz-offset" "jdn")}
+      {Lisp-Entry "modified-julian-day->date" define #f #f 965 9 965 34 ("4800001/2" "+" "julian-day->date" "local-tz-offset" "tm" "tm:local-tz-offset" ":optional" "offset" "let" "tz-offset" "jdn")}
+      {Lisp-Entry "modified-julian-day->time-utc" define #f #f 969 9 969 38 ("4800001/2" "+" "julian-day->time-utc" "jdn")}
+      {Lisp-Entry "modified-julian-day->time-tai" define #f #f 972 9 972 38 ("4800001/2" "+" "julian-day->time-tai" "jdn")}
+      {Lisp-Entry "modified-julian-day->time-monotonic" define #f #f 975 9 975 44 ("4800001/2" "+" "julian-day->time-monotonic" "jdn")}
+      {Lisp-Entry "current-julian-day" define #f #f 978 9 978 27 ("time-utc" "current-time" "tm" "tm:current-time" "time-utc->julian-day")}
+      {Lisp-Entry "current-modified-julian-day" define #f #f 981 9 981 36 ("time-utc" "current-time" "tm" "tm:current-time" "time-utc->modified-julian-day")}
+      {Lisp-Entry "padding" define #f #f 989 9 989 19 ("string-ref" "string-set!" ">=" "1" "+" "0" "i" "do" "-" "new-str-offset" "make-string" "new-str" "not" ">" "or" "if" "string-length" "str-len" "number->string" "str" "let*" "length" "pad-with" "n")}
+      {Lisp-Entry "last-n-digits" define #f #f 1004 9 1004 25 ("10" "expt" "remainder" "abs" "n" "i")}
+      {Lisp-Entry "locale-abbr-weekday" define #f #f 1007 9 1007 31 ("locale-abbr-weekday-vector" "tm" "tm:locale-abbr-weekday-vector" "vector-ref" "n")}
+      {Lisp-Entry "locale-long-weekday" define #f #f 1010 9 1010 31 ("locale-long-weekday-vector" "tm" "tm:locale-long-weekday-vector" "vector-ref" "n")}
+      {Lisp-Entry "locale-abbr-month" define #f #f 1013 9 1013 29 ("locale-abbr-month-vector" "tm" "tm:locale-abbr-month-vector" "vector-ref" "n")}
+      {Lisp-Entry "locale-long-month" define #f #f 1016 9 1016 29 ("locale-long-month-vector" "tm" "tm:locale-long-month-vector" "vector-ref" "n")}
+      {Lisp-Entry "vector-find" define #f #f 1019 9 1019 23 ("0" "1" "+" "else" "vector-ref" ">=" "cond" "index" "vector-find-int" "tm" "tm:vector-find-int" "define" "vector-length" "len" "let" "comparator" "haystack" "needle")}
+      {Lisp-Entry "locale-abbr-weekday->index" define #f #f 1028 9 1028 38 ("string=?" "locale-abbr-weekday-vector" "tm:locale-abbr-weekday-vector" "vector-find" "tm" "tm:vector-find" "string")}
+      {Lisp-Entry "locale-long-weekday->index" define #f #f 1031 9 1031 38 ("string=?" "locale-long-weekday-vector" "tm:locale-long-weekday-vector" "vector-find" "tm" "tm:vector-find" "string")}
+      {Lisp-Entry "locale-abbr-month->index" define #f #f 1034 9 1034 36 ("string=?" "locale-abbr-month-vector" "tm:locale-abbr-month-vector" "vector-find" "tm" "tm:vector-find" "string")}
+      {Lisp-Entry "locale-long-month->index" define #f #f 1037 9 1037 36 ("string=?" "locale-long-month-vector" "tm:locale-long-month-vector" "vector-find" "tm" "tm:vector-find" "string")}
+      {Lisp-Entry "locale-print-time-zone" define #f #f 1045 9 1045 34 ("values" "port" "date")}
+      {Lisp-Entry "locale-am/pm" define #f #f 1049 9 1049 24 ("locale-am" "tm:locale-am" "locale-pm" "tm" "tm:locale-pm" "11" ">" "if" "hr")}
+      {Lisp-Entry "tz-printer" define #f #f 1052 9 1052 22 ("2" "padding" "tm" "tm:padding" "remainder" "minutes" "60" "*" "quotient" "abs" "hours" "let" "not" "if" "else" "negative?" "display" "0" "=" "cond" "port" "offset")}
+      {Lisp-Entry "directives" define #f #f 1068 8 1068 21 ("locale-print-time-zone" "tm:locale-print-time-zone" "date-zone-offset" "tz-printer" "tm:tz-printer" "date-year" "last-n-digits" "tm:last-n-digits" "locale-time-format" "tm:locale-time-format" "locale-short-date-format" "tm:locale-short-date-format" "date-week-number" "0" "days-before-first-week" "tm:days-before-first-week" "9" "integer->char" "date->time-utc" "time-second" "locale-am/pm" "tm:locale-am/pm" "7" "newline" "date-minute" "3" "date-year-day" "-" "12" "hr" "let" "date-hour" "substring" "locale-number-separator" "tm:locale-number-separator" "begin" "string-length" "le" "1.0" "/" "fractional-part" "tm:fractional-part" "ns" "let*" "1" "date-second" "+" "nano" "tm:nano" "date-nanosecond" ">" "if" "2" "date-day" "padding" "tm:padding" "locale-date-time-format" "tm:locale-date-time-format" "date->string" "locale-long-month" "tm:locale-long-month" "date-month" "locale-abbr-month" "tm:locale-abbr-month" "locale-long-weekday" "tm:locale-long-weekday" "date-week-day" "locale-abbr-weekday" "tm" "tm:locale-abbr-weekday" "display" "port" "pad-with" "date" "lambda" "cons" "list")}
+      {Lisp-Entry "get-formatter" define #f #f 1220 9 1220 25 ("cdr" "if" "directives" "tm" "tm:directives" "assoc" "associated" "let" "char")}
+      {Lisp-Entry "date-printer" define #f #f 1224 9 1224 24 ("else" "3" "get-formatter" "tm:get-formatter" "formatter" "2" "cond" "pad-char?" "bad-date-format-string" "time-error" "tm:time-error" "=" "1" "+" "date-printer" "tm" "tm:date-printer" "display" "begin" "char=?" "not" "string-ref" "current-char" "let" "values" ">=" "if" "port" "str-len" "format-string" "index" "date")}
+      {Lisp-Entry "date->string" define #f #f 1280 9 1280 21 ("get-output-string" "string-length" "0" "date-printer" "tm" "tm:date-printer" ":optional" "fmt-str" "open-output-string" "str-port" "let" "format-string" "date")}
+      {Lisp-Entry "char->int" define #f #f 1286 9 1286 21 ("list" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "else" "9" "8" "7" "6" "5" "4" "3" "2" "1" "0" "char=?" "cond" "ch")}
+      {Lisp-Entry "integer-reader" define #f #f 1302 9 1302 26 ("0" "1" "read-char" "char->int" "tm" "tm:char->int" "10" "*" "+" ">=" "and" "char-numeric?" "not" "eof-object?" "or" "if" "peek-char" "ch" "let" "nchars" "accum" "accum-int" "define" "port" "upto")}
+      {Lisp-Entry "make-integer-reader" define #f #f 1314 9 1314 31 ("integer-reader" "tm" "tm:integer-reader" "port" "lambda" "upto")}
+      {Lisp-Entry "integer-reader-exact" define #f #f 1319 9 1319 32 ("0" "else" "1" "read-char" "char->int" "tm:char->int" "10" "*" "+" "set!" "char-numeric?" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "eof-object?" ">=" "cond" "peek-char" "ch" "nchars" "accum" "accum-int" "define" "padding-ok" "let" "port" "n")}
+      {Lisp-Entry "make-integer-exact-reader" define #f #f 1342 9 1342 37 ("integer-reader-exact" "tm" "tm:integer-reader-exact" "port" "lambda" "n")}
+      {Lisp-Entry "zone-reader" define #f #f 1346 9 1346 23 ("-" "+" "60" "10" "char->int" "tm:char->int" "*" "else" "set!" "cond" "begin" "char=?" "or" "list" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "eof-object?" "if" "read-char" "ch" "positive?" "0" "offset" "let" "port")}
+      {Lisp-Entry "locale-reader" define #f #f 1389 9 1389 25 ("list" "bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "index" "str" "let*" "get-output-string" "read-char" "write-char" "begin" "char-alphabetic?" "if" "peek-char" "ch" "read-char-string" "define" "open-output-string" "string-port" "let" "indexer" "port")}
+      {Lisp-Entry "make-locale-reader" define #f #f 1403 9 1403 30 ("locale-reader" "tm" "tm:locale-reader" "port" "lambda" "indexer")}
+      {Lisp-Entry "make-char-id-reader" define #f #f 1407 9 1407 31 ("bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "read-char" "char=?" "if" "port" "lambda" "char")}
+      {Lisp-Entry "make-char-id-list-reader" define #f #f 1415 9 1415 36 ("bad-date-template-string" "string->date" "time-error" "tm" "tm:time-error" "car" "read-char" "memv" "if" "port" "lambda" "char-list")}
+      {Lisp-Entry "read-directives" define #f #f 1435 8 1435 26 ("set-date-zone-offset!" "tm:set-date-zone-offset!" "zone-reader" "tm:zone-reader" "char=?" "or" "c" "natural-year" "tm:natural-year" "set-date-year!" "tm:set-date-year!" "set-date-second!" "tm:set-date-second!" "set-date-minute!" "tm:set-date-minute!" "set-date-hour!" "tm:set-date-hour!" "set-date-day!" "tm:set-date-day!" "char-numeric?" "set-date-month!" "tm:set-date-month!" "char-alphabetic?" "make-char-id-reader" "tm:make-char-id-reader" "make-char-id-list-reader" "tm:make-char-id-list-reader" "list" "values" "object" "val" "do-nothing" "ch" "lambda" "char-fail" "locale-long-month->index" "tm:locale-long-month->index" "locale-reader-long-month" "locale-abbr-month->index" "tm:locale-abbr-month->index" "locale-reader-abbr-month" "locale-long-weekday->index" "tm:locale-long-weekday->index" "locale-reader-long-weekday" "locale-abbr-weekday->index" "tm:locale-abbr-weekday->index" "make-locale-reader" "tm:make-locale-reader" "locale-reader-abbr-weekday" "eireader4" "make-integer-exact-reader" "tm:make-integer-exact-reader" "eireader2" "ireaderf" "2" "ireader2" "4" "make-integer-reader" "tm" "tm:make-integer-reader" "ireader4" "let")}
+      {Lisp-Entry "string->date" define #f #f 1497 9 1497 24 ("2" "val" "cadddr" "actor" "caddr" "reader" "cadr" "read-directives" "tm:read-directives" "assoc" "format-info" "format-char" "let*" ">" "1" "+" "tm:string->date" "or" "port-char" "char=?" "string-ref" "current-char" "values" ">=" "read-char" "begin" "not" "bad-date-format-string" "string->date" "time-error" "tm" "tm:time-error" "eof-object?" "if" "peek-char" "ch" "let" "skipper" "skip-until" "define" "template-string" "port" "str-len" "format-string" "index" "date")}
+      {Lisp-Entry "string->date" define #f #f 1532 9 1532 21 ("list" "bad-date-format-string" "time-error" "tm:time-error" "if" "open-input-string" "string-length" "string->date" "tm:string->date" "local-tz-offset" "tm:local-tz-offset" "0" "make-date" "newdate" "let" "date-zone-offset" "date-year" "date-month" "date-day" "date-hour" "date-minute" "date-second" "date-nanosecond" "and" "date" "date-ok?" "tm" "tm:date-ok?" "define" "template-string" "input-string")}}})
 "tests"
- ({Lisp-File-Entry {File :context "src" "time" "tests.scm"} 236918191. scheme
-    {Lisp-Entry "time.tests" unit #f 2 6 2 16 ("run-s19-tests" "newline" "date->time-tai" "-18000" "2003" "cd" "1045944891" "ct-tai" "1045944859" "6320000" "ct-utc" "date->time-utc" "-" "1999" "60" "1998" "59" "58" "make-date" "+" "time-tai->date" "date=" "tm:date=" "1045789645" "63072000" "10" "78796800" "11" "94694400" "12" "126230400" "13" "157766400" "14" "189302400" "15" "220924800" "16" "252460800" "17" "283996800" "18" "315532800" "19" "362793600" "20" "394329600" "21" "425865600" "22" "489024000" "23" "567993600" "24" "631152000" "25" "662688000" "26" "709948800" "27" "741484800" "28" "773020800" "29" "820454400" "30" "867715200" "31" "32" "915148800" "test-one-utc-tai-edge" "time-difference" "-2000" "t4" "2000" "time-duration" "1000" "3000" "time<=?" "time>=?" "time<?" "time>?" "time=?" "and" "t13" "t12" "1001" "t11" "2" "t3" "t2" "1" "0" "make-time" "t1" "let" "time-resolution" "time-process" "time-thread" "time-monotonic" "time-utc" "time-tai" "current-time" "tm" "tm:current-time" "null?" "not" "lambda" "define-s19-test!" "list" "s19-tests" "set!")
-      {Lisp-Entry "require" anonymous #f 4 1 4 8 ("time.implementation")}
-      {Lisp-Entry "s19-tests" define #f 6 8 6 17 ("list")}
-      {Lisp-Entry "define-s19-test!" define #f 8 9 8 25 ("cons" "list" "append" "set!" "set-cdr!" "s19-tests" "assoc" "pr" "string->symbol" "symbol?" "if" "let" "thunk" "name")}
-      {Lisp-Entry "run-s19-test" define #f 15 9 15 21 ("newline" "not" "result" "let" "display" "begin" "if" "verbose" "thunk" "name")}
-      {Lisp-Entry "run-s19-tests" define #f 21 9 21 22 ("values" "newline" "/" ">" "display" "begin" "s19-tests" "car" "run-s19-test" "1" "+" "set!" "pr" "lambda" "for-each" "cdr" "if" "bads" "goods" "0" "runs" "let" "verbose")}
-      {Lisp-Entry "test-one-utc-tai-edge" define #f 99 9 99 30 ("time=?" "and" "tai->utc-basic+2" "utc->tai-basic+2" "tai-basic+2" "utc-basic+2" "2" "9" "10" "expt" "/" "hs" "60" "24" "15" "*" "shy" "tai->utc-basic+1" "utc->tai-basic+1" "tai-basic+1" "utc-basic+1" "tai->utc-basic-1" "utc->tai-basic-1" "tai-basic-1" "1" "-" "utc-basic-1" "time-tai->time-utc" "tai->utc-basic" "time-utc->time-tai" "utc->tai-basic" "+" "time-tai" "tai-basic" "0" "time-utc" "make-time" "utc-basic" "let*" "tai-last-diff" "tai-diff" "utc")}
-      {Lisp-Entry "date=" define #f 165 9 165 17 ("date-zone-offset" "date-nanosecond" "date-second" "date-hour" "date-day" "date-month" "date-year" "=" "and" "d2" "d1")}}})
+ ({Lisp-File-Entry {File :context "src" "time" "tests.scm"} 222341474. scheme
+    {Lisp-Entry "time.tests" unit () #f 2 6 2 16 ("run-s19-tests" "newline" "date->time-tai" "-18000" "2003" "cd" "1045944891" "ct-tai" "1045944859" "6320000" "ct-utc" "date->time-utc" "-" "1999" "60" "1998" "59" "58" "make-date" "+" "time-tai->date" "date=" "tm:date=" "1045789645" "63072000" "10" "78796800" "11" "94694400" "12" "126230400" "13" "157766400" "14" "189302400" "15" "220924800" "16" "252460800" "17" "283996800" "18" "315532800" "19" "362793600" "20" "394329600" "21" "425865600" "22" "489024000" "23" "567993600" "24" "631152000" "25" "662688000" "26" "709948800" "27" "741484800" "28" "773020800" "29" "820454400" "30" "867715200" "31" "32" "915148800" "test-one-utc-tai-edge" "time-difference" "-2000" "t4" "2000" "time-duration" "1000" "3000" "time<=?" "time>=?" "time<?" "time>?" "time=?" "and" "t13" "t12" "1001" "t11" "2" "t3" "t2" "1" "0" "make-time" "t1" "let" "time-resolution" "time-process" "time-thread" "time-monotonic" "time-utc" "time-tai" "current-time" "tm" "tm:current-time" "null?" "not" "lambda" "define-s19-test!" "list" "s19-tests" "set!")
+      {Lisp-Entry "require" anonymous #f #f 4 1 4 8 ("time.implementation")}
+      {Lisp-Entry "s19-tests" define #f #f 6 8 6 17 ("list")}
+      {Lisp-Entry "define-s19-test!" define #f #f 8 9 8 25 ("cons" "list" "append" "set!" "set-cdr!" "s19-tests" "assoc" "pr" "string->symbol" "symbol?" "if" "let" "thunk" "name")}
+      {Lisp-Entry "run-s19-test" define #f #f 15 9 15 21 ("newline" "not" "result" "let" "display" "begin" "if" "verbose" "thunk" "name")}
+      {Lisp-Entry "run-s19-tests" define #f #f 21 9 21 22 ("values" "newline" "/" ">" "display" "begin" "s19-tests" "car" "run-s19-test" "1" "+" "set!" "pr" "lambda" "for-each" "cdr" "if" "bads" "goods" "0" "runs" "let" "verbose")}
+      {Lisp-Entry "test-one-utc-tai-edge" define #f #f 99 9 99 30 ("time=?" "and" "tai->utc-basic+2" "utc->tai-basic+2" "tai-basic+2" "utc-basic+2" "2" "9" "10" "expt" "/" "hs" "60" "24" "15" "*" "shy" "tai->utc-basic+1" "utc->tai-basic+1" "tai-basic+1" "utc-basic+1" "tai->utc-basic-1" "utc->tai-basic-1" "tai-basic-1" "1" "-" "utc-basic-1" "time-tai->time-utc" "tai->utc-basic" "time-utc->time-tai" "utc->tai-basic" "+" "time-tai" "tai-basic" "0" "time-utc" "make-time" "utc-basic" "let*" "tai-last-diff" "tai-diff" "utc")}
+      {Lisp-Entry "date=" define #f #f 165 9 165 17 ("date-zone-offset" "date-nanosecond" "date-second" "date-hour" "date-day" "date-month" "date-year" "=" "and" "d2" "d1")}}})

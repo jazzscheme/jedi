@@ -1,73 +1,73 @@
 "C4-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "C4-Pages.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.C4-Pages" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.sample.gameserver.Game-Pages" "jazz.network.http.HTTP-Request" "jazz.sample.game.minimax" "jazz.sample.c4" "jazz.jml")}
-      {Lisp-Entry "C4-Pages" class #f 47 7 47 15 ("Game-Pages")
-        {Lisp-Entry "initialize" method #f 50 20 50 30 ("self" "page-name" "page-name~self" "set!")}
-        {Lisp-Entry "create-players" method #f 54 11 54 25 ("C4-AI" "GREEN" "RED" "C4-Human" "new" "list" "nu=?" "cond" "players" "game")}
-        {Lisp-Entry "new-game" method #f 61 11 61 19 ("C4-Game" "new")}
-        {Lisp-Entry "render-game" method #f 65 20 65 31 ("p" "<p>" "C4-AI" "minimax-interpreted?" "i" "<i>" "append" "increase!" "2" "modulo" ",text" "b" "<b>" "present-move" "text" "prog1" "lambda" "map" "rank" "br" "<br>" "span" "<span>" "draw" "get-winner" "get-winner~" "present" "present~" "win" "case" "colspan:" "present-col" "align:" ",image" "img" "<img>" "serialize-col" "onclick:" "human?" "human?~" "play" "eqv?" "if" "RED" "GREEN" "EMPTY" "=" "format" "image" "get-token" "get-token~" "token" "get-square" "get-square~" "square" "let*" "get-board-columns" "get-board-columns~" "col" "present-line" "cons" "collect" "get-board-rows" "get-board-rows~" "below" "0" "from" "row" "for" "loop" "cellpadding:" "cellspacing:" "valign:" "class:" "a" "<a>" "26" "h2" "<h2>" "center" "<center>" "30" "width:" "td" "<td>" "tr" "<tr>" "id:" "table" "<table>" "serialize-game" "1" "length" "-" "->string" ",players" "value:" "input" "<input>" "method:" "name:" "form" "<form>" "background:" "body" "<body>" "title" "<title>" "src:" "script" "<script>" "rel:" "href:" "type:" "link" "<link>" "head" "<head>" "html" "<html>" "get-second-player" "get-second-player~" "second-player" "get-next-player" "get-next-player~" "next-player" "get-forward-moves" "get-forward-moves~" "forward" "backward" "get-status" "get-status~" "status" "play-players" "memq?" "get-backward-moves" "get-backward-moves~" "not-null?" "and" "when" "get-players" "get-players~" "computer?" "computer?~" "every?" "all-computers?" "move" "deserialize-game" "create-players" "register-players" "register-players~" "effective-goto" "goto" "new-game" "effective-current" "current" "get-parameter" "get-parameter~" "effective-players" "players" "let" "deserialize-col" "available-move" "available-move~" "else" "all" "one" "equal?" "empty-string?" "not" "or" "cond" "value" "game" "effective-move" "define" "request")}
-        {Lisp-Entry "serialize-col" definition #f 218 15 218 28 ("number->string" "col")}
-        {Lisp-Entry "deserialize-col" definition #f 222 15 222 30 ("string->number" "value" "game")}
-        {Lisp-Entry "serialize-move" method #f 226 20 226 34 ("format" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "move")}
-        {Lisp-Entry "deserialize-move" method #f 232 20 232 36 ("get-square" "get-square~" "cardinality" "1" "+" "col" "0" "substring" "string->number" "row" "search" "pos" "let" "value" "game")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "C4-Pages.jazz"} 231466231. jazz
+    {Lisp-Entry "jazz.sample.gameserver.C4-Pages" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.sample.gameserver.Game-Pages" "jazz.network.http.HTTP-Request" "jazz.sample.game.minimax" "jazz.sample.c4" "jazz.jml")}
+      {Lisp-Entry "C4-Pages" class () #f 47 7 47 15 ("Game-Pages")
+        {Lisp-Entry "initialize" method (override) #f 50 20 50 30 ("self" "page-name" "page-name~self" "set!")}
+        {Lisp-Entry "create-players" method () #f 54 11 54 25 ("C4-AI" "GREEN" "RED" "C4-Human" "new" "list" "nu=?" "cond" "players" "game")}
+        {Lisp-Entry "new-game" method () #f 61 11 61 19 ("C4-Game" "new")}
+        {Lisp-Entry "render-game" method (override) #f 65 20 65 31 ("p" "<p>" "C4-AI" "minimax-interpreted?" "i" "<i>" "append" "increase!" "2" "modulo" ",text" "b" "<b>" "present-move" "text" "prog1" "lambda" "map" "rank" "br" "<br>" "span" "<span>" "draw" "get-winner" "get-winner~" "present" "present~" "win" "case" "colspan:" "present-col" "align:" ",image" "img" "<img>" "serialize-col" "onclick:" "human?" "human?~" "play" "eqv?" "if" "RED" "GREEN" "EMPTY" "=" "format" "image" "get-token" "get-token~" "token" "get-square" "get-square~" "square" "let*" "get-board-columns" "get-board-columns~" "col" "present-line" "cons" "collect" "get-board-rows" "get-board-rows~" "below" "0" "from" "row" "for" "loop" "cellpadding:" "cellspacing:" "valign:" "class:" "a" "<a>" "26" "h2" "<h2>" "center" "<center>" "30" "width:" "td" "<td>" "tr" "<tr>" "id:" "table" "<table>" "serialize-game" "1" "length" "-" "->string" ",players" "value:" "input" "<input>" "method:" "name:" "form" "<form>" "background:" "body" "<body>" "title" "<title>" "src:" "script" "<script>" "rel:" "href:" "type:" "link" "<link>" "head" "<head>" "html" "<html>" "get-second-player" "get-second-player~" "second-player" "get-next-player" "get-next-player~" "next-player" "get-forward-moves" "get-forward-moves~" "forward" "backward" "get-status" "get-status~" "status" "play-players" "memq?" "get-backward-moves" "get-backward-moves~" "not-null?" "and" "when" "get-players" "get-players~" "computer?" "computer?~" "every?" "all-computers?" "move" "deserialize-game" "create-players" "register-players" "register-players~" "effective-goto" "goto" "new-game" "effective-current" "current" "get-parameter" "get-parameter~" "effective-players" "players" "let" "deserialize-col" "available-move" "available-move~" "else" "all" "one" "equal?" "empty-string?" "not" "or" "cond" "value" "game" "effective-move" "define" "request")}
+        {Lisp-Entry "serialize-col" definition () #f 218 15 218 28 ("number->string" "col")}
+        {Lisp-Entry "deserialize-col" definition () #f 222 15 222 30 ("string->number" "value" "game")}
+        {Lisp-Entry "serialize-move" method (override) #f 226 20 226 34 ("format" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "move")}
+        {Lisp-Entry "deserialize-move" method (override) #f 232 20 232 36 ("get-square" "get-square~" "cardinality" "1" "+" "col" "0" "substring" "string->number" "row" "search" "pos" "let" "value" "game")}}}})
 "Game-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Pages.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.Game-Pages" module #f 37 18 37 51 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.jml.xhtml.XHTML-Parser" "jazz.jml.preference.JML-Preferences" "jazz.jml.xhtml.XHTML-Renderer" "jazz.network.http.HTTP-Request" "jazz.network.http.HTTP-Response" "jazz.network.http.Handler" "jazz.network")}
-      {Lisp-Entry "Game-Pages" class #f 49 7 49 17 ("HTTP-Request-Handler")
-        {Lisp-Entry "page-name" slot #f 52 8 52 17 ()}
-        {Lisp-Entry "get-page-name" accessor #f 52 28 52 36 ()}
-        {Lisp-Entry "set-page-name" accessor #f 52 28 52 36 ()}
-        {Lisp-Entry "play-players" method #f 60 11 60 23 ("one" "unless" "computer-move" "computer-move~" "play-move" "play-move~" "begin" "computer?" "computer?~" "if" "get-next-player" "get-next-player~" "player" "play" "get-status" "get-status~" "eq?" "when" "loop" "let" "move" "game")}
-        {Lisp-Entry "effective-players" method #f 79 11 79 28 ("or" "players")}
-        {Lisp-Entry "effective-current" method #f 83 11 83 28 ("string->number" "empty-string?" "not" "or" "if" "value")}
-        {Lisp-Entry "effective-goto" method #f 89 11 89 25 ("string->number" "empty-string?" "not" "or" "if" "value" "game")}
-        {Lisp-Entry "serialize-game" method #f 100 11 100 25 ("serialize-move" "value:" "format" "name:" "type:" "input" "<input>" "collect" "0" "from" "rank" "get-moves" "get-moves~" "in" "move" "for" "loop" "serialize-moves" "define" "game")}
-        {Lisp-Entry "deserialize-game" method #f 110 11 110 27 ("1" "+" "<" "append-forward-history" "append-forward-history~" "play-move" "play-move~" "<=" "not" "or" "if" "deserialize-move" "move" "when" "format" "get-parameter" "get-parameter~" "value" "0" "rank" "loop" "let" "deserialize-moves" "define" "current" "goto" "game" "request")}
-        {Lisp-Entry "serialize-move" method #f 125 29 125 43 ("move")}
-        {Lisp-Entry "deserialize-move" method #f 129 29 129 45 ("value" "game")}
-        {Lisp-Entry "render-game" method #f 133 19 133 30 ("request")}
-        {Lisp-Entry "handle-request" method #f 137 20 137 34 ("get-output-string" "render-game" "XHTML-Parser" "parse" "parse~" "JML-Preferences" "XHTML-Renderer" "render" "render~" "open-output-string" "output" "let" "content:" "ok" "code:" "HTTP-Response" "new" "page-name" "get-uri" "get-uri~" "starts-with?" "when" "server" "port" "request")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Pages.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.sample.gameserver.Game-Pages" module (protected) #f 37 18 37 51 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.jml.xhtml.XHTML-Parser" "jazz.jml.preference.JML-Preferences" "jazz.jml.xhtml.XHTML-Renderer" "jazz.network.http.HTTP-Response" "jazz.network.http.Handler" "jazz.network")}
+      {Lisp-Entry "Game-Pages" class () #f 48 7 48 17 ("HTTP-Request-Handler")
+        {Lisp-Entry "page-name" slot () #f 51 8 51 17 ()}
+        {Lisp-Entry "get-page-name" accessor #f #f 51 28 51 36 ()}
+        {Lisp-Entry "set-page-name" accessor #f #f 51 28 51 36 ()}
+        {Lisp-Entry "play-players" method () #f 59 11 59 23 ("one" "unless" "computer-move" "computer-move~" "play-move" "play-move~" "begin" "computer?" "computer?~" "if" "get-next-player" "get-next-player~" "player" "play" "get-status" "get-status~" "eq?" "when" "loop" "let" "move" "game")}
+        {Lisp-Entry "effective-players" method () #f 78 11 78 28 ("or" "players")}
+        {Lisp-Entry "effective-current" method () #f 82 11 82 28 ("string->number" "empty-string?" "not" "or" "if" "value")}
+        {Lisp-Entry "effective-goto" method () #f 88 11 88 25 ("string->number" "empty-string?" "not" "or" "if" "value" "game")}
+        {Lisp-Entry "serialize-game" method () #f 99 11 99 25 ("serialize-move" "value:" "format" "name:" "type:" "input" "<input>" "collect" "0" "from" "rank" "get-moves" "get-moves~" "in" "move" "for" "loop" "serialize-moves" "define" "game")}
+        {Lisp-Entry "deserialize-game" method () #f 109 11 109 27 ("1" "+" "<" "append-forward-history" "append-forward-history~" "play-move" "play-move~" "<=" "not" "or" "if" "deserialize-move" "move" "when" "format" "get-parameter" "get-parameter~" "value" "0" "rank" "loop" "let" "deserialize-moves" "define" "current" "goto" "game" "request")}
+        {Lisp-Entry "serialize-move" method (protected virtual) #f 124 29 124 43 ("move")}
+        {Lisp-Entry "deserialize-move" method (protected virtual) #f 128 29 128 45 ("value" "game")}
+        {Lisp-Entry "render-game" method (virtual) #f 132 19 132 30 ("request")}
+        {Lisp-Entry "handle-request" method (override) #f 136 20 136 34 ("get-output-string" "render-game" "XHTML-Parser" "parse" "parse~" "JML-Preferences" "XHTML-Renderer" "render" "render~" "open-output-string" "output" "let" "content:" "ok" "code:" "HTTP-Response" "new" "page-name" "get-uri" "get-uri~" "starts-with?" "when" "server" "port" "request")}}}})
 "Game-Server"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Server.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.Game-Server" module #f 37 18 37 52 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system.process" "jazz.system" "jazz.platform" "jazz.network.http.Directory-Handler" "jazz.sample.gameserver.C4-Pages" "jazz.sample.gameserver.Gomoku-Pages" "jazz.sample.gameserver" "jazz.network" "jazz.io")}
-      {Lisp-Entry "Game-Server-Process" class #f 51 7 51 26 ("8080" "initialize" "Process")
-        {Lisp-Entry "port" slot #f 54 8 54 12 ()}
-        {Lisp-Entry "server" slot #f 55 8 55 14 ()}
-        {Lisp-Entry "initialize" method #f 58 20 58 30 ("self" "port~self" "set!" "nextmethod" "8080" "port" "port:")}
-        {Lisp-Entry "start-process" method #f 63 20 63 33 ("start" "start~" "Jazz" "Directory" "root-directory:" "Directory-Handler" "Gomoku-Pages" "C4-Pages" "Games-Pages" "get-dispatcher" "get-dispatcher~" "add-handler" "add-handler~" "port" "port:" "Web-Server" "new" "server" "set!")}
-        {Lisp-Entry "stop" method #f 76 18 76 22 ("stop" "stop~" "server" "when")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Game-Server.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.sample.gameserver.Game-Server" module (protected) #f 37 18 37 52 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.system.process" "jazz.network.http.Directory-Handler" "jazz.sample.gameserver.C4-Pages" "jazz.sample.gameserver.Gomoku-Pages" "jazz.sample.gameserver" "jazz.network" "jazz.io")}
+      {Lisp-Entry "Game-Server-Process" class () #f 49 7 49 26 ("8080" "initialize" "Process")
+        {Lisp-Entry "port" slot () #f 52 8 52 12 ()}
+        {Lisp-Entry "server" slot () #f 53 8 53 14 ()}
+        {Lisp-Entry "initialize" method (override) #f 56 20 56 30 ("self" "port~self" "set!" "nextmethod" "8080" "port" "port:")}
+        {Lisp-Entry "start-process" method (override) #f 61 20 61 33 ("start" "start~" "Jazz" "Directory" "root-directory:" "Directory-Handler" "Gomoku-Pages" "C4-Pages" "Games-Pages" "get-dispatcher" "get-dispatcher~" "add-handler" "add-handler~" "port" "port:" "Web-Server" "new" "server" "set!")}
+        {Lisp-Entry "stop" method (public) #f 74 18 74 22 ("stop" "stop~" "server" "when")}}}})
 "Games-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Games-Pages.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.Games-Pages" module #f 37 18 37 52 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.network.http.HTTP-Request" "jazz.network.http.HTTP-Response" "jazz.network.http.Handler" "jazz.jml.xhtml.XHTML-Parser" "jazz.jml")}
-      {Lisp-Entry "Games-Pages" class #f 47 7 47 18 ("HTTP-Request-Handler")
-        {Lisp-Entry "handle-request" method #f 50 20 50 34 ("get-output-string" "href:" "a" "<a>" "li" "<li>" "ul" "<ul>" "h3" "<h3>" "body" "<body>" "title" "<title>" "head" "<head>" "html" "<html>" "XHTML-Parser" "parse" "parse~" "JML-Preferences" "XHTML-Renderer" "render" "render~" "open-output-string" "output" "let" "content:" "ok" "code:" "HTTP-Response" "new" "get-uri" "get-uri~" "equal?" "when" "server" "port" "request")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Games-Pages.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.sample.gameserver.Games-Pages" module (protected) #f 37 18 37 52 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.network.http.HTTP-Response" "jazz.network.http.Handler" "jazz.jml.xhtml.XHTML-Parser" "jazz.jml")}
+      {Lisp-Entry "Games-Pages" class () #f 46 7 46 18 ("HTTP-Request-Handler")
+        {Lisp-Entry "handle-request" method (override) #f 49 20 49 34 ("get-output-string" "href:" "a" "<a>" "li" "<li>" "ul" "<ul>" "h3" "<h3>" "body" "<body>" "title" "<title>" "head" "<head>" "html" "<html>" "XHTML-Parser" "parse" "parse~" "JML-Preferences" "XHTML-Renderer" "render" "render~" "open-output-string" "output" "let" "content:" "ok" "code:" "HTTP-Response" "new" "get-uri" "get-uri~" "equal?" "when" "server" "port" "request")}}}})
 "Gomoku-Pages"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Gomoku-Pages.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.Gomoku-Pages" module #f 37 18 37 53 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.sample.gameserver.Game-Pages" "jazz.sample.gomoku" "jazz.sample.game.minimax" "jazz.jml")}
-      {Lisp-Entry "Gomoku-Pages" class #f 47 7 47 19 ("Game-Pages")
-        {Lisp-Entry "initialize" method #f 50 20 50 30 ("self" "page-name" "page-name~self" "set!")}
-        {Lisp-Entry "render-game" method #f 54 20 54 31 ("p" "<p>" "jazz.sample.gomoku.Gomoku-AI" "minimax-interpreted?" "i" "<i>" "append" "increase!" "2" "modulo" ",text" "b" "<b>" "present-move" "text" "prog1" "lambda" "map" "rank" "br" "<br>" "span" "<span>" "draw" "get-winner" "get-winner~" "present" "present~" "win" "+" "colspan:" "present-col" "align:" "below" ",image" "img" "<img>" "serialize-move" "onclick:" "human?" "human?~" "play" "eqv?" "eq?" "image" "format" "EMPTY" "moku-square?" "name" "get-token" "get-token~" "token" "get-square" "get-square~" "square" "let*" "horz" "col" "present-line" "cons" "collect" "=" "vert" "to" "0" "from" "row" "for" "loop" "get-board-columns" "get-board-columns~" "last-col" "get-board-rows" "get-board-rows~" "last-row" "cellpadding:" "cellspacing:" "valign:" "class:" "a" "<a>" "26" "70" "10" "h2" "<h2>" "center" "<center>" "30" "width:" "td" "<td>" "tr" "<tr>" "table" "<table>" "serialize-game" "->string" ",players" "symbol->string" "value:" "input" "<input>" "method:" "name:" "form" "<form>" "background:" "body" "<body>" "title" "<title>" "src:" "script" "<script>" "rel:" "href:" "type:" "link" "<link>" "head" "<head>" "html" "<html>" "1" "length" "-" "last" "null?" "last-move" "prefix" "get-second-player" "get-second-player~" "second-player" "get-next-player" "get-next-player~" "next-player" "get-forward-moves" "get-forward-moves~" "forward" "backward" "get-status" "get-status~" "status" "play-players" "memq?" "get-backward-moves" "get-backward-moves~" "not-null?" "and" "when" "get-players" "get-players~" "computer?" "computer?~" "every?" "all-computers?" "move" "deserialize-game" "register-players" "register-players~" "effective-goto" "goto" "effective-current" "current" "effective-players" "get-parameter" "get-parameter~" "let" "Gomoku-AI" "WHITE" "BLACK" "Gomoku-Human" "list" "players" "create-players" "deserialize-move" "else" "all" "one" "equal?" "empty-string?" "or" "game" "effective-move" "nu=?" "cond" "not" "if" "value" "effective-size" "19" "large" "13" "medium" "columns:" "9" "rows:" "Gomoku-Game" "new" "small" "case" "size" "new-game" "define" "request")}
-        {Lisp-Entry "serialize-move" method #f 271 20 271 34 ("format" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "move")}
-        {Lisp-Entry "deserialize-move" method #f 277 20 277 36 ("get-square" "get-square~" "cardinality" "1" "+" "col" "0" "substring" "string->number" "row" "search" "pos" "let" "value" "game")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "Gomoku-Pages.jazz"} 231466231. jazz
+    {Lisp-Entry "jazz.sample.gameserver.Gomoku-Pages" module (protected) #f 37 18 37 53 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.sample.gameserver.Game-Pages" "jazz.sample.gomoku" "jazz.sample.game.minimax" "jazz.jml")}
+      {Lisp-Entry "Gomoku-Pages" class () #f 47 7 47 19 ("Game-Pages")
+        {Lisp-Entry "initialize" method (override) #f 50 20 50 30 ("self" "page-name" "page-name~self" "set!")}
+        {Lisp-Entry "render-game" method (override) #f 54 20 54 31 ("p" "<p>" "jazz.sample.gomoku.Gomoku-AI" "minimax-interpreted?" "i" "<i>" "append" "increase!" "2" "modulo" ",text" "b" "<b>" "present-move" "text" "prog1" "lambda" "map" "rank" "br" "<br>" "span" "<span>" "draw" "get-winner" "get-winner~" "present" "present~" "win" "+" "colspan:" "present-col" "align:" "below" ",image" "img" "<img>" "serialize-move" "onclick:" "human?" "human?~" "play" "eqv?" "eq?" "image" "format" "EMPTY" "moku-square?" "name" "get-token" "get-token~" "token" "get-square" "get-square~" "square" "let*" "horz" "col" "present-line" "cons" "collect" "=" "vert" "to" "0" "from" "row" "for" "loop" "get-board-columns" "get-board-columns~" "last-col" "get-board-rows" "get-board-rows~" "last-row" "cellpadding:" "cellspacing:" "valign:" "class:" "a" "<a>" "26" "70" "10" "h2" "<h2>" "center" "<center>" "30" "width:" "td" "<td>" "tr" "<tr>" "table" "<table>" "serialize-game" "->string" ",players" "symbol->string" "value:" "input" "<input>" "method:" "name:" "form" "<form>" "background:" "body" "<body>" "title" "<title>" "src:" "script" "<script>" "rel:" "href:" "type:" "link" "<link>" "head" "<head>" "html" "<html>" "1" "length" "-" "last" "null?" "last-move" "prefix" "get-second-player" "get-second-player~" "second-player" "get-next-player" "get-next-player~" "next-player" "get-forward-moves" "get-forward-moves~" "forward" "backward" "get-status" "get-status~" "status" "play-players" "memq?" "get-backward-moves" "get-backward-moves~" "not-null?" "and" "when" "get-players" "get-players~" "computer?" "computer?~" "every?" "all-computers?" "move" "deserialize-game" "register-players" "register-players~" "effective-goto" "goto" "effective-current" "current" "effective-players" "get-parameter" "get-parameter~" "let" "Gomoku-AI" "WHITE" "BLACK" "Gomoku-Human" "list" "players" "create-players" "deserialize-move" "else" "all" "one" "equal?" "empty-string?" "or" "game" "effective-move" "nu=?" "cond" "not" "if" "value" "effective-size" "19" "large" "13" "medium" "columns:" "9" "rows:" "Gomoku-Game" "new" "small" "case" "size" "new-game" "define" "request")}
+        {Lisp-Entry "serialize-move" method (override) #f 271 20 271 34 ("format" "get-col" "get-col~" "col" "get-line" "get-line~" "line" "let" "move")}
+        {Lisp-Entry "deserialize-move" method (override) #f 277 20 277 36 ("get-square" "get-square~" "cardinality" "1" "+" "col" "0" "substring" "string->number" "row" "search" "pos" "let" "value" "game")}}}})
 "_gameserver"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "_gameserver.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver" module #f 38 8 38 30 ("jazz")
-      {Lisp-Entry "export" anonymous #f 41 1 41 7 ("jazz.sample.gameserver.autoload")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "_gameserver.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.gameserver" module () #f 38 8 38 30 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 41 1 41 7 ("jazz.sample.gameserver.autoload")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "autoload.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.autoload" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("Games-Pages" "jazz.sample.gameserver.Games-Pages" "Game-Pages" "jazz.sample.gameserver.Game-Pages" "Game-Server-Process" "autoload" "jazz.sample.gameserver.Game-Server")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "autoload.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.gameserver.autoload" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("Games-Pages" "jazz.sample.gameserver.Games-Pages" "Game-Pages" "jazz.sample.gameserver.Game-Pages" "Game-Server-Process" "autoload" "jazz.sample.gameserver.Game-Server")}}})
 "imagemagick"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "imagemagick.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.imagemagick" module #f 37 8 37 42 ("jazz")
-      {Lisp-Entry "image-convert" definition #f 40 20 40 33 ("error" "0" "/=" "when" "format" "shell-command" "status" "let" "cmd")}
-      {Lisp-Entry "image-composite" definition #f 46 20 46 35 ("error" "0" "/=" "when" "format" "shell-command" "status" "let" "cmd")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "imagemagick.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.gameserver.imagemagick" module () #f 37 8 37 42 ("jazz")
+      {Lisp-Entry "image-convert" definition (public) #f 40 20 40 33 ("error" "0" "/=" "when" "format" "shell-command" "status" "let" "cmd")}
+      {Lisp-Entry "image-composite" definition (public) #f 46 20 46 35 ("error" "0" "/=" "when" "format" "shell-command" "status" "let" "cmd")}}})
 "run"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "run.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.gameserver.run" module #f 37 8 37 34 ("Game-Server-Process" "new" "boot-environment" "boot-environment~" "descriptor" "lambda" "jazz.sample.gameserver" "register-product-run" "jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.sample.gameserver.Game-Server" "jazz.io")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "gameserver" "run.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.sample.gameserver.run" module () #f 37 8 37 34 ("Game-Server-Process" "new" "boot-environment" "boot-environment~" "descriptor" "lambda" "jazz.sample.gameserver" "register-product-run" "jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.sample.gameserver.Game-Server")}}})

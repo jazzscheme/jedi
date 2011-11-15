@@ -1,5 +1,5 @@
 "Sample"
- ({C-File-Entry {File :context "files" "c" "Sample.cpp"} 236918189. c
+ ({C-File-Entry {File :context "files" "c" "Sample.cpp"} 222341474. c
     {C-Category-Entry "Sample"}
     {C-Include-Entry "Jazz.h" 9 10 9 16}
     {C-Include-Entry "JSample.h" 10 10 10 19}
@@ -7,145 +7,145 @@
     {C-Export-Entry "METHOD" 23 0 23 6}
     {C-Export-Entry "EXTERN" 30 0 30 6}
     {C-Export-Entry "EXTERN" 37 0 37 6}}
-  {C-File-Entry {File :context "files" "c" "Sample.h"} 236918189. c
+  {C-File-Entry {File :context "files" "c" "Sample.h"} 222341474. c
     {C-Define-Entry "JSample" 11 8 11 15}
     {C-Define-Entry "MACRO" 21 8 21 13}}
-  {Lisp-File-Entry {File :context "files" "scheme" "Sample.scm"} 236918189. scheme
-    {Lisp-Entry "f" define #f 7 9 7 10 ("a")}
-    {Lisp-Entry "v" define #f 12 8 12 9 ("x" "y" "h" "list")}
-    {Lisp-Entry "g" define #f 15 9 15 10 ("e" "b" "a" "x")}
-    {Lisp-Entry "h" define #f 22 11 22 12 ("k")}
-    {Lisp-Entry "i" define #f 25 11 25 12 ("l" "e" "d" "c" "k" "j" "define")}})
+  {Lisp-File-Entry {File :context "files" "scheme" "Sample.scm"} 222341474. scheme
+    {Lisp-Entry "f" define #f #f 7 9 7 10 ("a")}
+    {Lisp-Entry "v" define #f #f 12 8 12 9 ("x" "y" "h" "list")}
+    {Lisp-Entry "g" define #f #f 15 9 15 10 ("e" "b" "a" "x")}
+    {Lisp-Entry "h" define #f #f 22 11 22 12 ("k")}
+    {Lisp-Entry "i" define #f #f 25 11 25 12 ("l" "e" "d" "c" "k" "j" "define")}})
 "_error"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "_error.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.error" module #f 8 8 8 25 ("f~" "x~a" "~x" "cond" "let" "jazz.sample.error.lib.not-found" "sort" "sqr" "case" "Yo" "set!" "if" "z" "y" "x" "foo" "protected" "public" "l" "k3" "3" "k2" "a:" "k1" "h2" "h1" "b" "g" "definition" "2" "define" "accessors" "generate" "invalid" "getter" "a" "Invalid" "meta" "method" "Class" "metaclass" "Ambiguous" "native" "void" "c-type" "f" "generic" "extra" "s" "slot" "InnerInterface" "interface" "InnerClass" "Object" "extends" "X" "class" "jazz")
-      {Lisp-Entry "import" anonymous #f 11 1 11 7 ("jazz.sample.error.lib")}
-      {Lisp-Entry "X" class #f 76 7 76 8 ("Object")}
-      {Lisp-Entry "NoAscendant" class #f 99 7 99 18 ()}
-      {Lisp-Entry "X" class #f 102 7 102 8 ("Object")
-        {Lisp-Entry "f" generic/specific ("") 104 13 104 14 ()}
-        {Lisp-Entry "not-found" generic/specific ("") 107 11 107 20 ("a" "<A>" "specific" "x" "<X>" "g" "generic" "A" "X" "optimizations" "warn" "proclaim" "I" "interface" "Z" "o" "override" "v" "virtual" "f" "method" "Object" "extends" "W" "class" "3" "define" "2" "foo" "definition")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "_error.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.error" module () #f 8 8 8 25 ("f~" "x~a" "~x" "cond" "let" "jazz.sample.error.lib.not-found" "sort" "sqr" "case" "Yo" "set!" "if" "z" "y" "x" "foo" "protected" "public" "l" "k3" "3" "k2" "a:" "k1" "h2" "h1" "b" "g" "definition" "2" "define" "accessors" "generate" "invalid" "getter" "a" "Invalid" "meta" "method" "Class" "metaclass" "Ambiguous" "native" "void" "c-type" "f" "generic" "extra" "s" "slot" "InnerInterface" "interface" "InnerClass" "Object" "extends" "X" "class" "jazz")
+      {Lisp-Entry "import" anonymous #f #f 11 1 11 7 ("jazz.sample.error.lib")}
+      {Lisp-Entry "X" class () #f 76 7 76 8 ("Object")}
+      {Lisp-Entry "NoAscendant" class () #f 99 7 99 18 ()}
+      {Lisp-Entry "X" class () #f 102 7 102 8 ("Object")
+        {Lisp-Entry "f" generic/specific #f ("") 104 13 104 14 ()}
+        {Lisp-Entry "not-found" generic/specific #f ("") 107 11 107 20 ("a" "<A>" "specific" "x" "<X>" "g" "generic" "A" "X" "optimizations" "warn" "proclaim" "I" "interface" "Z" "o" "override" "v" "virtual" "f" "method" "Object" "extends" "W" "class" "3" "define" "2" "foo" "definition")}}}})
 "_mod"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "_mod.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.mod" module #f 8 8 8 23 ("jazz")
-      {Lisp-Entry "export" anonymous #f 11 1 11 7 ("T" "t-a" "make-t" "autoload" "jazz.sample.mod.t")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "_mod.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.mod" module () #f 8 8 8 23 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 11 1 11 7 ("T" "t-a" "make-t" "autoload" "jazz.sample.mod.t")}}})
 "empty"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "empty.jazz"} 236918189. jazz})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "empty.jazz"} 222341474. jazz})
 "extraneous"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "extraneous.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.error.unit.extraneous" module #f 8 8 8 41 ()}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "extraneous.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.error.unit.extraneous" module () #f 8 8 8 41 ()}})
 "invalid"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "invalid.jazz"} 236918189. jazz})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "unit" "invalid.jazz"} 222341474. jazz})
 "module"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "module.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.error.lib" module #f 8 8 8 29 ("jazz")
-      {Lisp-Entry "Yo" definition #f 11 19 11 21 ()}}}
-  {Lisp-File-Entry {File :context "src" "jazz" "sample" "module.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.module" module #f 16 8 16 26 ("L" "<L>" "K" "<K>" "name" "#<<end-of-c-code\n...some c code...\nend-of-c-code\n" "#<<end-of-c-code\nN = 2;\nend-of-c-code\n" "x" "defspe" "define-special-form" "jazz")
-      {Lisp-Entry "import" anonymous #f 19 1 19 7 ("jazz.tie" "jazz.sample.mod" "jazz.library" "jazz.jrm" "jazz.jml")}
-      {Lisp-Entry "x" define #f 28 10 28 11 ()}
-      {Lisp-Entry "y" define #f 29 10 29 11 ()}
-      {Lisp-Entry "z" define #f 30 10 30 11 ()}
-      {Lisp-Entry "v" define #f 31 10 31 11 ()}
-      {Lisp-Entry "w" define #f 32 10 32 11 ()}
-      {Lisp-Entry "proclaim" anonymous #f 44 1 44 9 ("optimizations" "warn")}
-      {Lisp-Entry "gamb" define #f 54 13 54 17 ("x")}
-      {Lisp-Entry "chic" define #f 57 13 57 17 ("x")}
-      {Lisp-Entry "sche" define #f 60 13 60 17 ("x")}
-      {Lisp-Entry "defmac" define-macro #f 69 15 69 21 ("x")}
-      {Lisp-Entry "mac" macro ("macro") 78 8 78 11 ("x" "rest")}
-      {Lisp-Entry "syn" macro #f 82 9 82 12 ("x" "form")}
-      {Lisp-Entry "nat" native ("native") 91 8 91 11 ()}
-      {Lisp-Entry "def" define #f 94 9 94 12 ("y" "x" "i" "define")}
-      {Lisp-Entry "defin" definition #f 100 13 100 18 ("x")}
-      {Lisp-Entry "literals" define #f 109 9 109 17 ("3" "Point" "a:" ":a" "| a;b |" "3.14159" "2." "#f64" "c" "b" "a" "#" "#&123" "#!key" "#i2" "#e#xF" "#xF+Fi" "#x0A" "#d599" "#o377" "#b1101" "1+2.3i" "+nan.0" "+inf.0" "5L" "-3" "+2" "3e10" "2.3" "2")}
-      {Lisp-Entry "comments" define #f 146 9 146 17 ("|a\n  a|" "#" "a" "x")}
-      {Lisp-Entry "functional-syntax" define #f 154 9 154 26 ("z" "y" "x")}
-      {Lisp-Entry "specifier-syntax" define #f 160 9 160 25 ("y" "x" "b" "let" "fx" "<fx>" "a")}
-      {Lisp-Entry "binding" define #f 170 9 170 16 ("bind-keywords" "bind-optionals" "bind" "with" "z" "parameterize" "y" "receive" "letrec" "let*" "x" "a" "let")}
-      {Lisp-Entry "functional" define #f 186 9 186 19 ("x" "a" "lambda")}
-      {Lisp-Entry "quotation" define #f 193 9 193 18 ("unquote-splicing" "unquote" "quasiquote" "y" ",@y" "x" ",x" "quote" "a")}
-      {Lisp-Entry "logical" define #f 202 9 202 16 ("or" "x" "and")}
-      {Lisp-Entry "conditional" define #f 207 9 207 20 ("typecase" "v" "ecase" "a" "case" "else" "cond" "unless" "when" "z" "y" "x" "if")}
-      {Lisp-Entry "control" define #f 228 9 228 16 ("while" "v" "z" "a" "do" "delay" "unwind-protect" "catch" "y" "prog1" "x" "begin")}
-      {Lisp-Entry "assertion" define #f 246 9 246 18 ("error-occurred?" "y" "assert-type" "x" "assert")}
-      {Lisp-Entry "iteration" define #f 254 9 254 18 ("finally" "return" "collect" "sum" "do" "unless" "when" "every" "some" "repeat" "with" "=" "then" "first" "downto" "below" "z" "by" "y" "to" "from" "in-properties" "in-sequence" "in-vector" "b" "remainder" "x" "in" "a" "for" "loop")}
-      {Lisp-Entry "assignment" define #f 277 9 277 19 ("0" "a" "let" "3" "decrease!" "2" "increase!" "1" "x" "set!")}
-      {Lisp-Entry "other" define #f 287 9 287 14 ("time" "y" "x" "construct" "tie")}
-      {Lisp-Entry "optional" definition #f 298 13 298 21 ("x" "b" "a")}
-      {Lisp-Entry "keyword" definition #f 302 13 302 20 ("x" "b" "b:" "a")}
-      {Lisp-Entry "=" specialize #f 312 20 312 21 ("eq?" "bool" "<bool>" "s2" "symbol" "<symbol>" "s1")}
-      {Lisp-Entry "t" define #f 317 9 317 10 ("y" "x" "cast")}
-      {Lisp-Entry "cconst" c-constant #f 326 12 326 18 ("x")}
-      {Lisp-Entry "cenum" c-enumeration #f 330 15 330 20 ("#x02" "BB" "#x01" "AA")}
-      {Lisp-Entry "cbool" c-type #f 347 8 347 13 ("bool" "native")}
-      {Lisp-Entry "cuint" c-type #f 349 8 349 13 ("unsigned-int" "native")}
-      {Lisp-Entry "cstruct" c-structure #f 353 13 353 20 ("a" "cuint")}
-      {Lisp-Entry "cext" external #f 358 13 358 17 ("cbool")}
-      {Lisp-Entry "cfunc" definition #f 362 12 362 17 ("cbool" "cuint" "c-function")}
-      {Lisp-Entry "cdef" c-definition #f 368 15 368 19 ("b" "a" "x" "cuint" "cbool")}
-      {Lisp-Entry "S" remotable-stub "~stub" 392 16 392 17 ()
-        {Lisp-Entry "get-value" method #f 395 29 395 38 ()}
-        {Lisp-Entry "call" method #f 396 23 396 27 ("a")}
-        {Lisp-Entry "exec" method #f 397 23 397 27 ("a")}
-        {Lisp-Entry "post" method #f 398 23 398 27 ("a")}}
-      {Lisp-Entry "runtime-errors" define #f 406 9 406 23 ("a" "a~" "Object" "new" "obj" "let")}
-      {Lisp-Entry "I" interface #f 416 11 416 12 ()
-        {Lisp-Entry "i" method #f 419 35 419 36 ()}}
-      {Lisp-Entry "A" class #f 427 7 427 8 ("Object")
-        {Lisp-Entry "initialize" method #f 430 20 430 30 ("x" "nextmethod")}
-        {Lisp-Entry "j" method #f 435 11 435 12 ("x")}
-        {Lisp-Entry "virt" method #f 439 19 439 23 ("x" "a")}}
-      {Lisp-Entry "B" class #f 443 7 443 8 ("x" "initialize" "I" "A")
-        {Lisp-Entry "cls" method #f 446 16 446 19 ("x")}
-        {Lisp-Entry "slt" slot #f 450 16 450 19 ()}
-        {Lisp-Entry "def" define #f 453 10 453 13 ("x")}
-        {Lisp-Entry "defin" definition #f 457 14 457 19 ("x")}
-        {Lisp-Entry "initialize" method #f 461 20 461 30 ("y" "x" "nextmethod")}
-        {Lisp-Entry "inl" method #f 467 25 467 28 ("x")}
-        {Lisp-Entry "chain" method #f 471 19 471 24 ("x")}
-        {Lisp-Entry "sync" method #f 475 24 475 28 ("x")}
-        {Lisp-Entry "i" method #f 479 20 479 21 ("x")}
-        {Lisp-Entry "virt" method #f 483 20 483 24 ("y" "x" "nextmethod" "a")}
-        {Lisp-Entry "object-syntax" method #f 488 11 488 24 ("~" "y" "x" "a" "a~" "self")}}
-      {Lisp-Entry "C" class #f 499 7 499 8 ("x" "initialize" "Component")
-        {Lisp-Entry "p" property #f 502 22 502 23 ()}
-        {Lisp-Entry "get-p" accessor #f 502 47 502 55 ()}
-        {Lisp-Entry "set-p" accessor #f 502 47 502 55 ()}
-        {Lisp-Entry "form" anonymous #f 505 3 505 7 ("a" "p:" "install" "<install>")}}
-      {Lisp-Entry "D" class #f 509 7 509 8 ("x" "initialize" "C")
-        {Lisp-Entry "q" property #f 512 22 512 23 ()}
-        {Lisp-Entry "get-q" accessor #f 512 47 512 55 ()}
-        {Lisp-Entry "set-q" accessor #f 512 47 512 55 ()}
-        {Lisp-Entry "form" anonymous #f 515 3 515 7 ("c" "q:" "b" "p:" "install" "<install>")}}
-      {Lisp-Entry "E" class #f 519 7 519 8 ("x" "initialize" "Component")
-        {Lisp-Entry "r" property #f 522 22 522 23 ()}
-        {Lisp-Entry "get-r" accessor #f 522 47 522 55 ()}
-        {Lisp-Entry "set-r" accessor #f 522 47 522 55 ()}
-        {Lisp-Entry "form" anonymous #f 525 3 525 7 ("5" "q:" "d" "D" "<D>" "3" "c" "name:" "2" "p:" "C" "<C>" "1" "r:" "install" "<install>")}}
-      {Lisp-Entry "F" class #f 533 7 533 8 ("E")
-        {Lisp-Entry "form" anonymous #f 536 3 536 7 ("7" "D" "<D>" "6" "q:" "d" "4" "p:" "c" "name:" "!" "<!>" "2" "r:" "install" "<install>")}}
-      {Lisp-Entry "G" class #f 544 7 544 8 ("Component")
-        {Lisp-Entry "form" anonymous #f 547 3 547 7 ("7" "D" "<D>" "6" "q:" "d" "4" "p:" "c" "name:" "!" "<!>" "3" "r:" "E" "<E>" "install" "<install>")}}
-      {Lisp-Entry "K" class #f 560 7 560 8 ("Object")}
-      {Lisp-Entry "L" class #f 561 7 561 8 ("K")}
-      {Lisp-Entry "g" generic/specific ("<K>") 564 10 564 11 ("a")}
-      {Lisp-Entry "g" generic/specific ("<K>") 566 11 566 12 ("x" "a")}
-      {Lisp-Entry "g" generic/specific ("<L>") 569 11 569 12 ("x" "a")}
-      {Lisp-Entry "h" generic/specific ("<K>") 573 10 573 11 ("x" "a")}
-      {Lisp-Entry "h" generic/specific ("<L>") 576 11 576 12 ("x" "a")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "error" "module.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.error.lib" module () #f 8 8 8 29 ("jazz")
+      {Lisp-Entry "Yo" definition (public) #f 11 19 11 21 ()}}}
+  {Lisp-File-Entry {File :context "src" "jazz" "sample" "module.jazz"} 246662659. jazz
+    {Lisp-Entry "jazz.sample.module" module () #f 16 8 16 26 ("L" "<L>" "K" "<K>" "name" "#<<end-of-c-code\n...some c code...\nend-of-c-code\n" "#<<end-of-c-code\nN = 2;\nend-of-c-code\n" "x" "defspe" "define-special-form" "jazz")
+      {Lisp-Entry "import" anonymous #f #f 19 1 19 7 ("jazz.tie" "jazz.sample.mod" "jazz.library" "jazz.jrm" "jazz.jml")}
+      {Lisp-Entry "x" define #f #f 28 10 28 11 ()}
+      {Lisp-Entry "y" define #f #f 29 10 29 11 ()}
+      {Lisp-Entry "z" define #f #f 30 10 30 11 ()}
+      {Lisp-Entry "v" define #f #f 31 10 31 11 ()}
+      {Lisp-Entry "w" define #f #f 32 10 32 11 ()}
+      {Lisp-Entry "proclaim" anonymous #f #f 44 1 44 9 ("optimizations" "warn")}
+      {Lisp-Entry "gamb" define #f #f 54 13 54 17 ("x")}
+      {Lisp-Entry "chic" define #f #f 57 13 57 17 ("x")}
+      {Lisp-Entry "sche" define #f #f 60 13 60 17 ("x")}
+      {Lisp-Entry "defmac" define-macro #f #f 69 15 69 21 ("x")}
+      {Lisp-Entry "mac" macro () ("macro") 78 8 78 11 ("x" "rest")}
+      {Lisp-Entry "syn" macro () ("syntax") 82 9 82 12 ("x" "form")}
+      {Lisp-Entry "nat" native () ("native") 91 8 91 11 ()}
+      {Lisp-Entry "def" define #f #f 94 9 94 12 ("y" "x" "i" "define")}
+      {Lisp-Entry "defin" definition () #f 100 13 100 18 ("x")}
+      {Lisp-Entry "literals" define #f #f 109 9 109 17 ("3" "Point" "a:" ":a" "| a;b |" "3.14159" "2." "#f64" "c" "b" "a" "#" "#&123" "#!key" "#i2" "#e#xF" "#xF+Fi" "#x0A" "#d599" "#o377" "#b1101" "1+2.3i" "+nan.0" "+inf.0" "5L" "-3" "+2" "3e10" "2.3" "2")}
+      {Lisp-Entry "comments" define #f #f 146 9 146 17 ("|a\n  a|" "#" "a" "x")}
+      {Lisp-Entry "functional-syntax" define #f #f 154 9 154 26 ("z" "y" "x")}
+      {Lisp-Entry "specifier-syntax" define #f #f 160 9 160 25 ("y" "x" "b" "let" "fx" "<fx>" "a")}
+      {Lisp-Entry "binding" define #f #f 170 9 170 16 ("bind-keywords" "bind-optionals" "bind" "with" "z" "parameterize" "y" "receive" "letrec" "let*" "x" "a" "let")}
+      {Lisp-Entry "functional" define #f #f 186 9 186 19 ("x" "a" "lambda")}
+      {Lisp-Entry "quotation" define #f #f 193 9 193 18 ("unquote-splicing" "unquote" "quasiquote" "y" ",@y" "x" ",x" "quote" "a")}
+      {Lisp-Entry "logical" define #f #f 202 9 202 16 ("or" "x" "and")}
+      {Lisp-Entry "conditional" define #f #f 207 9 207 20 ("typecase" "v" "ecase" "a" "case" "else" "cond" "unless" "when" "z" "y" "x" "if")}
+      {Lisp-Entry "control" define #f #f 228 9 228 16 ("while" "v" "z" "a" "do" "delay" "unwind-protect" "catch" "y" "prog1" "x" "begin")}
+      {Lisp-Entry "assertion" define #f #f 246 9 246 18 ("error-occurred?" "y" "assert-type" "x" "assert")}
+      {Lisp-Entry "iteration" define #f #f 254 9 254 18 ("finally" "return" "collect" "sum" "do" "unless" "when" "every" "some" "repeat" "with" "=" "then" "first" "downto" "below" "z" "by" "y" "to" "from" "in-properties" "in-sequence" "in-vector" "b" "remainder" "x" "in" "a" "for" "loop")}
+      {Lisp-Entry "assignment" define #f #f 277 9 277 19 ("0" "a" "let" "3" "decrease!" "2" "increase!" "1" "x" "set!")}
+      {Lisp-Entry "other" define #f #f 287 9 287 14 ("x" "time" "tie")}
+      {Lisp-Entry "optional" definition () #f 297 13 297 21 ("x" "b" "a")}
+      {Lisp-Entry "keyword" definition () #f 301 13 301 20 ("x" "b" "b:" "a")}
+      {Lisp-Entry "=" specialize (inline) #f 311 20 311 21 ("eq?" "bool" "<bool>" "s2" "symbol" "<symbol>" "s1")}
+      {Lisp-Entry "t" define #f #f 316 9 316 10 ("y" "x" "cast")}
+      {Lisp-Entry "cconst" c-constant () #f 325 12 325 18 ("x")}
+      {Lisp-Entry "cenum" c-enumeration () #f 329 15 329 20 ("#x02" "BB" "#x01" "AA")}
+      {Lisp-Entry "cbool" c-type () #f 346 8 346 13 ("bool" "native")}
+      {Lisp-Entry "cuint" c-type () #f 348 8 348 13 ("unsigned-int" "native")}
+      {Lisp-Entry "cstruct" c-structure () #f 352 13 352 20 ("a" "cuint")}
+      {Lisp-Entry "cext" external () #f 357 13 357 17 ("cbool")}
+      {Lisp-Entry "cfunc" definition () #f 361 12 361 17 ("cbool" "cuint" "c-function")}
+      {Lisp-Entry "cdef" c-definition () #f 367 15 367 19 ("b" "a" "x" "cuint" "cbool")}
+      {Lisp-Entry "S" remotable-stub () "~stub" 391 16 391 17 ()
+        {Lisp-Entry "get-value" method (public call value) #f 394 29 394 38 ()}
+        {Lisp-Entry "call" method (public call) #f 395 23 395 27 ("a")}
+        {Lisp-Entry "exec" method (public exec) #f 396 23 396 27 ("a")}
+        {Lisp-Entry "post" method (public post) #f 397 23 397 27 ("a")}}
+      {Lisp-Entry "runtime-errors" define #f #f 405 9 405 23 ("a" "a~" "Object" "new" "obj" "let")}
+      {Lisp-Entry "I" interface () #f 415 11 415 12 ()
+        {Lisp-Entry "i" method (public virtual abstract) #f 418 35 418 36 ()}}
+      {Lisp-Entry "A" class () #f 426 7 426 8 ("Object")
+        {Lisp-Entry "initialize" method (override) #f 429 20 429 30 ("x" "nextmethod")}
+        {Lisp-Entry "j" method () #f 434 11 434 12 ("x")}
+        {Lisp-Entry "virt" method (virtual) #f 438 19 438 23 ("x" "a")}}
+      {Lisp-Entry "B" class () #f 442 7 442 8 ("x" "initialize" "I" "A")
+        {Lisp-Entry "cls" method (meta) #f 445 16 445 19 ("x")}
+        {Lisp-Entry "slt" slot (private) #f 449 16 449 19 ()}
+        {Lisp-Entry "def" define #f #f 452 10 452 13 ("x")}
+        {Lisp-Entry "defin" definition () #f 456 14 456 19 ("x")}
+        {Lisp-Entry "initialize" method (override) #f 460 20 460 30 ("y" "x" "nextmethod")}
+        {Lisp-Entry "inl" method (public inline) #f 466 25 466 28 ("x")}
+        {Lisp-Entry "chain" method (chained) #f 470 19 470 24 ("x")}
+        {Lisp-Entry "sync" method (synchronized) #f 474 24 474 28 ("x")}
+        {Lisp-Entry "i" method (override) #f 478 20 478 21 ("x")}
+        {Lisp-Entry "virt" method (override) #f 482 20 482 24 ("y" "x" "nextmethod" "a")}
+        {Lisp-Entry "object-syntax" method () #f 487 11 487 24 ("~" "y" "x" "a" "a~" "self")}}
+      {Lisp-Entry "C" class () #f 498 7 498 8 ("x" "initialize" "Component")
+        {Lisp-Entry "p" property (protected) #f 501 22 501 23 ()}
+        {Lisp-Entry "get-p" accessor #f #f 501 47 501 55 ()}
+        {Lisp-Entry "set-p" accessor #f #f 501 47 501 55 ()}
+        {Lisp-Entry "form" anonymous #f #f 504 3 504 7 ("a" "p:" "install" "<install>")}}
+      {Lisp-Entry "D" class () #f 508 7 508 8 ("x" "initialize" "C")
+        {Lisp-Entry "q" property (protected) #f 511 22 511 23 ()}
+        {Lisp-Entry "get-q" accessor #f #f 511 47 511 55 ()}
+        {Lisp-Entry "set-q" accessor #f #f 511 47 511 55 ()}
+        {Lisp-Entry "form" anonymous #f #f 514 3 514 7 ("c" "q:" "b" "p:" "install" "<install>")}}
+      {Lisp-Entry "E" class () #f 518 7 518 8 ("x" "initialize" "Component")
+        {Lisp-Entry "r" property (protected) #f 521 22 521 23 ()}
+        {Lisp-Entry "get-r" accessor #f #f 521 47 521 55 ()}
+        {Lisp-Entry "set-r" accessor #f #f 521 47 521 55 ()}
+        {Lisp-Entry "form" anonymous #f #f 524 3 524 7 ("5" "q:" "d" "D" "<D>" "3" "c" "name:" "2" "p:" "C" "<C>" "1" "r:" "install" "<install>")}}
+      {Lisp-Entry "F" class () #f 532 7 532 8 ("E")
+        {Lisp-Entry "form" anonymous #f #f 535 3 535 7 ("7" "D" "<D>" "6" "q:" "d" "4" "p:" "c" "name:" "!" "<!>" "2" "r:" "install" "<install>")}}
+      {Lisp-Entry "G" class () #f 543 7 543 8 ("Component")
+        {Lisp-Entry "form" anonymous #f #f 546 3 546 7 ("7" "D" "<D>" "6" "q:" "d" "4" "p:" "c" "name:" "!" "<!>" "3" "r:" "E" "<E>" "install" "<install>")}}
+      {Lisp-Entry "K" class () #f 559 7 559 8 ("Object")}
+      {Lisp-Entry "L" class () #f 560 7 560 8 ("K")}
+      {Lisp-Entry "g" generic/specific #f ("<K>") 563 10 563 11 ("a")}
+      {Lisp-Entry "g" generic/specific #f ("<K>") 565 11 565 12 ("x" "a")}
+      {Lisp-Entry "g" generic/specific #f ("<L>") 568 11 568 12 ("x" "a")}
+      {Lisp-Entry "h" generic/specific #f ("<K>") 572 10 572 11 ("x" "a")}
+      {Lisp-Entry "h" generic/specific #f ("<L>") 575 11 575 12 ("x" "a")}}})
 "sample"
- ({Lisp-File-Entry {File :context "files" "lisp" "sample.lisp"} 236918189. commonlisp
-    {Lisp-Entry "hello-world" define #f 0 7 0 18 ("t" "format")}
-    {Lisp-Entry "verbose-sum" define #f 3 7 3 18 ("+" "t" "format" "y" "x")}})
+ ({Lisp-File-Entry {File :context "files" "lisp" "sample.lisp"} 222341474. commonlisp
+    {Lisp-Entry "hello-world" define #f #f 0 7 0 18 ("t" "format")}
+    {Lisp-Entry "verbose-sum" define #f #f 3 7 3 18 ("+" "t" "format" "y" "x")}})
 "t"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "t.jazz"} 236918189. jazz
-    {Lisp-Entry "jazz.sample.mod.t" module #f 8 8 8 25 ("jazz")
-      {Lisp-Entry "make-t" definition #f 11 20 11 26 ("T" "new" "a")}
-      {Lisp-Entry "t-a" definition #f 15 27 15 30 ("get-a" "get-a~" "t")}
-      {Lisp-Entry "T" class #f 19 7 19 8 ("Object")
-        {Lisp-Entry "a" slot #f 22 8 22 9 ()}
-        {Lisp-Entry "initialize" method #f 25 11 25 21 ("self" "a~self" "set!" "nextmethod" "a")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "mod" "t.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.mod.t" module () #f 8 8 8 25 ("jazz")
+      {Lisp-Entry "make-t" definition (public) #f 11 20 11 26 ("T" "new" "a")}
+      {Lisp-Entry "t-a" definition (public inline) #f 15 27 15 30 ("get-a" "get-a~" "t")}
+      {Lisp-Entry "T" class () #f 19 7 19 8 ("Object")
+        {Lisp-Entry "a" slot () #f 22 8 22 9 ()}
+        {Lisp-Entry "initialize" method () #f 25 11 25 21 ("self" "a~self" "set!" "nextmethod" "a")}}}})
 "unit"
- ({Lisp-File-Entry {File :context "src" "jazz" "sample" "unit.scm"} 236918189. scheme
-    {Lisp-Entry "jazz.sample.unit" unit #f 8 6 8 22 ()}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "unit.scm"} 222341474. scheme
+    {Lisp-Entry "jazz.sample.unit" unit () #f 8 6 8 22 ()}})

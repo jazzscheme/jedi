@@ -1,14 +1,14 @@
 "srfi-13"
- ({Lisp-File-Entry {File :context "src" "srfi-13.jazz"} 236918191. jazz
-    {Lisp-Entry "srfi-13" module #f 37 8 37 15 ("scheme")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("string-concatenate-reverse" "string-index-right" "string-index" "string-count" "substring/shared" "reverse-list->string" "string-titlecase" "string-downcase" "string-upcase")}
-      {Lisp-Entry "import" anonymous #f 50 1 50 7 ("jazz")}
-      {Lisp-Entry "string-upcase" define #f 53 9 53 22 ("upcase" "str")}
-      {Lisp-Entry "string-downcase" define #f 56 9 56 24 ("downcase" "str")}
-      {Lisp-Entry "string-titlecase" define #f 59 9 59 25 ("capitalize" "str")}
-      {Lisp-Entry "reverse-list->string" define #f 62 9 62 29 ("reverse" "list->string" "lst")}
-      {Lisp-Entry "substring/shared" define #f 65 9 65 25 ("substring" "car" "string-length" "null?" "if" "end" "let" "rest" "start" "str")}
-      {Lisp-Entry "string-count" define #f 69 9 69 21 ("count" "rest" "c" "str")}
-      {Lisp-Entry "string-index" define #f 73 9 73 21 ("find" "c" "str")}
-      {Lisp-Entry "string-index-right" define #f 76 9 76 27 ("reversed?:" "find" "c" "str")}
-      {Lisp-Entry "string-concatenate-reverse" define #f 79 9 79 35 ("reverse" "string-append" "apply" "string-list")}}})
+ ({Lisp-File-Entry {File :context "src" "srfi-13.jazz"} 231466232. jazz
+    {Lisp-Entry "srfi-13" module () #f 37 8 37 15 ("scheme")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("string-concatenate-reverse" "string-index-right" "string-index" "string-count" "substring/shared" "reverse-list->string" "string-titlecase" "string-downcase" "string-upcase")}
+      {Lisp-Entry "import" anonymous #f #f 50 1 50 7 ("jazz")}
+      {Lisp-Entry "string-upcase" define #f #f 53 9 53 22 ("upcase" "str")}
+      {Lisp-Entry "string-downcase" define #f #f 56 9 56 24 ("downcase" "str")}
+      {Lisp-Entry "string-titlecase" define #f #f 59 9 59 25 ("capitalize" "str")}
+      {Lisp-Entry "reverse-list->string" define #f #f 62 9 62 29 ("reverse" "list->string" "lst")}
+      {Lisp-Entry "substring/shared" define #f #f 65 9 65 25 ("substring" "car" "string-length" "null?" "if" "end" "let" "rest" "start" "str")}
+      {Lisp-Entry "string-count" define #f #f 69 9 69 21 ("count" "rest" "c" "str")}
+      {Lisp-Entry "string-index" define #f #f 73 9 73 21 ("find" "c" "str")}
+      {Lisp-Entry "string-index-right" define #f #f 76 9 76 27 ("reversed?:" "find" "c" "str")}
+      {Lisp-Entry "string-concatenate-reverse" define #f #f 79 9 79 35 ("reverse" "string-append" "apply" "string-list")}}})

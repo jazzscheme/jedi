@@ -1,390 +1,387 @@
 "Catalog"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "catalog" "Catalog.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.catalog.Catalog" module #f 37 18 37 46 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.catalog")}
-      {Lisp-Entry "Catalog" class #f 43 7 43 14 ("Object")
-        {Lisp-Entry "name" slot #f 46 8 46 12 ()}
-        {Lisp-Entry "get-name" accessor #f 46 20 46 28 ()}
-        {Lisp-Entry "initialize" method #f 49 20 49 30 ("self" "name~self" "set!" "nextmethod" "name")}
-        {Lisp-Entry "print" method #f 54 20 54 25 ("name" "format" "lambda" "self" "print-unreadable" "readably" "output")}
-        {Lisp-Entry "present" method #f 65 26 65 33 ()}
-        {Lisp-Entry "get-active?" method #f 74 29 74 40 ()}
-        {Lisp-Entry "set-active?" method #f 78 29 78 40 ("flag")}
-        {Lisp-Entry "activate" method #f 82 26 82 34 ("rest")}
-        {Lisp-Entry "deactivate" method #f 86 26 86 36 ()}
-        {Lisp-Entry "get-definitions" method #f 95 26 95 41 ("name")}
-        {Lisp-Entry "get-file-entry" method #f 99 26 99 40 ("file")}
-        {Lisp-Entry "get-references" method #f 103 26 103 40 ("name")}
-        {Lisp-Entry "add-completions" method #f 107 26 107 41 ("target" "dest")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "catalog" "Catalog.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.catalog.catalog.Catalog" module (protected) #f 37 18 37 46 ("jazz")
+      {Lisp-Entry "Catalog" class () #f 40 7 40 14 ("Object")
+        {Lisp-Entry "name" slot () #f 43 8 43 12 ()}
+        {Lisp-Entry "get-name" accessor #f #f 43 20 43 28 ()}
+        {Lisp-Entry "initialize" method (override) #f 46 20 46 30 ("self" "name~self" "set!" "nextmethod" "name")}
+        {Lisp-Entry "print" method (override) #f 51 20 51 25 ("name" "format" "lambda" "self" "print-unreadable" "readably" "output")}
+        {Lisp-Entry "present" method (public virtual) #f 62 26 62 33 ()}
+        {Lisp-Entry "get-active?" method (protected virtual) #f 71 29 71 40 ()}
+        {Lisp-Entry "set-active?" method (protected virtual) #f 75 29 75 40 ("flag")}
+        {Lisp-Entry "activate" method (public virtual) #f 79 26 79 34 ("rest")}
+        {Lisp-Entry "deactivate" method (public virtual) #f 83 26 83 36 ()}
+        {Lisp-Entry "get-definitions" method (public virtual) #f 92 26 92 41 ("name")}
+        {Lisp-Entry "get-file-entry" method (public virtual) #f 96 26 96 40 ("file")}
+        {Lisp-Entry "get-references" method (public virtual) #f 100 26 100 40 ("name")}
+        {Lisp-Entry "add-completions" method (public virtual) #f 104 26 104 41 ("target" "dest")}}}})
 "Catalog-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Catalog-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Catalog-Entry" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.system" "jazz.catalog")}
-      {Lisp-Entry "Catalog-Entry" class #f 45 20 45 33 ("initialize" "Object")
-        {Lisp-Entry "parent" slot #f 48 8 48 14 ()}
-        {Lisp-Entry "root-definition" slot #f 49 8 49 23 ()}
-        {Lisp-Entry "file-definition" slot #f 50 8 50 23 ()}
-        {Lisp-Entry "get-parent" method #f 58 25 58 35 ("parent")}
-        {Lisp-Entry "set-parent" method #f 62 25 62 35 ("parent" "set!" "p")}
-        {Lisp-Entry "get-root-definition" method #f 66 26 66 45 ("root-definition")}
-        {Lisp-Entry "set-root-definition" method #f 70 26 70 45 ("root-definition" "set!" "def")}
-        {Lisp-Entry "get-file-definition" method #f 74 26 74 45 ("file-definition")}
-        {Lisp-Entry "set-file-definition" method #f 78 26 78 45 ("file-definition" "set!" "def")}
-        {Lisp-Entry "get-file" method #f 87 26 87 34 ()}
-        {Lisp-Entry "get-moniker" method #f 91 26 91 37 ()}
-        {Lisp-Entry "get-title" method #f 95 26 95 35 ()}
-        {Lisp-Entry "get-location-name" method #f 99 26 99 43 ()}
-        {Lisp-Entry "get-name" method #f 103 26 103 34 ()}
-        {Lisp-Entry "get-line" method #f 107 26 107 34 ()}
-        {Lisp-Entry "get-column" method #f 111 26 111 36 ()}
-        {Lisp-Entry "get-start" method #f 115 26 115 35 ()}
-        {Lisp-Entry "get-end-line" method #f 119 26 119 38 ()}
-        {Lisp-Entry "get-end-column" method #f 123 26 123 40 ()}
-        {Lisp-Entry "get-end" method #f 127 26 127 33 ()}
-        {Lisp-Entry "get-range" method #f 131 26 131 35 ()}
-        {Lisp-Entry "get-definitions" method #f 135 26 135 41 ()}
-        {Lisp-Entry "get-image" method #f 139 26 139 35 ()}
-        {Lisp-Entry "present" method #f 148 26 148 33 ()}
-        {Lisp-Entry "present-name" method #f 152 26 152 38 ()}
-        {Lisp-Entry "present-identifier" method #f 156 26 156 44 ()}
-        {Lisp-Entry "present-detailed" method #f 160 26 160 42 ("present-name")}
-        {Lisp-Entry "edit" method #f 169 26 169 30 ("rest")}
-        {Lisp-Entry "edit-reference" method #f 173 26 173 40 ("edit" "apply" "rest" "search-result" "direction")}
-        {Lisp-Entry "edit-textual-reference" method #f 177 21 177 43 ("forward" "edit-reference" "apply" "search-result" "self" "Reference-Search-Result" "Search-Resultset" "resultset" "references" "Projects-Search" "new" "search" "constituent-test:" "match-test:" "whole-words?:" "make-search-context" "list" "->search-set" "get-constituent-test" "get-constituent-test~" "constituent-test" "get-match-test" "get-match-test~" "match-test" "file-definition" "get-dialect" "get-dialect~" "get-parser-class" "parser-class" "let" "reference-searcher" "make-reference-search-result" "define" "rest" "target")}
-        {Lisp-Entry "insert-definition" method #f 198 26 198 43 ("insert-self-definitions" "dynamic" "get-state" "get-state~" "eq?" "unless" "insert-self" "row" "let" "sort?" "level" "father" "tree")}
-        {Lisp-Entry "insert-self" method #f 204 29 204 40 ("self" "user-data:" "image:" "title:" "Tree-Node" "new" "list" "children:" "state:" "father:" "add-row" "add-row~" "present-name" "title" "insert-state" "state" "get-definitions" "definitions" "get-image" "image" "let*" "level" "father" "tree")}
-        {Lisp-Entry "insert-self-definitions" method #f 212 29 212 52 ("get-definitions" "insert-definitions" "sort?" "level" "father" "tree")}
-        {Lisp-Entry "insert-state" method #f 216 29 216 41 ("else" "dynamic" "not-null?" ">" "expanded" "get-definitions" "get-definitions~" "length" "1" "2" "=" "parent" "and" "cond" "definitions" "level")}
-        {Lisp-Entry "insert-definitions" method #f 225 11 225 29 ("1" "+" "insert-definition" "insert-definition~" "definition" "lambda" "for-each" "if" "ordered" "let" "present-name" "present-name~" "key:" "string<?" "sort" "sort-definitions" "define" "sort?" "level" "definitions" "father" "tree")}
-        {Lisp-Entry "update-indexes" method #f 240 26 240 40 ("references-index" "definitions-index")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Catalog-Entry.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.catalog.entry.Catalog-Entry" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui" "jazz.catalog")}
+      {Lisp-Entry "Catalog-Entry" class (undocumented) #f 44 20 44 33 ("initialize" "Object")
+        {Lisp-Entry "parent" slot () #f 47 8 47 14 ()}
+        {Lisp-Entry "root-definition" slot () #f 48 8 48 23 ()}
+        {Lisp-Entry "file-definition" slot () #f 49 8 49 23 ()}
+        {Lisp-Entry "get-parent" method (public inline) #f 57 25 57 35 ("parent")}
+        {Lisp-Entry "set-parent" method (public inline) #f 61 25 61 35 ("parent" "set!" "p")}
+        {Lisp-Entry "get-root-definition" method (public virtual) #f 65 26 65 45 ("root-definition")}
+        {Lisp-Entry "set-root-definition" method (public virtual) #f 69 26 69 45 ("root-definition" "set!" "def")}
+        {Lisp-Entry "get-file-definition" method (public virtual) #f 73 26 73 45 ("file-definition")}
+        {Lisp-Entry "set-file-definition" method (public virtual) #f 77 26 77 45 ("file-definition" "set!" "def")}
+        {Lisp-Entry "get-file" method (public virtual) #f 86 26 86 34 ()}
+        {Lisp-Entry "get-moniker" method (public virtual) #f 90 26 90 37 ()}
+        {Lisp-Entry "get-title" method (public virtual) #f 94 26 94 35 ()}
+        {Lisp-Entry "get-location-name" method (public virtual) #f 98 26 98 43 ()}
+        {Lisp-Entry "get-name" method (public virtual) #f 102 26 102 34 ()}
+        {Lisp-Entry "get-line" method (public virtual) #f 106 26 106 34 ()}
+        {Lisp-Entry "get-column" method (public virtual) #f 110 26 110 36 ()}
+        {Lisp-Entry "get-start" method (public virtual) #f 114 26 114 35 ()}
+        {Lisp-Entry "get-end-line" method (public virtual) #f 118 26 118 38 ()}
+        {Lisp-Entry "get-end-column" method (public virtual) #f 122 26 122 40 ()}
+        {Lisp-Entry "get-end" method (public virtual) #f 126 26 126 33 ()}
+        {Lisp-Entry "get-range" method (public virtual) #f 130 26 130 35 ()}
+        {Lisp-Entry "get-definitions" method (public virtual) #f 134 26 134 41 ()}
+        {Lisp-Entry "get-image" method (public virtual) #f 138 26 138 35 ()}
+        {Lisp-Entry "present" method (public virtual) #f 147 26 147 33 ()}
+        {Lisp-Entry "present-name" method (public virtual) #f 151 26 151 38 ()}
+        {Lisp-Entry "present-identifier" method (public virtual) #f 155 26 155 44 ()}
+        {Lisp-Entry "present-detailed" method (public virtual) #f 159 26 159 42 ("present-name")}
+        {Lisp-Entry "edit" method (public virtual) #f 168 26 168 30 ("rest")}
+        {Lisp-Entry "edit-reference" method (public virtual) #f 172 26 172 40 ("edit" "apply" "rest" "search-result" "direction")}
+        {Lisp-Entry "edit-textual-reference" method (protected) #f 176 21 176 43 ("forward" "edit-reference" "apply" "search-result" "self" "Reference-Search-Result" "Search-Resultset" "resultset" "references" "Projects-Search" "new" "search" "constituent-test:" "match-test:" "whole-words?:" "make-search-context" "list" "->search-set" "get-constituent-test" "get-constituent-test~" "constituent-test" "get-match-test" "get-match-test~" "match-test" "file-definition" "get-dialect" "get-dialect~" "get-parser-class" "parser-class" "let" "reference-searcher" "make-reference-search-result" "define" "rest" "target")}
+        {Lisp-Entry "insert-definition" method (public virtual) #f 197 26 197 43 ("insert-self-definitions" "dynamic" "get-state" "get-state~" "eq?" "unless" "insert-self" "row" "let" "sort?" "level" "father" "tree")}
+        {Lisp-Entry "insert-self" method (protected virtual) #f 203 29 203 40 ("self" "user-data:" "image:" "title:" "Tree-Node" "new" "list" "children:" "state:" "father:" "add-row" "add-row~" "present-name" "title" "insert-state" "state" "get-definitions" "definitions" "get-image" "image" "let*" "level" "father" "tree")}
+        {Lisp-Entry "insert-self-definitions" method (protected virtual) #f 211 29 211 52 ("get-definitions" "insert-definitions" "sort?" "level" "father" "tree")}
+        {Lisp-Entry "insert-state" method (protected virtual) #f 215 29 215 41 ("else" "dynamic" "not-null?" ">" "expanded" "get-definitions" "get-definitions~" "length" "1" "2" "=" "parent" "and" "cond" "definitions" "level")}
+        {Lisp-Entry "insert-definitions" method () #f 224 11 224 29 ("1" "+" "insert-definition" "insert-definition~" "definition" "lambda" "for-each" "if" "ordered" "let" "present-name" "present-name~" "key:" "string<?" "sort" "sort-definitions" "define" "sort?" "level" "definitions" "father" "tree")}
+        {Lisp-Entry "update-indexes" method (public virtual) #f 239 26 239 40 ("references-index" "definitions-index")}}}})
 "Cataloguer"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "catalog" "Cataloguer.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.catalog.Cataloguer" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.system" "jazz.catalog")}
-      {Lisp-Entry "Cataloguer" class #f 45 7 45 17 ("initialize" "Object")
-        {Lisp-Entry "catalogs" slot #f 48 8 48 16 ()}
-        {Lisp-Entry "get-catalogs" accessor #f 48 39 48 47 ()}
-        {Lisp-Entry "for-each-catalog" method #f 56 26 56 42 ("catalogs" "get-active?" "get-active?~" "when" "catalog" "lambda" "for-each" "proc" "context")}
-        {Lisp-Entry "add-catalog" method #f 63 26 63 37 ("list" "append!" "set!" "catalogs" "memq?" "unless" "catalog")}
-        {Lisp-Entry "remove-catalog" method #f 68 26 68 40 ("remove!" "set!" "catalogs" "memq?" "when" "catalog")}
-        {Lisp-Entry "get-catalog" method #f 73 18 73 29 ("error" "when" "find-catalog" "or" "report?" "report?:" "error?" "error?:" "name")}
-        {Lisp-Entry "find-catalog" method #f 79 18 79 30 ("continuation-return" "get-name" "get-name~" "eq?" "when" "catalog" "get-context" "for-each-catalog" "return" "lambda" "continuation-capture" "name")}
-        {Lisp-Entry "save-catalogs" method #f 94 18 94 31 ("save" "save~" "table-set!" "format" "message-box" "table-ref" "if" "get-file" "get-file~" "get-name" "get-name~" "name" "catalog" "lambda" "get-context" "for-each-catalog" "equal?" "test:" "make-table" "names" "let")}
-        {Lisp-Entry "get-context" definition #f 110 15 110 26 ()}
-        {Lisp-Entry "get-definitions" method #f 119 18 119 33 ("get-output" "get-output~" "get-definitions" "get-definitions~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "name")}
-        {Lisp-Entry "get-definition" method #f 127 18 127 32 ("car" "not-null?" "when" "get-definitions" "definitions" "let" "name")}
-        {Lisp-Entry "get-coalesced-definitions" method #f 134 18 134 43 ("Category-Entry" "car" "is?" "length" "1" "=" "and" "if" "Constructor-Entry" "is-not?" "entry" "lambda" "collect-if" "coalesced" "get-definitions" "definitions" "let*" "get-context" "context" "context:" "name")}
-        {Lisp-Entry "search-definitions" method #f 145 18 145 36 ("get-output" "get-output~" "search-definitions" "search-definitions~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "search-set")}
-        {Lisp-Entry "search-references" method #f 153 18 153 35 ("get-output" "get-output~" "search-references" "search-references~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "search-set")}
-        {Lisp-Entry "get-references" method #f 161 18 161 32 ("get-output" "get-output~" "get-references" "get-references~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "name")}
-        {Lisp-Entry "get-file-entries" method #f 169 18 169 34 ("get-output" "get-output~" "put" "put~" "when" "get-file-entry" "get-file-entry~" "entry" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "file")}
-        {Lisp-Entry "get-completions" method #f 184 18 184 33 ("table-keys" "add-completions" "equal?" "test:" "make-table" "table" "let" "get-context" "context" "context:" "name")}
-        {Lisp-Entry "add-completions" method #f 190 18 190 33 ("add-completions" "add-completions~" "catalog" "lambda" "for-each-catalog" "get-context" "context" "context:" "name" "table")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "catalog" "Cataloguer.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.catalog.catalog.Cataloguer" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui.view" "jazz.catalog")}
+      {Lisp-Entry "Cataloguer" class () #f 44 7 44 17 ("initialize" "Object")
+        {Lisp-Entry "catalogs" slot () #f 47 8 47 16 ()}
+        {Lisp-Entry "get-catalogs" accessor #f #f 47 39 47 47 ()}
+        {Lisp-Entry "for-each-catalog" method (public virtual) #f 55 26 55 42 ("catalogs" "get-active?" "get-active?~" "when" "catalog" "lambda" "for-each" "proc" "context")}
+        {Lisp-Entry "add-catalog" method (public virtual) #f 62 26 62 37 ("list" "append!" "set!" "catalogs" "memq?" "unless" "catalog")}
+        {Lisp-Entry "remove-catalog" method (public virtual) #f 67 26 67 40 ("remove!" "set!" "catalogs" "memq?" "when" "catalog")}
+        {Lisp-Entry "get-catalog" method (public) #f 72 18 72 29 ("error" "when" "find-catalog" "or" "report?" "report?:" "error?" "error?:" "name")}
+        {Lisp-Entry "find-catalog" method (public) #f 78 18 78 30 ("continuation-return" "get-name" "get-name~" "eq?" "when" "catalog" "get-context" "for-each-catalog" "return" "lambda" "continuation-capture" "name")}
+        {Lisp-Entry "save-catalogs" method (public) #f 93 18 93 31 ("save" "save~" "table-set!" "format" "message-box" "table-ref" "if" "get-file" "get-file~" "get-name" "get-name~" "name" "catalog" "lambda" "get-context" "for-each-catalog" "equal?" "test:" "make-table" "names" "let")}
+        {Lisp-Entry "get-context" definition () #f 109 15 109 26 ()}
+        {Lisp-Entry "get-definitions" method (public) #f 118 18 118 33 ("get-output" "get-output~" "get-definitions" "get-definitions~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "name")}
+        {Lisp-Entry "get-definition" method (public) #f 126 18 126 32 ("car" "not-null?" "when" "get-definitions" "definitions" "let" "name")}
+        {Lisp-Entry "get-coalesced-definitions" method (public) #f 133 18 133 43 ("Category-Entry" "car" "is?" "length" "1" "=" "and" "if" "Constructor-Entry" "is-not?" "entry" "lambda" "collect-if" "coalesced" "get-definitions" "definitions" "let*" "get-context" "context" "context:" "name")}
+        {Lisp-Entry "search-definitions" method (public) #f 144 18 144 36 ("get-output" "get-output~" "search-definitions" "search-definitions~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "search-set")}
+        {Lisp-Entry "search-references" method (public) #f 152 18 152 35 ("get-output" "get-output~" "search-references" "search-references~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "search-set")}
+        {Lisp-Entry "get-references" method (public) #f 160 18 160 32 ("get-output" "get-output~" "get-references" "get-references~" "put-sequence" "put-sequence~" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "name")}
+        {Lisp-Entry "get-file-entries" method (public) #f 168 18 168 34 ("get-output" "get-output~" "put" "put~" "when" "get-file-entry" "get-file-entry~" "entry" "catalog" "lambda" "for-each-catalog" "List-Factory" "new" "fact" "let" "get-context" "context" "context:" "file")}
+        {Lisp-Entry "get-completions" method (public) #f 183 18 183 33 ("table-keys" "add-completions" "equal?" "test:" "make-table" "table" "let" "get-context" "context" "context:" "name")}
+        {Lisp-Entry "add-completions" method (public) #f 189 18 189 33 ("add-completions" "add-completions~" "catalog" "lambda" "for-each-catalog" "get-context" "context" "context:" "name" "table")}}}})
 "Category-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Category-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Category-Entry" module #f 37 18 37 51 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Category-Entry" class #f 45 20 45 34 ("Hierarchical-Entry")
-        {Lisp-Entry "extends" slot #f 48 8 48 15 ()}
-        {Lisp-Entry "get-extends" accessor #f 48 26 48 34 ()}
-        {Lisp-Entry "set-extends" accessor #f 48 26 48 34 ()}
-        {Lisp-Entry "initialize" method #f 51 20 51 30 ("self" "extends~self" "set!" "nextmethod" "definitions" "end-column" "end-line" "column" "line" "extends" "name" "qualified" "modifiers")}
-        {Lisp-Entry "present" method #f 56 20 56 27 ("get-location-name")}
-        {Lisp-Entry "update-indexes" method #f 65 20 65 34 ("extends" "last" "update-index" "qualified" "lambda" "for-each" "nextmethod" "references-index" "definitions-index")}
-        {Lisp-Entry "insert-self-definitions" method #f 77 20 77 43 ("nextmethod" "insert-inherited" "insert-interfaces" "insert-ascendants" "sort?" "level" "father" "tree")}
-        {Lisp-Entry "collect-ascendants" method #f 84 11 84 29 ("get-output" "get-output~" "extends" "get-extends" "get-extends~" "for-each" "put" "put~" "get-list" "get-list~" "memq?" "not" "and" "get-qualified-category" "category" "when" "qualified" "process" "define" "List-Factory" "new" "fact" "get-catalog" "catalog" "let")}
-        {Lisp-Entry "insert-ascendants" method #f 98 29 98 46 ("user-data:" "get-image" "get-image~" "present-name" "present-name~" "category" "lambda" "for-each" "Image-Resource" "image:" "title:" "Tree-Node" "new" "list" "children:" "17" "row-height:" "collapsed" "state:" "father:" "add-row" "add-row~" "row" "when" "collect-ascendants" "ascendants" "let" "father" "tree")}
-        {Lisp-Entry "insert-interfaces" method #f 107 29 107 46 ("father" "tree")}
-        {Lisp-Entry "insert-interfaces-list" method #f 111 11 111 33 ("get-extends" "get-extends~" "lambda" "for-each" "user-data:" "get-image" "get-image~" "present-name" "present-name~" "get-qualified-category" "interface" "qualified" "insert" "define" "Image-Resource" "image:" "title:" "Tree-Node" "new" "list" "children:" "17" "row-height:" "collapsed" "state:" "father:" "add-row" "add-row~" "row" "get-catalog" "catalog" "let" "when" "interfaces" "title" "father" "tree")}
-        {Lisp-Entry "insert-inherited" method #f 129 11 129 27 ("0" "insert-definitions" "Image-Resource" "image:" "title:" "Tree-Node" "new" "list" "children:" "17" "row-height:" "collapsed" "state:" "father:" "add-row" "add-row~" "row" "let" "when" "inherited" "collect-ascendants" "let*" "get-definitions" "get-definitions~" "map" "append" "apply" "ascendants" "collect-inherited" "define" "father" "tree")}
-        {Lisp-Entry "get-qualified-category" definition #f 140 15 140 37 ("get-qualified" "get-qualified~" "=" "package" "Category-Entry" "and" "butlast" "qualifier" "last" "name" "let" "get-file-definition" "get-file-definition~" "get-definitions" "get-definitions~" "Package-Entry" "is?" "lambda" "find-if" "definition" "get-category-package" "define" "qualified" "catalog")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Category-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Category-Entry" module (protected) #f 37 18 37 51 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui" "jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Category-Entry" class (undocumented) #f 45 20 45 34 ("Hierarchical-Entry")
+        {Lisp-Entry "extends" slot () #f 48 8 48 15 ()}
+        {Lisp-Entry "get-extends" accessor #f #f 48 26 48 34 ()}
+        {Lisp-Entry "set-extends" accessor #f #f 48 26 48 34 ()}
+        {Lisp-Entry "initialize" method (override) #f 51 20 51 30 ("self" "extends~self" "set!" "nextmethod" "definitions" "end-column" "end-line" "column" "line" "extends" "name" "qualified" "modifiers")}
+        {Lisp-Entry "present" method (override) #f 56 20 56 27 ("get-location-name")}
+        {Lisp-Entry "update-indexes" method (override) #f 65 20 65 34 ("extends" "last" "update-index" "qualified" "lambda" "for-each" "nextmethod" "references-index" "definitions-index")}
+        {Lisp-Entry "insert-self-definitions" method (override) #f 77 20 77 43 ("nextmethod" "insert-inherited" "insert-interfaces" "insert-ascendants" "sort?" "level" "father" "tree")}
+        {Lisp-Entry "collect-ascendants" method () #f 84 11 84 29 ("get-output" "get-output~" "extends" "get-extends" "get-extends~" "for-each" "put" "put~" "get-list" "get-list~" "memq?" "not" "and" "get-qualified-category" "category" "when" "qualified" "process" "define" "List-Factory" "new" "fact" "get-catalog" "catalog" "let")}
+        {Lisp-Entry "insert-ascendants" method (protected virtual) #f 98 29 98 46 ("user-data:" "get-image" "get-image~" "present-name" "present-name~" "category" "lambda" "for-each" "Image-Resource" "image:" "title:" "Tree-Node" "new" "list" "children:" "17" "row-height:" "collapsed" "state:" "father:" "add-row" "add-row~" "row" "when" "collect-ascendants" "ascendants" "let" "father" "tree")}
+        {Lisp-Entry "insert-interfaces" method (protected virtual) #f 107 29 107 46 ("father" "tree")}
+        {Lisp-Entry "insert-interfaces-list" method () #f 111 11 111 33 ("get-extends" "get-extends~" "lambda" "for-each" "user-data:" "get-image" "get-image~" "present-name" "present-name~" "get-qualified-category" "interface" "qualified" "insert" "define" "Image-Resource" "image:" "title:" "Tree-Node" "new" "list" "children:" "17" "row-height:" "collapsed" "state:" "father:" "add-row" "add-row~" "row" "get-catalog" "catalog" "let" "when" "interfaces" "title" "father" "tree")}
+        {Lisp-Entry "insert-inherited" method () #f 129 11 129 27 ("0" "insert-definitions" "Image-Resource" "image:" "title:" "Tree-Node" "new" "list" "children:" "17" "row-height:" "collapsed" "state:" "father:" "add-row" "add-row~" "row" "let" "when" "inherited" "collect-ascendants" "let*" "get-definitions" "get-definitions~" "map" "append" "apply" "ascendants" "collect-inherited" "define" "father" "tree")}
+        {Lisp-Entry "get-qualified-category" definition () #f 140 15 140 37 ("get-qualified" "get-qualified~" "=" "package" "Category-Entry" "and" "butlast" "qualifier" "last" "name" "let" "get-file-definition" "get-file-definition~" "get-definitions" "get-definitions~" "Package-Entry" "is?" "lambda" "find-if" "definition" "get-category-package" "define" "qualified" "catalog")}}}})
 "Class-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Class-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Class-Entry" module #f 37 18 37 48 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Class-Entry" class #f 44 20 44 31 ("Category-Entry")
-        {Lisp-Entry "implements" slot #f 47 8 47 18 ()}
-        {Lisp-Entry "get-implements" accessor #f 47 29 47 37 ()}
-        {Lisp-Entry "set-implements" accessor #f 47 29 47 37 ()}
-        {Lisp-Entry "initialize" method #f 50 20 50 30 ("self" "implements~self" "set!" "nextmethod" "definitions" "end-column" "end-line" "column" "line" "implements" "extends" "name" "qualified" "modifiers")}
-        {Lisp-Entry "print-catalog" method #f 55 20 55 33 ("definitions" "1" "+" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "end-column" "end-line" "column" "line" "implements" "extends" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "get-image" method #f 66 20 66 29 ("Image-Resource")}
-        {Lisp-Entry "update-indexes" method #f 75 20 75 34 ("implements" "last" "update-index" "qualified" "lambda" "for-each" "nextmethod" "references-index" "definitions-index")}
-        {Lisp-Entry "insert-interfaces" method #f 87 20 87 37 ("implements" "insert-interfaces-list" "father" "tree")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Class-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Class-Entry" module (protected) #f 37 18 37 48 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Class-Entry" class (undocumented) #f 44 20 44 31 ("Category-Entry")
+        {Lisp-Entry "implements" slot () #f 47 8 47 18 ()}
+        {Lisp-Entry "get-implements" accessor #f #f 47 29 47 37 ()}
+        {Lisp-Entry "set-implements" accessor #f #f 47 29 47 37 ()}
+        {Lisp-Entry "initialize" method (override) #f 50 20 50 30 ("self" "implements~self" "set!" "nextmethod" "definitions" "end-column" "end-line" "column" "line" "implements" "extends" "name" "qualified" "modifiers")}
+        {Lisp-Entry "print-catalog" method (override) #f 55 20 55 33 ("definitions" "1" "+" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "end-column" "end-line" "column" "line" "implements" "extends" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) #f 66 20 66 29 ("Image-Resource")}
+        {Lisp-Entry "update-indexes" method (override) #f 75 20 75 34 ("implements" "last" "update-index" "qualified" "lambda" "for-each" "nextmethod" "references-index" "definitions-index")}
+        {Lisp-Entry "insert-interfaces" method (override) #f 87 20 87 37 ("implements" "insert-interfaces-list" "father" "tree")}}}})
 "Code-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Code-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Code-Entry" module #f 37 18 37 47 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.catalog")}
-      {Lisp-Entry "Code-Entry" class #f 43 20 43 30 ("Hierarchical-Entry")
-        {Lisp-Entry "type" slot #f 46 8 46 12 ()}
-        {Lisp-Entry "get-type" accessor #f 46 20 46 28 ()}
-        {Lisp-Entry "initialize" method #f 49 20 49 30 ("self" "type~self" "set!" "nextmethod" "definitions" "end-column" "end-line" "column" "line" "type" "name")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Code-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Code-Entry" module (protected) #f 37 18 37 47 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.catalog")}
+      {Lisp-Entry "Code-Entry" class (undocumented) #f 43 20 43 30 ("Hierarchical-Entry")
+        {Lisp-Entry "type" slot () #f 46 8 46 12 ()}
+        {Lisp-Entry "get-type" accessor #f #f 46 20 46 28 ()}
+        {Lisp-Entry "initialize" method (override) #f 49 20 49 30 ("self" "type~self" "set!" "nextmethod" "definitions" "end-column" "end-line" "column" "line" "type" "name")}}}})
 "Code-Location"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Code-Location.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Code-Location" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.catalog")}
-      {Lisp-Entry "Code-Location" class #f 43 20 43 33 ("Object")
-        {Lisp-Entry "edit" method #f 46 26 46 30 ("rest")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Code-Location.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.catalog.entry.Code-Location" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "Code-Location" class (undocumented) #f 40 20 40 33 ("Object")
+        {Lisp-Entry "edit" method (public virtual) #f 43 26 43 30 ("rest")}}}})
 "Constructor-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Constructor-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Constructor-Entry" module #f 37 18 37 54 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Constructor-Entry" class #f 44 20 44 37 ("Method-Entry")
-        {Lisp-Entry "get-image" method #f 47 20 47 29 ("Image-Resource")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Constructor-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Constructor-Entry" module (protected) #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Constructor-Entry" class (undocumented) #f 44 20 44 37 ("Method-Entry")
+        {Lisp-Entry "get-image" method (override) #f 47 20 47 29 ("Image-Resource")}}}})
 "Definition-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Definition-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Definition-Entry" module #f 37 18 37 53 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.catalog")}
-      {Lisp-Entry "Definition-Entry" class #f 43 20 43 36 ("Hierarchical-Entry")
-        {Lisp-Entry "type" slot #f 46 8 46 12 ()}
-        {Lisp-Entry "get-type" accessor #f 46 23 46 31 ()}
-        {Lisp-Entry "set-type" accessor #f 46 23 46 31 ()}
-        {Lisp-Entry "literal?" slot #f 47 8 47 16 ()}
-        {Lisp-Entry "get-literal?" accessor #f 47 24 47 32 ()}
-        {Lisp-Entry "initialize" method #f 50 20 50 30 ("literal?~self" "self" "type~self" "set!" "nextmethod" "references" "definitions" "end-column" "end-line" "column" "line" "literal?" "type" "name" "modifiers")}
-        {Lisp-Entry "update-indexes" method #f 61 20 61 34 ("references" "key" "lambda" "for-each" "name" "update-index" "references-index" "definitions-index")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Definition-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Definition-Entry" module (protected) #f 37 18 37 53 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.catalog")}
+      {Lisp-Entry "Definition-Entry" class (undocumented) #f 43 20 43 36 ("Hierarchical-Entry")
+        {Lisp-Entry "type" slot () #f 46 8 46 12 ()}
+        {Lisp-Entry "get-type" accessor #f #f 46 23 46 31 ()}
+        {Lisp-Entry "set-type" accessor #f #f 46 23 46 31 ()}
+        {Lisp-Entry "literal?" slot () #f 47 8 47 16 ()}
+        {Lisp-Entry "get-literal?" accessor #f #f 47 24 47 32 ()}
+        {Lisp-Entry "initialize" method (override) #f 50 20 50 30 ("literal?~self" "self" "type~self" "set!" "nextmethod" "references" "definitions" "end-column" "end-line" "column" "line" "literal?" "type" "name" "modifiers")}
+        {Lisp-Entry "update-indexes" method (override) #f 61 20 61 34 ("references" "key" "lambda" "for-each" "name" "update-index" "references-index" "definitions-index")}}}})
 "Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Entry" module #f 37 18 37 42 ("jazz")
-      {Lisp-Entry "Entry" class #f 40 20 40 25 ("Object")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Entry" module (protected) #f 37 18 37 42 ("jazz")
+      {Lisp-Entry "Entry" class (undocumented) #f 40 20 40 25 ("Object")}}})
 "File-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "File-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.File-Entry" module #f 37 18 37 47 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("time" "jazz.library" "jazz.catalog")}
-      {Lisp-Entry "File-Entry" class #f 45 20 45 30 ("Catalog-Entry")
-        {Lisp-Entry "catalog" slot #f 48 8 48 15 ()}
-        {Lisp-Entry "get-catalog" accessor #f 48 32 48 40 ()}
-        {Lisp-Entry "set-catalog" accessor #f 48 32 48 40 ()}
-        {Lisp-Entry "marked?" slot #f 49 8 49 15 ()}
-        {Lisp-Entry "get-marked?" accessor #f 49 32 49 40 ()}
-        {Lisp-Entry "set-marked?" accessor #f 49 32 49 40 ()}
-        {Lisp-Entry "file" slot #f 50 8 50 12 ()}
-        {Lisp-Entry "time" slot #f 51 8 51 12 ()}
-        {Lisp-Entry "get-time" accessor #f 51 29 51 37 ()}
-        {Lisp-Entry "dialect" slot #f 52 8 52 15 ()}
-        {Lisp-Entry "get-dialect" accessor #f 52 29 52 37 ()}
-        {Lisp-Entry "definitions" slot #f 53 8 53 19 ()}
-        {Lisp-Entry "location-name" slot #f 54 8 54 21 ()}
-        {Lisp-Entry "initialize" method #f 57 20 57 30 ("set-file-definition" "set-file-definition~" "set-parent" "set-parent~" "definition" "lambda" "for-each" "marked?" "marked?~self" "get-base" "get-base~" "location-name" "location-name~self" "definitions~self" "dialect~self" "time~self" "file~self" "self" "catalog~self" "set!" "nextmethod" "definitions" "dialect" "time" "file" "catalog")}
-        {Lisp-Entry "print" method #f 72 20 72 25 ("file" "format" "lambda" "self" "print-unreadable" "readably" "output")}
-        {Lisp-Entry "print-catalog" method #f 78 26 78 39 ("definitions" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "dialect" "time" "time->seconds" "file" "self" "class-of" "category-name" "2" "format" "not" "when" "output" "first?")}
-        {Lisp-Entry "get-file" method #f 97 20 97 28 ("file")}
-        {Lisp-Entry "get-moniker" method #f 101 20 101 31 ("file")}
-        {Lisp-Entry "get-definitions" method #f 105 20 105 35 ("definitions")}
-        {Lisp-Entry "get-location-name" method #f 109 20 109 37 ("location-name")}
-        {Lisp-Entry "get-file-definition" method #f 113 20 113 39 ("self")}
-        {Lisp-Entry "get-definition" method #f 117 18 117 32 ("definitions" "get-name" "get-name~" "=" "definition" "lambda" "find-if" "name")}
-        {Lisp-Entry "get-image" method #f 128 20 128 29 ("Image-Resource")}
-        {Lisp-Entry "present-detailed" method #f 132 20 132 36 ("file" "get-name" "get-name~")}
-        {Lisp-Entry "update-indexes" method #f 141 20 141 34 ("definitions" "update-indexes" "update-indexes~" "definition" "lambda" "for-each" "references-index" "definitions-index")}
-        {Lisp-Entry "insert-definition" method #f 152 20 152 37 ("get-definitions" "insert-definitions" "sort?" "level" "father" "tree")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "File-Entry.jazz"} 231466230. jazz
+    {Lisp-Entry "jazz.catalog.entry.File-Entry" module (protected) #f 37 18 37 47 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("time" "jazz.library" "jazz.catalog")}
+      {Lisp-Entry "File-Entry" class (undocumented) #f 45 20 45 30 ("Catalog-Entry")
+        {Lisp-Entry "catalog" slot () #f 48 8 48 15 ()}
+        {Lisp-Entry "get-catalog" accessor #f #f 48 32 48 40 ()}
+        {Lisp-Entry "set-catalog" accessor #f #f 48 32 48 40 ()}
+        {Lisp-Entry "marked?" slot () #f 49 8 49 15 ()}
+        {Lisp-Entry "get-marked?" accessor #f #f 49 32 49 40 ()}
+        {Lisp-Entry "set-marked?" accessor #f #f 49 32 49 40 ()}
+        {Lisp-Entry "file" slot () #f 50 8 50 12 ()}
+        {Lisp-Entry "time" slot () #f 51 8 51 12 ()}
+        {Lisp-Entry "get-time" accessor #f #f 51 29 51 37 ()}
+        {Lisp-Entry "dialect" slot () #f 52 8 52 15 ()}
+        {Lisp-Entry "get-dialect" accessor #f #f 52 29 52 37 ()}
+        {Lisp-Entry "definitions" slot () #f 53 8 53 19 ()}
+        {Lisp-Entry "location-name" slot () #f 54 8 54 21 ()}
+        {Lisp-Entry "initialize" method (override) #f 57 20 57 30 ("set-file-definition" "set-file-definition~" "set-parent" "set-parent~" "definition" "lambda" "for-each" "marked?" "marked?~self" "get-base" "get-base~" "location-name" "location-name~self" "definitions~self" "dialect~self" "time~self" "file~self" "self" "catalog~self" "set!" "nextmethod" "definitions" "dialect" "time" "file" "catalog")}
+        {Lisp-Entry "print" method (override) #f 72 20 72 25 ("file" "format" "lambda" "self" "print-unreadable" "readably" "output")}
+        {Lisp-Entry "print-catalog" method (public virtual) #f 78 26 78 39 ("definitions" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "dialect" "time" "time->seconds" "file" "self" "class-of" "category-name" "2" "format" "not" "when" "output" "first?")}
+        {Lisp-Entry "get-file" method (override) #f 97 20 97 28 ("file")}
+        {Lisp-Entry "get-moniker" method (override) #f 101 20 101 31 ("file")}
+        {Lisp-Entry "get-definitions" method (override) #f 105 20 105 35 ("definitions")}
+        {Lisp-Entry "get-location-name" method (override) #f 109 20 109 37 ("location-name")}
+        {Lisp-Entry "get-file-definition" method (override) #f 113 20 113 39 ("self")}
+        {Lisp-Entry "get-definition" method (public) #f 117 18 117 32 ("definitions" "get-name" "get-name~" "=" "definition" "lambda" "find-if" "name")}
+        {Lisp-Entry "get-image" method (override) #f 128 20 128 29 ("Image-Resource")}
+        {Lisp-Entry "present-detailed" method (override) #f 132 20 132 36 ("file" "get-name" "get-name~")}
+        {Lisp-Entry "update-indexes" method (override) #f 141 20 141 34 ("definitions" "update-indexes" "update-indexes~" "definition" "lambda" "for-each" "references-index" "definitions-index")}
+        {Lisp-Entry "insert-definition" method (override) #f 152 20 152 37 ("get-definitions" "insert-definitions" "sort?" "level" "father" "tree")}}}})
 "File-Parser"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "parser" "File-Parser.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.parser.File-Parser" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.catalog")}
-      {Lisp-Entry "File-Parser" class #f 43 7 43 18 ("Object")
-        {Lisp-Entry "get-match-test" method #f 51 34 51 48 ()}
-        {Lisp-Entry "get-constituent-test" method #f 55 34 55 54 ()}
-        {Lisp-Entry "catalog" slot #f 64 8 64 15 ()}
-        {Lisp-Entry "char-encoding" slot #f 65 8 65 21 ()}
-        {Lisp-Entry "heuristics" slot #f 66 8 66 18 ()}
-        {Lisp-Entry "references?" slot #f 67 8 67 19 ()}
-        {Lisp-Entry "initialize" method #f 70 20 70 30 ("references?~self" "heuristics~self" "char-encoding~self" "self" "catalog~self" "set!" "nextmethod" "references?" "references?:" "heuristics" "heuristics:" "char-encoding" "char-encoding:" "catalog")}
-        {Lisp-Entry "get-heuristic" method #f 78 11 78 24 ("getf" "heuristics" "when" "name")}
-        {Lisp-Entry "parse" method #f 83 35 83 40 ("dialect" "time" "file")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "parser" "File-Parser.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.catalog.parser.File-Parser" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "File-Parser" class () #f 40 7 40 18 ("Object")
+        {Lisp-Entry "get-match-test" method (meta protected virtual) #f 48 34 48 48 ()}
+        {Lisp-Entry "get-constituent-test" method (meta protected virtual) #f 52 34 52 54 ()}
+        {Lisp-Entry "catalog" slot () #f 61 8 61 15 ()}
+        {Lisp-Entry "char-encoding" slot () #f 62 8 62 21 ()}
+        {Lisp-Entry "heuristics" slot () #f 63 8 63 18 ()}
+        {Lisp-Entry "references?" slot () #f 64 8 64 19 ()}
+        {Lisp-Entry "initialize" method (override) #f 67 20 67 30 ("references?~self" "heuristics~self" "char-encoding~self" "self" "catalog~self" "set!" "nextmethod" "references?" "references?:" "heuristics" "heuristics:" "char-encoding" "char-encoding:" "catalog")}
+        {Lisp-Entry "get-heuristic" method () #f 75 11 75 24 ("getf" "heuristics" "when" "name")}
+        {Lisp-Entry "parse" method (public virtual abstract) #f 80 35 80 40 ("dialect" "time" "file")}}}})
 "Filing-Catalog"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "catalog" "Filing-Catalog.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.catalog.Filing-Catalog" module #f 37 18 37 53 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("time" "jazz.ui.window" "jazz.ui.view" "jazz.ui" "jazz.system" "jazz.platform" "jazz.library" "jazz.io" "jazz.catalog")}
-      {Lisp-Entry "Filing-Catalog" class #f 51 20 51 34 ("Catalog")
-        {Lisp-Entry "file" slot #f 54 8 54 12 ()}
-        {Lisp-Entry "get-file" accessor #f 54 33 54 41 ()}
-        {Lisp-Entry "loaded?" slot #f 55 8 55 15 ()}
-        {Lisp-Entry "modified?" slot #f 56 8 56 17 ()}
-        {Lisp-Entry "get-modified?" accessor #f 56 36 56 44 ()}
-        {Lisp-Entry "set-modified?" accessor #f 56 36 56 44 ()}
-        {Lisp-Entry "directories" slot #f 57 8 57 19 ()}
-        {Lisp-Entry "get-directories" accessor #f 57 33 57 41 ()}
-        {Lisp-Entry "extensions" slot #f 58 8 58 18 ()}
-        {Lisp-Entry "char-encoding" slot #f 59 8 59 21 ()}
-        {Lisp-Entry "heuristics" slot #f 60 8 60 18 ()}
-        {Lisp-Entry "references?" slot #f 61 8 61 19 ()}
-        {Lisp-Entry "get-references?" accessor #f 61 33 61 41 ()}
-        {Lisp-Entry "content-index" slot #f 62 8 62 21 ()}
-        {Lisp-Entry "definitions-index" slot #f 63 8 63 25 ()}
-        {Lisp-Entry "references-index" slot #f 64 8 64 24 ()}
-        {Lisp-Entry "mutex" slot #f 65 8 65 13 ()}
-        {Lisp-Entry "initialize" method #f 68 20 68 30 ("catalog" "make-mutex" "mutex" "mutex~self" "references-index" "references-index~self" "definitions-index" "definitions-index~self" "equal?" "test:" "make-table" "content-index" "content-index~self" "references?~self" "heuristics~self" "char-encoding~self" "extensions~self" "directories~self" "modified?" "modified?~self" "loaded?" "loaded?~self" "self" "file~self" "set!" "nextmethod" "references?" "heuristics" "char-encoding" "extensions" "directories" "file" "name")}
-        {Lisp-Entry "get-extensions" method #f 89 26 89 40 ("extensions")}
-        {Lisp-Entry "get-char-encoding" method #f 93 26 93 43 ("char-encoding")}
-        {Lisp-Entry "get-heuristics" method #f 97 26 97 40 ("heuristics")}
-        {Lisp-Entry "iterate-content" method #f 101 18 101 33 ("content-index" "iterate-table" "proc")}
-        {Lisp-Entry "iterate-definitions" method #f 105 18 105 37 ("definitions-index" "iterate-table" "proc")}
-        {Lisp-Entry "iterate-references" method #f 109 18 109 36 ("references-index" "iterate-table" "proc")}
-        {Lisp-Entry "get-file-definitions" method #f 113 18 113 38 ("%%get-file-definitions" "lambda" "with-mutex" "name")}
-        {Lisp-Entry "%%get-file-definitions" method #f 119 11 119 33 ("content-index" "table-ref" "name")}
-        {Lisp-Entry "get-file-entry" method #f 123 20 123 34 ("%%get-file-entry" "lambda" "with-mutex" "file")}
-        {Lisp-Entry "%%get-file-entry" method #f 129 11 129 27 ("get-base" "get-base~" "%%get-file-definitions" "get-file" "get-file~" "pathname=?" "definition" "lambda" "find-if" "file")}
-        {Lisp-Entry "setup-contexts" method #f 135 29 135 43 ()}
-        {Lisp-Entry "get-statistics" method #f 139 18 139 32 ("format-plural" "format" "references-index" "r" "definitions-index" "table-length" "d" "f" "with-mutex" "length" "increase!" "file-entries" "name" "lambda" "iterate-table" "0" "count" "let" "content-index" "count-file-entries" "define")}
-        {Lisp-Entry "with-mutex" method #f 163 11 163 21 ("mutex-unlock!" "prog1" "mutex" "mutex-lock!" "thunk")}
-        {Lisp-Entry "load-content" method #f 174 18 174 30 ("set!" "setup-content" "table-load" "port" "cr-lf" "eol-encoding:" "path-settings" "call-with-input-file" "with-jazz-readtable" "file" "exists?" "exists?~" "loaded?" "not" "with-mutex" "references-index" "definitions-index" "update-indexes" "update-indexes~" "self" "set-catalog" "set-catalog~" "file-definition" "for-each" "definitions" "name" "lambda" "content-index" "iterate-table" "user-feedback" "when" "update-catalog-indexes" "define" "report?" "report?:")}
-        {Lisp-Entry "setup-content" method #f 203 29 203 42 ()}
-        {Lisp-Entry "save" method #f 212 18 212 22 ("set-modified?" "user-feedback" "modified?" "with-mutex" "set!" "print-catalog" "print-catalog~" "definition" "first?" "let" "format" "not-null?" "when" "definitions" "name" "bind" "info" "for-each" "output" "lambda" "path-settings" "call-with-output-file" "file" "create-directories" "create-directories~" "car" "key:" "string<?" "sort" "sorted" "content-index" "table-keys/values" "all" "let*" "save-content" "define")}
-        {Lisp-Entry "update" method #f 246 18 246 24 ("edit-exception" "message-box" "car" "exc" "exception-reason" "map" "debug" "post-event" "sweep" "update-entry" "for-each" "set-modified?" "lambda" "with-mutex" "not-null?" "exception?" "partition-binary" "entries" "exceptions" "receive" "scan" "exceptions/entries" "let" "name" "user-feedback" "when" "load-content" "report?" "report?:")}
-        {Lisp-Entry "update-file" method #f 270 18 270 29 ("sweep" "update-entry" "set-modified?" "with-mutex" "bell" "edit-exception" "evt" "lambda" "execute:" "Event-Handler" "new" "exception-reason" "user-message/action-handler" "1" "get-start" "get-start~" "get-line" "get-line~" "+" "format" "Explore-Error" "is?" "line" "exception?" "if" "when" "scan-file" "exception/entry" "let" "report?:" "load-content" "file")}
-        {Lisp-Entry "update-entry" method #f 286 11 286 23 ("content-index" "table-add" "references-index" "definitions-index" "update-indexes" "update-indexes~" "get-base" "get-base~" "name" "set-marked?" "set-marked?~" "when" "%%get-file-entry" "actual" "get-file" "get-file~" "file" "let" "entry")}
-        {Lisp-Entry "edit-exception" definition #f 297 15 297 29 ("bell" "selection:" "edit-document" "edit-document~" "get-range" "get-range~" "range" "get-source" "get-source~" "source" "get-application" "appl" "let" "Explore-Error" "is?" "if" "exc")}
-        {Lisp-Entry "iterate-files" method #f 311 29 311 42 ("get-list" "get-list~" "for-each" "Directory-Group" "directories" "is?" "if" "recursive?:" "directories?:" "files?:" "scan-file?" "when" "file" "lambda" "iterate-directory" "iterate-directory~" "dir" "iterate-dir" "define" "proc")}
-        {Lisp-Entry "scan" method #f 334 21 334 25 ("queue-list" "enqueue" "when" "scan-file" "entry" "file" "lambda" "iterate-files" "new-queue" "queue" "let" "reset" "report?" "report?:")}
-        {Lisp-Entry "scan-file?" method #f 345 21 345 31 ("get-parser-dialect" "get-parser-class" "extension=?" "test:" "member?" "not" "or" "and" "get-extensions" "effective-catalog-extensions" "extensions" "get-extension" "get-extension~" "extension" "let" "file")}
-        {Lisp-Entry "scan-file" method #f 352 21 352 30 (":console" "format" "wrap-exception" "exc" "lambda" "with-exception-filter" "set-marked?" "set-marked?~" "begin" "file-entry" "get-modification-time" "get-modification-time~" "exists?" "exists?~" "if" "scan-file?" "get-time" "get-time~" "time->seconds" "=" "and" "get-file-entry" "actual" "unmodified-file-entry" "get-parser" "parse" "parse~" "get-extension" "get-extension~" "get-parser-dialect" "dialect" "let" "user-feedback" "when" "time" "scan" "define" "report?" "file")}
-        {Lisp-Entry "get-parser" method #f 388 11 388 21 ("references?" "references?:" "get-heuristics" "heuristics:" "char-encoding" "char-encoding:" "self" "new" "when" "get-parser-class" "class" "let" "dialect")}
-        {Lisp-Entry "reset" method #f 399 11 399 16 ("set-marked?" "set-marked?~" "file-definition" "for-each" "definitions" "name" "lambda" "content-index" "iterate-table")}
-        {Lisp-Entry "sweep" method #f 407 11 407 16 ("references-index" "definitions-index" "content-index" "get-file-definition" "get-file-definition~" "get-marked?" "get-marked?~" "table-set!" "set-modified?" "not" "cddr" "set-cdr!" "set-marked?" "set-marked?~" "set!" "begin" "if" "car" "definition" "while" "cdr" "list" "previous" "let" "not-null?" "when" "definitions" "name" "lambda" "iterate-table" "reset?" "marked?" "table" "sweep-table" "define")}
-        {Lisp-Entry "get-definitions" method #f 441 20 441 35 ("%%get-definitions" "lambda" "with-mutex" "name")}
-        {Lisp-Entry "%%get-definitions" method #f 447 11 447 28 ("canonicalize-name" "definitions-index" "table-ref" "name")}
-        {Lisp-Entry "search-definitions" method #f 451 11 451 29 ("get-output" "get-output~" "put-sequence" "put-sequence~" "->string" "regular-search" "when" "definitions" "name" "definitions-index" "iterate-table" "List-Factory" "new" "fact" "let" "lambda" "with-mutex" "search-set")}
-        {Lisp-Entry "search-references" method #f 462 11 462 28 ("get-output" "get-output~" "remove-duplicates" "put-sequence" "put-sequence~" "->string" "regular-search" "when" "references" "name" "references-index" "iterate-table" "List-Factory" "new" "fact" "let" "lambda" "with-mutex" "search-set")}
-        {Lisp-Entry "get-references" method #f 473 20 473 34 ("%%get-references" "lambda" "with-mutex" "name")}
-        {Lisp-Entry "%%get-references" method #f 479 11 479 27 ("canonicalize-name" "references-index" "table-ref" "name")}
-        {Lisp-Entry "canonicalize-name" definition #f 483 15 483 32 ("->string" "name")}
-        {Lisp-Entry "add-completions" method #f 492 20 492 35 ("references-index" "definitions-index" "with-mutex" "table-set!" "compare-n" "when" "value" "name" "lambda" "iterate-table" "table" "add-table" "define" "cardinality" "len" "let" "target" "dest")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "catalog" "Filing-Catalog.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.catalog.catalog.Filing-Catalog" module (protected) #f 37 18 37 53 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("time" "jazz.ui.window" "jazz.system" "jazz.library" "jazz.io" "jazz.catalog")}
+      {Lisp-Entry "Filing-Catalog" class (undocumented) #f 48 20 48 34 ("Catalog")
+        {Lisp-Entry "file" slot () #f 51 8 51 12 ()}
+        {Lisp-Entry "get-file" accessor #f #f 51 33 51 41 ()}
+        {Lisp-Entry "loaded?" slot () #f 52 8 52 15 ()}
+        {Lisp-Entry "modified?" slot () #f 53 8 53 17 ()}
+        {Lisp-Entry "get-modified?" accessor #f #f 53 36 53 44 ()}
+        {Lisp-Entry "set-modified?" accessor #f #f 53 36 53 44 ()}
+        {Lisp-Entry "directories" slot () #f 54 8 54 19 ()}
+        {Lisp-Entry "get-directories" accessor #f #f 54 33 54 41 ()}
+        {Lisp-Entry "extensions" slot () #f 55 8 55 18 ()}
+        {Lisp-Entry "char-encoding" slot () #f 56 8 56 21 ()}
+        {Lisp-Entry "heuristics" slot () #f 57 8 57 18 ()}
+        {Lisp-Entry "references?" slot () #f 58 8 58 19 ()}
+        {Lisp-Entry "get-references?" accessor #f #f 58 33 58 41 ()}
+        {Lisp-Entry "content-index" slot () #f 59 8 59 21 ()}
+        {Lisp-Entry "definitions-index" slot () #f 60 8 60 25 ()}
+        {Lisp-Entry "references-index" slot () #f 61 8 61 24 ()}
+        {Lisp-Entry "mutex" slot () #f 62 8 62 13 ()}
+        {Lisp-Entry "initialize" method (override) #f 65 20 65 30 ("catalog" "make-mutex" "mutex" "mutex~self" "references-index" "references-index~self" "definitions-index" "definitions-index~self" "equal?" "test:" "make-table" "content-index" "content-index~self" "references?~self" "heuristics~self" "char-encoding~self" "extensions~self" "directories~self" "modified?" "modified?~self" "loaded?" "loaded?~self" "self" "file~self" "set!" "nextmethod" "references?" "heuristics" "char-encoding" "extensions" "directories" "file" "name")}
+        {Lisp-Entry "get-extensions" method (public virtual) #f 86 26 86 40 ("extensions")}
+        {Lisp-Entry "get-char-encoding" method (public virtual) #f 90 26 90 43 ("char-encoding")}
+        {Lisp-Entry "get-heuristics" method (public virtual) #f 94 26 94 40 ("heuristics")}
+        {Lisp-Entry "iterate-content" method (public) #f 98 18 98 33 ("content-index" "iterate-table" "proc")}
+        {Lisp-Entry "iterate-definitions" method (public) #f 102 18 102 37 ("definitions-index" "iterate-table" "proc")}
+        {Lisp-Entry "iterate-references" method (public) #f 106 18 106 36 ("references-index" "iterate-table" "proc")}
+        {Lisp-Entry "get-file-definitions" method (public) #f 110 18 110 38 ("%%get-file-definitions" "lambda" "with-mutex" "name")}
+        {Lisp-Entry "%%get-file-definitions" method () #f 116 11 116 33 ("content-index" "table-ref" "name")}
+        {Lisp-Entry "get-file-entry" method (override) #f 120 20 120 34 ("%%get-file-entry" "lambda" "with-mutex" "file")}
+        {Lisp-Entry "%%get-file-entry" method () #f 126 11 126 27 ("get-base" "get-base~" "%%get-file-definitions" "get-file" "get-file~" "pathname=?" "definition" "lambda" "find-if" "file")}
+        {Lisp-Entry "setup-contexts" method (protected virtual) #f 132 29 132 43 ()}
+        {Lisp-Entry "get-statistics" method (public) #f 136 18 136 32 ("format-plural" "format" "references-index" "r" "definitions-index" "table-length" "d" "f" "with-mutex" "length" "increase!" "file-entries" "name" "lambda" "iterate-table" "0" "count" "let" "content-index" "count-file-entries" "define")}
+        {Lisp-Entry "with-mutex" method () #f 160 11 160 21 ("mutex-unlock!" "prog1" "mutex" "mutex-lock!" "thunk")}
+        {Lisp-Entry "load-content" method (public) #f 171 18 171 30 ("set!" "setup-content" "table-load" "port" "cr-lf" "eol-encoding:" "path-settings" "call-with-input-file" "with-jazz-readtable" "file" "exists?" "exists?~" "loaded?" "not" "with-mutex" "references-index" "definitions-index" "update-indexes" "update-indexes~" "self" "set-catalog" "set-catalog~" "file-definition" "for-each" "definitions" "name" "lambda" "content-index" "iterate-table" "user-feedback" "when" "update-catalog-indexes" "define" "report?" "report?:")}
+        {Lisp-Entry "setup-content" method (protected virtual) #f 200 29 200 42 ()}
+        {Lisp-Entry "save" method (public) #f 209 18 209 22 ("set-modified?" "user-feedback" "modified?" "with-mutex" "set!" "print-catalog" "print-catalog~" "definition" "first?" "let" "format" "not-null?" "when" "definitions" "name" "bind" "info" "for-each" "output" "lambda" "path-settings" "call-with-output-file" "file" "create-directories" "create-directories~" "car" "key:" "string<?" "sort" "sorted" "content-index" "table-keys/values" "all" "let*" "save-content" "define")}
+        {Lisp-Entry "update" method (public) #f 243 18 243 24 ("edit-exception" "message-box" "car" "exc" "exception-reason" "map" "debug" "post-event" "sweep" "update-entry" "for-each" "set-modified?" "lambda" "with-mutex" "not-null?" "exception?" "partition-binary" "entries" "exceptions" "receive" "scan" "exceptions/entries" "let" "name" "user-feedback" "when" "load-content" "report?" "report?:")}
+        {Lisp-Entry "update-file" method (public) #f 267 18 267 29 ("sweep" "update-entry" "set-modified?" "with-mutex" "bell" "edit-exception" "evt" "lambda" "execute:" "Event-Handler" "new" "exception-reason" "user-message/action-handler" "1" "get-start" "get-start~" "get-line" "get-line~" "+" "format" "Explore-Error" "is?" "line" "exception?" "if" "when" "scan-file" "exception/entry" "let" "report?:" "load-content" "file")}
+        {Lisp-Entry "update-entry" method () #f 283 11 283 23 ("content-index" "table-add" "references-index" "definitions-index" "update-indexes" "update-indexes~" "get-base" "get-base~" "name" "set-marked?" "set-marked?~" "when" "%%get-file-entry" "actual" "get-file" "get-file~" "file" "let" "entry")}
+        {Lisp-Entry "edit-exception" definition () #f 294 15 294 29 ("bell" "selection:" "edit-document" "edit-document~" "get-range" "get-range~" "range" "get-source" "get-source~" "source" "get-application" "appl" "let" "Explore-Error" "is?" "if" "exc")}
+        {Lisp-Entry "iterate-files" method (protected virtual) #f 308 29 308 42 ("get-list" "get-list~" "for-each" "Directory-Group" "directories" "is?" "if" "recursive?:" "directories?:" "files?:" "scan-file?" "when" "file" "lambda" "iterate-directory" "iterate-directory~" "dir" "iterate-dir" "define" "proc")}
+        {Lisp-Entry "scan" method (protected) #f 331 21 331 25 ("queue-list" "enqueue" "when" "scan-file" "entry" "file" "lambda" "iterate-files" "new-queue" "queue" "let" "reset" "report?" "report?:")}
+        {Lisp-Entry "scan-file?" method (protected) #f 342 21 342 31 ("get-parser-dialect" "get-parser-class" "extension=?" "test:" "member?" "not" "or" "and" "get-extensions" "effective-catalog-extensions" "extensions" "get-extension" "get-extension~" "extension" "let" "file")}
+        {Lisp-Entry "scan-file" method (protected) #f 349 21 349 30 (":console" "format" "wrap-exception" "exc" "lambda" "with-exception-filter" "set-marked?" "set-marked?~" "begin" "file-entry" "get-modification-time" "get-modification-time~" "exists?" "exists?~" "if" "scan-file?" "get-time" "get-time~" "time->seconds" "=" "and" "get-file-entry" "actual" "unmodified-file-entry" "get-parser" "parse" "parse~" "get-extension" "get-extension~" "get-parser-dialect" "dialect" "let" "user-feedback" "when" "time" "scan" "define" "report?" "file")}
+        {Lisp-Entry "get-parser" method () #f 385 11 385 21 ("references?" "references?:" "get-heuristics" "heuristics:" "char-encoding" "char-encoding:" "self" "new" "when" "get-parser-class" "class" "let" "dialect")}
+        {Lisp-Entry "reset" method () #f 396 11 396 16 ("set-marked?" "set-marked?~" "file-definition" "for-each" "definitions" "name" "lambda" "content-index" "iterate-table")}
+        {Lisp-Entry "sweep" method () #f 404 11 404 16 ("references-index" "definitions-index" "content-index" "get-file-definition" "get-file-definition~" "get-marked?" "get-marked?~" "table-set!" "set-modified?" "not" "cddr" "set-cdr!" "set-marked?" "set-marked?~" "set!" "begin" "if" "car" "definition" "while" "cdr" "list" "previous" "let" "not-null?" "when" "definitions" "name" "lambda" "iterate-table" "reset?" "marked?" "table" "sweep-table" "define")}
+        {Lisp-Entry "get-definitions" method (override) #f 438 20 438 35 ("%%get-definitions" "lambda" "with-mutex" "name")}
+        {Lisp-Entry "%%get-definitions" method () #f 444 11 444 28 ("canonicalize-name" "definitions-index" "table-ref" "name")}
+        {Lisp-Entry "search-definitions" method () #f 448 11 448 29 ("get-output" "get-output~" "put-sequence" "put-sequence~" "->string" "regular-search" "when" "definitions" "name" "definitions-index" "iterate-table" "List-Factory" "new" "fact" "let" "lambda" "with-mutex" "search-set")}
+        {Lisp-Entry "search-references" method () #f 459 11 459 28 ("get-output" "get-output~" "remove-duplicates" "put-sequence" "put-sequence~" "->string" "regular-search" "when" "references" "name" "references-index" "iterate-table" "List-Factory" "new" "fact" "let" "lambda" "with-mutex" "search-set")}
+        {Lisp-Entry "get-references" method (override) #f 470 20 470 34 ("%%get-references" "lambda" "with-mutex" "name")}
+        {Lisp-Entry "%%get-references" method () #f 476 11 476 27 ("canonicalize-name" "references-index" "table-ref" "name")}
+        {Lisp-Entry "canonicalize-name" definition () #f 480 15 480 32 ("->string" "name")}
+        {Lisp-Entry "add-completions" method (override) #f 489 20 489 35 ("references-index" "definitions-index" "with-mutex" "table-set!" "not-null?" "compare-n" "and" "when" "value" "name" "lambda" "iterate-table" "table" "add-table" "define" "cardinality" "len" "let" "target" "dest")}}}})
 "Hierarchical-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Hierarchical-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Hierarchical-Entry" module #f 37 18 37 55 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.catalog")}
-      {Lisp-Entry "Hierarchical-Entry" class #f 43 20 43 38 ("Indexed-Entry")
-        {Lisp-Entry "modifiers" slot #f 46 8 46 17 ()}
-        {Lisp-Entry "qualified" slot #f 47 8 47 17 ()}
-        {Lisp-Entry "get-qualified" accessor #f 47 28 47 36 ()}
-        {Lisp-Entry "set-qualified" accessor #f 47 28 47 36 ()}
-        {Lisp-Entry "initialize" method #f 50 20 50 30 ("qualified~self" "self" "modifiers~self" "set!" "nextmethod" "apply" "rest" "qualified" "modifiers")}
-        {Lisp-Entry "print-catalog" method #f 56 20 56 33 ("print-definitions" "end-column" "end-line" "column" "line" "name" "qualified" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "get-modifiers" method #f 70 11 70 24 ("modifiers")}
-        {Lisp-Entry "has-modifier?" method #f 74 18 74 31 ("modifiers" "memq?" "modifier")}
-        {Lisp-Entry "get-visibility" method #f 78 18 78 32 ("first" "package" "null?" "if" "modifiers" "private" "protected" "public" "intersection" "common" "let")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Hierarchical-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Hierarchical-Entry" module (protected) #f 37 18 37 55 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.catalog")}
+      {Lisp-Entry "Hierarchical-Entry" class (undocumented) #f 43 20 43 38 ("Indexed-Entry")
+        {Lisp-Entry "modifiers" slot () #f 46 8 46 17 ()}
+        {Lisp-Entry "qualified" slot () #f 47 8 47 17 ()}
+        {Lisp-Entry "get-qualified" accessor #f #f 47 28 47 36 ()}
+        {Lisp-Entry "set-qualified" accessor #f #f 47 28 47 36 ()}
+        {Lisp-Entry "initialize" method (override) #f 50 20 50 30 ("qualified~self" "self" "modifiers~self" "set!" "nextmethod" "apply" "rest" "qualified" "modifiers")}
+        {Lisp-Entry "print-catalog" method (override) #f 56 20 56 33 ("print-definitions" "end-column" "end-line" "column" "line" "name" "qualified" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-modifiers" method () #f 70 11 70 24 ("modifiers")}
+        {Lisp-Entry "has-modifier?" method (public) #f 74 18 74 31 ("modifiers" "memq?" "modifier")}
+        {Lisp-Entry "get-visibility" method (public) #f 78 18 78 32 ("first" "package" "null?" "if" "modifiers" "private" "protected" "public" "intersection" "common" "let")}}}})
 "Import-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Import-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Import-Entry" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Import-Entry" class #f 44 20 44 32 ("Hierarchical-Entry")
-        {Lisp-Entry "present-name" method #f 47 20 47 32 ("qualified" "join")}
-        {Lisp-Entry "get-image" method #f 51 20 51 29 ("Image-Resource")}
-        {Lisp-Entry "update-indexes" method #f 60 20 60 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Import-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Import-Entry" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Import-Entry" class (undocumented) #f 44 20 44 32 ("Hierarchical-Entry")
+        {Lisp-Entry "present-name" method (override) #f 47 20 47 32 ("qualified" "join")}
+        {Lisp-Entry "get-image" method (override) #f 51 20 51 29 ("Image-Resource")}
+        {Lisp-Entry "update-indexes" method (override) #f 60 20 60 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
 "Indexed-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Indexed-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Indexed-Entry" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.system" "jazz.catalog")}
-      {Lisp-Entry "Indexed-Entry" class #f 46 20 46 33 ("Catalog-Entry")
-        {Lisp-Entry "name" slot #f 49 8 49 12 ()}
-        {Lisp-Entry "line" slot #f 50 8 50 12 ()}
-        {Lisp-Entry "column" slot #f 51 8 51 14 ()}
-        {Lisp-Entry "end-line" slot #f 52 8 52 16 ()}
-        {Lisp-Entry "end-column" slot #f 53 8 53 18 ()}
-        {Lisp-Entry "definitions" slot #f 54 8 54 19 ()}
-        {Lisp-Entry "references" slot #f 55 8 55 18 ()}
-        {Lisp-Entry "get-references" accessor #f 55 26 55 34 ()}
-        {Lisp-Entry "initialize" method #f 58 20 58 30 ("set-parent" "set-parent~" "definition" "lambda" "for-each" "references~self" "definitions~self" "end-column~self" "end-line~self" "column~self" "line~self" "self" "name~self" "set!" "nextmethod" "references" "definitions" "end-column" "end-line" "column" "line" "name")}
-        {Lisp-Entry "print" method #f 72 20 72 25 ("name" "format" "lambda" "self" "print-unreadable" "readably" "output")}
-        {Lisp-Entry "print-catalog" method #f 78 26 78 39 ("print-definitions" "column" "line" "name" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "print-definitions" method #f 87 11 87 28 ("definitions" "1" "+" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "output" "level")}
-        {Lisp-Entry "get-file" method #f 98 20 98 28 ("file-definition" "get-file" "get-file~")}
-        {Lisp-Entry "get-moniker" method #f 102 20 102 31 ("file-definition" "root-definition" "or" "get-moniker" "get-moniker~")}
-        {Lisp-Entry "get-title" method #f 106 20 106 29 ("name")}
-        {Lisp-Entry "get-location-name" method #f 110 20 110 37 ("file-definition" "root-definition" "or" "get-location-name" "get-location-name~")}
-        {Lisp-Entry "get-name" method #f 114 20 114 28 ("name")}
-        {Lisp-Entry "get-line" method #f 118 20 118 28 ("line")}
-        {Lisp-Entry "get-column" method #f 122 20 122 30 ("column")}
-        {Lisp-Entry "get-start" method #f 126 20 126 29 ("column" "line" "Cell" "new")}
-        {Lisp-Entry "get-end-line" method #f 130 20 130 32 ("end-line")}
-        {Lisp-Entry "get-end-column" method #f 134 20 134 34 ("end-column")}
-        {Lisp-Entry "get-end" method #f 138 20 138 27 ("end-column" "end-line" "Cell" "new")}
-        {Lisp-Entry "get-range" method #f 142 20 142 29 ("get-end" "get-start" "Range$Cell$" "new")}
-        {Lisp-Entry "get-definitions" method #f 146 20 146 35 ("definitions")}
-        {Lisp-Entry "find-definition" method #f 150 18 150 33 ("definitions" "get-name" "get-name~" "equal?" "def" "lambda" "find-if" "name")}
-        {Lisp-Entry "child" method #f 156 18 156 23 ("cdr" "child" "child~" "car" "symbol->string" "find-definition" "def" "let" "self" "null?" "if" "path")}
-        {Lisp-Entry "add-definition" method #f 165 18 165 32 ("list" "append!" "definitions" "set!" "definition")}
-        {Lisp-Entry "add-reference" method #f 169 18 169 31 ("cons" "set!" "references" "member?" "unless" "reference")}
-        {Lisp-Entry "get-catalog" method #f 174 18 174 29 ("file-definition" "get-catalog" "get-catalog~")}
-        {Lisp-Entry "set-root-definition" method #f 178 20 178 39 ("definitions" "set-root-definition" "set-root-definition~" "definition" "lambda" "for-each" "nextmethod" "def")}
-        {Lisp-Entry "set-file-definition" method #f 185 20 185 39 ("definitions" "set-file-definition" "set-file-definition~" "definition" "lambda" "for-each" "nextmethod" "def")}
-        {Lisp-Entry "update-indexes" method #f 197 20 197 34 ("definitions" "update-indexes" "update-indexes~" "definition" "lambda" "for-each" "name" "update-index" "references-index" "definitions-index")}
-        {Lisp-Entry "update-index" method #f 204 21 204 33 ("self" "table-add" "when" "key" "index")}
-        {Lisp-Entry "present" method #f 214 20 214 27 ("format" "references" "get-location-name" "definitions" "mode" "case" "present-name")}
-        {Lisp-Entry "present-name" method #f 222 20 222 32 ("present-noname" "get-name" "or")}
-        {Lisp-Entry "present-noname" method #f 226 29 226 43 ()}
-        {Lisp-Entry "edit" method #f 235 20 235 24 ("selection:" "char-encoding:" "edit-document" "edit-document~" "get-range" "selection" "get-catalog" "get-char-encoding" "get-char-encoding~" "char-encoding" "get-application" "appl" "error" "exists?" "exists?~" "not" "if" "get-moniker" "moniker" "let" "return-new?" "return-new?:" "activate-focus?" "activate-focus?:" "workspace" "workspace:")}
-        {Lisp-Entry "find-source" method #f 245 11 245 22 ("include-invisibles?:" "all-frames" "get-name" "get-name~" "string=?" "get-moniker" "get-moniker~" "file" "get-guest" "get-guest~" "guest" "Frame-Host" "is?" "and" "frame" "lambda" "find-if" "source-frame-type" "type" "let" "name")}
-        {Lisp-Entry "source-frame-type" method #f 257 29 257 46 ()}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Indexed-Entry.jazz"} 231466230. jazz
+    {Lisp-Entry "jazz.catalog.entry.Indexed-Entry" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.system" "jazz.catalog")}
+      {Lisp-Entry "Indexed-Entry" class (undocumented) #f 46 20 46 33 ("Catalog-Entry")
+        {Lisp-Entry "name" slot () #f 49 8 49 12 ()}
+        {Lisp-Entry "line" slot () #f 50 8 50 12 ()}
+        {Lisp-Entry "column" slot () #f 51 8 51 14 ()}
+        {Lisp-Entry "end-line" slot () #f 52 8 52 16 ()}
+        {Lisp-Entry "end-column" slot () #f 53 8 53 18 ()}
+        {Lisp-Entry "definitions" slot () #f 54 8 54 19 ()}
+        {Lisp-Entry "references" slot () #f 55 8 55 18 ()}
+        {Lisp-Entry "get-references" accessor #f #f 55 26 55 34 ()}
+        {Lisp-Entry "initialize" method (override) #f 58 20 58 30 ("set-parent" "set-parent~" "definition" "lambda" "for-each" "references~self" "definitions~self" "end-column~self" "end-line~self" "column~self" "line~self" "self" "name~self" "set!" "nextmethod" "references" "definitions" "end-column" "end-line" "column" "line" "name")}
+        {Lisp-Entry "print" method (override) #f 72 20 72 25 ("name" "format" "lambda" "self" "print-unreadable" "readably" "output")}
+        {Lisp-Entry "print-catalog" method (public virtual) #f 78 26 78 39 ("print-definitions" "column" "line" "name" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "print-definitions" method () #f 87 11 87 28 ("definitions" "1" "+" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "output" "level")}
+        {Lisp-Entry "get-file" method (override) #f 98 20 98 28 ("file-definition" "get-file" "get-file~")}
+        {Lisp-Entry "get-moniker" method (override) #f 102 20 102 31 ("file-definition" "root-definition" "or" "get-moniker" "get-moniker~")}
+        {Lisp-Entry "get-title" method (override) #f 106 20 106 29 ("name")}
+        {Lisp-Entry "get-location-name" method (override) #f 110 20 110 37 ("file-definition" "root-definition" "or" "get-location-name" "get-location-name~")}
+        {Lisp-Entry "get-name" method (override) #f 114 20 114 28 ("name")}
+        {Lisp-Entry "get-line" method (override) #f 118 20 118 28 ("line")}
+        {Lisp-Entry "get-column" method (override) #f 122 20 122 30 ("column")}
+        {Lisp-Entry "get-start" method (override) #f 126 20 126 29 ("column" "line" "Cell" "new")}
+        {Lisp-Entry "get-end-line" method (override) #f 130 20 130 32 ("end-line")}
+        {Lisp-Entry "get-end-column" method (override) #f 134 20 134 34 ("end-column")}
+        {Lisp-Entry "get-end" method (override) #f 138 20 138 27 ("end-column" "end-line" "Cell" "new")}
+        {Lisp-Entry "get-range" method (override) #f 142 20 142 29 ("get-end" "get-start" "Range$Cell$" "new")}
+        {Lisp-Entry "get-definitions" method (override) #f 146 20 146 35 ("definitions")}
+        {Lisp-Entry "find-definition" method (public) #f 150 18 150 33 ("definitions" "get-name" "get-name~" "equal?" "def" "lambda" "find-if" "name")}
+        {Lisp-Entry "child" method (public) #f 156 18 156 23 ("cdr" "child" "child~" "car" "symbol->string" "find-definition" "def" "let" "self" "null?" "if" "path")}
+        {Lisp-Entry "add-definition" method (public) #f 165 18 165 32 ("list" "append!" "definitions" "set!" "definition")}
+        {Lisp-Entry "add-reference" method (public) #f 169 18 169 31 ("cons" "set!" "references" "member?" "unless" "reference")}
+        {Lisp-Entry "get-catalog" method (public) #f 174 18 174 29 ("file-definition" "get-catalog" "get-catalog~")}
+        {Lisp-Entry "set-root-definition" method (override) #f 178 20 178 39 ("definitions" "set-root-definition" "set-root-definition~" "definition" "lambda" "for-each" "nextmethod" "def")}
+        {Lisp-Entry "set-file-definition" method (override) #f 185 20 185 39 ("definitions" "set-file-definition" "set-file-definition~" "definition" "lambda" "for-each" "nextmethod" "def")}
+        {Lisp-Entry "update-indexes" method (override) #f 197 20 197 34 ("definitions" "update-indexes" "update-indexes~" "definition" "lambda" "for-each" "name" "update-index" "references-index" "definitions-index")}
+        {Lisp-Entry "update-index" method (protected) #f 204 21 204 33 ("self" "table-add" "when" "key" "index")}
+        {Lisp-Entry "present" method (override) #f 214 20 214 27 ("format" "references" "get-location-name" "definitions" "mode" "case" "present-name")}
+        {Lisp-Entry "present-name" method (override) #f 222 20 222 32 ("present-noname" "get-name" "or")}
+        {Lisp-Entry "present-noname" method (protected virtual) #f 226 29 226 43 ()}
+        {Lisp-Entry "edit" method (override) #f 235 20 235 24 ("selection:" "char-encoding:" "edit-document" "edit-document~" "get-range" "selection" "get-catalog" "get-char-encoding" "get-char-encoding~" "char-encoding" "get-application" "appl" "error" "exists?" "exists?~" "not" "if" "get-moniker" "moniker" "let" "return-new?" "return-new?:" "activate-focus?" "activate-focus?:" "workspace" "workspace:")}
+        {Lisp-Entry "find-source" method () #f 245 11 245 22 ("include-invisibles?:" "all-frames" "get-name" "get-name~" "string=?" "get-moniker" "get-moniker~" "file" "get-guest" "get-guest~" "guest" "Frame-Host" "is?" "and" "frame" "lambda" "find-if" "source-frame-type" "type" "let" "name")}
+        {Lisp-Entry "source-frame-type" method (protected virtual) #f 257 29 257 46 ()}}}})
 "Instance-Init-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Instance-Init-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Instance-Init-Entry" module #f 37 18 37 56 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Instance-Init-Entry" class #f 44 20 44 39 ("Hierarchical-Entry")
-        {Lisp-Entry "present-name" method #f 47 20 47 32 ()}
-        {Lisp-Entry "print-catalog" method #f 51 20 51 33 ("references" "end-column" "end-line" "column" "line" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "get-image" method #f 58 20 58 29 ("Image-Resource")}
-        {Lisp-Entry "update-indexes" method #f 67 20 67 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Instance-Init-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Instance-Init-Entry" module (protected) #f 37 18 37 56 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Instance-Init-Entry" class (undocumented) #f 44 20 44 39 ("Hierarchical-Entry")
+        {Lisp-Entry "present-name" method (override) #f 47 20 47 32 ()}
+        {Lisp-Entry "print-catalog" method (override) #f 51 20 51 33 ("references" "end-column" "end-line" "column" "line" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) #f 58 20 58 29 ("Image-Resource")}
+        {Lisp-Entry "update-indexes" method (override) #f 67 20 67 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
 "Interface-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Interface-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Interface-Entry" module #f 37 18 37 52 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Interface-Entry" class #f 44 20 44 35 ("Category-Entry")
-        {Lisp-Entry "print-catalog" method #f 47 20 47 33 ("definitions" "1" "+" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "end-column" "end-line" "column" "line" "extends" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "get-image" method #f 58 20 58 29 ("Image-Resource")}
-        {Lisp-Entry "insert-ascendants" method #f 67 20 67 37 ("extends" "insert-interfaces-list" "father" "tree")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Interface-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Interface-Entry" module (protected) #f 37 18 37 52 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Interface-Entry" class (undocumented) #f 44 20 44 35 ("Category-Entry")
+        {Lisp-Entry "print-catalog" method (override) #f 47 20 47 33 ("definitions" "1" "+" "print-catalog" "print-catalog~" "definition" "lambda" "for-each" "end-column" "end-line" "column" "line" "extends" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) #f 58 20 58 29 ("Image-Resource")}
+        {Lisp-Entry "insert-ascendants" method (override) #f 67 20 67 37 ("extends" "insert-interfaces-list" "father" "tree")}}}})
 "Method-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Method-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Method-Entry" module #f 37 18 37 49 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Method-Entry" class #f 44 20 44 32 ("Definition-Entry")
-        {Lisp-Entry "parameters" slot #f 47 8 47 18 ()}
-        {Lisp-Entry "get-parameters" accessor #f 47 26 47 34 ()}
-        {Lisp-Entry "throws" slot #f 48 8 48 14 ()}
-        {Lisp-Entry "initialize" method #f 51 20 51 30 ("throws~self" "self" "parameters~self" "set!" "nextmethod" "references" "definitions" "end-column" "end-line" "column" "line" "throws" "parameters" "literal?" "type" "name" "modifiers")}
-        {Lisp-Entry "print-catalog" method #f 57 20 57 33 ("references" "end-column" "end-line" "column" "line" "throws" "parameters" "type" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "present-detailed" method #f 64 20 64 36 ("name" "format" "parameters" "null?" "if")}
-        {Lisp-Entry "get-image" method #f 70 20 70 29 ("Image-Resource")}
-        {Lisp-Entry "get-throws" method #f 79 11 79 21 ("throws")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Method-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Method-Entry" module (protected) #f 37 18 37 49 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Method-Entry" class (undocumented) #f 44 20 44 32 ("Definition-Entry")
+        {Lisp-Entry "parameters" slot () #f 47 8 47 18 ()}
+        {Lisp-Entry "get-parameters" accessor #f #f 47 26 47 34 ()}
+        {Lisp-Entry "throws" slot () #f 48 8 48 14 ()}
+        {Lisp-Entry "initialize" method (override) #f 51 20 51 30 ("throws~self" "self" "parameters~self" "set!" "nextmethod" "references" "definitions" "end-column" "end-line" "column" "line" "throws" "parameters" "literal?" "type" "name" "modifiers")}
+        {Lisp-Entry "print-catalog" method (override) #f 57 20 57 33 ("references" "end-column" "end-line" "column" "line" "throws" "parameters" "type" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "present-detailed" method (override) #f 64 20 64 36 ("name" "format" "parameters" "null?" "if")}
+        {Lisp-Entry "get-image" method (override) #f 70 20 70 29 ("Image-Resource")}
+        {Lisp-Entry "get-throws" method () #f 79 11 79 21 ("throws")}}}})
 "Package-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Package-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Package-Entry" module #f 37 18 37 50 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Package-Entry" class #f 44 20 44 33 ("Hierarchical-Entry")
-        {Lisp-Entry "present-name" method #f 47 20 47 32 ("qualified" "join")}
-        {Lisp-Entry "get-image" method #f 51 20 51 29 ("Image-Resource")}
-        {Lisp-Entry "update-indexes" method #f 60 20 60 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Package-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Package-Entry" module (protected) #f 37 18 37 50 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Package-Entry" class (undocumented) #f 44 20 44 33 ("Hierarchical-Entry")
+        {Lisp-Entry "present-name" method (override) #f 47 20 47 32 ("qualified" "join")}
+        {Lisp-Entry "get-image" method (override) #f 51 20 51 29 ("Image-Resource")}
+        {Lisp-Entry "update-indexes" method (override) #f 60 20 60 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
 "Static-Init-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Static-Init-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Static-Init-Entry" module #f 37 18 37 54 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Static-Init-Entry" class #f 44 20 44 37 ("Hierarchical-Entry")
-        {Lisp-Entry "present-name" method #f 47 20 47 32 ()}
-        {Lisp-Entry "print-catalog" method #f 51 20 51 33 ("references" "end-column" "end-line" "column" "line" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "get-image" method #f 58 20 58 29 ("Image-Resource")}
-        {Lisp-Entry "update-indexes" method #f 67 20 67 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Static-Init-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Static-Init-Entry" module (protected) #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Static-Init-Entry" class (undocumented) #f 44 20 44 37 ("Hierarchical-Entry")
+        {Lisp-Entry "present-name" method (override) #f 47 20 47 32 ()}
+        {Lisp-Entry "print-catalog" method (override) #f 51 20 51 33 ("references" "end-column" "end-line" "column" "line" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) #f 58 20 58 29 ("Image-Resource")}
+        {Lisp-Entry "update-indexes" method (override) #f 67 20 67 34 ("references" "update-index" "key" "lambda" "for-each" "references-index" "definitions-index")}}}})
 "Variable-Entry"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Variable-Entry.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.entry.Variable-Entry" module #f 37 18 37 51 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
-      {Lisp-Entry "Variable-Entry" class #f 44 20 44 34 ("Definition-Entry")
-        {Lisp-Entry "print-catalog" method #f 47 20 47 33 ("references" "end-column" "end-line" "column" "line" "type" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
-        {Lisp-Entry "get-image" method #f 54 20 54 29 ("Image-Resource")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "entry" "Variable-Entry.jazz"} 222341472. jazz
+    {Lisp-Entry "jazz.catalog.entry.Variable-Entry" module (protected) #f 37 18 37 51 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.library" "jazz.catalog")}
+      {Lisp-Entry "Variable-Entry" class (undocumented) #f 44 20 44 34 ("Definition-Entry")
+        {Lisp-Entry "print-catalog" method (override) #f 47 20 47 33 ("references" "end-column" "end-line" "column" "line" "type" "name" "modifiers" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) #f 54 20 54 29 ("Image-Resource")}}}})
 "_catalog"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "_catalog.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog" module #f 37 8 37 20 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("jazz.catalog.autoload")}
-      {Lisp-Entry "import" anonymous #f 42 1 42 7 ("jazz.ui.view" "jazz.system" "jazz.library" "jazz.io")}
-      {Lisp-Entry "Parser-Dialects" definition #f 53 12 53 27 ("scheme" "python" "properties" "lua" "javascript" "java" "jazz" "css" "c" "commonlisp")}
-      {Lisp-Entry "Parser-Classes" definition #f 66 12 66 26 ("Scheme-Parser" "jazz.editor.scheme" "jazz.editor.scheme:Scheme-Parser" "scheme" "Python-Parser" "jazz.editor.python" "jazz.editor.python:Python-Parser" "python" "Properties-Parser" "jazz.editor.properties" "jazz.editor.properties:Properties-Parser" "properties" "Lua-Parser" "jazz.editor.lua" "jazz.editor.lua:Lua-Parser" "lua" "JavaScript-Parser" "jazz.editor.javascript" "jazz.editor.javascript:JavaScript-Parser" "javascript" "Java-Parser" "jazz.editor.java" "jazz.editor.java:Java-Parser" "java" "Jazz-Parser" "jazz.editor.jazz" "jazz.editor.jazz:Jazz-Parser" "jazz" "CSS-Parser" "jazz.editor.css" "jazz.editor.css:CSS-Parser" "css" "C-Parser" "jazz.editor.c" "jazz.editor.c:C-Parser" "c" "CommonLisp-Parser" "jazz.editor.commonlisp" "jazz.editor.commonlisp:CommonLisp-Parser" "lambda" "commonlisp" "cons" "list")}
-      {Lisp-Entry "get-parser-dialect" definition #f 80 20 80 38 ("car" "when" "extension=?" "member?" "extensions" "ext" "lambda" "test:" "Parser-Dialects" "rassociate" "info" "let" "extension")}
-      {Lisp-Entry "get-parser-class" definition #f 89 20 89 36 ("cdr" "proc" "when" "Parser-Classes" "assq" "pair" "let" "dialect")}
-      {Lisp-Entry "extension-match-test" definition #f 96 20 96 40 ("get-match-test" "get-match-test~" "when" "get-parser-dialect" "get-parser-class" "parser-class" "let" "ext")}
-      {Lisp-Entry "catalog-thread" definition #f 107 12 107 26 ()}
-      {Lisp-Entry "get-catalog-thread" definition #f 111 13 111 31 ("set!" "catalog" "start-loop-thread" "thread" "let" "catalog-thread" "or")}
-      {Lisp-Entry "post-catalog" definition #f 117 20 117 32 ("post-catalog" "get-catalog-thread" "thread-post" "thunk")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "_catalog.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.catalog" module () #f 37 8 37 20 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("jazz.catalog.autoload")}
+      {Lisp-Entry "import" anonymous #f #f 42 1 42 7 ("jazz.io")}
+      {Lisp-Entry "Parser-Dialects" definition () #f 50 12 50 27 ("scheme" "python" "properties" "lua" "javascript" "java" "jazz" "css" "c" "commonlisp")}
+      {Lisp-Entry "Parser-Classes" definition () #f 63 12 63 26 ("Scheme-Parser" "jazz.editor.scheme" "jazz.editor.scheme:Scheme-Parser" "scheme" "Python-Parser" "jazz.editor.python" "jazz.editor.python:Python-Parser" "python" "Properties-Parser" "jazz.editor.properties" "jazz.editor.properties:Properties-Parser" "properties" "Lua-Parser" "jazz.editor.lua" "jazz.editor.lua:Lua-Parser" "lua" "JavaScript-Parser" "jazz.editor.javascript" "jazz.editor.javascript:JavaScript-Parser" "javascript" "Java-Parser" "jazz.editor.java" "jazz.editor.java:Java-Parser" "java" "Jazz-Parser" "jazz.editor.jazz" "jazz.editor.jazz:Jazz-Parser" "jazz" "CSS-Parser" "jazz.editor.css" "jazz.editor.css:CSS-Parser" "css" "C-Parser" "jazz.editor.c" "jazz.editor.c:C-Parser" "c" "CommonLisp-Parser" "jazz.editor.commonlisp" "jazz.editor.commonlisp:CommonLisp-Parser" "lambda" "commonlisp" "cons" "list")}
+      {Lisp-Entry "get-parser-dialect" definition (public) #f 77 20 77 38 ("car" "when" "extension=?" "member?" "extensions" "ext" "lambda" "test:" "Parser-Dialects" "rassociate" "info" "let" "extension")}
+      {Lisp-Entry "get-parser-class" definition (public) #f 86 20 86 36 ("cdr" "proc" "when" "Parser-Classes" "assq" "pair" "let" "dialect")}
+      {Lisp-Entry "extension-match-test" definition (public) #f 93 20 93 40 ("get-match-test" "get-match-test~" "when" "get-parser-dialect" "get-parser-class" "parser-class" "let" "ext")}
+      {Lisp-Entry "catalog-thread" definition () #f 104 12 104 26 ()}
+      {Lisp-Entry "get-catalog-thread" definition () #f 108 13 108 31 ("set!" "catalog" "start-loop-thread" "thread" "let" "catalog-thread" "or")}
+      {Lisp-Entry "post-catalog" definition (public) #f 114 20 114 32 ("post-catalog" "get-catalog-thread" "thread-post" "thunk")}}})
 "autoload"
- ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "autoload.jazz"} 236918187. jazz
-    {Lisp-Entry "jazz.catalog.autoload" module #f 37 18 37 39 ("jazz")
-      {Lisp-Entry "export" anonymous #f 40 1 40 7 ("File-Parser" "jazz.catalog.parser.File-Parser" "Variable-Entry" "jazz.catalog.entry.Variable-Entry" "Category-Entry" "jazz.catalog.entry.Category-Entry" "Static-Init-Entry" "jazz.catalog.entry.Static-Init-Entry" "Package-Entry" "jazz.catalog.entry.Package-Entry" "Method-Entry" "jazz.catalog.entry.Method-Entry" "Interface-Entry" "jazz.catalog.entry.Interface-Entry" "Instance-Init-Entry" "jazz.catalog.entry.Instance-Init-Entry" "Indexed-Entry" "jazz.catalog.entry.Indexed-Entry" "Import-Entry" "jazz.catalog.entry.Import-Entry" "Hierarchical-Entry" "jazz.catalog.entry.Hierarchical-Entry" "File-Entry" "jazz.catalog.entry.File-Entry" "Entry" "jazz.catalog.entry.Entry" "Definition-Entry" "jazz.catalog.entry.Definition-Entry" "Constructor-Entry" "jazz.catalog.entry.Constructor-Entry" "Code-Location" "jazz.catalog.entry.Code-Location" "Code-Entry" "jazz.catalog.entry.Code-Entry" "Class-Entry" "jazz.catalog.entry.Class-Entry" "Catalog-Entry" "jazz.catalog.entry.Catalog-Entry" "Filing-Catalog" "jazz.catalog.catalog.Filing-Catalog" "Cataloguer" "jazz.catalog.catalog.Cataloguer" "Catalog" "autoload" "jazz.catalog.catalog.Catalog")}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "catalog" "autoload.jazz"} 231466230. jazz
+    {Lisp-Entry "jazz.catalog.autoload" module (protected) #f 37 18 37 39 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("File-Parser" "jazz.catalog.parser.File-Parser" "Variable-Entry" "jazz.catalog.entry.Variable-Entry" "Category-Entry" "jazz.catalog.entry.Category-Entry" "Static-Init-Entry" "jazz.catalog.entry.Static-Init-Entry" "Package-Entry" "jazz.catalog.entry.Package-Entry" "Method-Entry" "jazz.catalog.entry.Method-Entry" "Interface-Entry" "jazz.catalog.entry.Interface-Entry" "Instance-Init-Entry" "jazz.catalog.entry.Instance-Init-Entry" "Indexed-Entry" "jazz.catalog.entry.Indexed-Entry" "Import-Entry" "jazz.catalog.entry.Import-Entry" "Hierarchical-Entry" "jazz.catalog.entry.Hierarchical-Entry" "File-Entry" "jazz.catalog.entry.File-Entry" "Entry" "jazz.catalog.entry.Entry" "Definition-Entry" "jazz.catalog.entry.Definition-Entry" "Constructor-Entry" "jazz.catalog.entry.Constructor-Entry" "Code-Location" "jazz.catalog.entry.Code-Location" "Code-Entry" "jazz.catalog.entry.Code-Entry" "Class-Entry" "jazz.catalog.entry.Class-Entry" "Catalog-Entry" "jazz.catalog.entry.Catalog-Entry" "Filing-Catalog" "jazz.catalog.catalog.Filing-Catalog" "Cataloguer" "jazz.catalog.catalog.Cataloguer" "Catalog" "autoload" "jazz.catalog.catalog.Catalog")}}})

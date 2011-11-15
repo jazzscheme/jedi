@@ -1,19 +1,19 @@
 "_statprof"
- ({Lisp-File-Entry {File :context "src" "statprof" "_statprof.jazz"} 236918187. jazz
-    {Lisp-Entry "statprof" module #f 37 8 37 16 ("lambda" "statprof" "register-service" "jazz")
-      {Lisp-Entry "require" anonymous #f 40 1 40 8 ("statprof.implementation" "profiler")}
-      {Lisp-Entry "statprof" native ("native") 44 8 44 16 ()}}})
+ ({Lisp-File-Entry {File :context "src" "statprof" "_statprof.jazz"} 222341472. jazz
+    {Lisp-Entry "statprof" module () #f 37 8 37 16 ("lambda" "statprof" "register-service" "jazz")
+      {Lisp-Entry "require" anonymous #f #f 40 1 40 8 ("statprof.implementation" "profiler")}
+      {Lisp-Entry "statprof" native () ("native") 44 8 44 16 ()}}})
 "implementation"
- ({Lisp-File-Entry {File :context "src" "statprof" "implementation.scm"} 236918187. scheme
-    {Lisp-Entry "statprof.implementation" unit #f 10 16 10 39 ()
-      {Lisp-Entry "*statprof-running?*" define #f 26 8 26 27 ()}
-      {Lisp-Entry "statprof-running?" define #f 30 9 30 26 ("*statprof-running?*")}
-      {Lisp-Entry "heartbeat-interval" define #f 34 8 34 26 ("0.001")}
-      {Lisp-Entry "start-statprof" define #f 37 9 37 23 ("profile-heartbeat!" "1" "%%interrupt-vector-set!" "*statprof-running?*" "set!" "heartbeat-interval" "##heartbeat-interval-set!" "profile")}
-      {Lisp-Entry "stop-statprof" define #f 43 9 43 22 ("*statprof-running?*" "set!" "##thread-heartbeat!" "1" "%%interrupt-vector-set!" "profile")}
-      {Lisp-Entry "*in-profile-heartbeat?*" define #f 53 8 53 31 ("make-parameter")}
-      {Lisp-Entry "profile-heartbeat!" define #f 57 9 57 27 ("0" "profile-profiler" "profile-depth" "get-continuation-stack-for-profile" "profile-register-call" "%%when" "active-profile" "profile" "let" "##thread-heartbeat!" "parameterize" "cont" "lambda" "%%continuation-capture" "*in-profile-heartbeat?*" "%%not" "if" "interrupts-enabled" "not" "declare")}
-      {Lisp-Entry "statprof" define #f 78 8 78 16 ("2" "stop-statprof" "start-statprof" "statprof" "make-profiler")}}})
+ ({Lisp-File-Entry {File :context "src" "statprof" "implementation.scm"} 234324777. scheme
+    {Lisp-Entry "statprof.implementation" unit (protected) #f 10 16 10 39 ()
+      {Lisp-Entry "*statprof-running?*" define #f #f 26 8 26 27 ()}
+      {Lisp-Entry "statprof-running?" define #f #f 30 9 30 26 ("*statprof-running?*")}
+      {Lisp-Entry "heartbeat-interval" define #f #f 34 8 34 26 ("0.001")}
+      {Lisp-Entry "start-statprof" define #f #f 37 9 37 23 ("profile-heartbeat!" "1" "%%interrupt-vector-set!" "*statprof-running?*" "set!" "heartbeat-interval" "##heartbeat-interval-set!" "profile")}
+      {Lisp-Entry "stop-statprof" define #f #f 43 9 43 22 ("*statprof-running?*" "set!" "##thread-heartbeat!" "1" "%%interrupt-vector-set!" "profile")}
+      {Lisp-Entry "*in-profile-heartbeat?*" define #f #f 53 8 53 31 ("make-parameter")}
+      {Lisp-Entry "profile-heartbeat!" define #f #f 57 9 57 27 ("0" "profile-profiler" "profile-depth" "get-continuation-stack-for-profile" "profile-register-call" "%%when" "active-profile" "profile" "let" "##thread-heartbeat!" "parameterize" "cont" "lambda" "%%continuation-capture" "*in-profile-heartbeat?*" "%%not" "if" "interrupts-enabled" "not" "declare")}
+      {Lisp-Entry "statprof" define #f #f 78 8 78 16 ("2" "stop-statprof" "start-statprof" "statprof" "make-profiler")}}})
 "install"
- ({Lisp-File-Entry {File :context "src" "statprof" "install.scm"} 236918187. scheme
-    {Lisp-Entry "statprof.install" unit #f 37 6 37 22 ("statprof" "register-service" "jazz:register-service")}})
+ ({Lisp-File-Entry {File :context "src" "statprof" "install.scm"} 231466230. scheme
+    {Lisp-Entry "statprof.install" unit () #f 37 6 37 22 ("statprof" "register-service" "jazz:register-service")}})

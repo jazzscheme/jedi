@@ -1,81 +1,92 @@
 "_git"
- ({Lisp-File-Entry {File :context "src" "jazz" "git" "_git.jazz"} 236918188. jazz
-    {Lisp-Entry "jazz.git" module #f 37 8 37 16 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.system" "jazz.io")}
-      {Lisp-Entry "*depot*" definition #f 44 12 44 19 ()}
-      {Lisp-Entry "git-depot" definition #f 48 20 48 29 ("*depot*")}
-      {Lisp-Entry "git-depot-set!" definition #f 52 20 52 34 ("*depot*" "set!" "repo")}
-      {Lisp-Entry "git-clone" definition #f 61 20 61 29 ("Git-Depot" "new" "list" "git-command" "create-directories" "create-directories~" "get-name" "get-name~" "name" "get-parent" "get-parent~" "parent" "let" "destination" "address")}
-      {Lisp-Entry "git-add" definition #f 69 20 69 27 ("git-depot" "git-add" "git-add~")}
-      {Lisp-Entry "git-remove" definition #f 73 20 73 30 ("git-depot" "git-remove" "git-remove~")}
-      {Lisp-Entry "git-rename" definition #f 77 20 77 30 ("git-depot" "git-rename" "git-rename~")}
-      {Lisp-Entry "git-export" definition #f 81 20 81 30 ("git-depot" "git-export" "git-export~")}
-      {Lisp-Entry "git-import" definition #f 85 20 85 30 ("git-depot" "git-import" "git-import~")}
-      {Lisp-Entry "git-branch" definition #f 89 20 89 30 ("git-depot" "git-branch" "git-branch~")}
-      {Lisp-Entry "git-checkout" definition #f 93 20 93 32 ("git-depot" "git-checkout" "git-checkout~")}
-      {Lisp-Entry "git-commit" definition #f 97 20 97 30 ("git-depot" "git-commit" "git-commit~")}
-      {Lisp-Entry "git-diff" definition #f 101 20 101 28 ("git-depot" "git-diff" "git-diff~")}
-      {Lisp-Entry "git-log" definition #f 105 20 105 27 ("git-depot" "git-log" "git-log~")}
-      {Lisp-Entry "git-status" definition #f 109 20 109 30 ("git-depot" "git-status" "git-status~")}
-      {Lisp-Entry "git-rollback" definition #f 113 20 113 32 ("git-depot" "git-rollback" "git-rollback~")}
-      {Lisp-Entry "git-tag" definition #f 117 20 117 27 ("git-depot" "git-tag" "git-tag~")}
-      {Lisp-Entry "git-merge" definition #f 121 20 121 29 ("git-depot" "git-merge" "git-merge~")}
-      {Lisp-Entry "git-pull" definition #f 125 20 125 28 ("git-depot" "git-pull" "git-pull~")}
-      {Lisp-Entry "git-push" definition #f 129 20 129 28 ("git-depot" "git-push" "git-push~")}
-      {Lisp-Entry "git-history" definition #f 133 20 133 31 ("git-depot" "git-history" "git-history~" "path")}
-      {Lisp-Entry "git-extract" definition #f 138 20 138 31 ("git-depot" "git-extract" "git-extract~" "path")}
-      {Lisp-Entry "git-show" definition #f 142 20 142 28 ("git-depot" "git-show" "git-show~" "current-output-port" "output" "object")}
-      {Lisp-Entry "git-command" definition #f 146 13 146 24 ("close-port" "pipe" "not" "if" "open-process" "port" "let" "show-console:" "parse" "parse~" "directory:" "arguments:" "path:" "list" "call-process" "current-output-port" "output" "directory" "arguments")}
-      {Lisp-Entry "parse-patch-file" definition #f 161 20 161 36 ("error" "b-end" "b-comma" "b-start" "parse-integer" "1" "a-end" "a-comma" "a-start" "cardinality" "4" "str" "length" "substring" "values" "2" "+" "find" "end" "start:" "search" "dotdot" "6" "start" "let*" "queue-list" "list" "delta" "<" "or" "when" "both" "b" "increase!" "a" "cons" "enqueue" "case" "l" "read-char" "c" "iter-line" "lines" "b-cnt" "0" "a-cnt" "parse-range" "b-count" "b-line" "a-count" "a-line" "range" "iter-delta" "new-queue" "deltas" "parse-error" "equal?" "and" "b-name" "parse-name" "a-name" "parse-index" "b-index" "a-index" "receive" "read-line" "parse-diff" "starts-with?" "if" "not" "unless" "iter" "let" "line" "read-diff" "define" "input" "lambda" "cr-lf" "eol-encoding:" "path-settings" "call-with-input-file" "proc" "patch-file")}
-      {Lisp-Entry "Git-Depot" class #f 246 7 246 16 ("Object")
-        {Lisp-Entry "directory" slot #f 249 8 249 17 ()}
-        {Lisp-Entry "get-directory" accessor #f 249 25 249 33 ()}
-        {Lisp-Entry "initialize" method #f 252 20 252 30 ("directory" "set!" "nextmethod" "dir")}
-        {Lisp-Entry "print" method #f 257 20 257 25 ("directory" "get-list" "get-list~" "last" "format" "lambda" "self" "print-unreadable" "detail" "output")}
-        {Lisp-Entry "git" method #f 268 11 268 14 ("directory" "git-command" "current-output-port" "output" "arguments")}
-        {Lisp-Entry "git-add" method #f 277 18 277 25 ("list" "git")}
-        {Lisp-Entry "git-remove" method #f 281 18 281 28 ()}
-        {Lisp-Entry "git-rename" method #f 285 18 285 28 ()}
-        {Lisp-Entry "git-commit" method #f 289 18 289 28 ()}
-        {Lisp-Entry "git-rollback" method #f 293 18 293 30 ("list" "git")}
-        {Lisp-Entry "git-tag" method #f 297 18 297 25 ("list" "git")}
-        {Lisp-Entry "git-log" method #f 301 18 301 25 ("list" "git")}
-        {Lisp-Entry "git-status" method #f 305 18 305 28 ("list" "git")}
-        {Lisp-Entry "git-branch" method #f 314 18 314 28 ()}
-        {Lisp-Entry "git-checkout" method #f 318 18 318 30 ()}
-        {Lisp-Entry "git-import" method #f 327 18 327 28 ("list" "git")}
-        {Lisp-Entry "git-export" method #f 331 18 331 28 ("list" "git")}
-        {Lisp-Entry "git-diff" method #f 335 18 335 26 ()}
-        {Lisp-Entry "git-merge" method #f 339 18 339 27 ()}
-        {Lisp-Entry "git-history" method #f 343 18 343 29 ("split-lines" "empty-string?" "not" "str" "lambda" "collect-if" "get-output-string" "commits" "list" "git" "open-output-string" "output" "let" "path")}
-        {Lisp-Entry "git-extract" method #f 352 18 352 29 ("reverse" "increase!" "git-show" "output" "path-settings" "call-with-output-file" "create-directories" "create-directories~" "number->string" "format" "string-append" "Home" "list" "File" "new" "file" "extract-extension" "extension" "extract-base" "base" "extract-name" "filename" "user-message" "commit" "lambda" "for-each" "1" "version" "git-history" "history" "let" "path")}
-        {Lisp-Entry "git-show" method #f 370 18 370 26 ("list" "git" "current-output-port" "output" "object")}
-        {Lisp-Entry "prepare-merge" method #f 374 18 374 31 ("sort?:" "recursive?:" "directories?:" "files?:" "move-pathname" "move-pathname~" "iterate" "both" "b" "eq?" "increase!" "read-line" "do" "-" "repeat" "loop" "result-count" "result-line" "target-count" "target-line" "delta" "1" "target-rank" "merged-output" "target-input" "cr-lf" "eol-encoding:" "call-with-input-file" "get-base" "get-base~" "base" "new-brother" "new-brother~" "merged-file" "target-file" "apply-diff" "else" "write-line" "line" "what" "bind" "info" "for-each" "car" "fifth" "lines" "delete-file" "delete-file~" "cond" "right-file" "setup-right" "copy-file" "copy-file~" "left-file" "format" "debug" "not" "if" "directory" "working-file" "setup-left" "git-show" "output" "path-settings" "call-with-output-file" "create-directories" "create-directories~" "user-message" "exists?" "exists?~" "unless" "cons" "new-file" "new-file~" "base-file" "setup-base" "define" "split" "name-path" "or" "name" "deltas" "right-index" "right-name" "base-index" "base-name" "parse-patch-file" "extension=?" "when" "get-extension" "get-extension~" "ext" "let" "file" "lambda" "iterate-directory" "iterate-directory~" "merge-dir")}
-        {Lisp-Entry "git-pull" method #f 481 18 481 26 ()}
-        {Lisp-Entry "git-push" method #f 485 18 485 26 ()}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "git" "_git.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.git" module () #f 37 8 37 16 ("jazz")
+      {Lisp-Entry "export" anonymous #f #f 40 1 40 7 ("jazz.git.foreign")}
+      {Lisp-Entry "import" anonymous #f #f 42 1 42 7 ("jazz.system" "jazz.io")}
+      {Lisp-Entry "*depot*" definition () #f 46 12 46 19 ()}
+      {Lisp-Entry "git-depot" definition (public) #f 50 20 50 29 ("*depot*")}
+      {Lisp-Entry "git-depot-set!" definition (public) #f 54 20 54 34 ("*depot*" "set!" "repo")}
+      {Lisp-Entry "git-clone" definition (public) #f 63 20 63 29 ("Git-Depot" "new" "list" "git-command" "create-directories" "create-directories~" "get-name" "get-name~" "name" "get-parent" "get-parent~" "parent" "let" "destination" "address")}
+      {Lisp-Entry "git-add" definition (public) #f 71 20 71 27 ("git-depot" "git-add" "git-add~")}
+      {Lisp-Entry "git-remove" definition (public) #f 75 20 75 30 ("git-depot" "git-remove" "git-remove~")}
+      {Lisp-Entry "git-rename" definition (public) #f 79 20 79 30 ("git-depot" "git-rename" "git-rename~")}
+      {Lisp-Entry "git-export" definition (public) #f 83 20 83 30 ("git-depot" "git-export" "git-export~")}
+      {Lisp-Entry "git-import" definition (public) #f 87 20 87 30 ("git-depot" "git-import" "git-import~")}
+      {Lisp-Entry "git-branch" definition (public) #f 91 20 91 30 ("git-depot" "git-branch" "git-branch~")}
+      {Lisp-Entry "git-checkout" definition (public) #f 95 20 95 32 ("git-depot" "git-checkout" "git-checkout~")}
+      {Lisp-Entry "git-commit" definition (public) #f 99 20 99 30 ("git-depot" "git-commit" "git-commit~")}
+      {Lisp-Entry "git-diff" definition (public) #f 103 20 103 28 ("git-depot" "git-diff" "git-diff~")}
+      {Lisp-Entry "git-log" definition (public) #f 107 20 107 27 ("git-depot" "git-log" "git-log~")}
+      {Lisp-Entry "git-status" definition (public) #f 111 20 111 30 ("git-depot" "git-status" "git-status~")}
+      {Lisp-Entry "git-rollback" definition (public) #f 115 20 115 32 ("git-depot" "git-rollback" "git-rollback~")}
+      {Lisp-Entry "git-tag" definition (public) #f 119 20 119 27 ("git-depot" "git-tag" "git-tag~")}
+      {Lisp-Entry "git-merge" definition (public) #f 123 20 123 29 ("git-depot" "git-merge" "git-merge~")}
+      {Lisp-Entry "git-pull" definition (public) #f 127 20 127 28 ("git-depot" "git-pull" "git-pull~")}
+      {Lisp-Entry "git-push" definition (public) #f 131 20 131 28 ("git-depot" "git-push" "git-push~")}
+      {Lisp-Entry "git-history" definition (public) #f 135 20 135 31 ("git-depot" "git-history" "git-history~" "path")}
+      {Lisp-Entry "git-extract" definition (public) #f 140 20 140 31 ("git-depot" "git-extract" "git-extract~" "path")}
+      {Lisp-Entry "git-show" definition (public) #f 144 20 144 28 ("git-depot" "git-show" "git-show~" "current-output-port" "output" "object")}
+      {Lisp-Entry "git-command" definition () #f 148 13 148 24 ("close-port" "pipe" "not" "if" "open-process" "port" "let" "show-console:" "parse" "parse~" "directory:" "arguments:" "path:" "list" "call-process" "current-output-port" "output" "directory" "arguments")}
+      {Lisp-Entry "parse-patch-file" definition (public) #f 163 20 163 36 ("error" "b-end" "b-comma" "b-start" "parse-integer" "1" "a-end" "a-comma" "a-start" "cardinality" "4" "str" "length" "substring" "values" "2" "+" "find" "end" "start:" "search" "dotdot" "6" "start" "let*" "queue-list" "list" "delta" "<" "or" "when" "both" "b" "increase!" "a" "cons" "enqueue" "case" "l" "read-char" "c" "iter-line" "lines" "b-cnt" "0" "a-cnt" "parse-range" "b-count" "b-line" "a-count" "a-line" "range" "iter-delta" "new-queue" "deltas" "parse-error" "equal?" "and" "b-name" "parse-name" "a-name" "parse-index" "b-index" "a-index" "receive" "read-line" "parse-diff" "starts-with?" "if" "not" "unless" "iter" "let" "line" "read-diff" "define" "input" "lambda" "cr-lf" "eol-encoding:" "path-settings" "call-with-input-file" "proc" "patch-file")}
+      {Lisp-Entry "Git-Depot" class () #f 248 7 248 16 ("Object")
+        {Lisp-Entry "directory" slot () #f 251 8 251 17 ()}
+        {Lisp-Entry "get-directory" accessor #f #f 251 25 251 33 ()}
+        {Lisp-Entry "initialize" method (override) #f 254 20 254 30 ("directory" "set!" "nextmethod" "dir")}
+        {Lisp-Entry "print" method (override) #f 259 20 259 25 ("directory" "get-list" "get-list~" "last" "format" "lambda" "self" "print-unreadable" "detail" "output")}
+        {Lisp-Entry "git" method () #f 270 11 270 14 ("directory" "git-command" "current-output-port" "output" "arguments")}
+        {Lisp-Entry "git-add" method (public) #f 279 18 279 25 ("list" "git")}
+        {Lisp-Entry "git-remove" method (public) #f 283 18 283 28 ()}
+        {Lisp-Entry "git-rename" method (public) #f 287 18 287 28 ()}
+        {Lisp-Entry "git-commit" method (public) #f 291 18 291 28 ()}
+        {Lisp-Entry "git-rollback" method (public) #f 295 18 295 30 ("list" "git")}
+        {Lisp-Entry "git-tag" method (public) #f 299 18 299 25 ("list" "git")}
+        {Lisp-Entry "git-log" method (public) #f 303 18 303 25 ("list" "git")}
+        {Lisp-Entry "git-status" method (public) #f 307 18 307 28 ("list" "git")}
+        {Lisp-Entry "git-branch" method (public) #f 316 18 316 28 ()}
+        {Lisp-Entry "git-checkout" method (public) #f 320 18 320 30 ()}
+        {Lisp-Entry "git-import" method (public) #f 329 18 329 28 ("list" "git")}
+        {Lisp-Entry "git-export" method (public) #f 333 18 333 28 ("list" "git")}
+        {Lisp-Entry "git-diff" method (public) #f 337 18 337 26 ()}
+        {Lisp-Entry "git-merge" method (public) #f 341 18 341 27 ()}
+        {Lisp-Entry "git-history" method (public) #f 345 18 345 29 ("split-lines" "empty-string?" "not" "str" "lambda" "collect-if" "get-output-string" "commits" "list" "git" "open-output-string" "output" "let" "path")}
+        {Lisp-Entry "git-extract" method (public) #f 354 18 354 29 ("reverse" "increase!" "git-show" "output" "path-settings" "call-with-output-file" "create-directories" "create-directories~" "number->string" "format" "string-append" "Home" "list" "File" "new" "file" "extract-extension" "extension" "extract-base" "base" "extract-name" "filename" "user-message" "commit" "lambda" "for-each" "1" "version" "git-history" "history" "let" "path")}
+        {Lisp-Entry "git-show" method (public) #f 372 18 372 26 ("list" "git" "current-output-port" "output" "object")}
+        {Lisp-Entry "prepare-merge" method (public) #f 376 18 376 31 ("sort?:" "recursive?:" "directories?:" "files?:" "move-pathname" "move-pathname~" "iterate" "both" "b" "eq?" "increase!" "read-line" "do" "-" "repeat" "loop" "result-count" "result-line" "target-count" "target-line" "delta" "1" "target-rank" "merged-output" "target-input" "cr-lf" "eol-encoding:" "call-with-input-file" "get-base" "get-base~" "base" "new-brother" "new-brother~" "merged-file" "target-file" "apply-diff" "else" "write-line" "line" "what" "bind" "info" "for-each" "car" "fifth" "lines" "delete-file" "delete-file~" "cond" "right-file" "setup-right" "copy-file" "copy-file~" "left-file" "format" "debug" "not" "if" "directory" "working-file" "setup-left" "git-show" "output" "path-settings" "call-with-output-file" "create-directories" "create-directories~" "user-message" "exists?" "exists?~" "unless" "cons" "new-file" "new-file~" "base-file" "setup-base" "define" "split" "name-path" "or" "name" "deltas" "right-index" "right-name" "base-index" "base-name" "parse-patch-file" "extension=?" "when" "get-extension" "get-extension~" "ext" "let" "file" "lambda" "iterate-directory" "iterate-directory~" "merge-dir")}
+        {Lisp-Entry "git-pull" method (public) #f 483 18 483 26 ()}
+        {Lisp-Entry "git-push" method (public) #f 487 18 487 26 ()}}}})
+"foreign"
+ ({Lisp-File-Entry {File :context "src" "jazz" "git" "foreign.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.git.foreign" module (protected) #f 8 18 8 34 ("Error" "Connected" "display" "begin" "=" "if" "repo" "let" "lambda" "test-libgit" "define" "git_tree_entry_set_attribute" "git_tree_entry_set_name" "git_tree_entry_set_id" "git_tree_remove_entry_byname" "git_tree_remove_entry_byindex" "git_tree_add_entry" "git_tree_entry_2object" "git_tree_entry_id" "git_tree_entry_name" "git_tree_entry_attributes" "git_tree_byindex" "git_tree_byname" "git_tree_entrycount" "git_tree_id" "git_tree_new" "git_tree_lookup" "git_tag_set_message" "git_tag_set_tagger" "git_tag_set_name" "git_tag_set_target" "git_tag_message" "git_tag_tagger" "git_tag_name" "git_tag_type" "git_tag_target" "git_tag_id" "git_tag_new" "git_tag_lookup" "git_revwalk_repository" "git_revwalk_free" "git_revwalk_sorting" "git_revwalk_next" "git_revwalk_hide" "git_revwalk_push" "git_revwalk_reset" "git_revwalk_new" "git_repository_free" "git_repository_newobject" "git_repository_index" "git_repository_database" "git_repository_lookup" "git_repository_open2" "git_repository_open" "git_oid_cmp" "git_oid_cpy" "git_oid_to_string" "git_oid_allocfmt" "git_oid_pathfmt" "git_oid_fmt" "git_oid_mkstr" "git_rawobj_close" "git_rawobj_hash" "git_odb_exists" "git_odb_write" "git_odb_read_header" "git_rawobj*" "git_odb_read" "git_odb_close" "git_odb_add_backend" "git_odb_open" "git_odb_new" "git_object_typeisloose" "git_object_string2type" "git_object_type2string" "git_object_free" "git_object_owner" "git_object_type" "git_object_id" "git_object_write" "git_index_entrycount" "git_index_get" "git_index_insert" "git_index_remove" "git_index_add" "git_index_find" "git_index_write" "git_index_read" "git_index_free" "git_index_clear" "git_index_open_inrepo" "git_index_open_bare" "git_person_time" "git_person_email" "git_person_name" "git_commit_set_tree" "git_commit_set_author" "git_commit_set_committer" "void" "git_commit_set_message" "git_commit_add_parent" "git_commit_parent" "git_commit_parentcount" "git_commit_tree" "git_commit_author" "git_commit_committer" "git_commit_time" "git_commit_message" "git_commit_message_short" "git_commit_id" "git_commit_new" "git_commit_lookup" "git_blob_writefile" "git_blob_rawsize" "git_blob_rawcontent" "git_blob_set_rawcontent" "git_blob_set_rawcontent_fromfile" "git_blob_new" "git_oid*" "git_blob_lookup" "c-external" "type" "len" "data" "void*" "git_rawobj" "path" "UTF-8-string" "flags_extended" "flags" "ushort" "oid" "file_size" "gid" "uid" "mode" "ino" "dev" "uint" "mtime" "ctime" "nanoseconds" "seconds" "git_index_time" "id" "uchar" "git_oid" "c-structure" "size_t" "size_t*" "git_index_entry*" "git_index_entry" "git_person**" "git_person*" "git_person" "git_index**" "git_index*" "git_index" "git_tree**" "git_tree*" "git_tree" "git_tree_entry**" "git_tree_entry*" "git_tree_entry" "git_commit**" "git_commit*" "git_commit" "git_blob**" "git_blob*" "git_blob" "git_tag**" "git_tag*" "git_tag" "git_revwalk**" "git_revwalk*" "git_revwalk" "git_object**" "git_object*" "git_object" "git_repository**" "git_repository*" "git_repository" "git_odb_backend*" "git_odb_backend" "git_odb**" "pointer" "git_odb*" "git_odb" "int" "native" "time_t" "c-type" "GIT_OBJ_REF_DELTA" "GIT_OBJ_OFS_DELTA" "GIT_OBJ_EXT2" "GIT_OBJ_TAG" "GIT_OBJ_BLOB" "GIT_OBJ_TREE" "GIT_OBJ_COMMIT" "GIT_OBJ_EXT1" "GIT_OBJ_BAD" "-2" "GIT_OBJ_ANY" "git_otype" "c-enumeration" "14" "GIT_EBAREINDEX" "13" "GIT_EBUSY" "GIT_EZLIB" "11" "GIT_EFLOCKFAIL" "10" "GIT_EPACKCORRUPTED" "9" "GIT_EMISSINGOBJDATA" "8" "GIT_EINVALIDTYPE" "7" "GIT_ENOTAREPO" "6" "GIT_EOBJCORRUPTED" "5" "GIT_EOBJTYPE" "GIT_EOSERR" "3" "GIT_ENOMEM" "GIT_ENOTFOUND" "-" "GIT_ENOTOID" "-1" "GIT_ERROR" "GIT_SUCCESS" "4" "GIT_SORT_REVERSE" "GIT_SORT_TIME" "1" "GIT_SORT_TOPOLOGICAL" "0" "GIT_SORT_NONE" "2" "*" "GIT_OID_HEXSZ" "20" "GIT_OID_RAWSZ" "12" "GIT_IDXENTRY_STAGESHIFT" "#x8000" "GIT_IDXENTRY_VALID" "#x4000" "GIT_IDXENTRY_EXTENDED" "#x3000" "GIT_IDXENTRY_STAGEMASK" "#x0fff" "GIT_IDXENTRY_NAMEMASK" "c-constant" "c-include" "jazz")}})
+"product"
+ ({Lisp-File-Entry {File :context "src" "jazz" "git" "product.scm"} 245733917. scheme
+    {Lisp-Entry "jazz.git.product" unit () #f 37 6 37 22 ("build-git" "jazz:build-git" "build:" "jazz.git" "register-product" "jazz:register-product")
+      {Lisp-Entry "git-units" define #f #f 46 12 46 26 ("jazz.git.foreign" "quote-jazz-pathname" "jazz:quote-jazz-pathname" "git-include-path" "let")}
+      {Lisp-Entry "git-units" define #f #f 50 11 50 25 ()}
+      {Lisp-Entry "build-git" define #f #f 55 9 55 23 ("update-product-descriptor" "jazz:update-product-descriptor" "custom-compile/build" "jazz:custom-compile/build" "apply" "git-units" "jazz:git-units" "unit-specs" "let" "rest" "descriptor")}}})
 "ui"
- ({Lisp-File-Entry {File :context "src" "jazz" "git" "ui.jazz"} 239682323. jazz
-    {Lisp-Entry "jazz.git.ui" module #f 37 8 37 19 ("jazz")
-      {Lisp-Entry "import" anonymous #f 40 1 40 7 ("jazz.ui.view" "jazz.ui.dialog" "jazz.ui" "jazz.library" "jazz.jml" "jazz.io" "jazz.graphic" "jazz.git" "jazz.editor.diff")}
-      {Lisp-Entry "Git-Explorer" class #f 56 7 56 19 ("initialize" "Layout-View")
-        {Lisp-Entry "depot" property #f 59 12 59 17 ()}
-        {Lisp-Entry "get-depot" accessor #f 59 42 59 50 ()}
-        {Lisp-Entry "set-depot" accessor #f 59 42 59 50 ()}
-        {Lisp-Entry "history" slot #f 62 8 62 15 ()}
-        {Lisp-Entry "form" anonymous #f 65 3 65 7 ("diff-text" "Diff-Text-View" "<Diff-Text-View>" "second" "history-border" "on-selection-change" "selection-handler:" "Git-History-Tree" "<Git-History-Tree>" "Tree-Header" "<Tree-Header>" "document" "first" "diff-border" "50" "division:" "relative" "mode:" "vert" "orientation:" "center" "Splitter-View" "<Splitter-View>" "on-filter" "action-handler:" ":images" "portfolio:" "Image-Resource" "resource:" "tooltip-text:" "tooltip?:" "22" "filter" "Push-Tool" "<Push-Tool>" "4" "history-tree" "target-name:" "filter-text" "Filter-Text-View" "<Filter-Text-View>" "content" "!" "<!>" "vscroll?:" "hscroll?:" "Scroller-View" "<Scroller-View>" "250" "filter-label" "24" "on-moniker-update" "moniker-update-handler:" "on-return-press" ":form" "Event-Handler" "return-press-handler:" "display-logical?:" "display-protocol?:" "dir" "protocol:" "depot" "Moniker-Widget" "<Moniker-Widget>" "entry" "style:" "edge" "depot-border" "1" "border-insets:" "fill" "border-type:" "Border-View" "<Border-View>" "Label" "Font" "font:" "20" "37" "title:" "-3" "head" "justification:" "depot-label" "Label-View" "<Label-View>" "2" "Separator" "<Separator>" "6" "0" "Rect" "layout-insets:" "flow" "north" "location:" "33" "300" "Dimension" "size:" "toolbar" "name:" "Layout-View" "<Layout-View>" "border" "layout-type:" "install" "<install>")}
-        {Lisp-Entry "finish" method #f 95 20 95 26 ("get-directory" "get-directory~" "locate" "set-moniker" "set-moniker~" "depot" "when" "nextmethod" "initargs")}
-        {Lisp-Entry "host-icon" method #f 106 25 106 34 ("Image-Resource")}
-        {Lisp-Entry "host-title" method #f 110 25 110 35 ()}
-        {Lisp-Entry "host-position" method #f 114 25 114 38 ("14" "28" "Point")}
-        {Lisp-Entry "host-size" method #f 118 25 118 34 ("500" "800" "Dimension")}
-        {Lisp-Entry "host-workspaces" method #f 122 20 122 35 ("groupware")}
-        {Lisp-Entry "focus-default" method #f 126 20 126 33 ("filter-text" "locate" "acquire-focus" "acquire-focus~")}
-        {Lisp-Entry "on-moniker-update" method #f 135 11 135 28 ("update-depot" "evt")}
-        {Lisp-Entry "on-return-press" method #f 139 20 139 35 ("update-depot" "evt")}
-        {Lisp-Entry "on-selection-change" method #f 143 11 143 30 ("update-diff" "evt")}
-        {Lisp-Entry "on-filter" method #f 147 11 147 20 ("filter-text" "locate" "filter-target" "filter-target~" "evt")}
-        {Lisp-Entry "update-depot" method #f 156 11 156 23 ("update" "locate" "get-moniker" "get-moniker~" "Git-Depot" "new" "depot" "set!")}
-        {Lisp-Entry "update" method #f 161 11 161 17 ("diff-text" "set-string-content" "set-string-content~" "set!" "depot" "git" "git~" "open-string-pipe" "output" "receive" ":wait" "with-cursor" "history" "user-data:" "Tree-Label" "title:" "Tree-Node" "new" "children:" "add-row" "add-row~" "for-each" "lambda" "with-update-locked" "with-update-locked~" "remove-every-row" "remove-every-row~" "history-tree" "locate" "tree" "update-history" "queue-list" "list" "enqueue" "split" "message" "author" "date" "digest" "bind" "eof-object?" "unless" "read-line" "info" "0" "input-port-timeout-set!" "iterate" "new-queue" "queue" "let" "input" "read-history" "define")}
-        {Lisp-Entry "update-diff" method #f 196 11 196 22 ("diff-text" "set-string-content" "set-string-content~" "read-content-string" "content" "0" "input-port-timeout-set!" "depot" "git-show" "git-show~" "open-string-pipe" "output" "input" "receive" "first" "digest" "lambda" ":wait" "with-cursor" "when" "history-tree" "locate" "get-single-selected-data" "get-single-selected-data~" "commit" "let")}}
-      {Lisp-Entry "Git-History-Tree" class #f 214 7 214 23 ("Tree-View")
-        {Lisp-Entry "form" anonymous #f 217 3 217 7 ("300" "author" "150" "date" "Tree-Label-Column" "<Tree-Label-Column>" "display-images?:" "toplevel-controls?:" "250" "width:" "title:" "digest" "name:" "Tree-Node-Column" "<Tree-Node-Column>" "message" "filled-column:" "install" "<install>")}}}})
+ ({Lisp-File-Entry {File :context "src" "jazz" "git" "ui.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.git.ui" module () #f 37 8 37 19 ("jazz")
+      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.library" "jazz.jml" "jazz.graphic" "jazz.git" "jazz.editor.diff")}
+      {Lisp-Entry "Git-Explorer" class () #f 54 7 54 19 ("initialize" "Filterable" "Layout-View")
+        {Lisp-Entry "depot" property () #f 57 12 57 17 ()}
+        {Lisp-Entry "get-depot" accessor #f #f 57 42 57 50 ()}
+        {Lisp-Entry "set-depot" accessor #f #f 57 42 57 50 ()}
+        {Lisp-Entry "history" slot () #f 60 8 60 15 ()}
+        {Lisp-Entry "form" anonymous #f #f 63 3 63 7 ("diff-text" "Diff-Text-View" "<Diff-Text-View>" "second" "history-border" "on-selection-change" "selection-handler:" "history-tree" "Git-History-Tree" "<Git-History-Tree>" "Tree-Header" "<Tree-Header>" "document" "first" "diff-border" "50" "division:" "relative" "mode:" "vert" "orientation:" "center" "Splitter-View" "<Splitter-View>" "on-filter" "action-handler:" ":images" "portfolio:" "Image-Resource" "resource:" "tooltip-text:" "tooltip?:" "22" "filter" "Push-Tool" "<Push-Tool>" "4" "filter-text" "Filter-Text-View" "<Filter-Text-View>" "content" "!" "<!>" "vscroll?:" "hscroll?:" "Scroller-View" "<Scroller-View>" "250" "filter-label" "24" "on-moniker-update" "moniker-update-handler:" "on-return-press" ":form" "Event-Handler" "return-press-handler:" "display-logical?:" "display-protocol?:" "dir" "protocol:" "depot" "Moniker-Widget" "<Moniker-Widget>" "entry" "style:" "edge" "depot-border" "1" "border-insets:" "fill" "border-type:" "Border-View" "<Border-View>" "Label" "Font" "font:" "20" "37" "title:" "-3" "head" "justification:" "depot-label" "Label-View" "<Label-View>" "2" "Separator" "<Separator>" "6" "0" "Rect" "layout-insets:" "flow" "north" "location:" "33" "300" "Dimension" "size:" "toolbar" "name:" "Layout-View" "<Layout-View>" "border" "layout-type:" "install" "<install>")}
+        {Lisp-Entry "finish" method (override) #f 93 20 93 26 ("get-directory" "get-directory~" "locate" "set-moniker" "set-moniker~" "depot" "when" "nextmethod" "initargs")}
+        {Lisp-Entry "host-icon" method (meta override) #f 104 25 104 34 ("Image-Resource")}
+        {Lisp-Entry "host-title" method (meta override) #f 108 25 108 35 ()}
+        {Lisp-Entry "host-position" method (meta override) #f 112 25 112 38 ("14" "28" "Point")}
+        {Lisp-Entry "host-size" method (meta override) #f 116 25 116 34 ("500" "800" "Dimension")}
+        {Lisp-Entry "host-workspaces" method (override) #f 120 20 120 35 ("groupware")}
+        {Lisp-Entry "focus-default" method (override) #f 124 20 124 33 ("filter-text" "locate" "acquire-focus" "acquire-focus~")}
+        {Lisp-Entry "filter" method (override) #f 133 20 133 26 ("history-tree" "locate" "filter-rows" "filter-rows~" "filter-search")}
+        {Lisp-Entry "on-moniker-update" method () #f 142 11 142 28 ("update-depot" "evt")}
+        {Lisp-Entry "on-return-press" method (override) #f 146 20 146 35 ("update-depot" "evt")}
+        {Lisp-Entry "on-selection-change" method () #f 150 11 150 30 ("update-diff" "evt")}
+        {Lisp-Entry "on-filter" method () #f 154 11 154 20 ("filter-text" "locate" "filter-target" "filter-target~" "evt")}
+        {Lisp-Entry "update-depot" method () #f 163 11 163 23 ("update" "locate" "get-moniker" "get-moniker~" "Git-Depot" "new" "depot" "set!")}
+        {Lisp-Entry "update" method () #f 168 11 168 17 ("diff-text" "set-string-content" "set-string-content~" "set!" "depot" "git" "git~" "open-string-pipe" "output" "receive" ":wait" "with-cursor" "history" "user-data:" "Tree-Label" "title:" "Tree-Node" "new" "children:" "add-row" "add-row~" "for-each" "lambda" "with-update-locked" "with-update-locked~" "remove-every-row" "remove-every-row~" "history-tree" "locate" "tree" "update-history" "queue-list" "list" "enqueue" "split" "message" "author" "date" "digest" "bind" "eof-object?" "unless" "read-line" "info" "0" "input-port-timeout-set!" "iterate" "new-queue" "queue" "let" "input" "read-history" "define")}
+        {Lisp-Entry "update-diff" method () #f 203 11 203 22 ("diff-text" "set-string-content" "set-string-content~" "read-content-string" "content" "0" "input-port-timeout-set!" "depot" "git-show" "git-show~" "open-string-pipe" "output" "input" "receive" "first" "digest" "lambda" ":wait" "with-cursor" "when" "history-tree" "locate" "get-single-selected-data" "get-single-selected-data~" "commit" "let")}}
+      {Lisp-Entry "Git-History-Tree" class () #f 221 7 221 23 ("Tree-View")
+        {Lisp-Entry "form" anonymous #f #f 224 3 224 7 ("300" "author" "150" "date" "Tree-Label-Column" "<Tree-Label-Column>" "display-images?:" "toplevel-controls?:" "250" "width:" "title:" "digest" "name:" "Tree-Node-Column" "<Tree-Node-Column>" "message" "filled-column:" "install" "<install>")}}}})
