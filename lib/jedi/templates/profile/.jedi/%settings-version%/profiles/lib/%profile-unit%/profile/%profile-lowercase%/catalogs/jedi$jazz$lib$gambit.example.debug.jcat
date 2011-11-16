@@ -1,10 +1,10 @@
 "example"
  ({Lisp-File-Entry {File :context "gambit" "example.scm"} 222341472. scheme
-    {Lisp-Entry "fact" define #f #f 4 9 4 13 ("1" "-" "fact" "*" "i" "0" "=" "if" "n")}
-    {Lisp-Entry "fib" define #f #f 9 9 9 12 ("2" "-" "fib" "+" "m" "1" "0" "=" "or" "if" "n")}})
+    {Lisp-Entry "fact" define () ("n") #f #f 4 9 4 13 ("1" "-" "fact" "*" "i" "0" "=" "if" "n")}
+    {Lisp-Entry "fib" define () ("n") #f #f 9 9 9 12 ("2" "-" "fib" "+" "m" "1" "0" "=" "or" "if" "n")}})
 "product"
  ({Lisp-File-Entry {File :context "src" "gambit" "example" "debug" "product.jazz"} 243057373. jazz
-    {Lisp-Entry "gambit.example.debug.product" module () #f 37 8 37 36 ("build" "build:" "run" "run:" "title:" "gambit-debug" "register-product" "jazz")
-      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.io")}
-      {Lisp-Entry "run" definition () #f 48 13 48 16 ("load" "Jazz" "Directory" "set-current-directory" "initialize-aliases" "descriptor")}
-      {Lisp-Entry "build" definition () #f 59 13 59 18 ("2.5" "thread-sleep!" "terminal" "rest" "descriptor")}}})
+    {Lisp-Entry "gambit.example.debug.product" module () () #f #f 37 8 37 36 ("build" "build:" "run" "run:" "title:" "gambit-debug" "register-product" "jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.io")}
+      {Lisp-Entry "run" definition () ("descriptor") #f #f 48 13 48 16 ("load" "Jazz" "Directory" "set-current-directory" "initialize-aliases" "descriptor")}
+      {Lisp-Entry "build" definition () ("descriptor" "." "rest") #f #f 59 13 59 18 ("2.5" "thread-sleep!" "terminal" "rest" "descriptor")}}})

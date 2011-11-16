@@ -1,76 +1,76 @@
 "_game"
  ({Lisp-File-Entry {File :context "src" "jazz" "sample" "game" "_game.jazz"} 222341473. jazz
-    {Lisp-Entry "jazz.sample.game" module () #f 38 8 38 24 ("jazz")
-      {Lisp-Entry "import" anonymous #f #f 41 1 41 7 ("jazz.library")}
-      {Lisp-Entry "Player" class () #f 49 7 49 13 ("Object")
-        {Lisp-Entry "player-kind" method (protected virtual) #f 52 29 52 40 ()}
-        {Lisp-Entry "human?" method (protected virtual) #f 56 29 56 35 ("human" "player-kind" "eq?")}
-        {Lisp-Entry "computer?" method (protected virtual) #f 60 29 60 38 ("computer" "player-kind" "eq?")}
-        {Lisp-Entry "computer-move" method (protected virtual) #f 64 29 64 42 ()}
-        {Lisp-Entry "move-played" method (protected virtual) #f 69 29 69 40 ("token" "move")}}
-      {Lisp-Entry "Game" class () #f 78 7 78 11 ("initialize" "History-Provider" "Object")
-        {Lisp-Entry "players" slot () #f 82 8 82 15 ()}
-        {Lisp-Entry "get-players" accessor #f #f 82 49 82 57 ()}
-        {Lisp-Entry "set-players" accessor #f #f 82 49 82 57 ()}
-        {Lisp-Entry "next-player-rank" slot () #f 83 8 83 24 ()}
-        {Lisp-Entry "get-next-player-rank" accessor #f #f 83 49 83 57 ()}
-        {Lisp-Entry "set-next-player-rank" accessor #f #f 83 49 83 57 ()}
-        {Lisp-Entry "history-manager" slot () #f 86 8 86 23 ()}
-        {Lisp-Entry "status" slot () #f 89 8 89 14 ()}
-        {Lisp-Entry "get-status" accessor #f #f 89 49 89 57 ()}
-        {Lisp-Entry "set-status" accessor #f #f 89 49 89 57 ()}
-        {Lisp-Entry "winner" slot () #f 90 8 90 14 ()}
-        {Lisp-Entry "get-winner" accessor #f #f 90 49 90 57 ()}
-        {Lisp-Entry "set-winner" accessor #f #f 90 49 90 57 ()}
-        {Lisp-Entry "initialize" method (override) #f 98 20 98 30 ("winner" "play" "status" "self" "History-Manager" "new" "history-manager" "0" "next-player-rank" "set!" "nextmethod")}
-        {Lisp-Entry "current-history-item" method (override) #f 111 20 111 40 ()}
-        {Lisp-Entry "update-history-actions" method (override) #f 115 20 115 42 ()}
-        {Lisp-Entry "register-players" method (public) #f 124 18 124 34 ("list->vector" "players" "set!" "lst")}
-        {Lisp-Entry "get-next-player" method (public) #f 128 18 128 33 ("next-player-rank" "players" "vector-ref")}
-        {Lisp-Entry "get-second-player" method (public) #f 132 18 132 35 ("1" "next-player-rank" "+" "modulo-players" "players" "vector-ref")}
-        {Lisp-Entry "next-player!" method (protected) #f 136 21 136 33 ("1" "+" "modulo-players" "next-player-rank" "set!" "get-next-player" "prog1")}
-        {Lisp-Entry "modulo-players" method () #f 141 11 141 25 ("players" "vector-length" "modulo" "rank")}
-        {Lisp-Entry "add-move" method (protected) #f 150 21 150 29 ("History-Move" "new" "history-manager" "add-history" "add-history~" "move")}
-        {Lisp-Entry "append-forward-history" method (protected) #f 154 21 154 43 ("History-Move" "new" "history-manager" "append-forward-history" "append-forward-history~" "move")}
-        {Lisp-Entry "get-moves" method (public) #f 158 18 158 27 ("get-forward-moves" "get-backward-moves" "append")}
-        {Lisp-Entry "get-backward-moves" method (public) #f 163 18 163 36 ("history-manager" "get-backward-history" "get-backward-history~" "reverse" "get-move" "get-move~" "map")}
-        {Lisp-Entry "get-forward-moves" method (public) #f 167 18 167 35 ("history-manager" "get-forward-history" "get-forward-history~" "get-move" "get-move~" "map")}
-        {Lisp-Entry "play" method (protected virtual) #f 176 29 176 33 ("move")}
-        {Lisp-Entry "unplay" method (protected virtual) #f 180 29 180 35 ("move")}
-        {Lisp-Entry "play-move" method (public virtual) #f 189 26 189 35 ("move")}
-        {Lisp-Entry "inform-players" method () #f 193 11 193 25 ("vector-ref" "move-played" "move-played~" "players" "vector-length" "below" "0" "from" "n" "for" "loop" "token" "move")}
-        {Lisp-Entry "check-status" method (protected virtual) #f 198 29 198 41 ("draw" "draw?" "winner" "win" "status" "set!" "win?" "cond" "token" "move" "player")}
-        {Lisp-Entry "win?" method (protected virtual) #f 206 29 206 33 ("token" "move")}
-        {Lisp-Entry "draw?" method (protected virtual) #f 210 29 210 34 ("token" "move")}
-        {Lisp-Entry "save" method (public virtual) #f 219 26 219 30 ()}
-        {Lisp-Entry "load" method (public virtual) #f 223 26 223 30 ()}
-        {Lisp-Entry "inspect" method (public virtual) #f 232 26 232 33 ()}}
-      {Lisp-Entry "History-Move" class () #f 241 7 241 19 ("History-Item")
-        {Lisp-Entry "move" slot () #f 244 8 244 12 ()}
-        {Lisp-Entry "get-move" accessor #f #f 244 20 244 28 ()}
-        {Lisp-Entry "initialize" method (override) #f 247 20 247 30 ("self" "move~self" "set!" "nextmethod" "move")}
-        {Lisp-Entry "print" method (override) #f 252 20 252 25 ("move" "format" "lambda" "self" "print-unreadable" "readably" "output")}}}})
+    {Lisp-Entry "jazz.sample.game" module () () #f #f 38 8 38 24 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 41 1 41 7 ("jazz.library")}
+      {Lisp-Entry "Player" class () ((extends . "Object")) #f #f 49 7 49 13 ("Object")
+        {Lisp-Entry "player-kind" method (protected virtual) () #f #f 52 29 52 40 ()}
+        {Lisp-Entry "human?" method (protected virtual) () #f #f 56 29 56 35 ("human" "player-kind" "eq?")}
+        {Lisp-Entry "computer?" method (protected virtual) () #f #f 60 29 60 38 ("computer" "player-kind" "eq?")}
+        {Lisp-Entry "computer-move" method (protected virtual) () #f #f 64 29 64 42 ()}
+        {Lisp-Entry "move-played" method (protected virtual) ("move" "token") #f #f 69 29 69 40 ("token" "move")}}
+      {Lisp-Entry "Game" class () ((extends . "Object") (implements . "History-Provider")) #f #f 78 7 78 11 ("History-Provider" "Object")
+        {Lisp-Entry "players" slot () ((initialize . "#f") (accessors . "generate")) #f #f 82 8 82 15 ()}
+        {Lisp-Entry "get-players" accessor () () #f #f 82 49 82 57 ()}
+        {Lisp-Entry "set-players" accessor () () #f #f 82 49 82 57 ()}
+        {Lisp-Entry "next-player-rank" slot () ((initialize . "#f") (accessors . "generate")) #f #f 83 8 83 24 ()}
+        {Lisp-Entry "get-next-player-rank" accessor () () #f #f 83 49 83 57 ()}
+        {Lisp-Entry "set-next-player-rank" accessor () () #f #f 83 49 83 57 ()}
+        {Lisp-Entry "history-manager" slot () ((initialize . "#f")) #f #f 86 8 86 23 ()}
+        {Lisp-Entry "status" slot () ((initialize . "#f") (accessors . "generate")) #f #f 89 8 89 14 ()}
+        {Lisp-Entry "get-status" accessor () () #f #f 89 49 89 57 ()}
+        {Lisp-Entry "set-status" accessor () () #f #f 89 49 89 57 ()}
+        {Lisp-Entry "winner" slot () ((initialize . "#f") (accessors . "generate")) #f #f 90 8 90 14 ()}
+        {Lisp-Entry "get-winner" accessor () () #f #f 90 49 90 57 ()}
+        {Lisp-Entry "set-winner" accessor () () #f #f 90 49 90 57 ()}
+        {Lisp-Entry "initialize" method (override) () #f #f 98 20 98 30 ("winner" "play" "status" "self" "History-Manager" "new" "history-manager" "0" "next-player-rank" "set!" "nextmethod")}
+        {Lisp-Entry "current-history-item" method (override) () #f #f 111 20 111 40 ()}
+        {Lisp-Entry "update-history-actions" method (override) () #f #f 115 20 115 42 ()}
+        {Lisp-Entry "register-players" method (public) ("lst") #f #f 124 18 124 34 ("list->vector" "players" "set!" "lst")}
+        {Lisp-Entry "get-next-player" method (public) () #f #f 128 18 128 33 ("next-player-rank" "players" "vector-ref")}
+        {Lisp-Entry "get-second-player" method (public) () #f #f 132 18 132 35 ("1" "next-player-rank" "+" "modulo-players" "players" "vector-ref")}
+        {Lisp-Entry "next-player!" method (protected) () #f #f 136 21 136 33 ("1" "+" "modulo-players" "next-player-rank" "set!" "get-next-player" "prog1")}
+        {Lisp-Entry "modulo-players" method () ("rank") #f #f 141 11 141 25 ("players" "vector-length" "modulo" "rank")}
+        {Lisp-Entry "add-move" method (protected) ("move") #f #f 150 21 150 29 ("History-Move" "new" "history-manager" "add-history" "add-history~" "move")}
+        {Lisp-Entry "append-forward-history" method (protected) ("move") #f #f 154 21 154 43 ("History-Move" "new" "history-manager" "append-forward-history" "append-forward-history~" "move")}
+        {Lisp-Entry "get-moves" method (public) () #f #f 158 18 158 27 ("get-forward-moves" "get-backward-moves" "append")}
+        {Lisp-Entry "get-backward-moves" method (public) () #f #f 163 18 163 36 ("history-manager" "get-backward-history" "get-backward-history~" "reverse" "get-move" "get-move~" "map")}
+        {Lisp-Entry "get-forward-moves" method (public) () #f #f 167 18 167 35 ("history-manager" "get-forward-history" "get-forward-history~" "get-move" "get-move~" "map")}
+        {Lisp-Entry "play" method (protected virtual) ("move") #f #f 176 29 176 33 ("move")}
+        {Lisp-Entry "unplay" method (protected virtual) ("move") #f #f 180 29 180 35 ("move")}
+        {Lisp-Entry "play-move" method (public virtual) ("move") #f #f 189 26 189 35 ("move")}
+        {Lisp-Entry "inform-players" method () ("move" "token") #f #f 193 11 193 25 ("vector-ref" "move-played" "move-played~" "players" "vector-length" "below" "0" "from" "n" "for" "loop" "token" "move")}
+        {Lisp-Entry "check-status" method (protected virtual) ("player" "move" "token") #f #f 198 29 198 41 ("draw" "draw?" "winner" "win" "status" "set!" "win?" "cond" "token" "move" "player")}
+        {Lisp-Entry "win?" method (protected virtual) ("move" "token") #f #f 206 29 206 33 ("token" "move")}
+        {Lisp-Entry "draw?" method (protected virtual) ("move" "token") #f #f 210 29 210 34 ("token" "move")}
+        {Lisp-Entry "save" method (public virtual) () #f #f 219 26 219 30 ()}
+        {Lisp-Entry "load" method (public virtual) () #f #f 223 26 223 30 ()}
+        {Lisp-Entry "inspect" method (public virtual) () #f #f 232 26 232 33 ()}}
+      {Lisp-Entry "History-Move" class () ((extends . "History-Item")) #f #f 241 7 241 19 ("History-Item")
+        {Lisp-Entry "move" slot () ((getter . "generate")) #f #f 244 8 244 12 ()}
+        {Lisp-Entry "get-move" accessor () () #f #f 244 20 244 28 ()}
+        {Lisp-Entry "initialize" method (override) ("move") #f #f 247 20 247 30 ("self" "move~self" "set!" "nextmethod" "move")}
+        {Lisp-Entry "print" method (override) ("output" "readably") #f #f 252 20 252 25 ("move" "format" "lambda" "self" "print-unreadable" "readably" "output")}}}})
 "minimax"
  ({Lisp-File-Entry {File :context "src" "jazz" "sample" "game" "minimax.jazz"} 231466231. jazz
-    {Lisp-Entry "jazz.sample.game.minimax" module () #f 37 8 37 32 ("jazz")
-      {Lisp-Entry "import" anonymous #f #f 40 1 40 7 ("jazz.platform")}
-      {Lisp-Entry "proclaim" anonymous #f #f 43 1 43 9 ("optimizations" "warn")}
-      {Lisp-Entry "Minimax-Statistics" class () #f 51 7 51 25 ("0" "fx" "<fx>" "initialize" "Object")
-        {Lisp-Entry "last-eval" slot () #f 54 8 54 17 ()}
-        {Lisp-Entry "get-last-eval" accessor #f #f 54 60 54 68 ()}
-        {Lisp-Entry "set-last-eval" accessor #f #f 54 60 54 68 ()}
-        {Lisp-Entry "last-evaluations" slot () #f 55 8 55 24 ()}
-        {Lisp-Entry "get-last-evaluations" accessor #f #f 55 60 55 68 ()}
-        {Lisp-Entry "set-last-evaluations" accessor #f #f 55 60 55 68 ()}
-        {Lisp-Entry "last-evaluations-count" slot () #f 56 8 56 30 ()}
-        {Lisp-Entry "get-last-evaluations-count" accessor #f #f 56 60 56 68 ()}
-        {Lisp-Entry "set-last-evaluations-count" accessor #f #f 56 60 56 68 ()}
-        {Lisp-Entry "last-time" slot () #f 57 8 57 17 ()}
-        {Lisp-Entry "get-last-time" accessor #f #f 57 60 57 68 ()}
-        {Lisp-Entry "set-last-time" accessor #f #f 57 60 57 68 ()}
-        {Lisp-Entry "increase-last-evaluations-count" method () #f 60 11 60 42 ("last-evaluations-count" "increase!")}}
-      {Lisp-Entry "Default-Search-Depth" definition () #f 69 12 69 32 ("4")}
-      {Lisp-Entry "minimax" definition (public) #f 73 20 73 27 ("cast" "normalized-eval" "-1" "10000000" "evaluate-best" "evaluate" "900000" "*" "error" "/=" "when" "position-eval" "new-eval" "delta" "increase-last-evaluations-count" "increase-last-evaluations-count~" "depth" "fx" "<fx>" "min" "cdr" "key:" "sort" "subseq" "car" "map" "+" "nb" "all" "max-candidates" "iterate-moves" "token" "random-element" "reverse" "set-last-evaluations" "set-last-evaluations~" "set-last-eval" "set-last-eval~" "list" "not" "or" "and" "cond" "cons" "set!" "evaluate-move" "eval" "move" "lambda" "gather-candidates" "evals" "<" ">" "1" "=" "if" "best-test" "best-eval" "best" "best-move" "define" "Minimax-Statistics" "new" "statistics" "let" "Default-Search-Depth" "search-depth" "search-depth:" "0" "current-eval" "current-eval:" "evaluate-move-delta" "evaluate-position" "unplay" "play" "iterate-candidates" "me")}
-      {Lisp-Entry "minimax-interpreted?" definition (public) #f 160 20 160 40 ("jazz.sample.game.minimax" "unit-uptodate-binary?" "not" "or" "ai-unit")}
-      {Lisp-Entry "minimax-interpreted-warner" definition (public) #f 165 20 165 46 ("set!" "format" "system-message" "minimax-interpreted?" "not" "and" "when" "lambda" "warned?" "let" "title" "ai-unit")}
-      {Lisp-Entry "warn-minimax-interpreted" definition (public) #f 173 20 173 44 ("minimax-interpreted-warner" "title" "ai-unit")}}})
+    {Lisp-Entry "jazz.sample.game.minimax" module () () #f #f 37 8 37 32 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.platform")}
+      {Lisp-Entry "proclaim" proclaim () () #f #f 43 1 43 9 ("optimizations" "warn")}
+      {Lisp-Entry "Minimax-Statistics" class () ((extends . "Object")) #f #f 51 7 51 25 ("0" "Object")
+        {Lisp-Entry "last-eval" slot () ((initialize . "#f") (accessors . "generate")) #f #f 54 8 54 17 ()}
+        {Lisp-Entry "get-last-eval" accessor () () #f #f 54 60 54 68 ()}
+        {Lisp-Entry "set-last-eval" accessor () () #f #f 54 60 54 68 ()}
+        {Lisp-Entry "last-evaluations" slot () ((initialize . "#f") (accessors . "generate")) #f #f 55 8 55 24 ()}
+        {Lisp-Entry "get-last-evaluations" accessor () () #f #f 55 60 55 68 ()}
+        {Lisp-Entry "set-last-evaluations" accessor () () #f #f 55 60 55 68 ()}
+        {Lisp-Entry "last-evaluations-count" slot () ((initialize . "0") (accessors . "generate")) #f "<fx>" 56 8 56 30 ("fx" "<fx>")}
+        {Lisp-Entry "get-last-evaluations-count" accessor () () #f #f 56 60 56 68 ()}
+        {Lisp-Entry "set-last-evaluations-count" accessor () () #f #f 56 60 56 68 ()}
+        {Lisp-Entry "last-time" slot () ((initialize . "#f") (accessors . "generate")) #f #f 57 8 57 17 ()}
+        {Lisp-Entry "get-last-time" accessor () () #f #f 57 60 57 68 ()}
+        {Lisp-Entry "set-last-time" accessor () () #f #f 57 60 57 68 ()}
+        {Lisp-Entry "increase-last-evaluations-count" method () () #f #f 60 11 60 42 ("last-evaluations-count" "increase!")}}
+      {Lisp-Entry "Default-Search-Depth" definition () () #f #f 69 12 69 32 ("4")}
+      {Lisp-Entry "minimax" definition (public) ("me" "iterate-candidates" "play" "unplay" "evaluate-position" "evaluate-move-delta" "(current-eval: current-eval 0)" "(search-depth: search-depth Default-Search-Depth)") #f #f 73 20 73 27 ("cast" "normalized-eval" "-1" "10000000" "evaluate-best" "evaluate" "900000" "*" "error" "/=" "when" "position-eval" "new-eval" "delta" "increase-last-evaluations-count" "increase-last-evaluations-count~" "depth" "fx" "<fx>" "min" "cdr" "key:" "sort" "subseq" "car" "map" "+" "nb" "all" "max-candidates" "iterate-moves" "token" "random-element" "reverse" "set-last-evaluations" "set-last-evaluations~" "set-last-eval" "set-last-eval~" "list" "not" "or" "and" "cond" "cons" "set!" "evaluate-move" "eval" "move" "lambda" "gather-candidates" "evals" "<" ">" "1" "=" "if" "best-test" "best-eval" "best" "best-move" "define" "Minimax-Statistics" "new" "statistics" "let" "Default-Search-Depth" "search-depth" "search-depth:" "0" "current-eval" "current-eval:" "evaluate-move-delta" "evaluate-position" "unplay" "play" "iterate-candidates" "me")}
+      {Lisp-Entry "minimax-interpreted?" definition (public) ("ai-unit") #f #f 160 20 160 40 ("jazz.sample.game.minimax" "unit-uptodate-binary?" "not" "or" "ai-unit")}
+      {Lisp-Entry "minimax-interpreted-warner" definition (public) ("ai-unit" "title") #f #f 165 20 165 46 ("set!" "format" "system-message" "minimax-interpreted?" "not" "and" "when" "lambda" "warned?" "let" "title" "ai-unit")}
+      {Lisp-Entry "warn-minimax-interpreted" definition (public) ("ai-unit" "title") #f #f 173 20 173 44 ("minimax-interpreted-warner" "title" "ai-unit")}}})
