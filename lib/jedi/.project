@@ -14,7 +14,7 @@
 
 
 (form
-  (<Project>                 name: jedi             documentation: {File :context "doc" "jedi.jml"}
+  (<Project>                 name: jedi             documentation: {File :context "doc" "jedi.jml"} description-file: {File :context ".package"}
     (<Project-Directory>                            directory: {Directory :context "src"}
       (<Project-Directory>                          directory: {Directory :context "src" "jedi"}
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "application"}

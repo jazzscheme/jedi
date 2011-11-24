@@ -608,7 +608,7 @@
   ;;;
   
   
-  (method (extract-images dst)
+  (method (extract-images dst (remove-duplicates: remove-duplicates #t))
     (let ((src {Directory Jazz "lib" "jazz.resources" "resources" "images"}))
       (create-directories~ dst)
       (let ((digests '()))
@@ -618,7 +618,7 @@
                   (digest (digest-file (parse~ file) 'sha-1)))
               (user-feedback "Processing {a}..." name)
               (unless (or (ends-with? (get-base~ file) "_")
-                          (member? digest digests test: equal?))
+                          (and remove-duplicates (member? digest digests test: equal?)))
                 (set! digests (cons digest digests))
                 (copy-file~ file (new-file~ dst name))))))
         (let ((count (length digests)))
@@ -630,7 +630,12 @@
   ;;;
   
   
-  (method (generate-disabled image)
+  (method (generate-disabled image (debug?: debug? #f))
+    (define (convert cmd)
+      (if debug?
+          (debug-string (string-append "convert " cmd))
+        (image-convert cmd)))
+    
     (let ((directory (get-parent~ image))
           (name (get-name~ image))
           (base (get-base~ image))
@@ -641,8 +646,8 @@
           (lambda ()
             (unwind-protect
                 (begin
-                  (image-convert (format "-fx G {a} {a}" name grayscale))
-                  (image-convert (format "-channel alpha -fx u-0.6 {a} {a}" grayscale disabled)))
+                  (convert (format "-fx G {a} {a}" name grayscale))
+                  (convert (format "-channel alpha -fx u-0.6 {a} {a}" grayscale disabled)))
               (let ((grayscale (new-brother~ image grayscale)))
                 (when (exists?~ grayscale)
                   (delete-file~ grayscale)))))))))
