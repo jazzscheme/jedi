@@ -482,20 +482,6 @@
     (unless (exiting-process?)
       (update-search-actions)
       (update-project-actions)))
-  
-  
-  ;;;
-  ;;;; Results
-  ;;;
-  
-  
-  (method override (navigable-results)
-    (list
-      (get-guest~ (singleton-docked Search-Results #f))
-      @wait
-      (get-guest~ (singleton-docked Output-Log #f))
-      @wait
-      (get-guest~ (singleton-docked Violations-Manager #f))))
 
 
   ;;;
