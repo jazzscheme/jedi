@@ -44,7 +44,8 @@
                   (<Splitter-Preferences>                       location: first mode: relative division: 47.72079772079772 orientation: horz
                     (<Pad-Preferences>                          location: second
                       (<Docked-Preferences>                     location: selection model: {Reference Chapters-Browser})
-                      (<Docked-Preferences>                     location: #f model: {Reference Hierarchy-Browser}))
+                      (<Docked-Preferences>                     location: #f model: {Reference Hierarchy-Browser})
+                      (<Docked-Preferences>                     location: #f model: {Reference Problems-View}))
                     (<Pad-Preferences>                          location: first
                       (<Docked-Preferences>                     location: selection model: {Reference Workbench-Manager})
                       (<Docked-Preferences>                     location: #f model: {Reference Repositories-Manager})
@@ -69,7 +70,8 @@
                     (<Splitter-Preferences>                     location: second mode: relative division: 49.24242424242424 orientation: horz
                       (<Pad-Preferences>                        location: second
                         (<Docked-Preferences>                   location: selection model: {Reference Chapters-Browser})
-                        (<Docked-Preferences>                   location: #f model: {Reference Hierarchy-Browser}))
+                        (<Docked-Preferences>                   location: #f model: {Reference Hierarchy-Browser})
+                        (<Docked-Preferences>                   location: #f model: {Reference Problems-View}))
                       (<Pad-Preferences>                        location: first
                         (<Docked-Preferences>                   location: selection model: {Reference Workbench-Manager})
                         (<Docked-Preferences>                   location: #f model: {Reference Repositories-Manager})
