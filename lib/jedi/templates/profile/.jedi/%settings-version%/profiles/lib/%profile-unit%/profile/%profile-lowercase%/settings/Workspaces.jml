@@ -127,24 +127,28 @@
       (<Menubar-Preferences>                  name: menubar    location: root
         (<Mainbar-Preferences>                name: toolbar    location: second
           (<Status-Preferences>               name: status     location: second
-            (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 18 insets: {Rect 5 5 5 5}
-              (<Splitter-Preferences>                          location: first orientation: vert mode: relative division: 52
-                (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: 65
-                  (<Docked-Preferences>                        location: first model: {Reference Toolbox-Manager})
-                  (<Docked-Preferences>                        location: second model: {Reference Traits-Editor}))
-                (<Docked-Preferences>                          location: second model: {Reference Descendants-Manager}))
-              (<Splitter-Preferences>                          location: second orientation: horz division: -300
+            (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 19.947916666666668 insets: {Rect 5 5 5 5}
+              (<Splitter-Preferences>                          location: first orientation: vert mode: relative division: 51.37701804368471
+                (<Toolbox-Preferences>                         location: first model: {Reference Toolbox-Manager} title: "Jazz" icon: {Image-Resource "Toolbox"})
+                (<Pad-Preferences>                             location: second
+                  (<Docked-Preferences>                        location: #f model: {Reference Descendants-Manager})
+                  (<Docked-Preferences>                        location: #f model: {Reference Traits-Editor})
+                  (<Docked-Preferences>                        location: selection model: {Reference Chapters-Browser} icon: {Image-Resource "JemEditMapper"})))
+              (<Splitter-Preferences>                          location: second orientation: horz division: -365
                 (<Splitter-Preferences>                        location: first orientation: vert division: 58
-                  (<Splitter-Preferences>                      location: first orientation: horz division: 146
+                  (<Splitter-Preferences>                      location: first orientation: horz division: 369
                     (<Docked-Preferences>                      location: first model: {Reference Designer-Manager})
-                    (<Docked-Preferences>                      location: second model: {Reference Alignment-Editor}))
-                  (<Stage-Preferences>                         location: second))
-                (<Minibuffer-Preferences>                      location: second state: split
-                  (<Splitter-Preferences>                      location: first orientation: vert mode: relative division: -27
-                    (<Docked-Preferences>                      location: first model: {Reference Properties-Manager})
+                    (<Splitter-Preferences>                    location: second orientation: horz division: 309
+                      (<Docked-Preferences>                    location: first model: {Reference Alignment-Editor})
+                      (<Docked-Preferences>                    location: second model: {Reference Style-Editor})))
+                  (<Splitter-Preferences>                      location: second state: zoom target: first orientation: vert division: -269
                     (<Pad-Preferences>                         location: second
-                      (<Docked-Preferences>                    location: selection model: {Reference Lisp-Console-Manager})
-                      (<Docked-Preferences>                    location: #f model: {Reference Search-Results}))))))))))
+                      (<Docked-Preferences>                    location: #f model: {Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                    location: #f model: {Reference Search-Results})
+                      (<Docked-Preferences>                    location: selection model: {Reference Violations-Manager}))
+                    (<Stage-Preferences>                       location: first maximized?: #t)))
+                (<Minibuffer-Preferences>                      location: second state: split
+                  (<Docked-Preferences>                        location: first model: {Reference Properties-Containment}))))))))
     (<Workspace-Preferences>                  name: formatted  title: "Formatted" icon: {Image-Resource "ForegroundColor"} shortcut: {Shortcut :shift :alt #\T} frame-model: {Reference Plain-Formatted-Text-View}
       (<Menubar-Preferences>                  name: menubar    location: root
         (<Mainbar-Preferences>                name: toolbar    location: second
