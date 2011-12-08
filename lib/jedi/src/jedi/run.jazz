@@ -43,4 +43,4 @@
 
 (register-product-run 'jedi
   (lambda (descriptor)
-    (boot-environment~ (new Jedi)))))
+    (boot-environment~ (new Jedi-Application)))))

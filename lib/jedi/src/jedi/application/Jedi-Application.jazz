@@ -35,7 +35,7 @@
 ;;;  See www.jazzscheme.org for details.
 
 
-(module protected jedi.application.Jedi jazz
+(module protected jedi.application.Jedi-Application jazz
 
 
 (import (jazz.catalog)
@@ -67,7 +67,7 @@
         (jedi))
 
 
-(class Jedi extends IDE
+(class Jedi-Application extends IDE
   
   
   (slot documentation-cataloguer initialize #f)

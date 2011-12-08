@@ -39,7 +39,7 @@
 
 
 (export
-  (jedi.application.Jedi (autoload Jedi))
+  (jedi.application.Jedi-Application (autoload Jedi-Application))
   (jedi.application.Jedi-Menubar (autoload Jedi-Menubar))
   (jedi.application.Jedi-Status (autoload Jedi-Status))
   (jedi.application.Jedi-Toolbar (autoload Jedi-Toolbar))

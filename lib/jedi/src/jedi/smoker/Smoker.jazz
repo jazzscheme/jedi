@@ -41,7 +41,7 @@
 (import (jedi))
 
 
-(class Smoker extends Jedi
+(class Smoker extends Jedi-Application
   
   
   (method override (conclude-process)
