@@ -13,6 +13,8 @@
   (<Jazz-Project>   name: Jedi    default-traits: Safety.Release directory: {Directory :context "../.."} product: jedi
     (<Trait>        name: Safety
       (<install>)
+      (<Trait>      name: Core
+        (<install>                configuration: "build/core"))
       (<Trait>      name: Debug
         (<install>                configuration: "build/debug"))
       (<Trait>      name: Release
