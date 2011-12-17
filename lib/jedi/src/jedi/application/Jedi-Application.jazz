@@ -609,10 +609,10 @@
           (<Mainbar-Preferences>                name: toolbar    location: second
             (<Status-Preferences>               name: status     location: second
               (<Splitter-Preferences>           name: top        location: first orientation: vert mode: absolute division: 220 insets: {Rect 5 5 5 5}
-                (<Splitter-Preferences>                          location: first orientation: horz division: 693
-                  (<Splitter-Preferences>                        location: first orientation: horz division: 180
+                (<Splitter-Preferences>                          location: first orientation: horz mode: absolute division: 693
+                  (<Splitter-Preferences>                        location: first orientation: horz mode: absolute division: 180
                     (<Docked-Preferences>                        location: first model: {Class-Reference Processes-View})
-                    (<Splitter-Preferences>                      location: second orientation: horz division: 240
+                    (<Splitter-Preferences>                      location: second orientation: horz mode: absolute division: 240
                       (<Docked-Preferences>                      location: first model: {Class-Reference Threads-View})
                       (<Pad-Preferences>                         location: second
                         (<Docked-Preferences>                    location: selection model: {Class-Reference Frames-View})
@@ -685,9 +685,9 @@
                     (<Docked-Preferences>                        location: first model: {Class-Reference Toolbox-Manager})
                     (<Docked-Preferences>                        location: second model: {Class-Reference Traits-Editor}))
                   (<Docked-Preferences>                          location: second model: {Class-Reference Descendants-Manager}))
-                (<Splitter-Preferences>                          location: second orientation: horz division: -300
-                  (<Splitter-Preferences>                        location: first orientation: vert division: 58
-                    (<Splitter-Preferences>                      location: first orientation: horz division: 146
+                (<Splitter-Preferences>                          location: second orientation: horz mode: absolute division: -300
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: absolute division: 58
+                    (<Splitter-Preferences>                      location: first orientation: horz mode: absolute division: 146
                       (<Docked-Preferences>                      location: first model: {Class-Reference Designer-Manager})
                       (<Docked-Preferences>                      location: second model: {Class-Reference Alignment-Editor}))
                     (<Stage-Preferences>                         location: second))
@@ -712,6 +712,6 @@
                         (<Docked-Preferences>                    location: second model: {Class-Reference Hierarchy-Browser}))
                       (<Pad-Preferences>                         location: first
                         (<Docked-Preferences>                    location: selection model: {Class-Reference Workbench-Manager})))))
-                (<Splitter-Preferences>                          location: second division: 59 orientation: vert
+                (<Splitter-Preferences>                          location: second mode: absolute division: 59 orientation: vert
                   (<Docked-Preferences>                          location: first model: {Class-Reference Text-Palette})
                   (<Stage-Preferences>                           location: second)))))))))))
