@@ -173,10 +173,10 @@
       (<Separator-Item>)
       (<Label-Item>     name: configure        title: "Configure" icon: {Image-Resource "Configure"} action-handler: {Action ide configure-project})
       (<Separator-Item>)
-      (<Label-Item>     name: test             title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
-      (<Label-Item>     name: debug            title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
-      (<Label-Item>     name: debug-with       title: "Debug With..." action-handler: {Action ide debug-project-with})
       (<Label-Item>     name: run              title: "Run" icon: {Image-Resource "Link"} action-handler: {Action ide run-project})
+      (<Label-Item>     name: debug            title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
+      (<Label-Item>     name: test             title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
+      (<Label-Item>     name: validate         title: "Validate" icon: {Image-Resource "CheckedOut"} action-handler: {Action ide validate-project})
       (<Separator-Item>)
       (<Label-Item>     name: build            title: "Build" icon: {Image-Resource "Build"} action-handler: {Action ide build-project})
       @waiting
