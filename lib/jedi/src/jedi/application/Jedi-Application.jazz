@@ -180,7 +180,6 @@
                        (new-palette Jedi-Search
                                     host-title: "Search"
                                     host-visible?: #f
-                                    host-position: {Point 150 220}
                                     host-size: {Dimension 857 169}))
                      'search)))
       (get-guest~ palette)))

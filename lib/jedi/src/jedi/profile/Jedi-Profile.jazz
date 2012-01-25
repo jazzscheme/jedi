@@ -46,6 +46,7 @@
         (jazz.jml)
         (jazz.library)
         (jazz.library.component)
+        (jazz.log)
         (jazz.platform)
         (jazz.runtime)
         (jazz.system)
@@ -564,7 +565,7 @@
   
   
   @wait
-  (method (test)
+  (method override (test)
     (new-mandelbrot))
   
   
@@ -685,7 +686,7 @@
   
   
   @wait
-  (method (test8)
+  (method override (test8)
     (let ((expander (new Template-Expander))
           (template {File Builder-Unit "Templates" "Project.jazz"}))
       (call-with-output-file (path-settings {File Builder-Unit "Templates" "Test.jazz"})
@@ -700,12 +701,12 @@
   
   
   @wait
-  (method (test)
+  (method override (test)
     (test-taskbar))
   
   
   @wait
-  (method (test-shift)
+  (method override (test-shift)
     (test-remove-taskbar))
   
   
@@ -737,7 +738,7 @@
   
   
   @wait
-  (method (test)
+  (method override (test)
     (let ((x 1))
       (debug (tie "{x}~~Hello~{{self}"))))
   
@@ -748,12 +749,12 @@
   
   
   @wait
-  (method (test1)
+  (method override (test1)
     (format :console "{%}xxx{?abc~}yyy" #f))
   
   
   @wait
-  (method (test2)
+  (method override (test2)
     (format :console "{%}xxx{?ab{a}c~}yyy" 10))
   
   
@@ -763,22 +764,22 @@
     
   
   @wait
-  (method (test)
+  (method override (test)
     (debug (definition-value (category-field org.apache.bcel.classfile.JavaClass '<init>))))
 
   
   @wait
-  (method (test)
+  (method override (test)
     (debug (foo~ (new X) #f)))
   
   
   @wait
-  (method (test-shift)
+  (method override (test-shift)
     (debug (get-foo~ (new X))))
   
   
   @wait
-  (method (test1)
+  (method override (test1)
     (let* ((dispatcher (new Dispatcher))
            (dag-root (get-dag-root~ dispatcher)))
       (insert-node~ dispatcher #f (list X Y))
@@ -799,7 +800,7 @@
   
   
   @wait
-  (method (test2)
+  (method override (test2)
     (let* ((dispatcher (new Dispatcher))
            (dag-root (get-dag-root~ dispatcher)))
       (insert-node~ dispatcher #f (list Rect))
@@ -815,7 +816,7 @@
   
   
   @wait
-  (method (test2)
+  (method override (test2)
     (let* ((dispatcher (new Dispatcher))
            (dag-root (get-dag-root~ dispatcher)))
       (insert-node~ dispatcher #f (list))
@@ -901,7 +902,7 @@
   
   
   @wait
-  (method (test)
+  (method override (test)
     (test-for-each-page))
   
   
@@ -938,14 +939,14 @@
 
   
   @wait
-  (method (test2)
+  (method override (test2)
     (let* ((java (new Java-Runtime))
            (output (execute~ java "com/metascoop/Test" classpath: Java-Classpath :arguments "JazzStandaloneRelease.exe")))
       (message-box (join-lines output))))
   
   
   @wait
-  (method (test3)
+  (method override (test3)
     (let ((obj1 (new org.jazzscheme.test.Test))
            (obj2 (new org.jazzscheme.test.Test 8)))
       (debug (cj~ obj1 2))
@@ -1033,15 +1034,19 @@
   
   
   @wait
-  (method (test)
-    (with-log (new Log name: 'test file: {File Build "Logs" "Test.jml"})
+  (method override (test1)
+    (with-log (new Log name: 'test file: (timestamped-log "test"))
       (lambda ()
         (log-entry name: "hello")
-        (log-entry name: "world"))))
+        (with-node (log-entry name: "world")
+          (log-entry name: "foo")
+          (log-entry name: "bar"))
+        (log-properties (list :a 2 :b 3 :c 5) name: "test")
+        (debug (current-log)))))
   
   
   @wait
-  (method (test-shift)
+  (method override (test-shift)
     (foo 2))
   
   
@@ -1058,8 +1063,8 @@
   
   
   @wait
-  (method (test)
-    (with-log (new Log name: 'test file: {File Build "Logs" "Test.jml"})
+  (method override (test2)
+    (with-log (new Log name: 'test file: (timestamped-log "test"))
       (lambda ()
         (log-entry name: "hello")
         (log-entry name: "world")
@@ -1076,7 +1081,7 @@
   
   
   @wait
-  (method (test3)
+  (method override (test3)
     (gc)
     (test-resources))
   
@@ -1211,7 +1216,7 @@
   
   
   @wait
-  (method (test9)
+  (method override (test9)
     (gc-clear-undestroyed))
   
   
@@ -1221,17 +1226,17 @@
   
   
   @wait
-  (method (test1)
+  (method override (test1)
     (blend 255))
   
   
   @wait
-  (method (test2)
+  (method override (test2)
     (blend 100))
   
   
   @wait
-  (method (test3)
+  (method override (test3)
     (blend 30))
   
   
@@ -1279,12 +1284,12 @@
   
   
   @wait
-  (method (test)
+  (method override (test)
     (bar~ (new Foo)))
   
   
   @wait
-  (method (test-shift)
+  (method override (test-shift)
     (baz~ (new Foo)))
 
   
@@ -1342,14 +1347,14 @@
 
   
   @wait
-  (method (test)
+  (method override (test)
     (let* ((text "<TABLE colspan=2> aaaa </TABLE>")
            (parser (new XML-Parser text: text)))
       (debug (parse-text~ parser))))
   
   
   @wait
-  (method (test1)
+  (method override (test1)
     (log-entry name: "Test1")
     (let* ((text "start <A> blabla <B> </B> yoyo <C> </C> gousigousi </A> end")
            (parser (new XML-Parser text: text)))
@@ -1357,7 +1362,7 @@
   
   
   @wait
-  (method (test2)
+  (method override (test2)
     (let* ((file {File Jazz "Doc.jazz"})
            (text (with ((input (new File-Reader file))) (read-content-string input)))
            (parser (new XML-Parser text: text)))
@@ -1393,13 +1398,13 @@
 
   
   @wait
-  (method (test)
+  (method override (test)
     (let ((transfo (new My-Transfo handler: (new XML-Formatter))))
       (machin~ transfo '(a "B" "C") 1 2)))
   
   
   @test
-  (method (test1)
+  (method override (test1)
     (format :console "{t}"
      (expand-xsl-ruleset
        '(x y)
@@ -1415,7 +1420,7 @@
   
   
   @wait
-  (method (test0)
+  (method override (test0)
     (let ((f (new XML-Formatter :pretty #t indentation: 2)))
       (begin-element~ f "body")
       (begin-element~ f "h1")
@@ -1428,7 +1433,7 @@
   
 
   @test
-  (method (test1)
+  (method override (test1)
     (let ((processor (new XML-Formatter :pretty #f))
           (converter process-sxml))
        (converter
@@ -1441,7 +1446,7 @@
   
   
   @wait
-  (method (test0)
+  (method override (test0)
     (car 1))
   
   
@@ -1458,17 +1463,17 @@
   
   
   @wait
-  (method (test1)
+  (method override (test1)
     (cond (2 => debug)))
   
   
   @wait
-  (method (test)
+  (method override (test)
     (debug (lalr-parser (ID +))))
   
   
   @wait
-  (method (test)
+  (method override (test)
     (test~ CPS identity))
 
   
