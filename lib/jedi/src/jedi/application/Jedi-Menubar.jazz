@@ -100,10 +100,11 @@
       (<Label-Item>     name: repositories          title: "Repositories" icon: {Image-Resource "Repositories"} action-handler: {Action ide view-repositories})
       (<Label-Item>     name: favorites             title: "Favorites" icon: {Image-Resource "Favorites"} action-handler: {Action ide view-favorites})
       (<Separator-Item>)
-      (<Label-Item>     name: console               title: "Console" icon: {Image-Resource "Console"} action-handler: {Action ide view-console})
+      (<Label-Item>     name: console               title: "Consoles" icon: {Image-Resource "Console"} action-handler: {Action ide view-console})
       (<Label-Item>     name: properties            title: "Properties" icon: {Image-Resource "Properties"} action-handler: {Action ide view-properties})
-      (<Label-Item>     name: search-results        title: "Search Results" icon: {Image-Resource "Find"} action-handler: {Action ide view-search-results})
-      (<Label-Item>     name: profile-results       title: "Profile Results" icon: {Image-Resource "Constructor"} action-handler: {Action ide view-profile-results})
+      (<Label-Item>     name: search-results        title: "Searches" icon: {Image-Resource "Find"} action-handler: {Action ide view-search-results})
+      (<Label-Item>     name: profile-results       title: "Profiles" icon: {Image-Resource "Constructor"} action-handler: {Action ide view-profile-results})
+      (<Label-Item>     name: log-details           title: "Logs" icon: {Image-Resource "Script"} action-handler: {Action ide view-log-details})
       @waiting
       (<Label-Item>     name: output-log            title: "Output Log" icon: {Image-Resource "Spy"} action-handler: {Action ide view-output-log})
       @waiting
