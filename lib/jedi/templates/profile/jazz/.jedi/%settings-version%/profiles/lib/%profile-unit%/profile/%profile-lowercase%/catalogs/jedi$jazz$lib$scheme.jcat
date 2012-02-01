@@ -1,0 +1,354 @@
+"_dialect"
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "_dialect.scm"} 229929916. scheme
+    {Lisp-Entry "scheme.dialect" module (protected) () #f #f 37 18 37 32 ("core")
+      {Lisp-Entry "require" require () () #f #f 40 1 40 8 ("scheme.dialect.runtime" "scheme.dialect.runtime-classes" "scheme.dialect.dialect" "syntax" "phase" "scheme.dialect.classes" "core.module")}
+      {Lisp-Entry "export" export () () #f #f 47 1 47 7 ("scheme.dialect.kernel")}}})
+"_scheme"
+ ({Lisp-File-Entry {File :context "src" "scheme" "_scheme.scm"} 229929916. scheme
+    {Lisp-Entry "scheme" module () () #f #f 37 8 37 14 ("core")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("syntax" "phase" "scheme.dialect")}}})
+"_syntax-rules"
+ ({Lisp-File-Entry {File :context "src" "scheme" "syntax-rules" "_syntax-rules.scm"} 245649527. scheme
+    {Lisp-Entry "scheme.syntax-rules" module () () #f #f 37 8 37 27 ("scheme")
+      {Lisp-Entry "generate-symbol" native (private) () ("native") #f 40 16 40 36 ()}
+      {Lisp-Entry "source?" native (private) () ("native") #f 41 16 41 28 ()}
+      {Lisp-Entry "error" native (private) () ("native") #f 42 16 42 26 ()}
+      {Lisp-Entry "syntax-rules" define-macro (public) () #f #f 45 22 45 34 ("clause" ",_or" ",_er-macro-transformer" "res" ",many" ",_append" "=" "-" "d" "do" "many" ",ell-vars" ",_lambda" ",_map" "nest" "ell-vars" "ell-dim" "depth" ",t" ",_rename" "<=" "t" ">=" "cell" "f" "free" "free-vars" "source?" "syntactic-closure?" "caar" "id" "assoc-id" "ellipse-tail" "ellipse-depth" "ellipse-quote?" ",_strip-source-info" ",_equal?" ",_vector->list" ",_vector?" ",once" ",_pair?" ",_reverse" ",_null?" ",_if" "list" ",l" ",_cons" ",_lp" "_" ",w" ",_car" "once" "symbol->string" "ls-vars" "all-vars" "new-vars" "w" ",_list?" "error" "not" "ellipse?" "else" ",p" ",_quote" ",_compare" ",_and" "l" "cond" ",x" ",v" ",_let" "v" ",_begin" "expand-template" "k" "vars" "dim" ",_expr" ",_unwrap-syntactic-closure" ",_cdr" "p" "tmpl" "pat" "expand-pattern" "ls" "pred" "any" "number->string" "string-append" "1" "+" "set!" "next-v" "_compare" "_rename" "generate-symbol" "_expr" "list->vector" "_list->vector" "vector->list" "_vector->list" "reverse" "_reverse" "lp" "_lp" "list?" "_list?" "vector?" "_vector?" "map" "_map" "append" "_append" "apply" "_apply" "quote" "_quote" "null?" "_null?" "pair?" "_pair?" "cons" "_cons" "cdr" "_cdr" "car" "_car" "equal?" "_equal?" "eq?" "_eq?" "or" "_or" "and" "_and" "_if" "begin" "_begin" "let" "_let" "_lambda" "strip-syntactic-closures" "_strip-syntactic-closures" "strip-source-info" "_strip-source-info" "_unwrap-syntactic-closure" "er-macro-transformer" "_er-macro-transformer" "0" "count" "..." "ellipse" "cddr" "cdddr" "forms" "caddr" "if" "lits" "cadr" "identifier?" "srfi-46?" "unwrap-syntactic-closure" "let*" "identifier=?" "y" "compare" "make-syntactic-closure" "x" "rename" "define" "mac-env" "expr" "lambda" "rsc-macro-transformer")}}})
+"classes"
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "classes.scm"} 231466232. scheme
+    {Lisp-Entry "scheme.dialect.classes" unit (protected) () #f #f 37 16 37 38 ()
+      {Lisp-Entry "Define-Declaration" define-class () () ("class syntax") #f 45 19 45 42 ("%%set-define-declaration-value" "%%get-define-declaration-value" "value" "%%get-define-declaration-signature" "signature" "allocate-define-declaration" "jazz:allocate-define-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
+      {Lisp-Entry "Define-Special-Form-Declaration" define-class () () ("class syntax") #f 55 19 55 55 ("%%set-define-special-form-body" "%%get-define-special-form-body" "body" "%%set-define-special-form-signature" "%%get-define-special-form-signature" "signature" "allocate-define-special-form-declaration" "jazz:allocate-define-special-form-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
+      {Lisp-Entry "Define-Macro-Declaration" define-class () () ("class syntax") #f 65 19 65 48 ("%%set-define-macro-body" "%%get-define-macro-body" "body" "%%set-define-macro-signature" "%%get-define-macro-signature" "signature" "allocate-define-macro-declaration" "jazz:allocate-define-macro-declaration" "Object-Class" "jazz:Object-Class" "source" "locator" "parent" "toplevel" "attributes" "compatibility" "access" "hits" "type" "name" "Declaration" "jazz:Declaration")}
+      {Lisp-Entry "Scheme-Dialect" define-class () () ("class syntax") #f 75 19 75 38 ("allocate-scheme-dialect" "jazz:allocate-scheme-dialect" "Object-Class" "jazz:Object-Class" "bindings" "Dialect" "jazz:Dialect")}
+      {Lisp-Entry "Scheme-Walker" define-class () () ("class syntax") #f 84 19 84 37 ("allocate-scheme-walker" "jazz:allocate-scheme-walker" "Object-Class" "jazz:Object-Class" "autoloads" "references" "variables" "literals" "errors" "warnings" "Walker" "jazz:Walker")}}})
+"dialect"
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "dialect.scm"} 231466232. scheme
+    {Lisp-Entry "scheme.dialect.dialect" unit (protected) () #f #f 37 16 37 38 ("Scheme-Walker" "jazz:Scheme-Walker" "Scheme-Dialect" "jazz:Scheme-Dialect" "Define-Macro-Declaration" "jazz:Define-Macro-Declaration" "Define-Special-Form-Declaration" "jazz:Define-Special-Form-Declaration" "encapsulate-class" "jazz:encapsulate-class" "Define-Declaration" "jazz:Define-Declaration")
+      {Lisp-Entry "Define-Declaration" define-class () () ("class runtime") #f 45 27 45 50 ()}
+      {Lisp-Entry "new-define-declaration" define () ("name" "type" "parent" "signature") #f #f 48 9 48 36 ("setup-declaration" "jazz:setup-declaration" "uptodate" "private" "Define-Declaration" "jazz:Define-Declaration" "allocate-define-declaration" "jazz:allocate-define-declaration" "new-declaration" "let" "signature" "parent" "type" "name")}
+      {Lisp-Entry "walk-binding-validate-call" generic/specific () ("walker" "resume" "source-declaration" "operator" "arguments" "form-src") ("jazz:Define-Declaration") #f 55 21 55 52 ("validate-arguments" "jazz:validate-arguments" "if" "declaration" "%%get-define-declaration-signature" "signature" "let" "form-src" "arguments" "operator" "source-declaration" "resume" "walker")}
+      {Lisp-Entry "emit-declaration" generic/specific () ("environment") ("jazz:Define-Declaration") #f 61 21 61 42 ("%%get-declaration-source" "new-define" "jazz:new-define" "add-field" "jazz:add-field" ",name" "register-define" "jazz:register-define" "Module-Declaration" "jazz:Module-Declaration" "%%is?" "if" "%%get-declaration-parent" "parent" "%%get-lexical-binding-name" "name" "%%get-lexical-binding-type" "emit-expression" "jazz:emit-expression" "emit-type-cast" "jazz:emit-type-cast" ",locator" "define" "begin" "sourcify-if" "jazz:sourcify-if" "%%get-define-declaration-value" "value" "declaration" "%%get-declaration-locator" "locator" "let" "environment")}
+      {Lisp-Entry "emit-binding-reference" generic/specific () ("source-declaration" "environment") ("jazz:Define-Declaration") #f 76 21 76 48 ("Any" "jazz:Any" "declaration" "%%get-declaration-locator" "new-code" "jazz:new-code" "environment" "source-declaration")}
+      {Lisp-Entry "walk-binding-validate-assignment" generic/specific () ("walker" "resume" "source-declaration" "symbol-src") ("jazz:Define-Declaration") #f 83 21 83 58 ("%%get-lexical-binding-name" "walk-error" "jazz:walk-error" "%%get-declaration-toplevel" "%%neq?" "%%when" "declaration" "nextmethod" "symbol-src" "source-declaration" "resume" "walker")}
+      {Lisp-Entry "walk-binding-assignable?" generic/specific () () ("jazz:Define-Declaration") #f 89 21 89 50 ()}
+      {Lisp-Entry "emit-binding-assignment" generic/specific () ("value" "source-declaration" "environment") ("jazz:Define-Declaration") #f 93 21 93 49 ("Any" "jazz:Any" "emit-expression" "jazz:emit-expression" "sourcified-form" "jazz:sourcified-form" ",locator" "set!" "new-code" "jazz:new-code" "declaration" "%%get-declaration-locator" "locator" "let" "environment" "source-declaration" "value")}
+      {Lisp-Entry "fold-declaration" generic/specific () ("f" "k" "s") ("jazz:Define-Declaration") #f 101 21 101 42 ("%%get-define-declaration-value" "fold-statement" "jazz:fold-statement" "declaration" "s" "k" "f")}
+      {Lisp-Entry "tree-fold" generic/specific () ("down" "up" "here" "seed" "environment") ("jazz:Define-Declaration") #f 107 21 107 35 ("expression" "%%get-define-declaration-value" "tree-fold" "jazz:tree-fold" "environment" "seed" "here" "up" "down")}
+      {Lisp-Entry "Define-Special-Form-Declaration" define-class () () ("class runtime") #f 119 27 119 63 ()}
+      {Lisp-Entry "new-define-special-form-declaration" define () ("name" "type" "parent" "signature") #f #f 122 9 122 49 ("setup-declaration" "jazz:setup-declaration" "uptodate" "public" "Define-Special-Form-Declaration" "jazz:Define-Special-Form-Declaration" "allocate-define-special-form-declaration" "jazz:allocate-define-special-form-declaration" "new-declaration" "let" "signature" "parent" "type" "name")}
+      {Lisp-Entry "walk-binding-expandable?" generic/specific () () ("jazz:Define-Special-Form-Declaration") #f 128 21 128 50 ()}
+      {Lisp-Entry "walk-binding-expand-form" generic/specific () ("walker" "resume" "declaration" "environment" "form-src") ("jazz:Define-Special-Form-Declaration") #f 132 21 132 50 ("%%cdr" "%%apply" "need-macro" "jazz:need-macro" "expander" "load-unit" "jazz:load-unit" "%%get-declaration-parent" "parent-declaration" "walk-error" "jazz:walk-error" "%%get-declaration-toplevel" "%%eq?" "if" "binding" "%%get-declaration-locator" "locator" "%%desourcify" "form" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "emit-declaration" generic/specific () ("environment") ("jazz:Define-Special-Form-Declaration") #f 143 21 143 42 ("%%get-declaration-source" "emit-expression" "jazz:emit-expression" "sourcified-form" "jazz:sourcified-form" "emit-signature" "jazz:emit-signature" "%%cons" "define-special-form" "jazz:define-special-form" "sourcify-if" "jazz:sourcify-if" "cons" "augmented-environment" "frame" "lambda" "annotate-signature" "jazz:annotate-signature" "with-annotated-frame" "jazz:with-annotated-frame" "%%get-define-special-form-body" "body" "%%get-define-special-form-signature" "signature" "declaration" "%%get-declaration-locator" "locator" "let" "environment")}
+      {Lisp-Entry "fold-declaration" generic/specific () ("f" "k" "s") ("jazz:Define-Special-Form-Declaration") #f 156 21 156 42 ("%%get-define-special-form-body" "fold-statement" "jazz:fold-statement" "declaration" "s" "k" "f")}
+      {Lisp-Entry "Define-Macro-Declaration" define-class () () ("class runtime") #f 170 27 170 56 ()}
+      {Lisp-Entry "new-define-macro-declaration" define () ("name" "type" "parent" "signature") #f #f 173 9 173 42 ("setup-declaration" "jazz:setup-declaration" "uptodate" "public" "Define-Macro-Declaration" "jazz:Define-Macro-Declaration" "allocate-define-macro-declaration" "jazz:allocate-define-macro-declaration" "new-declaration" "let" "signature" "parent" "type" "name")}
+      {Lisp-Entry "walk-binding-expandable?" generic/specific () () ("jazz:Define-Macro-Declaration") #f 179 21 179 50 ()}
+      {Lisp-Entry "walk-binding-expand-form" generic/specific () ("walker" "resume" "declaration" "environment" "form-src") ("jazz:Define-Macro-Declaration") #f 183 21 183 50 ("%%cdr" "%%apply" "need-macro" "jazz:need-macro" "expander" "load-unit" "jazz:load-unit" "%%get-declaration-parent" "parent-declaration" "walk-error" "jazz:walk-error" "%%get-declaration-toplevel" "%%eq?" "if" "binding" "%%get-declaration-locator" "locator" "%%desourcify" "form" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "emit-declaration" generic/specific () ("environment") ("jazz:Define-Macro-Declaration") #f 194 21 194 42 ("%%get-declaration-source" "emit-expression" "jazz:emit-expression" "sourcified-form" "jazz:sourcified-form" "emit-signature" "jazz:emit-signature" "define-macro" "jazz:define-macro" "sourcify-if" "jazz:sourcify-if" "%%cons" "augmented-environment" "frame" "lambda" "annotate-signature" "jazz:annotate-signature" "with-annotated-frame" "jazz:with-annotated-frame" "%%get-define-macro-body" "body" "%%get-define-macro-signature" "signature" "declaration" "%%get-declaration-locator" "locator" "let" "environment")}
+      {Lisp-Entry "fold-declaration" generic/specific () ("f" "k" "s") ("jazz:Define-Macro-Declaration") #f 207 21 207 42 ("%%get-define-macro-body" "fold-statement" "jazz:fold-statement" "declaration" "s" "k" "f")}
+      {Lisp-Entry "Scheme-Dialect" define-class () () ("class runtime") #f 221 27 221 46 ()}
+      {Lisp-Entry "new-scheme-dialect" define () () #f #f 224 9 224 32 ("Scheme-Dialect" "jazz:Scheme-Dialect" "allocate-scheme-dialect" "jazz:allocate-scheme-dialect")}
+      {Lisp-Entry "dialect-name" generic/specific () () ("jazz:Scheme-Dialect") #f 228 21 228 38 ("scheme")}
+      {Lisp-Entry "dialect-walker" generic/specific () () ("jazz:Scheme-Dialect") #f 232 21 232 40 ("new-scheme-walker" "jazz:new-scheme-walker")}
+      {Lisp-Entry "Scheme-Walker" define-class () () ("class runtime") #f 244 27 244 45 ()}
+      {Lisp-Entry "new-scheme-walker" define () () #f #f 247 9 247 31 ("eq?" "test:" "%%make-table" "new-queue" "jazz:new-queue" "Scheme-Walker" "jazz:Scheme-Walker" "allocate-scheme-walker" "jazz:allocate-scheme-walker")}
+      {Lisp-Entry "runtime-export" generic/specific () ("declaration") ("jazz:Scheme-Walker") #f 251 21 251 40 ("%%get-declaration-locator" "Define-Declaration" "jazz:Define-Declaration" "%%is?" "if" "walker" "nextmethod" "or" "declaration")}
+      {Lisp-Entry "walk-declaration" generic/specific () ("resume" "declaration" "environment" "form-src") ("jazz:Scheme-Walker") #f 263 21 263 42 ("nextmethod" "else" "walk-define-macro-declaration" "jazz:walk-define-macro-declaration" "define-macro" "walker" "walk-define-declaration" "jazz:walk-define-declaration" "define" "case" "%%car" "first" "let" "source-code" "jazz:source-code" "%%pair?" "if" "form-src" "environment" "declaration" "resume")}
+      {Lisp-Entry "walker-bindings" generic/specific () () ("jazz:Scheme-Walker") #f 278 21 278 41 ("walker" "nextmethod" "scheme" "get-dialect" "jazz:get-dialect" "%%get-dialect-bindings" "append")}
+      {Lisp-Entry "walk-define-declaration" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 288 9 288 37 ("add-declaration-child" "jazz:add-declaration-child" "effective-declaration" "%%set-declaration-source" "new-define-declaration" "jazz:new-define-declaration" "find-child-declaration" "jazz:find-child-declaration" "or" "new-declaration" "walk-parameters" "jazz:walk-parameters" "and" "signature" "Any" "jazz:Any" "walk-specifier" "jazz:walk-specifier" "if" "type" "let" "Namespace-Declaration" "jazz:Namespace-Declaration" "%%class-is?" "%%assert" "source-code" "jazz:source-code" "%%cdr" "parse-define" "jazz:parse-define" "parameters" "value" "specifier" "name" "receive" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-define" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 300 9 300 25 ("%%set-declaration-source" "walk" "jazz:walk" "%%set-define-declaration-value" "%%cons" "new-environment" "require-declaration" "jazz:require-declaration" "new-declaration" "let*" "Namespace-Declaration" "jazz:Namespace-Declaration" "%%class-is?" "%%assert" "source-code" "jazz:source-code" "%%cdr" "parse-define" "jazz:parse-define" "parameters" "value" "specifier" "name" "receive" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "parse-define-special-form" define () ("walker" "resume" "declaration" "rest") #f #f 315 9 315 39 ("values" "parameters" "Any" "jazz:Any" "type" "name" "%%cdr" "body" "%%car" "%%desourcify" "signature" "let*" "rest" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-define-special-form-declaration" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 324 9 324 50 ("add-declaration-child" "jazz:add-declaration-child" "effective-declaration" "%%set-declaration-source" "new-define-special-form-declaration" "jazz:new-define-special-form-declaration" "find-child-declaration" "jazz:find-child-declaration" "or" "new-declaration" "walk-parameters" "jazz:walk-parameters" "signature" "let" "source-code" "jazz:source-code" "%%cdr" "parse-define-special-form" "jazz:parse-define-special-form" "body" "parameters" "type" "name" "receive" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-define-special-form" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 334 9 334 38 ("%%set-declaration-source" "walk-body" "jazz:walk-body" "%%set-define-special-form-body" "%%set-define-special-form-signature" "walk-parameters" "jazz:walk-parameters" "augmented-environment" "signature" "require-declaration" "jazz:require-declaration" "new-declaration" "let*" "source-code" "jazz:source-code" "%%cdr" "parse-define-special-form" "jazz:parse-define-special-form" "body" "parameters" "type" "name" "receive" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "parse-define-macro" define () ("walker" "resume" "declaration" "rest") #f #f 350 9 350 32 ("values" "parameters" "Any" "jazz:Any" "type" "name" "body" "%%car" "%%desourcify" "signature" "let*" "walk-error" "jazz:walk-error" "%%cdr" "%%not-null?" "and" "%%assertion" "rest" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-define-macro-declaration" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 360 9 360 43 ("add-declaration-child" "jazz:add-declaration-child" "effective-declaration" "%%set-declaration-source" "new-define-macro-declaration" "jazz:new-define-macro-declaration" "find-child-declaration" "jazz:find-child-declaration" "or" "new-declaration" "walk-parameters" "jazz:walk-parameters" "signature" "let" "source-code" "jazz:source-code" "%%cdr" "parse-define-macro" "jazz:parse-define-macro" "body" "parameters" "type" "name" "receive" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-define-macro" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 370 9 370 31 ("%%set-declaration-source" "walk-body" "jazz:walk-body" "%%set-define-macro-body" "%%set-define-macro-signature" "walk-parameters" "jazz:walk-parameters" "augmented-environment" "signature" "require-declaration" "jazz:require-declaration" "new-declaration" "let*" "source-code" "jazz:source-code" "%%cdr" "parse-define-macro" "jazz:parse-define-macro" "body" "parameters" "type" "name" "receive" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-let-macro" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 386 9 386 28 ("walk-body" "jazz:walk-body" "begin" "%%append" "new-environment" "eval" "new-macro-form" "jazz:new-macro-form" "expander" "%%car" "name" "binding" "lambda" "map" "macro-forms" "%%cddr" "body" "%%cadr" "bindings" "let*" "%%desourcify" "form" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-let-symbol" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 405 9 405 29 ("walk-body" "jazz:walk-body" "begin" "%%append" "new-environment" "eval" "new-macro-symbol" "jazz:new-macro-symbol" "setter" "getter" "%%car" "name" "binding" "lambda" "map" "macro-symbols" "%%cddr" "body" "%%cadr" "bindings" "let*" "%%desourcify" "form" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-lambda" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 425 9 425 25 ("walk-body" "jazz:walk-body" "new-lambda" "jazz:new-lambda" "unspecified" "%%list" "%%null?" "effective-body" "Any" "jazz:Any" "walk-specifier" "jazz:walk-specifier" "if" "type" "walk-parameters" "jazz:walk-parameters" "augmented-environment" "signature" "receive" "body" "specifier" "lambda" "%%cddr" "parse-specifier" "jazz:parse-specifier" "%%cadr" "%%desourcify" "parameters" "let" "walk-error" "jazz:walk-error" "source-code" "jazz:source-code" "%%cdr" "%%not-null?" "%%assertion" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "parse-binding" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 442 9 442 27 ("new-variable" "jazz:new-variable" "values" "value" "walk-specifier" "jazz:walk-specifier" "if" "type" "rest" "specifier" "lambda" "parse-specifier" "jazz:parse-specifier" "%%car" "symbol" "let" "%%desourcify" "walk-error" "jazz:walk-error" "%%cdr" "source-code" "jazz:source-code" "%%pair?" "and" "%%assertion" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-let" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 452 9 452 22 ("walk-body" "jazz:walk-body" "queue-list" "jazz:queue-list" "new-let" "jazz:new-let" "set!" "walk" "jazz:walk" "%%cons" "enqueue" "jazz:enqueue" "parse-binding" "jazz:parse-binding" "value" "variable" "receive" "continuation-capture" "binding-form" "lambda" "for-each" "new-queue" "jazz:new-queue" "expanded-bindings" "augmented-environment" "unspecified" "%%list" "effective-body" "%%null?" "or" "signature-named-let" "jazz:signature-named-let" "%%car" "%%pair?" "and" "source-code" "jazz:source-code" "%%cddr" "body" "bindings" "bindings-src" "let*" "walk-named-let" "jazz:walk-named-let" "%%cadr" "%%symbol?" "if" "walk-error" "jazz:walk-error" "%%cdr" "%%not-null?" "%%assertion" "unwrap-syntactic-closure" "unwrapped" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-letstar" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 478 9 478 26 ("walk-body" "jazz:walk-body" "queue-list" "jazz:queue-list" "new-letstar" "jazz:new-letstar" "set!" "walk" "jazz:walk" "%%cons" "enqueue" "jazz:enqueue" "parse-binding" "jazz:parse-binding" "value" "variable" "receive" "continuation-capture" "binding-form" "lambda" "for-each" "new-queue" "jazz:new-queue" "expanded-bindings" "augmented-environment" "source-code" "jazz:source-code" "%%cddr" "body" "%%cadr" "bindings" "let" "walk-error" "jazz:walk-error" "unwrap-syntactic-closure" "%%cdr" "%%not-null?" "%%assertion" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-letrec" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 496 9 496 25 ("walk-body" "jazz:walk-body" "queue-list" "jazz:queue-list" "new-letrec" "jazz:new-letrec" "walk" "jazz:walk" "%%cons" "enqueue" "jazz:enqueue" "value" "continuation-capture" "variable" "for-each" "new-queue" "jazz:new-queue" "expanded-bindings" "%%append" "augmented-environment" "%%car" "new-variable" "jazz:new-variable" "binding-form" "lambda" "map" "new-variables" "let*" "source-code" "jazz:source-code" "%%cddr" "body" "%%cadr" "bindings" "let" "walk-error" "jazz:walk-error" "unwrap-syntactic-closure" "%%cdr" "%%not-null?" "%%assertion" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-receive" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 515 9 515 26 ("walk-body" "jazz:walk-body" "walk" "jazz:walk" "continuation-capture" "new-receive" "jazz:new-receive" "%%append" "new-environment" "variables" "source-code" "jazz:source-code" "body" "%%cddr" "expression" "%%cadr" "%%desourcify" "let*" "walk-error" "jazz:walk-error" "unwrap-syntactic-closure" "%%not-null?" "%%assertion" "new-variable" "jazz:new-variable" "enqueue" "jazz:enqueue" "Any" "jazz:Any" "walk-specifier" "jazz:walk-specifier" "type" "rest" "specifier" "lambda" "%%cdr" "parse-specifier" "jazz:parse-specifier" "%%symbol?" "%%assert" "%%car" "expr" "queue-list" "jazz:queue-list" "%%null?" "if" "scan" "iter" "new-queue" "jazz:new-queue" "queue" "let" "parameters" "walk-parameters" "define" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-if" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 546 9 546 21 ("unspecified" "%%null?" "begin" "%%cons" "walk" "jazz:walk" "lambda" "continuation-capture" "new-if" "jazz:new-if" "%%cdr" "no" "%%cddr" "%%car" "yes" "%%cadr" "test" "let" "%%desourcify" "walk-error" "jazz:walk-error" "3" "source-code" "jazz:source-code" "%%length" "%%fx<" "if" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-cond" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 566 9 566 23 ("queue-list" "jazz:queue-list" "new-cond" "jazz:new-cond" "walk-implicit-begin" "jazz:walk-implicit-begin" "else" "%%cadr" "walk" "jazz:walk" "%%cons" "=>" "unwrap-syntactic-closure" "%%eq?" "%%not-null?" "and" "if" "enqueue" "jazz:enqueue" "continuation-capture" "body" "%%car" "test" "%%desourcify" "walk-error" "jazz:walk-error" "%%pair?" "%%assertion" "clause" "lambda" "for-each" "new-queue" "jazz:new-queue" "expanded-clauses" "source-code" "jazz:source-code" "%%cdr" "clauses" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-case" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 587 9 587 23 ("walk-implicit-begin" "jazz:walk-implicit-begin" "%%cons" "else" "unwrap-syntactic-closure" "%%eq?" "or" "unspecified" "%%list" "%%null?" "if" "effective-body" "%%cdr" "body" "tries" "%%car" "tries-src" "let*" "%%desourcify" "walk-error" "jazz:walk-error" "%%pair?" "%%assertion" "clause" "map" "walk" "jazz:walk" "lambda" "continuation-capture" "new-case" "jazz:new-case" "%%cddr" "clauses" "source-code" "jazz:source-code" "%%cadr" "target" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-and" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 608 9 608 22 ("source-code" "jazz:source-code" "%%cdr" "walk-list" "jazz:walk-list" "new-and" "jazz:new-and" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-or" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 612 9 612 21 ("source-code" "jazz:source-code" "%%cdr" "walk-list" "jazz:walk-list" "new-or" "jazz:new-or" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-begin" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 621 9 621 24 ("walk-list" "jazz:walk-list" "new-begin" "jazz:new-begin" "source-code" "jazz:source-code" "%%cdr" "body" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-implicit-begin" define () ("walker" "resume" "declaration" "environment" "form-src" "form-list") #f #f 626 9 626 33 ("walk-list" "jazz:walk-list" "new-begin" "jazz:new-begin" "unspecified" "walk" "jazz:walk" "%%null?" "if" "form-list" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-do" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 637 9 637 21 ("walk-body" "jazz:walk-body" "queue-list" "jazz:queue-list" "new-do" "jazz:new-do" "%%cons" "enqueue" "jazz:enqueue" "%%null?" "if" "step" "walk" "jazz:walk" "init" "continuation-capture" "variable" "for-each" "new-queue" "jazz:new-queue" "expanded-bindings" "%%append" "augmented-environment" "new-variable" "jazz:new-variable" "binding-form" "lambda" "map" "new-variables" "let*" "body" "%%cdr" "result" "%%cddr" "%%car" "test" "%%cadr" "source-code" "jazz:source-code" "bindings" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-named-let" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 663 9 663 28 ("walk-body" "jazz:walk-body" "queue-list" "jazz:queue-list" "new-named-let" "jazz:new-named-let" "new-variable" "jazz:new-variable" "set!" "walk" "jazz:walk" "%%cons" "enqueue" "jazz:enqueue" "parse-binding" "jazz:parse-binding" "value" "variable" "receive" "continuation-capture" "binding-form" "lambda" "for-each" "new-queue" "jazz:new-queue" "expanded-bindings" "augmented-environment" "%%cdr" "body" "%%cddr" "%%car" "%%desourcify" "bindings" "%%cadr" "source-code" "jazz:source-code" "name" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "signature-named-let" define () ("walker" "resume" "declaration" "environment" "form-src" "bindings" "body") #f #f 683 9 683 33 (",@body" ",bindings" ",name" "sourcify-if" "jazz:sourcify-if" "walk-named-let" "jazz:walk-named-let" "%%cdr" "%%car" "source-code" "jazz:source-code" "name" "let" "body" "bindings" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-delay" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 698 9 698 24 ("walk" "jazz:walk" "new-delay" "jazz:new-delay" "source-code" "jazz:source-code" "%%cadr" "expression" "let" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "walk-quasiquote" define () ("walker" "resume" "declaration" "environment" "form-src") #f #f 708 9 708 29 ("new-quasiquote" "jazz:new-quasiquote" "%%cdr" "%%cons" "%%cadr" "jazz:walk" "%%list" "unquote-splicing" "unquote" "%%eq?" "or" "%%car" "first" "let" "source-code" "jazz:source-code" "%%pair?" "if" "walk" "define" "form-src" "environment" "declaration" "resume" "walker")}
+      {Lisp-Entry "scheme" define () () ("dialect") #f 729 21 729 27 ("new-scheme-dialect" "jazz:new-scheme-dialect")}
+      {Lisp-Entry "define" define () () ("special") #f 733 28 733 34 ("walk-define" "jazz:walk-define" "scheme")}
+      {Lisp-Entry "define-macro" define () () ("special") #f 734 28 734 40 ("walk-define-macro" "jazz:walk-define-macro" "scheme")}
+      {Lisp-Entry "define-special-form" define () () ("special") #f 735 28 735 47 ("walk-define-special-form" "jazz:walk-define-special-form" "scheme")}
+      {Lisp-Entry "quote" define () () ("special") #f 736 28 736 33 ("walk-quote" "jazz:walk-quote" "scheme")}
+      {Lisp-Entry "if" define () () ("special") #f 737 28 737 30 ("walk-if" "jazz:walk-if" "scheme")}
+      {Lisp-Entry "case" define () () ("special") #f 738 28 738 32 ("walk-case" "jazz:walk-case" "scheme")}
+      {Lisp-Entry "cond" define () () ("special") #f 739 28 739 32 ("walk-cond" "jazz:walk-cond" "scheme")}
+      {Lisp-Entry "begin" define () () ("special") #f 740 28 740 33 ("walk-begin" "jazz:walk-begin" "scheme")}
+      {Lisp-Entry "lambda" define () () ("special") #f 741 28 741 34 ("walk-lambda" "jazz:walk-lambda" "scheme")}
+      {Lisp-Entry "let" define () () ("special") #f 742 28 742 31 ("walk-let" "jazz:walk-let" "scheme")}
+      {Lisp-Entry "let*" define () () ("special") #f 743 28 743 32 ("walk-letstar" "jazz:walk-letstar" "scheme")}
+      {Lisp-Entry "letrec" define () () ("special") #f 744 28 744 34 ("walk-letrec" "jazz:walk-letrec" "scheme")}
+      {Lisp-Entry "let-macro" define () () ("special") #f 745 28 745 37 ("walk-let-macro" "jazz:walk-let-macro" "scheme")}
+      {Lisp-Entry "let-symbol" define () () ("special") #f 746 28 746 38 ("walk-let-symbol" "jazz:walk-let-symbol" "scheme")}
+      {Lisp-Entry "receive" define () () ("special") #f 747 28 747 35 ("walk-receive" "jazz:walk-receive" "scheme")}
+      {Lisp-Entry "set!" define () () ("special") #f 748 28 748 32 ("walk-setbang" "jazz:walk-setbang" "scheme")}
+      {Lisp-Entry "and" define () () ("special") #f 749 28 749 31 ("walk-and" "jazz:walk-and" "scheme")}
+      {Lisp-Entry "or" define () () ("special") #f 750 28 750 30 ("walk-or" "jazz:walk-or" "scheme")}
+      {Lisp-Entry "do" define () () ("special") #f 751 28 751 30 ("walk-do" "jazz:walk-do" "scheme")}
+      {Lisp-Entry "delay" define () () ("special") #f 752 28 752 33 ("walk-delay" "jazz:walk-delay" "scheme")}
+      {Lisp-Entry "quasiquote" define () () ("special") #f 753 28 753 38 ("walk-quasiquote" "jazz:walk-quasiquote" "scheme")}}})
+"kernel"
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "kernel.scm"} 246587394. scheme
+    {Lisp-Entry "scheme.dialect.kernel" module (protected) () #f #f 37 18 37 39 ("core")
+      {Lisp-Entry "eq?" native () () ("native") "<object^object:bool>" 55 8 55 11 ("object^object:bool" "<object^object:bool>")}
+      {Lisp-Entry "eqv?" native () () ("native") "<object^object:bool>" 56 8 56 12 ("object^object:bool" "<object^object:bool>")}
+      {Lisp-Entry "equal?" native () () ("native") "<object^object:bool>" 57 8 57 14 ("object^object:bool" "<object^object:bool>")}
+      {Lisp-Entry "number?" native () () ("native") "<object:bool>" 70 8 70 15 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "complex?" native () () ("native") "<object:bool>" 71 8 71 16 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "real?" native () () ("native") "<object:bool>" 72 8 72 13 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "rational?" native () () ("native") "<object:bool>" 73 8 73 17 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "integer?" native () () ("native") "<object:bool>" 74 8 74 16 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "exact?" native () () ("native") "<object:bool>" 75 8 75 14 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "inexact?" native () () ("native") "<object:bool>" 76 8 76 16 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "=" native () () ("native") "<number*:bool>" 77 8 77 9 ("number*:bool" "<number*:bool>")}
+      {Lisp-Entry "<" native () () ("native") "<number*:bool>" 78 8 78 9 ("number*:bool" "<number*:bool>")}
+      {Lisp-Entry ">" native () () ("native") "<number*:bool>" 79 8 79 9 ("number*:bool" "<number*:bool>")}
+      {Lisp-Entry "<=" native () () ("native") "<number*:bool>" 80 8 80 10 ("number*:bool" "<number*:bool>")}
+      {Lisp-Entry ">=" native () () ("native") "<number*:bool>" 81 8 81 10 ("number*:bool" "<number*:bool>")}
+      {Lisp-Entry "zero?" native () () ("native") "<object:bool>" 82 8 82 13 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "positive?" native () () ("native") "<object:bool>" 83 8 83 17 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "negative?" native () () ("native") "<object:bool>" 84 8 84 17 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "odd?" native () () ("native") "<object:bool>" 85 8 85 12 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "even?" native () () ("native") "<object:bool>" 86 8 86 13 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "max" native () () ("native") "<number*:number>" 87 8 87 11 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "min" native () () ("native") "<number*:number>" 88 8 88 11 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "+" native () () ("native") "<number*:number>" 89 8 89 9 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "*" native () () ("native") "<number*:number>" 90 8 90 9 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "-" native () () ("native") "<number*:number>" 91 8 91 9 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "/" native () () ("native") "<number*:number>" 92 8 92 9 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "abs" native () () ("native") "<number:number>" 93 8 93 11 ("number:number" "<number:number>")}
+      {Lisp-Entry "quotient" native () () ("native") "<number^number:number>" 94 8 94 16 ("number^number:number" "<number^number:number>")}
+      {Lisp-Entry "remainder" native () () ("native") "<number^number:number>" 95 8 95 17 ("number^number:number" "<number^number:number>")}
+      {Lisp-Entry "modulo" native () () ("native") "<number^number:number>" 96 8 96 14 ("number^number:number" "<number^number:number>")}
+      {Lisp-Entry "gcd" native () () ("native") "<number*:number>" 97 8 97 11 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "lcm" native () () ("native") "<number*:number>" 98 8 98 11 ("number*:number" "<number*:number>")}
+      {Lisp-Entry "numerator" native () () ("native") "<rational:number>" 99 8 99 17 ("rational:number" "<rational:number>")}
+      {Lisp-Entry "denominator" native () () ("native") "<rational:number>" 100 8 100 19 ("rational:number" "<rational:number>")}
+      {Lisp-Entry "floor" native () () ("native") "<real:real>" 101 8 101 13 ("real:real" "<real:real>")}
+      {Lisp-Entry "ceiling" native () () ("native") "<real:real>" 102 8 102 15 ("real:real" "<real:real>")}
+      {Lisp-Entry "truncate" native () () ("native") "<real:real>" 103 8 103 16 ("real:real" "<real:real>")}
+      {Lisp-Entry "round" native () () ("native") "<real:real>" 104 8 104 13 ("real:real" "<real:real>")}
+      {Lisp-Entry "rationalize" native () () ("native") "<number^number:number>" 105 8 105 19 ("number^number:number" "<number^number:number>")}
+      {Lisp-Entry "exp" native () () ("native") "<number:number>" 106 8 106 11 ("number:number" "<number:number>")}
+      {Lisp-Entry "log" native () () ("native") "<number:number>" 107 8 107 11 ("number:number" "<number:number>")}
+      {Lisp-Entry "sin" native () () ("native") "<number:fl>" 108 8 108 11 ("number:fl" "<number:fl>")}
+      {Lisp-Entry "cos" native () () ("native") "<number:fl>" 109 8 109 11 ("number:fl" "<number:fl>")}
+      {Lisp-Entry "tan" native () () ("native") "<number:number>" 110 8 110 11 ("number:number" "<number:number>")}
+      {Lisp-Entry "asin" native () () ("native") "<number:number>" 111 8 111 12 ("number:number" "<number:number>")}
+      {Lisp-Entry "acos" native () () ("native") "<number:number>" 112 8 112 12 ("number:number" "<number:number>")}
+      {Lisp-Entry "atan" native () () ("native") "<number^opt<number>:number>" 113 8 113 12 ("number^opt<number>:number" "<number^opt<number>:number>")}
+      {Lisp-Entry "sqrt" native () () ("native") "<number:number>" 114 8 114 12 ("number:number" "<number:number>")}
+      {Lisp-Entry "expt" native () () ("native") "<number^number:number>" 115 8 115 12 ("number^number:number" "<number^number:number>")}
+      {Lisp-Entry "make-rectangular" native () () ("native") "<number^number:number>" 116 8 116 24 ("number^number:number" "<number^number:number>")}
+      {Lisp-Entry "make-polar" native () () ("native") "<number^number:number>" 117 8 117 18 ("number^number:number" "<number^number:number>")}
+      {Lisp-Entry "real-part" native () () ("native") "<number:number>" 118 8 118 17 ("number:number" "<number:number>")}
+      {Lisp-Entry "imag-part" native () () ("native") "<number:number>" 119 8 119 17 ("number:number" "<number:number>")}
+      {Lisp-Entry "magnitude" native () () ("native") "<number:number>" 120 8 120 17 ("number:number" "<number:number>")}
+      {Lisp-Entry "angle" native () () ("native") "<number:number>" 121 8 121 13 ("number:number" "<number:number>")}
+      {Lisp-Entry "exact->inexact" native () () ("native") "<number:number>" 122 8 122 22 ("number:number" "<number:number>")}
+      {Lisp-Entry "inexact->exact" native () () ("native") "<number:number>" 123 8 123 22 ("number:number" "<number:number>")}
+      {Lisp-Entry "number->string" native () () ("native") "<number:string>" 131 8 131 22 ("number:string" "<number:string>")}
+      {Lisp-Entry "string->number" native () () ("native") "<string:number>" 132 8 132 22 ("string:number" "<string:number>")}
+      {Lisp-Entry "not" native () () ("native") "<object:bool>" 145 8 145 11 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "boolean?" native () () ("native") "<object:bool>" 146 8 146 16 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "pair?" native () () ("native") "<object:bool>" 154 8 154 13 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "cons" native () () ("native") "<object^object:pair>" 155 8 155 12 ("object^object:pair" "<object^object:pair>")}
+      {Lisp-Entry "car" native () () ("native") "<pair:object>" 156 8 156 11 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdr" native () () ("native") "<pair:object>" 157 8 157 11 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "set-car!" native () () ("native") "<pair:void>" 158 8 158 16 ("pair:void" "<pair:void>")}
+      {Lisp-Entry "set-cdr!" native () () ("native") "<pair:void>" 159 8 159 16 ("pair:void" "<pair:void>")}
+      {Lisp-Entry "caar" native () () ("native") "<pair:object>" 160 8 160 12 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cadr" native () () ("native") "<pair:object>" 161 8 161 12 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdar" native () () ("native") "<pair:object>" 162 8 162 12 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cddr" native () () ("native") "<pair:object>" 163 8 163 12 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caaar" native () () ("native") "<pair:object>" 164 8 164 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caadr" native () () ("native") "<pair:object>" 165 8 165 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cadar" native () () ("native") "<pair:object>" 166 8 166 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caddr" native () () ("native") "<pair:object>" 167 8 167 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdaar" native () () ("native") "<pair:object>" 168 8 168 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdadr" native () () ("native") "<pair:object>" 169 8 169 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cddar" native () () ("native") "<pair:object>" 170 8 170 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdddr" native () () ("native") "<pair:object>" 171 8 171 13 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caaaar" native () () ("native") "<pair:object>" 172 8 172 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caaadr" native () () ("native") "<pair:object>" 173 8 173 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caadar" native () () ("native") "<pair:object>" 174 8 174 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caaddr" native () () ("native") "<pair:object>" 175 8 175 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cadaar" native () () ("native") "<pair:object>" 176 8 176 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cadadr" native () () ("native") "<pair:object>" 177 8 177 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "caddar" native () () ("native") "<pair:object>" 178 8 178 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cadddr" native () () ("native") "<pair:object>" 179 8 179 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdaaar" native () () ("native") "<pair:object>" 180 8 180 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdaadr" native () () ("native") "<pair:object>" 181 8 181 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdadar" native () () ("native") "<pair:object>" 182 8 182 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdaddr" native () () ("native") "<pair:object>" 183 8 183 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cddaar" native () () ("native") "<pair:object>" 184 8 184 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cddadr" native () () ("native") "<pair:object>" 185 8 185 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cdddar" native () () ("native") "<pair:object>" 186 8 186 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "cddddr" native () () ("native") "<pair:object>" 187 8 187 14 ("pair:object" "<pair:object>")}
+      {Lisp-Entry "null?" native () () ("native") "<object:bool>" 188 8 188 13 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "list?" native () () ("native") "<object:bool>" 189 8 189 13 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "list" native () () ("native") "<object*:list>" 190 8 190 12 ("object*:list" "<object*:list>")}
+      {Lisp-Entry "length" native () () ("native") "<list:int>" 191 8 191 14 ("list:int" "<list:int>")}
+      {Lisp-Entry "append" native () () ("native") "<list*:list>" 192 8 192 14 ("list*:list" "<list*:list>")}
+      {Lisp-Entry "reverse" native () () ("native") "<list:list>" 193 8 193 15 ("list:list" "<list:list>")}
+      {Lisp-Entry "list-tail" native () () ("native") "<list^int:list>" 194 8 194 17 ("list^int:list" "<list^int:list>")}
+      {Lisp-Entry "list-ref" native () () ("native") "<list^int:object>" 195 8 195 16 ("list^int:object" "<list^int:object>")}
+      {Lisp-Entry "memq" native () () ("native") "<object^list:list+>" 196 8 196 12 ("object^list:list+" "<object^list:list+>")}
+      {Lisp-Entry "memv" native () () ("native") "<object^list:list+>" 197 8 197 12 ("object^list:list+" "<object^list:list+>")}
+      {Lisp-Entry "member" native () () ("native") "<object^list:list+>" 198 8 198 14 ("object^list:list+" "<object^list:list+>")}
+      {Lisp-Entry "assq" native () () ("native") "<object^list:pair+>" 199 8 199 12 ("object^list:pair+" "<object^list:pair+>")}
+      {Lisp-Entry "assv" native () () ("native") "<object^list:pair+>" 200 8 200 12 ("object^list:pair+" "<object^list:pair+>")}
+      {Lisp-Entry "assoc" native () () ("native") "<object^list:pair+>" 201 8 201 13 ("object^list:pair+" "<object^list:pair+>")}
+      {Lisp-Entry "symbol?" native () () ("native") "<object:bool>" 209 8 209 15 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "symbol->string" native () () ("native") "<symbol:string>" 210 8 210 22 ("symbol:string" "<symbol:string>")}
+      {Lisp-Entry "string->symbol" native () () ("native") "<string:symbol>" 211 8 211 22 ("string:symbol" "<string:symbol>")}
+      {Lisp-Entry "char?" native () () ("native") "<object:bool>" 219 8 219 13 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "char=?" native () () ("native") "<char^char:bool>" 220 8 220 14 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char<?" native () () ("native") "<char^char:bool>" 221 8 221 14 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char>?" native () () ("native") "<char^char:bool>" 222 8 222 14 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char<=?" native () () ("native") "<char^char:bool>" 223 8 223 15 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char>=?" native () () ("native") "<char^char:bool>" 224 8 224 15 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char-ci=?" native () () ("native") "<char^char:bool>" 225 8 225 17 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char-ci<?" native () () ("native") "<char^char:bool>" 226 8 226 17 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char-ci>?" native () () ("native") "<char^char:bool>" 227 8 227 17 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char-ci<=?" native () () ("native") "<char^char:bool>" 228 8 228 18 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char-ci>=?" native () () ("native") "<char^char:bool>" 229 8 229 18 ("char^char:bool" "<char^char:bool>")}
+      {Lisp-Entry "char-alphabetic?" native () () ("native") "<char:bool>" 230 8 230 24 ("char:bool" "<char:bool>")}
+      {Lisp-Entry "char-numeric?" native () () ("native") "<char:bool>" 231 8 231 21 ("char:bool" "<char:bool>")}
+      {Lisp-Entry "char-whitespace?" native () () ("native") "<char:bool>" 232 8 232 24 ("char:bool" "<char:bool>")}
+      {Lisp-Entry "char-upper-case?" native () () ("native") "<char:bool>" 233 8 233 24 ("char:bool" "<char:bool>")}
+      {Lisp-Entry "char-lower-case?" native () () ("native") "<char:bool>" 234 8 234 24 ("char:bool" "<char:bool>")}
+      {Lisp-Entry "char->integer" native () () ("native") "<char:fx>" 235 8 235 21 ("char:fx" "<char:fx>")}
+      {Lisp-Entry "integer->char" native () () ("native") "<fx:char>" 236 8 236 21 ("fx:char" "<fx:char>")}
+      {Lisp-Entry "char-upcase" native () () ("native") "<char:char>" 237 8 237 19 ("char:char" "<char:char>")}
+      {Lisp-Entry "char-downcase" native () () ("native") "<char:char>" 238 8 238 21 ("char:char" "<char:char>")}
+      {Lisp-Entry "string?" native () () ("native") "<object:bool>" 246 8 246 15 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "make-string" native () () ("native") "<int^opt<char>:string>" 247 8 247 19 ("int^opt<char>:string" "<int^opt<char>:string>")}
+      {Lisp-Entry "string" native () () ("native") "<char*:string>" 248 8 248 14 ("char*:string" "<char*:string>")}
+      {Lisp-Entry "string-length" native () () ("native") "<string:int>" 249 8 249 21 ("string:int" "<string:int>")}
+      {Lisp-Entry "string-ref" native () () ("native") "<string^int:char>" 250 8 250 18 ("string^int:char" "<string^int:char>")}
+      {Lisp-Entry "string-set!" native () () ("native") "<string^int^char:void>" 251 8 251 19 ("string^int^char:void" "<string^int^char:void>")}
+      {Lisp-Entry "string=?" native () () ("native") "<string^string:bool>" 252 8 252 16 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string-ci=?" native () () ("native") "<string^string:bool>" 253 8 253 19 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string<?" native () () ("native") "<string^string:bool>" 254 8 254 16 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string>?" native () () ("native") "<string^string:bool>" 255 8 255 16 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string<=?" native () () ("native") "<string^string:bool>" 256 8 256 17 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string>=?" native () () ("native") "<string^string:bool>" 257 8 257 17 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string-ci<?" native () () ("native") "<string^string:bool>" 258 8 258 19 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string-ci>?" native () () ("native") "<string^string:bool>" 259 8 259 19 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string-ci<=?" native () () ("native") "<string^string:bool>" 260 8 260 20 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "string-ci>=?" native () () ("native") "<string^string:bool>" 261 8 261 20 ("string^string:bool" "<string^string:bool>")}
+      {Lisp-Entry "substring" native () () ("native") "<string^int^int:string>" 262 8 262 17 ("string^int^int:string" "<string^int^int:string>")}
+      {Lisp-Entry "string-append" native () () ("native") "<string*:string>" 263 8 263 21 ("string*:string" "<string*:string>")}
+      {Lisp-Entry "string->list" native () () ("native") "<string:list>" 264 8 264 20 ("string:list" "<string:list>")}
+      {Lisp-Entry "list->string" native () () ("native") "<list:string>" 265 8 265 20 ("list:string" "<list:string>")}
+      {Lisp-Entry "string-copy" native () () ("native") "<string:string>" 266 8 266 19 ("string:string" "<string:string>")}
+      {Lisp-Entry "string-fill!" native () () ("native") "<string^char:void>" 267 8 267 20 ("string^char:void" "<string^char:void>")}
+      {Lisp-Entry "vector?" native () () ("native") "<object:bool>" 275 8 275 15 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "make-vector" native () () ("native") "<int^opt<object>:vector>" 276 8 276 19 ("int^opt<object>:vector" "<int^opt<object>:vector>")}
+      {Lisp-Entry "vector" native () () ("native") "<object*:vector>" 277 8 277 14 ("object*:vector" "<object*:vector>")}
+      {Lisp-Entry "vector-append" native () () ("native") "<vector^vector:vector>" 278 8 278 21 ("vector^vector:vector" "<vector^vector:vector>")}
+      {Lisp-Entry "vector-length" native () () ("native") "<vector:int>" 279 8 279 21 ("vector:int" "<vector:int>")}
+      {Lisp-Entry "vector-ref" native () () ("native") "<vector^int:object>" 280 8 280 18 ("vector^int:object" "<vector^int:object>")}
+      {Lisp-Entry "vector-set!" native () () ("native") "<vector^int^object:void>" 281 8 281 19 ("vector^int^object:void" "<vector^int^object:void>")}
+      {Lisp-Entry "vector->list" native () () ("native") "<vector:list>" 282 8 282 20 ("vector:list" "<vector:list>")}
+      {Lisp-Entry "list->vector" native () () ("native") "<list:vector>" 283 8 283 20 ("list:vector" "<list:vector>")}
+      {Lisp-Entry "vector-fill!" native () () ("native") "<vector^object:void>" 284 8 284 20 ("vector^object:void" "<vector^object:void>")}
+      {Lisp-Entry "subvector" native () () ("native") "<vector^int^int:vector>" 285 8 285 17 ("vector^int^int:vector" "<vector^int^int:vector>")}
+      {Lisp-Entry "procedure?" native () () ("native") "<object:bool>" 293 8 293 18 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "apply" native () () ("native") "<procedure^object*:object>" 294 8 294 13 ("procedure^object*:object" "<procedure^object*:object>")}
+      {Lisp-Entry "map" native () () ("native") "<procedure^list*:list>" 295 8 295 11 ("procedure^list*:list" "<procedure^list*:list>")}
+      {Lisp-Entry "for-each" native () () ("native") "<procedure^list*:void>" 296 8 296 16 ("procedure^list*:void" "<procedure^list*:void>")}
+      {Lisp-Entry "force" native () () ("native") "<promise:object>" 297 8 297 13 ("promise:object" "<promise:object>")}
+      {Lisp-Entry "call-with-current-continuation" native () () ("native") "<procedure:object>" 298 8 298 38 ("procedure:object" "<procedure:object>")}
+      {Lisp-Entry "call/cc" native () () ("native") "<procedure:object>" 299 8 299 15 ("procedure:object" "<procedure:object>")}
+      {Lisp-Entry "values" native () () ("native") "<object*:object>" 300 8 300 14 ("object*:object" "<object*:object>")}
+      {Lisp-Entry "call-with-values" native () () ("native") "<procedure^procedure:object>" 301 8 301 24 ("procedure^procedure:object" "<procedure^procedure:object>")}
+      {Lisp-Entry "dynamic-wind" native () () ("native") "<procedure^procedure^procedure:object>" 302 8 302 20 ("procedure^procedure^procedure:object" "<procedure^procedure^procedure:object>")}
+      {Lisp-Entry "eval" native () () ("native") "<object^object:object>" 310 8 310 12 ("object^object:object" "<object^object:object>")}
+      {Lisp-Entry "scheme-replace-report-environment" native () () ("native") "<object:object>" 311 8 311 41 ("object:object" "<object:object>")}
+      {Lisp-Entry "null-environment" native () () ("native") "<object:object>" 312 8 312 24 ("object:object" "<object:object>")}
+      {Lisp-Entry "interaction-environment" native () () ("native") "<:object>" 313 8 313 31 (":object" "<:object>")}
+      {Lisp-Entry "call-with-input-file" native () () ("native") "<string^procedure:object>" 326 8 326 28 ("string^procedure:object" "<string^procedure:object>")}
+      {Lisp-Entry "call-with-output-file" native () () ("native") "<string^procedure:object>" 327 8 327 29 ("string^procedure:object" "<string^procedure:object>")}
+      {Lisp-Entry "input-port?" native () () ("native") "<object:bool>" 328 8 328 19 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "output-port?" native () () ("native") "<object:bool>" 329 8 329 20 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "current-input-port" native () () ("native") "<:port>" 330 8 330 26 (":port" "<:port>")}
+      {Lisp-Entry "current-output-port" native () () ("native") "<:port>" 331 8 331 27 (":port" "<:port>")}
+      {Lisp-Entry "with-input-from-file" native () () ("native") "<string^procedure:object>" 332 8 332 28 ("string^procedure:object" "<string^procedure:object>")}
+      {Lisp-Entry "with-output-to-file" native () () ("native") "<string^procedure:object>" 333 8 333 27 ("string^procedure:object" "<string^procedure:object>")}
+      {Lisp-Entry "open-input-file" native () () ("native") "<string:port>" 334 8 334 23 ("string:port" "<string:port>")}
+      {Lisp-Entry "open-output-file" native () () ("native") "<string:port>" 335 8 335 24 ("string:port" "<string:port>")}
+      {Lisp-Entry "close-input-port" native () () ("native") "<port:void>" 336 8 336 24 ("port:void" "<port:void>")}
+      {Lisp-Entry "close-output-port" native () () ("native") "<port:void>" 337 8 337 25 ("port:void" "<port:void>")}
+      {Lisp-Entry "read" native () () ("native") "<opt<port>:object>" 345 8 345 12 ("opt<port>:object" "<opt<port>:object>")}
+      {Lisp-Entry "read-char" native () () ("native") "<opt<port>:object>" 346 8 346 17 ("opt<port>:object" "<opt<port>:object>")}
+      {Lisp-Entry "peek-char" native () () ("native") "<opt<port>:object>" 347 8 347 17 ("opt<port>:object" "<opt<port>:object>")}
+      {Lisp-Entry "eof-object?" native () () ("native") "<object:bool>" 348 8 348 19 ("object:bool" "<object:bool>")}
+      {Lisp-Entry "char-ready?" native () () ("native") "<opt<port>:bool>" 349 8 349 19 ("opt<port>:bool" "<opt<port>:bool>")}
+      {Lisp-Entry "write" native () () ("native") "<object^opt<port>:void>" 357 8 357 13 ("object^opt<port>:void" "<object^opt<port>:void>")}
+      {Lisp-Entry "display" native () () ("native") "<object^opt<port>:void>" 358 8 358 15 ("object^opt<port>:void" "<object^opt<port>:void>")}
+      {Lisp-Entry "newline" native () () ("native") "<opt<port>:void>" 359 8 359 15 ("opt<port>:void" "<opt<port>:void>")}
+      {Lisp-Entry "write-char" native () () ("native") "<char^opt<port>:void>" 360 8 360 18 ("char^opt<port>:void" "<char^opt<port>:void>")}
+      {Lisp-Entry "load" native () () ("native") "<string:void>" 361 8 361 12 ("string:void" "<string:void>")}
+      {Lisp-Entry "transcript-on" native () () ("native") "<string:void>" 362 8 362 21 ("string:void" "<string:void>")}
+      {Lisp-Entry "transcript-off" native () () ("native") "<:void>" 363 8 363 22 (":void" "<:void>")}
+      {Lisp-Entry "make-syntactic-closure" native () () ("native") #f 371 8 371 30 ()}
+      {Lisp-Entry "syntactic-closure?" native () () ("native") #f 372 8 372 26 ()}
+      {Lisp-Entry "syntactic-closure-form" native () () ("native") #f 373 8 373 30 ()}
+      {Lisp-Entry "unwrap-syntactic-closure" native () () ("native") #f 374 8 374 32 ()}
+      {Lisp-Entry "strip-syntactic-closures" native () () ("native") #f 375 8 375 32 ()}
+      {Lisp-Entry "strip-source-info" native () () ("native") #f 376 8 376 25 ()}
+      {Lisp-Entry "identifier?" native () () ("native") #f 377 8 377 19 ()}
+      {Lisp-Entry "identifier=?" native () () ("native") #f 378 8 378 20 ()}
+      {Lisp-Entry "er-macro-transformer" native () () ("native") #f 379 8 379 28 ()}
+      {Lisp-Entry "sc-macro-transformer" native () () ("native") #f 380 8 380 28 ()}
+      {Lisp-Entry "rsc-macro-transformer" native () () ("native") #f 381 8 381 29 ()}
+      {Lisp-Entry "open-input-string" native () () ("native") #f 389 8 389 25 ()}
+      {Lisp-Entry "open-output-string" native () () ("native") #f 390 8 390 26 ()}
+      {Lisp-Entry "get-output-string" native () () ("native") #f 391 8 391 25 ()}
+      {Lisp-Entry "call-with-input-string" native () () ("native") #f 392 8 392 30 ()}
+      {Lisp-Entry "with-input-from-string" native () () ("native") #f 393 8 393 30 ()}
+      {Lisp-Entry "call-with-output-string" native () () ("native") #f 394 8 394 31 ()}
+      {Lisp-Entry "with-output-to-string" native () () ("native") #f 395 8 395 29 ()}
+      {Lisp-Entry "read-line" native () () ("native") #f 396 8 396 17 ()}
+      {Lisp-Entry "table?" native () () ("native") #f 404 8 404 14 ()}
+      {Lisp-Entry "make-table" native () () ("native") #f 405 8 405 18 ()}
+      {Lisp-Entry "table-copy" native () () ("native") #f 406 8 406 18 ()}
+      {Lisp-Entry "table-for-each" native () () ("native") #f 407 8 407 22 ()}
+      {Lisp-Entry "table-merge" native () () ("native") #f 408 8 408 19 ()}
+      {Lisp-Entry "table-merge!" native () () ("native") #f 409 8 409 20 ()}
+      {Lisp-Entry "table-ref" native () () ("native") #f 410 8 410 17 ()}
+      {Lisp-Entry "table-set!" native () () ("native") #f 411 8 411 18 ()}
+      {Lisp-Entry "table->list" native () () ("native") #f 412 8 412 19 ()}
+      {Lisp-Entry "list->table" native () () ("native") #f 413 8 413 19 ()}
+      {Lisp-Entry "iterate-table" native () () ("native") #f 414 8 414 26 ()}}})
+"runtime"
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "runtime.scm"} 231466232. scheme
+    {Lisp-Entry "scheme.dialect.runtime" unit (protected) () #f #f 37 16 37 38 ("Define" "jazz:Define" "encapsulate-class" "jazz:encapsulate-class")
+      {Lisp-Entry "Define" define-class () () ("class runtime") #f 45 27 45 38 ()}
+      {Lisp-Entry "new-define" define () ("name" "locator") #f #f 48 9 48 24 ("Define" "jazz:Define" "allocate-define" "jazz:allocate-define" "locator" "name")}
+      {Lisp-Entry "register-define" define () ("module-name" "name" "locator") #f #f 55 9 55 29 ("new-define" "jazz:new-define" "register-module-entry" "jazz:register-module-entry" "locator" "name" "module-name")}}})
+"runtime-classes"
+ ({Lisp-File-Entry {File :context "src" "scheme" "dialect" "runtime-classes.scm"} 231466232. scheme
+    {Lisp-Entry "scheme.dialect.runtime-classes" unit (protected) () #f #f 37 16 37 46 ()
+      {Lisp-Entry "Define" define-class () () ("class syntax") #f 45 19 45 30 ("%%get-define-locator" "locator" "allocate-define" "jazz:allocate-define" "Object-Class" "jazz:Object-Class" "name" "Field" "jazz:Field")}}})

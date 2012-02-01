@@ -1,0 +1,3 @@
+"srfi-33"
+ ({Lisp-File-Entry {File :context "src" "srfi-33.jazz"} 231466232. jazz
+    {Lisp-Entry "srfi-33" module () () #f #f 37 8 37 15 ("scheme")}})

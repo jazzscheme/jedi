@@ -1,0 +1,171 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Workspaces
+;;;
+
+
+(data jazz.ide.data.workspaces
+
+
+(form
+  (<Workspaces-Preferences>                                    active: home
+    (<Workspace-Preferences>                  name: home       title: "Home" icon: {Image-Resource "WorkspaceHome"} shortcut: {Shortcut :shift :alt #\A}
+      (<Menubar-Preferences>                  name: menubar    location: root
+        (<Mainbar-Preferences>                name: toolbar    location: second
+          (<Status-Preferences>               name: status     location: second
+            (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 20 insets: {Rect 5 5 5 5}
+              (<Minibuffer-Preferences>                        location: second state: split
+                (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                  (<Stage-Preferences>                         location: first maximized?: #f)
+                  (<Pad-Preferences>                           location: second
+                    (<Docked-Preferences>                      location: selection model: {Reference Lisp-Console-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Properties-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Search-Results})
+                    (<Docked-Preferences>                      location: #f model: {Reference Profile-Results})
+                    (<Docked-Preferences>                      location: #f model: {Reference Servers-Manager}))))
+              (<Pad-Preferences>                               location: first
+                (<Docked-Preferences>                          location: selection model: {Reference Workbench-Manager})
+                (<Docked-Preferences>                          location: #f model: {Reference Repositories-Manager})
+                (<Docked-Preferences>                          location: #f model: {Reference Favorites-Manager})))))))
+    (<Workspace-Preferences>                    name: text      title: "Text" icon: {Image-Resource "WorkspaceText"} shortcut: {Shortcut :shift :alt #\S} frame-model: {Reference Jazz-Text-View}
+      (<Menubar-Preferences>                    name: menubar   location: root
+        (<Mainbar-Preferences>                  name: toolbar   location: second
+          (<Status-Preferences>                 name: status    location: second
+            (<Splitter-Preferences>             name: top       location: first orientation: horz mode: relative division: 34.89583333333333 insets: {Rect 5 5 5 5}
+              (<Minibuffer-Preferences>                         location: first state: split
+                (<Splitter-Preferences>                         location: first orientation: vert mode: relative division: 73.16602316602317
+                  (<Pad-Preferences>                            location: second
+                    (<Docked-Preferences>                       location: selection model: {Reference Lisp-Console-Manager})
+                    (<Docked-Preferences>                       location: #f model: {Reference Properties-Manager})
+                    (<Docked-Preferences>                       location: #f model: {Reference Search-Results})
+                    (<Docked-Preferences>                       location: #f model: {Reference Profile-Results}))
+                  (<Splitter-Preferences>                       location: first mode: relative division: 47.72079772079772 orientation: horz
+                    (<Pad-Preferences>                          location: second
+                      (<Docked-Preferences>                     location: selection model: {Reference Chapters-Browser})
+                      (<Docked-Preferences>                     location: #f model: {Reference Hierarchy-Browser})
+                      (<Docked-Preferences>                     location: #f model: {Reference Problems-View}))
+                    (<Pad-Preferences>                          location: first
+                      (<Docked-Preferences>                     location: selection model: {Reference Workbench-Manager})
+                      (<Docked-Preferences>                     location: #f model: {Reference Repositories-Manager})
+                      (<Docked-Preferences>                     location: #f model: {Reference Favorites-Manager})))))
+              (<Stage-Preferences>                              location: second maximized?: #t))))))
+    (<Workspace-Preferences>                    name: debugger  title: "Debugger" icon: {Image-Resource "WorkspaceDebugger"} shortcut: {Shortcut :shift :alt #\D}
+      (<Menubar-Preferences>                    name: menubar   location: root
+        (<Mainbar-Preferences>                  name: toolbar   location: second
+          (<Status-Preferences>                 name: status    location: second
+            (<Splitter-Preferences>             name: top       location: first orientation: horz mode: relative division: 34.89583333333333 insets: {Rect 5 5 5 5}
+              (<Minibuffer-Preferences>                         location: first state: split
+                (<Splitter-Preferences>                         location: first orientation: vert mode: relative division: 73.16602316602317
+                  (<Splitter-Preferences>                       location: first orientation: vert mode: relative division: 25.09907529722589
+                    (<Splitter-Preferences>                     location: first orientation: horz division: 182
+                      (<Docked-Preferences>                     location: first model: {Reference Processes-View})
+                      (<Splitter-Preferences>                   location: second orientation: horz division: 214
+                        (<Docked-Preferences>                   location: first model: {Reference Threads-View})
+                        (<Pad-Preferences>                      location: second
+                          (<Docked-Preferences>                 location: selection model: {Reference Frames-View})
+                          (<Docked-Preferences>                 location: #f model: {Reference Restarts-View})
+                          (<Docked-Preferences>                 location: #f model: {Reference Exception-View}))))
+                    (<Splitter-Preferences>                     location: second mode: relative division: 49.24242424242424 orientation: horz
+                      (<Pad-Preferences>                        location: second
+                        (<Docked-Preferences>                   location: selection model: {Reference Chapters-Browser})
+                        (<Docked-Preferences>                   location: #f model: {Reference Hierarchy-Browser})
+                        (<Docked-Preferences>                   location: #f model: {Reference Problems-View}))
+                      (<Pad-Preferences>                        location: first
+                        (<Docked-Preferences>                   location: selection model: {Reference Workbench-Manager})
+                        (<Docked-Preferences>                   location: #f model: {Reference Repositories-Manager})
+                        (<Docked-Preferences>                   location: #f model: {Reference Favorites-Manager}))))
+                  (<Pad-Preferences>                            location: second
+                    (<Docked-Preferences>                       location: selection model: {Reference Lisp-Console-Manager})
+                    (<Docked-Preferences>                       location: #f model: {Reference Properties-Manager})
+                    (<Docked-Preferences>                       location: #f model: {Reference Search-Results})
+                    (<Docked-Preferences>                       location: #f model: {Reference Profile-Results})
+                    (<Docked-Preferences>                       location: #f model: {Reference Servers-Manager}))))
+              (<Splitter-Preferences>                           location: second state: zoom target: second orientation: vert mode: relative division: 23.36182336182336
+                (<Docked-Preferences>                           location: first model: {Reference Variables-View})
+                (<Stage-Preferences>                            location: second maximized?: #t)))))))
+    (<Workspace-Preferences>                  name: groupware  title: "Groupware" icon: {Image-Resource "WorkspaceGroupware"} shortcut: {Shortcut :shift :alt #\G}
+      (<Menubar-Preferences>                  name: menubar    location: root
+        (<Mainbar-Preferences>                name: toolbar    location: second
+          (<Status-Preferences>               name: status     location: second
+            (<Splitter-Preferences>           name: top        location: first state: zoom target: second orientation: horz mode: relative division: 25 insets: {Rect 5 5 5 5}
+              (<Minibuffer-Preferences>                        location: first state: split
+                (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                  (<Pad-Preferences>                           location: first
+                    (<Docked-Preferences>                      location: selection model: {Reference Workbench-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Repositories-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Favorites-Manager}))
+                  (<Pad-Preferences>                           location: second
+                    (<Docked-Preferences>                      location: selection model: {Reference Lisp-Console-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Properties-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Search-Results}))))
+              (<Stage-Preferences>                             location: second))))))
+    (<Workspace-Preferences>                  name: sql        title: "SQL" icon: {Image-Resource "WorkspaceSQL"} shortcut: {Shortcut :shift :alt #\L} frame-model: {Reference SQL-Text-View}
+      (<Menubar-Preferences>                  name: menubar    location: root
+        (<Mainbar-Preferences>                name: toolbar    location: second
+          (<Status-Preferences>               name: status     location: second
+            (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 33 insets: {Rect 5 5 5 5}
+              (<Minibuffer-Preferences>                        location: first state: split
+                (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                  (<Pad-Preferences>                           location: second
+                    (<Docked-Preferences>                      location: selection model: {Reference SQL-Console-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Lisp-Console-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Properties-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Search-Results}))
+                  (<Splitter-Preferences>                      location: first mode: relative division: 48 orientation: horz
+                    (<Splitter-Preferences>                    location: second mode: relative division: -43 orientation: vert
+                      (<Docked-Preferences>                    location: first model: {Reference Chapters-Browser})
+                      (<Docked-Preferences>                    location: second model: {Reference SQL-Connections-Manager}))
+                    (<Docked-Preferences>                      location: first model: {Reference Workbench-Manager}))))
+              (<Splitter-Preferences>                          location: second orientation: vert mode: relative division: -41
+                (<Stage-Preferences>                           location: first)
+                (<Pad-Preferences>                             location: second
+                  (<Docked-Preferences>                        location: selection model: {Reference SQL-Tree-Output})
+                  (<Docked-Preferences>                        location: #f model: {Reference SQL-Text-Output}))))))))
+    (<Workspace-Preferences>                  name: designer   title: "Designer" icon: {Image-Resource "Designer"} shortcut: {Shortcut :shift :alt #\Z} frame-model: {Reference View-Editor}
+      (<Menubar-Preferences>                  name: menubar    location: root
+        (<Mainbar-Preferences>                name: toolbar    location: second
+          (<Status-Preferences>               name: status     location: second
+            (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 19.947916666666668 insets: {Rect 5 5 5 5}
+              (<Splitter-Preferences>                          location: first orientation: vert mode: relative division: 51.37701804368471
+                (<Toolbox-Preferences>                         location: first model: {Reference Toolbox-Manager} title: "Jazz" icon: {Image-Resource "Toolbox"})
+                (<Pad-Preferences>                             location: second
+                  (<Docked-Preferences>                        location: #f model: {Reference Descendants-Manager})
+                  (<Docked-Preferences>                        location: #f model: {Reference Traits-Editor})
+                  (<Docked-Preferences>                        location: selection model: {Reference Chapters-Browser} icon: {Image-Resource "JemEditMapper"})))
+              (<Splitter-Preferences>                          location: second orientation: horz division: -365
+                (<Splitter-Preferences>                        location: first orientation: vert division: 58
+                  (<Splitter-Preferences>                      location: first orientation: horz division: 369
+                    (<Docked-Preferences>                      location: first model: {Reference Designer-Manager})
+                    (<Splitter-Preferences>                    location: second orientation: horz division: 309
+                      (<Docked-Preferences>                    location: first model: {Reference Alignment-Editor})
+                      (<Docked-Preferences>                    location: second model: {Reference Style-Editor})))
+                  (<Splitter-Preferences>                      location: second state: zoom target: first orientation: vert division: -269
+                    (<Pad-Preferences>                         location: second
+                      (<Docked-Preferences>                    location: #f model: {Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                    location: #f model: {Reference Search-Results})
+                      (<Docked-Preferences>                    location: selection model: {Reference Violations-Manager}))
+                    (<Stage-Preferences>                       location: first maximized?: #t)))
+                (<Minibuffer-Preferences>                      location: second state: split
+                  (<Docked-Preferences>                        location: first model: {Reference Properties-Containment}))))))))
+    (<Workspace-Preferences>                  name: formatted  title: "Formatted" icon: {Image-Resource "ForegroundColor"} shortcut: {Shortcut :shift :alt #\T} frame-model: {Reference Plain-Formatted-Text-View}
+      (<Menubar-Preferences>                  name: menubar    location: root
+        (<Mainbar-Preferences>                name: toolbar    location: second
+          (<Status-Preferences>               name: status     location: second
+            (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 36 insets: {Rect 5 5 5 5}
+              (<Minibuffer-Preferences>                        location: first state: split
+                (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                  (<Pad-Preferences>                           location: second
+                    (<Docked-Preferences>                      location: selection model: {Reference Lisp-Console-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Properties-Manager})
+                    (<Docked-Preferences>                      location: #f model: {Reference Search-Results}))
+                  (<Splitter-Preferences>                      mode: relative division: 46 location: first orientation: horz
+                    (<Splitter-Preferences>                    mode: relative division: 31 location: second orientation: vert location: second
+                      (<Docked-Preferences>                    location: first model: {Reference Chapters-Browser})
+                      (<Docked-Preferences>                    location: second model: {Reference Hierarchy-Browser}))
+                    (<Pad-Preferences>                         location: first
+                      (<Docked-Preferences>                    location: selection model: {Reference Workbench-Manager})))))
+              (<Splitter-Preferences>                          location: second division: 59 orientation: vert
+                (<Docked-Preferences>                          location: first model: {Reference Text-Palette})
+                (<Stage-Preferences>                           location: second))))))))))

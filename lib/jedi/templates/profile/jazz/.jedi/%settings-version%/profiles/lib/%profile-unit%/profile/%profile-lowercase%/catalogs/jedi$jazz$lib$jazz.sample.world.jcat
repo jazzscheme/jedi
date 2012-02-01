@@ -1,0 +1,10 @@
+"_world"
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "world" "_world.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.world" module () () #f #f 37 8 37 25 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.system.process" "jazz.platform")}
+      {Lisp-Entry "World" class () ((extends . "Process")) #f #f 44 7 44 12 ("Process")
+        {Lisp-Entry "start-process" method (override) () #f #f 47 20 47 33 ("exit-process" "system-message")}}}})
+"run"
+ ({Lisp-File-Entry {File :context "src" "jazz" "sample" "world" "run.jazz"} 222341474. jazz
+    {Lisp-Entry "jazz.sample.world.run" module () () #f #f 37 8 37 29 ("World" "new" "boot-environment" "boot-environment~" "descriptor" "lambda" "jazz.sample.world" "register-product-run" "jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.sample.world")}}})

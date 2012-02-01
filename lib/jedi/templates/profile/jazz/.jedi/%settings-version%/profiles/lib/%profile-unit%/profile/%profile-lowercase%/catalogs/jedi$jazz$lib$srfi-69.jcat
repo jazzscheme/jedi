@@ -1,0 +1,8 @@
+"srfi-69"
+ ({Lisp-File-Entry {File :context "src" "srfi-69.jazz"} 231466232. jazz
+    {Lisp-Entry "srfi-69" module () () #f #f 37 8 37 15 ("scheme")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("hash-table-walk" "hash-table-set!" "hash-table-ref/default" "make-eq?-table")}
+      {Lisp-Entry "make-eq?-table" define () () #f #f 46 9 46 23 ("eq?" "test:" "make-table")}
+      {Lisp-Entry "hash-table-ref/default" define () () #f #f 49 8 49 30 ("table-ref")}
+      {Lisp-Entry "hash-table-set!" define () () #f #f 50 8 50 23 ("table-set!")}
+      {Lisp-Entry "hash-table-walk" define () () #f #f 52 8 52 23 ("iterate-table")}}})

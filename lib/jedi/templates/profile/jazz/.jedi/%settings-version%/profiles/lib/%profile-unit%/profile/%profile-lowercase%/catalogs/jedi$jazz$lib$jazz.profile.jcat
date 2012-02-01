@@ -1,0 +1,55 @@
+"Me"
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "Me.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.profile.Me" module (protected) () #f #f 37 18 37 33 ("Me" "register-profile-class" "jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.profile")}
+      {Lisp-Entry "Me" class () ((extends . "Profile")) #f #f 43 7 43 9 ("Profile")}}})
+"Profile"
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "Profile.jazz"} 231466231. jazz
+    {Lisp-Entry "jazz.profile.Profile" module (protected) () #f #f 37 18 37 38 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.system")}
+      {Lisp-Entry "Profile" class () ((extends . "Object")) #f #f 43 7 43 14 ("Object")
+        {Lisp-Entry "init" method (public virtual) () #f #f 52 26 52 30 ()}
+        {Lisp-Entry "finalize" method (public virtual) () #f #f 57 26 57 34 ()}
+        {Lisp-Entry "privileged-test?" method (public virtual) () #f #f 66 26 66 42 ()}
+        {Lisp-Entry "test" method (public virtual) () #f #f 70 26 70 30 ()}
+        {Lisp-Entry "test-shift" method (public virtual) () #f #f 74 26 74 36 ()}
+        {Lisp-Entry "test-frame" method (public virtual) () #f #f 78 26 78 36 ()}
+        {Lisp-Entry "test0" method (public virtual) () #f #f 82 26 82 31 ()}
+        {Lisp-Entry "test1" method (public virtual) () #f #f 86 26 86 31 ()}
+        {Lisp-Entry "test2" method (public virtual) () #f #f 90 26 90 31 ()}
+        {Lisp-Entry "test3" method (public virtual) () #f #f 94 26 94 31 ()}
+        {Lisp-Entry "test4" method (public virtual) () #f #f 98 26 98 31 ()}
+        {Lisp-Entry "test5" method (public virtual) () #f #f 102 26 102 31 ()}
+        {Lisp-Entry "test6" method (public virtual) () #f #f 106 26 106 31 ()}
+        {Lisp-Entry "test7" method (public virtual) () #f #f 110 26 110 31 ()}
+        {Lisp-Entry "test8" method (public virtual) () #f #f 114 26 114 31 ()}
+        {Lisp-Entry "test9" method (public virtual) () #f #f 118 26 118 31 ()}
+        {Lisp-Entry "toplevel-title" method (public virtual) () #f #f 127 26 127 40 ("get-preferences" "get-toplevel-title" "get-toplevel-title~")}
+        {Lisp-Entry "user-code" method (public virtual) ("view") #f #f 136 26 136 35 ("view")}
+        {Lisp-Entry "console-command" method (public virtual) ("command" "arguments") #f #f 145 26 145 41 ("arguments" "command")}
+        {Lisp-Entry "profile-packages" method (public virtual) () #f #f 149 26 149 42 ()}
+        {Lisp-Entry "play-recording" method (public virtual) () #f #f 158 26 158 40 ()}
+        {Lisp-Entry "jdbc-drivers" method (public virtual) () #f #f 167 26 167 38 ()}
+        {Lisp-Entry "java-apidocs" method (public virtual) () #f #f 171 26 171 38 ()}
+        {Lisp-Entry "get-connection" method (public virtual) () #f #f 180 26 180 40 ()}
+        {Lisp-Entry "process-sql" method (public virtual) ("connection" "request") #f #f 184 26 184 37 ("request" "connection")}
+        {Lisp-Entry "expand-sql" method (public virtual) ("request") #f #f 188 26 188 36 ("request")}
+        {Lisp-Entry "sql-output-action" method (public virtual) ("tree" "cell") #f #f 192 26 192 43 ("cell" "tree")}
+        {Lisp-Entry "sql-output-menu" method (public virtual) ("tree" "cell") #f #f 196 26 196 41 ("cell" "tree")}
+        {Lisp-Entry "sql-output-tooltip" method (public virtual) ("tree" "cell" "data") #f #f 200 26 200 44 ("data" "cell" "tree")}
+        {Lisp-Entry "extension-frame-class" method (public virtual) ("ext") #f #f 209 26 209 47 ("ext")}
+        {Lisp-Entry "get-source" method (public virtual) ("class-name") #f #f 213 26 213 36 ("class-name")}}}})
+"_profile"
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "_profile.jazz"} 231466231. jazz
+    {Lisp-Entry "jazz.profile" module () () #f #f 37 8 37 20 ("jazz")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("jazz.profile.autoload")}
+      {Lisp-Entry "Profile-Classes" definition () () #f #f 48 12 48 27 ("eq?" "test:" "make-table")}
+      {Lisp-Entry "get-profile-class" definition (public) ("name") #f #f 52 20 52 37 ("Profile-Classes" "table-ref" "name")}
+      {Lisp-Entry "require-profile-class" definition (public) ("name") #f #f 56 20 56 41 ("error" "get-profile-class" "or" "name")}
+      {Lisp-Entry "set-profile-class" definition (public) ("name" "class") #f #f 61 20 61 37 ("Profile-Classes" "table-set!" "class" "name")}
+      {Lisp-Entry "register-profile-class" definition (public) ("class") #f #f 65 20 65 42 ("category-name" "set-profile-class" "class")}
+      {Lisp-Entry "load-profile-class" definition (public) ("class-unit") #f #f 69 20 69 38 ("identifier-name" "require-profile-class" "load-unit" "class-unit")}}})
+"autoload"
+ ({Lisp-File-Entry {File :context "src" "jazz" "profile" "autoload.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.profile.autoload" module (protected) () #f #f 37 18 37 39 ("jazz")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("Me" "jazz.profile.Me" "Profile" "autoload" "jazz.profile.Profile")}}})

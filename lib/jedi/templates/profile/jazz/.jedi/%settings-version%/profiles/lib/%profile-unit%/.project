@@ -1,0 +1,31 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(import (jazz.editor.jazz))
+
+
+(form
+  (<Project>             name: %profile-lowercase%
+    (<Jazz-File>         name: %profile%           source: {File :context "profile" "%profile-lowercase%" "%profile%.jazz"})
+    (<Project-Directory>                           directory: {Directory :context "profile" "%profile-lowercase%" "settings"}
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Bindings.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Colors.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Connections.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Favorites.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Fonts.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Formats.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Preferences.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Toolbox.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Servers.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Workbench.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Skins.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Workspaces.jml"})
+      (<Project-File>                              source: {File :context "profile" "%profile-lowercase%" "settings" "Styles.jml"})))))

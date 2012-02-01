@@ -1,0 +1,186 @@
+"C-Category-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Category-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Category-Entry" module (protected) () #f #f 37 18 37 56 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.library" "jazz.editor.c")}
+      {Lisp-Entry "C-Category-Entry" class () ((extends . "C-Entry")) #f #f 44 7 44 23 ("C-Entry")
+        {Lisp-Entry "initialize" method (override) ("name") #f #f 47 20 47 30 ("nextmethod" "name")}
+        {Lisp-Entry "print-catalog" method (override) ("level" "output") #f #f 51 20 51 33 ("name" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) () #f #f 63 20 63 29 ("Image-Resource")}
+        {Lisp-Entry "update-indexes" method (override) ("definitions-index" "references-index") #f #f 72 20 72 34 ("name" "update-index" "references-index" "definitions-index")}}}})
+"C-Define-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Define-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Define-Entry" module (protected) () #f #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.editor.c")}
+      {Lisp-Entry "C-Define-Entry" class () ((extends . "C-Definition-Entry")) #f #f 43 7 43 21 ("C-Definition-Entry")}}})
+"C-Definition-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Definition-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Definition-Entry" module (protected) () #f #f 37 18 37 58 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.editor.c")}
+      {Lisp-Entry "C-Definition-Entry" class () ((extends . "C-Entry")) #f #f 43 7 43 25 ("C-Entry")
+        {Lisp-Entry "initialize" method (override) ("name" "line" "column" "end-line" "end-column") #f #f 46 20 46 30 ("nextmethod" "end-column" "end-line" "column" "line" "name")}
+        {Lisp-Entry "print-catalog" method (override) ("level" "output") #f #f 50 20 50 33 ("end-column" "end-line" "column" "line" "name" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "update-indexes" method (override) ("definitions-index" "references-index") #f #f 62 20 62 34 ("name" "update-index" "references-index" "definitions-index")}}}})
+"C-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Entry" module (protected) () #f #f 37 18 37 47 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.editor.c" "jazz.catalog")}
+      {Lisp-Entry "C-Entry" class () ((extends . "Indexed-Entry")) #f #f 44 7 44 14 ("Indexed-Entry")
+        {Lisp-Entry "source-frame-type" method (override) () #f #f 47 20 47 37 ("C-Text-View")}}}})
+"C-Explorer"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "text" "C-Explorer.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.editor.c.text.C-Explorer" module (protected) () #f #f 37 18 37 47 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.ui")}
+      {Lisp-Entry "C-Explorer" class () ((extends . "Code-Explorer")) #f #f 43 7 43 17 ("Code-Explorer")
+        {Lisp-Entry "forward-single-line-comment" method (private) () #f #f 46 19 46 46 ("next-paragraph")}
+        {Lisp-Entry "forward-multi-line-comment" method (private) () #f #f 50 19 50 45 ("begin" "1" "eqv?" "and" "if" "when" "0" "char-forward" "c" "iterate" "let" "forward")}
+        {Lisp-Entry "forward-comments" method (public) () #f #f 65 18 65 34 ("forward-multi-line-comment" "forward-single-line-comment" "1" "case" "eqv?" "cond" "when" "0" "char-forward" "c" "iterate" "let")}
+        {Lisp-Entry "forward-whites" method (public) () #f #f 79 18 79 32 ("forward" "whitespace?" "forward-multi-line-comment" "forward-single-line-comment" "1" "case" "eqv?" "cond" "when" "0" "char-forward" "c" "iterate" "let")}
+        {Lisp-Entry "forward-identifier-or-number" method (public) () #f #f 96 18 96 46 ("forward" "0" "char-forward" "eqv?" "when" "forward-word" "iterate" "let")}}}})
+"C-Export-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Export-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Export-Entry" module (protected) () #f #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.library" "jazz.editor.c")}
+      {Lisp-Entry "C-Export-Entry" class () ((extends . "C-Definition-Entry")) #f #f 44 7 44 21 ("C-Definition-Entry")
+        {Lisp-Entry "get-image" method (override) () #f #f 52 20 52 29 ("Image-Resource")}}}})
+"C-Extern-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Extern-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Extern-Entry" module (protected) () #f #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.library" "jazz.editor.c")}
+      {Lisp-Entry "C-Extern-Entry" class () ((extends . "C-Definition-Entry")) #f #f 44 7 44 21 ("C-Definition-Entry")
+        {Lisp-Entry "get-image" method (override) () #f #f 52 20 52 29 ("Image-Resource")}}}})
+"C-File"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "builder" "C-File.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.builder.C-File" module (protected) () #f #f 37 18 37 46 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.project" "jazz.jml")}
+      {Lisp-Entry "C-File" class () ((extends . "Project-File")) #f #f 44 7 44 13 ("Project-File")}
+      {Lisp-Entry "C-File" class () ((extends . "Project-File")) #f #f 50 7 50 13 ("use" "Project-File")
+        {Lisp-Entry "precompiled-headers" property () ((initialize . "'use") (accessors . "generate")) #f #f 53 12 53 31 ()}
+        {Lisp-Entry "get-precompiled-headers" accessor () () #f #f 53 58 53 66 ()}
+        {Lisp-Entry "set-precompiled-headers" accessor () () #f #f 53 58 53 66 ()}
+        {Lisp-Entry "warnings-as-errors?" property () ((initialize . "#t") (accessors . "generate")) #f #f 54 12 54 31 ()}
+        {Lisp-Entry "get-warnings-as-errors?" accessor () () #f #f 54 58 54 66 ()}
+        {Lisp-Entry "set-warnings-as-errors?" accessor () () #f #f 54 58 54 66 ()}
+        {Lisp-Entry "preprocess" method () ("project" "reporter" "log" "output" "(force?: force? #f)") #f #f 62 11 62 21 ("preprocess?:" "output:" "log:" "reporter:" "compile" "compile~" "warnings-as-errors?" "warnings-as-errors?:" "file:" "project:" "VC-Compiler" "new" "compiler" "dependency-modified?" "exists?" "exists?~" "not" "or" "when" "source" "get-base" "get-base~" "get-object-file" "get-object-file~" "object" "project-c-catalog" "project-c-catalog~" "catalog" "let" "force?" "force?:" "output" "log" "reporter" "project")}
+        {Lisp-Entry "build" method () ("project" "reporter" "log" "output" "(force?: force? #f)") #f #f 72 11 72 16 ("output:" "log:" "reporter:" "compile" "compile~" "warnings-as-errors?" "warnings-as-errors?:" "precompiled-headers" "precompiled-headers:" "file:" "project:" "new" "vc" "get-compiler-class" "compiler" "let*" "dependency-modified?" "exists?" "exists?~" "not" "or" "when" "source" "get-base" "get-base~" "get-object-file" "get-object-file~" "object" "project-c-catalog" "project-c-catalog~" "catalog" "let" "force?" "force?:" "output" "log" "reporter" "project")}
+        {Lisp-Entry "dependency-modified?" method () ("object" "file" "catalog") #f #f 88 11 88 31 ("null?" "get-file-entry" "get-file-entry~" "and" "file-def" "get-includes" "get-includes~" "when" "get-include-file" "get-include-file~" "include" "for-each" "cons" "set!" "continuation-return" "get-time" "get-time~" ">" "if" "memq?" "unless" "def" "iter" "define" "verified" "get-modification-time" "get-modification-time~" "object-time" "let" "return" "lambda" "continuation-capture" "catalog" "file" "object")}
+        {Lisp-Entry "get-class-descriptor" method (meta override) () #f #f 116 25 116 45 ("C-File-Descriptor" "new")}}
+      {Lisp-Entry "design" submodule () () #f #f 125 11 125 17 ()
+        {Lisp-Entry "import" import () () #f #f 128 1 128 7 ("jazz.designer")}
+        {Lisp-Entry "C-File-Descriptor" class () ((extends . "Project-File-Descriptor")) #f #f 131 7 131 24 ("Project-File-Descriptor")
+          {Lisp-Entry "form" form () () #f #f 134 3 134 7 (">" "<properties" "<properties~>" "title:" "install" "<install>")}}}}})
+"C-File-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-File-Entry.jazz"} 231466230. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-File-Entry" module (protected) () #f #f 37 18 37 52 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.editor.c" "jazz.catalog")}
+      {Lisp-Entry "C-File-Entry" class () ((extends . "File-Entry")) #f #f 44 7 44 19 ("File-Entry")
+        {Lisp-Entry "header?" slot () ((getter . "generate")) #f #f 47 8 47 15 ()}
+        {Lisp-Entry "get-header?" accessor () () #f #f 47 39 47 47 ()}
+        {Lisp-Entry "includes" slot () ((initialize . "'()") (getter . "generate")) #f #f 48 8 48 16 ()}
+        {Lisp-Entry "get-includes" accessor () () #f #f 48 39 48 47 ()}
+        {Lisp-Entry "initialize" method (override) ("catalog" "file" "time" "dialect" "definitions") #f #f 51 20 51 30 ("includes" "get-extension" "get-extension~" "member?" "header?" "set!" "nextmethod" "C-Include-Entry" "is?" "entry" "lambda" "collect-if" "collect-includes" "define" "definitions" "dialect" "time" "file" "catalog")}
+        {Lisp-Entry "get-title" method (override) () #f #f 67 20 67 29 ()}
+        {Lisp-Entry "get-source?" method (public) () #f #f 71 18 71 29 ("header?" "not")}}}})
+"C-Include-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Include-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Include-Entry" module (protected) () #f #f 37 18 37 55 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.library" "jazz.io" "jazz.editor.c")}
+      {Lisp-Entry "C-Include-Entry" class () ((extends . "C-Entry")) #f #f 45 7 45 22 ("C-Entry")
+        {Lisp-Entry "include" slot () ((getter . "generate")) #f #f 48 8 48 15 ()}
+        {Lisp-Entry "get-include" accessor () () #f #f 48 23 48 31 ()}
+        {Lisp-Entry "include-base" slot () () #f #f 49 8 49 20 ()}
+        {Lisp-Entry "initialize" method (override) ("include" "line" "column" "end-line" "end-column") #f #f 52 20 52 30 ("extract-base" "include-base" "include-base~self" "self" "include~self" "set!" "nextmethod" "end-column" "end-line" "column" "line" "include")}
+        {Lisp-Entry "print" method (override) ("output" "readably") #f #f 58 20 58 25 ("include" "format" "lambda" "self" "print-unreadable" "readably" "output")}
+        {Lisp-Entry "print-catalog" method (override) ("level" "output") #f #f 64 20 64 33 ("end-column" "end-line" "column" "line" "include" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) () #f #f 76 20 76 29 ("Image-Resource")}
+        {Lisp-Entry "present-name" method (override) () #f #f 80 20 80 32 ("include")}
+        {Lisp-Entry "get-include-file" method (public) () #f #f 89 18 89 34 ("include-base" "get-catalog" "get-file-definitions" "get-file-definitions~" "get-header?" "get-header?~" "find-if" "name" "catalog" "get-header" "define")}}}})
+"C-Method-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Method-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Method-Entry" module (protected) () #f #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.library" "jazz.editor.c")}
+      {Lisp-Entry "C-Method-Entry" class () ((extends . "C-Definition-Entry")) #f #f 44 7 44 21 ("C-Definition-Entry")
+        {Lisp-Entry "class" slot () () #f #f 47 8 47 13 ()}
+        {Lisp-Entry "initialize" method (override) ("class" "name" "line" "column" "end-line" "end-column") #f #f 50 20 50 30 ("self" "class~self" "set!" "nextmethod" "end-column" "end-line" "column" "line" "name" "class")}
+        {Lisp-Entry "print" method (override) ("output" "readably") #f #f 55 20 55 25 ("class" "format" "lambda" "self" "print-unreadable" "readably" "output")}
+        {Lisp-Entry "print-catalog" method (override) ("level" "output") #f #f 61 20 61 33 ("end-column" "end-line" "column" "line" "name" "class" "self" "class-of" "category-name" "2" "*" "format" "output" "level")}
+        {Lisp-Entry "get-image" method (override) () #f #f 73 20 73 29 ("Image-Resource")}}}})
+"C-Parser"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "parser" "C-Parser.jazz"} 231466230. jazz
+    {Lisp-Entry "jazz.editor.c.parser.C-Parser" module (protected) () #f #f 37 18 37 47 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.editor.c" "jazz.catalog")}
+      {Lisp-Entry "C-Parser" class () ((extends . "File-Parser")) #f #f 44 7 44 15 ("File-Parser")
+        {Lisp-Entry "get-constituent-test" method (meta override) () #f #f 52 25 52 45 ("c-constituent?")}
+        {Lisp-Entry "parse" method (override) ("file" "time" "dialect") #f #f 61 20 61 25 ("catalog" "C-File-Entry" "not" "gambit-function" "C-Export-Entry" "continuation-return" "end" "downto" "-" "i" "return" "continuation-capture" "string-ref" "C-Include-Entry" "1" "element" "eqv?" "sharp-include" "subseq" "C-Define-Entry" "<=" "c-constituent?" "c" "lambda" "skip" "<" "start:" "start" "substring" "string=?" "+" ">" "and" "skip-whitespace" "col" "string-length" "len" "sharp-define" "get-output" "get-output~" "find-sharp-include" "find-sharp-define" "or" "item" "vector-ref" "line" "let*" "do" "cardinality" "below" "0" "from" "n" "for" "loop" "get-base" "get-base~" "C-Category-Entry" "put" "put~" "get-extension" "get-extension~" "member?" "when" "find-open-brace-function" "find-gambit-function" "gambit" "c-function" "get-heuristic" "eq?" "if" "find-function" "List-Factory" "new" "fact" "char-encoding-errors:" "char-encoding" "char-encoding:" "load-lines" "load-lines~" "list->vector" "lines" "let" "parse-definitions" "define" "dialect" "time" "file")}}}})
+"C-Static-Entry"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "catalog" "C-Static-Entry.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.catalog.C-Static-Entry" module (protected) () #f #f 37 18 37 54 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.library" "jazz.editor.c")}
+      {Lisp-Entry "C-Static-Entry" class () ((extends . "C-Definition-Entry")) #f #f 44 7 44 21 ("C-Definition-Entry")
+        {Lisp-Entry "get-image" method (override) () #f #f 52 20 52 29 ("Image-Resource")}}}})
+"C-Syntax"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "syntax" "C-Syntax.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.editor.c.syntax.C-Syntax" module (protected) () #f #f 37 18 37 47 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.system" "jazz.editor.clike" "jazz.editor.c")}
+      {Lisp-Entry "C-Syntax" class () ((extends . "CLike-Syntax")) #f #f 45 7 45 15 ("CLike-Syntax")
+        {Lisp-Entry "preferences" method (override) () #f #f 48 20 48 31 ("c-text" "documents" "get-preferences")}
+        {Lisp-Entry "get-constituent-test" method (override) () #f #f 57 20 57 40 ("c-constituent?")}
+        {Lisp-Entry "auto-complete-char?" method (override) ("key" "last") #f #f 66 20 66 39 ("text-constituent?" "not" "lower-case?" "upper-case?" "and" "eqv?" "or" "last" "key")}
+        {Lisp-Entry "favorite-completions" method (override) () #f #f 73 20 73 40 ("preferences" "get-completions" "get-completions~")}
+        {Lisp-Entry "explorer-class" method (override) () #f #f 82 20 82 34 ("C-Explorer")}
+        {Lisp-Entry "Keywords" constant () () #f #f 91 12 91 20 ()}
+        {Lisp-Entry "get-keywords" method (override) () #f #f 150 20 150 32 ("Keywords")}
+        {Lisp-Entry "get-profile-macros" method (override) ("profile") #f #f 159 20 159 38 ("c-text" "documents" "get-preferences" "get-macros" "get-macros~" "profile")}
+        {Lisp-Entry "get-profile-keywords" method (override) ("profile") #f #f 163 20 163 40 ("c-text" "documents" "get-preferences" "get-keywords" "get-keywords~" "profile")}
+        {Lisp-Entry "get-profile-types" method (override) ("profile") #f #f 167 20 167 37 ("c-text" "documents" "get-preferences" "get-types" "get-types~" "profile")}
+        {Lisp-Entry "Syntax-Targets" definition () () #f #f 176 14 176 28 ()}
+        {Lisp-Entry "Syntax-Automata" definition () () #f #f 179 14 179 29 ()}
+        {Lisp-Entry "syntax-targets" method (override) () #f #f 183 20 183 34 ("compute-syntax-targets" "set!" "Syntax-Targets" "unless")}
+        {Lisp-Entry "syntax-automata" method (override) () #f #f 189 20 189 35 ("compute-syntax-automata" "set!" "Syntax-Automata" "unless")}
+        {Lisp-Entry "colorize-entries" method (override) () #f #f 195 20 195 36 ()}
+        {Lisp-Entry "Comment-Styles" definition () () #f #f 204 14 204 28 ("Balanced-Comment" "Line-Comment" "Title")}
+        {Lisp-Entry "comment-style?" method (override) ("style") #f #f 208 20 208 34 ("Comment-Styles" "inherits?" "inherits?~" "style-name" "lambda" "some?" "style")}}}})
+"C-Text-Preferences"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "text" "C-Text-Preferences.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.editor.c.text.C-Text-Preferences" module (protected) () #f #f 37 18 37 55 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.ui" "jazz.jml" "jazz.editor.clike")}
+      {Lisp-Entry "C-Text-Preferences" class () ((extends . "CLike-Text-Preferences")) #f #f 45 7 45 25 ("CLike-Text-Preferences")
+        {Lisp-Entry "form" form () () #f #f 48 3 48 7 ("completions:" "C-Profile-Type" "profile-type-style:" "C-Profile-Keyword" "profile-keyword-style:" "C-Profile-Macro" "profile-macro-style:" "Text-Keyword" "keyword-style:" "Text-Balanced-Comment" "balanced-comment-style:" "Text-Line-Comment" "line-comment-style:" "Text-Title" "title-style:" "Text-Definition" "Base" "Text-Style" "definition-style:" "title:" "install" "<install>")}}}})
+"C-Text-View"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "text" "C-Text-View.jazz"} 243479599. jazz
+    {Lisp-Entry "jazz.editor.c.text.C-Text-View" module (protected) () #f #f 37 18 37 48 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.ui.clipboard" "jazz.ui" "jazz.system" "jazz.locale" "jazz.library" "jazz.jml" "jazz.editor.clike" "jazz.editor.c")}
+      {Lisp-Entry "C-Text-View" class () ((extends . "CLike-Text-View")) #f #f 50 7 50 18 ("CLike-Text-View")
+        {Lisp-Entry "external-name" method (meta override) ("." "rest") #f #f 53 25 53 38 ("c" "rest")}
+        {Lisp-Entry "preferences" method (override) () #f #f 57 20 57 31 ("c-text" "documents" "get-preferences")}
+        {Lisp-Entry "new-syntax" method (override) () #f #f 61 20 61 30 ("model" "C-Syntax" "new")}
+        {Lisp-Entry "get-first-special?" method (override) () #f #f 70 20 70 38 ()}
+        {Lisp-Entry "on-add-break" method (package) ("evt") #f #f 79 19 79 31 ("user-message" "set-clipboard-text" "get-name" "get-name~" "format" "break-command" "1" "get-line" "get-line~" "+" "line" "get-start" "start" "get-document-controller" "get-moniker" "get-moniker~" "file" "let*" "evt")}
+        {Lisp-Entry "on-remove-break" method (package) ("evt") #f #f 88 19 88 34 ("evt")}
+        {Lisp-Entry "get-context-menu" method (override) () #f #f 97 20 97 36 ("C-Text-Menu" "new")}}
+      {Lisp-Entry "C-Text-Menu" class () ((extends . "Context-Menu")) #f #f 101 7 101 18 ("Context-Menu")
+        {Lisp-Entry "form" form () () #f #f 104 3 104 7 ("Format-Menu" "<Format-Menu>" "Column-Menu" "<Column-Menu>" "Separator-Item" "<Separator-Item>" "paste" "copy" "view" "Action" "action-handler:" "Image-Resource" "icon:" "french:" "english:" "Locales" "title:" "cut" "name:" "Label-Item" "<Label-Item>" "install" "<install>")}}}})
+"_c"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "_c.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c" module () () #f #f 37 8 37 21 ("jazz")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("jazz.editor.c.autoload")}}})
+"autoload"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "autoload.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.editor.c.autoload" module (protected) () #f #f 37 18 37 40 ("jazz")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("C-Text-View" "jazz.editor.c.text.C-Text-View" "C-Text-Preferences" "jazz.editor.c.text.C-Text-Preferences" "C-Explorer" "jazz.editor.c.text.C-Explorer" "C-Syntax" "jazz.editor.c.syntax.C-Syntax" "C-Parser" "jazz.editor.c.parser.C-Parser" "C-Category-Entry" "jazz.editor.c.catalog.C-Category-Entry" "C-Static-Entry" "jazz.editor.c.catalog.C-Static-Entry" "C-Method-Entry" "jazz.editor.c.catalog.C-Method-Entry" "C-Include-Entry" "jazz.editor.c.catalog.C-Include-Entry" "C-File-Entry" "jazz.editor.c.catalog.C-File-Entry" "C-Extern-Entry" "jazz.editor.c.catalog.C-Extern-Entry" "C-Export-Entry" "jazz.editor.c.catalog.C-Export-Entry" "C-Entry" "jazz.editor.c.catalog.C-Entry" "C-Definition-Entry" "jazz.editor.c.catalog.C-Definition-Entry" "C-Define-Entry" "jazz.editor.c.catalog.C-Define-Entry" "C-File" "autoload" "jazz.editor.c.builder.C-File")}}})
+"install"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "install.scm"} 231466230. scheme
+    {Lisp-Entry "jazz.editor.c.install" unit () () #f #f 37 6 37 27 ()
+      {Lisp-Entry "C-File-Entry" define () () ("literal") #f 40 21 40 33 ("construct-c-file-entry" "jazz.editor.c.literals" "jazz.editor.c.literals:construct-c-file-entry")}
+      {Lisp-Entry "C-Category-Entry" define () () ("literal") #f 41 21 41 37 ("construct-c-category-entry" "jazz.editor.c.literals" "jazz.editor.c.literals:construct-c-category-entry")}
+      {Lisp-Entry "C-Define-Entry" define () () ("literal") #f 42 21 42 35 ("construct-c-define-entry" "jazz.editor.c.literals" "jazz.editor.c.literals:construct-c-define-entry")}
+      {Lisp-Entry "C-Include-Entry" define () () ("literal") #f 43 21 43 36 ("construct-c-include-entry" "jazz.editor.c.literals" "jazz.editor.c.literals:construct-c-include-entry")}
+      {Lisp-Entry "C-Export-Entry" define () () ("literal") #f 44 21 44 35 ("construct-c-export-entry" "jazz.editor.c.literals" "jazz.editor.c.literals:construct-c-export-entry")}}})
+"literals"
+ ({Lisp-File-Entry {File :context "src" "jazz" "editor" "c" "literals.jazz"} 231466230. jazz
+    {Lisp-Entry "jazz.editor.c.literals" module () () #f #f 37 8 37 30 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("time" "jazz.editor.c")}
+      {Lisp-Entry "construct-c-file-entry" definition (package) ("file" "time" "dialect" "." "definitions") #f #f 44 21 44 43 ("seconds->time" "C-File-Entry" "new" "definitions" "dialect" "time" "file")}
+      {Lisp-Entry "construct-c-category-entry" definition (package) ("name") #f #f 48 21 48 47 ("C-Category-Entry" "new" "name")}
+      {Lisp-Entry "construct-c-define-entry" definition (package) ("name" "line" "column" "end-line" "end-column") #f #f 52 21 52 45 ("C-Define-Entry" "new" "end-column" "end-line" "column" "line" "name")}
+      {Lisp-Entry "construct-c-include-entry" definition (package) ("name" "line" "column" "end-line" "end-column") #f #f 56 21 56 46 ("C-Include-Entry" "new" "end-column" "end-line" "column" "line" "name")}
+      {Lisp-Entry "construct-c-export-entry" definition (package) ("name" "line" "column" "end-line" "end-column") #f #f 60 21 60 45 ("C-Export-Entry" "new" "end-column" "end-line" "column" "line" "name")}}})

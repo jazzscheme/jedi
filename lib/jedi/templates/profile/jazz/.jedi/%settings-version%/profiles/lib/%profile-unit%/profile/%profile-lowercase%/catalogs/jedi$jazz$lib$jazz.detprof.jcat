@@ -1,0 +1,25 @@
+"_detprof"
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "_detprof.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.detprof" module () () #f #f 37 8 37 20 ("lambda" "register-service" "jazz.detprof" "detprof" "profiler-ignore-module" "jazz")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("jazz.detprof.syntax")}
+      {Lisp-Entry "import" import () () #f #f 43 1 43 7 ("profiler" "jazz.jml" "jazz.detprof.syntax")}
+      {Lisp-Entry "profiling-advice" definition (public) ("profile" "(time?: time? #f)") #f #f 53 20 53 36 ("time" "if" "apply" "with-profiling" "call-original" "define" "rest" "procedure?" "when" "let" "set" "original" "locator" "field" "lambda" "time?" "time?:" "profile")}
+      {Lisp-Entry "profile-advice" definition (public) ("field" "locator" "original" "set") #f #f 68 20 68 34 ("apply" "profile-code" "rest" "lambda" "procedure?" "when" "let" "set" "original" "locator" "field")}
+      {Lisp-Entry "time-spent-in-children" define () () #f #f 82 8 82 30 ("0" "make-parameter")}
+      {Lisp-Entry "profile-code" definition (public) ("original" "proc") #f #f 86 20 86 32 ("+" "get-outer-overhead" "profile-register-call" "get-inner-overhead" "total-elapsed-time" "inner-start-time" "0" "time-spent-in-children" "parameterize" "result" "profiler-real-time" "outer-start-time" "profile-profiler" "1" "profile-depth" "-" "get-continuation-stack-for-profile" "cons" "if" "cont" "lambda" "continuation-capture" "profile-stack" "define" "procedure-locat" "locat->container/line/col" "list" "and" "original-call" "active-profile" "profile" "let" "proc" "original")}
+      {Lisp-Entry "outer-overhead" define () () #f #f 119 8 119 22 ()}
+      {Lisp-Entry "inner-overhead" define () () #f #f 122 8 122 22 ()}
+      {Lisp-Entry "get-outer-overhead" define () () #f #f 126 9 126 27 ("setup-overhead" "outer-overhead" "not" "when")}
+      {Lisp-Entry "get-inner-overhead" define () () #f #f 131 9 131 27 ("setup-overhead" "inner-overhead" "not" "when")}
+      {Lisp-Entry "setup-overhead" define () () #f #f 137 9 137 23 ("inner-overhead" "outer-overhead" "set!" "0" "parameterize" "3" "2" "test-proc" "apply" "inner-start-time" "estimate-inner-overhead" "100" "-" "fxfloor/" "99" "unroll" "1" "+" "time-spent-in-children" "profiler-real-time" "outer-start-time" "let" "estimate-outer-overhead" "define")}
+      {Lisp-Entry "test-proc" define () ("." "rest") #f #f 159 9 159 18 ("rest")}
+      {Lisp-Entry "profile->jml" definition (public) ("profile") #f #f 168 20 168 32 ("cddr" "key:" "table->list" ">" "sort" "list" "properties:" "JML-Element" "new" "duration" "count" "name" "bind" "lambda" "map" "profile")}
+      {Lisp-Entry "detprof" definition (public) () #f #f 180 19 180 26 ("1" "detprof" "make-profiler")}}})
+"install"
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "install.scm"} 231466230. scheme
+    {Lisp-Entry "jazz.detprof.install" unit () () #f #f 37 6 37 26 ("jazz.detprof" "detprof" "register-service" "jazz:register-service")}})
+"syntax"
+ ({Lisp-File-Entry {File :context "src" "jazz" "detprof" "syntax.jazz"} 229929916. jazz
+    {Lisp-Entry "jazz.detprof.syntax" module (protected) () #f #f 37 18 37 37 ("jazz")
+      {Lisp-Entry "unroll" macro (public) ("n" "." "rest") ("macro") #f 40 15 40 21 ("make-list" "append" "apply" "begin" "rest" "n")}
+      {Lisp-Entry "profile" macro (public) ("form-src") ("syntax") #f 45 16 45 23 ("lambda" "profile-code" ",@body" "begin" "not" "if" "sourcify-if" "name:" "name" "not-found:" "key:" "on?:" "getf" "on?" "cddr" "body" "cadr" "source-code" "control" "let" "form-src")}}})

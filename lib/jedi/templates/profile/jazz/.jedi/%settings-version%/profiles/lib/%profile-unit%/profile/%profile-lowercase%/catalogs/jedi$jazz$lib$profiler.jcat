@@ -1,0 +1,127 @@
+"_profiler"
+ ({Lisp-File-Entry {File :context "src" "profiler" "_profiler.jazz"} 246756120. jazz
+    {Lisp-Entry "profiler" module () () #f #f 37 8 37 16 ("jazz")
+      {Lisp-Entry "require" require () () #f #f 40 1 40 8 ("profiler.implementation")}
+      {Lisp-Entry "default-profiler-depth" native () () ("native") #f 43 8 43 30 ()}
+      {Lisp-Entry "default-profile" native () () ("native") #f 44 8 44 23 ()}
+      {Lisp-Entry "make-profiler" native () () ("native") #f 45 8 45 21 ()}
+      {Lisp-Entry "profiler-type" native () () ("native") #f 46 8 46 21 ()}
+      {Lisp-Entry "profiler-on?" native () () ("native") #f 47 8 47 20 ()}
+      {Lisp-Entry "profiler-default-depth" native () () ("native") #f 48 8 48 30 ()}
+      {Lisp-Entry "profiler-ignore-procedure" native () () ("native") #f 49 8 49 33 ()}
+      {Lisp-Entry "profiler-ignore-module" native () () ("native") #f 50 8 50 30 ()}
+      {Lisp-Entry "active-profile" native () () ("native") #f 51 8 51 22 ()}
+      {Lisp-Entry "profile-label" native () () ("native") #f 52 8 52 21 ()}
+      {Lisp-Entry "profile-profiler" native () () ("native") #f 53 8 53 24 ()}
+      {Lisp-Entry "profile-depth" native () () ("native") #f 54 8 54 21 ()}
+      {Lisp-Entry "profile-frames-count" native () () ("native") #f 55 8 55 28 ()}
+      {Lisp-Entry "profile-frames-count-set!" native () () ("native") #f 56 8 56 33 ()}
+      {Lisp-Entry "profile-frames-duration" native () () ("native") #f 57 8 57 31 ()}
+      {Lisp-Entry "profile-frames-duration-set!" native () () ("native") #f 58 8 58 36 ()}
+      {Lisp-Entry "profile-frames" native () () ("native") #f 59 8 59 22 ()}
+      {Lisp-Entry "profile-calls-count" native () () ("native") #f 60 8 60 27 ()}
+      {Lisp-Entry "profile-calls-count-set!" native () () ("native") #f 61 8 61 32 ()}
+      {Lisp-Entry "profile-calls-duration" native () () ("native") #f 62 8 62 30 ()}
+      {Lisp-Entry "profile-calls-duration-set!" native () () ("native") #f 63 8 63 35 ()}
+      {Lisp-Entry "profile-calls" native () () ("native") #f 64 8 64 21 ()}
+      {Lisp-Entry "profile-calls-set!" native () () ("native") #f 65 8 65 26 ()}
+      {Lisp-Entry "make-profile-call" native () () ("native") #f 66 8 66 25 ()}
+      {Lisp-Entry "profile-call-count" native () () ("native") #f 67 8 67 26 ()}
+      {Lisp-Entry "profile-call-count-set!" native () () ("native") #f 68 8 68 31 ()}
+      {Lisp-Entry "profile-call-duration" native () () ("native") #f 69 8 69 29 ()}
+      {Lisp-Entry "profile-call-duration-set!" native () () ("native") #f 70 8 70 34 ()}
+      {Lisp-Entry "profile-process-start-info" native () () ("native") #f 71 8 71 34 ()}
+      {Lisp-Entry "profile-process-start-info-set!" native () () ("native") #f 72 8 72 39 ()}
+      {Lisp-Entry "profile-process-stop-info" native () () ("native") #f 73 8 73 33 ()}
+      {Lisp-Entry "profile-process-stop-info-set!" native () () ("native") #f 74 8 74 38 ()}
+      {Lisp-Entry "process-statistics" native () () ("native") #f 75 8 75 26 ()}
+      {Lisp-Entry "profile-process-info" native () () ("native") #f 76 8 76 28 ()}
+      {Lisp-Entry "profile-register-call" native () () ("native") #f 77 8 77 29 ()}
+      {Lisp-Entry "new-profile" native () () ("native") #f 78 8 78 19 ()}
+      {Lisp-Entry "reset-profile" native () () ("native") #f 79 8 79 21 ()}
+      {Lisp-Entry "get-profiles" native () () ("native") #f 80 8 80 20 ()}
+      {Lisp-Entry "get-profile-names" native () () ("native") #f 81 8 81 25 ()}
+      {Lisp-Entry "get-selected-profile" native () () ("native") #f 82 8 82 28 ()}
+      {Lisp-Entry "set-selected-profile" native () () ("native") #f 83 8 83 28 ()}
+      {Lisp-Entry "find-profile" native () () ("native") #f 84 8 84 20 ()}
+      {Lisp-Entry "find-selected-profile" native () () ("native") #f 85 8 85 29 ()}
+      {Lisp-Entry "find/new-profile" native () () ("native") #f 86 8 86 24 ()}
+      {Lisp-Entry "with-profile" native () () ("native") #f 87 8 87 20 ()}
+      {Lisp-Entry "register-profile" native () () ("native") #f 88 8 88 24 ()}
+      {Lisp-Entry "unregister-profile" native () () ("native") #f 89 8 89 26 ()}
+      {Lisp-Entry "with-profiling" native () () ("native") #f 90 8 90 22 ()}
+      {Lisp-Entry "start-profiler" native () () ("native") #f 91 8 91 22 ()}
+      {Lisp-Entry "stop-profiler" native () () ("native") #f 92 8 92 21 ()}
+      {Lisp-Entry "profile-running?" native () () ("native") #f 93 8 93 24 ()}
+      {Lisp-Entry "profiler-real-time" native () () ("native") #f 94 8 94 26 ()}
+      {Lisp-Entry "profiler-real-time-set!" native () () ("native") #f 95 8 95 31 ()}
+      {Lisp-Entry "get-continuation-stack-for-profile" native () () ("native") #f 96 8 96 42 ()}
+      {Lisp-Entry "get-current-profile" native () () ("native") #f 97 8 97 27 ()}}})
+"implementation"
+ ({Lisp-File-Entry {File :context "src" "profiler" "implementation.scm"} 246932760. scheme
+    {Lisp-Entry "profiler.implementation" unit (protected) () #f #f 37 16 37 39 ()
+      {Lisp-Entry "default-profiler" define-macro () () ("setting") #f 48 21 48 37 ("statprof")}
+      {Lisp-Entry "default-profiler-ignored-procedures" define-macro () () ("setting") #f 51 21 51 56 ("##primordial-exception-handler-hook" "##thread-start-action!" "##call-with-values" "##dynamic-env-bind" "%%list")}
+      {Lisp-Entry "default-profiler-ignored-modules" define-macro () () ("setting") #f 58 21 58 53 ()}
+      {Lisp-Entry "make-profiler" define () ("name" "start-func" "stop-func" "default-depth") #f #f 67 9 67 22 ("default-profiler-ignored-modules" "default-profiler-ignored-procedures" "profiler" "%%vector" "default-depth" "stop-func" "start-func" "name")}
+      {Lisp-Entry "profiler-type" define () ("profiler") #f #f 71 9 71 22 ("1" "%%vector-ref" "profiler")}
+      {Lisp-Entry "profiler-start-func" define () ("profiler") #f #f 74 9 74 28 ("2" "%%vector-ref" "profiler")}
+      {Lisp-Entry "profiler-stop-func" define () ("profiler") #f #f 77 9 77 27 ("3" "%%vector-ref" "profiler")}
+      {Lisp-Entry "profiler-default-depth" define () ("profiler") #f #f 80 9 80 31 ("4" "%%vector-ref" "profiler")}
+      {Lisp-Entry "profiler-default-depth-set!" define () ("profiler" "default-depth") #f #f 83 9 83 36 ("4" "%%vector-set!" "default-depth" "profiler")}
+      {Lisp-Entry "profiler-ignored-procedures" define () ("profiler") #f #f 86 9 86 36 ("5" "%%vector-ref" "profiler")}
+      {Lisp-Entry "profiler-ignored-procedures-set!" define () ("profiler" "ignored-procedures") #f #f 89 9 89 41 ("5" "%%vector-set!" "ignored-procedures" "profiler")}
+      {Lisp-Entry "profiler-ignored-modules" define () ("profiler") #f #f 92 9 92 33 ("6" "%%vector-ref" "profiler")}
+      {Lisp-Entry "profiler-ignored-modules-set!" define () ("profiler" "ignored-modules") #f #f 95 9 95 38 ("6" "%%vector-set!" "ignored-modules" "profiler")}
+      {Lisp-Entry "profiler-ignore-procedure?" define () ("profiler" "procedure") #f #f 99 9 99 35 ("profiler-ignored-procedures" "%%memq" "procedure" "profiler")}
+      {Lisp-Entry "profiler-ignore-module?" define () ("profiler" "module") #f #f 102 9 102 32 ("profiler-ignored-modules" "%%memq" "module" "profiler")}
+      {Lisp-Entry "profiler-ignore-procedure" define () ("profiler" "procedure") #f #f 105 9 105 34 ("profiler-ignored-procedures" "%%cons" "profiler-ignored-procedures-set!" "profiler-ignore-procedure?" "%%not" "if" "procedure" "profiler")}
+      {Lisp-Entry "profiler-ignore-module" define () ("profiler" "module") #f #f 109 9 109 31 ("profiler-ignored-modules" "%%cons" "profiler-ignored-modules-set!" "profiler-ignore-module?" "%%not" "if" "module" "profiler")}
+      {Lisp-Entry "make-profile" define () ("label" "profiler" "depth") #f #f 119 9 119 21 ("profile" "%%vector" "equal?" "test:" "%%make-table" "calls" "stop-info" "start-info" "calls-duration" "calls-count" "frames-duration" "0" "frames-count" "let" "depth" "profiler" "label")}
+      {Lisp-Entry "profile-label" define () ("profile") #f #f 130 9 130 22 ("1" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-profiler" define () ("profile") #f #f 133 9 133 25 ("2" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-profiler-set!" define () ("profile" "profiler") #f #f 136 9 136 30 ("2" "%%vector-set!" "profiler" "profile")}
+      {Lisp-Entry "profile-depth" define () ("profile") #f #f 139 9 139 22 ("3" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-depth-set!" define () ("profile" "depth") #f #f 142 9 142 27 ("3" "%%vector-set!" "depth" "profile")}
+      {Lisp-Entry "profile-frames-count" define () ("profile") #f #f 145 9 145 29 ("4" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-frames-count-set!" define () ("profile" "count") #f #f 148 9 148 34 ("4" "%%vector-set!" "count" "profile")}
+      {Lisp-Entry "profile-frames-duration" define () ("profile") #f #f 151 9 151 32 ("5" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-frames-duration-set!" define () ("profile" "count") #f #f 154 9 154 37 ("5" "%%vector-set!" "count" "profile")}
+      {Lisp-Entry "profile-calls-count" define () ("profile") #f #f 157 9 157 28 ("6" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-calls-count-set!" define () ("profile" "total") #f #f 160 9 160 33 ("6" "%%vector-set!" "total" "profile")}
+      {Lisp-Entry "profile-calls-duration" define () ("profile") #f #f 163 9 163 31 ("7" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-calls-duration-set!" define () ("profile" "total") #f #f 166 9 166 36 ("7" "%%vector-set!" "total" "profile")}
+      {Lisp-Entry "profile-process-start-info" define () ("profile") #f #f 169 9 169 35 ("8" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-process-start-info-set!" define () ("profile" "time") #f #f 172 9 172 40 ("8" "%%vector-set!" "time" "profile")}
+      {Lisp-Entry "profile-process-stop-info" define () ("profile") #f #f 175 9 175 34 ("9" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-process-stop-info-set!" define () ("profile" "time") #f #f 178 9 178 39 ("9" "%%vector-set!" "time" "profile")}
+      {Lisp-Entry "profile-calls" define () ("profile") #f #f 181 9 181 22 ("10" "%%vector-ref" "profile")}
+      {Lisp-Entry "profile-calls-set!" define () ("profile" "calls") #f #f 184 9 184 27 ("10" "%%vector-set!" "calls" "profile")}
+      {Lisp-Entry "new-profile" define () ("#!key" "(label #f)" "(profiler #f)" "(depth #f)") #f #f 188 9 188 20 ("profiler-default-depth" "make-profile" "default-profiler" "require-service" "jazz:require-service" "or" "let" "depth" "profiler" "label" "#!key")}
+      {Lisp-Entry "*profiles*" define () () #f #f 198 8 198 18 ("equal?" "test:" "make-table")}
+      {Lisp-Entry "*selected-profile*" define () () #f #f 201 8 201 26 ()}
+      {Lisp-Entry "get-profiles" define () () #f #f 205 9 205 21 ("*profiles*")}
+      {Lisp-Entry "get-profile-names" define () () #f #f 208 9 208 26 ("%%cons" "set!" "profile" "name" "lambda" "*profiles*" "iterate-table" "jazz:iterate-table" "names" "let")}
+      {Lisp-Entry "get-selected-profile" define () () #f #f 216 9 216 29 ("*selected-profile*")}
+      {Lisp-Entry "set-selected-profile" define () ("name") #f #f 219 9 219 29 ("*selected-profile*" "set!" "name")}
+      {Lisp-Entry "find-profile" define () ("name") #f #f 223 9 223 21 ("%%table-set!" "new-profile" "profile" "let" "%%not" "if" "*profiles*" "%%table-ref" "or" "name")}
+      {Lisp-Entry "find-selected-profile" define () () #f #f 232 9 232 30 ("get-selected-profile" "find-profile")}
+      {Lisp-Entry "find/new-profile" define () ("label" "." "rest") #f #f 236 9 236 25 ("register-profile" "label:" "new-profile" "apply" "profile" "let" "find-profile" "or" "rest" "label")}
+      {Lisp-Entry "with-profile" define () ("label" "thunk" "." "rest") #f #f 243 9 243 21 ("with-profiling" "find/new-profile" "apply" "profile" "let" "rest" "thunk" "label")}
+      {Lisp-Entry "register-profile" define () ("profile") #f #f 249 9 249 25 ("profile-label" "*profiles*" "%%table-set!" "profile")}
+      {Lisp-Entry "unregister-profile" define () ("name") #f #f 252 9 252 27 ("*profiles*" "%%table-clear" "name")}
+      {Lisp-Entry "profiler-on?" define () () #f #f 261 8 261 20 ("make-parameter")}
+      {Lisp-Entry "active-profile" define () () #f #f 264 8 264 22 ("make-parameter")}
+      {Lisp-Entry "*current-profile*" define () () #f #f 267 8 267 25 ()}
+      {Lisp-Entry "get-current-profile" define () () #f #f 269 9 269 28 ("new-profile" "set!" "*current-profile*" "not" "if")}
+      {Lisp-Entry "reset-profile" define () ("profile" "profiler" "depth") #f #f 274 9 274 22 ("equal?" "test:" "%%make-table" "profile-calls-set!" "profile-process-stop-info-set!" "profile-calls-duration-set!" "profile-calls-count-set!" "profile-frames-duration-set!" "0" "profile-frames-count-set!" "profile-depth-set!" "profile-profiler-set!" "if" "depth" "profiler" "profile")}
+      {Lisp-Entry "profile-register-call" define () ("profile" "stack" "duration") #f #f 287 9 287 30 ("cadr" "car" "list" "%%table-set!" "if" "%%table-ref" "call" "unknown" "<unknown>" "or" "key" "profile-calls" "calls" "let*" "profile-calls-duration" "profile-calls-duration-set!" "1" "profile-calls-count" "+" "profile-calls-count-set!" "duration" "stack" "profile")}
+      {Lisp-Entry "profiler-real-time" define () () #f #f 299 9 299 27 ("1000" "real-time" "*")}
+      {Lisp-Entry "profiler-real-time-set!" define () ("x") #f #f 303 9 303 32 ("profiler-real-time" "set!" "x")}
+      {Lisp-Entry "process-statistics" define () () #f #f 312 9 312 27 ("##process-statistics")}
+      {Lisp-Entry "with-profiling" define () ("profile" "thunk") #f #f 316 9 316 23 ("stop-profiler" "result" "let" "active-profile" "parameterize" "start-profiler" "thunk" "profile")}
+      {Lisp-Entry "start-profiler" define () ("profile") #f #f 324 9 324 23 ("if" "profile-profiler" "profiler-start-func" "start" "let" "process-statistics" "profile-process-start-info-set!" "profile")}
+      {Lisp-Entry "stop-profiler" define () ("profile") #f #f 331 9 331 22 ("if" "profile-profiler" "profiler-stop-func" "stop" "profile-frames-duration" "profile-frames-duration-set!" "profile-process-start-info" "2" "profile-process-stop-info" "##f64vector-ref" "##-" "secs->msecs" "real-time" "let" "1" "profile-frames-count" "+" "profile-frames-count-set!" "process-statistics" "profile-process-stop-info-set!" "profile")}
+      {Lisp-Entry "profile-process-info" define () ("profile") #f #f 343 9 343 29 ("list" "9" "7" "##flonum.->exact-int" "bytes-allocated" "5" "gc-real-time" "2" "real-time" "1" "sys-time" "0" "##f64vector-ref" "##-" "secs->msecs" "user-time" "profile-process-stop-info" "or" "at-end" "if" "profile-process-start-info" "at-start" "let" "profile")}
+      {Lisp-Entry "secs->msecs" define () ("x") #f #f 367 9 367 20 ("1000" "##*" "##round" "##inexact->exact" "x")}
+      {Lisp-Entry "get-continuation-stack-for-profile" define () ("cont" "depth" "profiler") #f #f 376 9 376 43 ("0" "1" "%%fx+" "%%cons" "location" "%%not" "%%fx<" "d" "identify" "%%list" "%%filepos-col" "col" "%%filepos-line" "line" "%%locat-position" "%%position->filepos" "filepos" "container" "locat" "identify-location" "%%eq?" "creator" "continuation-next-distinct" "%%continuation-next" "%%locat-container" "profiler-ignore-module?" "%%continuation-locat" "current-location" "profiler-ignore-procedure?" "or" "current-cont" "loop" "continuation-next-interesting" "%%closure-code" "%%closure?" "and" "if" "%%continuation-creator" "proc" "let" "continuation-creator" "define" "profiler" "depth" "cont")}}})

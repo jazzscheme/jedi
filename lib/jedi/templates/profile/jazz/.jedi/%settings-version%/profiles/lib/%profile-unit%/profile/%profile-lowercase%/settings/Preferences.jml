@@ -1,0 +1,51 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Preferences
+;;;
+
+
+(data jedi.data.preferences
+
+
+(form
+  (<Jedi-Preferences>                 active-bindings: jazz current-directory: {Directory Profile}
+    (<aliases~>)
+    (<favorites~>
+      (<Favorite-Configuration>       shortcut: #\A)
+      (<Favorite-Configuration>       shortcut: #\B)
+      (<Favorite-Configuration>       shortcut: #\C)
+      (<Favorite-Configuration>       shortcut: #\D)
+      (<Favorite-Configuration>       shortcut: #\E)
+      (<Favorite-Configuration>       shortcut: #\F)
+      (<Favorite-Configuration>       shortcut: #\G)
+      (<Favorite-Configuration>       shortcut: #\H)
+      (<Favorite-Configuration>       shortcut: #\I)
+      (<Favorite-Configuration>       shortcut: #\J target: {File Jazz-Settings ".jazzini"})
+      (<Favorite-Configuration>       shortcut: #\K target: jazz.dialect.kernel)
+      (<Favorite-Configuration>       shortcut: #\L target: jazz.dialect.language)
+      (<Favorite-Configuration>       shortcut: #\M)
+      (<Favorite-Configuration>       shortcut: #\N)
+      (<Favorite-Configuration>       shortcut: #\O)
+      (<Favorite-Configuration>       shortcut: #\P target: {File Profile "%profile%.jazz"})
+      (<Favorite-Configuration>       shortcut: #\Q)
+      (<Favorite-Configuration>       shortcut: #\R)
+      (<Favorite-Configuration>       shortcut: #\S target: {File Profile "settings" "Skins.jml"})
+      (<Favorite-Configuration>       shortcut: #\T target: {File Profile "settings" "Toolbox.jml"})
+      (<Favorite-Configuration>       shortcut: #\U)
+      (<Favorite-Configuration>       shortcut: #\V)
+      (<Favorite-Configuration>       shortcut: #\W target: {File Profile "settings" "Workbench.jml"})
+      (<Favorite-Configuration>       shortcut: #\X target: {File Profile "settings" "Preferences.jml"})
+      (<Favorite-Configuration>       shortcut: #\Y target: {File Profile "settings" "Bindings.jml"})
+      (<Favorite-Configuration>       shortcut: #\Z target: {File Profile "settings" "Servers.jml"})
+      (<Favorite-Configuration>       shortcut: #\0)
+      (<Favorite-Configuration>       shortcut: #\1)
+      (<Favorite-Configuration>       shortcut: #\2)
+      (<Favorite-Configuration>       shortcut: #\3)
+      (<Favorite-Configuration>       shortcut: #\4)
+      (<Favorite-Configuration>       shortcut: #\5)
+      (<Favorite-Configuration>       shortcut: #\6)
+      (<Favorite-Configuration>       shortcut: #\7)
+      (<Favorite-Configuration>       shortcut: #\8)
+      (<Favorite-Configuration>       shortcut: #\9)))))

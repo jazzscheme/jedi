@@ -1,0 +1,48 @@
+"Macro-Recorder"
+ ({Lisp-File-Entry {File :context "src" "jazz" "recorder" "Macro-Recorder.jazz"} 246587393. jazz
+    {Lisp-Entry "jazz.recorder.Macro-Recorder" module (protected) () #f #f 37 18 37 46 ("jazz")
+      {Lisp-Entry "import" import () () #f #f 40 1 40 7 ("jazz.ui.view" "jazz.ui" "jazz.system" "jazz.library")}
+      {Lisp-Entry "Recording-Factory" definition (public) () #f #f 46 19 46 36 ("List-Factory" "new")}
+      {Lisp-Entry "Registered-Recordings" definition (public) () #f #f 49 19 49 40 ("eqv?" "test:" "make-table")}
+      {Lisp-Entry "Active-Recording" definition (public) () #f #f 52 19 52 35 ()}
+      {Lisp-Entry "Macro-Recorder" class () ((extends . "Object")) #f #f 56 7 56 21 ("Object")
+        {Lisp-Entry "recording?" slot () ((initialize . "#f") (getter . "generate")) #f #f 59 8 59 18 ()}
+        {Lisp-Entry "get-recording?" accessor () () #f #f 59 41 59 49 ()}
+        {Lisp-Entry "playing?" slot () ((initialize . "#f") (getter . "generate")) #f #f 60 8 60 16 ()}
+        {Lisp-Entry "get-playing?" accessor () () #f #f 60 41 60 49 ()}
+        {Lisp-Entry "event-hook?" slot () ((initialize . "#f") (getter . "generate")) #f #f 61 8 61 19 ()}
+        {Lisp-Entry "get-event-hook?" accessor () () #f #f 61 41 61 49 ()}
+        {Lisp-Entry "event-hook" method () ("action/handler" "event") #f #f 69 11 69 21 ("record" "recording?" "when" "event" "action/handler")}
+        {Lisp-Entry "on-start-recording" method () ("evt") #f #f 79 11 79 29 ("event-hook" "register-event-hook" "event-hook?" "List-Factory" "new" "Recording-Factory" "set!" "user-message" "recording?" "not" "when" "evt")}
+        {Lisp-Entry "on-stop-recording" method () ("evt") #f #f 89 11 89 28 ("Active-Recording" "get-output" "get-output~" "coalesce-actions" "Recording-Factory" "set!" "user-message" "recording?" "when" "evt")}
+        {Lisp-Entry "on-resume-recording" method () ("evt") #f #f 98 11 98 30 ("set!" "user-message" "recording?" "not" "when" "evt")}
+        {Lisp-Entry "on-play-recording" method () ("evt") #f #f 104 11 104 28 ("error" "get-recording" "play-recording" "play-current-recording" "no:" "get-property" "get-property~" "no" "let" "user-message" "begin" "recording?" "not" "if" "evt")}
+        {Lisp-Entry "on-output-recording" method () ("evt") #f #f 116 11 116 30 ("output-recording" "bell" "null?" "if" "Recording-Factory" "get-output" "get-output~" "actions" "let" "evt")}
+        {Lisp-Entry "on-present-recording" method () ("evt") #f #f 123 11 123 31 ("present-recording" "bell" "null?" "if" "Recording-Factory" "get-output" "get-output~" "actions" "let" "evt")}
+        {Lisp-Entry "on-register-recording" method () ("evt") #f #f 130 11 130 32 ("user-message" "register-recording" "Recording-Factory" "get-output" "get-output~" "recording" "5" "1" "between?" "assert" "initial-value:" "prefix:" "title:" "request-string" "parse-integer" "no" "let" "evt")}
+        {Lisp-Entry "on-set-active-recording" method () ("evt") #f #f 138 11 138 34 ("get-recording" "read-string-element" "no" "user-message" "Active-Recording" "set!" "begin" "not" "if" "prefix:" "title:" "request-string" "name" "let" "evt")}
+        {Lisp-Entry "coalesce-actions" method () ("actions") #f #f 151 11 151 27 ("string-append" "not" "get-property" "get-property~" "string" "added" "get-action/method-name" "get-target-name" "eq?" "and" "if" "action/handler" "bind" "action" "for-each" "set!" "cons" "put" "put~" "content:" "self" ":string" "Event" "event" "on-insert" ":focus" "Event-Handler" "handler" "let" "when" "lambda" "coalesce" "result" "List-Factory" "new" "fact" "let*" "actions")}
+        {Lisp-Entry "present-recording" method () ("actions") #f #f 176 11 176 28 ("title:" "get-output-string" "message-box" "get-action/method-name" "not" "format" "event" "action/handler" "bind" "do" "then" "first" "first?" "in" "action" "for" "loop" "car" "get-target-name" "map" "remove-duplicates" "targets" "open-output-string" "output" "get-focus" "focus" "let*" "actions")}
+        {Lisp-Entry "output-recording" method () ("actions") #f #f 192 11 192 27 ("tabulate" "tabulate~" ":reader" "->string" "insert-string" "insert-string~" "insert-newline" "insert-newline~" "unless" "do" "in" "action" "then" "first" "first?" "for" "loop" "insert-char" "insert-char~" "lambda" "get-undoer" "get-undoer~" "with-atomic-undo" "with-atomic-undo~" "get-model" "get-model~" "model" "bell" "Text-View" "is-not?" "if" "get-focus" "text" "let" "actions")}
+        {Lisp-Entry "target-name" method () ("target") #f #f 210 11 210 22 ("keyword->symbol" "appl" ":application" "eq?" "if" "target")}
+        {Lisp-Entry "get-target-name" definition () ("action/handler") #f #f 225 15 225 30 ("else" "get-target-name" "get-target-name~" "Action" "typecase" "action/handler")}
+        {Lisp-Entry "get-action/method-name" definition () ("action/handler") #f #f 231 15 231 37 ("get-method-name" "get-method-name~" "else" "get-action-name" "get-action-name~" "Action" "typecase" "action/handler")}
+        {Lisp-Entry "record" method (public) ("action/handler" "event") #f #f 246 18 246 24 ("cons" "Recording-Factory" "put" "put~" "on-command-extended" "on-start-recording" "get-action/method-name" "memq?" ":recorder" "get-target-name" "eq?" "or" "unless" "event" "action/handler")}
+        {Lisp-Entry "register-recording" method (public) ("name" "recording") #f #f 253 18 253 36 ("Registered-Recordings" "table-set!" "recording" "name")}
+        {Lisp-Entry "get-recording" method (public) ("name") #f #f 257 18 257 31 ("throw-cancel" "format" "message-box" "begin" "Registered-Recordings" "table-ref" "or" "name")}
+        {Lisp-Entry "play-current-recording" method (public) () #f #f 269 18 269 40 ("get-recording" "Recording-Factory" "get-output" "get-output~" "play-recording" "play-recording~" "unless" "get-application" "get-profile" "get-profile~" "profile" "let" "Active-Recording" "not" "if")}
+        {Lisp-Entry "play-recording" method (public) ("recording") #f #f 277 18 277 32 ("error" "end-completion" "end-completion~" "play-action" "for-each" "lambda" "get-undoer" "get-undoer~" "with-atomic-undo" "with-atomic-undo~" "get-model" "get-model~" "model" "Text-View" "is?" "get-focus" "focus" "set!" "begin" "unwind-protect" "playing?" "old" "let" "recording?" "not" "if" "recording")}
+        {Lisp-Entry "play-action" method (public) ("action") #f #f 295 18 295 29 ("invoke" "invoke~" "get-focus" "target" "let" "else" "event:" "call-action" "Action" "typecase" "event" "action/handler" "bind" "action")}
+        {Lisp-Entry "find-target" method (public) ("target") #f #f 305 18 305 29 ("get-process" "process-alias" "process-alias~" "target")}}}})
+"Recordable"
+ ({Lisp-File-Entry {File :context "src" "jazz" "recorder" "Recordable.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.recorder.Recordable" module (protected) () #f #f 37 18 37 42 ("jazz")
+      {Lisp-Entry "Recordable" interface () () #f #f 40 11 40 21 ()}}})
+"_recorder"
+ ({Lisp-File-Entry {File :context "src" "jazz" "recorder" "_recorder.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.recorder" module () () #f #f 37 8 37 21 ("jazz")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("jazz.recorder.autoload")}}})
+"autoload"
+ ({Lisp-File-Entry {File :context "src" "jazz" "recorder" "autoload.jazz"} 222341473. jazz
+    {Lisp-Entry "jazz.recorder.autoload" module (protected) () #f #f 37 18 37 40 ("jazz")
+      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("Recordable" "jazz.recorder.Recordable" "Macro-Recorder" "autoload" "jazz.recorder.Macro-Recorder")}}})

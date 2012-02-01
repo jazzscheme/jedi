@@ -1,9 +1,0 @@
-;;;==============
-;;;  JazzScheme
-;;;==============
-;;;
-;;;; Local jazzini
-;;;
-
-
-(jazz:repositories ".")
