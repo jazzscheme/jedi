@@ -284,12 +284,12 @@
   ;;;
   
   
-  (method override (edit-file file)
+  (method override (edit-file file . rest)
     (let ((ext (get-extension~ file)))
       (cond
       @wait ((extension=? ext "class") (browse-java-classfile file))
       @wait ((extension=? ext "jar") (browse-java-jarfile file))
-            (else (nextmethod file)))))
+            (else (apply nextmethod file rest)))))
   
   
   ;;;
