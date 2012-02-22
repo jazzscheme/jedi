@@ -467,7 +467,7 @@
           (set-action-enabled? {Action text capitalize} text?)))))
   
   
-  (method override (allow-orphaned-actions?)
+  (method override (allow-orphaned-action? action-item)
     #t)
 
 
