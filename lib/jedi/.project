@@ -52,4 +52,8 @@
           (<Jazz-File>       name: bindings         source: {File :context "src" "jedi" "data" "bindings.jazz"})
           (<Jazz-File>       name: preferences      source: {File :context "src" "jedi" "data" "preferences.jazz"}))
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "convert"}
-          (<Jazz-File>       name: _convert         source: {File :context "src" "jedi" "convert" "_convert.jazz"})))))))
+          (<Jazz-File>       name: _convert         source: {File :context "src" "jedi" "convert" "_convert.jazz"}))
+        (<Project-Directory>                        directory: {Directory :context "src" "jedi" "validate"}
+          (<Jazz-File>       name: Jedi-Tester      source: {File :context "src" "jedi" "validate" "Jedi-Tester.jazz"})
+          (<Jazz-File>       name: _validate        source: {File :context "src" "jedi" "validate" "_validate.jazz"})
+          (<Jazz-File>       name: autoload         source: {File :context "src" "jedi" "validate" "autoload.jazz"})))))))

@@ -64,7 +64,8 @@
         (jazz.ui.picker)
         (jazz.ui.view)
         (jazz.ui.workspace)
-        (jedi))
+        (jedi)
+        (jedi.validate))
 
 
 (class Jedi-Application extends IDE
@@ -299,6 +300,16 @@
   
   (method override (get-text-class)
     Jazz-Text-View)
+  
+  
+  ;;;
+  ;;;; Validate
+  ;;;
+  
+  
+  (method override (validate-process)
+    (thread-sleep! .5)
+    (validate-jedi))
   
   
   ;;;
