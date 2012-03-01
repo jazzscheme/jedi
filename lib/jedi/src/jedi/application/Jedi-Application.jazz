@@ -94,8 +94,7 @@
 
 
   (method override (process-version)
-    (receive (major minor revision) (split-version kernel-version)
-      (new Version major minor revision)))
+    (jazz-version))
 
 
   (method override (process-email)
