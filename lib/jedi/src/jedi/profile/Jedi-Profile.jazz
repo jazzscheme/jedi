@@ -616,7 +616,7 @@
         (iterate-directory~ src
           (lambda (file)
             (let ((name (get-name~ file))
-                  (digest (digest-file (parse~ file) 'sha-1)))
+                  (digest (digest-file (parse~ file) 'SHA-1)))
               (user-feedback "Processing {a}..." name)
               (unless (or (ends-with? (get-base~ file) "_")
                           (and remove-duplicates (member? digest digests test: equal?)))
