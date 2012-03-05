@@ -15,7 +15,7 @@
 
 
 (definition (run descriptor)
-  (start-repl))
+  (start-jazz-repl))
 
 
 ;;;

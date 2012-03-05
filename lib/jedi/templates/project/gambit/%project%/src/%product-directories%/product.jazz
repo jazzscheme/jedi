@@ -6,7 +6,7 @@
 ;;;
 
 
-(module %product-unit%.product jazz
+(unit %product-unit%.product
 
 
 ;;;
@@ -14,19 +14,8 @@
 ;;;
 
 
-(definition (run descriptor)
-  (terminal "Please define a run function")
-  (thread-sleep! 2.5))
-
-
-;;;
-;;;; Build
-;;;
-
-
-(definition (build descriptor)
-  (terminal "Please define a build function")
-  (thread-sleep! 2.5))
+(define (run descriptor)
+  (start-scheme-repl))
 
 
 ;;;
@@ -34,7 +23,6 @@
 ;;;
 
 
-(register-product '%product%
+(jazz:register-product '%product%
   title: "%product-title%"
-  run: run
-  build: build))
+  run: run))
