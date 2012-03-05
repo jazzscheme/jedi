@@ -10,7 +10,8 @@
                           jedi.data.bindings
                           jedi.data.preferences
                           jedi.run
-                          jedi.services)
+                          jedi.services
+                          jedi.validate)
                   (build (jedi include-compiler?: #t resources: "resources"))
                   (dependencies preinstalled
                                 jedi.install))

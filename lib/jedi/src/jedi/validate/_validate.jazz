@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Vertical View
+;;;; Jedi Validation Suite
 ;;;
 ;;;  The contents of this file are subject to the Mozilla Public License Version
 ;;;  1.1 (the "License"); you may not use this file except in compliance with
@@ -35,65 +35,23 @@
 ;;;  See www.jazzscheme.org for details.
 
 
-(module protected jedi.test.Vertical-View jazz
+(module jedi.validate jazz
 
 
-(import (jazz.ui))
+(export (jedi.validate.autoload))
+(import (jedi.validate.autoload)
+        (jazz.io)
+        (jazz.log)
+        (jazz.validation))
 
 
-(class Vertical-View extends View)
+(definition public Jedi-Suite
+  (new Validation-Suite
+    "Jedi"
+    (list (new Jedi-Tester))))
 
 
-@convert
-
-
-(class Vertical-View extends View
-  
-  
-  (class Toto extends Border-View
-    
-    
-    (form
-      (<install>                       border-type: edge
-        (<Scroller-View>               hscroll?: #t vscroll?: #t
-          (<!>           name: content
-            (<Text-View> name: text    position: {Point 0 0} size: {Dimension 100 100}))))))
-  
-  
-  (method (install rest)
-    (nextmethod rest)
-    (for-each (lambda (n)
-                (case n
-                  ((1) (new Toto parent: self name: 'toto))
-                  ((2) (new Horizontal-View parent: self))
-                  (else (new Label-View parent: self title: (->string n)))))
-              (naturals 0 3)))
-  
-  
-  ;;;
-  ;;;; Layout
-  ;;;
-  
-  
-  (method (layout)
-    (when children
-      (let* ((length (length children))
-             (size (get-size))
-             (width (get-width~ size))
-             (height (quotient (get-height~ size) length))
-             (child-size (new Dimension width height))
-             (v 0))
-        (for-each-view
-          (lambda (view)
-            (set-position~ view (new Point 0 v))
-            (set-size~ view child-size)
-            (increase! v height))))))
-  
-  
-  ;;;
-  ;;;; Drawing
-  ;;;
-  
-  
-  (method (draw surface context)
-    (fill-rect~ surface (get-bounds) {Color Dark-Red}))))
+(definition public (validate-jedi)
+  (let ((log (new Log name: 'validate file: (timestamped-file {Directory Settings "logs"} "validation" "jlog") keep-nodes?: #t)))
+    (let ((manager (new Validation-Manager feedback-port: :console log: log)))
+      (validate~ manager Jedi-Suite)))))

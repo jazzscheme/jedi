@@ -1,0 +1,117 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Tests
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2012
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.validate.Jedi-Tester jazz
+
+
+(import (jazz.debuggee)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.recorder)
+        (jazz.runtime)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.window)
+        (jazz.validation))
+
+
+(class Jedi-Tester extends Tester
+  
+  
+  (method override (test)
+    (define actions
+      '(;; Project
+        ({Event-Handler :application on-projects-manager} . {Action-Event :action})
+        ;; Refactor
+        ({Event-Handler :application on-class-browser} . {Action-Event :action})
+        ;; Tools
+        ({Event-Handler :application on-bindings-manager} . {Action-Event :action})
+        ({Event-Handler :application on-skins-manager} . {Action-Event :action})
+        ({Event-Handler :application on-compare-directories} . {Action-Event :action})
+        ({Event-Handler :application on-compare-files} . {Action-Event :action})
+        ({Event-Handler :application on-git-explorer} . {Action-Event :action})
+        ;; View
+        ({Event-Handler :application on-workbench} . {Action-Event :action})
+        ({Event-Handler :application on-repositories} . {Action-Event :action})
+        ({Event-Handler :application on-favorites} . {Action-Event :action})
+        ({Event-Handler :application on-console} . {Action-Event :action})
+        ({Event-Handler :application on-properties} . {Action-Event :action})
+        ({Event-Handler :application on-search-results} . {Action-Event :action})
+        ({Event-Handler :application on-profile-results} . {Action-Event :action})
+        ({Event-Handler :application on-log-details} . {Action-Event :action})
+        ({Event-Handler :application on-servers} . {Action-Event :action})
+        ({Event-Handler :application on-chapters} . {Action-Event :action})
+        ({Event-Handler :application on-hierarchy} . {Action-Event :action})
+        ({Event-Handler :application on-processes} . {Action-Event :action})
+        ({Event-Handler :application on-threads} . {Action-Event :action})
+        ({Event-Handler :application on-frames} . {Action-Event :action})
+        ({Event-Handler :application on-restarts} . {Action-Event :action})
+        ({Event-Handler :application on-exception} . {Action-Event :action})
+        ({Event-Handler :application on-variables} . {Action-Event :action})
+        ({Event-Handler :application on-chapters} . {Action-Event :action})
+        ({Event-Handler :application on-hierarchy} . {Action-Event :action})
+        ({Event-Handler :application on-processes} . {Action-Event :action})
+        ({Event-Handler :application on-threads} . {Action-Event :action})
+        ({Event-Handler :application on-frames} . {Action-Event :action})
+        ({Event-Handler :application on-restarts} . {Action-Event :action})
+        ({Event-Handler :application on-exception} . {Action-Event :action})
+        ({Event-Handler :application on-variables} . {Action-Event :action})
+        ;; Workspace
+        ({Event-Handler :application on-select-workspace workspace: home} . {Action-Event :action workspace: home})
+        ({Event-Handler :application on-select-workspace workspace: text} . {Action-Event :action workspace: text})
+        ({Event-Handler :application on-select-workspace workspace: debugger} . {Action-Event :action workspace: debugger})
+        ({Event-Handler :application on-select-workspace workspace: groupware} . {Action-Event :action workspace: groupware})
+        ({Event-Handler :application on-select-workspace workspace: sql} . {Action-Event :action workspace: sql})
+        ({Event-Handler :application on-select-workspace workspace: designer} . {Action-Event :action workspace: designer})
+        ({Event-Handler :application on-select-workspace workspace: formatted} . {Action-Event :action workspace: formatted})
+        ({Event-Handler :application on-next-workspace} . {Action-Event :action})
+        ({Event-Handler :application on-previous-workspace} . {Action-Event :action})
+        ;; Help
+        ({Event-Handler :application on-readme} . {Action-Event :action})))
+    
+    (define (validate action)
+      (execute-event
+        (lambda ()
+          (catch (Exception exc
+                   (validation-failed (get-message~ exc)
+                     class: (serialize-class Exception-Log-Node)))
+            (play-action action)
+            (update-window~ (get-toplevel))))))
+    
+    (for-each validate actions))
+  )
+)
