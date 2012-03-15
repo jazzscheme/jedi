@@ -10,7 +10,7 @@
 
 
 (form
-  (<Project> name: jedi description-file: {File :context ".repository"} active-project: Jedi
+  (<Project> name: jedi description-file: {File :context ".repository"} active-project: Jedi depot-directory: {Directory :context}
     (<*>                tag-reference: {File :context "lib" "jedi" "jedi.project"})
     (<*>                tag-reference: {File :context "jazz" ".project"})
     (<*>                tag-reference: {File :context "lib" ".project"}))))
