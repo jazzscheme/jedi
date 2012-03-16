@@ -1,5 +1,0 @@
-"srfi-1"
- ({Lisp-File-Entry {File :context "src" "srfi-1.jazz"} 231466232. jazz
-    {Lisp-Entry "srfi-1" module () () #f #f 37 8 37 14 ("scheme")
-      {Lisp-Entry "export" export () () #f #f 40 1 40 7 ("make-list" "find")}
-      {Lisp-Entry "make-list" define () () #f #f 44 8 44 17 ("make-list" "jazz:make-list")}}})
