@@ -1,6 +1,6 @@
 /bin
 /build
 /gambit
+/.jazzini
 .configuration
-.jazzini
 .DS_Store
