@@ -244,7 +244,7 @@
   
   
   (method override (settings-version)
-    (update-version (car settings-updates)))
+    (get-update-version (car settings-updates)))
 
   
   ;;;

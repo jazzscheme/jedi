@@ -40,6 +40,7 @@
 
 (import (jazz.designer)
         (jazz.editor.jazz)
+        (jazz.foreign)
         (jazz.graphic)
         (jazz.ide)
         (jazz.io)
