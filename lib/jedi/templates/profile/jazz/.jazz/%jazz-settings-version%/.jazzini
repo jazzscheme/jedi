@@ -1,0 +1,47 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; jazzini
+;;;
+
+
+;;;
+;;;; Settings
+;;;
+
+
+(jazz:load-verbose? #f)
+(jazz:outline-verbose? #f)
+
+(jazz:use-debugger? #t)
+
+
+;;;
+;;;; Jedi
+;;;
+
+
+(define (j)
+  (jedi))
+
+
+(define (jedi)
+  (run 'jedi))
+
+
+(define (r)
+  (resume))
+
+
+;;;
+;;;; Product
+;;;
+
+
+(define (run name)
+  (jazz:run-product name))
+
+
+(define (build name)
+  (jazz:build-product name))
