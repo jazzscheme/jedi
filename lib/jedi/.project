@@ -25,11 +25,8 @@
           (<Jazz-File>       name: Jedi-Application source: {File :context "src" "jedi" "application" "Jedi-Application.jazz"}))
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "generator"}
           (<Jazz-File>       name: Code-Generator   source: {File :context "src" "jedi" "generator" "Code-Generator.jazz"}))
-        (<Project-Directory>                        directory: {Directory :context "src" "jedi" "parameters"})
-        (<Project-Directory>                        directory: {Directory :context "src" "jedi" "preference"}
-          (<Jazz-File>       name: Jedi-Actions     source: {File :context "src" "jedi" "preference" "Jedi-Actions.jazz"})
-          (<Jazz-File>       name: Jedi-Bindings    source: {File :context "src" "jedi" "preference" "Jedi-Bindings.jazz"})
-          (<Jazz-File>       name: Jedi-Preferences source: {File :context "src" "jedi" "preference" "Jedi-Preferences.jazz"}))
+        (<Project-Directory>                        directory: {Directory :context "src" "jedi" "parameters"}
+          (<Project-File>                           source: {File :context "src" "jedi" "parameters" "Properties.prop"}))
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "profile"}
           (<Jazz-File>       name: Jedi-Profile     source: {File :context "src" "jedi" "profile" "Jedi-Profile.jazz"}))
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "search"}
@@ -56,4 +53,8 @@
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "validate"}
           (<Jazz-File>       name: Jedi-Tester      source: {File :context "src" "jedi" "validate" "Jedi-Tester.jazz"})
           (<Jazz-File>       name: _validate        source: {File :context "src" "jedi" "validate" "_validate.jazz"})
-          (<Jazz-File>       name: autoload         source: {File :context "src" "jedi" "validate" "autoload.jazz"})))))))
+          (<Jazz-File>       name: autoload         source: {File :context "src" "jedi" "validate" "autoload.jazz"}))
+        (<Project-Directory>                        directory: {Directory :context "src" "jedi" "preference"}
+          (<Jazz-File>       name: Jedi-Actions     source: {File :context "src" "jedi" "preference" "Jedi-Actions.jazz"})
+          (<Jazz-File>       name: Jedi-Bindings    source: {File :context "src" "jedi" "preference" "Jedi-Bindings.jazz"})
+          (<Jazz-File>       name: Jedi-Preferences source: {File :context "src" "jedi" "preference" "Jedi-Preferences.jazz"})))))))
