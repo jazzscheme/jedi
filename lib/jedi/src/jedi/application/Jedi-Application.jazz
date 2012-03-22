@@ -232,7 +232,7 @@
             (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings))))
     
     (let ((settings-path (tokenise-filename (determine-settings))))
-      (register-alias 'Settings settings-path)
+      (register-alias 'Settings settings-path override?: #t)
       (let ((file {File Settings ".settings"}))
         (unless (exists?~ file)
           (create~ file))
