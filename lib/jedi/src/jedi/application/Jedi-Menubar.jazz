@@ -114,15 +114,15 @@
       (<Label-Item>     name: servers               title: "Servers" icon: {Image-Resource "Servers"} action-handler: {Action ide view-servers})
       (<Separator-Item>)
       @waiting
-      (<Label-Item>                                 title: "COM" icon: {Image-Resource "Reference"}
+      (<Label-Item>     name: COM                   title: "COM" icon: {Image-Resource "Reference"}
         (<Menu>
           (<Label-Item> name: registry-viewer       title: "Registry Viewer" icon: {Image-Resource "Reference"} action-handler: {Action ide view-registry-viewer})
           (<Label-Item> name: type-viewer           title: "Type Viewer" icon: {Image-Resource "Browser"} action-handler: {Action ide view-type-viewer})))
-      (<Label-Item>                                 title: "Text" icon: {Image-Resource "WorkspaceText"}
+      (<Label-Item>     name: text                  title: "Text" icon: {Image-Resource "WorkspaceText"}
         (<Menu>
           (<Label-Item> name: chapters              title: "Chapters" icon: {Image-Resource "Traits"} action-handler: {Action ide view-chapters})
           (<Label-Item> name: hierarchy             title: "Hierarchy" icon: {Image-Resource "Components"} action-handler: {Action ide view-hierarchy})))
-      (<Label-Item>                                 title: "Debugger" icon: {Image-Resource "WorkspaceDebugger"}
+      (<Label-Item>     name: debugger              title: "Debugger" icon: {Image-Resource "WorkspaceDebugger"}
         (<Menu>
           (<Label-Item> name: processes             title: "Processes" icon: {Image-Resource "Process"} action-handler: {Action ide processes})
           (<Label-Item> name: threads               title: "Threads" icon: {Image-Resource "Threads"} action-handler: {Action ide threads})
@@ -131,7 +131,7 @@
           (<Label-Item> name: exception             title: "Exception" icon: {Image-Resource "Exception"} action-handler: {Action ide exception})
           (<Label-Item> name: variables             title: "Variables" icon: {Image-Resource "Spy"} action-handler: {Action ide variables})))
       @waiting
-      (<Label-Item>                                 title: "Java" icon: {Image-Resource "Java"}
+      (<Label-Item>     name: java                  title: "Java" icon: {Image-Resource "Java"}
         (<Menu>
           (<Label-Item> name: java-manager          title: "Java Manager" icon: {Image-Resource "Java"} action-handler: {Action ide view-java-manager})))
       (<Label-Item>     name: sql                   title: "SQL" icon: {Image-Resource "Databases"}
@@ -139,16 +139,16 @@
           (<Label-Item> name: sql-connections       title: "SQL Connections" icon: {Image-Resource "Databases"} action-handler: {Action ide view-sql-connections})
           @waiting (<Label-Item> name: sql-inventory         title: "SQL Inventory" icon: {Image-Resource "Database"} action-handler: {Action ide view-sql-inventory})
           (<Label-Item> name: sql-console           title: "SQL Console" icon: {Image-Resource "Console"} action-handler: {Action ide view-sql-console})))
-      (<Label-Item>                                 title: "Designer" icon: {Image-Resource "Sorcerer"}
+      (<Label-Item>     name: designer              title: "Designer" icon: {Image-Resource "Sorcerer"}
         (<Menu>
           (<Label-Item> name: toolbox               title: "Toolbox" icon: {Image-Resource "Toolbox"} action-handler: {Action ide view-toolbox})
           (<Label-Item> name: traits                title: "Traits" icon: {Image-Resource "Traits"} action-handler: {Action ide view-traits})
           (<Label-Item> name: descendants           title: "Descendants" icon: {Image-Resource "Components"} action-handler: {Action ide view-descendants})))
       @waiting
-      (<Label-Item>                                 title: "Documentation" icon: {Image-Resource "Architecture"}
+      (<Label-Item>     name: documentation         title: "Documentation" icon: {Image-Resource "Architecture"}
         (<Menu>
           (<Label-Item> name: documentation-editor  title: "Documentation Editor" icon: {Image-Resource "Doc"} action-handler: {Action ide view-documentation-editor})))
-      (<Label-Item>                                 title: "Showcase" icon: {Image-Resource "DesignLayout"}
+      (<Label-Item>     name: showcase              title: "Showcase" icon: {Image-Resource "DesignLayout"}
         (<Menu>
           (<Label-Item> name: showcase              title: "User Interface Showcase" icon: {Image-Resource "DesignLayout"} action-handler: {Action ide view-showcase}))))))
 
