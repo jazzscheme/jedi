@@ -890,16 +890,14 @@
            (char (get-char~ text (new Cell start col))))
       (if (not (eqv? char #\-))
           (bell)
-        (with-locked-update
-          (lambda ()
-            (delete-range~ text (new Range$Cell$ (new Cell start 0) (new Cell start (+ col 2))))
-            (for-each (lambda (line)
-                        (remove-spaces~ text (new Cell line (paragraph-length~ text line))
-                          keep: 'one))
-                      (naturals start end))
-            (let ((paragraph (get-paragraph~ (get-paragraph~ text start))))
-              (unless (get-bulleted?~ (get-format~ paragraph))
-                (toggle-bulleted~ text start))))))))
+        (delete-range~ text (new Range$Cell$ (new Cell start 0) (new Cell start (+ col 2))))
+        (for-each (lambda (line)
+                    (remove-spaces~ text (new Cell line (paragraph-length~ text line))
+                      keep: 'one))
+                  (naturals start end))
+        (let ((paragraph (get-paragraph~ (get-paragraph~ text start))))
+          (unless (get-bulleted?~ (get-format~ paragraph))
+            (toggle-bulleted~ text start))))))
   
   
   @wait
