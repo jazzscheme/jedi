@@ -10,4 +10,4 @@
 
 
 (form
-  (<Project> name: %product-unit%)))
+  (<Project> title: "%project%")))
