@@ -64,6 +64,7 @@
         (jazz.ui.picker)
         (jazz.ui.view)
         (jazz.ui.workspace)
+        (jazz.version)
         (jedi)
         (jedi.validate))
 
