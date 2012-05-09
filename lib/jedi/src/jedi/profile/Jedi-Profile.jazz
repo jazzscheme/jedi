@@ -209,12 +209,12 @@
   ;;;
   
   
-  (definition Documented-Units
+  (definition Documented-Modules
     '((irregex)
       (statprof)
       (scheme)
-      (kernel jazz.dialect.kernel)
-      (jazz jazz.dialect.language)
+      (kernel jazz.language.runtime.kernel)
+      (jazz jazz.language.runtime.functional)
       (jazz.catalog)
       (jazz.console)
       (jazz.database)
@@ -403,11 +403,13 @@
       (collect-if (lambda (decl)
                     (and (let ((access (get-access~ decl)))
                            (or (eq? access 'public)
-                               (and (eq? access 'protected) (memq? (get-propagation~ decl) '(virtual chained)))))
+                               (and (eq? access 'protected)
+                                    (is? decl Method-Declaration)
+                                    (memq? (get-propagation~ decl) '(virtual chained)))))
                          (eq? (get-compatibility~ decl) 'uptodate)))
                   declarations))
     
-    (for-each extract-toplevel-doc Documented-Units)
+    (for-each extract-toplevel-doc Documented-Modules)
     (user-feedback "Done"))
 
   
