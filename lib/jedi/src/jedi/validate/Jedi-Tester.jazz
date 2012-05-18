@@ -56,8 +56,6 @@
     (define actions
       '(;; Project
         (:action :application on-projects-manager)
-        ;; Refactor
-        (:action :application on-class-browser)
         ;; Tools
         (:action :application on-bindings-manager)
         (:action :application on-skins-manager)

@@ -75,7 +75,6 @@
         (new Label-Item parent: self name: 'edit      content: (new Edit-Menu))
         (new Label-Item parent: self name: 'source    content: (new Source-Menu))
         (new Label-Item parent: self name: 'recorder  content: (new Recorder-Menu))
-        (new Label-Item parent: self name: 'refactor  content: (new Refactor-Menu))
         (new Label-Item parent: self name: 'search    content: (new Search-Menu))
         (new Label-Item parent: self name: 'project   content: (new Project-Menu))
         (new Label-Item parent: self name: 'debug     content: (new Debug-Menu))
