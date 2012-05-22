@@ -431,17 +431,6 @@
   
   
   (method (generate-jazzwebsite)
-    (define (render-jazzwebsite-page page)
-      (let* ((content JazzWebsite-Content)
-             (file (new-file~ content (format "{a}.htm" (get-property~ page 'path))))
-             (preferences (new JML-Preferences))
-             (renderer (new XHTML-Renderer preferences))
-             (html (first-child~ page)))
-        ;; why does using UTF-8 char-encoding not work with accents in the generated HTML page
-        (call-with-output-file (path-settings file char-encoding: 'ISO-8859-1)
-          (lambda (output)
-            (render~ renderer html output)))))
-    
     (let* ((site (load-jml JazzWebsite-Site))
            (transformed (transform-jml site (new JazzWebsite-Transformation)))
            (pages (get-children~ transformed)))
@@ -450,6 +439,18 @@
                   (render-jazzwebsite-page page))
                 pages)
       (user-feedback "Website generated")))
+  
+  
+  (method (render-jazzwebsite-page page)
+    (let* ((content JazzWebsite-Content)
+           (file (new-file~ content (format "{a}.htm" (get-property~ page 'path))))
+           (preferences (new JML-Preferences))
+           (renderer (new XHTML-Renderer preferences))
+           (html (first-child~ page)))
+      ;; why does using UTF-8 char-encoding not work with accents in the generated HTML page
+      (call-with-output-file (path-settings file char-encoding: 'ISO-8859-1)
+        (lambda (output)
+          (render~ renderer html output)))))
   
   
   (method (export-latest-news)
