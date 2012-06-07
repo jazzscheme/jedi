@@ -1,0 +1,18 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(import (jazz.project)
+        (jazz.editor.jazz))
+
+
+(form
+  (<Project> name: gaia description-file: {File :context ".repository"} depot-directory: {Directory :context}
+    (<*>                tag-reference: {File :context "jazz" ".project"}))))

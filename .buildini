@@ -1,0 +1,10 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Local buildini
+;;;
+
+
+(jazz:jazz-repository "jazz")
+(jazz:repositories ".")

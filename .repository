@@ -1,0 +1,3 @@
+(repository Gaia
+
+  (library "lib"))

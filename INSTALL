@@ -1,0 +1,429 @@
+Dependencies
+============
+
+Cairo
+  If you plan on doing GUI development, you will need to install Cairo from
+  http://cairographics.org/. On Windows, we precompiled it for you as a DLL
+  so it is already installed. On other systems, you should install it the
+  usual way with your package manager and Jazz will use pkg-config to find
+  the various paths. If you are on Mac OS X, the simplest way to install Cairo
+  is through macports. See the next section for details on installing macports
+  if you don't already have it. With macports installed, installing cairo is
+  easy. Simply execute the following command from any terminal:
+  "sudo port install cairo". Note that on systems that support both binary
+  and development packages you should install the cairo-dev development
+  package.
+
+Macports
+  You install macports from http://www.macports.org/. Note that a standard
+  Mac OS X Package (.pkg) Installer is available. After the installation, you
+  will need to edit your ~/.bash_profile file. Add /opt/local/bin to your PATH
+  variable if it is not already there, and add the following line anywhere:
+  "export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig".
+
+X11 on the Mac
+  Due to a bug in Apple's installed version of X11, if you plan on using X11
+  on the Mac, you will need to install the latest X11 from Apple's official
+  site for X11: http://xquartz.macosforge.org/. Note that depending on your
+  settings, X11 may need to be manually started before launching Gaia.
+
+MinGW
+  On Windows, the only backend fully tested to work with JazzScheme is MinGW.
+  Note that some people have reported problems when building JazzScheme with
+  old versions of MinGW. You can get the latest version of MinGW from
+  http://www.mingw.org/. Another reported problem was from someone having both
+  Cygwin and MinGW installed, where MinGW would wrongly call Cygwin's gcc.
+  Uninstalling Cygwin fixed the problem.
+
+  Also, as both MinGW and Git come with their own shell, the simplest way to
+  have a shell supporting both, which is required to build Jazz, is to select
+  the "Run Git and included Unix tools from the Windows Command Prompt" when
+  installing Git and then using the MinGW shell.
+
+
+Sources
+=======
+
+Gaia uses Git http://git.or.cz/ to store and access all development files.
+
+Repository
+  The Gaia repository is currently hosted at
+    https://github.com/gcartier/gaia
+
+Help
+  Some usefull Git links :
+  - http://www.kernel.org/pub/software/scm/git/docs/
+  - http://www.kernel.org/pub/software/scm/git/docs/user-manual.html
+  - http://www.kernel.org/pub/software/scm/git/docs/gittutorial.html
+
+Troubleshooting
+  If you get an error like "fatal: unable to connect a socket (Connection timed out)"
+  it may be that you are behind a firewall that blocks outbound connections on Git's
+  port 9418.
+
+
+Scenarios
+---------
+
+User
+  ;; Clone the Gaia repository (only once).
+  ;; This will create a 'gaia' directory containing all development files.
+  $ git clone https://github.com/gcartier/gaia
+  $ cd gaia
+
+  ;; Pull from time to time to get the latest revision.
+  $ git pull
+
+Contributor
+  ;; Clone the Gaia repository (only once).
+  ;; This will create a 'gaia' directory containing all development files.
+  $ git clone https://github.com/gcartier/gaia
+  $ cd gaia
+
+  ;; Add email and name information that will appear in patches you submit.
+  $ git config user.email "you@email.com"
+  $ git config user.name "Your Name"
+
+  ;; Create a public branch that will be used to rebase your changes.
+  $ git branch public
+
+  ;; Commit changes you made and want to contribute.
+  ;; Note that the -a option is necessary if you added any new files.
+  $ git commit -a -m "Some message describing your changes"
+
+  ;; Pull from time to time to get the latest revision and rebase your changes.
+  ;; Rebasing your changes before sending your changes as patches will greatly
+  ;; minimize risks of conflicts when the Gaia maintainers apply your patches to
+  ;; the central repository.
+  $ git checkout public
+  $ git pull origin master
+  $ git checkout master
+  $ git rebase public
+  ;; Optional step: fix any rebase conflicts.
+  ;; See http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html for details.
+  ;; Edit and resolve conflicts in all the conflicting files.
+  $ git add <list of resolved files>
+  $ git rebase --continue
+
+  ;; Send contributions as a series of patch files.
+  $ git format-patch origin
+  <email generated patch files to gcartier@jazzscheme.org>
+
+Maintainer
+  ;; Publish some changes.
+  $ git push pub master
+
+  ;; Merge contributions.
+  $ git am -3 *.patch
+  ;; Optional step: fix any conflict.
+  $ git am --resolved
+
+
+Building
+========
+
+To build Gaia, simply invoke the ./jam (Jazz Manager) script from the Gaia source directory.
+Jam will take care of updating any Git submodule dependencies and of building all the source
+files that have changed since the last build.
+
+The build system follows the usual configure / make methodology but as the underlying
+Scheme system already represents a platform independant abstraction, there is no need to
+use the low-level GNU tools. The build system is fully implemented in Scheme, accessed using
+the ./jam script.
+
+Do not worry about the many warnings generated when building the platform modules. These are
+due to limitations in the current implementation of Gambit's foreign-function interface and
+can be safely ignored.
+
+A full build of Jazz will take about 10mn on a MacBook Pro and require about 2G of memory
+to build without disk swapping.
+
+
+Examples
+--------
+
+Building Gaia
+  $ cd gaia
+  $ ./jam
+  JazzScheme Build System v2.6
+
+  ;; Create the default configuration
+  % configure
+  <default>
+    system: gambit
+    platform: windows
+    safety: release
+    ...
+
+  ;; Build the default target: 'gaia'
+  % make
+  ...
+
+  ;; Quit the build system
+  % quit
+
+  ;; Launch Gaia
+  $ bin/gaia
+
+Building many targets at a time
+  $ cd gaia
+  $ ./jam
+  JazzScheme Build System v2.6
+
+  ;; This will build :
+  ;; - the jazz target in the default configuration
+  ;; - the platform target in the debug configuration
+  ;; - the default target in the release configuration
+  % make jazz platform@debug @release
+  ...
+
+
+Scripting
+---------
+
+Launching the build system using jam with no options starts it in interactive mode
+which is unsuitable for batch scripting.
+
+For scripting, the build system can be invoked directly from the command line :
+
+$ ./jam [options]
+
+
+configure
+---------
+
+Register a new configuration.
+
+To support multiple configurations, configurations can optionaly be named.
+
+Configurations are loaded / saved from a .configurations file located in the
+.jazz directory of the user's home. Using configure is basically an easy way
+to edit the .configurations file.
+
+configure
+  [name: name]
+  [system: system]
+  [platform: platform]
+  [windowing: windowing]
+  [safety: safety]
+  [optimize?: optimize?]
+  [debug-environments?: debug-environments?]
+  [debug-location?: debug-location?]
+  [debug-source?: debug-source?]
+  [kernel-interpret?: kernel-interpret?]
+  [destination: destination]
+
+name
+  The optional name. Must be alphanumeric.
+
+system
+  The underlying Scheme system (automatically determined)
+  - gambit (the only fully supported scheme system at the moment)
+  - chicken
+  - ...
+
+platform
+  The platform (will try and guess based on system type)
+  - mac
+  - windows
+  - unix
+
+windowing
+  The windowing system (will try and guess based on system type)
+  - carbon (development started)
+  - x11 (almost there)
+  - #f (use default platform windowing)
+
+safety
+  The runtime safety level
+  - core
+      Core debug mode for debugging JazzScheme itself. Adds tests to make the
+      kernel and core safe.
+  - debug
+      Standard debug mode with tests to make user code safe. This is the
+      recommanded safety for development.
+  - release (the default)
+      Release mode for stable user code with no safety tests. If you plan on
+      using Gaia, you may want to build using this safety level as it will run
+      alot faster.
+
+optimize?
+  This option adds optimization declares to the source code. Note that this
+  will make debugging somewhat harder as the generated code will have gone
+  through some transformations. At the moment it adds: proper-tail-calls,
+  constant-fold and lambda-lift.
+  - #f
+  - #t (the default)
+
+debug-source?
+  Include source in compiled code by compiling with Gambit's 'debug-source'
+  option.
+
+  Note that this option is not needed anymore for using the statprof statistical
+  profiler with compiled files since the new 'debug-location' option was added
+  to Gambit.
+
+  Do not use this option unless you have a very specific need for it as it will
+  result in much larger object files and due to a flaw in gcc also result in longer
+  compile times.
+  - #f (the default)
+  - #t
+
+kernel-interpret?
+  An option for Jazz developers to enable loading the kernel fully interpreted.
+  - #f (the default)
+  - #t
+
+destination
+  The optional build destination (defaults to "bin").
+
+  The destination specifies the directory where files will be built relative to the
+  current directory.
+
+  Note that being able to specify an explicit build destination enables building
+  multiple configurations under the current directory.
+
+
+make
+----
+
+Build target for a configuration.
+
+make [target@configuration:image] ...
+
+target
+  The optional target to build which defaults to 'gaia'.
+
+  - kernel       : the unit system
+  - core         : the module system
+  - scheme       : the scheme dialect
+  - jazz         : the jazz dialect
+  - platform     : the platform packages
+  - gaia         : the gaia ide
+  - all          : all the pre-installed packages
+  - clean        : remove all build files
+  - cleankernel  : remove all kernel files
+  - cleanobject  : remove all object files
+  - cleanlibrary : remove all library files
+  - <product>    : user <product>
+
+configuration
+  The optional configuration which defaults to the default configuration.
+
+image
+  The optional image which defaults to 'exe'.
+
+  - exe | executable : build an executable
+  - lib | library    : build a gambit .o1 loadable library
+
+
+make clean
+----------
+
+Clean a configuration by removing all build files.
+
+make [clean@configuration] ...
+
+configuration
+  The optional configuration which defaults to the default configuration.
+
+
+make cleankernel
+----------------
+
+Clean a configuration's kernel by removing all kernel files.
+
+make [cleankernel@configuration] ...
+
+configuration
+  The optional configuration which defaults to the default configuration.
+
+
+make cleanobject
+----------------
+
+Clean a configuration's object files.
+
+make [cleanobject@configuration] ...
+
+configuration
+  The optional configuration which defaults to the default configuration.
+
+
+make cleanlibrary
+-----------------
+
+Clean a configuration's library files.
+
+make [cleanlibrary@configuration] ...
+
+configuration
+  The optional configuration which defaults to the default configuration.
+
+
+make install
+------------
+
+There is no equivalent of make install due to the complexity of supporting
+multiple systems and user preferences. Since this step is also very simple to
+do manually, installing the built configuration is left to the user.
+
+Depending on your system you will usually
+  - Copy the built files to standard system locations or
+  - Modify your environment variables to point to the location of the Jazz
+    executable
+
+Note that at this time, modifying your environment variables is the preferred
+approach as some units like Gaia are still dependent on source files.
+
+
+list
+----
+
+List configurations.
+
+list
+
+
+delete
+------
+
+Delete a configuration.
+
+delete [configuration]
+
+configuration
+  The optional configuration which defaults to the default configuration.
+
+
+quit
+----
+
+Quit the build system.
+
+quit
+
+
+Troubleshooting
+---------------
+
+The following instructions presuppose basic knowledge of Gambit's REPL
+(Read Eval Print Loop) that is used for debugging Gambit code. See Gambit's
+manual for details.
+
+If you get an error while building, and the message is not enough to understand
+the problem, you can follow the following instructions to get a full-fledged
+Gambit REPL to explore the problem further.
+
+First, you have to determine if the error is occuring while building the kernel
+or while building a product. Each build step displays a message of the following
+format: 'make <target>'. Any <target> other than 'kernel' means that it is a
+product that is being built.
+
+- If the problem is in building the kernel, launch the build system in debug
+  mode with: './jam debug'. This will disable the build system's own REPL and
+  get you a Gambit REPL. To build configuration <configuration-name>:<image>,
+  execute: (jazz:make 'kernel@<configuration-name>:<image>).
+
+- Else, find the built 'kernel.exe' kernel located inside the build directory
+  and launch it like this: kernel -make target -debug.
