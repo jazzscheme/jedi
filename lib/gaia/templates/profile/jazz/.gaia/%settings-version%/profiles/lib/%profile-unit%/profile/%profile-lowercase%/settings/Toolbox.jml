@@ -1,0 +1,53 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Toolbox
+;;;
+
+
+(data jazz.ide.data.toolbox
+
+
+(form
+  (<Toolbox>                           sort?: #f
+    (<Toolbox-Group>   name: "General"
+      (<Toolbox-Model>                 unit: jazz.ui model: Label-View)
+      (<Toolbox-Model>                 unit: jazz.ui model: Push-Button)
+      (<Toolbox-Model>                 unit: jazz.ui model: Check-Box)
+      (<Toolbox-Model>                 unit: jazz.ui model: Radio-Button)
+      (<Toolbox-Model>                 unit: jazz.ui model: Push-Tool)
+      (<Toolbox-Model>                 unit: jazz.ui model: Toggle-Tool)
+      (<Toolbox-Model>                 unit: jazz.ui model: Radio-Tool)
+      (<Toolbox-Model>                 unit: jazz.ui model: Progress-Bar)
+      (<Toolbox-Model>                 unit: jazz.ui model: Image-View))
+    (<Toolbox-Group>   name: "Group"
+      (<Toolbox-Model>                 unit: jazz.ui model: View)
+      (<Toolbox-Model>                 unit: jazz.ui model: Group-Box)
+      (<Toolbox-Model>                 unit: jazz.ui model: Border-View)
+      (<Toolbox-Model>                 unit: jazz.ui model: Layout-View)
+      (<Toolbox-Model>                 unit: jazz.ui model: Splitter-View)
+      (<Toolbox-Model>                 unit: jazz.ui model: Tab-View)
+      (<Toolbox-Model>                 unit: jazz.ui model: Pad-View)
+      (<Toolbox-Model>                 unit: jazz.ui model: Horizontal-Line)
+      (<Toolbox-Model>                 unit: jazz.ui model: Vertical-Line))
+    (<Toolbox-Group>   name: "Entry"
+      (<Toolbox-Model>                 unit: jazz.ui model: Entry-Widget)
+      (<Toolbox-Model>                 unit: jazz.ui model: Text-Widget)
+      (<Toolbox-Model>                 unit: jazz.ui model: Tree-Widget)
+      (<Toolbox-Model>                 unit: jazz.ui model: Combo-Box)
+      (<Toolbox-Model>                 unit: jazz.ui model: Moniker-Widget)
+      (<Toolbox-Model>                 unit: jazz.ui model: Note-Widget)
+      (<Toolbox-Model>                 unit: jazz.designer model: Property-View))
+    (<Toolbox-Group>   name: "Menu"
+      (<Toolbox-Model>                 unit: jazz.ui model: Menubar)
+      (<Toolbox-Model>                 unit: jazz.ui model: Menu)
+      (<Toolbox-Model>                 unit: jazz.ui model: Label-Item)
+      (<Toolbox-Model>                 unit: jazz.ui model: Check-Item)
+      (<Toolbox-Model>                 unit: jazz.ui model: Radio-Item)
+      (<Toolbox-Model>                 unit: jazz.ui model: Separator-Item)
+      (<Toolbox-Model>                 unit: jazz.ui model: File-Base-Menu)
+      (<Toolbox-Model>                 unit: jazz.ui model: File-Menu)
+      (<Toolbox-Model>                 unit: jazz.ui model: Edit-Base-Menu)
+      (<Toolbox-Model>                 unit: jazz.ui model: Edit-Menu)
+      (<Toolbox-Model>                 unit: jazz.ui model: Window-Menu)))))

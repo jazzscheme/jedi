@@ -1,0 +1,72 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Tests
+;;;
+
+
+(module protected gaia.validate.Gaia-Tester jazz
+
+
+(import (jazz.debuggee)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.recorder)
+        (jazz.runtime)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.window)
+        (jazz.validation))
+
+
+(class Gaia-Tester extends Tester
+  
+  
+  (method override (test)
+    (define actions
+      '(;; Project
+        (:action :application on-projects-manager)
+        ;; Tools
+        (:action :application on-bindings-manager)
+        (:action :application on-skins-manager)
+        (:action :application on-compare-directories)
+        (:action :application on-compare-files)
+        (:action :application on-git-explorer)
+        ;; View
+        (:action :application on-workbench)
+        (:action :application on-repositories)
+        (:action :application on-favorites)
+        (:action :application on-console)
+        (:action :application on-properties)
+        (:action :application on-search-results)
+        (:action :application on-profile-results)
+        (:action :application on-log-details)
+        (:action :application on-servers)
+        (:action :application on-chapters)
+        (:action :application on-hierarchy)
+        (:action :application on-processes)
+        (:action :application on-threads)
+        (:action :application on-frames)
+        (:action :application on-restarts)
+        (:action :application on-exception)
+        (:action :application on-variables)
+        ;; Workspace
+        (:action :application on-select-workspace workspace: home)
+        (:action :application on-select-workspace workspace: text)
+        (:action :application on-select-workspace workspace: debugger)
+        (:action :application on-select-workspace workspace: groupware)
+        (:action :application on-select-workspace workspace: sql)
+        (:action :application on-select-workspace workspace: designer)
+        (:action :application on-select-workspace workspace: formatted)
+        (:action :application on-next-workspace)
+        (:action :application on-previous-workspace)
+        ;; Help
+        (:action :application on-readme)))
+    
+    (define (catcher exc)
+      (validation-failed (get-message~ exc) class: (serialize-class Exception-Log-Node)))
+    
+    (play-events actions catcher: catcher feedback?: #t slowdown: .1))
+  )
+)

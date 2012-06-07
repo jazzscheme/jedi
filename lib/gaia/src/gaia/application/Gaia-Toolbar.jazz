@@ -1,0 +1,65 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Toolbar
+;;;
+
+
+(module protected gaia.application.Gaia-Toolbar jazz
+
+
+(import (jazz.ide)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.ui)
+        (gaia))
+
+
+(class Gaia-Toolbar extends IDE-Toolbar
+
+
+  (form
+    (<install>
+      (<Action-Icon>        name: new                 tooltip-text: "New" resource: {Image-Resource "New"} action-handler: {Action application new})
+      (<Action-Icon>        name: open                tooltip-text: "Open" resource: {Image-Resource "Open"} action-handler: {Action application open})
+      (<Action-Icon>        name: save                tooltip-text: "Save" resource: {Image-Resource "Save"} action-handler: {Action guest save})
+      (<Separator>)
+      (<Action-Icon>        name: print               tooltip-text: "Print" resource: {Image-Resource "Print"} action-handler: {Action application print})
+      (<Action-Icon>        name: print-layout        tooltip-text: "Print Layout" resource: {Image-Resource "PrintLayout"} action-handler: {Action application print-layout})
+      (<Action-Icon>        name: print-preview       tooltip-text: "Print Preview" resource: {Image-Resource "PrintPreview"} action-handler: {Action application print-preview})
+      (<Separator>                                    size: {Dimension 4 0})
+      (<Action-Icon>        name: cut                 tooltip-text: "Cut" resource: {Image-Resource "Cut"} action-handler: {Action view cut})
+      (<Action-Icon>        name: copy                tooltip-text: "Copy" resource: {Image-Resource "Copy"} action-handler: {Action view copy})
+      (<Action-Icon>        name: paste               tooltip-text: "Paste" resource: {Image-Resource "Paste"} action-handler: {Action view paste} context-menu-handler: {Event-Handler :form on-clipboard-menu})
+      (<Separator>)
+      (<Action-Icon>        name: undo                tooltip-text: "Undo" resource: {Image-Resource "Undo"} action-handler: {Action view undo})
+      (<Action-Icon>        name: redo                tooltip-text: "Redo" resource: {Image-Resource "Redo"} action-handler: {Action view redo})
+      (<Separator>)
+      (<Action-Icon>        name: find                tooltip-text: "Find" resource: {Image-Resource "Find"} action-handler: {Event-Handler :application on-find :preserve-domain? #t})
+      (<Separator>)
+      (<Action-Icon>        name: compare-directories tooltip-text: "Compare Directories" resource: {Image-Resource "CompareDirectories"} action-handler: {Action ide compare-directories})
+      (<Action-Icon>        name: compare-files       tooltip-text: "Compare Files" resource: {Image-Resource "CompareFiles"} action-handler: {Event-Handler :application on-compare-files})
+      (<Separator>)
+      (<Push-Combo>         name: backward            action-handler: {Action application backward-history}
+        (<!>                name: body                resource: {Image-Resource "Backward"} tooltip-text: "Backward in History" action-handler: {Action application backward-history})
+        (<!>                name: pick                action-handler: {Event-Handler :form on-backward-menu}))
+      (<Separator>                                    size: {Dimension 1 0})
+      (<Push-Combo>         name: forward             action-handler: {Action application forward-history}
+        (<!>                name: body                resource: {Image-Resource "Forward"} tooltip-text: "Forward in History" action-handler: {Action application forward-history})
+        (<!>                name: pick                action-handler: {Event-Handler :form on-forward-menu}))
+      (<Separator>                                    size: {Dimension 16 0} location: tail)
+      (<Separator>          name: tail-separator      size: {Dimension 3 0} location: tail)))
+
+  
+  ;;;
+  ;;;; Host
+  ;;;
+  
+  
+  (method meta override (host-icon)
+    {Image-Resource "Document"})
+  
+
+  (method meta override (host-title)
+    "Gaia")))

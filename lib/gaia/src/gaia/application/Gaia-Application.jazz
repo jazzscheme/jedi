@@ -1,0 +1,671 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; The Gaia Application
+;;;
+
+
+(module protected gaia.application.Gaia-Application jazz
+
+
+(import (jazz.catalog)
+        (jazz.console)
+        (jazz.debugger)
+        (jazz.debugger.gambit)
+        (jazz.debugger.jazz)
+        (jazz.designer)
+        (jazz.designer.view)
+        (jazz.doc)
+        (jazz.editor.diff)
+        (jazz.editor.jazz)
+        (jazz.editor.lisp)
+        (jazz.editor.sql)
+        (jazz.editor.sql.view)
+        (jazz.ide)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.library.component)
+        (jazz.platform)
+        (jazz.project)
+        (jazz.snapshot)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.picker)
+        (jazz.ui.view)
+        (jazz.ui.workspace)
+        (jazz.version)
+        (gaia)
+        (gaia.validate))
+
+
+(class Gaia-Application extends IDE
+  
+  
+  (slot documentation-cataloguer initialize #f)
+  
+  
+  (method meta override (external-name . rest)
+    'gaia)
+
+  
+  (method override (process-name)
+    "Gaia")
+  
+  
+  (method override (process-owner)
+    "JazzScheme")
+  
+  
+  (method override (process-copyright)
+    "1996-2012")
+  
+  
+  (method override (process-icon)
+    "Designer")
+
+
+  (method override (process-version)
+    (jazz-version))
+
+
+  (method override (process-email)
+    "gcartier@jazzscheme.org")
+
+
+  (method override (new-toplevel)
+    (new Gaia-Toplevel))
+
+
+  (method override (finalize-process)
+    (nextmethod)
+    @convert/wait
+    (register-provider (new Access-Provider))
+    @convert/wait
+    (register-provider (new SQLServer-Provider))
+    @convert/wait
+    (register-provider (new JDBC-Provider)))
+  
+  
+  (method override (finish-process)
+    (define (setup-sql)
+      (register-console~ (get-sql-console) "SQL Console" #f view-class: SQL-Console-View console-button?: #f))
+    
+    (nextmethod)
+    (setup-workspaces)
+    (setup-sql))
+  
+  
+  ;;;
+  ;;;; Catalogs
+  ;;;
+  
+  
+  (method (setup-catalog name directory extensions (char-encoding: char-encoding #f) (heuristics: heuristics #f))
+    (let ((cataloguer (get-cataloguer))
+          (output (new-file~ {Directory Profile "catalogs"} (format "{a}.jcat" name))))
+      (let ((catalog (new Filing-Catalog name output directory extensions char-encoding heuristics #t)))
+        (add-catalog~ cataloguer catalog)
+        (load-content~ catalog report?: #f))))
+
+  
+  ;;;
+  ;;;; Preferences
+  ;;;
+  
+  
+  (method override (persist-preferences?)
+    #t)
+  
+  
+  (method override (default-preferences)
+    (new Default-Gaia-Preferences))
+  
+  
+  (method override (default-bindings)
+    (new Default-Gaia-Bindings))
+  
+  
+  (method override (default-workspaces)
+    (new Default-Gaia-Workspaces))
+
+  
+  ;;;
+  ;;;; Servers
+  ;;;
+  
+  
+  @wait-need-a-way-to-open-service-any-if-port-is-already-in-use
+  (method override (default-listener-service)
+    44333)
+
+  
+  ;;;
+  ;;;; Search
+  ;;;
+
+
+  (method override (get-search-manager)
+    (let ((palette (singleton-palette
+                     (lambda ()
+                       (new-palette Gaia-Search
+                                    host-title: "Search"
+                                    host-visible?: #f
+                                    host-size: {Dimension 857 169}))
+                     'search)))
+      (get-guest~ palette)))
+  
+  
+  ;;;
+  ;;;; Versions
+  ;;;
+  
+
+  (method override (mandatory-version what)
+    (case what
+      ((sqlserver) {Version 8 0 0})
+      ((dao) {Version 3 6 0})
+      ((access-database) {Version 4 0 0})
+      (else (nextmethod what))))
+  
+  
+  ;;;
+  ;;;; Settings
+  ;;;
+  
+  
+  (define settings-updates
+    (list->updates
+      '((version: 100000 targets: settings))))
+
+
+  (define (convert-settings dir old)
+    (define (convert-initial)
+      100000)
+
+    (case old
+      ((#f) (convert-initial))
+      (else #f)))
+
+
+  (method override (settings-version)
+    (get-update-version (car settings-updates)))
+
+  
+  (method override (initialize-settings)
+    (define (determine-settings)
+      (or (command-argument "settings")
+          (let ((dot-dir {Directory Home ".gaia"}))
+            (create-directories~ dot-dir)
+            (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings))))
+    
+    (let ((settings-path (tokenise-filename (determine-settings))))
+      (register-alias 'Settings settings-path override?: #t)
+      (let ((file {File Settings ".settings"}))
+        (unless (exists?~ file)
+          (create~ file))
+        (set! settings (new Settings file: file))
+        (register-settings settings)))
+    (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) create?: #t)))
+      (register-repository-aliases (install-repository projects-repository))))
+
+  
+  ;;;
+  ;;;; Templates
+  ;;;
+  
+  
+  (method override (templates-directory)
+    {Directory Gaia "lib" "gaia" "templates"})
+  
+
+  ;;;
+  ;;;; Profile
+  ;;;
+  
+  
+  (method override (install-profiles)
+    (register-repository-aliases (install-repository (parse~ {Directory Settings "profiles"}))))
+  
+  
+  ;;;
+  ;;;; Frames
+  ;;;
+
+
+  (method override (default-frame-class)
+    Jazz-Text-View)
+
+
+  (method override (known-extension-frame-class ext)
+    (cond ((member? ext '("txt" "text") test: extension=?) Jazz-Plain-Text-View)
+          (else (nextmethod ext))))
+
+
+  ;;;
+  ;;;; Files
+  ;;;
+  
+  
+  (method override (edit-file file . rest)
+    (let ((ext (get-extension~ file)))
+      (cond
+      @wait ((extension=? ext "class") (browse-java-classfile file))
+      @wait ((extension=? ext "jar") (browse-java-jarfile file))
+            (else (apply nextmethod file rest)))))
+  
+  
+  ;;;
+  ;;;; Text
+  ;;;
+  
+  
+  (method override (get-text-class)
+    Jazz-Text-View)
+  
+  
+  ;;;
+  ;;;; Validate
+  ;;;
+  
+  
+  (method override (validate-process)
+    (thread-sleep! .5)
+    (validate-gaia))
+  
+  
+  ;;;
+  ;;;; Java
+  ;;;
+  
+  
+  @convert/wait
+  (method (browse-java-classfile file)
+    (let* ((host (new-frame Java-Manager))
+           (manager (get-guest~ host)))
+      (browse-classfile~ manager file)))
+  
+  
+  @convert/wait
+  (method (browse-java-jarfile file)
+    (let* ((host (new-frame Java-Manager))
+           (manager (get-guest~ host)))
+      (browse-jarfile~ manager file)))
+
+  
+  ;;;
+  ;;;; Depot
+  ;;;
+  
+  
+  @convert/wait
+  (method (get-depot-classes)
+    (list
+      VSS-Depot))
+  
+  
+  ;;;
+  ;;;; Persistence
+  ;;;
+  
+  
+  (method override (persist-usernames?)
+    #t)
+  
+  
+  (method override (persist-passwords?)
+    #t)
+
+
+  ;;;
+  ;;;; Context
+  ;;;
+  
+  
+  (method override (get-context-text)
+    #f)
+
+  
+  ;;;
+  ;;;; Documentation
+  ;;;
+  
+  
+  (method override (get-documentation-cataloguer)
+    (define (new-documentation-cataloguer)
+      (let ((cataloguer (new Cataloguer))
+            (workbench (get-workbench)))
+        (for-each-project~ workbench
+          (lambda (project)
+            (let ((file (get-documentation~ project)))
+              (when file
+                (let ((form (safe-read-form file)))
+                  (unless (exception? form)
+                    (let* ((doc (instantiate~ form))
+                           (name (get-name~ doc))
+                           (catalog (new Doc-Catalog name doc project)))
+                      (add-catalog~ cataloguer catalog))))))))
+        cataloguer))
+    
+    (unless documentation-cataloguer
+      (when (get-documented?~ (get-preferences #f))
+        (set! documentation-cataloguer (new-documentation-cataloguer))))
+    documentation-cataloguer)
+  
+  
+  (method public (reload-documentation)
+    (set! documentation-cataloguer #f)
+    (get-documentation-cataloguer))
+
+
+  ;;;
+  ;;;; Alias
+  ;;;
+  
+  
+  (method override (process-alias name)
+    (define (focus-editor)
+      (let ((focus (get-focus)))
+        (when focus
+          (get-view-editor (get-guest~ focus)))))
+    
+    (case name
+      ((:focus-editor) (focus-editor))
+      (else (nextmethod name))))
+
+  
+  ;;;
+  ;;;; Actions
+  ;;;
+  
+  
+  (method override (class-actions)
+    (cons (find-actions 'gaia)
+          (nextmethod))
+    @wait
+    (cons (find-actions 'debugger)
+          (cons (find-actions 'gaia)
+                (nextmethod))))
+  
+  
+  (method override (update-focus-actions)
+    (nextmethod)
+    (let ((focus (get-focus)))
+      (let ((text? (and focus (is? focus Text-View)))
+            (code? (and focus (is? focus Code-Text-View)))
+            (lisp? (and focus (is? focus Lisp-Text-View)))
+            (jazz? (and focus (is? focus Jazz-Text-View)))
+            (console? (and focus (is? focus Console-Text-View))))
+        (when preferences-designer
+          (set-action-enabled? {Action code-text evaluate} (and code? (not console?)))
+          (set-action-enabled? {Action code-text evaluate-buffer} (and code? (not console?)))
+          (set-action-enabled? {Action code-text edit-definitions} code?)
+          (set-action-enabled? {Action code-text edit-references} code?)
+          (set-action-enabled? {Action code-text recolorize-syntax} (and code? (not console?)))
+          (set-action-enabled? {Action text search-forward-mode} text?)
+          (set-action-enabled? {Action text search-backward-mode} text?)
+          (set-action-enabled? {Action text search-current} text?)
+          (set-action-enabled? {Action text goto-line} text?)
+          (set-action-enabled? {Action text select-outer} text?)
+          (set-action-enabled? {Action code-text transpose-expr} code?)
+          (set-action-enabled? {Action lisp-text tabulate} lisp?)
+          (set-action-enabled? {Action lisp-text highlight-declaration} lisp?)
+          (set-action-enabled? {Action lisp-text highlight-selection} lisp?)
+          (set-action-enabled? {Action lisp-text remove-highlights} lisp?)
+          (set-action-enabled? {Action code-text find-imports} (or jazz? console?))
+          (set-action-enabled? {Action code-text find-all-imports} (or jazz? console?))
+          (set-action-enabled? {Action text mark-column} text?)
+          (set-action-enabled? {Action text fill-to-column} text?)
+          (set-action-enabled? {Action text upcase} text?)
+          (set-action-enabled? {Action text downcase} text?)
+          (set-action-enabled? {Action text capitalize} text?)))))
+  
+  
+  (method override (allow-orphaned-action? action-item)
+    #t)
+
+
+  ;;;
+  ;;;; Windows
+  ;;;
+  
+  
+  (method override (update-windowing-actions)
+    (nextmethod)
+    (unless (exiting-process?)
+      (update-search-actions)
+      (update-project-actions)))
+
+
+  ;;;
+  ;;;; Events
+  ;;;
+  
+  
+  (method (on-event-spy evt)
+    @convert/wait
+    (new-palette Event-Spy))
+  
+  
+  (method (on-registry-viewer evt)
+    @convert/wait
+    (new-frame Registry-Viewer))
+  
+  
+  (method (on-type-viewer evt)
+    @convert/wait
+    (new-frame Type-Viewer))
+  
+  
+  (method (on-java-manager evt)
+    @convert/wait
+    (new-frame Java-Manager))
+  
+  
+  (method (on-profiler-manager evt)
+    @convert/wait
+    (show-palette Profiler-Manager))
+  
+  
+  (method (on-documentation-editor evt)
+    (let* ((cataloguer (get-documentation-cataloguer))
+           (catalog (car (get-catalogs~ cataloguer))))
+      (new-frame Doc-Editor client: (get-client~ catalog))))
+  
+  
+  (method (on-run-smoker evt)
+    @convert/wait
+    (build/run~ (new Smoker-Builder)))
+
+
+  (method package (on-spy-events evt)
+    @convert/wait
+    (show-palette Event-Spy))
+
+
+  ;;;
+  ;;;; Help
+  ;;;
+  
+  
+  (method package (on-readme evt)
+    (edit-document {File Jazz "README"})))
+
+
+;;;
+;;;; Default-Gaia-Preferences
+;;;
+
+
+(class Default-Gaia-Preferences extends Gaia-Preferences)
+
+
+;;;
+;;;; Default-Gaia-Bindings
+;;;
+
+
+(class Default-Gaia-Bindings extends Gaia-Bindings)
+
+
+;;;
+;;;; Default-Gaia-Workspaces
+;;;
+
+
+(class Default-Gaia-Workspaces extends Workspaces-Preferences
+  
+  
+  (form
+    (<install>                                                   active: home
+      (<Workspace-Preferences>                  name: home       title: "Home" icon: {Image-Resource "WorkspaceHome"} shortcut: {Shortcut :shift :alt #\A}
+        (<Menubar-Preferences>                  name: menubar    location: root
+          (<Mainbar-Preferences>                name: toolbar    location: second
+            (<Status-Preferences>               name: status     location: second
+              (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 20 insets: {Rect 5 5 5 5}
+                (<Minibuffer-Preferences>                        location: second state: split
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                    (<Stage-Preferences>                         location: first maximized?: #f)
+                    (<Pad-Preferences>                           location: second
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Profile-Results})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Servers-Manager}))))
+                (<Pad-Preferences>                               location: first
+                  (<Docked-Preferences>                          location: selection model: {Class-Reference Workbench-Manager})
+                  (<Docked-Preferences>                          location: #f model: {Class-Reference Repositories-Manager})
+                  (<Docked-Preferences>                          location: #f model: {Class-Reference Favorites-Manager})))))))
+      (<Workspace-Preferences>                  name: text       title: "Text" icon: {Image-Resource "WorkspaceText"} shortcut: {Shortcut :shift :alt #\S} frame-model: {Class-Reference Jazz-Text-View}
+        (<Menubar-Preferences>                  name: menubar    location: root
+          (<Mainbar-Preferences>                name: toolbar    location: second
+            (<Status-Preferences>               name: status     location: second
+              (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 33 insets: {Rect 5 5 5 5}
+                (<Stage-Preferences>                             location: second maximized?: #t)
+                (<Minibuffer-Preferences>                        location: first state: split
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                    (<Pad-Preferences>                           location: second
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Profile-Results}))
+                    (<Splitter-Preferences>                      location: first mode: relative division: 48 orientation: horz
+                      (<Pad-Preferences>                         location: second
+                        (<Docked-Preferences>                    location: selection model: {Class-Reference Chapters-Browser})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Hierarchy-Browser}))
+                      (<Pad-Preferences>                         location: first
+                        (<Docked-Preferences>                    location: selection model: {Class-Reference Workbench-Manager})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Repositories-Manager})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Favorites-Manager}))))))))))
+      (<Workspace-Preferences>                  name: debugger   title: "Debugger" icon: {Image-Resource "WorkspaceDebugger"} shortcut: {Shortcut :shift :alt #\D}
+        (<Menubar-Preferences>                  name: menubar    location: root
+          (<Mainbar-Preferences>                name: toolbar    location: second
+            (<Status-Preferences>               name: status     location: second
+              (<Splitter-Preferences>           name: top        location: first orientation: vert mode: absolute division: 220 insets: {Rect 5 5 5 5}
+                (<Splitter-Preferences>                          location: first orientation: horz mode: absolute division: 693
+                  (<Splitter-Preferences>                        location: first orientation: horz mode: absolute division: 180
+                    (<Docked-Preferences>                        location: first model: {Class-Reference Processes-View})
+                    (<Splitter-Preferences>                      location: second orientation: horz mode: absolute division: 240
+                      (<Docked-Preferences>                      location: first model: {Class-Reference Threads-View})
+                      (<Pad-Preferences>                         location: second
+                        (<Docked-Preferences>                    location: selection model: {Class-Reference Frames-View})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Restarts-View})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Exception-View}))))
+                  (<Docked-Preferences>                          location: second model: {Class-Reference Variables-View}))
+                (<Splitter-Preferences>                          location: second orientation: horz mode: relative division: 33
+                  (<Splitter-Preferences>                        location: first mode: relative division: 48 orientation: horz
+                    (<Pad-Preferences>                           location: first
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference Workbench-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Repositories-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Favorites-Manager}))
+                    (<Pad-Preferences>                           location: second
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference Chapters-Browser})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Hierarchy-Browser})))
+                  (<Minibuffer-Preferences>                      location: second state: split
+                    (<Splitter-Preferences>                      location: first orientation: vert mode: relative division: -30
+                      (<Stage-Preferences>                       location: first maximized?: #t)
+                      (<Pad-Preferences>                         location: second
+                        (<Docked-Preferences>                    location: selection model: {Class-Reference Lisp-Console-Manager})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Properties-Manager})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Search-Results})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Profile-Results})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Servers-Manager}))))))))))
+      (<Workspace-Preferences>                  name: groupware  title: "Groupware" icon: {Image-Resource "WorkspaceGroupware"} shortcut: {Shortcut :shift :alt #\G}
+        (<Menubar-Preferences>                  name: menubar    location: root
+          (<Mainbar-Preferences>                name: toolbar    location: second
+            (<Status-Preferences>               name: status     location: second
+              (<Splitter-Preferences>           name: top        location: first state: zoom target: second orientation: horz mode: relative division: 25 insets: {Rect 5 5 5 5}
+                (<Minibuffer-Preferences>                        location: first state: split
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                    (<Pad-Preferences>                           location: first
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference Workbench-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Repositories-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Favorites-Manager}))
+                    (<Pad-Preferences>                           location: second
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results}))))
+                (<Stage-Preferences>                             location: second))))))
+      (<Workspace-Preferences>                  name: sql        title: "SQL" icon: {Image-Resource "WorkspaceSQL"} shortcut: {Shortcut :shift :alt #\L} frame-model: {Class-Reference SQL-Text-View}
+        (<Menubar-Preferences>                  name: menubar    location: root
+          (<Mainbar-Preferences>                name: toolbar    location: second
+            (<Status-Preferences>               name: status     location: second
+              (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 33 insets: {Rect 5 5 5 5}
+                (<Minibuffer-Preferences>                        location: first state: split
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                    (<Pad-Preferences>                           location: second
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference SQL-Console-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results}))
+                    (<Splitter-Preferences>                      location: first mode: relative division: 48 orientation: horz
+                      (<Splitter-Preferences>                    location: second mode: relative division: -43 orientation: vert
+                        (<Docked-Preferences>                    location: first model: {Class-Reference Chapters-Browser})
+                        (<Docked-Preferences>                    location: second model: {Class-Reference SQL-Connections-Manager}))
+                      (<Docked-Preferences>                      location: first model: {Class-Reference Workbench-Manager}))))
+                (<Splitter-Preferences>                          location: second orientation: vert mode: relative division: -41
+                  (<Stage-Preferences>                           location: first)
+                  (<Pad-Preferences>                             location: second
+                    (<Docked-Preferences>                        location: selection model: {Class-Reference SQL-Tree-Output})
+                    (<Docked-Preferences>                        location: #f model: {Class-Reference SQL-Text-Output}))))))))
+      (<Workspace-Preferences>                  name: designer   title: "Designer" icon: {Image-Resource "Designer"} shortcut: {Shortcut :shift :alt #\X} frame-model: {Class-Reference View-Editor}
+        (<Menubar-Preferences>                  name: menubar    location: root
+          (<Mainbar-Preferences>                name: toolbar    location: second
+            (<Status-Preferences>               name: status     location: second
+              (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 18 insets: {Rect 5 5 5 5}
+                (<Splitter-Preferences>                          location: first orientation: vert mode: relative division: 52
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: 65
+                    (<Docked-Preferences>                        location: first model: {Class-Reference Toolbox-Manager})
+                    (<Docked-Preferences>                        location: second model: {Class-Reference Traits-Editor}))
+                  (<Docked-Preferences>                          location: second model: {Class-Reference Descendants-Manager}))
+                (<Splitter-Preferences>                          location: second orientation: horz mode: absolute division: -300
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: absolute division: 58
+                    (<Splitter-Preferences>                      location: first orientation: horz mode: absolute division: 146
+                      (<Docked-Preferences>                      location: first model: {Class-Reference Designer-Manager})
+                      (<Docked-Preferences>                      location: second model: {Class-Reference Alignment-Editor}))
+                    (<Stage-Preferences>                         location: second))
+                  (<Minibuffer-Preferences>                      location: second state: split
+                    (<Splitter-Preferences>                      location: first orientation: vert mode: relative division: -27
+                      (<Docked-Preferences>                      location: first model: {Class-Reference Properties-Manager})
+                      (<Docked-Preferences>                      location: second model: {Class-Reference Lisp-Console-Manager})))))))))
+      (<Workspace-Preferences>                  name: formatted  title: "Formatted" icon: {Image-Resource "ForegroundColor"} shortcut: {Shortcut :shift :alt #\T} frame-model: {Class-Reference Plain-Formatted-Text-View}
+        (<Menubar-Preferences>                  name: menubar    location: root
+          (<Mainbar-Preferences>                name: toolbar    location: second
+            (<Status-Preferences>               name: status     location: second
+              (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 36 insets: {Rect 5 5 5 5}
+                (<Minibuffer-Preferences>                        location: first state: split
+                  (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
+                    (<Pad-Preferences>                           location: second
+                      (<Docked-Preferences>                      location: selection model: {Class-Reference Lisp-Console-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results}))
+                    (<Splitter-Preferences>                      mode: relative division: 46 location: first orientation: horz
+                      (<Splitter-Preferences>                    mode: relative division: 31 location: second orientation: vert location: second
+                        (<Docked-Preferences>                    location: first model: {Class-Reference Chapters-Browser})
+                        (<Docked-Preferences>                    location: second model: {Class-Reference Hierarchy-Browser}))
+                      (<Pad-Preferences>                         location: first
+                        (<Docked-Preferences>                    location: selection model: {Class-Reference Workbench-Manager})))))
+                (<Splitter-Preferences>                          location: second mode: absolute division: 59 orientation: vert
+                  (<Docked-Preferences>                          location: first model: {Class-Reference Text-Palette})
+                  (<Stage-Preferences>                           location: second)))))))))))

@@ -1,0 +1,22 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Autoload
+;;;
+
+
+(module protected gaia.autoload jazz
+
+
+(export
+  (gaia.application.Gaia-Application (autoload Gaia-Application))
+  (gaia.application.Gaia-Menubar (autoload Gaia-Menubar))
+  (gaia.application.Gaia-Status (autoload Gaia-Status))
+  (gaia.application.Gaia-Toolbar (autoload Gaia-Toolbar))
+  (gaia.application.Gaia-Toplevel (autoload Gaia-Toplevel))
+  (gaia.preference.Gaia-Actions (autoload Gaia-Actions))
+  (gaia.preference.Gaia-Bindings (autoload Gaia-Bindings))
+  (gaia.preference.Gaia-Preferences (autoload Gaia-Preferences))
+  (gaia.profile.Gaia-Profile (autoload Gaia-Profile))
+  (gaia.search.Gaia-Search (autoload Gaia-Search))))

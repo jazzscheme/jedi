@@ -1,0 +1,15 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Preferences Data
+;;;
+
+
+(module gaia.data.preferences jazz
+
+
+(export (gaia)
+        (jazz.groupware)
+        (jazz.library)
+        (jazz.ui)))

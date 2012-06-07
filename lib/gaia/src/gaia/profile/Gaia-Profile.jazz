@@ -1,0 +1,1516 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Profile
+;;;
+
+
+(module protected gaia.profile.Gaia-Profile jazz
+
+
+(import (jazz.designer)
+        (jazz.editor.jazz)
+        (jazz.foreign)
+        (jazz.graphic)
+        (jazz.ide)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.library.component)
+        (jazz.log)
+        (jazz.platform)
+        (jazz.runtime)
+        (jazz.system)
+        (jazz.tie)
+        (jazz.ui)
+        (jazz.ui.activity)
+        (jazz.ui.clipboard)
+        (jazz.ui.view)
+        (jazz.website)
+        (gaia)
+        (time))
+
+
+(class Gaia-Profile extends IDE-Profile
+    
+  
+  ;;;
+  ;;;; Doc
+  ;;;
+  
+  
+  (method (selection->doc text)
+    (define (collect-runs text)
+      (let ((queue (new-queue)))
+        (for-each-range~ text (if (has-selection?~ text) (get-selection~ text) (text-range~ text))
+          (lambda (line paragraph start end)
+            (let ((runs (range-runs~ paragraph start end)))
+              (enqueue queue runs))))
+        (queue-list queue)))
+    
+    (define (color-class color)
+      (when color
+        (cond ((color-similar? color {Color Dark-Blue}) "blue")
+              ((color-similar? color {Color Dark-Green}) "green")
+              ((color-similar? color {Color Dark-Red}) "red")
+              ((color-similar? color {Color Dark-Purple}) "purple")
+              ((color-similar? color {Color Purple}) "purple")
+              ((color-similar? color {Color Ochre}) "ochre")
+              ((color-similar? color {Color Dark-Orange}) "orange")
+              ((color-similar? color {Color Dark-Gray}) "gray")
+              (else (debug 'unknown 'color color) #f))))
+    
+    (define (encode-string str)
+      (substitute-alist '((#\\ . "\\\\")
+                          (#\" . "\\\"")
+                          (#\< . "&lt;")
+                          (#\> . "&gt;"))
+                        str))
+    
+    (let ((output (open-output-string)))
+      (format output "(<pre> class: \"code\"{%}")
+      (let (iterate (scan (collect-runs text)))
+        (unless (null? scan)
+          (format output "  ")
+          (let ((runs (car scan))
+                (next (cdr scan)))
+            (let ((first? #t))
+              (for-each (lambda (run)
+                          (if first?
+                              (set! first? #f)
+                            (format output " "))
+                          (let ((str (encode-string (export-string~ run)))
+                                (class (color-class (get-color~ (get-style~ run)))))
+                            (if (not class)
+                                (format output "\"{a}\"" str)
+                              (format output "(<span> class: {s} \"{a}\")" class str))))
+                        runs))
+            (unless (null? next)
+              (format output " \"\\n\"{%}"))
+            (iterate next))))
+      (format output ")")
+      (set-clipboard-text (get-output-string output))))
+  
+  
+  (method (file->doc file)
+    (define (process-line-char status in-string? input output)
+      (let ((c (read-char input)))
+        (cond ((eof-object? c)
+               (values #f in-string?))
+              ((eqv? c #\newline)
+               (let ((c (peek-char input)))
+                 (case status
+                   ((space)
+                    (values (if (eqv? c #\newline) #f 'none) #t))
+                   ((period-space)
+                    (values (if (eqv? c #\newline) #f 'none) #f))
+                   (else
+                    (values #f in-string?)))))
+              ((and (eqv? c #\space) (eq? status 'period))
+               (write-char c output)
+               (write-char #\double-quote output)
+               (newline output)
+               (values 'period-space #f))
+              (else
+               (unless in-string?
+                 (write-char #\double-quote output))
+               (let ((status (case c
+                               ((#\double-quote #\backslash)
+                                (write-char #\backslash output)
+                                'none)
+                               ((#\period)
+                                'period)
+                               ((#\space)
+                                'space)
+                               (else
+                                'none))))
+                 (write-char c output)
+                 (values status #t))))))
+    
+    (define (process-line input output)
+      (let (iterate (status 'newline)
+                    (in-string? #f))
+        (if status
+            (receive (status in-string?) (process-line-char status in-string? input output)
+              (iterate status in-string?))
+          (when in-string?
+            (write-char #\double-quote output)
+            (newline output)))))
+    
+    (define (process-nodes input output)
+      (display "(<node>" output)
+      (newline output)
+      (let (iterate)
+        (display "(<span>" output)
+        (newline output)
+        (read-char input)           ; #\minus
+        (process-line input output) ; #\newline OR #!eof
+        (let ((c (peek-char input)))
+          (display ")" output)
+          (if (eq? c #\minus)
+              (iterate)
+            (display ")" output)
+            (newline output)))))
+    
+    (call-with-input-file (path-settings file eol-encoding: 'cr-lf)
+      (lambda (input)
+        (let ((output (open-output-string)))
+          (let (iterate)
+            (let ((c (peek-char input)))
+              (unless (eof-object? c)
+                (case c
+                  ((#\minus)
+                   (process-nodes input output))
+                  (else
+                   (process-line input output)
+                   (case (peek-char input)
+                     ((#\newline)
+                      (read-char input)
+                      (display "(<p>)" output))
+                     (else
+                      (display "(<br>)" output)))
+                   (newline output)))
+                (iterate))))
+          (get-output-string output)))))
+    
+  
+  ;;;
+  ;;;; Doc Generation
+  ;;;
+  
+  
+  (definition Documented-Modules
+    '((irregex)
+      (statprof)
+      (scheme)
+      (kernel jazz.language.runtime.kernel)
+      (jazz jazz.language.runtime.functional)
+      (jazz.catalog)
+      (jazz.console)
+      (jazz.database)
+      (jazz.database.sqlserver)
+      ;(jazz.debuggee)
+      ;(jazz.debugger)
+      ;(jazz.designer)
+      (jazz.graphic)
+      (jazz.io)
+      (jazz.jml)
+      (jazz.jrm)
+      (jazz.library)
+      ;(jazz.library.component)
+      ;(jazz.library.exemplar)
+      ;(jazz.library.listener)
+      ;(jazz.library.template)
+      (jazz.media)
+      (jazz.network)
+      ;(jazz.platform)
+      (jazz.runtime)
+      (jazz.schema)
+      (jazz.system)
+      (jazz.system.application)
+      (jazz.system.process)
+      (jazz.ui)
+      ;(jazz.ui.activity)
+      (jazz.ui.clipboard)
+      (jazz.ui.dialog)
+      ;(jazz.ui.history)
+      ;(jazz.ui.offscreen)
+      ;(jazz.ui.picker)
+      ;(jazz.ui.print)
+      ;(jazz.ui.resizer)
+      ;(jazz.ui.skin)
+      (jazz.ui.view)
+      (jazz.ui.window)
+      ;(jazz.ui.workspace)
+      (time)))
+  
+  
+  (method (extract-doc)
+    (define (extract-toplevel-doc info)
+      (bind (name . units) info
+        (user-feedback "Extracting {a}..." name)
+        (let ((reference-dir {Directory Jazz "lib" "jazz.website" "reference"}))
+          (create-directories~ reference-dir)
+          (call-with-output-file (path-settings (new-file~ reference-dir (format "{a}.jml" name)))
+            (lambda (port)
+              (let ((form (parse-form `(data jazz.ide.data.doc (form ,(extract-unit/module-doc name units))))))
+                (print-form-data form port)))))))
+    
+    (define (extract-unit/module-doc name units)
+      (load-build)
+      (let ((unit (outline-unit (if (null? units) name (car units)))))
+        (typecase unit
+          ((Unit-Declaration) (extract-unit-doc name unit))
+          ((Module-Declaration) (extract-module-doc name unit)))))
+    
+    (define (extract-unit-doc name declaration)
+      `(<Unit-Doc> name: ,name title: ,(symbol->string name)))
+    
+    (define (extract-module-doc name declaration)
+      (let ((declarations (filter-access/compatibility-declarations (resolve-declarations (table-values (get-public-lookup declaration))))))
+        (let ((sorted (sort string<? declarations key: (lambda (decl) (symbol->string (get-name~ decl))))))
+          `(<Module-Doc> name: ,name title: ,(symbol->string name)
+             ,@(collect extract-declaration-doc sorted)))))
+    
+    (define (extract-declaration-doc declaration)
+      (typecase declaration
+        ((Export-Declaration) (extract-export-doc declaration))
+        ((Define-Declaration) (extract-define-doc declaration))
+        ((Define-Macro-Declaration) (extract-define-macro-doc declaration))
+        ((Definition-Declaration) (extract-definition-doc declaration))
+        ((Generic-Declaration) (extract-generic-doc declaration))
+        ((Macro-Declaration) (extract-macro-doc declaration))
+        ((Syntax-Declaration) (extract-syntax-doc declaration))
+        ((Class-Declaration) (extract-class-doc declaration))
+        ((Interface-Declaration) (extract-interface-doc declaration))
+        ((Property-Declaration) (extract-property-doc declaration))
+        ((Slot-Declaration) (extract-slot-doc declaration))
+        ((Method-Declaration) (extract-method-doc declaration))
+        ((C-Type-Declaration) (extract-c-type-doc declaration))
+        ((C-Definition-Declaration) (extract-c-definition-doc declaration))
+        ((C-Named-Declare-Declaration) #f)
+        (else (debug 'Unknown (category-identifier (class-of declaration))) `(<Doc> name: ,(get-name~ declaration)))))
+    
+    (define (extract-export-doc declaration)
+      `(<Export-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+    
+    (define (extract-define-doc declaration)
+      `(<Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+         parameters: ,(extract-signature (get-signature~ declaration))))
+    
+    (define (extract-define-macro-doc declaration)
+      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+         parameters: ,(extract-signature (get-signature~ declaration))))
+    
+    (define (extract-definition-doc declaration)
+      `(<Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+         parameters: ,(extract-signature (get-signature~ declaration))))
+    
+    (define (extract-generic-doc declaration)
+      `(<Generic-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+         parameters: ,(extract-signature (get-signature~ declaration))))
+    
+    (define (extract-macro-doc declaration)
+      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+         parameters: ,(extract-signature (get-signature~ declaration))))
+    
+    (define (extract-syntax-doc declaration)
+      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+         parameters: ,(extract-signature (get-signature~ declaration))))
+    
+    (define (extract-class-doc declaration)
+      (let ((name (symbol->string (get-name~ declaration)))
+            (ascendant (get-ascendant~ declaration))
+            (interfaces (get-interfaces~ declaration)))
+        (unless (or (ends-with? name "-Class")
+                    (ends-with? name "~Class"))
+          `(<Class-Doc> name: ,(extract-locator declaration) title: ,name
+             ascendant: ,(if ascendant (extract-locator (resolve-binding ascendant)) #f)
+             interfaces: ,(map extract-locator (resolve-declarations interfaces))
+             ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children~ declaration))))))))
+    
+    (define (extract-interface-doc declaration)
+      (let ((ascendants (get-ascendants~ declaration)))
+        `(<Interface-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+           ascendants: ,(map extract-locator (resolve-declarations ascendants))
+           ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children~ declaration)))))))
+    
+    (define (extract-slot-doc declaration)
+      `(<Slot-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+    
+    (define (extract-property-doc declaration)
+      `(<Property-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+    
+    (define (extract-method-doc declaration)
+      (define (extract-propagation-list)
+        (let ((propagation (get-propagation~ declaration)))
+          (list propagation: propagation)))
+      
+      `(<Method-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+         access: ,(get-access~ declaration)
+         ,@(extract-propagation-list)
+         parameters: ,(extract-signature (get-signature~ declaration))))
+    
+    (define (extract-c-type-doc declaration)
+      `(<C-Type-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+    
+    (define (extract-c-definition-doc declaration)
+      `(<C-Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+    
+    (define (extract-signature signature)
+      (define (extract-name parameter)
+        (get-name~ parameter))
+      
+      (if (not signature)
+          #f
+        (let ((positional (get-positional~ signature))
+              (optional (get-optional~ signature))
+              (named (get-named~ signature))
+              (rest (get-rest~ signature)))
+          `(,@(if (null? positional) '() (list positional: (map extract-name positional)))
+            ,@(if (null? optional) '() (list optional: (map extract-name optional)))
+            ,@(if (null? named) '() (list named: (map extract-name named)))
+            ,@(if (not rest) '() (list rest: (extract-name rest)))))))
+    
+    ;; temp hack to obtain the same format as when sub-modules are well integrated
+    (define (extract-locator declaration)
+      (let ((locator (get-locator~ declaration)))
+        (let ((names (reverse! (split-reference locator))))
+          (let ((len (length names)))
+            (cond ((and (>= len 2) (eq? (first names) (second names)))
+                   (apply compose-reference (reverse! (cons (first names) (cddr names)))))
+                  ((and (>= len 3) (eq? (second names) (third names)))
+                   (apply compose-reference (reverse! (cons (first names) (cons (second names) (cdddr names))))))
+                  (else
+                   locator))))))
+    
+    (define (resolve-declarations declarations)
+      (map (lambda (decl)
+             (resolve-binding decl))
+           declarations))
+    
+    (define (filter-access/compatibility-declarations declarations)
+      (collect-if (lambda (decl)
+                    (and (let ((access (get-access~ decl)))
+                           (or (eq? access 'public)
+                               (and (eq? access 'protected)
+                                    (is? decl Method-Declaration)
+                                    (memq? (get-propagation~ decl) '(virtual chained)))))
+                         (eq? (get-compatibility~ decl) 'uptodate)))
+                  declarations))
+    
+    (for-each extract-toplevel-doc Documented-Modules)
+    (user-feedback "Done"))
+
+  
+  ;;;
+  ;;;; Website
+  ;;;
+  
+  
+  (definition JazzWebsite-Site
+    {File Jazz "lib" "jazz.website" "site" "JazzWebsite.jml"})
+  
+  (definition JazzWebsite-Content
+    {Directory Jazz "lib" "jazz.website" "content"})
+  
+  
+  (method (regenerate-jazzwebsite)
+    (reload-documentation~ (get-application))
+    (generate-jazzwebsite))
+  
+  
+  (method (generate-jazzwebsite)
+    (let* ((site (load-jml JazzWebsite-Site))
+           (transformed (transform-jml site (new JazzWebsite-Transformation)))
+           (pages (get-children~ transformed)))
+      (for-each (lambda (page)
+                  (user-feedback "Rendering {a}..." (get-property~ page 'path))
+                  (render-jazzwebsite-page page))
+                pages)
+      (user-feedback "Website generated")))
+  
+  
+  (method (render-jazzwebsite-page page)
+    (let* ((content JazzWebsite-Content)
+           (file (new-file~ content (format "{a}.htm" (get-property~ page 'path))))
+           (preferences (new JML-Preferences))
+           (renderer (new XHTML-Renderer preferences))
+           (html (first-child~ page)))
+      ;; why does using UTF-8 char-encoding not work with accents in the generated HTML page
+      (call-with-output-file (path-settings file char-encoding: 'ISO-8859-1)
+        (lambda (output)
+          (render~ renderer html output)))))
+  
+  
+  (method (export-latest-news)
+    (let* ((site (load-jml JazzWebsite-Site))
+           (news (second (get-children~ (find-name~ site 'news))))
+           (latest (first (get-children~ news))))
+      (let ((output (open-output-string))
+            (left-margin 0)
+            (right-margin 70)
+            (column 0))
+        (define (render node)
+          (typecase node
+            ((JML-Text)
+             (render-text (get-text~ node)))
+            (else
+             (let ((tag (get-tag~ node)))
+               (case tag
+                 ((division) (render-division node))
+                 ((p) (render-paragraph node))
+                 ((b) (render-bold node))
+                 ((br) (render-break node))
+                 ((node) (render-node node))
+                 ((span) (render-span node))
+                 ((cite) (render-cite node))
+                 ((a) (render-anchor node))
+                 (else (error "Unable to render tag: {s}" tag)))))))
+        
+        (define (render-children node)
+          (for-each render (get-children~ node)))
+        
+        (define (render-text text)
+          (let ((words (remove-empty (split text " "))))
+            (for-each (lambda (word)
+                        (let ((right (+ column (cardinality word))))
+                          (cond ((>= right right-margin)
+                                 (break))
+                                ((> column 0)
+                                 (print " ")))
+                          (print word)))
+                      words)))
+        
+        (define (render-division node)
+          (let ((title (get-property~ node 'title)))
+            (paragraph)
+            (print (upcase title))
+            (paragraph)
+            (with-margins left-margin #f
+              (lambda ()
+                (render-children node)))))
+        
+        (define (render-paragraph node)
+          (paragraph))
+        
+        (define (render-bold node)
+          (render-text (upcase (get-text~ (first-child~ node)))))
+        
+        (define (render-break node)
+          (break))
+        
+        (define (render-node node)
+          (for-each (lambda (subnode)
+                      (print "-")
+                      (with-margins (+ left-margin 2) #f
+                        (lambda ()
+                          (render subnode)
+                          (break))))
+                    (get-children~ node)))
+        
+        (define (render-span node)
+          (render-children node))
+        
+        (define (render-cite node)
+          (render-children node))
+        
+        (define (render-anchor node)
+          (let ((href (get-property~ node 'href))
+                (text (get-text~ (first-child~ node))))
+            (if (equal? href text)
+                (print href)
+              (print (format "{a}: {a}" text href)))))
+        
+        (define (with-margins left right thunk)
+          (let ((old-left left-margin)
+                (old-right right-margin))
+            (when left
+              (set! left-margin left))
+            (when right
+              (set! right-margin left))
+            (thunk)
+            (set! left-margin old-left)
+            (set! right-margin old-right)))
+        
+        (define (print str)
+          (when (and (= column 0) (> left-margin 0))
+            (format output "{a}" (make-string left-margin #\space)))
+          (display str output)
+          (increase! column (cardinality str)))
+        
+        (define (break)
+          (format output "{%}")
+          (set! column 0))
+        
+        (define (paragraph)
+          (when (> column 0)
+            (break))
+          (break))
+        
+        (render-children latest)
+        (set-clipboard-text (get-output-string output))
+        (user-message "Latest news rendered to clipboard"))))
+    
+  
+  ;;;
+  ;;;; Mandelbrot
+  ;;;
+  
+  
+  @wait
+  (method override (test)
+    (new-mandelbrot))
+  
+  
+  @wait
+  (method (new-mandelbrot)
+    (new-frame Mandelbrot host-title: "Mandelbrot" host-position: {Point 50 50} host-size: {Dimension 800 800} host-workspace: 'home))
+
+  
+  ;;;
+  ;;;; Jazz
+  ;;;
+  
+  
+  (method (gambit (expr: expr #f) (maximum-heapsize: maximum-heapsize 102400) (exception-handler: exception-handler :repl))
+    (unimplemented)
+    @convert
+    (let* ((exception (case exception-handler ((:repl) "r") ((:exit) "q")))
+           (command (format "gsc -:da{a},h{a}{a} -" exception maximum-heapsize (if expr (format " -e \"{a}\"" expr) ""))))
+      (create-process command directory: {Directory jazz} capture-input?: #f capture-output?: #f capture-error?: #f wait?: #f size: {Dimension 900 500} visible?: #t)))
+  
+  
+  ;;;
+  ;;;; Image Magick
+  ;;;
+  
+  
+  (definition (image-convert cmd)
+    (let ((status (shell-command (format "convert {a}" cmd))))
+      (when (/= status 0)
+        (error "Shell command returned ({a})" status))))
+  
+  
+  (definition (image-composite cmd)
+    (let ((status (shell-command (format "composite {a}" cmd))))
+      (when (/= status 0)
+        (error "Shell command returned ({a})" status))))
+    
+  
+  ;;;
+  ;;;; Images
+  ;;;
+  
+  
+  (method (extract-images dst (remove-duplicates: remove-duplicates #t))
+    (let ((src {Directory Jazz "lib" "jazz.resources" "resources" "images"}))
+      (create-directories~ dst)
+      (let ((digests '()))
+        (iterate-directory~ src
+          (lambda (file)
+            (let ((name (get-name~ file))
+                  (digest (digest-file (parse~ file) 'SHA-1)))
+              (user-feedback "Processing {a}..." name)
+              (unless (or (ends-with? (get-base~ file) "_")
+                          (and remove-duplicates (member? digest digests test: equal?)))
+                (set! digests (cons digest digests))
+                (copy-file~ file (new-file~ dst name))))))
+        (let ((count (length digests)))
+          (user-feedback "Copied {a} file{a}" count (format-plural count))))))
+    
+  
+  ;;;
+  ;;;; Disabled
+  ;;;
+  
+  
+  (method (generate-disabled image (debug?: debug? #f))
+    (define (convert cmd)
+      (if debug?
+          (debug-string (string-append "convert " cmd))
+        (image-convert cmd)))
+    
+    (let ((directory (get-parent~ image))
+          (name (get-name~ image))
+          (base (get-base~ image))
+          (extension (get-extension~ image)))
+      (let ((grayscale (format "_grayscale_.{a}" extension))
+            (disabled (format "{a}_.{a}" base extension)))
+        (with-current-directory (parse~ directory)
+          (lambda ()
+            (unwind-protect
+                (begin
+                  (convert (format "-fx G {a} {a}" name grayscale))
+                  (convert (format "-channel alpha -fx u-0.6 {a} {a}" grayscale disabled)))
+              (let ((grayscale (new-brother~ image grayscale)))
+                (when (exists?~ grayscale)
+                  (delete-file~ grayscale)))))))))
+  
+  
+  (method (generate-all-disabled directory extensions)
+    (iterate-directory~ directory
+      (lambda (file)
+        (when (member? (get-extension~ file) extensions test: extension=?)
+          (user-feedback "Generating disabled for {a}..." (get-name~ file))
+          (generate-disabled file))))
+    (user-feedback "Done"))
+  
+  
+  (method (delete-all-disabled directory extensions)
+    (iterate-directory~ directory
+      (lambda (file)
+        (when (and (member? (get-extension~ file) extensions test: extension=?)
+                   (ends-with? (get-base~ file) "_"))
+          (user-message "Deleting disabled {a}..." (get-name~ file))
+          (delete-file~ file))))
+    (user-message "Done"))
+
+  
+  ;;;
+  ;;;; Templates
+  ;;;
+  
+  
+  @wait
+  (definition Template-AList
+    '((title   . "Planner")
+      (package . "planner")
+      (source  . "{File Planner-Project \"Foo.jazz\"}")))
+  
+  
+  @wait
+  (method override (test8)
+    (let ((expander (new Template-Expander))
+          (template {File Builder-Unit "Templates" "Project.jazz"}))
+      (call-with-output-file (path-settings {File Builder-Unit "Templates" "Test.jazz"})
+        (lambda (output)
+          (expand~ expander template Template-AList output))))
+    (user-message "Done"))
+  
+  
+  ;;;
+  ;;;; Taskbar
+  ;;;
+  
+  
+  @wait
+  (method override (test)
+    (test-taskbar))
+  
+  
+  @wait
+  (method override (test-shift)
+    (test-remove-taskbar))
+  
+  
+  @wait
+  (method (test-taskbar)
+    (let ((record (new NOTIFYICONDATA))
+          (icon (load-image~ Image 'icon {Icon-Resource "Jazz"} width: 16 height: 16)))
+      (set record 'cbSize (size-of NOTIFYICONDATA))
+      (set record 'hWnd (get-toplevel-hwnd))
+      (set record 'uID 10)
+      (set record 'uFlags (bitwise-ior NIF_MESSAGE NIF_ICON))
+      (set record 'uCallbackMessage JZ_TASKICON)
+      (set record 'hIcon icon)
+      (Shell_NotifyIcon NIM_ADD record)))
+  
+  
+  @wait
+  (method (test-remove-taskbar)
+    (let ((record (new NOTIFYICONDATA)))
+      (set record 'cbSize (size-of NOTIFYICONDATA))
+      (set record 'hWnd (get-toplevel-hwnd))
+      (set record 'uID 10)
+      (Shell_NotifyIcon NIM_DELETE record)))
+  
+  
+  ;;;
+  ;;;; Tie
+  ;;;
+  
+  
+  @wait
+  (method override (test)
+    (let ((x 1))
+      (debug (tie "{x}~~Hello~{{self}"))))
+  
+  
+  ;;;
+  ;;;; Language
+  ;;;
+  
+  
+  @wait
+  (method override (test1)
+    (format :console "{%}xxx{?abc~}yyy" #f))
+  
+  
+  @wait
+  (method override (test2)
+    (format :console "{%}xxx{?ab{a}c~}yyy" 10))
+  
+  
+  ;;;
+  ;;;; Generic
+  ;;;
+    
+  
+  @wait
+  (method override (test)
+    (debug (definition-value (category-field org.apache.bcel.classfile.JavaClass '<init>))))
+
+  
+  @wait
+  (method override (test)
+    (debug (foo~ (new X) #f)))
+  
+  
+  @wait
+  (method override (test-shift)
+    (debug (get-foo~ (new X))))
+  
+  
+  @wait
+  (method override (test1)
+    (let* ((dispatcher (new Dispatcher))
+           (dag-root (get-dag-root~ dispatcher)))
+      (insert-node~ dispatcher #f (list X Y))
+      (insert-node~ dispatcher #f (list Y X))
+      (insert-node~ dispatcher #f (list A A A))
+      (insert-node~ dispatcher #f (list A A B))
+      (let ((test
+             (lambda signature
+               (let ((generics (find-generics~ dispatcher signature)))
+                 (debug (map category-identifier signature) generics)))))
+        (test X X)
+        (test X Y)
+        (test Y Y)
+        (test Window Window)
+        (test A A A)
+        (test A A B)
+        (test X Y B))))
+  
+  
+  @wait
+  (method override (test2)
+    (let* ((dispatcher (new Dispatcher))
+           (dag-root (get-dag-root~ dispatcher)))
+      (insert-node~ dispatcher #f (list Rect))
+      (insert-node~ dispatcher #f (list Point))
+      (let ((test
+             (lambda signature
+               (let ((generics (find-generics~ dispatcher signature)))
+                 (debug (map category-identifier signature) generics)))))
+        (test Object)
+        (test Point)
+        (test Rect)
+        (test Integer))))
+  
+  
+  @wait
+  (method override (test2)
+    (let* ((dispatcher (new Dispatcher))
+           (dag-root (get-dag-root~ dispatcher)))
+      (insert-node~ dispatcher #f (list))
+      (insert-node~ dispatcher #f (list <javaint>))
+      (let ((test
+             (lambda signature
+               (let ((generics (find-generics~ dispatcher signature)))
+                 (debug (map category-identifier signature) generics)))))
+        (test )
+        (test Integer)
+        (test Integer Integer)
+        (test Integer Integer Integer))))
+  
+  
+  ;;;
+  ;;;; Exemplar
+  ;;;
+  
+  
+  @wait
+  (definition ed
+    #f)
+  
+  @wait
+  (definition xa
+    #f)
+  
+  @wait
+  (definition xb
+    #f)
+  
+  @wait
+  (definition x1
+    #f)
+  
+  @wait
+  (definition x2
+    #f)
+  
+  
+  @wait
+  (method (setup-exemplar)
+    (set! ed (new Exemplar-Domain))
+    (set! xa (new X :domain ed name: 'a :a 1 :b 2 :c 3))
+    (set! xb (new X :domain ed name: 'b base: 'a :b 5))
+    (set! x1 (new X :domain ed base: 'a :a 10))
+    (set! x2 (new X :domain ed base: 'b :a 20))
+    (user-message "Setup done"))
+  
+  
+  @wait
+  (method (test-exemplar)
+    (init~ xa)
+    (init~ xb)
+    (init~ x1)
+    (init~ x2)
+    (user-message "Test done"))
+
+  
+  ;;;
+  ;;;; Text
+  ;;;
+  
+  
+  @wait
+  (method (user-code text)
+    (let* ((start (get-line~ (get-start~ text)))
+           (end (get-line~ (get-end~ text)))
+           (col (get-column~ text start))
+           (char (get-char~ text (new Cell start col))))
+      (if (not (eqv? char #\-))
+          (bell)
+        (delete-range~ text (new Range$Cell$ (new Cell start 0) (new Cell start (+ col 2))))
+        (for-each (lambda (line)
+                    (remove-spaces~ text (new Cell line (paragraph-length~ text line))
+                      keep: 'one))
+                  (naturals start end))
+        (let ((paragraph (get-paragraph~ (get-paragraph~ text start))))
+          (unless (get-bulleted?~ (get-format~ paragraph))
+            (toggle-bulleted~ text start))))))
+  
+  
+  @wait
+  (method override (test)
+    (test-for-each-page))
+  
+  
+  @wait
+  (method (test-for-each-page)
+    (for-each-page~ % 0 (+ (get-limit~ %) 1) 360
+     (lambda (page top bottom)
+       (let ((t (get-bottom~ (get-line~ % top)))
+             (b (get-top~ (get-line~ % bottom))))
+         (debug (- b t))))))
+  
+  
+  @wait
+  (method (test-message-box)
+    (message-box
+      (list "Hello World"
+            (list :bulleted "This message-box")
+            (list :bulleted indent: 2 "really" " " (list :link (lambda () (close-modal-dialog (lambda () (debug 'yo)))) "really") " " (list image: {Image-Resource "BlueRed"}) " " (list highlight: 'Light-Red "really"))
+            (list :bulleted indent: 1 "rocks!"))
+      sound: #f))
+  
+  
+  @wait
+  (method (hide-paragraphs)
+    (let ((text (get-focus)))
+      (for-each-selected-paragraph~ text
+       (lambda (row paragraph)
+         (hide~ paragraph)))))
+
+  
+  ;;;
+  ;;;; Java
+  ;;;
+
+  
+  @wait
+  (method override (test2)
+    (let* ((java (new Java-Runtime))
+           (output (execute~ java "com/metascoop/Test" classpath: Java-Classpath :arguments "JazzStandaloneRelease.exe")))
+      (message-box (join-lines output))))
+  
+  
+  @wait
+  (method override (test3)
+    (let ((obj1 (new org.jazzscheme.test.Test))
+           (obj2 (new org.jazzscheme.test.Test 8)))
+      (debug (cj~ obj1 2))
+      (debug (test~ obj1 4 5) (test~ obj2 2 3 4))))
+
+  
+  ;;;
+  ;;;; Context
+  ;;;
+  
+  
+  @wait
+  (method (test-context)
+    (with-execution-context
+      (lambda ()
+        (with-progress
+          (lambda (reporter)
+            @wait
+            (with-restart
+              (lambda ()
+                (to-fix)))
+            (for-each (lambda (n)
+                        (with-continue
+                          (lambda ()
+                            (foo n))))
+                      (naturals 0 10))
+            (car 'a))
+          threaded?: #f
+          context: self))
+      title: "test"))
+  
+  
+  @wait
+  (method (to-fix)
+    (debug (symbol->string #f)))
+  
+  
+  @wait
+  (method (foo n)
+    (with-execution-node
+      (lambda ()
+        (goo n))
+      title: "hello we are doing..."
+      details: '("a" "b" "c")))
+  
+  
+  @wait
+  (method (goo n)
+    (with-execution-node
+      (lambda ()
+        (hoo n))
+      title: "goo"
+      details: '("x" "y")))
+  
+  
+  @wait
+  (method (hoo n)
+    (with-execution-node
+      (lambda ()
+        (car n))
+      title: "hoo"))
+
+  
+  ;;;
+  ;;;; Parameters
+  ;;;
+  
+  
+  @wait
+  (method (test-parameters)
+    (set-parameter 'test 2)
+    (new Thread
+      context: self
+      execute: (lambda (thread)
+                 (debug 'thread (get-parameter 'test))
+                 (set-parameter 'test 3)
+                 (debug 'thread (get-parameter 'test))))
+    (sleep .5)
+    (debug 'main (get-parameter 'test)))
+  
+  
+  ;;;
+  ;;;; Logging
+  ;;;
+  
+  
+  @wait
+  (method override (test1)
+    (with-log (new Log name: 'test file: (timestamped-log "test"))
+      (lambda ()
+        (log-entry name: "hello")
+        (with-node (log-entry name: "world")
+          (log-entry name: "foo")
+          (log-entry name: "bar"))
+        (log-properties (list :a 2 :b 3 :c 5) name: "test")
+        (debug (current-log)))))
+  
+  
+  @wait
+  (method override (test-shift)
+    (foo 2))
+  
+  
+  @wait
+  (method (foo x)
+    (log-entry name: "foo" message: (format "received {a}" x))
+    (bar x))
+  
+  
+  @wait
+  (method (bar x)
+    (let ((y (+ x x x)))
+      (log-entry name: "bar" message: "some stack" data: (new Stack-Snapshot))))
+  
+  
+  @wait
+  (method override (test2)
+    (with-log (new Log name: 'test file: (timestamped-log "test"))
+      (lambda ()
+        (log-entry name: "hello")
+        (log-entry name: "world")
+        (log-properties (list :a 2 :b 3 :c 5) name: "test")
+        (with-profile
+          (lambda (node)
+            (+ 2 3))
+          name: "resources"))))
+
+  
+  ;;;
+  ;;;; Resources
+  ;;;
+  
+  
+  @wait
+  (method override (test3)
+    (gc)
+    (test-resources))
+  
+  
+  @wait
+  (method (test-resources)
+    (with-log (new Log name: "Resources" file: {File Build "Logs" "Resources.jml"})
+      (lambda ()
+        (test-bitmap)
+        (test-dc)
+        (test-file-printer)
+        (test-file-reader)
+        (test-image)
+        (test-picture)
+        (test-portfolio)
+        (test-pseudo-handle)
+        (test-reader)
+        (test-region)
+        (test-registry-key)
+        (test-socket)
+        (test-stack)
+        (test-synchronizer)
+        (test-user-name))))
+  
+  
+  @wait
+  (method (test-bitmap)
+    (with-profile
+      (lambda (node)
+        (new Bitmap surface: (desktop-surface) width: 16 height: 16))
+      name: "Bitmap"))
+  
+  
+  @wait
+  (method (test-image)
+    (with-profile
+      (lambda (node)
+        (load-image~ Image 'icon {Icon-Resource "Jazz"})
+        (load-image~ Image 'image {Image-Resource "Break"})
+        (load-image~ Image 'cursor {Cursor-Resource "Move"}))
+      name: "Image"))
+  
+  
+  @wait
+  (method (test-picture)
+    (with-profile
+      (lambda (node)
+        (new Picture))
+      name: "Picture"))
+  
+  
+  @wait
+  (method (test-portfolio)
+    (with-profile
+      (lambda (node)
+        (new Portfolio))
+      name: "Portfolio"))
+  
+  
+  @wait
+  (method (test-pseudo-handle)
+    (with-profile
+      (lambda (node)
+        (GetCurrentProcess))
+      name: "Pseudo Handle"))
+  
+  
+  @wait
+  (method (test-region)
+    (with-profile
+      (lambda (node)
+        (new Region rect: {Rect 0 0 100 100}))
+      name: "Region"))
+  
+  
+  @wait
+  (method (test-registry-key)
+    (with-profile
+      (lambda (node)
+        (let ((key1 (new Registry-Key key: HKEY_CLASSES_ROOT))
+              (key2 (new Registry-Key key: HKEY_CURRENT_USER)))
+          (open-key~ key1 "TypeLib")
+          (open-key~ key1 "TypeLib")
+          (open-key~ key1 "TypeLib"))
+        (with ((key (new Registry-Key key: HKEY_CLASSES_ROOT)))
+          (with-profile
+            (lambda (node)
+              (with ((subkey (open-key~ key "TypeLib")))
+                ))
+            name: "open-key")))
+      name: "Registry-Key"))
+  
+  
+  @wait
+  (method (test-socket)
+    (with-profile
+      (lambda (node)
+        (new Socket))
+      name: "Socket"))
+  
+  
+  @wait
+  (method (test-stack)
+    (with-node
+      (lambda (node)
+        (log-profile name: 'before)
+        (letrec ((proc
+                  (lambda (n)
+                    (if (= n 0)
+                        (log-profile name: 'after)
+                      (proc (- n 1))))))
+          (proc 5000)))
+      node: (new-log-node name: "Stack")))
+  
+  
+  @wait
+  (method (test-synchronizer)
+    (with-profile
+      (lambda (node)
+        (new Impulse)
+        (new Mutex)
+        (new Semaphore))
+      name: "Synchronizer"))
+
+  
+  @wait
+  (method (test-user-name)
+    (with-profile
+      (lambda (node)
+        (get-system-user-name))
+      name: "User Name"))
+  
+  
+  @wait
+  (method override (test9)
+    (gc-clear-undestroyed))
+  
+  
+  ;;;
+  ;;;; Picker
+  ;;;
+  
+  
+  @wait
+  (method override (test1)
+    (blend 255))
+  
+  
+  @wait
+  (method override (test2)
+    (blend 100))
+  
+  
+  @wait
+  (method override (test3)
+    (blend 30))
+  
+  
+  @wait
+  (method (blend x)
+    (pick-figure
+      click:
+      (lambda (view pos)
+        (set-alpha-blending~ (get-player~ view) x))))
+
+  
+  ;;;
+  ;;;; Location
+  ;;;
+  
+  
+  @wait
+  (class Foo extends Object
+
+  
+    (definition holder
+      #f)
+    
+    
+    (method (bar)
+      (set! holder #f)
+      (let* ((x 2)
+             (z self)
+             (proc
+              (lambda (n flag)
+                (let* ((y (+ x x))
+                       (p
+                        (lambda ()
+                          (let ((v y))
+                            (break)
+                            (message-box n)))))
+                  (if flag p (holder))))))
+        (set! holder (proc 5 #t))
+        (proc 7 #f)))
+    
+    
+    (method (baz)
+      (let ((x 2))
+        (car x))))
+  
+  
+  @wait
+  (method override (test)
+    (bar~ (new Foo)))
+  
+  
+  @wait
+  (method override (test-shift)
+    (baz~ (new Foo)))
+
+  
+  @wait
+  (method (test-location)
+    (let ((x 2)
+          (y (break))
+          (z 3))
+      (list x y z)))
+
+  
+  @wait
+  (method (test-location-aux)
+    (let ((z (new [Z Y X])))
+      (foo~ z '(10 20 30))))
+    
+  
+  @wait
+  (class X extends Object
+    
+    
+    (class Y extends Object
+      
+      
+      (class Z extends Object
+        
+        
+        (method (foo list)
+          (for-each (lambda (x)
+                      (map (lambda (y)
+                             (car y))
+                           (naturals 0 x)))
+                    list))
+        
+        
+        (method (bar)
+          (car 1)))))
+  
+  
+  ;;;
+  ;;;; XML
+  ;;;
+  
+
+  @wait
+  (method (xml-viewer)
+    (let ((document (new XML-Document))
+          (file {File "C:" "Books.xml"}))
+      (load~ document file)
+      (let* ((frame (new-frame XML-Viewer host-visible?: #f))
+             (viewer (get-guest~ frame)))
+        (set-document~ viewer document)
+        (bring-to-front~ frame)
+        (set-visible?~ frame #t))))
+
+  
+  @wait
+  (method override (test)
+    (let* ((text "<TABLE colspan=2> aaaa </TABLE>")
+           (parser (new XML-Parser text: text)))
+      (debug (parse-text~ parser))))
+  
+  
+  @wait
+  (method override (test1)
+    (log-entry name: "Test1")
+    (let* ((text "start <A> blabla <B> </B> yoyo <C> </C> gousigousi </A> end")
+           (parser (new XML-Parser text: text)))
+      (debug (parse-text~ parser))))
+  
+  
+  @wait
+  (method override (test2)
+    (let* ((file {File Jazz "Doc.jazz"})
+           (text (with ((input (new File-Reader file))) (read-content-string input)))
+           (parser (new XML-Parser text: text)))
+      (debug (parse-text~ parser))
+      (debug (length text))))
+  
+  
+  ;;;
+  ;;;; XSL
+  ;;;
+
+  
+  @wait
+  (class My-Transfo extends XML-Transformer
+    
+    
+    (method public (machin node x y)
+      (xsl-rules node
+        ((a)
+         (f ((mode "1") (title (<-xml x)))
+            (xml>>
+             (for-each (lambda (n)
+                         (>>xml
+                          (p (<-xml n))))
+                       (cdr node)))))))
+    
+    
+    (method public (chouette node a b)
+      (xsl-rules node
+        ((b)
+         (xml>>
+          (apply-transformation machin (children~ node)))))))
+
+  
+  @wait
+  (method override (test)
+    (let ((transfo (new My-Transfo handler: (new XML-Formatter))))
+      (machin~ transfo '(a "B" "C") 1 2)))
+  
+  
+  @test
+  (method override (test1)
+    (format :console "{t}"
+     (expand-xsl-ruleset
+       '(x y)
+       (list
+        '((a)
+          (f
+           (xml>>
+            (for-each
+             (lambda (n)
+               (>>xml
+                (p (<-xml n))))
+             (children~ node)))))))))
+  
+  
+  @wait
+  (method override (test0)
+    (let ((f (new XML-Formatter :pretty #t indentation: 2)))
+      (begin-element~ f "body")
+      (begin-element~ f "h1")
+        (add-attribute~ f "align" "center")
+      (end-element~ f "h1")
+      (begin-element~ f "p")
+        (text~ f "Bonjour les petits amis")
+      (end-element~ f "p")
+      (end-element~ f "body")))
+  
+
+  @test
+  (method override (test1)
+    (let ((processor (new XML-Formatter :pretty #f))
+          (converter process-sxml))
+       (converter
+        '(body
+          (h1 ((align "center"))
+              "allo"
+              (b "le monde")
+              "de toto"))
+        processor)))
+  
+  
+  @wait
+  (method override (test0)
+    (car 1))
+  
+  
+  @wait
+  (method (setup-compiler)
+    (initialize-user-passes~ Compiler)
+    (add-user-pass~ Compiler (new Type-Annotator))
+    (add-user-pass~ Compiler (new Mutation-Annotator)))
+  
+  
+  ;;;
+  ;;;; Scheme
+  ;;;
+  
+  
+  @wait
+  (method override (test1)
+    (cond (2 => debug)))
+  
+  
+  @wait
+  (method override (test)
+    (debug (lalr-parser (ID +))))
+  
+  
+  @wait
+  (method override (test)
+    (test~ CPS identity))
+
+  
+  ;;;
+  ;;;; Various
+  ;;;
+  
+  
+  (method (speedup old new)
+    (percentage (- old new) new))
+  
+  
+  @wait
+  (definition activity-no
+    0)
+
+
+  @wait
+  (method (test-activities)
+    (new Activity
+      context: self
+      execute: (lambda (activity)
+                 (let ((max (+ 5 (random 50)))
+                       (wait (+ .3 (/ (cast <fl> (random 500)) 1000)))
+                       (keep? (zero? (random 2)))
+                       (no activity-no)
+                       (n 0))
+                   (increase! activity-no)
+                   (set-range~ activity (new Range 0 max))
+                   (while (and (< n max) (not (cancel-requested?~ activity)))
+                     (sleep wait)
+                     (increase! n)
+                     (user-message~ activity "Test {s} : Step {s}" no n)
+                     (delta-pos~ activity 1))
+                   (unless (cancel-requested?~ activity)
+                     (user-message~ activity "Test {s} : Done" no)
+                     (set-done~ activity)
+                     (sleep .5))))
+      :unregister? #t))
+
+
+  @wait
+  (method (test-styles)
+    (let ((stage (locate~ (find-frame-guest Showcase) 'stage)))
+      (send-message~ (locate~ stage 'pb) BM_SETIMAGE IMAGE_BITMAP (load-image~ Image 'image {Image-Resource "Break"}))))
+
+
+  ;;;
+  ;;;; Java Parser
+  ;;;
+
+
+  @wait
+  (method (test-ast (describe? #t))
+    (let ((file {File Jazz "lib" "jazz.sample.files" "Java" "org" "jazz" "project" "Z.java"}))
+      (let ((ast (parse-java file Java-AST)))
+        (when describe?
+          (describe~ ast)
+          (fresh-prompt~ (get-application)))
+        ast)))
+
+
+  @wait
+  (method (test-java)
+    (let ((file {File Jazz "lib" "jazz.sample.files" "Java" "org" "jazz" "project" "Z.java"}))
+      (let ((ast (parse-java file Java-AST)))
+        (java-definitions ast))))))

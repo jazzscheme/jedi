@@ -1,0 +1,16 @@
+(<Workspace-Preferences>                          title: "Home" icon: {Image-Resource "WorkspaceHome"} shortcut: {Shortcut :alt :shift #\A}
+  (<Menubar-Preferences>            name: menubar location: root
+    (<Mainbar-Preferences>          name: toolbar location: second
+      (<Status-Preferences>         name: status  location: second
+        (<Splitter-Preferences>     name: top     location: first orientation: horz mode: relative division: 20 insets: {Rect 5 5 5 5}
+          (<Splitter-Preferences>                 location: second orientation: vert mode: relative division: -27
+            (<Stage-Preferences>                  location: first maximized?: #f)
+            (<Pad-Preferences>                    location: second
+              (<Docked-Preferences>               location: selection model-name: Lisp-Console-Manager)
+              (<Docked-Preferences>               location: {} model-name: Properties-Manager)
+              (<Docked-Preferences>               location: {} model-name: Search-Results)
+              (<Docked-Preferences>               location: {} model-name: Profile-Results)
+              (<Docked-Preferences>               location: {} model-name: Web-Servers-Manager)))
+          (<Pad-Preferences>                      location: first
+            (<Docked-Preferences>                 location: selection model-name: Workbench-Manager)
+            (<Docked-Preferences>                 location: {} model-name: Repositories-Manager)))))))

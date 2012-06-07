@@ -1,0 +1,16 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Services
+;;;
+
+
+(module gaia.services jazz
+
+
+(import (jazz.project)
+        (gaia))
+
+
+(register-service 'workbench (lambda () (get-workbench))))

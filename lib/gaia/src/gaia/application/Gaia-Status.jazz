@@ -1,0 +1,22 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Status
+;;;
+
+
+(module protected gaia.application.Gaia-Status jazz
+
+
+(import (jazz.debugger)
+        (jazz.ide)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.system.access)
+        (jazz.ui)
+        (jazz.ui.workspace)
+        (gaia))
+
+
+(class Gaia-Status extends IDE-Status))

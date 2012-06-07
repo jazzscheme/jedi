@@ -1,0 +1,17 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jazz-Project
+;;;
+
+
+;; Gambit projects use the Jazz-Project class for debugging services
+;; until Gambit provides its own support
+
+
+(data jazz.debugger.gambit.data.project
+
+
+(form
+  (<Jazz-Project> name: %project-title% directory: {Directory Projects} product: %product%)))

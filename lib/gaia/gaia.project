@@ -1,0 +1,21 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Project
+;;;
+
+
+(data jazz.debugger.jazz.data.project
+
+
+(form
+  (<Jazz-Project>   name: Gaia    default-traits: Safety.Release directory: {Directory :context "../.."} product: gaia
+    (<Trait>        name: Safety
+      (<install>)
+      (<Trait>      name: Core
+        (<install>                configuration: "build/core"))
+      (<Trait>      name: Debug
+        (<install>                configuration: "build/debug"))
+      (<Trait>      name: Release
+        (<install>                configuration: "build/release"))))))

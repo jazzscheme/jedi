@@ -1,0 +1,29 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Preferences
+;;;
+
+
+(module protected gaia.preference.Gaia-Preferences jazz
+
+
+(import (jazz.catalog)
+        (jazz.doc)
+        (jazz.groupware)
+        (jazz.ide)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.project)
+        (jazz.ui)
+        (gaia))
+
+
+(class Gaia-Preferences extends IDE-Preferences
+  
+  
+  (form
+    (<install>                                 title: "Gaia Preferences" documented?: #t protocols: ((file . {Class-Reference File}) (dir . {Class-Reference Directory}) (group . {Class-Reference Directory-Group}) (manifest . {Class-Reference Manifest}) (url . {Class-Reference URL}) (doc . {Class-Reference Document-Moniker}) (category . {Class-Reference Category-Moniker})) catalog-types: ((filing . {Class-Reference Filing-Catalog}) (doc . {Class-Reference Doc-Catalog})) toolbar-classes: ((:menubar . {Class-Reference Gaia-Menubar}) (:toolbar . {Class-Reference Gaia-Toolbar}) (:command . {Class-Reference Command-Toolbar}) (:minibuffer . {Class-Reference Minibuffer-Toolbar}) (:status . {Class-Reference Gaia-Status}))
+      (<Wallpaper-Preferences> name: wallpaper)))))

@@ -1,0 +1,17 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Run
+;;;
+
+
+(module gaia.run jazz
+
+
+(import (gaia))
+
+
+(register-product-run 'gaia
+  (lambda (descriptor)
+    (boot-environment~ (new Gaia-Application)))))

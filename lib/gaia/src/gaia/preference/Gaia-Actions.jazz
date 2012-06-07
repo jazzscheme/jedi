@@ -1,0 +1,24 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Actions
+;;;
+
+
+(module protected gaia.preference.Gaia-Actions jazz
+
+
+(import (gaia)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.ui))
+
+
+(class Gaia-Actions extends Actions
+  
+  
+  (form
+    (<install>
+      ;; Help
+      (<Action-Item> name: readme                     action-handler: {Event-Handler :application on-readme})))))

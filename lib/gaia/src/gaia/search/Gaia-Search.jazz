@@ -1,0 +1,34 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Search
+;;;
+
+
+(module protected gaia.search.Gaia-Search jazz
+
+
+(import (jazz.jml)
+        (jazz.ui)
+        (gaia))
+
+
+(class Gaia-Search extends Search-Manager
+
+
+  (form
+    (<install>
+      (<!>                             name: tab
+        (<Tab-Sheet>                   name: text               title: "Text"
+          (<!>                         name: content            layout-type: fill
+            (<Text-Search-View>        name: text-search)))
+        (<Tab-Sheet>                   name: projects           title: "Projects"
+          (<!>                         name: content            layout-type: fill
+            (<Projects-Search-View>    name: projects-search)))
+        (<Tab-Sheet>                   name: directories        title: "Directories"
+          (<!>                         name: content            layout-type: fill
+            (<Directories-Search-View> name: directories-search)))
+        (<Tab-Sheet>                   name: user               title: "User"
+          (<!>                         name: content            layout-type: fill
+            (<User-Search-View>        name: user-search))))))))

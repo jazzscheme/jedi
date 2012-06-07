@@ -1,0 +1,175 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; %product-title%
+;;;
+
+
+(module %product-unit%.application jazz
+
+
+(import (jazz.debuggee)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.platform)
+        (jazz.system)
+        (jazz.system.application)
+        (jazz.ui))
+
+
+;;;
+;;;; Application
+;;;
+
+
+(class %project-name%-Application extends Application
+
+  
+  (method override (process-name)
+    "%project-title%")
+  
+  
+  (method override (new-toplevel)
+    (new %project-name%-Toplevel))
+  
+  
+  (method override (default-preferences)
+    (new %project-name%-Preferences))
+  
+  
+  (method override (default-workspaces)
+    (new %project-name%-Workspaces))
+
+  
+  ;;;
+  ;;;; Frames
+  ;;;
+
+
+  (method override (default-frame-class)
+    Plain-Text-View)
+
+
+  (method override (known-extension-frame-class ext)
+    (cond ((member? ext '("txt" "text") test: ci=?) Plain-Text-View)
+          (else (nextmethod ext)))))
+
+
+;;;
+;;;; Preferences
+;;;
+
+
+(class %project-name%-Preferences extends Application-Preferences
+  
+  
+  (form
+    (<install> toolbar-classes: ((:menubar . {Reference %project-name%-Menubar}) (:toolbar . {Reference %project-name%-Toolbar}) (:status . {Reference %project-name%-Status})))))
+
+
+;;;
+;;;; Workspaces
+;;;
+
+
+(class %project-name%-Workspaces extends Workspaces-Preferences
+  
+  
+  (form
+    (<install>                          active: home
+      (<%project-name%-Workspace> name: home))))
+
+
+;;;
+;;;; Workspace
+;;;
+
+
+(class %project-name%-Workspace extends Workspace-Preferences
+  
+  
+  (form
+    (<install>                                    title: "Home" icon: {Image-Resource "WorkspaceHome"}
+      (<Menubar-Preferences>        name: menubar location: root
+        (<Mainbar-Preferences>      name: toolbar location: second
+          (<Status-Preferences>     name: status  location: second
+            (<Stage-Preferences>    name: top     location: first)))))))
+
+
+;;;
+;;;; Toplevel
+;;;
+
+
+(class %project-name%-Toplevel extends Toplevel
+
+
+  (form
+    (<install> caption-base: "%project-title%" size: {Dimension 750 500})))
+
+
+;;;
+;;;; Menubar
+;;;
+
+
+(class %project-name%-Menubar extends Menubar
+  
+  
+  (method override (install rest)
+    (nextmethod rest)
+    (with-update-locked
+      (lambda ()
+        (new Label-Item parent: self name: 'file   content: (new File-Base-Menu))
+        (new Label-Item parent: self name: 'edit   content: (new Edit-Base-Menu))
+        (new Label-Item parent: self name: 'window content: (new Window-Menu))
+        (new Label-Item parent: self name: 'help   content: (new Help-Menu))))))
+
+
+;;;
+;;;; Help-Menu
+;;;
+
+
+(class Help-Menu extends Menu
+  
+  
+  (form
+    (<install>          title: "Help"
+      (<Label-Item>     title: "About %project-title%..." icon: {Image-Resource "About"} action-handler: {Action application about}))))
+
+
+;;;
+;;;; Toolbar
+;;;
+
+
+(class %project-name%-Toolbar extends Toolbar
+
+
+  (form
+    (<install>
+      (<Action-Icon> name: new   tooltip-text: "New" resource: {Image-Resource "New"} action-handler: {Action application new})
+      (<Action-Icon> name: open  tooltip-text: "Open" resource: {Image-Resource "Open"} action-handler: {Action application open})
+      (<Action-Icon> name: save  tooltip-text: "Save" resource: {Image-Resource "Save"} action-handler: {Action guest save})
+      (<Separator>)
+      (<Action-Icon> name: cut   tooltip-text: "Cut" resource: {Image-Resource "Cut"} action-handler: {Action view cut})
+      (<Action-Icon> name: copy  tooltip-text: "Copy" resource: {Image-Resource "Copy"} action-handler: {Action view copy})
+      (<Action-Icon> name: paste tooltip-text: "Paste" resource: {Image-Resource "Paste"} action-handler: {Action view paste})
+      (<Separator>)
+      (<Action-Icon> name: undo  tooltip-text: "Undo" resource: {Image-Resource "Undo"} action-handler: {Action view undo})
+      (<Action-Icon> name: redo  tooltip-text: "Redo" resource: {Image-Resource "Redo"} action-handler: {Action view redo}))))
+
+
+;;;
+;;;; Status
+;;;
+
+
+(class %project-name%-Status extends Status-Toolbar
+
+
+  (form
+    (<install>
+      (<Status-Label> name: message size: {Dimension 782 20} location: center)))))

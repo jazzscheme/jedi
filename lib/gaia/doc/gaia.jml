@@ -1,0 +1,15 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Documentation
+;;;
+
+
+(data jazz.doc.data
+
+
+(form
+(<Project-Doc> name: gaia title: "Gaia"
+  (<description>
+    (<p> "Gaia is programmable IDE targeted at game development.")))))

@@ -1,0 +1,19 @@
+(package gaia
+  
+  (library "lib")
+  (root "src")
+  (install gaia.install)
+  (products (gaia (title "Gaia")
+                  (run gaia.run)
+                  (update gaia
+                          gaia.data.bindings
+                          gaia.data.preferences
+                          gaia.run
+                          gaia.services
+                          gaia.validate)
+                  (build (gaia include-compiler?: #t resources: "resources"))
+                  (dependencies preinstalled
+                                gaia.install))
+            (gaia.install (update gaia.install)
+                          (dependencies jazz)))
+  (project ".project"))

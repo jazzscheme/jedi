@@ -1,0 +1,28 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Validation Suite
+;;;
+
+
+(module gaia.validate jazz
+
+
+(export (gaia.validate.autoload))
+(import (gaia.validate.autoload)
+        (jazz.io)
+        (jazz.log)
+        (jazz.validation))
+
+
+(definition public Gaia-Suite
+  (new Validation-Suite
+    "Gaia"
+    (list (new Gaia-Tester))))
+
+
+(definition public (validate-gaia)
+  (let ((log (new Log name: 'validate file: (timestamped-file {Directory Settings "logs"} "validation" "jlog") keep-nodes?: #t)))
+    (let ((manager (new Validation-Manager feedback-port: :console log: log)))
+      (validate~ manager Gaia-Suite)))))

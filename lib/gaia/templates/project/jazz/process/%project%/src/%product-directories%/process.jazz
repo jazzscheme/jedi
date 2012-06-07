@@ -1,0 +1,22 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; %product-title%
+;;;
+
+
+(module %product-unit%.process jazz
+
+
+(import (jazz.platform)
+        (jazz.system)
+        (jazz.system.process))
+
+
+(class %project-name%-Process extends Process
+  
+  
+  (method override (start-process)
+    (system-message "Hello %product-title%!")
+    (exit-process))))

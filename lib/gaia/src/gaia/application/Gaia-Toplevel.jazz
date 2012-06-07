@@ -1,0 +1,21 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Toplevel
+;;;
+
+
+(module protected gaia.application.Gaia-Toplevel jazz
+
+
+(import (jazz.ide)
+        (jazz.jml)
+        (gaia))
+
+
+(class Gaia-Toplevel extends IDE-Toplevel
+
+
+  (form
+    (<install> caption-base: "Gaia" position: {Point 75 75} size: {Dimension 1200 800}))))

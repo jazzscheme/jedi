@@ -1,0 +1,7 @@
+(<Workspace-Preferences>                      title: "Help" icon: {Image-Resource "Help"} shortcut: {Shortcut :alt :shift #\H}
+  (<Menubar-Preferences>        name: menubar location: root
+    (<Mainbar-Preferences>      name: toolbar location: second
+      (<Status-Preferences>     name: status  location: second
+        (<Splitter-Preferences> name: top     location: first orientation: horz mode: relative division: 18 insets: {Rect 5 5 5 5}
+          (<Docked-Preferences>               location: first model-name: Help-Contents)
+          (<Stage-Preferences>                location: second))))))

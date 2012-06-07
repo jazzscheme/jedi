@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(form
+  (<Project> name: %package%)))

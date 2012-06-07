@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Validation Suite Autoload
+;;;
+
+
+(module protected gaia.validate.autoload jazz
+
+
+(export
+  (gaia.validate.Gaia-Tester (autoload Gaia-Tester))))

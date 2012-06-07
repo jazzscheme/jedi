@@ -1,0 +1,88 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; %profile%
+;;;
+
+
+(module %profile-unit%.%profile% jazz
+
+
+(import (irregex)
+        (jazz.ide)
+        (jazz.ide.development)
+        (jazz.graphic)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.network)
+        (jazz.platform)
+        (jazz.profile)
+        (jazz.project)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.clipboard)
+        (jazz.ui.dialog)
+        (jazz.ui.view)
+        (gaia)
+        (time))
+
+
+(class %profile% extends Gaia-Profile
+  
+  
+  ;;;
+  ;;;; Test
+  ;;;
+
+
+  (method override (test)
+    )
+
+
+  (method override (test-shift)
+    )
+    
+  
+  (method override (test0)
+    )
+    
+  
+  (method override (test1)
+    )
+    
+  
+  (method override (test2)
+    )
+    
+  
+  (method override (test3)
+    )
+    
+  
+  (method override (test4)
+    )
+    
+  
+  (method override (test5)
+    )
+    
+  
+  (method override (test6)
+    )
+    
+  
+  (method override (test7)
+    )
+    
+  
+  (method override (test8)
+    )
+    
+  
+  (method override (test9)
+    ))
+
+
+(register-profile-class %profile%))

@@ -1,0 +1,20 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Servers
+;;;
+
+
+(data jazz.ide.data.servers
+
+
+(form
+  (<Server-Configurations>
+    (<Server-Configuration>
+      name: Game
+      unit: jazz.sample.gameserver
+      class: Game-Server-Process
+      port: 8080
+      description: "Game Server"
+      debug?: #f))))

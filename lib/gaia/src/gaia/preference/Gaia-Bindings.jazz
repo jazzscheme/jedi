@@ -1,0 +1,23 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Bindings
+;;;
+
+
+(module protected gaia.preference.Gaia-Bindings jazz
+
+
+(import (gaia)
+        (jazz.ide)
+        (jazz.jml)
+        (jazz.ui))
+
+
+(class Gaia-Bindings extends IDE-Bindings
+  
+  
+  (form
+    (<install>
+      (<Gaia-Actions> name: gaia)))))
