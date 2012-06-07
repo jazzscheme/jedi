@@ -9,9 +9,11 @@
 (module gaia.run jazz
 
 
-(import (gaia))
+(import (jazz.ide.login)
+        (gaia))
 
 
 (register-product-run 'gaia
   (lambda (descriptor)
+    (show-jazz-profiles? #f)
     (boot-environment~ (new Gaia-Application)))))
