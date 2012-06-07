@@ -59,7 +59,7 @@
   
   
   (method override (process-copyright)
-    "1996-2012")
+    "2012")
   
   
   (method override (process-icon)
@@ -67,7 +67,7 @@
 
 
   (method override (process-version)
-    (jazz-version))
+    {Version 1 0 0})
 
 
   (method override (process-email)
@@ -76,16 +76,6 @@
 
   (method override (new-toplevel)
     (new Gaia-Toplevel))
-
-
-  (method override (finalize-process)
-    (nextmethod)
-    @convert/wait
-    (register-provider (new Access-Provider))
-    @convert/wait
-    (register-provider (new SQLServer-Provider))
-    @convert/wait
-    (register-provider (new JDBC-Provider)))
   
   
   (method override (finish-process)

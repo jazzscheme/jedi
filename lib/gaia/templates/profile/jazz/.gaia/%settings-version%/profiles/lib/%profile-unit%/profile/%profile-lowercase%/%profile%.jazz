@@ -29,60 +29,7 @@
         (time))
 
 
-(class %profile% extends Gaia-Profile
-  
-  
-  ;;;
-  ;;;; Test
-  ;;;
-
-
-  (method override (test)
-    )
-
-
-  (method override (test-shift)
-    )
-    
-  
-  (method override (test0)
-    )
-    
-  
-  (method override (test1)
-    )
-    
-  
-  (method override (test2)
-    )
-    
-  
-  (method override (test3)
-    )
-    
-  
-  (method override (test4)
-    )
-    
-  
-  (method override (test5)
-    )
-    
-  
-  (method override (test6)
-    )
-    
-  
-  (method override (test7)
-    )
-    
-  
-  (method override (test8)
-    )
-    
-  
-  (method override (test9)
-    ))
+(class %profile% extends Gaia-Profile)
 
 
 (register-profile-class %profile%))
