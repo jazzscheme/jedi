@@ -1,0 +1,80 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Live Properties Manager
+;;;
+
+
+(module protected gaia.live.Live-Properties-Manager jazz
+
+
+(import (jazz.designer)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.view)
+        (gaia))
+
+
+(class undocumented Live-Properties-Manager extends Layout-View
+
+
+  (form
+    (<install>                              layout-type: border
+      (<Layout-View>         name: tools)
+      (<Scroller-View>       name: scroller location: center style: document hscroll?: #t vscroll?: #t
+        (<!>                 name: content  layout-type: fill
+          (<Live-Properties> name: text)))))
+    
+  
+  (method meta override (external-name . rest)
+    'Live-Properties)
+  
+  
+  ;;;
+  ;;;; Access
+  ;;;
+  
+  
+  (method public (get-text)
+    (locate 'text))
+
+  
+  ;;;
+  ;;;; Host
+  ;;;
+  
+  
+  (method meta override (host-icon)
+    {Image-Resource "Properties"})
+  
+
+  (method meta override (host-title)
+    "Properties")
+  
+  
+  ;;;
+  ;;;; Docked
+  ;;;
+  
+  
+  (method override (focus-default)
+    (let ((text (get-text)))
+      (acquire-focus~ text)))
+  
+  
+  (method override (get-tools-view)
+    (locate 'tools))
+  
+  
+  ;;;
+  ;;;; Actions
+  ;;;
+  
+
+  @wait
+  (method override (guest-actions)
+    (cons (find-actions 'live-properties-manager)
+          (nextmethod)))))

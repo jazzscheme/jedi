@@ -1,0 +1,21 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Debugger
+;;;
+
+
+(module gaia.debugger jazz
+
+
+(import (jazz.jrm)
+        (gaia.debugger.implementation)
+        (gaia.debugger.stub))
+
+
+(definition public (make-gaia-debugger)
+  (new Gaia-Debugger-Local-Proxy (new Gaia-Debugger)))
+
+
+(register-object~ (get-local-register) 'gaia-debugger (make-gaia-debugger)))

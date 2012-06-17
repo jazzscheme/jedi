@@ -1,0 +1,28 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Debugger Implementation
+;;;
+
+
+(module gaia.debugger.implementation jazz
+
+
+(import (jazz.ide)
+        (jazz.ui)
+        (jazz.ui.view)
+        (jazz.ui.window)
+        (gaia)
+        (gaia.debugger.stub))
+
+
+(class Gaia-Debugger extends Object
+  
+  
+  (method public (show-properties debuggee class properties)
+    (execute-event
+      (lambda ()
+        (let ((manager (select-docked Live-Properties-Manager workspace: 'text)))
+          (let ((text (get-text~ manager)))
+            (show-properties~ text debuggee class properties))))))))

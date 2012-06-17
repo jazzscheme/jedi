@@ -1,0 +1,19 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Gaia Debugger Stub
+;;;
+
+
+(module gaia.debugger.stub jazz
+
+
+(import (jazz.jrm.syntax (phase syntax))
+        (jazz.jrm))
+
+
+(remotable-stub Gaia-Debugger
+  
+  
+  (method public post (show-properties debuggee class properties))))

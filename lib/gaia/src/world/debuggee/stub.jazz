@@ -1,0 +1,19 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; World Debuggee Stub
+;;;
+
+
+(module world.debuggee.stub jazz
+
+
+(import (jazz.jrm.syntax (phase syntax))
+        (jazz.jrm))
+
+
+(remotable-stub World-Debuggee
+  
+  
+  (method public exec (set-property property value))))

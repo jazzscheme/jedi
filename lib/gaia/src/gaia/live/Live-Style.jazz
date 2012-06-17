@@ -1,0 +1,18 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Live Style
+;;;
+
+
+(module protected gaia.live.Live-Style jazz
+
+
+(import (jazz.ui))
+
+
+(class Live-Style extends Link-Style
+  
+  
+  (attributes (alignment font color highlight frame address anchor action))))

@@ -1,0 +1,95 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Live Properties
+;;;
+
+
+(module protected gaia.live.Live-Properties jazz
+
+
+(import (jazz.designer)
+        (jazz.graphic)
+        (jazz.jml)
+        (jazz.library)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.view)
+        (jazz.ui.window)
+        (gaia)
+        (gaia.live))
+
+
+(class undocumented Live-Properties extends Formatted-Text-View
+  
+  
+  (method override (new-model)
+    (new Formatted-Text-Model base-style: {Text-Style font: {Font Text}}))
+  
+  
+  (method override (install rest)
+    (nextmethod rest)
+    ;; Formats
+    (add-format 'Heading1      {Format Base keep-with-next?: #t})
+    (add-format 'Heading2      {Format Base keep-with-next?: #t})
+    (add-format 'Heading3      {Format Base keep-with-next?: #t})
+    (add-format 'Heading4      {Format Base keep-with-next?: #t})
+    (add-format 'Heading5      {Format Base keep-with-next?: #t})
+    (add-format 'Code          {Format Base @wait-left-margin: 100 @wait-right-margin: 100 background: {Color Light-Gray}})
+    ;; Styles
+    (add-style 'Heading1       {Text-Style Base font: {Font Heading1} color: {Color Dark-Red}})
+    (add-style 'Heading2       {Text-Style Base font: {Font Heading2} color: {Color Dark-Red}})
+    (add-style 'Heading3       {Text-Style Base font: {Font Heading3} color: {Color Dark-Red}})
+    (add-style 'Heading4       {Text-Style Base font: {Font Heading4} color: {Color Dark-Red}})
+    (add-style 'Heading5       {Text-Style Base font: {Font Heading5} color: {Color Dark-Red}})
+    (add-style 'Reference      {Text-Style Base font: {Font Link} color: {Color Dark-Blue}})
+    (add-style 'Link           {Link-Style font: {Font Link} color: {Color Link}})
+    (add-style 'Code           {Text-Style Base font: {Font Code} @wait-color: {Color Dark-Red}})
+    (add-style 'Variable       {Text-Style Code color: {Color Dark-Red}})
+    (add-style 'Live-Component {Text-Style Base font: {Font font-name: "Arial" point-size: 14} color: {Color Dark-Red}}))
+  
+  
+  (method (show-properties debuggee class properties)
+    (if (not properties)
+        (empty-text~ model)
+      (let ((content (properties->content debuggee class properties)))
+        (set-content~ model content))))
+  
+  
+  (method (properties->content debuggee class properties)
+    (let ((paragraphs (new-queue))
+          (formats (new List-Factory))
+          (styles (new List-Factory)))
+      (define (intern-format format)
+        (when format
+          (put~ formats format)))
+      
+      (define (intern-style style)
+        (when style
+          (put~ styles style)))
+      
+      (define (live-style property value)
+        (intern-style (new Live-Style font: {Font font-name: "Times New Roman" point-size: 12} color: {Color Link} action: (live-action property value))))
+      
+      (define (live-action property value)
+        (lambda (text pos style)
+          (let ((explorer (new (explorer-class~ text) (get-model~ text) start: pos end: pos)))
+            (select-style~ explorer (lambda (s) (eq? s style)) strict?: #t)
+            (let ((range (get-range~ explorer)))
+              (live-choose text style (get-string~ text range) value range
+                (lambda (new-value)
+                  (set-property~ debuggee property new-value)))))))
+      
+      (enqueue paragraphs (cons #f (list (list (->string class) (intern-style (new Text-Style base: 'Live-Component))))))
+      (for-each (lambda (info)
+                  (bind (property value) info
+                    (enqueue paragraphs (cons #f (list (list (->string property) #f)
+                                                       (list ": " #f)
+                                                       (list (->string value) (live-style property value)))))))
+                properties)
+      (enqueue paragraphs (cons #f (list (list "" #f))))
+      (new Formatted-Text
+        formats: (get-output~ formats)
+        styles: (get-output~ styles)
+        paragraphs: (queue-list paragraphs))))))

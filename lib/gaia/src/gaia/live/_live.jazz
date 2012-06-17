@@ -1,0 +1,168 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Live Coding
+;;;
+
+
+(module protected gaia.live jazz
+
+
+(import (jazz.graphic)
+        (jazz.library)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.view))
+
+
+;; need to reintegrate this into Gaia-Profile's version
+
+
+(definition public (live-choose text style literal-string literal range evaluate)
+  (define (literal-range text)
+    (let ((has-selection? (has-selection?~ text))
+          (expl (new (explorer-class~ text) (get-model~ text) start: (get-start~ text) end: (get-end~ text))))
+      (let (iter)
+        (when (or has-selection? (outer-expr~ expl))
+          (set! has-selection? #f)
+          (let ((range (get-range~ expl)))
+            (when (= (get-line~ (get-start~ range))
+                     (get-line~ (get-end~ range)))
+              (let ((literal-string (get-marked~ expl))
+                    (literal (with-jazz-readtable
+                               (lambda ()
+                                 (read-marked~ expl)))))
+                (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
+                       (or (iter) (list literal-string literal range)))
+                      ((is? literal Color)
+                       (list literal-string literal range))
+                      (else
+                       (iter))))))))))
+  
+  (define (choose-literal text undoer atomic-preserved modified? literal-string literal range pos)
+    (define (choose-number)
+      (let* ((page-height 10)
+             (width 100)
+             (mid (fxround/ width 2))
+             (precision (and (inexact? literal)
+                             (let ((pos (find literal-string #\.)))
+                               (if (not pos)
+                                   0
+                                 (- (cardinality literal-string) pos 1)))))
+             (factor (if (inexact? literal)
+                         (* 10 (/ (expt 10. precision)))
+                       50)))
+        (define (scroll-proc scrollbar action line-height page-height thumb-pos orientation)
+          (define (scroll-action)
+            (define (scroll amount)
+              (set-pos~ scrollbar (+ (get-pos~ scrollbar) amount) redraw?: #t))
+            
+            (case action
+              ((line-up)     (scroll (- line-height)))
+              ((line-down)   (scroll line-height))
+              ((page-up)     (scroll (- page-height)))
+              ((page-down)   (scroll page-height))
+              ((thumb-track) (set-pos~ scrollbar thumb-pos redraw?: #t))))
+          
+          (scroll-action)
+          (let ((pos (get-pos~ scrollbar)))
+            (when (not modified?)
+              (set-caret~ text (get-start~ range)))
+            (let ((normalized (/ (cast <fl> (- pos mid)) 50)))
+              (let ((str (if (inexact? literal)
+                             (format "{r precision: :v}" (+ literal (* normalized factor)) (+ precision 1))
+                           (->string (+ literal (inexact->exact (round (* normalized factor)))))))
+                    (start (get-start~ text)))
+                (delete-range~ (get-model~ text) range)
+                (insert-styled~ text str style)
+                @buggy
+                (replace-styled~ text range (list str) style)
+                (update-window~ (get-toplevel))
+                (eval-sel text)
+                (set! modified? #t)
+                (set! range (new Range$Cell$ start (get-start~ text)))
+                (set-caret~ text start)))))
+        
+        (let ((choose
+                (new Scrollbar
+                  size: {Dimension 200 13}
+                  orientation: 'horz
+                  pos: mid
+                  range: (new Range 0 (+ width page-height))
+                  page-height: page-height
+                  scroll-proc: scroll-proc
+                  return-press-handler: (new Event-Handler execute: return-press)
+                  escape-press-handler: (new Event-Handler execute: escape-press)
+                  focus-lose-handler: (new Event-Handler execute: edition-ended))))
+          (popup~ text choose (nu- pos {Dimension 100 25}))
+          (set-pos~ choose mid)
+          (acquire-focus~ choose))))
+    
+    (define (choose-color)
+      (let ((choose
+              (new Color-Choose
+                size: {Dimension 527 109} background: {Color Dark-Gray}
+                color: literal
+                feedback: (lambda (color)
+                            (when (not modified?)
+                              (set-caret~ text (get-start~ range)))
+                            (let ((str (->string color))
+                                  (start (get-start~ text)))
+                              (delete-range~ (get-model~ text) range)
+                              (insert-styled~ text str style)
+                              @buggy
+                              (replace-styled~ text range (list str) style)
+                              (update-window~ (get-toplevel))
+                              (eval-sel text)
+                              (set! modified? #t)
+                              (set! range (new Range$Cell$ start (get-start~ text)))
+                              (set-caret~ text start)))
+                return-press-handler: (new Event-Handler execute: return-press)
+                escape-press-handler: (new Event-Handler execute: escape-press)
+                focus-lose-handler: (new Event-Handler execute: edition-ended))))
+        (popup~ text choose (nu- pos {Dimension 304 125}))
+        (acquire-focus~ choose)))
+    
+    (define (return-press evt)
+      (end-atomic-undo~ undoer atomic-preserved)
+      (set! undoer #f)
+      (close-popups~ (get-toplevel)))
+    
+    (define (escape-press evt)
+      (end-atomic-undo~ undoer atomic-preserved)
+      (set! undoer #f)
+      (when modified?
+        (undo~ text)
+        (stylize-range~ (get-model~ text) range style)
+        (set-caret~ text (get-start~ text))
+        (eval-sel text))
+      (close-popups~ (get-toplevel)))
+    
+    (define (edition-ended evt)
+      (when undoer
+        (end-atomic-undo~ undoer atomic-preserved)))
+    
+    (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
+           (choose-number))
+          ((is? literal Color)
+           (choose-color))))
+  
+  (define (eval-sel text)
+    (let ((pos (get-start~ text)))
+      (let ((explorer (new (explorer-class~ text) (get-model~ text) start: pos end: pos)))
+        (select-style~ explorer (lambda (s) (eq? s style)) strict?: #t)
+        (let ((range (get-range~ explorer)))
+          (let ((literal (with-jazz-readtable
+                           (lambda ()
+                             (read-string-element
+                               (get-string~ text range))))))
+            (evaluate literal))))))
+  
+  (let ((undoer (get-undoer~ (get-model~ text))))
+    (let ((atomic-preserved (start-atomic-undo~ undoer)))
+      (let* ((start (get-start~ range))
+             (end (get-end~ range))
+             (mid (fxround/ (+ (get-col~ start) (get-col~ end)) 2))
+             (pos (text->view~ text (new Cell (get-line~ start) mid))))
+        (choose-literal text undoer atomic-preserved #f literal-string literal range pos))))))
