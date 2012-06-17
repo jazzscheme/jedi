@@ -230,7 +230,8 @@
 
   (method override (known-extension-frame-class ext)
     (cond ((member? ext '("txt" "text") test: extension=?) Jazz-Plain-Text-View)
-          ((member? ext '("wrl") test: extension=?) Jazz-Text-View)
+          ((member? ext '("world") test: extension=?) Jazz-Text-View)
+          ((member? ext '("zone") test: extension=?) Jazz-Text-View)
           (else (nextmethod ext))))
 
 
