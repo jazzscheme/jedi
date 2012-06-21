@@ -918,16 +918,6 @@
   
   
   @wait
-  (method (test-message-box)
-    (message-box
-      (list "Hello World"
-            (list :bulleted "This message-box")
-            (list :bulleted indent: 2 "really" " " (list :link (lambda () (close-modal-dialog (lambda () (debug 'yo)))) "really") " " (list image: {Image-Resource "BlueRed"}) " " (list highlight: 'Light-Red "really"))
-            (list :bulleted indent: 1 "rocks!"))
-      sound: #f))
-  
-  
-  @wait
   (method (hide-paragraphs)
     (let ((text (get-focus)))
       (for-each-selected-paragraph~ text
