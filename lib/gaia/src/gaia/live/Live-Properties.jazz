@@ -25,7 +25,7 @@
   
   
   (method override (new-model)
-    (new Formatted-Text-Model base-style: {Text-Style font: {Font Text}}))
+    (new Formatted-Text-Model base-style: {Text-Style font: {Font Label}}))
   
   
   (method override (install rest)
@@ -47,7 +47,7 @@
     (add-style 'Link           {Link-Style font: {Font Link} color: {Color Link}})
     (add-style 'Code           {Text-Style Base font: {Font Code} @wait-color: {Color Dark-Red}})
     (add-style 'Variable       {Text-Style Code color: {Color Dark-Red}})
-    (add-style 'Live-Component {Text-Style Base font: {Font font-name: "Arial" point-size: 14} color: {Color Dark-Red}}))
+    (add-style 'Live-Component {Text-Style Base font: {Font font-name: "Arial" point-size: 12} color: {Color Dark-Red}}))
   
   
   (method (show-properties debuggee class properties)
@@ -70,7 +70,7 @@
           (put~ styles style)))
       
       (define (live-style property value)
-        (intern-style (new Live-Style font: {Font font-name: "Times New Roman" point-size: 12} color: {Color Link} action: (live-action property value))))
+        (intern-style (new Live-Style font: {Font Label} color: {Color Link} action: (live-action property value))))
       
       (define (live-action property value)
         (lambda (text pos style)
