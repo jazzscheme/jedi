@@ -23,6 +23,7 @@
   (method public (show-properties debuggee class properties)
     (execute-event
       (lambda ()
-        (let ((manager (select-docked Live-Properties-Manager workspace: 'text)))
-          (let ((text (get-text~ manager)))
-            (show-properties~ text debuggee class properties))))))))
+        (let ((host (find-singleton-docked 'Live-Properties)))
+          (when host
+            (let ((text (get-text~ (get-guest~ host))))
+              (show-properties~ text debuggee class properties)))))))))
