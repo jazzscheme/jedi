@@ -40,7 +40,15 @@
   ;;;
   
   
-  (method override (test2)
+  (method override (test9)
+    (let ((text (get-focus)))
+      (if (is-not? text Text-View)
+          (bell)
+        (let ((lines (selection-lines~ text)))
+          (replace-selection~ text (c->lisp lines))))))
+  
+  
+  (method override (test0)
     (let ((text (get-focus)))
       (if (is-not? text Text-View)
           (bell)
@@ -49,14 +57,6 @@
               (bell)
             (let ((lines (split-lines content)))
               (replace-selection~ text (c->lisp lines))))))))
-  
-  
-  (method override (test3)
-    (let ((text (get-focus)))
-      (if (is-not? text Text-View)
-          (bell)
-        (let ((lines (selection-lines~ text)))
-          (replace-selection~ text (c->lisp lines))))))
   
   
   (method (c->lisp lines)
