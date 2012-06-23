@@ -48,6 +48,104 @@
     (add-style 'Code           {Text-Style Base font: {Font Code} @wait-color: {Color Dark-Red}})
     (add-style 'Variable       {Text-Style Code color: {Color Dark-Red}})
     (add-style 'Live-Component {Text-Style Base font: {Font font-name: "Arial" point-size: 12} color: {Color Dark-Red}}))
+
+
+  ;;;
+  ;;;; Cursor
+  ;;;
+
+
+  (method override (cursor-update evt)
+    (let ((view (get-position~ evt)))
+      (show-text-cursor)
+      (when (and (view-enabled?) selectable?)
+        (if (get-alt?~ evt)
+            (set-cursor :finger)
+          (let* ((pos (view->text view))
+                 (par (get-paragraph (get-line~ pos))))
+            (if (< (get-h~ view) (paragraph-left~ par))
+                (set-cursor :left-arrow)
+              (let ((style (get-style-at~ model pos)))
+                (if (and (is? style Live-Style)
+                         (get-control?~ evt))
+                    (set-cursor :finger)
+                  (set-cursor :ibeam)))))))))
+
+  
+  ;;;
+  ;;;; Mouse
+  ;;;
+
+
+  (method override (mouse-down evt)
+    (let* ((pos (view->text (get-position~ evt)))
+           (style (get-style-at~ model pos)))
+      (unless (and (is? style Live-Style)
+                   (get-control?~ evt))
+        (nextmethod evt))))
+
+
+  (method override (drag-up evt . rest)
+    (define (invoke-action action pos style)
+      (cond ((is? action Event-Handler)
+             (invoke~ action self (apply make-event Event :link self (get-properties~ action))))
+            (else
+             (action self pos style))))
+    
+    (define (goto-anchor anchor)
+      (for-each-heading~ model
+        (lambda (name heading line string)
+          (when (equal? string anchor)
+            (set-selection (new Range$Cell$
+                             (new Cell line 0)
+                             (new Cell line (cardinality string))))))))
+    
+    (let ((mouse-selecting? mouse-selecting?))
+      (nextmethod evt)
+      (when (and (view-enabled?) (not mouse-selecting?) (get-control?~ evt))
+        (let* ((pos (view->text (get-position~ evt)))
+               (style (get-style-at~ model pos)))
+          (when (is? style Live-Style)
+            (let ((action (get-choose-action~ style)))
+              (action self pos style)))))))
+  
+  
+  ;;;
+  ;;;; Keyboard
+  ;;;
+
+
+  (method override (return-press evt)
+    (let ((pos (get-end)))
+      (let ((style (get-style-at~ model pos)))
+        (if (is? style Live-Style)
+            (let ((action (get-return-action~ style)))
+              (action self pos style))
+          (nextmethod evt)))))
+  
+  
+  ;;;
+  ;;;; Explorer
+  ;;;
+  
+  
+  (method override (select-outer)
+    (let ((pos (get-end)))
+      (let ((style (get-style-at~ model pos)))
+        (if (is? style Live-Style)
+            (set-selection (live-range pos style))
+          (nextmethod)))))
+  
+  
+  (method (live-range pos style)
+    (let ((explorer (new (explorer-class) model start: pos end: pos)))
+      (select-style~ explorer (lambda (s) (eq? s style)) strict?: #t)
+      (get-range~ explorer)))
+
+
+  ;;;
+  ;;;; Properties
+  ;;;
   
   
   (method (show-properties debuggee class properties)
@@ -70,16 +168,23 @@
           (put~ styles style)))
       
       (define (live-style property value)
-        (intern-style (new Live-Style font: {Font Label} color: {Color Link} action: (live-action property value))))
+        (intern-style (new Live-Style font: {Font Label} color: {Color Link} return-action: (return-action property value) choose-action: (choose-action property value))))
       
-      (define (live-action property value)
+      (define (return-action property value)
         (lambda (text pos style)
-          (let ((explorer (new (explorer-class~ text) (get-model~ text) start: pos end: pos)))
-            (select-style~ explorer (lambda (s) (eq? s style)) strict?: #t)
-            (let ((range (get-range~ explorer)))
-              (live-choose text style (get-string~ text range) value range
-                (lambda (new-value)
-                  (set-property~ debuggee property new-value)))))))
+          (let ((range (live-range pos style)))
+            (let ((literal (with-jazz-readtable
+                             (lambda ()
+                               (read-string-element
+                                 (get-string~ text range))))))
+              (set-property~ debuggee property literal)))))
+      
+      (define (choose-action property value)
+        (lambda (text pos style)
+          (let ((range (live-range pos style)))
+            (live-choose text style (get-string~ text range) value range
+              (lambda (new-value)
+                (set-property~ debuggee property new-value))))))
       
       (enqueue paragraphs (cons #f (list (list (->string class) (intern-style (new Text-Style base: 'Live-Component))))))
       (for-each (lambda (info)

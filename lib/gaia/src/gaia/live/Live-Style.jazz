@@ -12,7 +12,9 @@
 (import (jazz.ui))
 
 
-(class Live-Style extends Link-Style
+(class Live-Style extends Text-Style
   
   
-  (attributes (alignment font color highlight frame address anchor action))))
+  (attributes (alignment font color highlight frame)
+    (slot return-action initialize #f)
+    (slot choose-action initialize #f))))

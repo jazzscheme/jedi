@@ -127,6 +127,7 @@
     (define (return-press evt)
       (end-atomic-undo~ undoer atomic-preserved)
       (set! undoer #f)
+      (set-caret~ text (get-end~ range))
       (close-popups~ (get-toplevel)))
     
     (define (escape-press evt)
@@ -135,7 +136,7 @@
       (when modified?
         (undo~ text)
         (stylize-range~ (get-model~ text) range style)
-        (set-caret~ text (get-start~ text))
+        (set-caret~ text (get-end~ text))
         (eval-sel text))
       (close-popups~ (get-toplevel)))
     
