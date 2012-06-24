@@ -25,6 +25,7 @@
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
+        (jazz.jrm)
         (jazz.library)
         (jazz.library.component)
         (jazz.platform)
@@ -33,7 +34,9 @@
         (jazz.system)
         (jazz.ui)
         (jazz.ui.picker)
+        (jazz.ui.skin)
         (jazz.ui.view)
+        (jazz.ui.window)
         (jazz.ui.workspace)
         (jazz.version)
         (gaia)
@@ -44,6 +47,9 @@
   
   
   (slot documentation-cataloguer initialize #f)
+  (slot current-state            initialize 'restored)
+  (slot restored-position        initialize #f)
+  (slot restored-size            initialize #f)
   
   
   (method meta override (external-name . rest)
@@ -435,6 +441,18 @@
   ;;;
   
   
+  (method (on-live-gaia/world evt)
+    (live-gaia/world))
+  
+  
+  (method (on-design-gaia/world evt)
+    (design-gaia/world))
+  
+  
+  (method (on-restore-gaia/world evt)
+    (restore-gaia/world))
+  
+  
   (method (on-event-spy evt)
     @convert/wait
     (new-palette Event-Spy))
@@ -474,6 +492,124 @@
   (method package (on-spy-events evt)
     @convert/wait
     (show-palette Event-Spy))
+
+
+  ;;;
+  ;;;; World
+  ;;;
+  
+  
+  (method (show-properties debuggee class properties)
+    (let ((host (find-singleton-docked 'Live-Properties)))
+      (when host
+        (let ((text (get-text~ (get-guest~ host))))
+          (show-properties~ text debuggee class properties)))))
+  
+  
+  (method (live-gaia/world (debuggee #f))
+    (tile-gaia/world debuggee 'live))
+  
+  
+  (method (design-gaia/world (debuggee #f))
+    (tile-gaia/world debuggee 'design))
+  
+  
+  (method (tile-gaia/world debuggee mode)
+    (when (eq? current-state 'restored)
+      (let ((toplevel (get-toplevel)))
+        (set! restored-position (get-position~ toplevel))
+        (set! restored-size (get-window-size~ toplevel))))
+    (show-taskbar #f)
+    (change-scrollbar-style #t)
+    (case mode
+      ((live)
+       (select-workspace 'text)
+       (full-screen~ (get-application) #t))
+      ((design)
+       (select-workspace 'designer)
+       (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
+    (let ((handle (get-handle~ (get-toplevel))))
+      (set-style handle (bitwise-ior WS_CLIPSIBLINGS
+                                     WS_CLIPCHILDREN
+                                     WS_POPUP))
+      (let ((area (get-display-area~ (primary-monitor))))
+        (let ((left (get-left~ area))
+              (top (get-top~ area))
+              (right (get-right~ area))
+              (bottom (get-bottom~ area)))
+          (let ((width (- right left)))
+            (let ((world-width (case mode
+                                 ((live) (fxround (percent width 45.5)))
+                                 ((design) (- width 300)))))
+              (SetWindowPos handle HWND_TOP
+                world-width
+                0
+                (- width world-width)
+                (- bottom top)
+                (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED))))))
+      (show-window handle))
+    (let ((debuggee (or debuggee (find-world-debuggee))))
+      (when debuggee
+        (tile-world~ debuggee mode)))
+    (set! current-state 'tiled))
+  
+  
+  (method (restore-gaia/world (debuggee #f))
+    (show-taskbar #t)
+    (change-scrollbar-style #f)
+    (select-workspace 'debugger)
+    (full-screen~ (get-application) #f)
+    (let ((handle (get-handle~ (get-toplevel))))
+      (set-style handle
+                 (bitwise-ior WS_CLIPSIBLINGS
+                              WS_CLIPCHILDREN
+                              WS_POPUP
+                              WS_OVERLAPPEDWINDOW
+                              WS_MINIMIZEBOX
+                              WS_SYSMENU))
+      (when restored-position
+        (SetWindowPos handle HWND_TOP
+          (get-h~ restored-position)
+          (get-v~ restored-position)
+          (get-width~ restored-size)
+          (get-height~ restored-size)
+          (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED)))
+      (show-window handle))
+    (let ((debuggee (or debuggee (find-world-debuggee))))
+      (when debuggee
+        (restore-world~ debuggee)))
+    (set! current-state 'restored))
+  
+  
+  (method (find-world-debuggee)
+    (define (find-remote-process)
+      (continuation-capture
+        (lambda (return)
+          (for-each-process~ (get-debugger-manager)
+            (lambda (debugger debugged-process live? focused?)
+              (let ((process (get-reference~ debugged-process)))
+                (when (remote-proxy? process)
+                  (continuation-return return process)))))
+          #f)))
+    
+    (let ((process (find-remote-process)))
+      (when process
+        (load-object~ (get-remote-register process) 'world.debuggee 'world-debuggee))))
+  
+  
+  (method (show-taskbar flag)
+    (let ((taskbar (FindWindow "Shell_TrayWnd" #f))
+          (start (FindWindow "Button" #f)))
+      (when taskbar
+        (ShowWindow taskbar (if flag SW_SHOW SW_HIDE))
+        (UpdateWindow taskbar))
+      (when start
+        (ShowWindow start (if flag SW_SHOW SW_HIDE))
+        (UpdateWindow start))))
+  
+  
+  (method (change-scrollbar-style flat?)
+    (set-flat?~ (find-look 'scrollbar) flat?))
 
 
   ;;;
