@@ -20,6 +20,7 @@
         (jazz.library.component)
         (jazz.log)
         (jazz.platform)
+        (jazz.project)
         (jazz.runtime)
         (jazz.system)
         (jazz.tie)
@@ -341,4 +342,15 @@
                        (end (get-end~ range))
                        (mid (fxround/ (+ (get-col~ start) (get-col~ end)) 2))
                        (pos (text->view~ text (new Cell (get-line~ start) mid))))
-                  (choose-literal text undoer atomic-preserved #f literal-string literal range pos)))))))))))
+                  (choose-literal text undoer atomic-preserved #f literal-string literal range pos)))))))))
+  
+  
+  ;;;
+  ;;;; Trailing Whitespace
+  ;;;
+  
+  
+  (method override (test8)
+    (let ((project (find-project~ (get-workbench) 'world:lib)))
+      (let ((directory (get-parent~ (get-tag-reference~ (get-form~ project)))))
+        (search-trailing-whitespace directory: directory))))))
