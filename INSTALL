@@ -68,7 +68,7 @@ Scenarios
 User
   ;; Clone the Jedi repository (only once).
   ;; This will create a 'jedi' directory containing all development files.
-  $ git git://github.com/jazzscheme/jedi.git
+  $ git clone git://github.com/jazzscheme/jedi.git
   $ cd jedi
 
   ;; Pull from time to time to get the latest revision.
