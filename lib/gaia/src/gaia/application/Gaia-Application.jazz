@@ -48,8 +48,7 @@
   
   (slot documentation-cataloguer initialize #f)
   (slot current-state            initialize 'restored)
-  (slot restored-position        initialize #f)
-  (slot restored-size            initialize #f)
+  (slot previous-placement       initialize #f)
   
   
   (method meta override (external-name . rest)
@@ -517,8 +516,7 @@
   (method (tile-gaia/world debuggee mode)
     (when (eq? current-state 'restored)
       (let ((toplevel (get-toplevel)))
-        (set! restored-position (get-position~ toplevel))
-        (set! restored-size (get-window-size~ toplevel))))
+        (set! previous-placement (get-placement~ toplevel))))
     (show-taskbar #f)
     (change-scrollbar-style #t)
     (case mode
@@ -567,14 +565,9 @@
                               WS_OVERLAPPEDWINDOW
                               WS_MINIMIZEBOX
                               WS_SYSMENU))
-      (when restored-position
-        (SetWindowPos handle HWND_TOP
-          (get-h~ restored-position)
-          (get-v~ restored-position)
-          (get-width~ restored-size)
-          (get-height~ restored-size)
-          (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED)))
-      (show-window handle))
+      (if previous-placement
+          (set-placement~ (get-toplevel) previous-placement)
+        (show-window handle)))
     (let ((debuggee (or debuggee (find-world-debuggee))))
       (when debuggee
         (restore-world~ debuggee)))
