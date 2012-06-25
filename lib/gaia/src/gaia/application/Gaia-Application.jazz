@@ -49,6 +49,7 @@
   (slot documentation-cataloguer initialize #f)
   (slot current-state            initialize 'restored)
   (slot previous-placement       initialize #f)
+  (slot previous-workspace       initialize #f)
   
   
   (method meta override (external-name . rest)
@@ -516,15 +517,16 @@
   (method (tile-gaia/world debuggee mode)
     (when (eq? current-state 'restored)
       (let ((toplevel (get-toplevel)))
-        (set! previous-placement (get-placement~ toplevel))))
+        (set! previous-placement (get-placement~ toplevel))
+        (set! previous-workspace (get-name~ (selected-workspace)))))
     (show-taskbar #f)
     (change-scrollbar-style #t)
     (case mode
       ((live)
-       (select-workspace 'text)
+       (select-workspace 'live)
        (full-screen~ (get-application) #t))
       ((design)
-       (select-workspace 'designer)
+       (select-workspace 'design)
        (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
     (let ((handle (get-handle~ (get-toplevel))))
       (set-style handle (bitwise-ior WS_CLIPSIBLINGS
@@ -555,7 +557,7 @@
   (method (restore-gaia/world (debuggee #f))
     (show-taskbar #t)
     (change-scrollbar-style #f)
-    (select-workspace 'debugger)
+    (select-workspace (or previous-workspace 'text))
     (full-screen~ (get-application) #f)
     (let ((handle (get-handle~ (get-toplevel))))
       (set-style handle
@@ -571,6 +573,8 @@
     (let ((debuggee (or debuggee (find-world-debuggee))))
       (when debuggee
         (restore-world~ debuggee)))
+    (set! previous-placement #f)
+    (set! previous-workspace #f)
     (set! current-state 'restored))
   
   
