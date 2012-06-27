@@ -237,7 +237,7 @@
       (let ((file {File Settings ".settings"}))
         (unless (exists?~ file)
           (create~ file))
-        (set! settings (new Settings file: file))
+        (set! settings (new File-Settings file: file))
         (register-settings settings)))
     (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) create?: #t)))
       (register-repository-aliases (install-repository projects-repository))))
