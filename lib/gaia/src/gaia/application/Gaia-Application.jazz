@@ -548,10 +548,18 @@
                 (- bottom top)
                 (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED))
               (show-window handle)
-              (let ((debuggee (or debuggee (find-world-debuggee)))
-                    (rect (new Rect 0 0 world-width (- bottom top))))
-                (when debuggee
-                  (position-world~ debuggee rect))))))))
+              (receive (server clients) (collect-world-debuggees)
+                (let ((debuggees (append clients (if server (list server) '()))))
+                  (let ((count (length debuggees))
+                        (rank 0)
+                        (area-height (- bottom top)))
+                    (for-each (lambda (debuggee)
+                                (let ((height (fxround (exact->inexact (/ area-height count)))))
+                                  (let ((top (* height rank)))
+                                    (let ((rect (new Rect 0 top world-width (+ top height))))
+                                      (position-world~ debuggee rect))))
+                                (increase! rank))
+                              debuggees)))))))))
     (set! current-state 'tiled))
   
   
@@ -571,28 +579,32 @@
       (if previous-placement
           (set-placement~ (get-toplevel) previous-placement)
         (show-window handle)))
-    (let ((debuggee (or debuggee (find-world-debuggee))))
-      (when debuggee
-        (restore-world~ debuggee)))
+    (receive (server clients) (collect-world-debuggees)
+      (let ((debuggees (append clients (if server (list server) '()))))
+        (for-each (lambda (debuggee)
+                    (restore-world~ debuggee))
+                  debuggees)))
     (set! previous-placement #f)
     (set! previous-workspace #f)
     (set! current-state 'restored))
   
   
-  (method (find-world-debuggee)
-    (define (find-remote-process)
-      (continuation-capture
-        (lambda (return)
-          (for-each-process~ (get-debugger-manager)
-            (lambda (debugger debugged-process live? focused?)
-              (let ((process (get-reference~ debugged-process)))
-                (when (remote-proxy? process)
-                  (continuation-return return process)))))
-          #f)))
+  (method (collect-world-debuggees)
+    (define (load-debuggee process)
+      (load-object~ (get-remote-register process) 'world.debuggee 'world-debuggee))
     
-    (let ((process (find-remote-process)))
-      (when process
-        (load-object~ (get-remote-register process) 'world.debuggee 'world-debuggee))))
+    (let ((server #f)
+          (clients (new-queue))
+          (manager (get-debugger-manager)))
+      (for-each-process~ manager
+        (lambda (debugger debugged-process live? focused?)
+          (let ((process (get-reference~ debugged-process)))
+            (when (remote-proxy? process)
+              (let ((kind (determine-process-property~ debugger process kind: #f)))
+                (case kind
+                  ((server) (set! server (load-debuggee process)))
+                  ((client) (enqueue clients (load-debuggee process)))))))))
+      (values server (queue-list clients))))
   
   
   (method (show-taskbar flag)
