@@ -546,11 +546,12 @@
                 0
                 (- width world-width)
                 (- bottom top)
-                (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED))))))
-      (show-window handle))
-    (let ((debuggee (or debuggee (find-world-debuggee))))
-      (when debuggee
-        (tile-world~ debuggee mode)))
+                (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED))
+              (show-window handle)
+              (let ((debuggee (or debuggee (find-world-debuggee)))
+                    (rect (new Rect 0 0 world-width (- bottom top))))
+                (when debuggee
+                  (position-world~ debuggee rect))))))))
     (set! current-state 'tiled))
   
   

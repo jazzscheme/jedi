@@ -16,6 +16,6 @@
 (remotable-stub World-Debuggee
   
   
-  (method public exec (tile-world mode))
+  (method public exec (position-world rect))
   (method public exec (restore-world))
   (method public exec (set-property property value))))
