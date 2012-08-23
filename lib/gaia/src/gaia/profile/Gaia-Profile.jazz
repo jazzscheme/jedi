@@ -279,7 +279,8 @@
       (define (choose-color)
         (let ((choose
                 (new Color-Choose
-                  size: {Dimension 527 109} background: {Color Dark-Gray}
+                  size: {Dimension 527 109}
+                  background: {Color Dark-Gray}
                   color: literal
                   feedback: (lambda (color)
                               (when (not modified?)
