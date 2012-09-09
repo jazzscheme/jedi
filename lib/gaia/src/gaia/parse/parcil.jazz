@@ -1,0 +1,448 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; C Parser
+;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;;  PARCIL - A Parser for C syntax In Lisp
+;;;  version 0.1b
+;;;
+;;;  copyright (c) 1992 by Erann Gat, all rights reserved
+;;;  copyright (c) 2007, 2009 by Ron Garret, all rights reserved
+;;;
+;;;  This program is free software; you can redistribute it and/or modify
+;;;  it under the terms of the GNU General Public License as published by
+;;;  the Free Software Foundation.
+;;;
+;;;  This program is distributed in the hope that it will be useful,
+;;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;;  GNU General Public License for more details.
+;;;
+;;;  You should have received a copy of the GNU General Public License
+;;;  along with this program; if not, write to the Free Software
+;;;  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+;;;
+;;;  Revision history:
+;;;  v0.1a - Initial release
+;;;  Holy shit, has it really been fifteen years since I wrote this?
+;;;  9/4/09 - Complete overhaul and integration with symbol reader macros
+;;;
+;;;  PARCIL is a parser for a subset of the syntax for the C programming
+;;;  language.  It is a recursive descent parser which makes it
+;;;  fairly brittle and difficult to modify.  However, it does make it fairly
+;;;  fast, and it also allows the parser to deal with lots of C idiosyncrasies
+;;;  which are difficult to implement in general-purpose parsers, e.g. operator
+;;;  precedence, prefix and postfix operators, etc.
+;;;
+;;;  PARCIL supports all syntax defined in section 18.1 of the original Kernighan
+;;;  and Ritchie book, plus all C numerical syntax including floats and radix
+;;;  syntax (i.e. 0xnnn, 0bnnn, and 0onnn).  In addition, PARCIL supports multiple
+;;;  array subscripts.  There is also a preliminary version of {} blocks, but it
+;;;  doesn't quite do the right thing.  Parcil also allows strings to be delimited
+;;;  using single quotes as well as double quotes (but you must use the same type
+;;;  to close the string as you did to open it).
+
+
+(module gaia.parse.parcil jazz
+
+
+;;;
+;;;; Conversion
+;;;
+
+
+(define open-parenthesis
+  (string->symbol "("))
+
+(define close-parenthesis
+  (string->symbol ")"))
+
+(define open-brace
+  (string->symbol "{"))
+
+(define close-brace
+  (string->symbol "}"))
+
+(define open-bracket
+  (string->symbol "["))
+
+(define close-bracket
+  (string->symbol "]"))
+
+(define comma
+  (string->symbol ","))
+
+
+(define (alpha-char-p c)
+  (alphabetic? c))
+
+(define (digit-char-p c)
+  (numeric? c))
+
+(define (char-code c)
+  (char->integer c))
+
+(define (princ c p)
+  (write-char c p))
+
+(define (list* x y lst)
+  (cons x (cons y lst)))
+
+
+;;;
+;;;; Stream
+;;;
+
+
+(define $parcil-stream
+  (make-parameter #t))
+
+
+;;;
+;;;; Tokenizer
+;;;
+
+
+(define (peekc)
+  (convert-eof (peek-char ($parcil-stream))))
+
+
+(define (readc)
+  (convert-eof (read-char ($parcil-stream))))
+
+
+(define (convert-eof c)
+  (if (eof-object? c)
+      #f
+    c))
+
+
+(define (eof?)
+  (not (peekc)))
+
+
+(define (consume-whitespace)
+  (let ((c (peekc)))
+    (when (and c (whitespace? c))
+      (readc)
+      (consume-whitespace))))
+
+
+(define (peekt)
+  (consume-whitespace)
+  (peekc))
+
+
+(define (letter? c)
+  (alpha-char-p c))
+
+
+(define (constituent? c)
+  (or (letter? c) (eqv? c #\_)))
+
+
+(define (digit? c)
+  (digit-char-p c))
+
+
+(define (opchar? c)
+  (and c (not (or (digit? c) (constituent? c)))))
+
+
+(define (ident? thing)
+  (and thing
+       (symbol? thing)
+       (constituent? (string-ref (symbol->string thing) 0))))
+
+
+;; Infix operators in priority order
+(define $binary-ops
+  (map (lambda (lst)
+         (map string->symbol lst))
+       '(("." "->")
+         ("*" "/" "%")
+         ("+" "-")
+         ("<<" ">>")
+         ("<" ">" "<=" ">=")
+         ("==" "!=")
+         ("&")
+         ("^")
+         ("|")
+         ("&&")
+         ("||")
+         ("=" "+=" "-=" "*=" "/=" "%=" "&=" "^=" "|=" ">>=" "<<="))))
+
+
+;; Any binary operator in this alist will be renamed in the parsed version.
+(define $binop-translations
+  (map (lambda (pair)
+         (cons (string->symbol (car pair)) (cdr pair)))
+       '(("." . struct-ref)
+         ("=" . set!)
+         ("%" . mod)
+         ("<<" . ashl)
+         (">>" . ashr)
+         ("&" . logand)
+         ("^" . logxor)
+         ("|" . logior)
+         ("&&" . and)
+         ("||" . or))))
+
+
+;; Any prefix unary operator included in this table will be renamed in the parsed
+;; version.  (Postfix ++ and -- are handled specially, in PARSE-TERM.)
+(define $unary-op-translations
+  (map (lambda (pair)
+         (cons (string->symbol (car pair)) (cdr pair)))
+       '(("*" . deref)
+         ("&" . address-of)
+         ("-" . -)
+         ("!" . not)
+         ("~" . lognot)
+         ("++" . increase!)
+         ("--" . decrease!))))
+
+
+(define (binop? s)
+  (member? s $binary-ops test: member?))
+
+
+(define (op-priority s)
+  (let ((pos (position s $binary-ops test: member?)))
+    (and pos (- 40 pos))))
+
+
+(define (translate-binop op)
+  (let ((pair (assoc op $binop-translations)))
+    (if pair
+        (cdr pair)
+      op)))
+
+
+(define (translate-unary-op op)
+  (let ((pair (assoc op $unary-op-translations)))
+    (if pair
+        (cdr pair)
+      #f)))
+
+
+(define (syntax-error . args)
+  (error "Infix syntax error: {a}" (apply format args)))
+
+
+;;;
+;;;; Tokenizer/lexer
+;;;
+
+
+(define (parse-fixnum (base 10))
+  (let (loop (n 0))
+    (if (eof?)
+        n
+      (let* ((c (char-downcase (peekc)))
+             (d (cond ((digit? c) (- (char-code c) (char-code #\0)))
+                      ((letter? c) (- (char-code c) (char-code #\a) -10))
+                      (else #f))))
+        (cond ((not d) n)
+              ((or (>= d base) (eqv? c #\_))
+               (syntax-error "Unexpected character '{a}' while parsing integer"
+                             (peekc)))
+              (else
+               (readc)
+               (loop (+ d (* n base)))))))))
+
+
+(define (parse-atom)
+  (consume-whitespace)
+  (if (eof?)
+      #f
+    (let ((c (peekc)))
+      (cond ((letter? c) (parse-symbol))
+            ((eqv? c #\0)
+             (readc)
+             (if (letter? (peekc))
+                 (parse-radix-integer)
+               (parse-number)))
+            ((digit? c) (parse-number))
+            ((or (eqv? c #\") (eqv? c #\')) (parse-string c))
+            (else (parse-operator))))))
+
+
+(define (parse-symbol)
+  (string->symbol
+    (call-with-output-string ""
+      (lambda (p)
+        (while (let ((c (peekc))) (and c (or (letter? c) (digit? c) (eqv? c #\_))))
+          (princ (readc) p))
+        p))))
+
+
+(define (parse-radix-integer)
+  (parse-fixnum (ecase (readc) ((#\x) 16) ((#\o) 8) ((#\b) 2))))
+
+
+(define (parse-number)
+  (let ((n1 (parse-fixnum))
+        (c (peekc))
+        (d 0.1))
+    (continuation-capture
+      (lambda (return)
+        (define (decimal)
+          (readc)
+          (let ((c (peekc)))
+            (when (digit? c)
+              (increase! n1 (* d (- (char-code c) (char-code #\0))))
+              (set! d (/ d 10))
+              (decimal))
+            (if (or (eqv? c #\e) (eqv? c #\E)) (expt))
+            (continuation-return return n1)))
+        
+        (define (expt)
+          (readc)
+          (let ((e (parse-fixnum)))
+            (continuation-return return (* n1 (expt 10 e)))))
+        
+        (if (eqv? c #\.) (decimal))
+        (if (or (eqv? c #\e) (eqv? c #\E)) (expt))
+        (continuation-return return n1)))))
+
+
+(define (parse-string terminator)
+  (readc)
+  (call-with-output-string ""
+    (lambda (p)
+      (continuation-capture
+        (lambda (return)
+          (let (loop)
+            (let ((c (readc)))
+              (when (eqv? c terminator)
+                (continuation-return return p))
+              (princ c p)
+              (loop))))))))
+
+
+(define some-operators
+  (map string->symbol '("++" "--" "<<" ">>" "->" "<=" ">=" "!=" "==" "&&"
+                        "+=" "-=" "*=" "/=" "%=" "&=" "^=" "|=" "||")))
+
+(define (parse-operator)
+  (let* ((c (readc))
+         (s (string->symbol (format "{a}{a}" c (peekc)))))
+    (cond ((member? s '(<< >>))
+           (readc)
+           (if (eqv? (peekc) #\=)
+               (string->symbol (format "{a}{a}" s (readc)))
+             s))
+          ((member? s some-operators)
+           (readc)
+           s)
+          (else
+           (string->symbol (string c))))))
+
+
+(define $next
+  #f)
+
+
+(define (scan)
+  (set! $next (parse-atom)))
+
+
+(define (scan-op)
+  (set! $next (and (opchar? (peekt)) (parse-atom))))
+
+
+;;;
+;;;; Parser
+;;;
+
+
+(define (parse-primary-expression)
+  (cond ((or (ident? $next) (number? $next) (string? $next))
+         $next)
+        ((eqv? $next open-parenthesis)
+         (cons 'begin (parse-list)))
+        ((eqv? $next open-brace)
+         (cons 'begin (parse-list close-brace)))
+        (else
+         (syntax-error "Unexpected primary expression: {a}" $next))))
+
+
+(define (parse-postfix-expression)
+  (let (loop (e (parse-primary-expression)))
+    (scan-op)
+    (cond ((eqv? $next open-parenthesis) (loop (cons e (parse-list))))
+          ((eqv? $next open-bracket) (loop (list* 'vector-ref e (parse-list close-bracket))))
+          ((eqv? $next '++) (loop `(prog1 ,e (increase! ,e))))
+          ((eqv? $next '--) (loop `(prog1 ,e (decrease! ,e))))
+          (else e))))
+
+
+(define (parse-term)
+  (let ((op (translate-unary-op $next)))
+    (cond (op (scan) (list op (parse-postfix-expression)))
+          (else (parse-postfix-expression)))))
+
+
+;;; This function parses expressions, which consist of pairs of terms separated by binary operators.
+(define (parse-expression (priority -1))
+  (let (loop (result (parse-term)))
+    (let ((op (translate-binop $next))
+          (new-priority (op-priority $next)))
+      (cond ((and (binop? $next) (> new-priority priority))
+             (scan)
+             (loop (list op result (parse-expression new-priority))))
+            (else
+             result)))))
+
+
+;;; This function parses delimiter-separated lists of expressions.
+(define (parse-list (terminator close-parenthesis) (separator comma))
+  (scan)
+  (let (loop)
+    (cond ((not $next) (error "Missing {s}" terminator))
+          ((eqv? $next terminator) '())
+          (else (let ((arg1 (parse-expression)))
+                  (unless (or (eqv? $next separator) (eqv? $next terminator))
+                    (syntax-error "Expected '{a}' or '{a}', got '{a}'"
+                                  separator terminator $next))
+                  (if (eqv? $next separator) (scan))
+                  (cons arg1 (loop)))))))
+
+
+;;;
+;;;; Toplevel
+;;;
+
+
+(definition public (read-infix stream)
+  (parameterize (($parcil-stream stream))
+    (scan)
+    (parse-expression)))
+
+
+(definition public (parse-infix-string s)
+  (call-with-input-string s
+    (lambda (p)
+      (parameterize (($parcil-stream p))
+        (let (loop)
+          (scan)
+          (cons (parse-expression)
+                (if (eof?)
+                    '()
+                  (loop))))))))
+
+
+;;;
+;;;; Tests
+;;;
+
+
+;; ((set! x (* y (sin (/ pi 2.7)))))
+(definition public (test-parcil)
+  (pp (parse-infix-string "x=y*sin(pi/2.7)"))))
