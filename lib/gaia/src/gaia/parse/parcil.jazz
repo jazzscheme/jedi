@@ -58,6 +58,10 @@
 ;; - f(a) with a trailing space
 
 
+(define debug?
+  #f)
+
+
 ;;;
 ;;;; Conversion
 ;;;
@@ -158,7 +162,7 @@
 
 
 (define (opchar? c)
-  (and c (not (or (digit? c) (constituent? c)))))
+  (and c (not (or (digit? c) (constituent? c))) (not (eqv? c #\"))))
 
 
 (define (ident? thing)
@@ -206,7 +210,8 @@
 (define $unary-op-translations
   (map (lambda (pair)
          (cons (string->symbol (car pair)) (cdr pair)))
-       '(("*" . deref)
+       '(("#" . sharp)
+         ("*" . deref)
          ("&" . address-of)
          ("-" . -)
          ("!" . not)
@@ -262,8 +267,7 @@
             ((digit? c)
              (parse-number))
             ((or (eqv? c #\") (eqv? c #\'))
-             (let ((x (parse-string c)))
-               (debug x) x))
+             (parse-string c))
             (else
              (let ((c (readc)))
                (cond ((and (eqv? c #\/) (eqv? (peekc) #\/)) (parse-line-comment))
@@ -386,7 +390,8 @@
            (string->symbol (string c))))))
 
 
-(define $next
+;; for testing
+(definition protected $next
   #f)
 
 
@@ -418,46 +423,6 @@
 ;;;
 
 
-(define (parse-primary-expression)
-  (cond ((or (ident? $next) (number? $next) (string? $next) (pair? $next))
-         $next)
-        ((eqv? $next open-parenthesis)
-         (parse-list close-parenthesis (list comma semi-colon)))
-        ((eqv? $next open-brace)
-         (sequentialize (parse-list close-brace (list comma semi-colon))))
-        (else
-         (syntax-error "Unexpected primary expression: {a}" $next))))
-
-
-(define (parse-postfix-expression)
-  (let (loop (e (parse-primary-expression)))
-    (scan-op)
-    (cond ((eqv? $next open-parenthesis) (loop (cons e (parse-list close-parenthesis (list comma semi-colon)))))
-          ((eqv? $next open-bracket) (loop `(vector-ref ,e ,@(parse-list close-bracket (list comma)))))
-          ((eqv? $next open-brace) (loop `(,e ,@(parse-list close-brace (list comma semi-colon)))))
-          ((eqv? $next '++) (loop `(post-increment ,e)))
-          ((eqv? $next '--) (loop `(post-decrement ,e)))
-          (else e))))
-
-
-(define (parse-term)
-  (let ((op (translate-unary-op $next)))
-    (cond (op (scan) (list op (parse-postfix-expression)))
-          (else (parse-postfix-expression)))))
-
-
-;;; Parses expressions, which consist of pairs of terms separated by binary operators.
-(define (parse-expression (priority -1))
-  (let (loop (result (parse-term)))
-    (let ((op (translate-binop $next))
-          (new-priority (op-priority $next)))
-      (cond ((and (binop? $next) (> new-priority priority))
-             (scan)
-             (loop (list op result (parse-expression new-priority))))
-            (else
-             result)))))
-
-
 ;;; Parses delimiter-separated groups of expressions.
 (define (parse-list terminator separators)
   (scan)
@@ -469,6 +434,50 @@
                   (when (not $next)
                     (scan))
                   (loop (cons arg1 elems)))))))
+
+
+;;; Parses expressions, which consist of pairs of terms separated by binary operators.
+(define (parse-expression (priority -1))
+  (let (loop (result (parse-term)))
+    (when debug? (debug 'expression result: result next: $next))
+    (let ((op (translate-binop $next))
+          (new-priority (op-priority $next)))
+      (cond ((and (binop? $next) (> new-priority priority))
+             (scan)
+             (loop (list op result (parse-expression new-priority))))
+            (else
+             result)))))
+
+
+(define (parse-term)
+  (when debug? (debug 'term next: $next))
+  (let ((op (translate-unary-op $next)))
+    (cond (op (scan) (list op (parse-postfix-expression)))
+          (else (parse-postfix-expression)))))
+
+
+(define (parse-postfix-expression)
+  (let (loop (e (parse-primary-expression)))
+    (scan-op)
+    (when debug? (debug 'postfix e: e next: $next))
+    (cond ((eqv? $next open-parenthesis) (loop (cons e (parse-list close-parenthesis (list comma semi-colon)))))
+          ((eqv? $next open-bracket) (loop `(vector-ref ,e ,@(parse-list close-bracket (list comma)))))
+          ((eqv? $next open-brace) (loop `(,e ,@(parse-list close-brace (list comma semi-colon)))))
+          ((eqv? $next '++) (loop `(post-increment ,e)))
+          ((eqv? $next '--) (loop `(post-decrement ,e)))
+          (else e))))
+
+
+(define (parse-primary-expression)
+  (when debug? (debug 'primary next: $next))
+  (cond ((or (ident? $next) (number? $next) (string? $next) (pair? $next))
+         $next)
+        ((eqv? $next open-parenthesis)
+         (parse-list close-parenthesis (list comma semi-colon)))
+        ((eqv? $next open-brace)
+         (sequentialize (parse-list close-brace (list comma semi-colon))))
+        (else
+         (syntax-error "Unexpected primary expression: {a}" $next))))
 
 
 ;;;
@@ -509,11 +518,12 @@
   (assert (equal? (parse-infix-string "-1.5e-4*2.7e6") '((* (- 1.5000000000000001e-4) 2700000.))))
   (assert (equal? (parse-infix-string "1.f") '(1.)))
   (assert (equal? (parse-infix-string "1.5f") '(1.5)))
-  (assert (equal? (parse-infix-string "a b c") '(a b c))))
+  (assert (equal? (parse-infix-string "a b c") '(a b c)))
+  (assert (equal? (parse-infix-string "a \"hello\" b") '(a "hello" b))))
 
 
 (definition public (tp)
-  (pp (parse-infix-string "++a \"hello\" b")))
+  (pp (parse-infix-string "a \"hello\" b")))
 
 
 (define (testing-string s thunk)
