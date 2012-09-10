@@ -55,7 +55,7 @@
 ;; - -1.5
 ;; - preserve notation in 2.7e6
 ;; - vector<char>
-;; - f(a) with a trailing space
+;; - trailing spaces
 
 
 (define debug?
@@ -150,7 +150,8 @@
 
 
 (define (letter? c)
-  (alpha-char-p c))
+  (or (alpha-char-p c)
+      (inhibited-char? c)))
 
 
 (define (constituent? c)
@@ -168,7 +169,9 @@
 (define (ident? thing)
   (and thing
        (symbol? thing)
-       (constituent? (string-ref (symbol->string thing) 0))))
+       (let ((first (string-ref (symbol->string thing) 0)))
+         (or (constituent? first)
+             (inhibited-char? first)))))
 
 
 ;; Infix operators in priority order
@@ -395,6 +398,13 @@
   #f)
 
 
+(define inhibited-characters
+  (make-parameter '()))
+
+(define (inhibited-char? c)
+  (memv? c (inhibited-characters)))
+
+
 (define (scan)
   (set! $next (parse-atom)))
 
@@ -450,10 +460,26 @@
 
 
 (define (parse-term)
-  (when debug? (debug 'term next: $next))
   (let ((op (translate-unary-op $next)))
-    (cond (op (scan) (list op (parse-postfix-expression)))
-          (else (parse-postfix-expression)))))
+    (when debug? (debug 'term op: op next: $next))
+    (cond (op
+           (scan)
+           (case op
+             ((sharp) (parse-sharp))
+             (else (list op (parse-postfix-expression)))))
+          (else
+           (parse-postfix-expression)))))
+
+
+(define (parse-sharp)
+  (let ((e (parse-primary-expression)))
+    (case e
+      ((include)
+       (parameterize ((inhibited-characters '(#\< #\. #\>)))
+         (scan)
+         (list 'include (parse-primary-expression))))
+      (else
+       (list 'sharp e)))))
 
 
 (define (parse-postfix-expression)
@@ -519,7 +545,8 @@
   (assert (equal? (parse-infix-string "1.f") '(1.)))
   (assert (equal? (parse-infix-string "1.5f") '(1.5)))
   (assert (equal? (parse-infix-string "a b c") '(a b c)))
-  (assert (equal? (parse-infix-string "a \"hello\" b") '(a "hello" b))))
+  (assert (equal? (parse-infix-string "a \"hello\" b") '(a "hello" b)))
+  (assert (equal? (parse-infix-string "#include \"file\"") '((sharp include) "file"))))
 
 
 (definition public (tp)
