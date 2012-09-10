@@ -46,29 +46,34 @@
     (let ((text (get-focus)))
       (if (is-not? text Text-View)
           (bell)
-        (let ((lines (selection-lines~ text)))
-          (replace-selection~ text (c->lisp lines))))))
+        (let ((str (get-selected-string~ text)))
+          (let ((start (get-start~ text)))
+            (replace-selection~ text (split-lines (c->lisp str)))
+            @w
+            (tabulate-range~ text (new-range~ text start (get-end~ text))))))))
   
   
   (method override (test0)
     (let ((text (get-focus)))
       (if (is-not? text Text-View)
           (bell)
-        (let ((content (get-clipboard-text)))
-          (if (not content)
+        (let ((str (get-clipboard-text)))
+          (if (not str)
               (bell)
-            (let ((lines (split-lines content)))
-              (replace-selection~ text (c->lisp lines))))))))
+            (let ((start (get-start~ text)))
+              (replace-selection~ text (split-lines (c->lisp str)))
+              @w
+              (tabulate-range~ text (new-range~ text start (get-end~ text)))))))))
   
   
-  (method (c->lisp lines)
-    (define (convert line)
-      (let ((expr (parse-infix-string line)))
-        (let ((output (open-output-string)))
-          (write expr output)
-          (get-output-string output))))
-    
-    (map convert lines))
+  (method (c->lisp str)
+    (let ((expressions (parse-infix-string str)))
+      (let ((output (open-output-string)))
+        (loop (for expr in expressions)
+              (for first? first #t then #f)
+              (pp expr output))
+        ;; remove pp trailing return
+        (butlast (get-output-string output)))))
   
   
   ;;;
