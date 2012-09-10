@@ -499,20 +499,21 @@
 ;;;
 
 
-;; ((set! x (* y (sin (/ pi 2.7)))))
 (definition public (test-parcil)
-  (pp (parse-infix-string "x=y*sin(pi/2.7)")))
+  (assert (equal? (parse-infix-string "x=y*sin(pi/2.7)") '((set! x (* y (sin (/ pi 2.7)))))))
+  (assert (equal? (parse-infix-string "15") '(15)))
+  (assert (equal? (parse-infix-string "-15") '((- 15))))
+  (assert (equal? (parse-infix-string "1.5") '(1.5)))
+  (assert (equal? (parse-infix-string "1.") '(1.)))
+  (assert (equal? (parse-infix-string "-1.5") '((- 1.5))))
+  (assert (equal? (parse-infix-string "-1.5e-4*2.7e6") '((* (- 1.5000000000000001e-4) 2700000.))))
+  (assert (equal? (parse-infix-string "1.f") '(1.)))
+  (assert (equal? (parse-infix-string "1.5f") '(1.5)))
+  (assert (equal? (parse-infix-string "a b c") '(a b c))))
 
 
-(definition public (tp1)
-  (pp (parse-infix-string "(a b, c, e f)")))
-
-
-(definition public (tp2)
-  (pp (parse-infix-string "{a b; c; e f}")))
-
-(definition public (tp3)
-  (debug (parse-infix-string "a { b; }")))
+(definition public (tp)
+  (pp (parse-infix-string "++a \"hello\" b")))
 
 
 (define (testing-string s thunk)
