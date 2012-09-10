@@ -54,7 +54,6 @@
 ;; Todo
 ;; - -1.5
 ;; - preserve notation in 2.7e6
-;; - vector<char>
 ;; - trailing spaces
 
 
@@ -309,8 +308,11 @@
   (string->symbol
     (call-with-output-string ""
       (lambda (p)
-        (while (let ((c (peekc))) (and c (or (letter? c) (digit? c) (eqv? c #\_) (eqv? c #\:))))
-          (princ (readc) p))))))
+        (let (iter (previous #f) (namespace? #f))
+          (let ((c (peekc)))
+            (when (and c (or (if namespace? (parameterize ((inhibited-characters '(#\< #\>))) (letter? c)) (letter? c)) (digit? c) (eqv? c #\_) (eqv? c #\:)))
+              (princ (readc) p)
+              (iter c (or namespace? (and (eqv? previous #\:) (eqv? c #\:)))))))))))
 
 
 (define (parse-number)
