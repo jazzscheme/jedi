@@ -51,6 +51,11 @@
 (module gaia.parse.parcil jazz
 
 
+;; Todo
+;; - vector<char>
+;; - f(a) with a trailing space
+
+
 ;;;
 ;;;; Conversion
 ;;;
@@ -77,6 +82,9 @@
 (define comma
   (string->symbol ","))
 
+(define semi-colon
+  (string->symbol ";"))
+
 
 (define (alpha-char-p c)
   (alphabetic? c))
@@ -89,9 +97,6 @@
 
 (define (princ c p)
   (write-char c p))
-
-(define (list* x y lst)
-  (cons x (cons y lst)))
 
 
 ;;;
@@ -147,7 +152,7 @@
 
 
 (define (digit? c)
-  (digit-char-p c))
+  (and c (digit-char-p c)))
 
 
 (define (opchar? c)
@@ -204,8 +209,8 @@
          ("-" . -)
          ("!" . not)
          ("~" . lognot)
-         ("++" . increase!)
-         ("--" . decrease!))))
+         ("++" . pre-increment)
+         ("--" . pre-decrement))))
 
 
 (define (binop? s)
@@ -240,23 +245,6 @@
 ;;;
 
 
-(define (parse-fixnum (base 10))
-  (let (loop (n 0))
-    (if (eof?)
-        n
-      (let* ((c (char-downcase (peekc)))
-             (d (cond ((digit? c) (- (char-code c) (char-code #\0)))
-                      ((letter? c) (- (char-code c) (char-code #\a) -10))
-                      (else #f))))
-        (cond ((not d) n)
-              ((or (>= d base) (eqv? c #\_))
-               (syntax-error "Unexpected character '{a}' while parsing integer"
-                             (peekc)))
-              (else
-               (readc)
-               (loop (+ d (* n base)))))))))
-
-
 (define (parse-atom)
   (consume-whitespace)
   (if (eof?)
@@ -270,20 +258,47 @@
                (parse-number)))
             ((digit? c) (parse-number))
             ((or (eqv? c #\") (eqv? c #\')) (parse-string c))
-            (else (parse-operator))))))
+            (else
+             (let ((c (readc)))
+               (cond ((and (eqv? c #\/) (eqv? (peekc) #\/)) (parse-line-comment))
+                     ((and (eqv? c #\/) (eqv? (peekc) #\*)) (parse-multiline-comment))
+                     (else (parse-operator c)))))))))
+
+
+(define (parse-line-comment)
+  (readc)
+  (let ((output (open-output-string)))
+    (let (iter)
+      (let ((c (readc)))
+        (if (or (not c)
+                (eqv? c #\newline))
+            (list 'comment (get-output-string output))
+          (write-char c output)
+          (iter))))))
+
+
+(define (parse-multiline-comment)
+  (readc)
+  (let ((output (open-output-string)))
+    (let (iter)
+      (let ((c (readc)))
+        (if (or (not c)
+                (and (eqv? c #\*)
+                     (eqv? (peekc) #\/)))
+            (begin
+              (readc)
+              (list 'multiline-comment (get-output-string output)))
+          (write-char c output)
+          (iter))))))
 
 
 (define (parse-symbol)
   (string->symbol
     (call-with-output-string ""
       (lambda (p)
-        (while (let ((c (peekc))) (and c (or (letter? c) (digit? c) (eqv? c #\_))))
+        (while (let ((c (peekc))) (and c (or (letter? c) (digit? c) (eqv? c #\_) (eqv? c #\:))))
           (princ (readc) p))
         p))))
-
-
-(define (parse-radix-integer)
-  (parse-fixnum (ecase (readc) ((#\x) 16) ((#\o) 8) ((#\b) 2))))
 
 
 (define (parse-number)
@@ -299,17 +314,42 @@
               (increase! n1 (* d (- (char-code c) (char-code #\0))))
               (set! d (/ d 10))
               (decimal))
-            (if (or (eqv? c #\e) (eqv? c #\E)) (expt))
-            (continuation-return return n1)))
+            (if (or (eqv? c #\e) (eqv? c #\E))
+                (exponent)
+              (when (or (eqv? c #\f) (eqv? c #\F))
+                (readc))
+              (continuation-return return (exact->inexact n1)))))
         
-        (define (expt)
+        (define (exponent)
           (readc)
           (let ((e (parse-fixnum)))
             (continuation-return return (* n1 (expt 10 e)))))
         
         (if (eqv? c #\.) (decimal))
-        (if (or (eqv? c #\e) (eqv? c #\E)) (expt))
+        (if (or (eqv? c #\e) (eqv? c #\E)) (exponent))
         (continuation-return return n1)))))
+
+
+(define (parse-radix-integer)
+  (parse-fixnum (ecase (readc) ((#\x) 16) ((#\o) 8) ((#\b) 2))))
+
+
+(define (parse-fixnum (base 10))
+  (* (if (eqv? (peekc) #\-) (begin (readc) -1) 1)
+     (let (loop (n 0))
+       (if (eof?)
+           n
+         (let* ((c (char-downcase (peekc)))
+                (d (cond ((digit? c) (- (char-code c) (char-code #\0)))
+                         ((letter? c) (- (char-code c) (char-code #\a) -10))
+                         (else #f))))
+           (cond ((not d) n)
+                 ((or (>= d base) (eqv? c #\_))
+                  (syntax-error "Unexpected character '{a}' while parsing integer"
+                                (peekc)))
+                 (else
+                  (readc)
+                  (loop (+ d (* n base))))))))))
 
 
 (define (parse-string terminator)
@@ -326,19 +366,18 @@
               (loop))))))))
 
 
-(define some-operators
+(define two-character-operators
   (map string->symbol '("++" "--" "<<" ">>" "->" "<=" ">=" "!=" "==" "&&"
                         "+=" "-=" "*=" "/=" "%=" "&=" "^=" "|=" "||")))
 
-(define (parse-operator)
-  (let* ((c (readc))
-         (s (string->symbol (format "{a}{a}" c (peekc)))))
+(define (parse-operator c)
+  (let ((s (string->symbol (format "{a}{a}" c (peekc)))))
     (cond ((member? s '(<< >>))
            (readc)
            (if (eqv? (peekc) #\=)
                (string->symbol (format "{a}{a}" s (readc)))
              s))
-          ((member? s some-operators)
+          ((member? s two-character-operators)
            (readc)
            s)
           (else
@@ -357,18 +396,33 @@
   (set! $next (and (opchar? (peekt)) (parse-atom))))
 
 
+(define (sequentialize expressions)
+  (if (>= (length expressions) 2)
+      (cons 'begin expressions)
+    (car expressions)))
+
+
+(define (groupify expressions)
+  (cond ((null? expressions)
+         expressions)
+        ((>= (length expressions) 2)
+         (cons 'group expressions))
+        (else
+         (car expressions))))
+
+
 ;;;
 ;;;; Parser
 ;;;
 
 
 (define (parse-primary-expression)
-  (cond ((or (ident? $next) (number? $next) (string? $next))
+  (cond ((or (ident? $next) (number? $next) (string? $next) (pair? $next))
          $next)
         ((eqv? $next open-parenthesis)
-         (cons 'begin (parse-list)))
+         (parse-list close-parenthesis (list comma semi-colon)))
         ((eqv? $next open-brace)
-         (cons 'begin (parse-list close-brace)))
+         (sequentialize (parse-list close-brace (list comma semi-colon))))
         (else
          (syntax-error "Unexpected primary expression: {a}" $next))))
 
@@ -376,10 +430,11 @@
 (define (parse-postfix-expression)
   (let (loop (e (parse-primary-expression)))
     (scan-op)
-    (cond ((eqv? $next open-parenthesis) (loop (cons e (parse-list))))
-          ((eqv? $next open-bracket) (loop (list* 'vector-ref e (parse-list close-bracket))))
-          ((eqv? $next '++) (loop `(prog1 ,e (increase! ,e))))
-          ((eqv? $next '--) (loop `(prog1 ,e (decrease! ,e))))
+    (cond ((eqv? $next open-parenthesis) (loop (cons e (parse-list close-parenthesis (list comma semi-colon)))))
+          ((eqv? $next open-bracket) (loop `(vector-ref ,e ,@(parse-list close-bracket (list comma)))))
+          ((eqv? $next open-brace) (loop `(,e ,@(parse-list close-brace (list comma semi-colon)))))
+          ((eqv? $next '++) (loop `(post-increment ,e)))
+          ((eqv? $next '--) (loop `(post-decrement ,e)))
           (else e))))
 
 
@@ -389,7 +444,7 @@
           (else (parse-postfix-expression)))))
 
 
-;;; This function parses expressions, which consist of pairs of terms separated by binary operators.
+;;; Parses expressions, which consist of pairs of terms separated by binary operators.
 (define (parse-expression (priority -1))
   (let (loop (result (parse-term)))
     (let ((op (translate-binop $next))
@@ -401,18 +456,17 @@
              result)))))
 
 
-;;; This function parses delimiter-separated lists of expressions.
-(define (parse-list (terminator close-parenthesis) (separator comma))
+;;; Parses delimiter-separated groups of expressions.
+(define (parse-list terminator separators)
   (scan)
-  (let (loop)
+  (let (loop (elems '()))
     (cond ((not $next) (error "Missing {s}" terminator))
-          ((eqv? $next terminator) '())
+          ((eqv? $next terminator) (if (null? elems) '() (list (groupify (reverse elems)))))
+          ((memv? $next separators) (scan) (cons (groupify (reverse elems)) (loop '())))
           (else (let ((arg1 (parse-expression)))
-                  (unless (or (eqv? $next separator) (eqv? $next terminator))
-                    (syntax-error "Expected '{a}' or '{a}', got '{a}'"
-                                  separator terminator $next))
-                  (if (eqv? $next separator) (scan))
-                  (cons arg1 (loop)))))))
+                  (when (not $next)
+                    (scan))
+                  (loop (cons arg1 elems)))))))
 
 
 ;;;
@@ -445,4 +499,22 @@
 
 ;; ((set! x (* y (sin (/ pi 2.7)))))
 (definition public (test-parcil)
-  (pp (parse-infix-string "x=y*sin(pi/2.7)"))))
+  (pp (parse-infix-string "x=y*sin(pi/2.7)")))
+
+
+(definition public (tp1)
+  (pp (parse-infix-string "(a b, c, e f)")))
+
+
+(definition public (tp2)
+  (pp (parse-infix-string "{a b; c; e f}")))
+
+(definition public (tp3)
+  (debug (parse-infix-string "a { b; }")))
+
+
+(define (testing-string s thunk)
+  (call-with-input-string s
+    (lambda (p)
+      (parameterize (($parcil-stream p))
+        (thunk))))))
