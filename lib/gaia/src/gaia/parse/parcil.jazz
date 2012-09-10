@@ -52,6 +52,8 @@
 
 
 ;; Todo
+;; - -1.5
+;; - preserve notation in 2.7e6
 ;; - vector<char>
 ;; - f(a) with a trailing space
 
@@ -250,14 +252,18 @@
   (if (eof?)
       #f
     (let ((c (peekc)))
-      (cond ((letter? c) (parse-symbol))
+      (cond ((letter? c)
+             (parse-symbol))
             ((eqv? c #\0)
              (readc)
              (if (letter? (peekc))
                  (parse-radix-integer)
                (parse-number)))
-            ((digit? c) (parse-number))
-            ((or (eqv? c #\") (eqv? c #\')) (parse-string c))
+            ((digit? c)
+             (parse-number))
+            ((or (eqv? c #\") (eqv? c #\'))
+             (let ((x (parse-string c)))
+               (debug x) x))
             (else
              (let ((c (readc)))
                (cond ((and (eqv? c #\/) (eqv? (peekc) #\/)) (parse-line-comment))
@@ -297,37 +303,35 @@
     (call-with-output-string ""
       (lambda (p)
         (while (let ((c (peekc))) (and c (or (letter? c) (digit? c) (eqv? c #\_) (eqv? c #\:))))
-          (princ (readc) p))
-        p))))
+          (princ (readc) p))))))
 
 
 (define (parse-number)
   (let ((n1 (parse-fixnum))
         (c (peekc))
         (d 0.1))
-    (continuation-capture
-      (lambda (return)
-        (define (decimal)
-          (readc)
-          (let ((c (peekc)))
-            (when (digit? c)
-              (increase! n1 (* d (- (char-code c) (char-code #\0))))
-              (set! d (/ d 10))
-              (decimal))
-            (if (or (eqv? c #\e) (eqv? c #\E))
-                (exponent)
-              (when (or (eqv? c #\f) (eqv? c #\F))
-                (readc))
-              (continuation-return return (exact->inexact n1)))))
-        
-        (define (exponent)
-          (readc)
-          (let ((e (parse-fixnum)))
-            (continuation-return return (* n1 (expt 10 e)))))
-        
-        (if (eqv? c #\.) (decimal))
-        (if (or (eqv? c #\e) (eqv? c #\E)) (exponent))
-        (continuation-return return n1)))))
+    (define (decimal)
+      (readc)
+      (let ((c (peekc)))
+        (cond ((digit? c)
+               (increase! n1 (* d (- (char-code c) (char-code #\0))))
+               (set! d (/ d 10))
+               (decimal))
+              ((or (eqv? c #\e) (eqv? c #\E))
+               (exponent))
+              (else
+               (when (or (eqv? c #\f) (eqv? c #\F))
+                 (readc))
+               (exact->inexact n1)))))
+    
+    (define (exponent)
+      (readc)
+      (let ((e (parse-fixnum)))
+        (* n1 (expt 10 e))))
+    
+    (cond ((eqv? c #\.) (decimal))
+          ((or (eqv? c #\e) (eqv? c #\E)) (exponent))
+          (else n1))))
 
 
 (define (parse-radix-integer)
@@ -343,7 +347,8 @@
                 (d (cond ((digit? c) (- (char-code c) (char-code #\0)))
                          ((letter? c) (- (char-code c) (char-code #\a) -10))
                          (else #f))))
-           (cond ((not d) n)
+           (cond ((not d)
+                  n)
                  ((or (>= d base) (eqv? c #\_))
                   (syntax-error "Unexpected character '{a}' while parsing integer"
                                 (peekc)))
@@ -356,14 +361,11 @@
   (readc)
   (call-with-output-string ""
     (lambda (p)
-      (continuation-capture
-        (lambda (return)
-          (let (loop)
-            (let ((c (readc)))
-              (when (eqv? c terminator)
-                (continuation-return return p))
-              (princ c p)
-              (loop))))))))
+      (let (loop)
+        (let ((c (readc)))
+          (when (not (eqv? c terminator))
+            (princ c p)
+            (loop)))))))
 
 
 (define two-character-operators
