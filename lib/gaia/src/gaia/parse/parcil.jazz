@@ -54,11 +54,9 @@
 ;; Todo
 ;; - -1.5
 ;; - preserve notation in 2.7e6
+;; - a->b[0]; parses incorrectly to (-> a (vector-ref b 0))
+;; - ? ternary expression
 ;; - trailing spaces
-
-
-(define debug?
-  #f)
 
 
 ;;;
@@ -162,7 +160,7 @@
 
 
 (define (opchar? c)
-  (and c (not (or (digit? c) (constituent? c))) (not (eqv? c #\"))))
+  (and c (not (or (digit? c) (constituent? c))) (not (eqv? c #\")) (not (eqv? c #\{)) (not (eqv? c #\,))))
 
 
 (define (ident? thing)
@@ -171,6 +169,13 @@
        (let ((first (string-ref (symbol->string thing) 0)))
          (or (constituent? first)
              (inhibited-char? first)))))
+
+
+(define inhibited-characters
+  (make-parameter '()))
+
+(define (inhibited-char? c)
+  (memv? c (inhibited-characters)))
 
 
 ;; Infix operators in priority order
@@ -192,7 +197,7 @@
 
 
 ;; Any binary operator in this alist will be renamed in the parsed version.
-(define $binop-translations
+(define $binary-op-translations
   (map (lambda (pair)
          (cons (string->symbol (car pair)) (cdr pair)))
        '(("." . struct-ref)
@@ -208,7 +213,7 @@
 
 
 ;; Any prefix unary operator included in this table will be renamed in the parsed
-;; version.  (Postfix ++ and -- are handled specially, in PARSE-TERM.)
+;; version. (Postfix ++ and -- are handled specially, in parse-term)
 (define $unary-op-translations
   (map (lambda (pair)
          (cons (string->symbol (car pair)) (cdr pair)))
@@ -222,7 +227,7 @@
          ("--" . pre-decrement))))
 
 
-(define (binop? s)
+(define (binary-op? s)
   (member? s $binary-ops test: member?))
 
 
@@ -231,8 +236,8 @@
     (and pos (- 40 pos))))
 
 
-(define (translate-binop op)
-  (let ((pair (assoc op $binop-translations)))
+(define (translate-binary-op op)
+  (let ((pair (assoc op $binary-op-translations)))
     (if pair
         (cdr pair)
       op)))
@@ -250,7 +255,7 @@
 
 
 ;;;
-;;;; Tokenizer/lexer
+;;;; Lexer
 ;;;
 
 
@@ -275,33 +280,6 @@
                (cond ((and (eqv? c #\/) (eqv? (peekc) #\/)) (parse-line-comment))
                      ((and (eqv? c #\/) (eqv? (peekc) #\*)) (parse-multiline-comment))
                      (else (parse-operator c)))))))))
-
-
-(define (parse-line-comment)
-  (readc)
-  (let ((output (open-output-string)))
-    (let (iter)
-      (let ((c (readc)))
-        (if (or (not c)
-                (eqv? c #\newline))
-            (list 'comment (get-output-string output))
-          (write-char c output)
-          (iter))))))
-
-
-(define (parse-multiline-comment)
-  (readc)
-  (let ((output (open-output-string)))
-    (let (iter)
-      (let ((c (readc)))
-        (if (or (not c)
-                (and (eqv? c #\*)
-                     (eqv? (peekc) #\/)))
-            (begin
-              (readc)
-              (list 'multiline-comment (get-output-string output)))
-          (write-char c output)
-          (iter))))))
 
 
 (define (parse-symbol)
@@ -377,6 +355,33 @@
             (loop)))))))
 
 
+(define (parse-line-comment)
+  (readc)
+  (let ((output (open-output-string)))
+    (let (iter)
+      (let ((c (readc)))
+        (if (or (not c)
+                (eqv? c #\newline))
+            (list 'comment (get-output-string output))
+          (write-char c output)
+          (iter))))))
+
+
+(define (parse-multiline-comment)
+  (readc)
+  (let ((output (open-output-string)))
+    (let (iter)
+      (let ((c (readc)))
+        (if (or (not c)
+                (and (eqv? c #\*)
+                     (eqv? (peekc) #\/)))
+            (begin
+              (readc)
+              (list 'multiline-comment (get-output-string output)))
+          (write-char c output)
+          (iter))))))
+
+
 (define two-character-operators
   (map string->symbol '("++" "--" "<<" ">>" "->" "<=" ">=" "!=" "==" "&&"
                         "+=" "-=" "*=" "/=" "%=" "&=" "^=" "|=" "||")))
@@ -395,39 +400,18 @@
            (string->symbol (string c))))))
 
 
-;; for testing
-(definition protected $next
+(define $next
   #f)
 
 
-(define inhibited-characters
-  (make-parameter '()))
-
-(define (inhibited-char? c)
-  (memv? c (inhibited-characters)))
-
-
 (define (scan)
-  (set! $next (parse-atom)))
+  (set! $next (parse-atom))
+  $next)
 
 
 (define (scan-op)
-  (set! $next (and (opchar? (peekt)) (parse-atom))))
-
-
-(define (sequentialize expressions)
-  (if (>= (length expressions) 2)
-      (cons 'begin expressions)
-    (car expressions)))
-
-
-(define (groupify expressions)
-  (cond ((null? expressions)
-         expressions)
-        ((>= (length expressions) 2)
-         (cons 'group expressions))
-        (else
-         (car expressions))))
+  (set! $next (and (opchar? (peekt)) (parse-atom)))
+  $next)
 
 
 ;;;
@@ -435,35 +419,43 @@
 ;;;
 
 
-;;; Parses delimiter-separated groups of expressions.
-(define (parse-list terminator separators)
-  (scan)
-  (let (loop (elems '()))
-    (cond ((not $next) (error "Missing {s}" terminator))
-          ((eqv? $next terminator) (if (null? elems) '() (list (groupify (reverse elems)))))
-          ((memv? $next separators) (scan) (cons (groupify (reverse elems)) (loop '())))
-          (else (let ((arg1 (parse-expression)))
-                  (when (not $next)
-                    (scan))
-                  (loop (cons arg1 elems)))))))
-
-
 ;;; Parses expressions, which consist of pairs of terms separated by binary operators.
 (define (parse-expression (priority -1))
   (let (loop (result (parse-term)))
-    (when debug? (debug 'expression result: result next: $next))
-    (let ((op (translate-binop $next))
+    (let ((op (translate-binary-op $next))
           (new-priority (op-priority $next)))
-      (cond ((and (binop? $next) (> new-priority priority))
+      (cond ((and (binary-op? $next) (> new-priority priority))
              (scan)
              (loop (list op result (parse-expression new-priority))))
             (else
              result)))))
 
 
+;;; Parses delimiter-separated groups of expressions.
+(define (parse-list terminator separators)
+  (scan)
+  (let (loop (elems '()))
+    (cond ((not $next) (error "Missing {s}" terminator))
+          ((eqv? $next terminator) (if (null? elems) '() (list (cons 'group (reverse elems)))))
+          ((memv? $next separators) (scan) (cons (cons 'group (reverse elems)) (loop '())))
+          (else (let ((arg1 (parse-expression)))
+                  (when (not $next)
+                    (scan))
+                  (loop (cons arg1 elems)))))))
+
+
+(define (parse-parenthesis)
+  (parse-list close-parenthesis (list comma semi-colon)))
+
+(define (parse-bracket)
+  (parse-list close-bracket (list comma)))
+
+(define (parse-brace)
+  (parse-list close-brace (list comma semi-colon)))
+
+
 (define (parse-term)
   (let ((op (translate-unary-op $next)))
-    (when debug? (debug 'term op: op next: $next))
     (cond (op
            (scan)
            (case op
@@ -485,25 +477,30 @@
 
 
 (define (parse-postfix-expression)
+  (define (cast-hack? e)
+    (and (pair? e)
+         (pair? (car e))
+         (= 2 (length (car e)))
+         (eq? (caar e) 'group)))
+  
   (let (loop (e (parse-primary-expression)))
     (scan-op)
-    (when debug? (debug 'postfix e: e next: $next))
-    (cond ((eqv? $next open-parenthesis) (loop (cons e (parse-list close-parenthesis (list comma semi-colon)))))
-          ((eqv? $next open-bracket) (loop `(vector-ref ,e ,@(parse-list close-bracket (list comma)))))
-          ((eqv? $next open-brace) (loop `(,e ,@(parse-list close-brace (list comma semi-colon)))))
+    (cond ((cast-hack? e) (unless $next (scan)) (loop `(cast ,(cadar e) ,(parse-expression))))
+          ((eqv? $next open-parenthesis) (loop `(call ,e ,@(parse-parenthesis))))
+          ((eqv? $next open-bracket) (loop `(vector-ref ,e ,@(parse-bracket))))
+          ((eqv? $next open-brace) (loop `(,e ,@(parse-brace))))
           ((eqv? $next '++) (loop `(post-increment ,e)))
           ((eqv? $next '--) (loop `(post-decrement ,e)))
           (else e))))
 
 
 (define (parse-primary-expression)
-  (when debug? (debug 'primary next: $next))
   (cond ((or (ident? $next) (number? $next) (string? $next) (pair? $next))
          $next)
         ((eqv? $next open-parenthesis)
-         (parse-list close-parenthesis (list comma semi-colon)))
+         (parse-parenthesis))
         ((eqv? $next open-brace)
-         (sequentialize (parse-list close-brace (list comma semi-colon))))
+         (cons 'sequence (parse-brace)))
         (else
          (syntax-error "Unexpected primary expression: {a}" $next))))
 
@@ -551,12 +548,17 @@
   (assert (equal? (parse-infix-string "#include \"file\"") '((sharp include) "file"))))
 
 
-(definition public (tp)
-  (pp (parse-infix-string "a \"hello\" b")))
-
-
 (define (testing-string s thunk)
   (call-with-input-string s
     (lambda (p)
       (parameterize (($parcil-stream p))
-        (thunk))))))
+        (thunk)))))
+
+
+;; for testing
+(definition protected (infix-next)
+  $next)
+
+;; for testing
+(definition protected (reset-infix-next)
+  (set! $next #f)))
