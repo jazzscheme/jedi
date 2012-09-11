@@ -42,6 +42,17 @@
   ;;;
   
   
+  (method override (test8)
+    (let ((text (get-focus)))
+      (if (is-not? text Text-View)
+          (bell)
+        (let ((str (get-selected-string~ text)))
+          (let ((start (get-start~ text)))
+            (replace-selection~ text (split-lines (c->lisp str #f)))
+            @w
+            (tabulate-range~ text (new-range~ text start (get-end~ text))))))))
+  
+  
   (method override (test9)
     (let ((text (get-focus)))
       (if (is-not? text Text-View)
@@ -66,14 +77,199 @@
               (tabulate-range~ text (new-range~ text start (get-end~ text)))))))))
   
   
-  (method (c->lisp str)
-    (let ((expressions (parse-infix-string str)))
+  (method (c->lisp str (parse? #t))
+    (let ((expressions (if parse? (parse-c (parse-infix-string str)) (parse-infix-string str))))
       (let ((output (open-output-string)))
         (loop (for expr in expressions)
               (for first? first #t then #f)
               (pp expr output))
         ;; remove pp trailing return
         (butlast (get-output-string output)))))
+  
+  
+  (method (parse-c expressions)
+    (define (parse-toplevels exprs)
+      (let (loop (scan exprs))
+        (if (null? scan)
+            '()
+          (let ((len (length scan)))
+            (let ((c0 (first scan))
+                  (c1 (and (>= len 2) (second scan)))
+                  (c2 (and (>= len 3) (third scan)))
+                  (c3 (and (>= len 4) (fourth scan))))
+              (if (and (type? c0)
+                       (kind? c1 'call)
+                       (or (kind? c2 'sequence)
+                           (and (eq? c2 'const) (kind? c3 'sequence))))
+                  (cons `(define ,(parse-signature c1) ,(typeify c0) ,@(parse-forms (cdr (if (eq? c2 'const) c3 c2))))
+                        (loop (if (eq? c2 'const)
+                                  (cddddr scan)
+                                (cdddr scan))))
+                (cons (parse-toplevel c0) (loop (cdr scan)))))))))
+    
+    (define (parse-signature exprs)
+      (cons (cadr exprs) (apply append (map parse-parameter (cddr exprs)))))
+    
+    (define (parse-parameter expr)
+      (define (remove-const exprs)
+        (if (kind? exprs 'const)
+            (cdr exprs)
+          exprs))
+      
+      (assert (kind? expr 'group))
+      (let ((exprs (remove-const (cdr expr))))
+        (let ((len (length exprs)))
+        (cond ((and (= 1 len)
+                    (kind? (car exprs) 'logand))
+               (let ((expr (car exprs)))
+                 (list (caddr expr) (referenceify (typeify (cadr expr))))))
+              ((= 2 (length exprs))
+               (list (cadr exprs) (typeify (car exprs))))
+              (else
+               exprs)))))
+    
+    (define (parse-toplevel expr)
+      (parse-form expr))
+    
+    (define (parse-forms exprs)
+      (define (standardize exprs)
+        (let ((queue (new-queue)))
+          (for-each (lambda (expr)
+                      (if (kind? expr 'group)
+                          (enqueue-list queue (cdr expr))
+                        (enqueue queue expr)))
+                    exprs)
+          (queue-list queue)))
+      
+      (let (loop (scan (standardize exprs)))
+        (if (null? scan)
+            '()
+          (let ((len (length scan)))
+            (let ((c0 (first scan))
+                  (c1 (and (>= len 2) (second scan)))
+                  (c2 (and (>= len 3) (third scan)))
+                  (c3 (and (>= len 4) (fourth scan))))
+              ;(debug c0 c1 c2 c3)
+              (cond ;; variable definition
+                    ((and (type? c0)
+                          (kind? c1 'set!))
+                     `((let ((,(cadr c1) ,(typeify c0) ,(parse-expr (caddr c1))))
+                         ,@(loop (cddr scan)))))
+                    ;; if then else
+                    ((and (call? c0 'if)
+                          (eq? c2 'else))
+                     (cons `(if ,(parse-expr (ungroup (caddr c0)))
+                                ,(parse-form c1)
+                              ,(parse-form c3))
+                           (loop (cddddr scan))))
+                    ;; if then
+                    ((call? c0 'if)
+                     (cons `(when ,(parse-expr (ungroup (caddr c0)))
+                              ,@(if (kind? c1 'sequence)
+                                    (parse-forms (cdr c1))
+                                  (list (parse-expr c1))))
+                           (loop (cddr scan))))
+                    ;; return
+                    ((and (eq? c0 'return) c1)
+                     (cons `(return (parse-expr c1))
+                           (loop (cddr scan))))
+                    ;; default
+                    (else
+                     (cons (parse-form c0) (loop (cdr scan))))))))))
+    
+    (define (parse-form expr)
+      (dbg 'form expr)
+      (cond ((kind? expr 'sequence)
+             (parse-sequence expr))
+            ((kind? expr 'group)
+             (parse-group expr))
+            ((kind? expr 'call)
+             (parse-expr expr))
+            (else
+             (parse-expr expr))))
+    
+    (define (parse-expr expr)
+      (define (dispatchify expr)
+        (let ((obj (cadr expr))
+              (dispatch (parse-expr (caddr expr))))
+          (if (symbol? dispatch)
+              (list (string->symbol (format "{s}~~" dispatch)) obj)
+            (bind (call . arguments) dispatch
+              (cons (string->symbol (format "{s}~~" call)) (cons obj arguments))))))
+      
+      (dbg 'expr expr)
+      (cond ((kind? expr 'struct-ref)
+             (dispatchify expr))
+            ((kind? expr 'vector-ref)
+             (list 'vector-ref (cadr expr) (ungroup (caddr expr))))
+            ((kind? expr 'post-increment)
+             (cons 'increase! (map parse-expr (cdr expr))))
+            ((kind? expr 'call)
+             (map maybe-ungroup (map parse-expr (cdr expr))))
+            ((kind? expr '->)
+             (dispatchify expr))
+            ((and (pair? expr)
+                  (kind? (car expr) 'group))
+             (parse-expr (ungroup (car expr))))
+            ((pair? expr)
+             (map parse-expr expr))
+            (else
+             expr)))
+    
+    (define (parse-sequence expr)
+      (cons 'begin (parse-forms (cdr expr))))
+    
+    (define (parse-group expr)
+      (assert (kind? expr 'group))
+      (let ((exprs (cdr expr)))
+        (cond ((null? (cdr exprs))
+               (parse-expr (car exprs)))
+              ((eq? (car exprs) 'return)
+               (list 'return (parse-expr (cadr exprs))))
+              (else
+               expr))))
+    
+    (define (parse-error)
+      (error "Parse error"))
+    
+    (define (maybe-ungroup expr)
+      (if (and (kind? expr 'group)
+               (= 1 (length (cdr expr))))
+          (cadr expr)
+        expr))
+    
+    (define (ungroup expr)
+      (assert (kind? expr 'group)
+        (if (= 1 (length (cdr expr)))
+            (cadr expr)
+          ;; fails because of casts
+          expr)))
+    
+    (define (typeify expr)
+      (assert (symbol? expr))
+      (string->symbol (format "<{s}>" expr)))
+    
+    (define (referenceify expr)
+      (string->symbol (format "<reference{s}>" expr)))
+    
+    (define (type? expr)
+      (symbol? expr))
+    
+    (define (variable? expr)
+      (symbol? expr))
+    
+    (define (kind? expr marker)
+      (and (pair? expr)
+           (eq? (car expr) marker)))
+    
+    (define (call? expr call)
+      (and (kind? expr 'call)
+           (eq? (cadr expr) call)))
+    
+    (define (dbg . rest)
+      @w (apply debug rest))
+    
+    (parse-toplevels expressions))
   
   
   ;;;
@@ -233,6 +429,7 @@
   ;;;
   
   
+  @w
   (method override (test8)
     (let ((project (find-project~ (get-workbench) 'world:lib)))
       (let ((directory (get-parent~ (get-tag-reference~ (get-form~ project)))))
