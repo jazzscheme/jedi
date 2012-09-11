@@ -481,7 +481,8 @@
     (and (pair? e)
          (pair? (car e))
          (= 2 (length (car e)))
-         (eq? (caar e) 'group)))
+         (eq? (caar e) 'group)
+         (symbol? (cadar e))))
   
   (let (loop (e (parse-primary-expression)))
     (scan-op)
