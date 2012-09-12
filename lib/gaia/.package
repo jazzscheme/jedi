@@ -13,7 +13,6 @@
                           gaia.debugger.implementation
                           gaia.debugger.stub
                           gaia.live
-                          gaia.parse.parcil
                           gaia.run
                           gaia.services
                           gaia.validate
