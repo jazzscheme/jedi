@@ -79,7 +79,28 @@
         (set! inited? #t)))))
 
 
-(define (parse-infix str)
+@w
+(definition public (with-safe-explore proc (action: action 'ask))
+  (with-exception-filter
+    (lambda (obj)
+      (let ((exc (and (object? obj) (is? obj Explore-Error) obj)))
+        (when exc
+          (let ((result (case action
+                          ((ask)
+                           (message-box (exception-reason exc) type: 'confirmation yes: "Show Me" no: "Debug" cancel: "Ignore"))
+                          ((ignore)
+                           'cancel))))
+            (when (eq? result 'yes)
+              (let ((source (get-source~ exc))
+                    (range (get-range~ exc)))
+                (edit-document~ (get-application) source selection: range)))
+            (neq? result 'no)))))
+    (lambda (exc)
+      (signal-cancel))
+    proc))
+
+
+(define (parse-infix str text start)
   (let ((comments (new-queue)))
     (define (add-comment str)
       (enqueue comments str))
@@ -90,11 +111,19 @@
     (init-six)
     (call-with-input-string str
       (lambda (input)
-        (with-exception-catcher
-          (lambda (e)
+        (with-exception-filter
+          (lambda (exc)
             (continuation-capture
-              (lambda (c)
-                (display-exception-in-context e c))))
+              (lambda (cont)
+                (let ((code (message-box (exception-reason exc) type: 'confirmation yes: "Show Me" no: "Debug" cancel: "Ignore")))
+                  (when (eq? code 'yes)
+                    (let ((location (exception-location exc cont)))
+                      (let ((filepos (position->filepos (locat-position location))))
+                        (let ((pos (new Cell (filepos-line filepos) (filepos-col filepos))))
+                          (set-caret~ text (nu+ start pos))))))
+                  (neq? code 'no)))))
+          (lambda (exc)
+            (signal-cancel))
           (lambda ()
             (let ((expressions (parameterize ((current-readtable (make-six-readtable (input-port-readtable input))))
                                  (read-source-all input))))
