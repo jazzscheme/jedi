@@ -121,13 +121,10 @@
           (bell)
         (let ((str (get-selected-string~ text)))
           (receive (comments expressions) (parse-infix str)
-            (debug comments)
-            (debug expressions)
-            @w
             (let ((output (open-output-string)))
               (for-each (lambda (expr)
                           (pp expr output))
-                        expressions)
+                        (desourcify-all expressions))
               (let ((lisp (butlast (get-output-string output))))
                 (let ((start (get-start~ text)))
                   (replace-selection~ text (split-lines lisp))
@@ -207,122 +204,151 @@
     (define next-comment
       #f)
     
-    (define next-comment-filepos
+    (define next-comment-location
       #f)
     
     (define (next-comment!)
       (if (null? comments)
           (begin
             (set! next-comment #f)
-            (set! next-comment-filepos #f))
+            (set! next-comment-location #f))
         (set! next-comment (car comments))
-        (set! next-comment-filepos (position->filepos (locat-position (source-locat next-comment))))
+        (set! next-comment-location (source->location next-comment))
         (set! comments (cdr comments))))
+    
+    (define (source->location src)
+      (and (source? src)
+           (let ((filepos (position->filepos (locat-position (source-locat src)))))
+             (cons (filepos-line filepos)
+                   (filepos-col filepos)))))
+    
+    (define (insert-comments src)
+      (define (patch-last-comment! comments)
+        (let ((last (last comments)))
+          (set-cadr! last (string-append (cadr last) "\n"))))
+      
+      (let ((comments
+              (let (loop)
+                (if (and next-comment-location
+                         (let ((location (source->location src)))
+                           (and location (nu>? location next-comment-location))))
+                    (cons (inserted-comment next-comment) (or (loop) '()))
+                  #f))))
+        (when comments
+          (patch-last-comment! comments))
+        comments))
+    
+    (define (inserted-comment src)
+      (define (replace-comment comment)
+        (string-append ";;"
+                       (if (starts-with? comment "//")
+                           (substring comment 2 (string-length comment))
+                         comment)))
+      
+      (prog1 (list (print-marker) (replace-comment (desourcify src)))
+        (next-comment!)))
     
     (define (parse-forms exprs)
       (let (loop (scan exprs))
         (if (null? scan)
             '()
           (let ((src (first scan)))
-            (let ((parsed-forms
-                    (let ((c0 (desourcify src)))
-                      (cond ((eq? (expr-kind c0) 'six.define-variable)
-                             (bind (kind var type size val) c0
-                               `((let ((,(parse var) ,(typeify (parse type)) ,@(if val (list (parse val)) '())))
-                                   ,@(loop (cdr scan))))))
-                            (else
-                             (cons (parse c0) (loop (cdr scan))))))))
-              (if (and next-comment-filepos
-                       (let ((pos (and (source? src) (position->filepos (locat-position (source-locat src))))))
-                         (and pos
-                              (or (> (filepos-line pos) (filepos-line next-comment-filepos))
-                                  (> (filepos-col pos) (filepos-col next-comment-filepos))))))
-                  (prog1 (cons (list 'YO (desourcify next-comment)) parsed-forms)
-                    (next-comment!))
-                parsed-forms))))))
+            (let ((comments (insert-comments src)))
+              (let ((parsed-forms
+                      (let ((c0 (desourcify src)))
+                        (cond ((eq? (expr-kind c0) 'six.define-variable)
+                               (bind (kind var type size val) c0
+                                 `((let ((,(parse var) ,(typeify (parse type)) ,@(if val (list (parse val)) '())))
+                                     ,@(loop (cdr scan))))))
+                              (else
+                               (cons (parse src) (loop (cdr scan))))))))
+                (if comments
+                    (append comments parsed-forms)
+                  parsed-forms)))))))
     
     (define (parse expr)
       (let ((kind (expr-kind expr)))
         (let ((unary (assq kind unary-translations)))
           (if unary
-              (bind (kind x) expr
+              (bind (kind x) (source-code expr)
                 `(,(cdr unary) ,(parse x)))
             (let ((binary (assq kind binary-translations)))
               (if binary
-                  (bind (kind x y) expr
+                  (bind (kind x y) (source-code expr)
                     `(,(cdr binary) ,(parse x) ,(parse y)))
                 (case kind
                   ((six.define-procedure)
-                   (bind (kind name (kind type parameters body)) expr
-                     `(define (,(parse name)) ,@(parse-body body))))
+                   (bind (kind name proc) (source-code expr)
+                     (bind (kind type parameters body) (source-code proc)
+                       `(define (,(parse name)) ,@(parse-forms (cdr (source-code body)))))))
                   ((six.identifier)
-                   (cadr expr))
+                   (source-code (cadr (source-code expr))))
                   ((six.if)
-                   (bind (kind test then . rest) expr
+                   (bind (kind test then . rest) (source-code expr)
                      (if (null? rest)
                          `(when ,(parse test)
-                            ,(parse then))
+                            ,@(parse-body then))
                        `(if ,(parse test)
                             ,(parse then)
                           ,(parse (car rest))))))
                   ((six.for)
-                   (bind (kind expr1 expr2 expr3 statement) expr
+                   (bind (kind expr1 expr2 expr3 statement) (source-code expr)
                      (let ((expr1 (case (expr-kind expr1)
                                     ((six.define-variable)
-                                     (bind (kind var type size val) expr1
+                                     (bind (kind var type size val) (source-code expr1)
                                        `(,(parse var) ,(typeify (parse type)) iterate (set! ,(parse var) ,(parse val)))))
                                     ((six.x=y)
-                                     (bind (kind var val) expr1
+                                     (bind (kind var val) (source-code expr1)
                                        `(,(parse var) iterate (set! ,(parse var) ,(parse val)))))
                                     (else
-                                     (error "Unable to parse code")))))
+                                     (error "Unable to parse")))))
                        `(loop (for ,@expr1 ,(parse expr2) ,(parse expr3))
                               ,@(parse-compound statement)))))
                   ((six.dot)
-                   (bind (kind obj member) expr
+                   (bind (kind obj member) (source-code expr)
                      `(,(string->symbol (format "{s}~~" (parse member)))
                        ,(parse obj))))
                   ((six.arrow)
-                   (bind (kind obj member) expr
+                   (bind (kind obj member) (source-code expr)
                      `(,(string->symbol (format "{s}~~" (parse member)))
                        ,(parse obj))))
                   ((six.index)
-                   (bind (kind vec index) expr
+                   (bind (kind vec index) (source-code expr)
                      `(vector-ref ,(parse vec) ,(parse index))))
                   ((six.compound)
                    `(begin
-                      ,@(parse-forms (cdr expr))))
+                      ,@(parse-compound expr)))
                   ((six.call)
-                   (if (eq? (expr-kind (cadr expr)) 'six.dot)
-                       (let ((dot (cadr expr)))
-                         (bind (kind obj member) dot
+                   (let ((first (source-code (car (source-code (cdr (source-code expr)))))))
+                     (if (eq? (expr-kind first) 'six.dot)
+                         (bind (kind obj member) first
                            `(,(string->symbol (format "{s}~~" (parse member)))
                              ,(parse obj)
-                             ,@(parse-list (cddr expr)))))
-                     (map parse (cdr expr))))
+                             ,@(parse-list (cddr (source-code expr)))))
+                       (map parse (cdr (source-code expr))))))
                   ((six.break)
                    `(break))
                   ((six.continue)
                    `(continue))
                   ((six.return)
-                   `(return ,(parse (cadr expr))))
+                   `(return ,(parse (cadr (source-code expr)))))
                   ((six.x=y)
-                   (bind (kind var val) expr
+                   (bind (kind var val) (source-code expr)
                      (case (expr-kind var)
                        ((six.index)
-                        `(vector-set! ,(parse (cadr var)) ,(parse (caddr var)) ,(parse val)))
+                        `(vector-set! ,(parse (cadr (source-code var))) ,(parse (caddr (source-code var))) ,(parse val)))
                        (else
                         `(set! ,(parse var) ,(parse val))))))
                   ((six.&x)
-                   (parse (cadr expr)))
+                   (parse (cadr (source-code expr))))
                   ((six.x<<y)
-                   (bind (kind x y) expr
+                   (bind (kind x y) (source-code expr)
                      `(arithmetic-shift ,(parse x) ,(parse y))))
                   ((six.x>>y)
-                   (bind (kind x y) expr
+                   (bind (kind x y) (source-code expr)
                      `(arithmetic-shift ,(parse x) (- ,(parse y)))))
                   ((six.literal)
-                   (cadr expr))
+                   (source-code (cadr (source-code expr))))
                   (else
                    expr))))))))
     
@@ -330,14 +356,17 @@
       (map parse lst))
     
     (define (parse-body expr)
-      (parse-forms (cdr expr)))
+      (if (eq? (expr-kind expr) 'six.compound)
+          (parse-forms (cdr (source-code expr)))
+        (list (parse expr))))
     
     (define (parse-compound expr)
-      (parse-forms (cdr expr)))
+      (parse-forms (cdr (source-code expr))))
     
     (define (typeify expr)
-      (assert (symbol? expr))
-      (string->symbol (format "<{s}>" expr)))
+      (let ((expr (source-code expr)))
+        (assert (symbol? expr))
+        (string->symbol (format "<{s}>" expr))))
     
     (define (referenceify expr)
       (string->symbol (format "<reference{s}>" expr)))
@@ -346,11 +375,14 @@
       (string->symbol (format "<pointer{s}>" expr)))
     
     (define (expr-kind expr)
-      (and (pair? expr)
-           (car expr)))
+      (and (pair? (source-code expr))
+           (source-code (car (source-code expr)))))
     
     (next-comment!)
-    (parse-forms expressions))
+    (let ((expressions (parse-forms expressions)))
+      (if next-comment
+          (append expressions (map inserted-comment (cons next-comment comments)))
+        expressions)))
   
   
   ;;;
