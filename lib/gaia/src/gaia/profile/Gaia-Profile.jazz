@@ -42,20 +42,28 @@
   '(short
     long
     size_t
-    constcharptr
+    charptr
     FILEptr
     unsignedint
     unsignedshort
     unsignedchar
     stdvectorchar
     vec3_t
+    constvec3_t
     vec4_t
+    constvec4_t
     ms3d_vertex_tptr
     ms3d_joint_t
     ms3d_joint_tptr
     ms3d_group_tptr
     ms3d_triangle_tptr
     ms3d_material_tptr
+    ms3d_keyframe_tptr
+    ms3d_tangent_tptr
+    fourindices
+    
+    f32vector
+    Vector
     
     FLT
     point3
@@ -149,7 +157,7 @@
       (if (is-not? text Text-View)
           (bell)
         (let ((str (get-selected-string~ text)))
-          (receive (comments expressions) (parse-infix str)
+          (receive (comments expressions) (parse-infix str text (get-start~ text))
             (let ((output (open-output-string)))
               (for-each (lambda (expr)
                           (pp expr output))
@@ -167,7 +175,7 @@
           (bell)
         (let ((str (get-selected-string~ text)))
           (let ((start (get-start~ text)))
-            (replace-selection~ text (split-lines (c->lisp str)))
+            (replace-selection~ text (split-lines (c->lisp str text start)))
             @w
             (tabulate-range~ text (new-range~ text start (get-end~ text))))))))
   
@@ -180,13 +188,13 @@
           (if (not str)
               (bell)
             (let ((start (get-start~ text)))
-              (replace-selection~ text (split-lines (c->lisp str)))
+              (replace-selection~ text (split-lines (c->lisp str text start)))
               @w
               (tabulate-range~ text (new-range~ text start (get-end~ text)))))))))
   
   
-  (method (c->lisp str)
-    (receive (comments expressions) (parse-infix str)
+  (method (c->lisp str text start)
+    (receive (comments expressions) (parse-infix str text start)
       (let ((expressions (parse-c comments expressions)))
         (let ((output (open-output-string)))
           (for-each (lambda (expr)
@@ -229,6 +237,10 @@
         (six.x-=y     . decrease!)
         (six.x*=y     . multiply!)
         (six.x/=y     . divide!)))
+    
+    (define binary-associatives
+      '(+
+        *))
     
     (define next-comment
       #f)
@@ -277,6 +289,16 @@
       (prog1 (list (print-marker) (replace-comment (desourcify src)))
         (next-comment!)))
     
+    (define (simplify-associative expr)
+      (let ((op (car expr)))
+        (if (and (memq? op binary-associatives)
+                 (pair? (cadr expr))
+                 (eq? (caadr expr) op))
+            (let ((x (simplify-associative (cadr expr)))
+                  (y (caddr expr)))
+              `(,op ,@(cdr x) ,y))
+          expr)))
+    
     (define (parse-forms exprs)
       (let (loop (scan exprs))
         (if (null? scan)
@@ -304,12 +326,18 @@
             (let ((binary (assq kind binary-translations)))
               (if binary
                   (bind (kind x y) (source-code expr)
-                    `(,(cdr binary) ,(parse x) ,(parse y)))
+                    (simplify-associative `(,(cdr binary) ,(parse x) ,(parse y))))
                 (case kind
                   ((six.define-procedure)
                    (bind (kind name proc) (source-code expr)
                      (bind (kind type parameters body) (source-code proc)
-                       `(define (,(parse name)) ,@(parse-forms (cdr (source-code body)))))))
+                       (let ((queue (new-queue)))
+                         (for-each (lambda (parameter)
+                                     (bind (param type) (source-code parameter)
+                                       (enqueue queue (parse (source-code param)))
+                                       (enqueue queue (typeify (parse (source-code type))))))
+                                   (source-code parameters))
+                         `(define (,(parse name) ,@(queue-list queue)) ,(typeify (parse (source-code type))) ,@(parse-forms (cdr (source-code body))))))))
                   ((six.identifier)
                    (source-code (cadr (source-code expr))))
                   ((six.if)
@@ -378,6 +406,11 @@
                      `(arithmetic-shift ,(parse x) (- ,(parse y)))))
                   ((six.literal)
                    (source-code (cadr (source-code expr))))
+                  ((six.list)
+                   (bind (kind list-car list-cdr) (source-code expr)
+                     (cons (parse list-car) (parse list-cdr))))
+                  ((six.null)
+                   '())
                   (else
                    expr))))))))
     
