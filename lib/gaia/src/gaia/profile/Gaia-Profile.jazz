@@ -207,12 +207,12 @@
   (method (parse-c comments expressions)
     (define unary-translations
       '((six.!x  . not)
-        (six.++x . unimplemented)
+        (six.++x . unimplemented.++x)
         (six.x++ . increase!)
-        (six.--x . unimplemented)
+        (six.--x . unimplemented.--x)
         (six.x-- . decrease!)
         (six.~x  . bitwise-not)
-        (six.*x  . unimplemented)
+        (six.*x  . unimplemented.*x)
         (six.+x  . +)
         (six.-x  . -)))
     
@@ -240,7 +240,9 @@
     
     (define binary-associatives
       '(+
-        *))
+        *
+        and
+        or))
     
     (define next-comment
       #f)
