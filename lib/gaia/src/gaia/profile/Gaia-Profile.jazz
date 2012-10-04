@@ -583,7 +583,7 @@
           (let ((range (current-declaration-range~ text)))
             (if (not range)
                 (bell)
-              (evaluate-range~ text range evaluation-mode: 'interpret))))))
+              (evaluate-range~ text range evaluation-mode: 'live))))))
     
     (let ((text (get-focus)))
       (let ((info (literal-range text)))
