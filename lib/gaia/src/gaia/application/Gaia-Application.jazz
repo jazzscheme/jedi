@@ -43,6 +43,96 @@
         (gaia.validate))
 
 
+(cond-expand
+  (windows
+    (definition (show-taskbar flag)
+      (let ((taskbar (FindWindow "Shell_TrayWnd" #f))
+            (start (FindWindow "Button" #f)))
+        (when taskbar
+          (ShowWindow taskbar (if flag SW_SHOW SW_HIDE))
+          (UpdateWindow taskbar))
+        (when start
+          (ShowWindow start (if flag SW_SHOW SW_HIDE))
+          (UpdateWindow start)))))
+  (else
+    (definition (show-taskbar flag)
+      )))
+
+
+(cond-expand
+  (windows
+    (definition (platform-tile-gaia/world debuggee mode)
+      (let ((handle (get-handle~ (get-toplevel))))
+        (set-style handle (bitwise-ior WS_CLIPSIBLINGS
+                                       WS_CLIPCHILDREN
+                                       WS_POPUP))
+        (let ((area (get-display-area~ (primary-monitor))))
+          (let ((left (get-left~ area))
+                (top (get-top~ area))
+                (right (get-right~ area))
+                (bottom (get-bottom~ area)))
+            (let ((width (- right left)))
+              (let ((world-width (case mode
+                                   ((live) (fxround (percent width 45.5)))
+                                   ((design) (- width 300)))))
+                (SetWindowPos handle HWND_TOP
+                  world-width
+                  0
+                  (- width world-width)
+                  (- bottom top)
+                  (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED))
+                (show-window handle)
+                (receive (server clients) (collect-world-debuggees)
+                  (let ((debuggees (append clients (if server (list server) '()))))
+                    (let ((count (length debuggees))
+                          (rank 0)
+                          (area-height (- bottom top)))
+                      (for-each (lambda (debuggee)
+                                  (let ((height (fxround (exact->inexact (/ area-height count)))))
+                                    (let ((top (* height rank)))
+                                      (let ((rect (new Rect 0 top world-width (+ top height))))
+                                        (position-world~ debuggee rect))))
+                                  (increase! rank))
+                                debuggees)))))))))))
+  (else
+    (definition (platform-tile-gaia/world debuggee mode)
+      )))
+
+
+(cond-expand
+  (windows
+    (definition (platform-restore-gaia/world debuggee)
+      (let ((handle (get-handle~ (get-toplevel))))
+        (set-style handle
+                   (bitwise-ior WS_CLIPSIBLINGS
+                                WS_CLIPCHILDREN
+                                WS_POPUP
+                                WS_OVERLAPPEDWINDOW
+                                WS_MINIMIZEBOX
+                                WS_SYSMENU)))))
+  (else
+    (definition (platform-restore-gaia/world debuggee)
+      )))
+
+
+(definition (collect-world-debuggees)
+  (define (load-debuggee process)
+    (load-object~ (get-remote-register process) 'world.debuggee 'world-debuggee))
+  
+  (let ((server #f)
+        (clients (new-queue))
+        (manager (get-debugger-manager)))
+    (for-each-process~ manager
+      (lambda (debugger debugged-process live? focused?)
+        (let ((process (get-reference~ debugged-process)))
+          (when (remote-proxy? process)
+            (let ((kind (determine-process-property~ debugger process kind: #f)))
+              (case kind
+                ((server) (set! server (load-debuggee process)))
+                ((client) (enqueue clients (load-debuggee process)))))))))
+    (values server (queue-list clients))))
+
+
 (class Gaia-Application extends IDE
   
   
@@ -528,38 +618,7 @@
       ((design)
        (select-workspace 'design)
        (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
-    (let ((handle (get-handle~ (get-toplevel))))
-      (set-style handle (bitwise-ior WS_CLIPSIBLINGS
-                                     WS_CLIPCHILDREN
-                                     WS_POPUP))
-      (let ((area (get-display-area~ (primary-monitor))))
-        (let ((left (get-left~ area))
-              (top (get-top~ area))
-              (right (get-right~ area))
-              (bottom (get-bottom~ area)))
-          (let ((width (- right left)))
-            (let ((world-width (case mode
-                                 ((live) (fxround (percent width 45.5)))
-                                 ((design) (- width 300)))))
-              (SetWindowPos handle HWND_TOP
-                world-width
-                0
-                (- width world-width)
-                (- bottom top)
-                (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED))
-              (show-window handle)
-              (receive (server clients) (collect-world-debuggees)
-                (let ((debuggees (append clients (if server (list server) '()))))
-                  (let ((count (length debuggees))
-                        (rank 0)
-                        (area-height (- bottom top)))
-                    (for-each (lambda (debuggee)
-                                (let ((height (fxround (exact->inexact (/ area-height count)))))
-                                  (let ((top (* height rank)))
-                                    (let ((rect (new Rect 0 top world-width (+ top height))))
-                                      (position-world~ debuggee rect))))
-                                (increase! rank))
-                              debuggees)))))))))
+    (platform-tile-gaia/world debuggee mode)
     (set! current-state 'tiled))
   
   
@@ -568,17 +627,10 @@
     (change-scrollbar-style #f)
     (select-workspace (or previous-workspace 'text))
     (full-screen~ (get-application) #f)
-    (let ((handle (get-handle~ (get-toplevel))))
-      (set-style handle
-                 (bitwise-ior WS_CLIPSIBLINGS
-                              WS_CLIPCHILDREN
-                              WS_POPUP
-                              WS_OVERLAPPEDWINDOW
-                              WS_MINIMIZEBOX
-                              WS_SYSMENU))
-      (if previous-placement
-          (set-placement~ (get-toplevel) previous-placement)
-        (show-window handle)))
+    (platform-restore-gaia/world debuggee)
+    (if previous-placement
+        (set-placement~ (get-toplevel) previous-placement)
+      (show-window~ (get-toplevel)))
     (receive (server clients) (collect-world-debuggees)
       (let ((debuggees (append clients (if server (list server) '()))))
         (for-each (lambda (debuggee)
@@ -587,35 +639,6 @@
     (set! previous-placement #f)
     (set! previous-workspace #f)
     (set! current-state 'restored))
-  
-  
-  (method (collect-world-debuggees)
-    (define (load-debuggee process)
-      (load-object~ (get-remote-register process) 'world.debuggee 'world-debuggee))
-    
-    (let ((server #f)
-          (clients (new-queue))
-          (manager (get-debugger-manager)))
-      (for-each-process~ manager
-        (lambda (debugger debugged-process live? focused?)
-          (let ((process (get-reference~ debugged-process)))
-            (when (remote-proxy? process)
-              (let ((kind (determine-process-property~ debugger process kind: #f)))
-                (case kind
-                  ((server) (set! server (load-debuggee process)))
-                  ((client) (enqueue clients (load-debuggee process)))))))))
-      (values server (queue-list clients))))
-  
-  
-  (method (show-taskbar flag)
-    (let ((taskbar (FindWindow "Shell_TrayWnd" #f))
-          (start (FindWindow "Button" #f)))
-      (when taskbar
-        (ShowWindow taskbar (if flag SW_SHOW SW_HIDE))
-        (UpdateWindow taskbar))
-      (when start
-        (ShowWindow start (if flag SW_SHOW SW_HIDE))
-        (UpdateWindow start))))
   
   
   (method (change-scrollbar-style flat?)
