@@ -11,5 +11,4 @@
 
 (form
   (<Workbench>
-    (<*> tag-reference: {File Gaia ".project"})
     (<*> tag-reference: {File Profiles "lib" "%profile-unit%" ".project"}))))

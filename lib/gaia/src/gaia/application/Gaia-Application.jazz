@@ -284,7 +284,7 @@
       (or (command-argument "settings")
           (let ((dot-dir {Directory Home ".gaia"}))
             (create-directories~ dot-dir)
-            (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings))))
+            (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings feedback?: #f))))
     
     (let ((settings-path (tokenise-filename (determine-settings))))
       (register-alias 'Settings settings-path override?: #t)
@@ -293,6 +293,10 @@
           (create~ file))
         (set! settings (new File-Settings file: file))
         (register-settings settings)))
+    (register-alias 'Project
+                    (list (if (is-alias? 'Gaia)
+                              'Gaia
+                            'Build)))
     (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) create?: #t)))
       (register-repository-aliases (install-repository projects-repository))))
 
@@ -303,7 +307,7 @@
   
   
   (method override (templates-directory)
-    {Directory Gaia "lib" "gaia" "templates"})
+    {Directory Project "lib" "gaia" "templates"})
   
 
   ;;;
@@ -312,7 +316,8 @@
   
   
   (method override (install-profiles)
-    (register-repository-aliases (install-repository (parse~ {Directory Settings "profiles"}))))
+    (let ((profiles-repository (make-repository 'Profiles "lib" (parse~ {Directory Settings "profiles"}) create?: #t)))
+      (register-repository-aliases (install-repository profiles-repository))))
   
   
   ;;;
@@ -651,7 +656,7 @@
   
   
   (method package (on-readme evt)
-    (edit-document {File Jazz "README"})))
+    (edit-document {File Project "README"})))
 
 
 ;;;
