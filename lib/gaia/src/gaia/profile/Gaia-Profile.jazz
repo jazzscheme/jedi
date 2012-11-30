@@ -158,9 +158,17 @@
   (definition WorldWebsite-Content
     {Directory World "lib" "world.website" "content"})
   
+  (definition WorldWebsite-Reference
+    {Directory World "lib" "world.website" "reference"})
+  
   
   (method override (test5)
-    (generate-website WorldWebsite-Site WorldWebsite-Content))
+    (parameterize ((generate-manual? #f))
+      (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
+  
+  
+  (method override (test6)
+    (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference))
 
   
   ;;;
