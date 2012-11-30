@@ -148,6 +148,22 @@
   
   
   ;;;
+  ;;;; Website
+  ;;;
+
+  
+  (definition WorldWebsite-Site
+    {File World "lib" "world.website" "site" "WorldWebsite.jml"})
+  
+  (definition WorldWebsite-Content
+    {Directory World "lib" "world.website" "content"})
+  
+  
+  (method override (test5)
+    (generate-website WorldWebsite-Site WorldWebsite-Content))
+
+  
+  ;;;
   ;;;; C -> Lisp
   ;;;
   

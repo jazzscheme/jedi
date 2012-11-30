@@ -52,7 +52,8 @@
           (<Jazz-File>       name: Live-Properties-Manager source: {File :context "src" "gaia" "live" "Live-Properties-Manager.jazz"})
           (<Jazz-File>       name: Live-Properties         source: {File :context "src" "gaia" "live" "Live-Properties.jazz"})
           (<Jazz-File>       name: Live-Style              source: {File :context "src" "gaia" "live" "Live-Style.jazz"})
-          (<Jazz-File>       name: _live                   source: {File :context "src" "gaia" "live" "_live.jazz"})))
+          (<Jazz-File>       name: _live                   source: {File :context "src" "gaia" "live" "_live.jazz"}))
+        (<Jazz-File>         name: product                 source: {File :context "src" "gaia" "product.jazz"}))
       (<Project-Directory>                                 directory: {Directory :context "src" "world"}
         (<Project-Directory>                               directory: {Directory :context "src" "world" "debuggee"}
           (<Jazz-File>       name: stub                    source: {File :context "src" "world" "debuggee" "stub.jazz"}))))
