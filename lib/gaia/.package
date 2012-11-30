@@ -4,6 +4,7 @@
   (root "src")
   (install gaia.install)
   (products (gaia (title "Gaia")
+                  (unit gaia.product)
                   (run gaia.run)
                   (update gaia
                           gaia.data.bindings
@@ -13,6 +14,7 @@
                           gaia.debugger.implementation
                           gaia.debugger.stub
                           gaia.live
+                          gaia.product
                           gaia.run
                           gaia.services
                           gaia.validate
