@@ -164,13 +164,16 @@
   
   (method override (test5)
     (reload-documentation~ (get-application))
-    (parameterize ((generate-manual? #f))
+    (parameterize ((generate-manual? #t)
+                   (generate-reference? #f))
       (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
   
   
   (method override (test6)
     (reload-documentation~ (get-application))
-    (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference))
+    (parameterize ((generate-manual? #t)
+                   (generate-reference? #t))
+      (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
 
   
   ;;;
