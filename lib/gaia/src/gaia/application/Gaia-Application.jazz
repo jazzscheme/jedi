@@ -175,10 +175,20 @@
   
   
   (method override (finish-process)
+    (define (setup-documents)
+      (set-document-kinds
+        '(<kinds>
+           (<kind>     name: "Jazz"      kind: jazz template: "jazz/New.jazz"
+             (<kind>   name: "Module"    kind: jazz template: "jazz/NewModule.jazz"
+               (<kind> name: "Class"     kind: jazz template: "jazz/NewClass.jazz")
+               (<kind> name: "Interface" kind: jazz template: "jazz/NewInterface.jazz"))
+             (<kind>   name: "Script"    kind: jazz template: "jazz/NewScript.jazz")))))
+    
     (define (setup-sql)
       (register-console~ (get-sql-console) "SQL Console" #f view-class: SQL-Console-View console-button?: #f))
     
     (nextmethod)
+    (setup-documents)
     (setup-workspaces)
     (setup-sql))
   
