@@ -1,6 +1,7 @@
 /binaries
 /bin
 /build
+/deploy
 /gambit
 /.jazzini
 .configuration

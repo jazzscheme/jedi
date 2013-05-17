@@ -57,6 +57,5 @@
         (<Project-Directory>                        directory: {Directory :context "src" "jedi" "preference"}
           (<Jazz-File>       name: Jedi-Actions     source: {File :context "src" "jedi" "preference" "Jedi-Actions.jazz"})
           (<Jazz-File>       name: Jedi-Bindings    source: {File :context "src" "jedi" "preference" "Jedi-Bindings.jazz"})
-          (<Jazz-File>       name: Jedi-Preferences source: {File :context "src" "jedi" "preference" "Jedi-Preferences.jazz"}))))
-    (<Project-Directory>                            directory: {Directory :context "doc"}
-      (<Project-File>                               source: {File :context "doc" "jedi.jml"})))))
+          (<Jazz-File>       name: Jedi-Preferences source: {File :context "src" "jedi" "preference" "Jedi-Preferences.jazz"}))
+        (<Jazz-File>         name: product          source: {File :context "src" "jedi" "product.jazz"}))))))

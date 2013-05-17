@@ -239,6 +239,10 @@
           (create~ file))
         (set! settings (new File-Settings file: file))
         (register-settings settings)))
+    (register-alias 'Project
+                    (list (if (is-alias? 'Jedi)
+                              'Jedi
+                            'Build)))
     (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) create?: #t)))
       (register-repository-aliases (install-repository projects-repository))))
   
@@ -253,7 +257,9 @@
   
   
   (method override (templates-directory)
-    {Directory Jedi "lib" "jedi" "templates"})
+    (if (is-alias? 'Jedi)
+        {Directory Jedi "lib" "jedi" "templates"}
+      {Directory Home "jedi" "2.8" "lib" "jedi" "templates"}))
   
 
   ;;;
@@ -545,7 +551,7 @@
   
   
   (method package (on-readme evt)
-    (edit-document {File Jazz "README"})))
+    (edit-document {File Project "README"})))
 
 
 ;;;

@@ -4,11 +4,13 @@
   (root "src")
   (install jedi.install)
   (products (jedi (title "Jedi")
+                  (unit jedi.product)
                   (run jedi.run)
                   (update jedi
                           jedi.convert
                           jedi.data.bindings
                           jedi.data.preferences
+                          jedi.product
                           jedi.run
                           jedi.services
                           jedi.validate)
