@@ -257,9 +257,7 @@
   
   
   (method override (templates-directory)
-    (if (is-alias? 'Jedi)
-        {Directory Jedi "lib" "jedi" "templates"}
-      {Directory Home "jedi" "2.8" "lib" "jedi" "templates"}))
+    {Directory Project "lib" "jedi" "templates"})
   
 
   ;;;
