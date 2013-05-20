@@ -175,9 +175,13 @@
       (<Separator-Item>)
       (<Label-Item>     name: run              title: "Run" icon: {Image-Resource "Link"} action-handler: {Action ide run-project})
       (<Label-Item>     name: debug            title: "Debug" icon: {Image-Resource "Debugger"} action-handler: {Action ide debug-project})
+      @waiting
       (<Label-Item>     name: test             title: "Test" icon: {Image-Resource "Execute"} action-handler: {Action ide test-project})
+      @waiting
       (<Label-Item>     name: validate         title: "Validate" icon: {Image-Resource "CheckedOut"} action-handler: {Action ide validate-project})
+      @waiting
       (<Separator-Item>)
+      @waiting
       (<Label-Item>     name: build            title: "Build" icon: {Image-Resource "Build"} action-handler: {Action ide build-project})
       @waiting
       (<Label-Item>     name: compile          title: "Compile" icon: {Image-Resource "Compile"} action-handler: {Action ide compile-file})
