@@ -211,7 +211,9 @@
       (<Label-Item>     name: clear-terminal         title: "Clear Terminal" icon: {Image-Resource "Clear"} tooltip?: #t tooltip-text: "Clear Terminal" action-handler: {Action ide clear-terminal})
       (<Separator-Item>)
       (<Label-Item>     name: test                   title: "Test" icon: {Image-Resource "Script"} tooltip?: #t tooltip-text: "Test" action-handler: {Action ide test})
+      @wait
       (<Separator-Item>)
+      @wait
       (<Label-Item>     name: designer-try-out       title: "Designer Try Out" icon: {Image-Resource "Trait"} action-handler: {Action ide designer-try-out})
       @wait
       (<Separator-Item>)
