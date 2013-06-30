@@ -11,6 +11,7 @@
 
 (import (jazz.designer)
         (jazz.editor.jazz)
+        (jazz.editor.lisp)
         (jazz.foreign)
         (jazz.graphic)
         (jazz.ide)
@@ -639,4 +640,14 @@
   (method override (test8)
     (let ((project (find-project~ (get-workbench) 'world:lib)))
       (let ((directory (get-parent~ (get-tag-reference~ (get-form~ project)))))
-        (search-trailing-whitespace directory: directory))))))
+        (search-trailing-whitespace directory: directory)))))
+
+
+;;;
+;;;; Expressions
+;;;
+
+
+(define-expression assets
+  tabulate: 1
+  walk: :repository))
