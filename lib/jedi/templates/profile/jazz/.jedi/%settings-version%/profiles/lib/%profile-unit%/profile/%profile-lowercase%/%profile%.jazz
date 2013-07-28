@@ -39,10 +39,6 @@
 
   (method override (test)
     )
-
-
-  (method override (test-shift)
-    )
     
   
   (method override (test0)
