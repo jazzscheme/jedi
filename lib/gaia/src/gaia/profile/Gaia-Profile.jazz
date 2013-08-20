@@ -28,6 +28,7 @@
         (jazz.ui)
         (jazz.ui.activity)
         (jazz.ui.clipboard)
+        (jazz.ui.dialog)
         (jazz.ui.view)
         (jazz.website)
         (gaia)
@@ -616,19 +617,55 @@
               (evaluate-range~ text range evaluation-mode: 'live))))))
     
     (let ((text (get-focus)))
-      (let ((info (literal-range text)))
-        (if (not info)
-            (begin
-              (user-message "No literal found")
-              (bell))
-          (let ((undoer (get-undoer~ (get-model~ text))))
-            (let ((atomic-preserved (start-atomic-undo~ undoer)))
-              (bind (literal-string literal range) info
-                (let* ((start (get-start~ range))
-                       (end (get-end~ range))
-                       (mid (fxround/ (+ (get-col~ start) (get-col~ end)) 2))
-                       (pos (text->view~ text (new Cell (get-line~ start) mid))))
-                  (choose-literal text undoer atomic-preserved #f literal-string literal range pos)))))))))
+      (if (is-not? text Jazz-Text-View)
+          (bell)
+        (let ((info (literal-range text)))
+          (if (not info)
+              (begin
+                (user-message "No literal found")
+                (bell))
+            (let ((undoer (get-undoer~ (get-model~ text))))
+              (let ((atomic-preserved (start-atomic-undo~ undoer)))
+                (bind (literal-string literal range) info
+                  (let* ((start (get-start~ range))
+                         (end (get-end~ range))
+                         (mid (fxround/ (+ (get-col~ start) (get-col~ end)) 2))
+                         (pos (text->view~ text (new Cell (get-line~ start) mid))))
+                    (choose-literal text undoer atomic-preserved #f literal-string literal range pos))))))))))
+  
+  
+  ;;;
+  ;;;; Warcraft Models
+  ;;;
+  
+  
+  (method (clean-warcraft-model-names)
+    (let ((count 0))
+      (iterate-directory~ (choose-directory)
+        (lambda (file)
+          (let ((extension (get-extension~ file)))
+            (when (extension=? extension "ms3d")
+              (let ((base (get-base~ file)))
+                (let ((open-brace (find base #\[)))
+                  (when open-brace
+                    (let ((second-underscore (find base #\_ start: (+ open-brace 1))))
+                      (when second-underscore
+                        (let ((third-underscore (find base #\_ start: (+ second-underscore 1))))
+                          (when third-underscore
+                            (let ((clean-name (add-extension (format "{a}_{a}"
+                                                                     (substring base 0 (- open-brace 1))
+                                                                     (substring base (+ second-underscore 1) third-underscore))
+                                                             extension)))
+                              (let ((clean-file (new-brother~ file clean-name)))
+                                (if (exists?~ clean-file)
+                                    (debug clean-file)
+                                  (move-pathname~ file clean-file)
+                                  (user-message "{a}" clean-name)
+                                  (increase! count))))))))))))))
+        files?: #t
+        directories?: #f
+        recursive?: #t)
+      (user-message "Cleaned {a} name{a}" count (format-plural count))))
   
   
   ;;;
@@ -650,4 +687,64 @@
 
 (define-expression assets
   tabulate: 1
-  walk: :repository))
+  walk: :repository)
+
+
+(define-expression model
+  tabulate: 1
+  walk: :repository)
+
+
+(define-expression iterate-table
+  tabulate: 1)
+
+
+(define-expression define-model
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("model"))
+
+
+(define-expression define-block
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("block"))
+
+
+(define-expression define-minecraft-block
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("minecraft-block"))
+
+
+(define-expression define-parameter
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("parameter"))
+
+
+(define-expression define-objective
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("objective"))
+
+
+;;;
+;;;; Completions
+;;;
+
+
+(register-user-completions
+  '(("get-h" . "get-h")
+    ("get-v" . "get-v")
+    ("hei" . "height")
+    ("ja" . "jazz")
+    ("me" . "me")
+    ("met" . "method")
+    ("sy" . "syntax")
+    ("wid" . "width"))))
