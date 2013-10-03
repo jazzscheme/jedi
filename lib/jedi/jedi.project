@@ -18,4 +18,6 @@
       (<Trait>      name: Debug
         (<install>                configuration: "build/debug"))
       (<Trait>      name: Release
-        (<install>                configuration: "build/release"))))))
+        (<install>                configuration: "build/release"))
+      (<Trait>      name: Test
+        (<install>                configuration: "build/test"))))))
