@@ -685,6 +685,10 @@
 ;;;
 
 
+(define-expression site
+  tabulate: 1)
+
+
 (define-expression assets
   tabulate: 1
   walk: :repository)
@@ -695,7 +699,21 @@
   walk: :repository)
 
 
+(define-expression role
+  tabulate: 1
+  walk: :repository)
+
+
+(define-expression metadata
+  tabulate: 1
+  walk: :repository)
+
+
 (define-expression iterate-table
+  tabulate: 1)
+
+
+(define-expression iterate-register
   tabulate: 1)
 
 
@@ -706,11 +724,11 @@
   name-mangler: ("model"))
 
 
-(define-expression define-block
+(define-expression define-block-model
   declaration?: #t
   tabulate: 1
   walk: :define
-  name-mangler: ("block"))
+  name-mangler: ("block-model"))
 
 
 (define-expression define-minecraft-block
@@ -747,4 +765,5 @@
     ("me" . "me")
     ("met" . "method")
     ("sy" . "syntax")
-    ("wid" . "width"))))
+    ("wid" . "width")
+    ("wo" . "world"))))
