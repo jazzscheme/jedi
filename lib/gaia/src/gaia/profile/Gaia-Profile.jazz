@@ -486,6 +486,10 @@
   
   
   (method override (test)
+    (live-code))
+  
+  
+  (method (live-code)
     (define (literal-range text)
       (let ((has-selection? (has-selection?~ text))
             (expl (new (explorer-class~ text) (get-model~ text) start: (get-start~ text) end: (get-end~ text))))
