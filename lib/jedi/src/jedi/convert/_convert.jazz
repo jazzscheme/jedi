@@ -69,7 +69,7 @@
                       (unless (exists?~ profile-dir)
                         (copy-directory~ dir profile-dir)
                         (convert-profile profile-dir)
-                        (feedback "; moving old {a} to obsolete..." dirname)
+                        (convert-feedback "; moving old {a} to obsolete..." dirname)
                         (let ((obsolete-dir (new-directory~ user-dir "obsolete")))
                           (let ((obsolete-profile-dir (new-directory~ obsolete-dir dirname)))
                             (unless (exists?~ obsolete-profile-dir)
@@ -122,7 +122,7 @@
       
       (when (exists?~ manifest-file)
         (let ((filename (get-name~ manifest-file)))
-          (feedback "; converting {a}..." filename)
+          (convert-feedback "; converting {a}..." filename)
           (with-jazz-readtable
             (lambda ()
               (let ((form (convert-manifest (parse-form `(data jazz.ide.data.project (form (<Project> ,@(cdr (read-manifest))))))))
@@ -132,7 +132,7 @@
                 (delete-file~ manifest-file)))))))
     
     (define (convert-setting settings-dir filename dialect potential-imports convert)
-      (feedback "; converting {a}..." filename)
+      (convert-feedback "; converting {a}..." filename)
       (let ((file (new-file~ settings-dir filename)))
         (when (exists?~ file)
           (let ((expr (read-expr file)))
@@ -169,7 +169,7 @@
       form)
     
     (let ((profile-unit (get-name~ profile-dir)))
-      (feedback "; converting {a}..." profile-unit)
+      (convert-feedback "; converting {a}..." profile-unit)
       (receive (profile-name profile-package) (convert-package)
         (let ((module-dir (new-directory~ profile-dir (list "profile" (downcase (symbol->string profile-name))))))
           (let ((manifest-file (new-file~ module-dir (format "{a}-Manifest.jazz" profile-name)))
@@ -263,7 +263,7 @@
 
 (definition (convert-settings profile-dir convert literal-hook)
   (define (convert-setting what settings-dir filename)
-    (feedback "; converting {a}..." filename)
+    (convert-feedback "; converting {a}..." filename)
     (let ((file (new-file~ settings-dir filename)))
       (when (exists?~ file)
         (let ((expr (read-expr file literal-hook)))
@@ -271,7 +271,7 @@
             (save-form form file))))))
   
   (let ((profile-name (get-name~ profile-dir)))
-    (feedback "; converting {a}..." profile-name)
+    (convert-feedback "; converting {a}..." profile-name)
     (let ((module-dir (new-directory~ profile-dir (split profile-name "."))))
       (when (exists?~ module-dir)
         (let ((settings-dir (new-directory~ module-dir "settings")))
@@ -301,7 +301,7 @@
             (read input)))))))
 
 
-(definition (feedback . rest)
+(definition (convert-feedback . rest)
   (with-printer :terminal
     (lambda (output)
       (apply format output rest)
