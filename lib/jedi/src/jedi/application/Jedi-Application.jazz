@@ -230,8 +230,8 @@
       (or (command-argument "settings")
           (let ((dot-dir {Directory Home ".jedi"}))
             (let ((first-time? (not (exists?~ dot-dir))))
-            (create-directories~ dot-dir)
-            (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings feedback?: (not first-time?))))))
+              (create-directories~ dot-dir)
+              (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings feedback?: (not first-time?))))))
     
     (let ((settings-path (tokenise-filename (determine-settings))))
       (register-alias 'Settings settings-path override?: #t)
