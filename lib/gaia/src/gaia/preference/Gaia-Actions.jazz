@@ -50,8 +50,8 @@
   (form
     (<install>
       ;; World
-      (<Action-Item> name: live-gaia/world            action-handler: {Event-Handler :application on-live-gaia/world} shortcut: {Shortcut :control :alt F9})
-      (<Action-Item> name: design-gaia/world          action-handler: {Event-Handler :application on-design-gaia/world} shortcut: {Shortcut :control :alt F10})
-      (<Action-Item> name: restore-gaia/world         action-handler: {Event-Handler :application on-restore-gaia/world} shortcut: {Shortcut :control :alt F12})
+      (<Action-Item> name: live-gaia/world            action-handler: {Event-Handler :application on-live-gaia/world} shortcut: {Shortcut :meta #\E})
+      (<Action-Item> name: design-gaia/world          action-handler: {Event-Handler :application on-design-gaia/world} shortcut: {Shortcut :meta #\D})
+      (<Action-Item> name: restore-gaia/world         action-handler: {Event-Handler :application on-restore-gaia/world} shortcut: {Shortcut :meta #\R})
       ;; Help
       (<Action-Item> name: readme                     action-handler: {Event-Handler :application on-readme})))))

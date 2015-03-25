@@ -63,6 +63,7 @@
         (jazz.system)
         (jazz.ui)
         (jazz.ui.picker)
+        (jazz.ui.screen)
         (jazz.ui.skin)
         (jazz.ui.view)
         (jazz.ui.window)
@@ -89,6 +90,34 @@
 
 
 (cond-expand
+  (cocoa
+    (definition (platform-tile-gaia/world debuggee mode)
+      (let ((handle (get-handle~ (get-toplevel))))
+        (let ((rect (get-frame-rect~ (main-screen))))
+          (let ((left (get-left~ rect))
+                (top (get-top~ rect))
+                (right (get-right~ rect))
+                (bottom (get-bottom~ rect)))
+            (let ((width (- right left)))
+              (let ((world-width (case mode
+                                   ((live) (fxround (percent width 45.5)))
+                                   ((design) (- width 300)))))
+                (with-NSRect (new Rect world-width 0 width bottom)
+                  (lambda (rect)
+                    (platformEnterWindowed handle rect #f)))
+                @wait
+                (receive (server clients) (collect-world-debuggees)
+                  (let ((debuggees (append clients (if server (list server) '()))))
+                    (let ((count (length debuggees))
+                          (rank 0)
+                          (area-height (- bottom top)))
+                      (for-each (lambda (debuggee)
+                                  (let ((height (fxround (exact->inexact (/ area-height count)))))
+                                    (let ((top (* height rank)))
+                                      (let ((rect (new Rect 0 top world-width (+ top height))))
+                                        (position-world~ debuggee rect))))
+                                  (increase! rank))
+                                debuggees)))))))))))
   (windows
     (definition (platform-tile-gaia/world debuggee mode)
       (let ((handle (get-handle~ (get-toplevel))))
@@ -129,6 +158,10 @@
 
 
 (cond-expand
+  (cocoa
+    (definition (platform-restore-gaia/world debuggee)
+      (let ((handle (get-handle~ (get-toplevel))))
+        (platformExitWindowed handle))))
   (windows
     (definition (platform-restore-gaia/world debuggee)
       (let ((handle (get-handle~ (get-toplevel))))
@@ -650,41 +683,74 @@
     (tile-gaia/world debuggee 'design))
   
   
-  (method (tile-gaia/world debuggee mode)
-    (when (eq? current-state 'restored)
-      (let ((toplevel (get-toplevel)))
-        (set! previous-placement (get-placement~ toplevel))
-        (set! previous-workspace (get-name~ (selected-workspace)))))
-    (show-taskbar #f)
-    (change-scrollbar-style #t)
-    (case mode
-      ((live)
-       (select-workspace 'live)
-       (full-screen~ (get-application) #t))
-      ((design)
-       (select-workspace 'design)
-       (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
-    (platform-tile-gaia/world debuggee mode)
-    (set! current-state 'tiled))
+  (cond-expand
+    (cocoa
+      (method (tile-gaia/world debuggee mode)
+        (when (eq? current-state 'restored)
+          (let ((toplevel (get-toplevel)))
+            (set! previous-workspace (get-name~ (selected-workspace)))))
+        (change-scrollbar-style #t)
+        (case mode
+          ((live)
+           (select-workspace 'live)
+           (full-screen~ (get-application) #t))
+          ((design)
+           (select-workspace 'design)
+           (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
+        (platform-tile-gaia/world debuggee mode)
+        (set! current-state 'tiled)))
+    (else
+      (method (tile-gaia/world debuggee mode)
+        (when (eq? current-state 'restored)
+          (let ((toplevel (get-toplevel)))
+            (set! previous-placement (get-placement~ toplevel))
+            (set! previous-workspace (get-name~ (selected-workspace)))))
+        (show-taskbar #f)
+        (change-scrollbar-style #t)
+        (case mode
+          ((live)
+           (select-workspace 'live)
+           (full-screen~ (get-application) #t))
+          ((design)
+           (select-workspace 'design)
+           (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
+        (platform-tile-gaia/world debuggee mode)
+        (set! current-state 'tiled))))
   
   
-  (method (restore-gaia/world (debuggee #f))
-    (show-taskbar #t)
-    (change-scrollbar-style #f)
-    (select-workspace (or previous-workspace 'text))
-    (full-screen~ (get-application) #f)
-    (platform-restore-gaia/world debuggee)
-    (if previous-placement
-        (set-placement~ (get-toplevel) previous-placement)
-      (show-window~ (get-toplevel)))
-    (receive (server clients) (collect-world-debuggees)
-      (let ((debuggees (append clients (if server (list server) '()))))
-        (for-each (lambda (debuggee)
-                    (restore-world~ debuggee))
-                  debuggees)))
-    (set! previous-placement #f)
-    (set! previous-workspace #f)
-    (set! current-state 'restored))
+  (cond-expand
+    (cocoa
+      (method (restore-gaia/world (debuggee #f))
+        (change-scrollbar-style #f)
+        (select-workspace (or previous-workspace 'text))
+        (full-screen~ (get-application) #f)
+        (platform-restore-gaia/world debuggee)
+        @wait
+        (receive (server clients) (collect-world-debuggees)
+          (let ((debuggees (append clients (if server (list server) '()))))
+            (for-each (lambda (debuggee)
+                        (restore-world~ debuggee))
+                      debuggees)))
+        (set! previous-workspace #f)
+        (set! current-state 'restored)))
+    (else
+      (method (restore-gaia/world (debuggee #f))
+        (show-taskbar #t)
+        (change-scrollbar-style #f)
+        (select-workspace (or previous-workspace 'text))
+        (full-screen~ (get-application) #f)
+        (platform-restore-gaia/world debuggee)
+        (if previous-placement
+            (set-placement~ (get-toplevel) previous-placement)
+          (show-window~ (get-toplevel)))
+        (receive (server clients) (collect-world-debuggees)
+          (let ((debuggees (append clients (if server (list server) '()))))
+            (for-each (lambda (debuggee)
+                        (restore-world~ debuggee))
+                      debuggees)))
+        (set! previous-placement #f)
+        (set! previous-workspace #f)
+        (set! current-state 'restored))))
   
   
   (method (change-scrollbar-style flat?)
