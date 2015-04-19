@@ -47,34 +47,100 @@
 
 
 (definition (build descriptor (unit: unit #f) (force?: force? #f))
-  (define (copy-info)
-    (install-file '("README"))
-    (install-file '("INSTALL")))
+  (define (resources-dir)
+    (let ((bundle (product-descriptor-build-bundle descriptor)))
+      (if bundle
+          (new-directory~ {Directory Build} (format "{a}.app/Contents/Resources" bundle))
+        {Directory Build})))
   
-  (define (copy-templates)
-    (install-directory '("lib" "jedi" "templates")))
-  
-  (define (install-file path)
-    (let ((src (new-file~ {Directory Jedi} path))
-          (dst (new-file~ {Directory Build} path)))
-      (unless (and (exists?~ dst)
-                   (equal? (digest-file (parse~ src) 'SHA-1) (digest-file (parse~ dst) 'SHA-1)))
-        (build-feedback "; copying {a}..." (last path))
-        (create-directories~ dst)
-        (copy-file~ src dst))))
-  
-  (define (install-directory path)
-    (let ((src (new-directory~ {Directory Jedi} path))
-          (dst (new-directory~ {Directory Build} path)))
-      ;; should only copy changes with feedback accordingly
-      (build-feedback "; copying {a}..." (last path))
-      (create-directories~ dst)
-      (copy-directory~ src dst)))
-  
-  (initialize-aliases)
-  (copy-info)
-  (copy-templates)
-  (build-product-descriptor descriptor unit: unit force?: force?))
+  (let ((jedi-dir {Directory Jedi})
+        (resources-dir (resources-dir)))
+    (define (copy-info)
+      (install-file '("README"))
+      (install-file '("INSTALL")))
+    
+    (define (copy-fonts)
+      (when (neq? kernel-platform 'windows)
+        (install-directory '("jazz" "etc" "fonts"))))
+    
+    (define (copy-templates)
+      (install-directory '("lib" "jedi" "templates")))
+    
+    (define (install-file path)
+      (let ((src (new-file~ jedi-dir path))
+            (dst (new-file~ resources-dir path)))
+        (install-file~ src dst
+          feedback: (lambda (action pathname)
+                      (build-feedback "; copying {a}..." (get-name~ pathname))))))
+    
+    (define (install-directory path)
+      (let ((src (new-directory~ jedi-dir path))
+            (dst (new-directory~ resources-dir path)))
+        (install-directory~ src dst
+          feedback: (let ((first? #t))
+                      (lambda (action pathname)
+                        (when first?
+                          (build-feedback "; copying {a}..." (get-name~ pathname))
+                          (set! first? #f)))))))
+    
+    (build-product-descriptor descriptor unit: unit force?: force?)
+    (initialize-aliases)
+    (copy-info)
+    (copy-fonts)
+    (copy-templates)))
+
+
+;;;
+;;;; Install
+;;;
+
+
+(cond-expand
+  (cocoa
+    (definition (install descriptor)
+      (initialize-aliases)
+      (let ((bundle (product-descriptor-build-bundle descriptor)))
+        (when bundle
+          (let ((src-root {Directory Build})
+                (dst-root (new-directory~ (get-parent~ (get-parent~ {Directory Jedi})) "releases"))
+                (bundle-app (format "{a}.app" bundle)))
+            (let ((src-app (new-directory~ src-root bundle-app))
+                  (dst-app (new-directory~ dst-root bundle-app)))
+              (let ((macos-dir (new-directory~ dst-app '("Contents" "MacOS")))
+                    (libraries '("libcairo.2.dylib"
+                                 "libfontconfig.dylib"
+                                 "libfreetype.dylib"
+                                 "libpixman-1.0.dylib"
+                                 "libpng15.15.dylib")))
+                ;; bundle
+                (install-directory~ src-app dst-app
+                  filter: (lambda (action pathname)
+                            (let ((parent-dir (get-parent~ pathname)))
+                              (cond ((pathname=? parent-dir macos-dir)
+                                     (not (and (eq? action 'delete)
+                                               (let ((filename (get-name~ pathname)))
+                                                 (or (filename=? filename "lib")
+                                                     (member? filename libraries test: filename=?))))))
+                                    (else
+                                     #t))))
+                  feedback: (lambda (action pathname)
+                              (build-feedback "; {a} {a}..." action (get-name~ pathname))))
+                ;; libraries
+                (for-each (lambda (library)
+                            (install-file~ (new-file~ src-root library) (new-file~ macos-dir library)
+                              feedback: (lambda (action pathname)
+                                          (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
+                          libraries)
+                ;; lib
+                (install-directory~ (new-directory~ src-root "lib") (new-directory~ macos-dir "lib")
+                  filter: (lambda (action pathname)
+                            (not (and (file? pathname)
+                                      (member? (get-extension~ pathname) '("c" "m" "o" "dgs") test: extension=?))))
+                  feedback: (lambda (action pathname)
+                              (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))))))
+  (else
+    (definition (install descriptor)
+      )))
 
 
 ;;;
@@ -83,4 +149,5 @@
 
 
 (register-product 'jedi
-  build: build))
+  build: build
+  install: install))
