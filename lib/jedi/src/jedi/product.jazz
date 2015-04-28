@@ -38,7 +38,8 @@
 (module jedi.product jazz
 
 
-(import (jazz.io))
+(import (jazz.io)
+        (jazz.product))
 
 
 ;;;
@@ -71,7 +72,7 @@
             (dst (new-file~ resources-dir path)))
         (install-file~ src dst
           feedback: (lambda (action pathname)
-                      (build-feedback "; copying {a}..." (get-name~ pathname))))))
+                      (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
     
     (define (install-directory path)
       (let ((src (new-directory~ jedi-dir path))
@@ -80,7 +81,7 @@
           feedback: (let ((first? #t))
                       (lambda (action pathname)
                         (when first?
-                          (build-feedback "; copying {a}..." (get-name~ pathname))
+                          (build-feedback "; {a} {a}..." action (get-name~ pathname))
                           (set! first? #f)))))))
     
     (build-product-descriptor descriptor unit: unit force?: force?)
@@ -120,9 +121,14 @@
                                      (not (and (eq? action 'delete)
                                                (let ((filename (get-name~ pathname)))
                                                  (or (filename=? filename "lib")
+                                                     (filename=? filename ".repository")
                                                      (member? filename libraries test: filename=?))))))
                                     (else
                                      #t))))
+                  feedback: (lambda (action pathname)
+                              (build-feedback "; {a} {a}..." action (get-name~ pathname))))
+                ;; Repository
+                (install-file~ (new-file~ src-root ".repository") (new-file~ macos-dir ".repository")
                   feedback: (lambda (action pathname)
                               (build-feedback "; {a} {a}..." action (get-name~ pathname))))
                 ;; libraries
