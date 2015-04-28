@@ -99,6 +99,7 @@
 (definition (install descriptor)
   (initialize-aliases)
   (install-application descriptor (new-directory~ (get-parent~ (get-parent~ {Directory Jedi})) "releases")
+    scriptable?: #t
     platform?: #t
     git?: #t
     files: '("README"
