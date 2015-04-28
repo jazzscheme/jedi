@@ -96,91 +96,13 @@
 ;;;
 
 
-(cond-expand
-  (cocoa
-    (definition (install descriptor)
-      (initialize-aliases)
-      (let ((bundle (product-descriptor-build-bundle descriptor)))
-        (when bundle
-          (let ((src-root {Directory Build})
-                (dst-root (new-directory~ (get-parent~ (get-parent~ {Directory Jedi})) "releases"))
-                (bundle-app (format "{a}.app" bundle)))
-            (let ((src-app (new-directory~ src-root bundle-app))
-                  (dst-app (new-directory~ dst-root bundle-app)))
-              (let ((macos-dir (new-directory~ dst-app '("Contents" "MacOS")))
-                    (libraries '("libcairo.2.dylib"
-                                 "libfontconfig.dylib"
-                                 "libfreetype.dylib"
-                                 "libpixman-1.0.dylib"
-                                 "libpng15.15.dylib")))
-                ;; bundle
-                (install-directory~ src-app dst-app
-                  filter: (lambda (action pathname)
-                            (let ((parent-dir (get-parent~ pathname)))
-                              (cond ((pathname=? parent-dir macos-dir)
-                                     (not (and (eq? action 'delete)
-                                               (let ((filename (get-name~ pathname)))
-                                                 (or (filename=? filename "lib")
-                                                     (filename=? filename ".repository")
-                                                     (member? filename libraries test: filename=?))))))
-                                    (else
-                                     #t))))
-                  feedback: (lambda (action pathname)
-                              (build-feedback "; {a} {a}..." action (get-name~ pathname))))
-                ;; Repository
-                (install-file~ (new-file~ src-root ".repository") (new-file~ macos-dir ".repository")
-                  feedback: (lambda (action pathname)
-                              (build-feedback "; {a} {a}..." action (get-name~ pathname))))
-                ;; libraries
-                (for-each (lambda (library)
-                            (install-file~ (new-file~ src-root library) (new-file~ macos-dir library)
-                              feedback: (lambda (action pathname)
-                                          (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
-                          libraries)
-                ;; lib
-                (install-directory~ (new-directory~ src-root "lib") (new-directory~ macos-dir "lib")
-                  filter: (lambda (action pathname)
-                            (not (and (file? pathname)
-                                      (member? (get-extension~ pathname) '("c" "m" "o" "dgs") test: extension=?))))
-                  feedback: (lambda (action pathname)
-                              (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))))))
-  (windows
-    (definition (install descriptor)
-      (initialize-aliases)
-      (let ((src-root {Directory Build})
-            (dst-root (new-directory~ (get-parent~ (get-parent~ {Directory Jedi})) (list "releases" "jedi"))))
-        ;; appl
-        (for-each (lambda (library)
-                    (install-file~ (new-file~ src-root library) (new-file~ dst-root library)
-                      feedback: (lambda (action pathname)
-                                  (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
-                  '("jedi.exe"
-                    ".repository"
-                    "README"
-                    "INSTALL"))
-        ;; libraries
-        (for-each (lambda (library)
-                    (install-file~ (new-file~ src-root library) (new-file~ dst-root library)
-                      feedback: (lambda (action pathname)
-                                  (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
-                  '("libcairo-2.dll"
-                    "libfontconfig-1.dll"
-                    "libfreetype-6.dll"
-                    "libpixman-1-0.dll"
-                    "libexpat-1.dll"
-                    "libpng16-16.dll"
-                    "zlib1.dll"
-                    "libgit2.dll"))
-        ;; lib
-        (install-directory~ (new-directory~ src-root "lib") (new-directory~ dst-root "lib")
-          filter: (lambda (action pathname)
-                    (not (and (file? pathname)
-                              (member? (get-extension~ pathname) '("c" "m" "o" "dgs") test: extension=?))))
-          feedback: (lambda (action pathname)
-                      (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))
-  (else
-    (definition (install descriptor)
-      )))
+(definition (install descriptor)
+  (initialize-aliases)
+  (install-application descriptor (new-directory~ (get-parent~ (get-parent~ {Directory Jedi})) "releases")
+    platform?: #t
+    git?: #t
+    files: '("README"
+             "INSTALL")))
 
 
 ;;;
