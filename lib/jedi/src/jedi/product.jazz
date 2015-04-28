@@ -138,6 +138,40 @@
                                       (member? (get-extension~ pathname) '("c" "m" "o" "dgs") test: extension=?))))
                   feedback: (lambda (action pathname)
                               (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))))))
+  (windows
+    (definition (install descriptor)
+      (initialize-aliases)
+      (let ((src-root {Directory Build})
+            (dst-root (new-directory~ (get-parent~ (get-parent~ {Directory Jedi})) (list "releases" "jedi"))))
+        ;; appl
+        (for-each (lambda (library)
+                    (install-file~ (new-file~ src-root library) (new-file~ dst-root library)
+                      feedback: (lambda (action pathname)
+                                  (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
+                  '("jedi.exe"
+                    ".repository"
+                    "README"
+                    "INSTALL"))
+        ;; libraries
+        (for-each (lambda (library)
+                    (install-file~ (new-file~ src-root library) (new-file~ dst-root library)
+                      feedback: (lambda (action pathname)
+                                  (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
+                  '("libcairo-2.dll"
+                    "libfontconfig-1.dll"
+                    "libfreetype-6.dll"
+                    "libpixman-1-0.dll"
+                    "libexpat-1.dll"
+                    "libpng16-16.dll"
+                    "zlib1.dll"
+                    "libgit2.dll"))
+        ;; lib
+        (install-directory~ (new-directory~ src-root "lib") (new-directory~ dst-root "lib")
+          filter: (lambda (action pathname)
+                    (not (and (file? pathname)
+                              (member? (get-extension~ pathname) '("c" "m" "o" "dgs") test: extension=?))))
+          feedback: (lambda (action pathname)
+                      (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))
   (else
     (definition (install descriptor)
       )))
