@@ -78,8 +78,7 @@
       (install-file '("INSTALL")))
     
     (define (copy-fonts)
-      (when (neq? kernel-platform 'windows)
-        (install-directory '("jazz" "etc" "fonts"))))
+      (install-directory '("jazz" "etc" "fonts")))
     
     (define (copy-templates)
       (install-directory '("lib" "jedi" "templates")))
@@ -98,7 +97,7 @@
 
 (definition (install descriptor)
   (initialize-aliases)
-  (install-application descriptor (new-directory~ (get-parent~ (get-parent~ {Directory Jedi})) "releases")
+  (install-application descriptor (new-directory~ {Directory Home} '("Devel" "install"))
     scriptable?: #t
     platform?: #t
     git?: #t
