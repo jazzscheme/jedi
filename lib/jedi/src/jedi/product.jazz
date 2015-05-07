@@ -63,9 +63,9 @@
           feedback: (lambda (action pathname)
                       (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
     
-    (define (install-directory path)
-      (let ((src (new-directory~ project-dir path))
-            (dst (new-directory~ resources-dir path)))
+    (define (install-directory path (src #f) (dst #f))
+      (let ((src (new-directory~ project-dir (or src path)))
+            (dst (new-directory~ resources-dir (or dst path))))
         (install-directory~ src dst
           feedback: (let ((first? #t))
                       (lambda (action pathname)
@@ -78,7 +78,7 @@
       (install-file '("INSTALL")))
     
     (define (copy-fonts)
-      (install-directory '("jazz" "etc" "fonts")))
+      (install-directory #f '("jazz" "etc" "fonts") '("etc" "fonts")))
     
     (define (copy-templates)
       (install-directory '("lib" "jedi" "templates")))
