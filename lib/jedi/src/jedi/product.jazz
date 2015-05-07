@@ -95,9 +95,18 @@
 ;;;
 
 
+(cond-expand
+  (mac
+    (definition install-dir
+      {Directory Home "Devel" "install"}))
+  (else
+    (definition install-dir
+      {Directory Home "install"})))
+
+
 (definition (install descriptor)
   (initialize-aliases)
-  (install-application descriptor (new-directory~ {Directory Home} '("Devel" "install"))
+  (install-application descriptor install-dir
     scriptable?: #t
     platform?: #t
     git?: #t
