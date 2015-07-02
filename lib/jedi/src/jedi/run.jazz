@@ -41,6 +41,8 @@
 (import (jedi))
 
 
-(register-product-run 'jedi
-  (lambda (descriptor)
-    (boot-environment~ (new Jedi-Application)))))
+(definition (run descriptor)
+  (boot-environment~ (new Jedi-Application)))
+
+
+(register-product-run 'jedi run))
