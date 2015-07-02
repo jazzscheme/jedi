@@ -241,7 +241,7 @@
         (set! settings (new File-Settings file: file))
         (register-settings settings)))
     (register-resources-alias 'Jedi 'jedi)
-    (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) create?: #t)))
+    (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) dynamic?: #t)))
       (register-repository-aliases (install-repository projects-repository))))
   
   
