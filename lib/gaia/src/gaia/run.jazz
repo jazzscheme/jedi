@@ -42,7 +42,9 @@
         (gaia))
 
 
-(register-product-run 'gaia
-  (lambda (descriptor)
-    (show-jazz-profiles? #f)
-    (boot-environment~ (new Gaia-Application)))))
+(definition (run descriptor)
+  (show-jazz-profiles? #f)
+  (boot-environment~ (new Gaia-Application)))
+
+
+(register-product-run 'gaia run))
