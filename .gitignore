@@ -3,6 +3,7 @@
 /build
 /cache
 /gambit
+/jazz
 /.jazzini
 .configuration
 .DS_Store
