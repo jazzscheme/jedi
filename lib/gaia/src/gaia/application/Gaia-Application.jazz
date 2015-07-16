@@ -369,8 +369,10 @@
                     (list (if (is-alias? 'Gaia)
                               'Gaia
                             'Build)))
-    (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) dynamic?: #t)))
-      (register-repository-aliases (install-repository projects-repository))))
+    (let ((projects-dir {Directory Settings "projects"}))
+      (create-directories~ projects-dir)
+      (let ((projects-repository (make-repository 'Projects "lib" (parse~ projects-dir) dynamic?: #t)))
+        (register-repository-aliases (install-repository projects-repository)))))
 
   
   ;;;
