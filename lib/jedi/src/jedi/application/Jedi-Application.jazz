@@ -266,7 +266,9 @@
   
   
   (method override (install-profiles)
-    (register-repository-aliases (install-repository (parse~ {Directory Settings "profiles"}))))
+    (let ((profiles-dir {Directory Settings "profiles"}))
+      (create-directories~ profiles-dir)
+      (register-repository-aliases (install-repository (parse~ profiles-dir)))))
   
   
   ;;;
