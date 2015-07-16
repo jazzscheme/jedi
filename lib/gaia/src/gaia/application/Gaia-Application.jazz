@@ -390,8 +390,10 @@
   
   
   (method override (install-profiles)
-    (let ((profiles-repository (make-repository 'Profiles "lib" (parse~ {Directory Settings "profiles"}) dynamic?: #t)))
-      (register-repository-aliases (install-repository profiles-repository))))
+    (let ((profiles-dir {Directory Settings "profiles"}))
+      (create-directories~ profiles-dir)
+      (let ((profiles-repository (make-repository 'Profiles "lib" (parse~ profiles-dir) dynamic?: #t)))
+        (register-repository-aliases (install-repository profiles-repository)))))
   
   
   ;;;
