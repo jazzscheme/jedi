@@ -14,8 +14,8 @@
     (<Trait>        name: Safety
       (<install>)
       (<Trait>      name: Core
-        (<install>                configuration: "build/core"))
+        (<install>                configuration: "cache/core"))
       (<Trait>      name: Debug
-        (<install>                configuration: "build/debug"))
+        (<install>                configuration: "cache/debug"))
       (<Trait>      name: Release
-        (<install>                configuration: "build/release"))))))
+        (<install>                configuration: "cache/release"))))))
