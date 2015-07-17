@@ -369,8 +369,10 @@
                     (list (if (is-alias? 'Gaia)
                               'Gaia
                             'Build)))
-    (let ((projects-repository (make-repository 'Projects "lib" (parse~ {Directory Settings "projects"}) create?: #t)))
-      (register-repository-aliases (install-repository projects-repository))))
+    (let ((projects-dir {Directory Settings "projects"}))
+      (create-directories~ projects-dir)
+      (let ((projects-repository (make-repository 'Projects "lib" (parse~ projects-dir) dynamic?: #t)))
+        (register-repository-aliases (install-repository projects-repository)))))
 
   
   ;;;
@@ -388,8 +390,10 @@
   
   
   (method override (install-profiles)
-    (let ((profiles-repository (make-repository 'Profiles "lib" (parse~ {Directory Settings "profiles"}) create?: #t)))
-      (register-repository-aliases (install-repository profiles-repository))))
+    (let ((profiles-dir {Directory Settings "profiles"}))
+      (create-directories~ profiles-dir)
+      (let ((profiles-repository (make-repository 'Profiles "lib" (parse~ profiles-dir) dynamic?: #t)))
+        (register-repository-aliases (install-repository profiles-repository)))))
   
   
   ;;;
