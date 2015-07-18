@@ -38,7 +38,8 @@
 (module gaia.product jazz
 
 
-(import (jazz.io))
+(import (jazz.io)
+        (jazz.product))
 
 
 ;;;
@@ -47,34 +48,70 @@
 
 
 (definition (build descriptor (unit: unit #f) (force?: force? #f))
-  (define (copy-info)
-    (install-file '("README"))
-    (install-file '("INSTALL")))
+  (define (resources-dir)
+    (let ((bundle (product-descriptor-build-bundle descriptor)))
+      (if bundle
+          (new-directory~ {Directory Build} (format "{a}.app/Contents/Resources" bundle))
+        {Directory Build})))
   
-  (define (copy-templates)
-    (install-directory '("lib" "gaia" "templates")))
-  
-  (define (install-file path)
-    (let ((src (new-file~ {Directory Gaia} path))
-          (dst (new-file~ {Directory Build} path)))
-      (unless (and (exists?~ dst)
-                   (equal? (digest-file (parse~ src) 'SHA-1) (digest-file (parse~ dst) 'SHA-1)))
-        (build-feedback "; copying {a}..." (last path))
-        (create-directories~ dst)
-        (copy-file~ src dst))))
-  
-  (define (install-directory path)
-    (let ((src (new-directory~ {Directory Gaia} path))
-          (dst (new-directory~ {Directory Build} path)))
-      ;; should only copy changes with feedback accordingly
-      (build-feedback "; copying {a}..." (last path))
-      (create-directories~ dst)
-      (copy-directory~ src dst)))
-  
+  (let ((project-dir {Directory Gaia})
+        (resources-dir (resources-dir)))
+    (define (install-file path)
+      (let ((src (new-file~ project-dir path))
+            (dst (new-file~ resources-dir path)))
+        (install-file~ src dst
+          feedback: (lambda (action pathname)
+                      (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
+    
+    (define (install-directory path (src #f) (dst #f))
+      (let ((src (new-directory~ project-dir (or src path)))
+            (dst (new-directory~ resources-dir (or dst path))))
+        (install-directory~ src dst
+          feedback: (let ((first? #t))
+                      (lambda (action pathname)
+                        (when first?
+                          (build-feedback "; {a} {a}..." action (get-name~ pathname))
+                          (set! first? #f)))))))
+    
+    (define (copy-info)
+      (install-file '("README"))
+      (install-file '("INSTALL")))
+    
+    (define (copy-fonts)
+      (install-directory #f '("jazz" "etc" "fonts") '("etc" "fonts")))
+    
+    (define (copy-templates)
+      (install-directory '("lib" "gaia" "templates")))
+    
+    (build-product-descriptor descriptor unit: unit force?: force?)
+    (initialize-aliases)
+    (copy-info)
+    (copy-fonts)
+    (copy-templates)))
+
+
+;;;
+;;;; Install
+;;;
+
+
+(cond-expand
+  (mac
+    (definition install-dir
+      {Directory Home "Devel" "install"}))
+  (else
+    (definition install-dir
+      {Directory Home "install"})))
+
+
+(definition (install descriptor)
   (initialize-aliases)
-  (copy-info)
-  (copy-templates)
-  (build-product-descriptor descriptor unit: unit force?: force?))
+  (install-application descriptor install-dir
+    scriptable?: #t
+    platform?: #t
+    git?: #t
+    files: '("README"
+             "INSTALL")))
 
 
 ;;;
@@ -83,4 +120,5 @@
 
 
 (register-product 'gaia
-  build: build))
+  build: build
+  install: install))
