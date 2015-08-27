@@ -1,0 +1,5 @@
+(package %project%
+  
+  (root "src")
+  (products (%project% (dependencies jazz)))
+  (project ".project"))
