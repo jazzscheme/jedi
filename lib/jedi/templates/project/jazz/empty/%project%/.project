@@ -10,5 +10,5 @@
 
 
 (form
-  (<Project> name: %product-unit%
+  (<Project> name: %product-unit% description-file: {File :context ".package"}
     (<*>                          tag-reference: {File :context "%product%.project"}))))
