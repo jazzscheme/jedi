@@ -1,4 +1,4 @@
-(module %unit% jazz
+(module %name% jazz
 
 
 (class %name% extends Object))
