@@ -16,6 +16,7 @@
                           jedi.validate)
                   (build (jedi include-compiler?: #t bundle: "jedi" resources: "resources"))
                   (dependencies preinstalled
+                                jazz.designer.ui
                                 samples
                                 jedi.install))
             (jedi.install (update jedi.install)
