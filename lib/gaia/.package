@@ -21,6 +21,7 @@
                           world.debuggee.stub)
                   (build (gaia include-compiler?: #t bundle: "gaia" resources: "resources"))
                   (dependencies preinstalled
+                                jazz.designer.ui
                                 gaia.install))
             (gaia.install (update gaia.install)
                           (dependencies jazz)))
