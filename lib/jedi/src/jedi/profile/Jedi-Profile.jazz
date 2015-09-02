@@ -38,7 +38,8 @@
 (module protected jedi.profile.Jedi-Profile jazz
 
 
-(import (jazz.component)
+(import (jazz.application)
+        (jazz.component)
         (jazz.component.runtime)
         (jazz.designer)
         (jazz.editor.jazz)
