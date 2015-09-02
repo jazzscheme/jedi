@@ -39,6 +39,7 @@
 
 
 (import (jazz.debuggee)
+        (jazz.debuggee.view)
         (jazz.jml)
         (jazz.library)
         (jazz.recorder)
