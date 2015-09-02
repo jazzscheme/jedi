@@ -38,7 +38,8 @@
 (module gaia.debugger.implementation jazz
 
 
-(import (jazz.event)
+(import (jazz.application)
+        (jazz.event)
         (jazz.ide)
         (jazz.system)
         (gaia)

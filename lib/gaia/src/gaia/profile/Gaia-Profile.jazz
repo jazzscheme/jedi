@@ -38,7 +38,8 @@
 (module protected gaia.profile.Gaia-Profile jazz
 
 
-(import (jazz.component)
+(import (jazz.application)
+        (jazz.component)
         (jazz.designer)
         (jazz.editor.jazz)
         (jazz.editor.lisp)

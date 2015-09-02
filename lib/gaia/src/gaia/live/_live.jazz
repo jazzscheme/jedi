@@ -38,7 +38,8 @@
 (module protected gaia.live jazz
 
 
-(import (jazz.graphic)
+(import (jazz.application)
+        (jazz.graphic)
         (jazz.library)
         (jazz.system)
         (jazz.ui)
