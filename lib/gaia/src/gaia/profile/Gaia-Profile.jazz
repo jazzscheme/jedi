@@ -38,7 +38,8 @@
 (module protected gaia.profile.Gaia-Profile jazz
 
 
-(import (jazz.designer)
+(import (jazz.component)
+        (jazz.designer)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
         (jazz.foreign)
@@ -47,13 +48,12 @@
         (jazz.io)
         (jazz.jml)
         (jazz.library)
-        (jazz.library.component)
         (jazz.log)
         (jazz.platform)
         (jazz.project)
         (jazz.runtime)
+        (jazz.syntax (phase syntax))
         (jazz.system)
-        (jazz.tie)
         (jazz.ui)
         (jazz.ui.activity)
         (jazz.ui.clipboard)
