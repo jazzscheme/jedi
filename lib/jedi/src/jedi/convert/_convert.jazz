@@ -38,11 +38,12 @@
 (module protected jedi.convert jazz
 
 
-(import (jazz.graphic.literals)
+(import (jazz.component)
+        (jazz.component.runtime)
+        (jazz.graphic.literals)
         (jazz.io)
         (jazz.jml)
-        (jazz.library)
-        (jazz.library.component))
+        (jazz.library))
 
 
 ;;;

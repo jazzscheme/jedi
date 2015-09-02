@@ -39,6 +39,8 @@
 
 
 (import (jazz.catalog)
+        (jazz.component)
+        (jazz.component.runtime)
         (jazz.console)
         (jazz.debugger)
         (jazz.debugger.gambit)
@@ -52,11 +54,11 @@
         (jazz.editor.lisp)
         (jazz.editor.sql)
         (jazz.editor.sql.view)
+        (jazz.favorite)
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
         (jazz.library)
-        (jazz.library.component)
         (jazz.platform)
         (jazz.project)
         (jazz.snapshot)
