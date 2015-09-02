@@ -42,7 +42,6 @@
         (jazz.ide)
         (jazz.jml)
         (jazz.library)
-        (jazz.system.access)
         (jazz.ui)
         (jazz.ui.workspace)
         (jedi))
