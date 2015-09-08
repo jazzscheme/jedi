@@ -1,5 +1,9 @@
 (package gaia
   
+  (title "Gaia")
+  (description "Game-oriented Jazz IDE")
+  (authors "Guillaume Cartier")
+  (stage release)
   (library "lib")
   (root "src")
   (install gaia.install)
