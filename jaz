@@ -1,0 +1,96 @@
+#!/bin/sh
+
+REL="$(dirname "$0")"
+
+JAZZ="$REL/jazz"
+JED="$REL/jedi"
+JAZ="$JAZZ/jaz"
+
+UPDATE_SUBMODULES="true"
+
+bootstrap_init () {
+    cd "$REL"
+    git submodule init
+}
+
+bootstrap_update () {
+    cd "$REL"
+    git submodule update
+}
+
+bootstrap () {
+    (bootstrap_init) &&
+    (bootstrap_update)
+}
+
+bootstrap_dispatch () {
+    case "$1" in
+	"init" )
+	    bootstrap_init
+	    ;;
+	"update" )
+	    bootstrap_update
+	    ;;
+	"" )
+	    bootstrap
+	    ;;
+	* )
+	    echo "Unknown bootstrap option : $1"
+	    return 1
+	    ;;
+    esac
+}
+
+display_module_info () {
+    echo "$1"
+    if [ -d "$2" ]; then
+	cd "$2" &&
+	git log -1
+    fi
+}
+
+display_info () {
+    (display_module_info "Gaia" "$REL")
+    echo
+    (display_module_info "Jazz" "$JAZZ")
+}
+
+update_submodules () {
+    cd "$REL"
+    git submodule update
+}
+
+while getopts "l" OPTION; do
+    case $OPTION in
+	"l" )
+	    UPDATE_SUBMODULES="false"
+	    ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+case "$1" in
+	"bootstrap" )
+		bootstrap_dispatch $2
+		exit
+		;;
+
+	"info" )
+		display_info
+		exit
+		;;
+esac
+
+if [ ! -f "$JAZ" ]; then
+	bootstrap
+elif $UPDATE_SUBMODULES; then
+    (update_submodules)
+fi
+
+if [ ! -f "$JAZ" ]; then
+	echo "Unable to find jazz/jaz"
+	exit 1
+fi
+
+exec "$JAZ" "$@"
