@@ -1,5 +1,9 @@
 (package jedi
   
+  (title "Jedi")
+  (description "Jazz IDE")
+  (authors "Guillaume Cartier")
+  (stage release)
   (library "lib")
   (root "src")
   (install jedi.install)
