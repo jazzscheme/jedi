@@ -77,16 +77,12 @@
       (install-file '("README"))
       (install-file '("INSTALL")))
     
-    (define (copy-fonts)
-      (install-directory #f '("jazz" "etc" "fonts") '("etc" "fonts")))
-    
     (define (copy-templates)
       (install-directory '("lib" "gaia" "templates")))
     
     (build-product-descriptor descriptor unit: unit force?: force?)
     (initialize-aliases)
     (copy-info)
-    (copy-fonts)
     (copy-templates)))
 
 
