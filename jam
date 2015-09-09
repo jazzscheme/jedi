@@ -1,7 +1,13 @@
 #!/bin/sh
 
-CMD="$1"
+REL="$(dirname "$0")"
 
-shift 1
+JAZZ="$REL/jazz"
+JAM="$JAZZ/jam"
 
-./jaz run jam-$CMD@r $@
+if [ ! -f "$JAM" ]; then
+	echo "Unable to find jazz/jam"
+	exit 1
+fi
+
+exec "$JAM" "$@"
