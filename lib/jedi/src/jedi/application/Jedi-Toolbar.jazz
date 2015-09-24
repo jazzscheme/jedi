@@ -41,6 +41,7 @@
 (import (jazz.ide)
         (jazz.jml)
         (jazz.library)
+        (jazz.resource)
         (jazz.ui)
         (jedi))
 

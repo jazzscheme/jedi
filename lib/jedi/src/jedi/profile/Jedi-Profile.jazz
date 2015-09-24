@@ -39,6 +39,7 @@
 
 
 (import (jazz.application)
+        (jazz.application.services)
         (jazz.component)
         (jazz.component.runtime)
         (jazz.designer)
