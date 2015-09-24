@@ -38,12 +38,9 @@
 (module protected gaia.application.Gaia-Menubar jazz
 
 
-(import (jazz.ide)
-        (jazz.ide.menu)
+(import (jazz.ide.menu)
         (jazz.jml)
-        (jazz.library)
-        (jazz.locale)
-        (jazz.system)
+        (jazz.resource)
         (jazz.ui))
 
 

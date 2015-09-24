@@ -40,12 +40,10 @@
 
 (import (jazz.catalog)
         (jazz.doc)
-        (jazz.groupware)
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
         (jazz.library)
-        (jazz.project)
         (jazz.ui)
         (gaia))
 

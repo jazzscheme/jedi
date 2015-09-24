@@ -39,8 +39,7 @@
 
 
 (import (jazz.ide)
-        (jazz.jml)
-        (gaia))
+        (jazz.jml))
 
 
 (class Gaia-Toplevel extends IDE-Toplevel

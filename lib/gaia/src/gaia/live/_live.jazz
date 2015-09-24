@@ -41,9 +41,7 @@
 (import (jazz.application)
         (jazz.graphic)
         (jazz.library)
-        (jazz.system)
-        (jazz.ui)
-        (jazz.ui.view))
+        (jazz.ui))
 
 
 ;; need to reintegrate this into Gaia-Profile's version

@@ -38,8 +38,7 @@
 (module protected gaia.preference.Gaia-Actions jazz
 
 
-(import (gaia)
-        (jazz.jml)
+(import (jazz.jml)
         (jazz.library)
         (jazz.ui))
 

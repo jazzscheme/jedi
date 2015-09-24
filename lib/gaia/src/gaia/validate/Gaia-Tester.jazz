@@ -38,15 +38,8 @@
 (module protected gaia.validate.Gaia-Tester jazz
 
 
-(import (jazz.debuggee)
-        (jazz.debuggee.view)
-        (jazz.jml)
-        (jazz.library)
+(import (jazz.debuggee.view)
         (jazz.recorder)
-        (jazz.runtime)
-        (jazz.system)
-        (jazz.ui)
-        (jazz.ui.window)
         (jazz.validation))
 
 

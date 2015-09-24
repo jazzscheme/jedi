@@ -39,30 +39,20 @@
 
 
 (import (jazz.application)
-        (jazz.component)
-        (jazz.designer)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
-        (jazz.foreign)
+        (jazz.feedback)
         (jazz.graphic)
         (jazz.ide)
         (jazz.io)
-        (jazz.jml)
         (jazz.library)
-        (jazz.log)
-        (jazz.platform)
-        (jazz.project)
-        (jazz.runtime)
         (jazz.syntax (phase syntax))
         (jazz.system)
         (jazz.ui)
-        (jazz.ui.activity)
         (jazz.ui.clipboard)
         (jazz.ui.dialog)
         (jazz.ui.view)
-        (jazz.website)
-        (gaia)
-        (time))
+        (jazz.website))
 
 
 ;;;

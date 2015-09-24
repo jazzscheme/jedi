@@ -38,13 +38,10 @@
 (module protected gaia.live.Live-Properties jazz
 
 
-(import (jazz.designer)
-        (jazz.graphic)
-        (jazz.jml)
+(import (jazz.graphic)
         (jazz.library)
         (jazz.system)
         (jazz.ui)
-        (jazz.ui.view)
         (jazz.ui.window)
         (gaia)
         (gaia.live))

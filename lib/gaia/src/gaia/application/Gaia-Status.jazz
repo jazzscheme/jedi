@@ -38,13 +38,7 @@
 (module protected gaia.application.Gaia-Status jazz
 
 
-(import (jazz.debugger)
-        (jazz.ide)
-        (jazz.jml)
-        (jazz.library)
-        (jazz.ui)
-        (jazz.ui.workspace)
-        (gaia))
+(import (jazz.ide))
 
 
 (class Gaia-Status extends IDE-Status))

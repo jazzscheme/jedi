@@ -39,11 +39,7 @@
 
 
 (import (jazz.application)
-        (jazz.event)
-        (jazz.ide)
-        (jazz.system)
-        (gaia)
-        (gaia.debugger.stub))
+        (jazz.event))
 
 
 (class Gaia-Debugger extends Object

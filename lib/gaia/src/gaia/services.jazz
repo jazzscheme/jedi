@@ -38,8 +38,7 @@
 (module gaia.services jazz
 
 
-(import (jazz.project)
-        (gaia))
+(import (jazz.project))
 
 
 (register-service 'workbench (lambda () (get-workbench))))

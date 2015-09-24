@@ -39,8 +39,7 @@
 
 
 (import (jazz.jml)
-        (jazz.ui)
-        (gaia))
+        (jazz.ui))
 
 
 (class Gaia-Search extends Search-Manager
