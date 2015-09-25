@@ -502,6 +502,7 @@
   (method override (update-windowing-actions)
     (nextmethod)
     (unless (exiting-process?)
+      (update-source-actions)
       (update-search-actions)
       (update-project-actions)))
 
