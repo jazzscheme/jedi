@@ -38,7 +38,8 @@
 (module protected jedi.application.Jedi-Application jazz
 
 
-(import (jazz.application)
+(import (jazz.action)
+        (jazz.application)
         (jazz.catalog)
         (jazz.component)
         (jazz.component.runtime)

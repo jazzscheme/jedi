@@ -38,7 +38,9 @@
 (module protected jedi.application.Jedi-Toolbar jazz
 
 
-(import (jazz.ide)
+(import (jazz.action)
+        (jazz.handler)
+        (jazz.ide)
         (jazz.jml)
         (jazz.library)
         (jazz.resource)

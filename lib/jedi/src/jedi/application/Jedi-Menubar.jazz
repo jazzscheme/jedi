@@ -38,7 +38,8 @@
 (module protected jedi.application.Jedi-Menubar jazz
 
 
-(import (jazz.ide)
+(import (jazz.action)
+        (jazz.ide)
         (jazz.ide.menu)
         (jazz.jml)
         (jazz.library)

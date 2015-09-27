@@ -39,9 +39,9 @@
 
 
 (import (jedi)
-        (jazz.jml)
-        (jazz.library)
-        (jazz.ui))
+        (jazz.action)
+        (jazz.handler)
+        (jazz.jml))
 
 
 (class Jedi-Actions extends Actions
