@@ -38,9 +38,10 @@
 (module protected gaia.application.Gaia-Toolbar jazz
 
 
-(import (jazz.ide)
+(import (jazz.action)
+        (jazz.handler)
+        (jazz.ide)
         (jazz.jml)
-        (jazz.library)
         (jazz.resource)
         (jazz.ui))
 

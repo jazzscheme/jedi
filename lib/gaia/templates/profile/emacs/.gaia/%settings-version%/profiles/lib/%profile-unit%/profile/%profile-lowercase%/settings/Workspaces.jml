@@ -24,6 +24,7 @@
                     (<Docked-Preferences>                             location: #f model: {Reference Properties-Manager})
                     (<Docked-Preferences>                             location: #f model: {Reference Search-Results})
                     (<Docked-Preferences>                             location: #f model: {Reference Profile-Results})
+                    (<Docked-Preferences>                             location: #f model: {Reference Dependencies-Analyser})
                     (<Docked-Preferences>                             location: #f model: {Reference Servers-Manager}))))
               (<Pad-Preferences>                                      location: first
                 (<Docked-Preferences>                                 location: selection model: {Reference Workbench-Manager})
@@ -41,7 +42,8 @@
                     (<Docked-Preferences>       name: Properties      location: #f model: {Reference Properties-Manager})
                     (<Docked-Preferences>       name: Searches        location: #f model: {Reference Search-Results})
                     (<Docked-Preferences>       name: Logs            location: #f model: {Reference Logs-Manager})
-                    (<Docked-Preferences>       name: Profiles        location: #f model: {Reference Profile-Results}))
+                    (<Docked-Preferences>       name: Profiles        location: #f model: {Reference Profile-Results})
+                    (<Docked-Preferences>                             location: #f model: {Reference Dependencies-Analyser}))
                   (<Splitter-Preferences>       name: first           location: first mode: relative division: 50 orientation: horz
                     (<Splitter-Preferences>     name: second          location: second mode: relative division: 50 orientation: vert
                       (<Pad-Preferences>        name: first           location: first
@@ -88,7 +90,8 @@
                     (<Docked-Preferences>       name: Properties      location: #f model: {Reference Properties-Manager})
                     (<Docked-Preferences>       name: Searches        location: #f model: {Reference Search-Results})
                     (<Docked-Preferences>       name: Logs            location: #f model: {Reference Logs-Manager})
-                    (<Docked-Preferences>       name: Profiles        location: #f model: {Reference Profile-Results}))))
+                    (<Docked-Preferences>       name: Profiles        location: #f model: {Reference Profile-Results})
+                    (<Docked-Preferences>                             location: #f model: {Reference Dependencies-Analyser}))))
               (<Splitter-Preferences>           name: second          location: second state: zoom target: second orientation: vert mode: relative division: 25
                 (<Docked-Preferences>           name: Variables       location: first model: {Reference Variables-View})
                 (<Stage-Preferences>            name: Stage           location: second maximized?: #t)))))))

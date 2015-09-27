@@ -38,9 +38,9 @@
 (module protected gaia.live.Live-Properties jazz
 
 
-(import (jazz.graphic)
-        (jazz.library)
-        (jazz.system)
+(import (jazz.event)
+        (jazz.graphic)
+        (jazz.handler)
         (jazz.ui)
         (jazz.ui.window)
         (gaia)
