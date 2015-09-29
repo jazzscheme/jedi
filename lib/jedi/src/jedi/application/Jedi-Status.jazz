@@ -41,7 +41,6 @@
 (import (jazz.debugger)
         (jazz.ide)
         (jazz.jml)
-        (jazz.library)
         (jazz.ui)
         (jazz.ui.workspace)
         (jedi))

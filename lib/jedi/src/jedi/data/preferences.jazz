@@ -41,5 +41,4 @@
 (export (jedi)
         (jazz.component)
         (jazz.groupware)
-        (jazz.library)
         (jazz.ui)))

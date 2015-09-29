@@ -39,6 +39,7 @@
 
 
 (import (jazz.jml)
+        (jazz.search)
         (jazz.ui)
         (jedi))
 

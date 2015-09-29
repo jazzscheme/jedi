@@ -44,8 +44,8 @@
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
-        (jazz.library)
         (jazz.project)
+        (jazz.reference)
         (jazz.ui)
         (jedi))
 

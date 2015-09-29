@@ -38,6 +38,5 @@
 (module jedi.data.bindings jazz
 
 
-(export (jazz.library)
-        (jazz.ui)
+(export (jazz.ui)
         (jedi)))

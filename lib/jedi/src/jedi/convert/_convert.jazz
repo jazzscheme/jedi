@@ -43,7 +43,8 @@
         (jazz.graphic.literals)
         (jazz.io)
         (jazz.jml)
-        (jazz.library))
+        (jazz.match)
+        (jazz.reference))
 
 
 ;;;
