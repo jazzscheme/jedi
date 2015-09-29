@@ -38,6 +38,5 @@
 (module gaia.data.bindings jazz
 
 
-(export (jazz.library)
-        (jazz.ui)
+(export (jazz.ui)
         (gaia)))

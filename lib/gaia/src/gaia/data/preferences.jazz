@@ -41,5 +41,4 @@
 (export (gaia)
         (jazz.component)
         (jazz.groupware)
-        (jazz.library)
         (jazz.ui)))
