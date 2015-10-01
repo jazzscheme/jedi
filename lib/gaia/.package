@@ -8,7 +8,7 @@
   (root "src")
   (install gaia.install)
   (products (gaia (title "Gaia")
-                  (unit gaia.product)
+                  (product gaia.product)
                   (run gaia.run)
                   (update gaia
                           gaia.data.bindings

@@ -39,6 +39,7 @@
 
 
 (import (jazz.application)
+        (jazz.clipboard)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
         (jazz.feedback)
@@ -48,7 +49,6 @@
         (jazz.io)
         (jazz.syntax (phase syntax))
         (jazz.ui)
-        (jazz.ui.clipboard)
         (jazz.ui.dialog)
         (jazz.ui.view)
         (jazz.website))

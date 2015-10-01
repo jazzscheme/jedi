@@ -41,8 +41,8 @@
 (import (jazz.action)
         (jazz.ide.menu)
         (jazz.jml)
-        (jazz.resource)
-        (jazz.ui))
+        (jazz.menu)
+        (jazz.resource))
 
 
 (class Gaia-Menubar extends Menubar
