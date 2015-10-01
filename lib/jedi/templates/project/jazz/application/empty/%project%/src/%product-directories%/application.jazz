@@ -9,11 +9,9 @@
 (module %product-unit%.application jazz
 
 
-(import (jazz.jml)
-        (jazz.library)
+(import (jazz.application)
+        (jazz.jml)
         (jazz.platform)
-        (jazz.system)
-        (jazz.system.application)
         (jazz.ui))
 
 

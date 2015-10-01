@@ -9,12 +9,14 @@
 (module %product-unit%.application jazz
 
 
-(import (jazz.debuggee)
+(import (jazz.action)
+        (jazz.application)
+        (jazz.debuggee)
         (jazz.jml)
-        (jazz.library)
+        (jazz.menu)
         (jazz.platform)
-        (jazz.system)
-        (jazz.system.application)
+        (jazz.reference)
+        (jazz.resource)
         (jazz.ui))
 
 
