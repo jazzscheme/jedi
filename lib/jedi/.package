@@ -8,7 +8,7 @@
   (root "src")
   (install jedi.install)
   (products (jedi (title "Jedi")
-                  (unit jedi.product)
+                  (product jedi.product)
                   (run jedi.run)
                   (update jedi
                           jedi.convert

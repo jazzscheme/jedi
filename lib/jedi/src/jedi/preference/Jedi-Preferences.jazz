@@ -40,6 +40,7 @@
 
 (import (jazz.catalog)
         (jazz.doc)
+        (jazz.document)
         (jazz.groupware)
         (jazz.ide)
         (jazz.io)
