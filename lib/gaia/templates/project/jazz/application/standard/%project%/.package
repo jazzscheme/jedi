@@ -14,12 +14,10 @@
                                      jazz.io
                                      jazz.jml
                                      jazz.jrm
-                                     jazz.library
                                      jazz.media
                                      jazz.network
                                      jazz.platform
                                      jazz.profile
-                                     jazz.system
                                      jazz.ui
                                      contrib.irregex
                                      srfi-19
