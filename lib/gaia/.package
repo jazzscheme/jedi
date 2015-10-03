@@ -26,6 +26,7 @@
                   (build (gaia include-compiler?: #t bundle: "gaia" resources: "resources"))
                   (dependencies preinstalled
                                 jazz.designer.ui
+                                jazz.ide
                                 gaia.install))
             (gaia.install (update gaia.install)
                           (dependencies jazz)))

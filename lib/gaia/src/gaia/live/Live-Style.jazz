@@ -38,7 +38,8 @@
 (module protected gaia.live.Live-Style jazz
 
 
-(import (jazz.ui))
+(import (jazz.text)
+        (jazz.ui))
 
 
 (class Live-Style extends Text-Style

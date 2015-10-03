@@ -41,10 +41,11 @@
 (import (jazz.event)
         (jazz.graphic)
         (jazz.handler)
+        (jazz.text)
         (jazz.ui)
-        (jazz.ui.window)
         (gaia)
-        (gaia.live))
+        (gaia.live)
+        (jazz.window))
 
 
 (class undocumented Live-Properties extends Formatted-Text-View

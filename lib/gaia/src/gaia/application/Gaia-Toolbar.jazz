@@ -42,6 +42,7 @@
         (jazz.handler)
         (jazz.ide)
         (jazz.jml)
+        (jazz.layout)
         (jazz.resource)
         (jazz.ui))
 

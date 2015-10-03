@@ -47,6 +47,7 @@
         (jazz.designer.ui)
         (jazz.designer.ui.view)
         (jazz.doc)
+        (jazz.editor)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
         (jazz.editor.sql)
@@ -65,12 +66,13 @@
         (jazz.screen)
         (jazz.search)
         (jazz.settings)
+        (jazz.text)
         (jazz.ui)
         (jazz.ui.skin)
         (jazz.ui.view)
-        (jazz.ui.window)
         (jazz.ui.workspace)
         (jazz.version)
+        (jazz.window)
         (gaia)
         (gaia.validate))
 
@@ -490,15 +492,6 @@
   
   (method override (persist-passwords?)
     #t)
-
-
-  ;;;
-  ;;;; Context
-  ;;;
-  
-  
-  (method override (get-context-text)
-    #f)
 
   
   ;;;
