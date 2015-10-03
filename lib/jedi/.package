@@ -21,6 +21,7 @@
                   (build (jedi include-compiler?: #t bundle: "jedi" resources: "resources"))
                   (dependencies preinstalled
                                 jazz.designer.ui
+                                jazz.ide
                                 samples
                                 jedi.install))
             (jedi.install (update jedi.install)

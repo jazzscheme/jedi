@@ -240,8 +240,8 @@
       ;(jazz.ui.resizer)
       ;(jazz.ui.skin)
       (jazz.ui.view)
-      (jazz.ui.window)
       ;(jazz.ui.workspace)
+      (jazz.window)
       (time)))
   
   

@@ -39,6 +39,7 @@
 
 
 (export (jedi)
+        (jazz.application)
         (jazz.component)
         (jazz.groupware)
         (jazz.ui)))

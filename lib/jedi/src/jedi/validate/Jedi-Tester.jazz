@@ -44,8 +44,8 @@
         (jazz.recorder)
         (jazz.runtime)
         (jazz.ui)
-        (jazz.ui.window)
-        (jazz.validation))
+        (jazz.validation)
+        (jazz.window))
 
 
 (class Jedi-Tester extends Tester

@@ -38,7 +38,8 @@
 (module protected jedi.text.Completion-Popup jazz
 
 
-(import (jazz.ui))
+(import (jazz.ui)
+        (jazz.window))
 
 
 (class Completion-Popup extends Popup)

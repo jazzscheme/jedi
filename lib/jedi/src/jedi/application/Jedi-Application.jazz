@@ -51,6 +51,7 @@
         (jazz.designer.ui)
         (jazz.designer.ui.view)
         (jazz.doc)
+        (jazz.editor)
         (jazz.editor.diff)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
@@ -60,6 +61,7 @@
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
+        (jazz.picker)
         (jazz.platform)
         (jazz.preferences)
         (jazz.process)
@@ -69,8 +71,8 @@
         (jazz.search)
         (jazz.settings)
         (jazz.snapshot)
+        (jazz.text)
         (jazz.ui)
-        (jazz.ui.picker)
         (jazz.ui.view)
         (jazz.ui.workspace)
         (jazz.version)
@@ -367,15 +369,6 @@
   
   (method override (persist-passwords?)
     #t)
-
-
-  ;;;
-  ;;;; Context
-  ;;;
-  
-  
-  (method override (get-context-text)
-    #f)
 
 
   ;;;
