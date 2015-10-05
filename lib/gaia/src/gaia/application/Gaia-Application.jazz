@@ -69,10 +69,10 @@
         (jazz.text)
         (jazz.ui)
         (jazz.ui.skin)
-        (jazz.ui.view)
-        (jazz.ui.workspace)
         (jazz.version)
+        (jazz.view)
         (jazz.window)
+        (jazz.workspace)
         (gaia)
         (gaia.validate))
 
