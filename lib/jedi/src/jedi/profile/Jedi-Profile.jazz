@@ -55,7 +55,7 @@
         (jazz.runtime)
         (jazz.syntax)
         (jazz.ui)
-        (jazz.ui.view)
+        (jazz.view)
         (jazz.website)
         (jedi)
         (time))
@@ -239,9 +239,9 @@
       ;(jazz.ui.picker)
       ;(jazz.ui.resizer)
       ;(jazz.ui.skin)
-      (jazz.ui.view)
-      ;(jazz.ui.workspace)
+      (jazz.view)
       (jazz.window)
+      ;(jazz.workspace)
       (time)))
   
   

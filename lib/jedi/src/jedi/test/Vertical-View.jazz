@@ -39,7 +39,8 @@
 
 
 (import (jazz.text)
-        (jazz.ui))
+        (jazz.ui)
+        (jazz.view))
 
 
 (class Vertical-View extends View)

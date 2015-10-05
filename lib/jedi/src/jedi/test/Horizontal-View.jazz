@@ -38,7 +38,8 @@
 (module protected jedi.test.Horizontal-View jazz
 
 
-(import (jazz.ui))
+(import (jazz.ui)
+        (jazz.view))
 
 
 (class Horizontal-View extends View)

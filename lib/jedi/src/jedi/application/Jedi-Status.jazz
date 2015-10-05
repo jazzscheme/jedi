@@ -42,7 +42,7 @@
         (jazz.ide)
         (jazz.jml)
         (jazz.ui)
-        (jazz.ui.workspace)
+        (jazz.workspace)
         (jedi))
 
 
