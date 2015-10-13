@@ -39,6 +39,7 @@
 
 
 (import (jazz.catalog)
+        (jazz.command)
         (jazz.doc)
         (jazz.document)
         (jazz.groupware)

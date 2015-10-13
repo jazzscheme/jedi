@@ -39,7 +39,7 @@
 
 
 (import (jazz.component)
-        (jazz.component.runtime)
+        (jazz.designer)
         (jazz.graphic.literals)
         (jazz.io)
         (jazz.jml)

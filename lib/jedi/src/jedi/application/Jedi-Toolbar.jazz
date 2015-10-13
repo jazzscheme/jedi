@@ -68,7 +68,7 @@
       (<Action-Icon>        name: undo                tooltip-text: "Undo" resource: {Image-Resource "Undo"} action-handler: {Action view undo})
       (<Action-Icon>        name: redo                tooltip-text: "Redo" resource: {Image-Resource "Redo"} action-handler: {Action view redo})
       (<Separator>)
-      (<Action-Icon>        name: find                tooltip-text: "Find" resource: {Image-Resource "Find"} action-handler: {Event-Handler :application on-find :preserve-domain? #t})
+      (<Action-Icon>        name: find                tooltip-text: "Find" resource: {Image-Resource "Find"} action-handler: {Event-Handler :search on-find :preserve-domain? #t})
       (<Separator>)
       (<Action-Icon>        name: compare-directories tooltip-text: "Compare Directories" resource: {Image-Resource "CompareDirectories"} action-handler: {Action ide compare-directories})
       (<Action-Icon>        name: compare-files       tooltip-text: "Compare Files" resource: {Image-Resource "CompareFiles"} action-handler: {Event-Handler :application on-compare-files})

@@ -4,7 +4,6 @@
   (description "Jazz IDE")
   (authors "Guillaume Cartier")
   (stage release)
-  (library "lib")
   (root "src")
   (install jedi.install)
   (products (jedi (title "Jedi")
@@ -20,7 +19,7 @@
                           jedi.validate)
                   (build (jedi include-compiler?: #t bundle: "jedi" resources: "resources"))
                   (dependencies preinstalled
-                                jazz.designer.ui
+                                jazz.designer
                                 jazz.ide
                                 samples
                                 jedi.install))
