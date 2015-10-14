@@ -44,8 +44,7 @@
         (jazz.jml)
         (jazz.layout)
         (jazz.resource)
-        (jazz.ui)
-        (jedi))
+        (jazz.ui))
 
 
 (class Jedi-Toolbar extends IDE-Toolbar

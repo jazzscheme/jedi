@@ -38,12 +38,7 @@
 (module protected jedi.application.Jedi-Status jazz
 
 
-(import (jazz.debugger)
-        (jazz.ide)
-        (jazz.jml)
-        (jazz.ui)
-        (jazz.workspace)
-        (jedi))
+(import (jazz.ide))
 
 
 (class Jedi-Status extends IDE-Status))

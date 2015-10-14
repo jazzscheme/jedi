@@ -38,9 +38,7 @@
 (module protected jedi.test.Vertical-View jazz
 
 
-(import (jazz.text)
-        (jazz.ui)
-        (jazz.view))
+(import (jazz.view))
 
 
 (class Vertical-View extends View)

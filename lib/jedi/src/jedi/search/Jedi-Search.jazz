@@ -40,8 +40,7 @@
 
 (import (jazz.jml)
         (jazz.search)
-        (jazz.ui)
-        (jedi))
+        (jazz.ui))
 
 
 (class Jedi-Search extends Search-Manager

@@ -39,13 +39,10 @@
 
 
 (import (jazz.action)
-        (jazz.ide)
         (jazz.ide.menu)
         (jazz.jml)
-        (jazz.locale)
         (jazz.menu)
-        (jazz.resource)
-        (jazz.ui))
+        (jazz.resource))
 
 
 (class Jedi-Menubar extends Menubar

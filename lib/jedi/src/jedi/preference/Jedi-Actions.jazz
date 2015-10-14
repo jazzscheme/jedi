@@ -38,8 +38,7 @@
 (module protected jedi.preference.Jedi-Actions jazz
 
 
-(import (jedi)
-        (jazz.action)
+(import (jazz.action)
         (jazz.handler)
         (jazz.jml))
 

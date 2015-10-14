@@ -38,14 +38,9 @@
 (module protected jedi.validate.Jedi-Tester jazz
 
 
-(import (jazz.debuggee)
-        (jazz.debuggee.view)
-        (jazz.jml)
+(import (jazz.debuggee.view)
         (jazz.recorder)
-        (jazz.runtime)
-        (jazz.ui)
-        (jazz.validation)
-        (jazz.window))
+        (jazz.validation))
 
 
 (class Jedi-Tester extends Tester

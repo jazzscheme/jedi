@@ -43,21 +43,12 @@
         (jazz.clipboard)
         (jazz.component)
         (jazz.designer)
-        (jazz.editor.jazz)
         (jazz.foreign)
         (jazz.graphic)
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
-        (jazz.log)
-        (jazz.platform)
-        (jazz.runtime)
-        (jazz.syntax)
-        (jazz.ui)
-        (jazz.view)
-        (jazz.website)
-        (jedi)
-        (time))
+        (jazz.website))
 
 
 (class Jedi-Profile extends IDE-Profile

@@ -38,8 +38,7 @@
 (module jedi.services jazz
 
 
-(import (jazz.project)
-        (jedi))
+(import (jazz.project))
 
 
 (register-service 'workbench (lambda () (get-workbench))))
