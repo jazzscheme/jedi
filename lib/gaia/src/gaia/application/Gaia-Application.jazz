@@ -69,6 +69,7 @@
         (jazz.text)
         (jazz.version)
         (jazz.view)
+        (jazz.window (cond windows))
         (jazz.workspace)
         (gaia)
         (gaia.validate))
