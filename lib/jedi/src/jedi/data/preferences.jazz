@@ -42,4 +42,5 @@
         (jazz.application)
         (jazz.component)
         (jazz.groupware)
+        (jazz.ide)
         (jazz.ui)))
