@@ -4,7 +4,6 @@
   (description "Game-oriented Jazz IDE")
   (authors "Guillaume Cartier")
   (stage release)
-  (library "lib")
   (root "src")
   (install gaia.install)
   (products (gaia (title "Gaia")
@@ -25,7 +24,7 @@
                           world.debuggee.stub)
                   (build (gaia include-compiler?: #t bundle: "gaia" resources: "resources"))
                   (dependencies preinstalled
-                                jazz.designer.ui
+                                jazz.designer
                                 jazz.ide
                                 gaia.install))
             (gaia.install (update gaia.install)

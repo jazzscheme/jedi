@@ -47,7 +47,6 @@
         (jazz.handler)
         (jazz.ide)
         (jazz.io)
-        (jazz.syntax (phase syntax))
         (jazz.text)
         (jazz.ui)
         (jazz.ui.dialog)

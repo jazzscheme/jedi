@@ -42,7 +42,6 @@
         (jazz.graphic)
         (jazz.handler)
         (jazz.text)
-        (jazz.ui)
         (gaia)
         (gaia.live)
         (jazz.window))

@@ -41,11 +41,10 @@
 (import (jazz.action)
         (jazz.application)
         (jazz.catalog)
-        (jazz.component.runtime)
         (jazz.console)
         (jazz.debugger)
-        (jazz.designer.ui)
-        (jazz.designer.ui.view)
+        (jazz.designer)
+        (jazz.designer.view)
         (jazz.doc)
         (jazz.editor)
         (jazz.editor.jazz)
@@ -66,12 +65,10 @@
         (jazz.screen)
         (jazz.search)
         (jazz.settings)
+        (jazz.skin)
         (jazz.text)
-        (jazz.ui)
-        (jazz.ui.skin)
         (jazz.version)
         (jazz.view)
-        (jazz.window)
         (jazz.workspace)
         (gaia)
         (gaia.validate))
@@ -292,32 +289,6 @@
   
   (method override (default-workspaces)
     (new Default-Gaia-Workspaces))
-
-  
-  ;;;
-  ;;;; Servers
-  ;;;
-  
-  
-  @wait-need-a-way-to-open-service-any-if-port-is-already-in-use
-  (method override (default-listener-service)
-    44333)
-
-  
-  ;;;
-  ;;;; Search
-  ;;;
-
-
-  (method override (get-search-manager)
-    (let ((palette (singleton-palette
-                     (lambda ()
-                       (new-palette Gaia-Search
-                                    host-title: "Search"
-                                    host-visible?: #f
-                                    host-size: {Dimension 857 169}))
-                     'search)))
-      (get-guest~ palette)))
   
   
   ;;;
@@ -524,27 +495,24 @@
   (method public (reload-documentation)
     (set! documentation-cataloguer #f)
     (get-documentation-cataloguer))
-
-
+  
+  
   ;;;
-  ;;;; Alias
+  ;;;; Nicknames
   ;;;
   
   
-  (method override (process-alias name)
-    (define (focus-editor)
-      (let ((focus (get-focus)))
-        (when focus
-          (get-view-editor (get-guest~ focus)))))
-    
-    (case name
-      ((:focus-editor) (focus-editor))
-      (else (nextmethod name))))
+  (method override (search-manager-class)
+    Gaia-Search)
 
   
   ;;;
   ;;;; Actions
   ;;;
+  
+  
+  (method override (global-actions)
+    (cons (find-actions 'search) (nextmethod)))
   
   
   (method override (class-actions)
@@ -601,8 +569,8 @@
   (method override (update-windowing-actions)
     (nextmethod)
     (unless (exiting-process?)
-      (update-search-actions)
-      (update-project-actions)))
+      (update-project-actions)
+      (update-actions-for '(window))))
 
 
   ;;;
@@ -754,7 +722,7 @@
   
   
   (method (change-scrollbar-style flat?)
-    (set-flat?~ (find-look 'scrollbar) flat?))
+    (set-flat?~ (find-skin 'ui:scrollbar) flat?))
 
 
   ;;;
