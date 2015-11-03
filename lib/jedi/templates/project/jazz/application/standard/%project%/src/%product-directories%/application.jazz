@@ -17,7 +17,10 @@
         (jazz.platform)
         (jazz.reference)
         (jazz.resource)
-        (jazz.ui))
+        (jazz.ui)
+        (jazz.view)
+        (jazz.window)
+        (jazz.workspace))
 
 
 ;;;
