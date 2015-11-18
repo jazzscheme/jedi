@@ -569,7 +569,7 @@
   
   (method override (update-windowing-actions)
     (nextmethod)
-    (unless (exiting-process?)
+    (unless (unloading-process?)
       (update-project-actions)
       (update-actions-for '(window))))
 
