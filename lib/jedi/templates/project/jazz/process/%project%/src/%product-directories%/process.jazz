@@ -10,8 +10,7 @@
 
 
 (import (jazz.platform)
-        (jazz.system)
-        (jazz.system.process))
+        (jazz.process))
 
 
 (class %project-name%-Process extends Process
