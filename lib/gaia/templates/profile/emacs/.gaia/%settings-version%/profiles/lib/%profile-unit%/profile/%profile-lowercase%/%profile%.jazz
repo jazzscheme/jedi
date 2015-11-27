@@ -10,6 +10,7 @@
 
 
 (import (irregex)
+        (jazz.clipboard)
         (jazz.ide)
         (jazz.ide.development)
         (jazz.graphic)
@@ -20,9 +21,8 @@
         (jazz.profile)
         (jazz.project)
         (jazz.ui)
-        (jazz.ui.clipboard)
         (jazz.ui.dialog)
-        (jazz.ui.view)
+        (jazz.view)
         (gaia)
         (time))
 
