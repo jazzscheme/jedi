@@ -754,11 +754,25 @@
   name-mangler: ("block-model"))
 
 
-(define-expression define-minecraft-block
+(define-expression define-block-category
   declaration?: #t
   tabulate: 1
   walk: :define
-  name-mangler: ("minecraft-block"))
+  name-mangler: ("block-category"))
+
+
+(define-expression define-block
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("block"))
+
+
+(define-expression define-item
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("item"))
 
 
 (define-expression define-parameter
