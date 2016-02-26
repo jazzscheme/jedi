@@ -761,6 +761,13 @@
   name-mangler: ("block-category"))
 
 
+(define-expression define-block-kind
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("block-kind"))
+
+
 (define-expression define-block
   declaration?: #t
   tabulate: 1
