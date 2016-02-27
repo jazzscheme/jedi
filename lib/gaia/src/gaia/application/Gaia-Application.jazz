@@ -774,6 +774,7 @@
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results})
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Profile-Results})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Tracking-Results})
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Servers-Manager}))))
                 (<Pad-Preferences>                               location: first
                   (<Docked-Preferences>                          location: selection model: {Class-Reference Workbench-Manager})
@@ -791,7 +792,8 @@
                       (<Docked-Preferences>                      location: selection model: {Class-Reference Lisp-Console-Manager})
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results})
-                      (<Docked-Preferences>                      location: #f model: {Class-Reference Profile-Results}))
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Profile-Results})
+                      (<Docked-Preferences>                      location: #f model: {Class-Reference Tracking-Results}))
                     (<Splitter-Preferences>                      location: first mode: relative division: 48 orientation: horz
                       (<Pad-Preferences>                         location: second
                         (<Docked-Preferences>                    location: selection model: {Class-Reference Chapters-Browser})
@@ -832,6 +834,7 @@
                         (<Docked-Preferences>                    location: #f model: {Class-Reference Properties-Manager})
                         (<Docked-Preferences>                    location: #f model: {Class-Reference Search-Results})
                         (<Docked-Preferences>                    location: #f model: {Class-Reference Profile-Results})
+                        (<Docked-Preferences>                    location: #f model: {Class-Reference Tracking-Results})
                         (<Docked-Preferences>                    location: #f model: {Class-Reference Servers-Manager}))))))))))
       (<Workspace-Preferences>                  name: groupware  title: "Groupware" icon: {Image-Resource "WorkspaceGroupware"} shortcut: {Shortcut :shift :alt #\G}
         (<Menubar-Preferences>                  name: menubar    location: root
