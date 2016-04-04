@@ -108,7 +108,8 @@
                   (lambda (rect)
                     (platformEnterWindowed handle rect #f)))
                 (receive (server clients) (collect-world-debuggees)
-                  (let ((debuggees (append clients (if server (list server) '()))))
+                  ;; hack around mac screens going bottom up
+                  (let ((debuggees (reverse (append clients (if server (list server) '())))))
                     (let ((count (length debuggees))
                           (rank 0)
                           (area-height (- bottom top)))
