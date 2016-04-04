@@ -40,6 +40,8 @@
 
 (import (jazz.application)
         (jazz.clipboard)
+        (jazz.component)
+        (jazz.debugger)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
         (jazz.feedback)
@@ -47,6 +49,7 @@
         (jazz.handler)
         (jazz.ide)
         (jazz.io)
+        (jazz.project)
         (jazz.text)
         (jazz.ui)
         (jazz.ui.dialog)
@@ -166,6 +169,64 @@
 
 
 (class Gaia-Profile extends IDE-Profile
+  
+  
+  ;;;
+  ;;;; Server/Clients
+  ;;;
+  
+  
+  (method (launch-server/clients (action: action 'debug) (safety: safety 'Release) (server: server 'Flat) (clients: clients '(Guillaume Joel)))
+    (define (launch-server server-project server-traits client-project client-traits)
+      (let ((cookie (register-debugger-cookie)))
+        (register-debugger-cookie-procedure cookie
+          (lambda (process cookie)
+            (register-process-configuration process (cons server-project server-traits))
+            (launch-clients client-project client-traits)))
+        (launch-project server-project server-traits cookie: cookie)))
+    
+    (define (launch-clients client-project clients-traits)
+      (for-each (lambda (client-traits)
+                  (launch-client client-project client-traits))
+                clients-traits))
+    
+    (define (launch-client client-project client-traits)
+      (let ((cookie (register-debugger-cookie)))
+        (register-debugger-cookie-procedure cookie
+          (lambda (process cookie)
+            (register-process-configuration process (cons client-project client-traits))))
+        (launch-project client-project client-traits cookie: cookie)))
+    
+    (define (launch-project project traits (cookie: cookie #f))
+      (let ((project (clone-component~ project)))
+        (define (collect-project-traits)
+          (collect-if (lambda (trait)
+                        (find-local-trait project trait))
+                      traits))
+        
+        (set-default-traits~ project (collect-project-traits))
+        (set-arguments~ project (append (get-arguments~ project) (list "-local" "true")))
+        (project-action~ project action debugger-interactive?: #t debugger-cookie: cookie)))
+    
+    (define (safety->trait safety)
+      (compose-identifier 'Safety safety))
+    
+    (define (server->trait server)
+      (compose-identifier 'Server server))
+    
+    (define (client->trait client)
+      (compose-identifier 'Client client))
+    
+    (let ((workbench (get-workbench)))
+      (let ((server-project (find-project~ workbench 'yownu:lib:yownu:Yownu-Server))
+            (client-project (find-project~ workbench 'yownu:lib:yownu:Yownu)))
+        (let ((server-traits (list (safety->trait safety) (server->trait server)))
+              (clients-traits (map (lambda (client)
+                                     (list (safety->trait safety) (client->trait client)))
+                                   clients)))
+          (if (registered-process-live? (cons server-project server-traits))
+              (launch-clients client-project clients-traits)
+            (launch-server server-project server-traits client-project clients-traits))))))
   
   
   ;;;
