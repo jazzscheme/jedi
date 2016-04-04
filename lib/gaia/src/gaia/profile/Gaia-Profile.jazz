@@ -775,6 +775,13 @@
   name-mangler: ("block"))
 
 
+(define-expression define-contour
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("contour"))
+
+
 (define-expression define-item
   declaration?: #t
   tabulate: 1
