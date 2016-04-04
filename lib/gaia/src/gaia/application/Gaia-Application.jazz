@@ -107,7 +107,6 @@
                 (with-NSRect (new Rect world-width 0 width bottom)
                   (lambda (rect)
                     (platformEnterWindowed handle rect #f)))
-                @wait
                 (receive (server clients) (collect-world-debuggees)
                   (let ((debuggees (append clients (if server (list server) '()))))
                     (let ((count (length debuggees))
@@ -695,7 +694,6 @@
         (select-workspace (or previous-workspace 'text))
         (full-screen~ (get-application) #f)
         (platform-restore-gaia/world debuggee)
-        @wait
         (receive (server clients) (collect-world-debuggees)
           (let ((debuggees (append clients (if server (list server) '()))))
             (for-each (lambda (debuggee)
