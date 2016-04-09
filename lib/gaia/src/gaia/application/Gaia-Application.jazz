@@ -101,25 +101,17 @@
                 (right (get-right~ rect))
                 (bottom (get-bottom~ rect)))
             (let ((width (- right left)))
-              (let ((world-width (case mode
-                                   ((live) (fxround (percent width 45.5)))
-                                   ((design) (- width 300)))))
-                (with-NSRect (new Rect world-width 0 width bottom)
+              (let ((area-width (case mode
+                                  ((live) (fxround (percent width 45.5)))
+                                  ((design) (- width 300))))
+                    (area-height (- bottom top)))
+                (with-NSRect (new Rect area-width 0 width bottom)
                   (lambda (rect)
                     (platformEnterWindowed handle rect #f)))
                 (receive (server clients) (collect-world-debuggees)
                   ;; hack around mac screens going bottom up
                   (let ((debuggees (reverse (append clients (if server (list server) '())))))
-                    (let ((count (length debuggees))
-                          (rank 0)
-                          (area-height (- bottom top)))
-                      (for-each (lambda (debuggee)
-                                  (let ((height (fxround (exact->inexact (/ area-height count)))))
-                                    (let ((top (* height rank)))
-                                      (let ((rect (new Rect 0 top world-width (+ top height))))
-                                        (position-world~ debuggee rect))))
-                                  (increase! rank))
-                                debuggees)))))))))))
+                    (tile-debuggees area-width area-height debuggees))))))))))
   (windows
     (definition (platform-tile-gaia/world debuggee mode)
       (let ((handle (get-handle~ (get-toplevel))))
@@ -132,31 +124,44 @@
                 (right (get-right~ area))
                 (bottom (get-bottom~ area)))
             (let ((width (- right left)))
-              (let ((world-width (case mode
-                                   ((live) (fxround (percent width 45.5)))
-                                   ((design) (- width 300)))))
+              (let ((area-width (case mode
+                                  ((live) (fxround (percent width 45.5)))
+                                  ((design) (- width 300))))
+                    (area-height (- bottom top)))
                 (SetWindowPos handle HWND_TOP
-                  world-width
+                  area-width
                   0
-                  (- width world-width)
-                  (- bottom top)
+                  (- width area-width)
+                  area-height
                   (bitwise-ior SWP_NOOWNERZORDER SWP_FRAMECHANGED))
                 (show-window handle)
                 (receive (server clients) (collect-world-debuggees)
                   (let ((debuggees (append clients (if server (list server) '()))))
-                    (let ((count (length debuggees))
-                          (rank 0)
-                          (area-height (- bottom top)))
-                      (for-each (lambda (debuggee)
-                                  (let ((height (fxround (exact->inexact (/ area-height count)))))
-                                    (let ((top (* height rank)))
-                                      (let ((rect (new Rect 0 top world-width (+ top height))))
-                                        (position-world~ debuggee rect))))
-                                  (increase! rank))
-                                debuggees)))))))))))
+                    (tile-debuggees area-width area-height debuggees))))))))))
   (else
     (definition (platform-tile-gaia/world debuggee mode)
       )))
+
+
+(definition (tile-debuggees area-width area-height debuggees)
+  (let ((count (length debuggees))
+        (max-vertical 5)
+        (rank 0))
+    (let ((horizontal (+ (quotient (- count 1) max-vertical) 1))
+          (vertical (min max-vertical count)))
+      (let ((width (fxround (exact->inexact (/ area-width horizontal))))
+            (height (fxround (exact->inexact (/ area-height vertical)))))
+        (for-each (lambda (debuggee)
+                    (let ((horz (quotient rank max-vertical))
+                          (vert (modulo rank max-vertical)))
+                      (let ((left (* width horz))
+                            (top (* height vert)))
+                        (let ((right (+ left width))
+                              (bottom (+ top height)))
+                          (let ((rect (new Rect left top right bottom)))
+                            (position-world~ debuggee rect)))))
+                    (increase! rank))
+                  debuggees)))))
 
 
 (cond-expand
