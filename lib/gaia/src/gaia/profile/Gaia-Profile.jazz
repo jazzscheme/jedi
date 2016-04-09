@@ -837,6 +837,13 @@
   name-mangler: ("block"))
 
 
+(define-expression define-change
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("change"))
+
+
 (define-expression define-contour
   declaration?: #t
   tabulate: 1
