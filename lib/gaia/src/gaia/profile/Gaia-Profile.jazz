@@ -219,7 +219,7 @@
     
     (save-all~ (get-application))
     (let ((workbench (get-workbench)))
-      (let ((server-project (find-project~ workbench 'yownu:lib:yownu:Yownu-Server))
+      (let ((server-project (find-project~ workbench 'yownu:lib:yownu:Yownu @wait 'yownu:lib:yownu:Yownu-Server))
             (client-project (find-project~ workbench 'yownu:lib:yownu:Yownu)))
         (let ((server-traits (list (safety->trait safety) (server->trait server)))
               (clients-traits (map (lambda (client)
