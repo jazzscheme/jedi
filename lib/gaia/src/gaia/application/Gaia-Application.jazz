@@ -393,6 +393,7 @@
           ((member? ext '("client" "server") test: extension=?) Jazz-Text-View)
           ((member? ext '("world") test: extension=?) Jazz-Text-View)
           ((member? ext '("zone") test: extension=?) Jazz-Text-View)
+          ((member? ext '("player") test: extension=?) Jazz-Text-View)
           ((member? ext '("w3ds") test: extension=?) Jazz-Text-View)
           (else (nextmethod ext))))
 
