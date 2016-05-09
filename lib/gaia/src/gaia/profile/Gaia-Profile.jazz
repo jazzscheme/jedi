@@ -176,14 +176,14 @@
   ;;;
   
   
-  (method (launch-server/clients (action: action 'debug) (safety: safety 'Release) (server: server 'Flat) (clients: clients '()))
-    (define (launch-server server-project server-traits client-project client-traits)
+  (method (launch-server/clients (action: action 'debug) (safety: safety 'Release) (server: server #f) (clients: clients '()))
+    (define (launch-server server-project server-safety server-traits client-project client-traits)
       (let ((cookie (register-debugger-cookie)))
         (register-debugger-cookie-procedure cookie
           (lambda (process cookie)
             (register-process-configuration process (cons server-project server-traits))
             (launch-clients client-project client-traits)))
-        (launch-project server-project server-traits cookie: cookie)))
+        (launch-project server-project (cons server-safety server-traits) cookie: cookie)))
     
     (define (launch-clients client-project clients-traits)
       (for-each (lambda (client-traits)
@@ -219,15 +219,16 @@
     
     (save-all~ (get-application))
     (let ((workbench (get-workbench)))
-      (let ((server-project (find-project~ workbench 'yownu:lib:yownu:Yownu @wait 'yownu:lib:yownu:Yownu-Server))
+      (let ((server-project (find-project~ workbench 'yownu:lib:yownu:Yownu-Server))
             (client-project (find-project~ workbench 'yownu:lib:yownu:Yownu)))
-        (let ((server-traits (list (safety->trait safety) (server->trait server)))
+        (let ((server-safety (and server (safety->trait safety)))
+              (server-traits (and server (list (server->trait server))))
               (clients-traits (map (lambda (client)
                                      (list (safety->trait safety) (client->trait client)))
                                    clients)))
-          (if (registered-process-live? (cons server-project server-traits))
+          (if (or (not server) (registered-process-live? (cons server-project server-traits)))
               (launch-clients client-project clients-traits)
-            (launch-server server-project server-traits client-project clients-traits))))))
+            (launch-server server-project server-safety server-traits client-project clients-traits))))))
   
   
   ;;;
