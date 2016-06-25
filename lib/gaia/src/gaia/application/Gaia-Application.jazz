@@ -184,24 +184,6 @@
       )))
 
 
-(definition (collect-world-debuggees)
-  (define (load-debuggee process)
-    (load-object~ (get-remote-register process) 'world.debuggee 'world-debuggee))
-  
-  (let ((server #f)
-        (clients (new-queue))
-        (manager (get-debugger-manager)))
-    (for-each-process~ manager
-      (lambda (debugger debugged-process live? focused?)
-        (let ((process (get-reference~ debugged-process)))
-          (when (remote-proxy? process)
-            (let ((kind (determine-process-property~ debugger process kind: #f)))
-              (case kind
-                ((server) (set! server (load-debuggee process)))
-                ((client) (enqueue clients (load-debuggee process)))))))))
-    (values server (queue-list clients))))
-
-
 (class Gaia-Application extends IDE
   
   

@@ -38,4 +38,36 @@
 (module gaia jazz
 
 
-(export (gaia.autoload)))
+(export (gaia.autoload))
+
+(import (jazz.debugger)
+        (jazz.jrm))
+
+
+;;;
+;;;; World
+;;;
+
+
+(definition protected (collect-world-debuggees)
+  (define (load-debuggee process)
+    (load-object~ (get-remote-register process) 'world.debuggee 'world-debuggee))
+  
+  (let ((server #f)
+        (clients (new-queue))
+        (manager (get-debugger-manager)))
+    (for-each-process~ manager
+      (lambda (debugger debugged-process live? focused?)
+        (let ((process (get-reference~ debugged-process)))
+          (when (remote-proxy? process)
+            (let ((kind ;; quick hack until server inherits from process
+                        ;; again so we can use runtime properties as before
+                        (if (ends-with? (get-title~ process) "-Server")
+                            'server
+                          'client)
+                        @wait (determine-process-property~ debugger process kind: #f)))
+              (case kind
+                @wait-windowless-server
+                ((server) (set! server (load-debuggee process)))
+                ((client) (enqueue clients (load-debuggee process)))))))))
+    (values server (queue-list clients)))))
