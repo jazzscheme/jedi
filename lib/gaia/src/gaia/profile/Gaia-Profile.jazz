@@ -838,6 +838,12 @@
   name-mangler: ("block"))
 
 
+(define-expression define-crafting-recipe
+  declaration?: #t
+  walk: :define
+  name-mangler: ("crafting-recipe"))
+
+
 (define-expression define-change
   declaration?: #t
   tabulate: 1
