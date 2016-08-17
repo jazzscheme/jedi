@@ -98,7 +98,13 @@
     point3ref
     ray3ref
     CollisionList
-    CollisionType))
+    CollisionType
+    
+    ;; java
+    boolean
+    Random
+    IBlockState
+    MutableBlockPos))
 
 
 (define init-six
@@ -837,6 +843,13 @@
   tabulate: 1
   walk: :define
   name-mangler: ("block"))
+
+
+(define-expression define-biome
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("biome"))
 
 
 (define-expression define-crafting-recipe
