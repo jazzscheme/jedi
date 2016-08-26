@@ -104,7 +104,8 @@
     boolean
     Random
     IBlockState
-    MutableBlockPos))
+    MutableBlockPos
+    Biome))
 
 
 (define init-six
@@ -356,7 +357,8 @@
         (six.x+=y     . increase!)
         (six.x-=y     . decrease!)
         (six.x*=y     . multiply!)
-        (six.x/=y     . divide!)))
+        (six.x/=y     . divide!)
+        (|six.x\|=y|  . bitwise-ior!)))
     
     (define binary-associatives
       '(+
@@ -526,6 +528,11 @@
                   ((six.x>>y)
                    (bind (kind x y) (source-code expr)
                      `(arithmetic-shift ,(parse x) (- ,(parse y)))))
+                  ((six.x?y:z)
+                   (bind (kind test yes no) (source-code expr)
+                     `(if ,(parse test)
+                          ,(parse yes)
+                        ,(parse no))))
                   ((six.literal)
                    (source-code (cadr (source-code expr))))
                   ((six.list)
