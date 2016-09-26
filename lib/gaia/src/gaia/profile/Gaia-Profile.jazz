@@ -789,10 +789,6 @@
   tabulate: 1)
 
 
-(define-expression optimize
-  tabulate: 1)
-
-
 (define-expression assets
   tabulate: 1
   walk: :repository)
