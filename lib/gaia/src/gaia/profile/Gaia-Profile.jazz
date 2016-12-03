@@ -866,6 +866,13 @@
   name-mangler: ("crafting-recipe"))
 
 
+(define-expression define-part
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("part"))
+
+
 (define-expression define-change
   declaration?: #t
   tabulate: 1
