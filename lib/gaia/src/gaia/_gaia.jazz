@@ -67,7 +67,7 @@
                           'client)
                         @wait (determine-process-property~ debugger process kind: #f)))
               (case kind
-                @wait-windowless-server
+                ;@wait-windowless-server
                 ((server) (set! server (load-debuggee process)))
                 ((client) (enqueue clients (load-debuggee process)))))))))
     (values server (queue-list clients)))))
