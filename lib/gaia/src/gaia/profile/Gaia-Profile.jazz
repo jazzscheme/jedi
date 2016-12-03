@@ -590,21 +590,22 @@
       (let ((has-selection? (has-selection?~ text))
             (expl (new (explorer-class~ text) (get-model~ text) start: (get-start~ text) end: (get-end~ text))))
         (let (iter)
-          (when (or has-selection? (outer-expr~ expl))
-            (set! has-selection? #f)
-            (let ((range (get-range~ expl)))
-              (when (= (get-line~ (get-start~ range))
-                       (get-line~ (get-end~ range)))
-                (let ((literal-string (get-marked~ expl))
-                      (literal (with-jazz-readtable
-                                 (lambda ()
-                                   (read-marked~ expl)))))
-                  (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
-                         (or (iter) (list literal-string literal range)))
-                        ((is? literal Color)
-                         (list literal-string literal range))
-                        (else
-                         (iter))))))))))
+          (and (or has-selection? (outer-expr~ expl))
+               (begin
+                 (set! has-selection? #f)
+                 (let ((range (get-range~ expl)))
+                   (and (= (get-line~ (get-start~ range))
+                           (get-line~ (get-end~ range)))
+                        (let ((literal-string (get-marked~ expl))
+                              (literal (with-jazz-readtable
+                                         (lambda ()
+                                           (read-marked~ expl)))))
+                          (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
+                                 (or (iter) (list literal-string literal range)))
+                                ((is? literal Color)
+                                 (list literal-string literal range))
+                                (else
+                                 (iter)))))))))))
     
     (define (choose-literal text undoer atomic-preserved modified? literal-string literal range pos)
       (define (choose-number)
