@@ -13,11 +13,15 @@
         (jazz.application)
         (jazz.debuggee)
         (jazz.jml)
+        (jazz.layout)
         (jazz.menu)
         (jazz.platform)
         (jazz.reference)
         (jazz.resource)
-        (jazz.ui))
+        (jazz.text)
+        (jazz.ui)
+        (jazz.window)
+        (jazz.workspace))
 
 
 ;;;

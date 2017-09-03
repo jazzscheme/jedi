@@ -12,7 +12,8 @@
 (import (jazz.application)
         (jazz.jml)
         (jazz.platform)
-        (jazz.ui))
+        (jazz.ui)
+        (jazz.window))
 
 
 ;;;
