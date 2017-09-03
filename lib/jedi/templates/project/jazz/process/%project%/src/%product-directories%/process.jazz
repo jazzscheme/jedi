@@ -18,4 +18,4 @@
   
   (method override (start-process)
     (system-message "Hello %product-title%!")
-    (exit-process))))
+    (quit-process))))

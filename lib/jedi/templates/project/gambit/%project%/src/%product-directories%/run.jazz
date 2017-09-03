@@ -1,0 +1,27 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; %product-title% Run
+;;;
+
+
+(unit %product-unit%.run
+
+
+;;;
+;;;; Run
+;;;
+
+
+(define (run descriptor)
+  (start-scheme-repl))
+
+
+;;;
+;;;; Register
+;;;
+
+
+(jazz:register-product-run '%product%
+  run))

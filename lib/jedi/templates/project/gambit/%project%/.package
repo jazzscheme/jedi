@@ -3,5 +3,6 @@
   (root "src")
   (products (%product% (unit %product-unit%.product)
                        (update %product-unit%.product)
+                       (run %product-unit%.run)
                        (dependencies jazz)))
   (project ".project"))

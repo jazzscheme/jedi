@@ -10,19 +10,9 @@
 
 
 ;;;
-;;;; Run
-;;;
-
-
-(define (run descriptor)
-  (start-scheme-repl))
-
-
-;;;
 ;;;; Register
 ;;;
 
 
 (jazz:register-product '%product%
-  title: "%product-title%"
-  run: run))
+  title: "%product-title%"))
