@@ -880,9 +880,23 @@
   name-mangler: ("change"))
 
 
+(define-expression define-contour-category
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("contour-category"))
+
+
 (define-expression define-contour
   declaration?: #t
   tabulate: 1
+  walk: :define
+  name-mangler: ("contour"))
+
+
+(define-expression define-name-contour
+  declaration?: #t
+  tabulate: 2
   walk: :define
   name-mangler: ("contour"))
 
