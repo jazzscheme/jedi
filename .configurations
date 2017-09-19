@@ -1,0 +1,1 @@
+(name: binaries safety: release optimize?: #f destination: "binaries/release" features: () properties: (binaries?: #t single-objects?: #t source-access?: #f jazzini-access?: #t))
