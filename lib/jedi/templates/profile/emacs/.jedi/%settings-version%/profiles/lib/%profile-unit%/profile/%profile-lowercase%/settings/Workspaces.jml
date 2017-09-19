@@ -154,8 +154,7 @@
                   (<Splitter-Preferences>                             location: second state: zoom target: first orientation: vert division: -269
                     (<Pad-Preferences>                                location: second
                       (<Docked-Preferences>                           location: #f model: {Reference Lisp-Console-Manager})
-                      (<Docked-Preferences>                           location: #f model: {Reference Search-Results})
-                      (<Docked-Preferences>                           location: selection model: {Reference Violations-Manager}))
+                      (<Docked-Preferences>                           location: #f model: {Reference Search-Results}))
                     (<Stage-Preferences>                              location: first maximized?: #t)))
                 (<Minibuffer-Preferences>                             location: second state: split
                   (<Docked-Preferences>                               location: first model: {Reference Properties-Containment}))))))))
