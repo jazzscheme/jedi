@@ -38,6 +38,9 @@
 (module gaia jazz
 
 
+(hub reload-documentation)
+
+
 (export (gaia.autoload))
 
 (import (jazz.debugger)

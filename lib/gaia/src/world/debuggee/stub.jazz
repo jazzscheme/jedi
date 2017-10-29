@@ -38,6 +38,11 @@
 (module world.debuggee.stub jazz
 
 
+(hub position-world)
+(hub restore-world)
+(hub set-property)
+
+
 (import (jazz.jrm.syntax (phase syntax))
         (jazz.jrm))
 

@@ -41,6 +41,7 @@
 (import (jazz.action)
         (jazz.application)
         (jazz.catalog)
+        (jazz.component)
         (jazz.console)
         (jazz.debugger)
         (jazz.designer)
@@ -67,12 +68,14 @@
         (jazz.settings)
         (jazz.skin)
         (jazz.text)
+        (jazz.ui)
         (jazz.version)
         (jazz.view)
         (jazz.window (cond windows))
         (jazz.workspace)
         (gaia)
-        (gaia.validate))
+        (gaia.validate)
+        (world.debuggee.stub))
 
 
 (cond-expand
@@ -325,7 +328,7 @@
     (let ((settings-path (tokenise-filename (determine-settings))))
       (register-alias 'Settings settings-path override?: #t)
       (let ((file {File Settings ".settings"}))
-        (unless (exists?~ file)
+        (unless (exists? file)
           (create file))
         (set! settings (new File-Settings file: file))
         (register-settings settings)))
@@ -479,7 +482,7 @@
         cataloguer))
     
     (unless documentation-cataloguer
-      (when (get-documented?~ (current-preferences #f))
+      (when (get-documented? (current-preferences #f))
         (set! documentation-cataloguer (new-documentation-cataloguer))))
     documentation-cataloguer)
   
@@ -615,7 +618,7 @@
   
   (method (on-run-smoker self evt)
     @convert/wait
-    (build/run~ (new Smoker-Builder)))
+    (build/run (new Smoker-Builder)))
 
 
   (method package (on-spy-events self evt)
@@ -713,7 +716,7 @@
   
   
   (method (change-scrollbar-style self flat?)
-    (set-flat?~ (find-skin 'ui:scrollbar) flat?))
+    (set-flat? (find-skin 'ui:scrollbar) flat?))
 
 
   ;;;

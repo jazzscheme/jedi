@@ -85,7 +85,7 @@
     (let ((view (get-position evt)))
       (show-text-cursor self)
       (when (and (view-enabled? self) selectable?)
-        (if (get-alt?~ evt)
+        (if (get-alt? evt)
             (set-cursor :finger)
           (let* ((pos (view->text view))
                  (par (get-paragraph (get-line pos))))
@@ -93,7 +93,7 @@
                 (set-cursor :left-arrow)
               (let ((style (get-style-at model pos)))
                 (if (and (is? style Live-Style)
-                         (get-control?~ evt))
+                         (get-control? evt))
                     (set-cursor :finger)
                   (set-cursor :ibeam)))))))))
 
@@ -107,7 +107,7 @@
     (let* ((pos (view->text (get-position evt)))
            (style (get-style-at model pos)))
       (unless (and (is? style Live-Style)
-                   (get-control?~ evt))
+                   (get-control? evt))
         (nextmethod self evt))))
 
 
@@ -128,7 +128,7 @@
     
     (let ((mouse-selecting? mouse-selecting?))
       (nextmethod self evt)
-      (when (and (view-enabled? self) (not mouse-selecting?) (get-control?~ evt))
+      (when (and (view-enabled? self) (not mouse-selecting?) (get-control? evt))
         (let* ((pos (view->text (get-position evt)))
                (style (get-style-at model pos)))
           (when (is? style Live-Style)

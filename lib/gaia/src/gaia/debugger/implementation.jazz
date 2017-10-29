@@ -54,16 +54,16 @@
   (method public (live-gaia/world self debuggee)
     (execute-event
       (lambda ()
-        (live-gaia/world~ (get-application) debuggee))))
+        (live-gaia/world (get-application) debuggee))))
   
   
   (method public (design-gaia/world self debuggee)
     (execute-event
       (lambda ()
-        (design-gaia/world~ (get-application) debuggee))))
+        (design-gaia/world (get-application) debuggee))))
   
   
   (method public (restore-gaia/world self debuggee)
     (execute-event
       (lambda ()
-        (restore-gaia/world~ (get-application) debuggee))))))
+        (restore-gaia/world (get-application) debuggee))))))

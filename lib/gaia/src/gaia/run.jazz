@@ -39,6 +39,7 @@
 
 
 (import (jazz.ide.login)
+        (jazz.process)
         (gaia))
 
 

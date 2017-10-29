@@ -42,6 +42,8 @@
         (jazz.clipboard)
         (jazz.component)
         (jazz.debugger)
+        (jazz.debugger.jazz)
+        (jazz.editor)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
         (jazz.feedback)
@@ -53,8 +55,11 @@
         (jazz.text)
         (jazz.ui)
         (jazz.ui.dialog)
+        (jazz.undoer)
         (jazz.view)
-        (jazz.website))
+        (jazz.website)
+        (jazz.window)
+        (gaia))
 
 
 ;;;
@@ -587,7 +592,7 @@
   
   (method (live-code self)
     (define (literal-range text)
-      (let ((has-selection? (has-selection?~ text))
+      (let ((has-selection? (has-selection? text))
             (expl (new (explorer-class text) (get-model text) start: (get-start text) end: (get-end text))))
         (let (iter)
           (and (or has-selection? (outer-expr expl))
@@ -731,7 +736,7 @@
                   (let* ((start (get-start range))
                          (end (get-end range))
                          (mid (fxround/ (+ (get-col start) (get-col end)) 2))
-                         (pos (text->view~ text (new Cell (get-line start) mid))))
+                         (pos (text->view text (new Cell (get-line start) mid))))
                     (choose-literal text undoer atomic-preserved #f literal-string literal range pos))))))))))
   
   
@@ -758,7 +763,7 @@
                                                                      (substring base (+ second-underscore 1) third-underscore))
                                                              extension)))
                               (let ((clean-file (new-brother file clean-name)))
-                                (if (exists?~ clean-file)
+                                (if (exists? clean-file)
                                     (debug clean-file)
                                   (move-pathname file clean-file)
                                   (user-message "{a}" clean-name)

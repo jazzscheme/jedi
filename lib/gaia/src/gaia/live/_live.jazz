@@ -38,10 +38,17 @@
 (module protected gaia.live jazz
 
 
+(hub get-choose-action)
+(hub get-return-action)
+
+
 (import (jazz.application)
         (jazz.graphic)
         (jazz.handler)
-        (jazz.ui))
+        (jazz.text)
+        (jazz.ui)
+        (jazz.undoer)
+        (jazz.window))
 
 
 ;; need to reintegrate this into Gaia-Profile's version
@@ -49,7 +56,7 @@
 
 (definition public (live-choose text style literal-string literal range evaluate)
   (define (literal-range text)
-    (let ((has-selection? (has-selection?~ text))
+    (let ((has-selection? (has-selection? text))
           (expl (new (explorer-class text) (get-model text) start: (get-start text) end: (get-end text))))
       (let (iter)
         (when (or has-selection? (outer-expr expl))
@@ -193,5 +200,5 @@
       (let* ((start (get-start range))
              (end (get-end range))
              (mid (fxround/ (+ (get-col start) (get-col end)) 2))
-             (pos (text->view~ text (new Cell (get-line start) mid))))
+             (pos (text->view text (new Cell (get-line start) mid))))
         (choose-literal text undoer atomic-preserved #f literal-string literal range pos))))))
