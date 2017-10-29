@@ -45,25 +45,25 @@
 (class Gaia-Debugger extends Object
   
   
-  (method public (show-properties debuggee class properties)
+  (method public (show-properties self debuggee class properties)
     (execute-event
       (lambda ()
-        (show-properties~ (get-application) debuggee class properties))))
+        (show-properties (get-application) debuggee class properties))))
   
   
-  (method public (live-gaia/world debuggee)
+  (method public (live-gaia/world self debuggee)
     (execute-event
       (lambda ()
         (live-gaia/world~ (get-application) debuggee))))
   
   
-  (method public (design-gaia/world debuggee)
+  (method public (design-gaia/world self debuggee)
     (execute-event
       (lambda ()
         (design-gaia/world~ (get-application) debuggee))))
   
   
-  (method public (restore-gaia/world debuggee)
+  (method public (restore-gaia/world self debuggee)
     (execute-event
       (lambda ()
         (restore-gaia/world~ (get-application) debuggee))))))

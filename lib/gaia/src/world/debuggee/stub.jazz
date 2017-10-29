@@ -45,6 +45,6 @@
 (remotable-stub World-Debuggee
   
   
-  (method public exec (position-world rect))
-  (method public exec (restore-world))
-  (method public exec (set-property property value))))
+  (method public exec (position-world self rect))
+  (method public exec (restore-world self))
+  (method public exec (set-property self property value))))

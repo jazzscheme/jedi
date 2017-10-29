@@ -47,4 +47,4 @@
   (new Gaia-Debugger-Local-Proxy (new Gaia-Debugger)))
 
 
-(register-object~ (get-local-register) 'gaia-debugger (make-gaia-debugger)))
+(register-object (get-local-register) 'gaia-debugger (make-gaia-debugger)))

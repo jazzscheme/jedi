@@ -130,9 +130,9 @@
                           ((ignore)
                            'cancel))))
             (when (eq? result 'yes)
-              (let ((source (get-source~ exc))
-                    (range (get-range~ exc)))
-                (edit-document~ (get-application) source selection: range)))
+              (let ((source (get-source exc))
+                    (range (get-range exc)))
+                (edit-document (get-application) source selection: range)))
             (neq? result 'no)))))
     (lambda (exc)
       (signal-cancel))
@@ -161,7 +161,7 @@
                         (let ((location (exception-location exc cont)))
                           (let ((filepos (position->filepos (locat-position location))))
                             (let ((pos (new Cell (filepos-line filepos) (filepos-col filepos))))
-                              (set-caret~ text (nu+ start pos))))))
+                              (set-caret text (nu+ start pos))))))
                       (neq? code 'no)))))))
           (lambda (exc)
             (signal-cancel))
@@ -185,7 +185,7 @@
   ;;;
   
   
-  (method (launch-server/clients (action: action 'debug) (safety: safety 'Release) (server: server #f) (clients: clients '()))
+  (method (launch-server/clients self (action: action 'debug) (safety: safety 'Release) (server: server #f) (clients: clients '()))
     (define (launch-server server-project server-safety server-traits client-project client-traits)
       (let ((cookie (register-debugger-cookie)))
         (register-debugger-cookie-procedure cookie
@@ -207,15 +207,15 @@
         (launch-project client-project client-traits cookie: cookie)))
     
     (define (launch-project project traits (cookie: cookie #f))
-      (let ((project (clone-component~ project)))
+      (let ((project (clone-component project)))
         (define (collect-project-traits)
           (collect-if (lambda (trait)
                         (find-local-trait project trait))
                       traits))
         
-        (set-default-traits~ project (collect-project-traits))
-        (set-arguments~ project (append (get-arguments~ project) (list "-local-server/clients" "true")))
-        (project-action~ project action debugger-interactive?: #t debugger-cookie: cookie)))
+        (set-default-traits project (collect-project-traits))
+        (set-arguments project (append (get-arguments project) (list "-local-server/clients" "true")))
+        (project-action project action debugger-interactive?: #t debugger-cookie: cookie)))
     
     (define (safety->trait safety)
       (compose-identifier 'Safety safety))
@@ -226,10 +226,10 @@
     (define (client->trait client)
       (compose-identifier 'Client client))
     
-    (save-all~ (get-application))
+    (save-all (get-application))
     (let ((workbench (get-workbench)))
-      (let ((server-project (find-project~ workbench 'yownu:lib:yownu:Yownu-Server))
-            (client-project (find-project~ workbench 'yownu:lib:yownu:Yownu)))
+      (let ((server-project (find-project workbench 'yownu:lib:yownu:Yownu-Server))
+            (client-project (find-project workbench 'yownu:lib:yownu:Yownu)))
         (let ((server-safety (and server (safety->trait safety)))
               (server-traits (and server (list (server->trait server))))
               (clients-traits (map (lambda (client)
@@ -255,15 +255,15 @@
     {Directory World "lib" "world.website" "reference"})
   
   
-  (method override (test5)
-    (reload-documentation~ (get-application))
+  (method override (test5 self)
+    (reload-documentation (get-application))
     (parameterize ((generate-manual? #t)
                    (generate-reference? #f))
       (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
   
   
-  (method override (test6)
-    (reload-documentation~ (get-application))
+  (method override (test6 self)
+    (reload-documentation (get-application))
     (parameterize ((generate-manual? #t)
                    (generate-reference? #t))
       (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
@@ -274,47 +274,47 @@
   ;;;
   
   
-  (method override (test8)
-    (let ((text (get-focus)))
+  (method override (test8 self)
+    (let ((text (active-focus)))
       (if (is-not? text Text-View)
           (bell)
-        (let ((str (get-selected-string~ text)))
-          (receive (comments expressions) (parse-infix str text (get-start~ text))
+        (let ((str (get-selected-string text)))
+          (receive (comments expressions) (parse-infix str text (get-start text))
             (let ((output (open-output-string)))
               (for-each (lambda (expr)
                           (pp expr output))
                         (desourcify-all expressions))
               (let ((lisp (butlast (get-output-string output))))
-                (let ((start (get-start~ text)))
-                  (replace-selection~ text (split-lines lisp))
+                (let ((start (get-start text)))
+                  (replace-selection text (split-lines lisp))
                   @w
-                  (tabulate-range~ text (new-range~ text start (get-end~ text)))))))))))
+                  (tabulate-range text (new-range text start (get-end text)))))))))))
   
   
-  (method override (test9)
-    (let ((text (get-focus)))
+  (method override (test9 self)
+    (let ((text (active-focus)))
       (if (is-not? text Text-View)
           (bell)
-        (let ((str (get-selected-string~ text)))
-          (let ((start (get-start~ text)))
+        (let ((str (get-selected-string text)))
+          (let ((start (get-start text)))
             (set-clipboard-text (c->lisp str text start))
             (user-message "Clipbard set to Lisp code"))))))
   
   
-  (method override (test0)
-    (let ((text (get-focus)))
+  (method override (test0 self)
+    (let ((text (active-focus)))
       (if (is-not? text Text-View)
           (bell)
         (let ((str (get-clipboard-text)))
           (if (not str)
               (bell)
-            (let ((start (get-start~ text)))
-              (replace-selection~ text (split-lines (c->lisp str text start)))
+            (let ((start (get-start text)))
+              (replace-selection text (split-lines (c->lisp str text start)))
               @w
-              (tabulate-range~ text (new-range~ text start (get-end~ text)))))))))
+              (tabulate-range text (new-range text start (get-end text)))))))))
   
   
-  (method (c->lisp str text start)
+  (method (c->lisp self str text start)
     (receive (comments expressions) (parse-infix str text start)
       (let ((expressions (parse-c comments expressions)))
         (let ((output (open-output-string)))
@@ -325,7 +325,7 @@
           (butlast (get-output-string output))))))
   
   
-  (method (parse-c comments expressions)
+  (method (parse-c self comments expressions)
     (define unary-translations
       '((six.!x  . not)
         (six.++x . unimplemented.++x)
@@ -581,25 +581,25 @@
   ;;;
   
   
-  (method override (test)
-    (live-code))
+  (method override (test self)
+    (live-code self))
   
   
-  (method (live-code)
+  (method (live-code self)
     (define (literal-range text)
       (let ((has-selection? (has-selection?~ text))
-            (expl (new (explorer-class~ text) (get-model~ text) start: (get-start~ text) end: (get-end~ text))))
+            (expl (new (explorer-class text) (get-model text) start: (get-start text) end: (get-end text))))
         (let (iter)
-          (and (or has-selection? (outer-expr~ expl))
+          (and (or has-selection? (outer-expr expl))
                (begin
                  (set! has-selection? #f)
-                 (let ((range (get-range~ expl)))
-                   (and (= (get-line~ (get-start~ range))
-                           (get-line~ (get-end~ range)))
-                        (let ((literal-string (get-marked~ expl))
+                 (let ((range (get-range expl)))
+                   (and (= (get-line (get-start range))
+                           (get-line (get-end range)))
+                        (let ((literal-string (get-marked expl))
                               (literal (with-jazz-readtable
                                          (lambda ()
-                                           (read-marked~ expl)))))
+                                           (read-marked expl)))))
                           (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
                                  (or (iter) (list literal-string literal range)))
                                 ((is? literal Color)
@@ -623,30 +623,30 @@
           (define (scroll-proc scrollbar action line-height page-height thumb-pos orientation)
             (define (scroll-action)
               (define (scroll amount)
-                (set-pos~ scrollbar (+ (get-pos~ scrollbar) amount) redraw?: #t))
+                (set-pos scrollbar (+ (get-pos scrollbar) amount) redraw?: #t))
               
               (case action
                 ((line-up)     (scroll (- line-height)))
                 ((line-down)   (scroll line-height))
                 ((page-up)     (scroll (- page-height)))
                 ((page-down)   (scroll page-height))
-                ((thumb-track) (set-pos~ scrollbar thumb-pos redraw?: #t))))
+                ((thumb-track) (set-pos scrollbar thumb-pos redraw?: #t))))
             
             (scroll-action)
-            (let ((pos (get-pos~ scrollbar)))
+            (let ((pos (get-pos scrollbar)))
               (when (not modified?)
-                (set-caret~ text (get-start~ range)))
+                (set-caret text (get-start range)))
               (let ((normalized (/ (cast <fl> (- pos mid)) 50)))
                 (let ((str (if (inexact? literal)
                                (format "{r precision: :v}" (+ literal (* normalized factor)) (+ precision 1))
                              (->string (+ literal (inexact->exact (round (* normalized factor)))))))
-                      (start (get-start~ text)))
-                  (replace~ text range (list str))
-                  (update-window~ (get-toplevel))
+                      (start (get-start text)))
+                  (replace text range (list str))
+                  (update-window (current-toplevel))
                   (eval-sel text)
                   (set! modified? #t)
-                  (set! range (new Range$Cell$ start (get-start~ text)))
-                  (set-caret~ text start)))))
+                  (set! range (new Range$Cell$ start (get-start text)))
+                  (set-caret text start)))))
           
           (let ((choose
                   (new Scrollbar
@@ -659,9 +659,9 @@
                     return-press-handler: (new Event-Handler execute: return-press)
                     escape-press-handler: (new Event-Handler execute: escape-press)
                     focus-lose-handler: (new Event-Handler execute: edition-ended))))
-            (popup~ text choose (nu- pos {Dimension 100 25}))
-            (set-pos~ choose mid)
-            (acquire-focus~ choose))))
+            (popup text choose (nu- pos {Dimension 100 25}))
+            (set-pos choose mid)
+            (acquire-focus choose))))
       
       (define (choose-color)
         (let ((choose
@@ -671,38 +671,38 @@
                   color: literal
                   feedback: (lambda (color)
                               (when (not modified?)
-                                (set-caret~ text (get-start~ range)))
+                                (set-caret text (get-start range)))
                               (let ((str (->string color))
-                                    (start (get-start~ text)))
-                                (replace~ text range (list str))
-                                (update-window~ (get-toplevel))
+                                    (start (get-start text)))
+                                (replace text range (list str))
+                                (update-window (current-toplevel))
                                 (eval-sel text)
                                 (set! modified? #t)
-                                (set! range (new Range$Cell$ start (get-start~ text)))
-                                (set-caret~ text start)))
+                                (set! range (new Range$Cell$ start (get-start text)))
+                                (set-caret text start)))
                   return-press-handler: (new Event-Handler execute: return-press)
                   escape-press-handler: (new Event-Handler execute: escape-press)
                   focus-lose-handler: (new Event-Handler execute: edition-ended))))
-          (popup~ text choose (nu- pos {Dimension 304 125}))
-          (acquire-focus~ choose)))
+          (popup text choose (nu- pos {Dimension 304 125}))
+          (acquire-focus choose)))
       
       (define (return-press evt)
-        (end-atomic-undo~ undoer atomic-preserved)
+        (end-atomic-undo undoer atomic-preserved)
         (set! undoer #f)
-        (close-popups~ (get-toplevel)))
+        (close-popups (current-toplevel)))
       
       (define (escape-press evt)
-        (end-atomic-undo~ undoer atomic-preserved)
+        (end-atomic-undo undoer atomic-preserved)
         (set! undoer #f)
         (when modified?
-          (undo~ text)
-          (set-caret~ text (get-start~ text))
+          (undo text)
+          (set-caret text (get-start text))
           (eval-sel text))
-        (close-popups~ (get-toplevel)))
+        (close-popups (current-toplevel)))
       
       (define (edition-ended evt)
         (when undoer
-          (end-atomic-undo~ undoer atomic-preserved)))
+          (end-atomic-undo undoer atomic-preserved)))
       
       (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
              (choose-number))
@@ -712,12 +712,12 @@
     (define (eval-sel text)
       (with-safe-explore
         (lambda ()
-          (let ((range (current-declaration-range~ text)))
+          (let ((range (current-declaration-range text)))
             (if (not range)
                 (bell)
-              (evaluate-range~ text range evaluation-mode: 'live))))))
+              (evaluate-range text range evaluation-mode: 'live))))))
     
-    (let ((text (get-focus)))
+    (let ((text (active-focus)))
       (if (is-not? text Jazz-Text-View)
           (bell)
         (let ((info (literal-range text)))
@@ -725,13 +725,13 @@
               (begin
                 (user-message "No literal found")
                 (bell))
-            (let ((undoer (get-undoer~ (get-model~ text))))
-              (let ((atomic-preserved (start-atomic-undo~ undoer)))
+            (let ((undoer (get-undoer (get-model text))))
+              (let ((atomic-preserved (start-atomic-undo undoer)))
                 (bind (literal-string literal range) info
-                  (let* ((start (get-start~ range))
-                         (end (get-end~ range))
-                         (mid (fxround/ (+ (get-col~ start) (get-col~ end)) 2))
-                         (pos (text->view~ text (new Cell (get-line~ start) mid))))
+                  (let* ((start (get-start range))
+                         (end (get-end range))
+                         (mid (fxround/ (+ (get-col start) (get-col end)) 2))
+                         (pos (text->view~ text (new Cell (get-line start) mid))))
                     (choose-literal text undoer atomic-preserved #f literal-string literal range pos))))))))))
   
   
@@ -740,13 +740,13 @@
   ;;;
   
   
-  (method (clean-warcraft-model-names)
+  (method (clean-warcraft-model-names self)
     (let ((count 0))
-      (iterate-directory~ (choose-directory)
+      (iterate-directory (choose-directory)
         (lambda (file)
-          (let ((extension (get-extension~ file)))
+          (let ((extension (get-extension file)))
             (when (extension=? extension "ms3d")
-              (let ((base (get-base~ file)))
+              (let ((base (get-base file)))
                 (let ((open-brace (find base #\[)))
                   (when open-brace
                     (let ((second-underscore (find base #\_ start: (+ open-brace 1))))
@@ -757,10 +757,10 @@
                                                                      (substring base 0 (- open-brace 1))
                                                                      (substring base (+ second-underscore 1) third-underscore))
                                                              extension)))
-                              (let ((clean-file (new-brother~ file clean-name)))
+                              (let ((clean-file (new-brother file clean-name)))
                                 (if (exists?~ clean-file)
                                     (debug clean-file)
-                                  (move-pathname~ file clean-file)
+                                  (move-pathname file clean-file)
                                   (user-message "{a}" clean-name)
                                   (increase! count))))))))))))))
         files?: #t
@@ -775,9 +775,9 @@
   
   
   @w
-  (method override (test8)
-    (let ((project (find-project~ (get-workbench) 'world:lib)))
-      (let ((directory (get-parent~ (get-tag-reference~ (get-form~ project)))))
+  (method override (test8 self)
+    (let ((project (find-project (get-workbench) 'world:lib)))
+      (let ((directory (get-parent (get-tag-reference (get-form project)))))
         (search-trailing-whitespace directory: directory)))))
 
 

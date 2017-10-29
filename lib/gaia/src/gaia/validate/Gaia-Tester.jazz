@@ -46,7 +46,7 @@
 (class Gaia-Tester extends Tester
   
   
-  (method override (test)
+  (method override (test self)
     (define actions
       '(;; Project
         (:action :application on-projects-manager)
@@ -88,8 +88,8 @@
         (:action :application on-readme)))
     
     (define (catcher exc)
-      (validation-failed (get-message~ exc) class: (serialize-class Exception-Log-Node)))
+      (validation-failed (get-message exc) class: (serialize-class Exception-Log-Node)))
     
-    (play-events actions catcher: catcher feedback?: #t slowdown: .1))
+    (play-script-events actions catcher: catcher feedback?: #t slowdown: .1))
   )
 )

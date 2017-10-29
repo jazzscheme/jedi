@@ -45,7 +45,7 @@
 (remotable-stub Gaia-Debugger
   
   
-  (method public post (show-properties debuggee class properties))
-  (method public post (live-gaia/world debuggee))
-  (method public post (design-gaia/world debuggee))
-  (method public post (restore-gaia/world debuggee))))
+  (method public post (show-properties self debuggee class properties))
+  (method public post (live-gaia/world self debuggee))
+  (method public post (design-gaia/world self debuggee))
+  (method public post (restore-gaia/world self debuggee))))

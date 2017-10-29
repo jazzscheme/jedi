@@ -55,7 +55,7 @@
           (<Live-Properties> name: text)))))
     
   
-  (method meta override (external-name . rest)
+  (method meta override (external-name self . rest)
     'Live-Properties)
   
   
@@ -64,7 +64,7 @@
   ;;;
   
   
-  (method public (get-text)
+  (method public (get-text self)
     (locate 'text))
 
   
@@ -73,11 +73,11 @@
   ;;;
   
   
-  (method meta override (host-icon)
+  (method meta override (host-icon self)
     {Image-Resource "Properties"})
   
 
-  (method meta override (host-title)
+  (method meta override (host-title self)
     "Properties")
   
   
@@ -86,12 +86,12 @@
   ;;;
   
   
-  (method override (focus-default)
-    (let ((text (get-text)))
-      (acquire-focus~ text)))
+  (method override (focus-default self)
+    (let ((text (get-text self)))
+      (acquire-focus text)))
   
   
-  (method override (get-tools-view)
+  (method override (get-tools-view self)
     (locate 'tools))
   
   
@@ -101,6 +101,6 @@
   
 
   @wait
-  (method override (guest-actions)
+  (method override (guest-actions self)
     (cons (find-actions 'live-properties-manager)
-          (nextmethod)))))
+          (nextmethod self)))))

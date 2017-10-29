@@ -94,12 +94,12 @@
 (cond-expand
   (cocoa
     (definition (platform-tile-gaia/world debuggee mode)
-      (let ((handle (get-handle~ (get-toplevel))))
-        (let ((rect (get-frame-rect~ (main-screen))))
-          (let ((left (get-left~ rect))
-                (top (get-top~ rect))
-                (right (get-right~ rect))
-                (bottom (get-bottom~ rect)))
+      (let ((handle (get-handle (current-toplevel))))
+        (let ((rect (get-frame-rect (main-screen))))
+          (let ((left (get-left rect))
+                (top (get-top rect))
+                (right (get-right rect))
+                (bottom (get-bottom rect)))
             (let ((width (- right left)))
               (let ((area-width (case mode
                                   ((live) (fxround (percent width 45.5)))
@@ -114,15 +114,15 @@
                     (tile-debuggees area-width area-height debuggees))))))))))
   (windows
     (definition (platform-tile-gaia/world debuggee mode)
-      (let ((handle (get-handle~ (get-toplevel))))
+      (let ((handle (get-handle (current-toplevel))))
         (set-style handle (bitwise-ior WS_CLIPSIBLINGS
                                        WS_CLIPCHILDREN
                                        WS_POPUP))
-        (let ((area (get-display-area~ (primary-monitor))))
-          (let ((left (get-left~ area))
-                (top (get-top~ area))
-                (right (get-right~ area))
-                (bottom (get-bottom~ area)))
+        (let ((area (get-display-area (primary-monitor))))
+          (let ((left (get-left area))
+                (top (get-top area))
+                (right (get-right area))
+                (bottom (get-bottom area)))
             (let ((width (- right left)))
               (let ((area-width (case mode
                                   ((live) (fxround (percent width 45.5)))
@@ -159,7 +159,7 @@
                         (let ((right (+ left width))
                               (bottom (+ top height)))
                           (let ((rect (new Rect left top right bottom)))
-                            (position-world~ debuggee rect)))))
+                            (position-world debuggee rect)))))
                     (increase! rank))
                   debuggees)))))
 
@@ -167,11 +167,11 @@
 (cond-expand
   (cocoa
     (definition (platform-restore-gaia/world debuggee)
-      (let ((handle (get-handle~ (get-toplevel))))
+      (let ((handle (get-handle (current-toplevel))))
         (platformExitWindowed handle))))
   (windows
     (definition (platform-restore-gaia/world debuggee)
-      (let ((handle (get-handle~ (get-toplevel))))
+      (let ((handle (get-handle (current-toplevel))))
         (set-style handle
                    (bitwise-ior WS_CLIPSIBLINGS
                                 WS_CLIPCHILDREN
@@ -193,39 +193,39 @@
   (slot previous-workspace       initialize #f)
   
   
-  (method meta override (external-name . rest)
+  (method meta override (external-name self . rest)
     'gaia)
 
   
-  (method override (process-name)
+  (method override (process-name self)
     "Gaia")
   
   
-  (method override (process-owner)
+  (method override (process-owner self)
     "JazzScheme")
   
   
-  (method override (process-copyright)
+  (method override (process-copyright self)
     "2012")
   
   
-  (method override (process-icon)
+  (method override (process-icon self)
     "Designer")
 
 
-  (method override (process-version)
+  (method override (process-version self)
     {Version 1 0 0})
 
 
-  (method override (process-email)
+  (method override (process-email self)
     "gcartier@jazzscheme.org")
 
 
-  (method override (new-toplevel)
+  (method override (new-toplevel self)
     (new Gaia-Toplevel))
   
   
-  (method override (finish-process)
+  (method override (finish-process self)
     (define (setup-documents)
       (set-document-kinds
         '(<kinds>
@@ -237,11 +237,11 @@
              (<kind>   name: "Script"    kind: jazz   template: "jazz/NewScript.jazz")))))
     
     (define (setup-sql)
-      (register-console~ (get-sql-console) "SQL Console" #f view-class: SQL-Console-View console-button?: #f))
+      (register-console (get-sql-console) "SQL Console" #f view-class: SQL-Console-View console-button?: #f))
     
-    (nextmethod)
+    (nextmethod self)
     (setup-documents)
-    (setup-workspaces)
+    (setup-workspaces self)
     (setup-sql))
   
   
@@ -250,12 +250,12 @@
   ;;;
   
   
-  (method (setup-catalog name directory extensions (char-encoding: char-encoding #f) (heuristics: heuristics #f))
+  (method (setup-catalog self name directory extensions (char-encoding: char-encoding #f) (heuristics: heuristics #f))
     (let ((cataloguer (get-cataloguer))
-          (output (new-file~ {Directory Profile "catalogs"} (format "{a}.jcat" name))))
+          (output (new-file {Directory Profile "catalogs"} (format "{a}.jcat" name))))
       (let ((catalog (new Filing-Catalog name output directory extensions char-encoding heuristics #t)))
-        (add-catalog~ cataloguer catalog)
-        (load-content~ catalog report?: #f))))
+        (add-catalog cataloguer catalog)
+        (load-content catalog report?: #f))))
 
   
   ;;;
@@ -263,19 +263,19 @@
   ;;;
   
   
-  (method override (persist-preferences?)
+  (method override (persist-preferences? self)
     #t)
   
   
-  (method override (default-preferences)
+  (method override (default-preferences self)
     (new Default-Gaia-Preferences))
   
   
-  (method override (default-bindings)
+  (method override (default-bindings self)
     (new Default-Gaia-Bindings))
   
   
-  (method override (default-workspaces)
+  (method override (default-workspaces self)
     (new Default-Gaia-Workspaces))
   
   
@@ -284,12 +284,12 @@
   ;;;
   
 
-  (method override (mandatory-version what)
+  (method override (mandatory-version self what)
     (case what
       ((sqlserver) {Version 8 0 0})
       ((dao) {Version 3 6 0})
       ((access-database) {Version 4 0 0})
-      (else (nextmethod what))))
+      (else (nextmethod self what))))
   
   
   ;;;
@@ -311,22 +311,22 @@
       (else #f)))
 
 
-  (method override (settings-version)
+  (method override (settings-version self)
     (get-update-version (car settings-updates)))
 
   
-  (method override (initialize-settings)
+  (method override (initialize-settings self)
     (define (determine-settings)
       (or (command-argument "settings")
           (let ((dot-dir {Directory Home ".gaia"}))
-            (create-directories~ dot-dir)
-            (versioned-directory (parse~ dot-dir) 'settings settings-updates convert-settings feedback?: #f))))
+            (create-directories dot-dir)
+            (versioned-directory (parse dot-dir) 'settings settings-updates convert-settings feedback?: #f))))
     
     (let ((settings-path (tokenise-filename (determine-settings))))
       (register-alias 'Settings settings-path override?: #t)
       (let ((file {File Settings ".settings"}))
         (unless (exists?~ file)
-          (create~ file))
+          (create file))
         (set! settings (new File-Settings file: file))
         (register-settings settings)))
     (register-alias 'Project
@@ -334,8 +334,8 @@
                               'Gaia
                             'Build)))
     (let ((projects-dir {Directory Settings "projects"}))
-      (create-directories~ projects-dir)
-      (let ((projects-repository (make-repository 'Projects "lib" (parse~ projects-dir) dynamic?: #t)))
+      (create-directories projects-dir)
+      (let ((projects-repository (make-repository 'Projects "lib" (parse projects-dir) dynamic?: #t)))
         (register-repository-aliases (install-repository projects-repository)))))
 
   
@@ -344,7 +344,7 @@
   ;;;
   
   
-  (method override (templates-directory)
+  (method override (templates-directory self)
     {Directory Project "lib" "gaia" "templates"})
   
 
@@ -353,10 +353,10 @@
   ;;;
   
   
-  (method override (install-profiles)
+  (method override (install-profiles self)
     (let ((profiles-dir {Directory Settings "profiles"}))
-      (create-directories~ profiles-dir)
-      (let ((profiles-repository (make-repository 'Profiles "lib" (parse~ profiles-dir) dynamic?: #t)))
+      (create-directories profiles-dir)
+      (let ((profiles-repository (make-repository 'Profiles "lib" (parse profiles-dir) dynamic?: #t)))
         (register-repository-aliases (install-repository profiles-repository)))))
   
   
@@ -365,11 +365,11 @@
   ;;;
 
 
-  (method override (default-frame-class)
+  (method override (default-frame-class self)
     Jazz-Text-View)
 
 
-  (method override (known-extension-frame-class ext)
+  (method override (known-extension-frame-class self ext)
     (cond ((member? ext '("txt" "text") test: extension=?) Jazz-Plain-Text-View)
           ((member? ext '("assets" "model" "role" "options" "metadata") test: extension=?) Jazz-Text-View)
           ((member? ext '("client" "server" "instance") test: extension=?) Jazz-Text-View)
@@ -379,7 +379,7 @@
           ((member? ext '("player") test: extension=?) Jazz-Text-View)
           ((member? ext '("generator") test: extension=?) Jazz-Text-View)
           ((member? ext '("w3ds") test: extension=?) Jazz-Text-View)
-          (else (nextmethod ext))))
+          (else (nextmethod self ext))))
 
 
   ;;;
@@ -387,12 +387,12 @@
   ;;;
   
   
-  (method override (edit-file file . rest)
-    (let ((ext (get-extension~ file)))
+  (method override (edit-file self file . rest)
+    (let ((ext (get-extension file)))
       (cond
       @wait ((extension=? ext "class") (browse-java-classfile file))
       @wait ((extension=? ext "jar") (browse-java-jarfile file))
-            (else (apply nextmethod file rest)))))
+            (else (apply nextmethod self file rest)))))
   
   
   ;;;
@@ -400,7 +400,7 @@
   ;;;
   
   
-  (method override (get-text-class)
+  (method override (get-text-class self)
     Jazz-Text-View)
   
   
@@ -409,7 +409,7 @@
   ;;;
   
   
-  (method override (validate-process)
+  (method override (validate-process self)
     (thread-sleep! .5)
     (validate-gaia))
   
@@ -420,17 +420,17 @@
   
   
   @convert/wait
-  (method (browse-java-classfile file)
+  (method (browse-java-classfile self file)
     (let* ((host (new-frame Java-Manager))
-           (manager (get-guest~ host)))
-      (browse-classfile~ manager file)))
+           (manager (get-guest host)))
+      (browse-classfile manager file)))
   
   
   @convert/wait
-  (method (browse-java-jarfile file)
+  (method (browse-java-jarfile self file)
     (let* ((host (new-frame Java-Manager))
-           (manager (get-guest~ host)))
-      (browse-jarfile~ manager file)))
+           (manager (get-guest host)))
+      (browse-jarfile manager file)))
 
   
   ;;;
@@ -439,7 +439,7 @@
   
   
   @convert/wait
-  (method (get-depot-classes)
+  (method (get-depot-classes self)
     (list
       VSS-Depot))
   
@@ -449,11 +449,11 @@
   ;;;
   
   
-  (method override (persist-usernames?)
+  (method override (persist-usernames? self)
     #t)
   
   
-  (method override (persist-passwords?)
+  (method override (persist-passwords? self)
     #t)
 
   
@@ -462,31 +462,31 @@
   ;;;
   
   
-  (method override (get-documentation-cataloguer)
+  (method override (get-documentation-cataloguer self)
     (define (new-documentation-cataloguer)
       (let ((cataloguer (new Cataloguer))
             (workbench (get-workbench)))
-        (for-each-project~ workbench
+        (for-each-project workbench
           (lambda (project)
-            (let ((file (get-documentation~ project)))
+            (let ((file (get-documentation project)))
               (when file
                 (let ((form (safe-read-form file)))
                   (unless (exception? form)
-                    (let* ((doc (instantiate~ form))
-                           (name (get-name~ doc))
+                    (let* ((doc (instantiate form))
+                           (name (get-name doc))
                            (catalog (new Doc-Catalog name doc project)))
-                      (add-catalog~ cataloguer catalog))))))))
+                      (add-catalog cataloguer catalog))))))))
         cataloguer))
     
     (unless documentation-cataloguer
-      (when (get-documented?~ (get-preferences #f))
+      (when (get-documented?~ (current-preferences #f))
         (set! documentation-cataloguer (new-documentation-cataloguer))))
     documentation-cataloguer)
   
   
-  (method public (reload-documentation)
+  (method public (reload-documentation self)
     (set! documentation-cataloguer #f)
-    (get-documentation-cataloguer))
+    (get-documentation-cataloguer self))
   
   
   ;;;
@@ -494,7 +494,7 @@
   ;;;
   
   
-  (method override (search-manager-class)
+  (method override (search-manager-class self)
     Gaia-Search)
 
   
@@ -503,22 +503,22 @@
   ;;;
   
   
-  (method override (global-actions)
-    (cons (find-actions 'search) (nextmethod)))
+  (method override (global-actions self)
+    (cons (find-actions 'search) (nextmethod self)))
   
   
-  (method override (class-actions)
+  (method override (class-actions self)
     (cons (find-actions 'gaia)
-          (nextmethod))
+          (nextmethod self))
     @wait
     (cons (find-actions 'debugger)
           (cons (find-actions 'gaia)
-                (nextmethod))))
+                (nextmethod self))))
   
   
-  (method override (update-focus-actions)
-    (nextmethod)
-    (let ((focus (get-focus)))
+  (method override (update-focus-actions self)
+    (nextmethod self)
+    (let ((focus (active-focus)))
       (let ((text? (and focus (is? focus Text-View)))
             (code? (and focus (is? focus Code-Text-View)))
             (lisp? (and focus (is? focus Lisp-Text-View)))
@@ -549,7 +549,7 @@
           (set-action-enabled? {Action text capitalize} text?)))))
   
   
-  (method override (allow-orphaned-action? action-item)
+  (method override (allow-orphaned-action? self action-item)
     #t)
 
 
@@ -558,10 +558,10 @@
   ;;;
   
   
-  (method override (update-windowing-actions)
-    (nextmethod)
+  (method override (update-windowing-actions self)
+    (nextmethod self)
     (unless (unloading-process?)
-      (update-project-actions)
+      (update-project-actions self)
       (update-actions-for '(window))))
 
 
@@ -570,55 +570,55 @@
   ;;;
   
   
-  (method (on-live-gaia/world evt)
-    (live-gaia/world))
+  (method (on-live-gaia/world self evt)
+    (live-gaia/world self))
   
   
-  (method (on-design-gaia/world evt)
-    (design-gaia/world))
+  (method (on-design-gaia/world self evt)
+    (design-gaia/world self))
   
   
-  (method (on-restore-gaia/world evt)
-    (restore-gaia/world))
+  (method (on-restore-gaia/world self evt)
+    (restore-gaia/world self))
   
   
-  (method (on-event-spy evt)
+  (method (on-event-spy self evt)
     @convert/wait
     (new-palette Event-Spy))
   
   
-  (method (on-registry-viewer evt)
+  (method (on-registry-viewer self evt)
     @convert/wait
     (new-frame Registry-Viewer))
   
   
-  (method (on-type-viewer evt)
+  (method (on-type-viewer self evt)
     @convert/wait
     (new-frame Type-Viewer))
   
   
-  (method (on-java-manager evt)
+  (method (on-java-manager self evt)
     @convert/wait
     (new-frame Java-Manager))
   
   
-  (method (on-profiler-manager evt)
+  (method (on-profiler-manager self evt)
     @convert/wait
     (show-palette Profiler-Manager))
   
   
-  (method (on-documentation-editor evt)
-    (let* ((cataloguer (get-documentation-cataloguer))
-           (catalog (car (get-catalogs~ cataloguer))))
-      (new-frame Doc-Editor client: (get-client~ catalog))))
+  (method (on-documentation-editor self evt)
+    (let* ((cataloguer (get-documentation-cataloguer self))
+           (catalog (car (get-catalogs cataloguer))))
+      (new-frame Doc-Editor client: (get-client catalog))))
   
   
-  (method (on-run-smoker evt)
+  (method (on-run-smoker self evt)
     @convert/wait
     (build/run~ (new Smoker-Builder)))
 
 
-  (method package (on-spy-events evt)
+  (method package (on-spy-events self evt)
     @convert/wait
     (show-palette Event-Spy))
 
@@ -628,91 +628,91 @@
   ;;;
   
   
-  (method (show-properties debuggee class properties)
+  (method (show-properties self debuggee class properties)
     (let ((host (find-singleton-docked 'Live-Properties)))
       (when host
-        (let ((text (get-text~ (get-guest~ host))))
-          (show-properties~ text debuggee class properties)))))
+        (let ((text (get-text (get-guest host))))
+          (show-properties text debuggee class properties)))))
   
   
-  (method (live-gaia/world (debuggee #f))
+  (method (live-gaia/world self (debuggee #f))
     (tile-gaia/world debuggee 'live))
   
   
-  (method (design-gaia/world (debuggee #f))
+  (method (design-gaia/world self (debuggee #f))
     (tile-gaia/world debuggee 'design))
   
   
   (cond-expand
     (cocoa
-      (method (tile-gaia/world debuggee mode)
+      (method (tile-gaia/world self debuggee mode)
         (when (eq? current-state 'restored)
-          (let ((toplevel (get-toplevel)))
-            (set! previous-workspace (get-name~ (selected-workspace)))))
+          (let ((toplevel (current-toplevel)))
+            (set! previous-workspace (get-name (selected-workspace)))))
         (change-scrollbar-style #t)
         (case mode
           ((live)
-           (select-workspace 'live)
-           (full-screen~ (get-application) #t))
+           (select-named-workspace 'live)
+           (full-screen (get-application) #t))
           ((design)
-           (select-workspace 'design)
-           (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
+           (select-named-workspace 'design)
+           (full-screen-host (get-application) (find-singleton-docked 'Live-Properties) #t)))
         (platform-tile-gaia/world debuggee mode)
         (set! current-state 'tiled)))
     (else
-      (method (tile-gaia/world debuggee mode)
+      (method (tile-gaia/world self debuggee mode)
         (when (eq? current-state 'restored)
-          (let ((toplevel (get-toplevel)))
-            (set! previous-placement (get-placement~ toplevel))
-            (set! previous-workspace (get-name~ (selected-workspace)))))
+          (let ((toplevel (current-toplevel)))
+            (set! previous-placement (get-placement toplevel))
+            (set! previous-workspace (get-name (selected-workspace)))))
         (show-taskbar #f)
         (change-scrollbar-style #t)
         (case mode
           ((live)
-           (select-workspace 'live)
-           (full-screen~ (get-application) #t))
+           (select-named-workspace 'live)
+           (full-screen (get-application) #t))
           ((design)
-           (select-workspace 'design)
-           (full-screen-host~ (get-application) (find-singleton-docked 'Live-Properties) #t)))
+           (select-named-workspace 'design)
+           (full-screen-host (get-application) (find-singleton-docked 'Live-Properties) #t)))
         (platform-tile-gaia/world debuggee mode)
         (set! current-state 'tiled))))
   
   
   (cond-expand
     (cocoa
-      (method (restore-gaia/world (debuggee #f))
+      (method (restore-gaia/world self (debuggee #f))
         (change-scrollbar-style #f)
-        (select-workspace (or previous-workspace 'text))
-        (full-screen~ (get-application) #f)
+        (select-named-workspace (or previous-workspace 'text))
+        (full-screen (get-application) #f)
         (platform-restore-gaia/world debuggee)
         (receive (server clients) (collect-world-debuggees)
           (let ((debuggees (append clients (if server (list server) '()))))
             (for-each (lambda (debuggee)
-                        (restore-world~ debuggee))
+                        (restore-world debuggee))
                       debuggees)))
         (set! previous-workspace #f)
         (set! current-state 'restored)))
     (else
-      (method (restore-gaia/world (debuggee #f))
+      (method (restore-gaia/world self (debuggee #f))
         (show-taskbar #t)
         (change-scrollbar-style #f)
-        (select-workspace (or previous-workspace 'text))
-        (full-screen~ (get-application) #f)
+        (select-named-workspace (or previous-workspace 'text))
+        (full-screen (get-application) #f)
         (platform-restore-gaia/world debuggee)
         (if previous-placement
-            (set-placement~ (get-toplevel) previous-placement)
-          (show-window~ (get-toplevel)))
+            (set-placement (current-toplevel) previous-placement)
+          (show-window (current-toplevel)))
         (receive (server clients) (collect-world-debuggees)
           (let ((debuggees (append clients (if server (list server) '()))))
             (for-each (lambda (debuggee)
-                        (restore-world~ debuggee))
+                        (restore-world debuggee))
                       debuggees)))
         (set! previous-placement #f)
         (set! previous-workspace #f)
         (set! current-state 'restored))))
   
   
-  (method (change-scrollbar-style flat?)
+  (method (change-scrollbar-style self flat?)
     (set-flat?~ (find-skin 'ui:scrollbar) flat?))
 
 
@@ -721,7 +721,7 @@
   ;;;
   
   
-  (method package (on-readme evt)
+  (method package (on-readme self evt)
     (edit-document {File Project "README"})))
 
 

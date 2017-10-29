@@ -88,9 +88,9 @@
   ;;;
   
   
-  (method meta override (host-icon)
+  (method meta override (host-icon self)
     {Image-Resource "Document"})
   
 
-  (method meta override (host-title)
+  (method meta override (host-title self)
     "Gaia")))

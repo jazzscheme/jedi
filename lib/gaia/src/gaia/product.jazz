@@ -51,34 +51,34 @@
   (define (resources-dir)
     (let ((bundle (product-descriptor-build-bundle descriptor)))
       (if bundle
-          (new-directory~ {Directory Build} (format "{a}.app/Contents/Resources" bundle))
+          (new-directory {Directory Build} (format "{a}.app/Contents/Resources" bundle))
         {Directory Build})))
   
   (let ((project-dir {Directory Gaia})
         (resources-dir (resources-dir)))
-    (define (install-file path)
-      (let ((src (new-file~ project-dir path))
-            (dst (new-file~ resources-dir path)))
-        (install-file~ src dst
+    (define (install-filename path)
+      (let ((src (new-file project-dir path))
+            (dst (new-file resources-dir path)))
+        (install-file src dst
           feedback: (lambda (action pathname)
-                      (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
+                      (build-feedback "; {a} {a}..." action (get-name pathname))))))
     
-    (define (install-directory path (src #f) (dst #f))
-      (let ((src (new-directory~ project-dir (or src path)))
-            (dst (new-directory~ resources-dir (or dst path))))
-        (install-directory~ src dst
+    (define (install-dirname path (src #f) (dst #f))
+      (let ((src (new-directory project-dir (or src path)))
+            (dst (new-directory resources-dir (or dst path))))
+        (install-directory src dst
           feedback: (let ((first? #t))
                       (lambda (action pathname)
                         (when first?
-                          (build-feedback "; {a} {a}..." action (get-name~ pathname))
+                          (build-feedback "; {a} {a}..." action (get-name pathname))
                           (set! first? #f)))))))
     
     (define (copy-info)
-      (install-file '("README"))
-      (install-file '("INSTALL")))
+      (install-filename '("README"))
+      (install-filename '("INSTALL")))
     
     (define (copy-templates)
-      (install-directory '("lib" "gaia" "templates")))
+      (install-dirname '("lib" "gaia" "templates")))
     
     (build-product-descriptor descriptor unit: unit force?: force?)
     (initialize-aliases)

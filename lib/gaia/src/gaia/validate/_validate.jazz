@@ -54,4 +54,4 @@
 (definition public (validate-gaia)
   (let ((log (new Log name: 'validate file: (timestamped-file {Directory Settings "logs"} "validation" "jlog") keep-nodes?: #t)))
     (let ((manager (new Validation-Manager feedback-port: :console log: log)))
-      (validate~ manager Gaia-Suite)))))
+      (validate manager Gaia-Suite)))))

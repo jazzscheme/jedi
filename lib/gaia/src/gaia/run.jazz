@@ -44,7 +44,7 @@
 
 (definition (run descriptor)
   (show-jazz-profiles? #f)
-  (boot-environment~ (new Gaia-Application)))
+  (boot-environment (new Gaia-Application)))
 
 
 (register-product-run 'gaia run))
