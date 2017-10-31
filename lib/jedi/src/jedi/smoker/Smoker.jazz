@@ -44,6 +44,7 @@
 (class Smoker extends Jedi-Application
   
   
-  (method override (conclude-process)
+  (method override (conclude-process self)
     (let ((suite (new Smoker-Suite)))
-      (smoke~ suite)))))
+      @cant-find
+      (smoke suite)))))

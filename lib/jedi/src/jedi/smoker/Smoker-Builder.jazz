@@ -51,32 +51,32 @@
     "Distribution")
   
   
-  (method public (build/run)
+  (method public (build/run self)
     (new Activity
       name: "Smoker Builder/Runner"
       context: self
       execute: (lambda (activity)
-                 (let ((project (find-project~ Launcher-Project Smoker-Project)))
-                   (set-range~ activity (new Range 0 2))
-                   (user-message~ activity "Build")
+                 (let ((project (find-project Launcher-Project Smoker-Project)))
+                   (set-range activity (new Range 0 2))
+                   (user-message activity "Build")
                    ;; todo: this will freeze the app if an error occurs
                    ;; during the build because the wait-for will never complete...
                    (wait-for (build project))
-                   (unless (cancel-requested?~ activity)
-                     (step-it~ activity)
-                     (user-message~ activity "Run")
+                   (unless (cancel-requested? activity)
+                     (step-it activity)
+                     (user-message activity "Run")
                      (run project)
-                     (unless (cancel-requested?~ activity)
-                       (step-it~ activity)
-                       (user-message~ activity "Done")
-                       (set-done~ activity)))))))
+                     (unless (cancel-requested? activity)
+                       (step-it activity)
+                       (user-message activity "Done")
+                       (set-done activity)))))))
   
   
-  (method (build project)
-    (build~ project threaded?: #t keep-reporter?: #f))
+  (method (build self project)
+    (build project threaded?: #t keep-reporter?: #f))
   
   
-  (method (run project)
-    (let* ((pathname (parse~ (outputed-file~ project)))
+  (method (run self project)
+    (let* ((pathname (parse (outputed-file project)))
            (command (format "{a} /app Smoker" pathname)))
       (create-process command wait?: #f)))))

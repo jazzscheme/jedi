@@ -53,11 +53,11 @@
   ;;;
   
   
-  (method meta override (host-icon)
+  (method meta override (host-icon self)
     {Image-Resource "Document"})
   
 
-  (method meta override (host-title)
+  (method meta override (host-title self)
     "Text")
   
   
@@ -66,9 +66,9 @@
   ;;;
   
   
-  (method override (install rest)
-    (nextmethod rest)
-    (with-update-locked
+  (method override (install self rest)
+    (nextmethod self rest)
+    (with-update-locked self
       (lambda ()
         (new Label-Item parent: self name: 'file      content: (new IDE-File-Menu))
         (new Label-Item parent: self name: 'edit      content: (new IDE-Edit-Menu))

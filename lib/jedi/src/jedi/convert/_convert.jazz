@@ -52,31 +52,32 @@
 ;;;
 
 
+@comment
 (definition protected (convert-settings-initial dot-jedi-dir)
   (define (convert-profiles)
-    (let ((profiles-dir (new-directory~ dot-jedi-dir "profiles")))
-      (unless (exists?~ profiles-dir)
-        (create-directories~ (new-directory~ profiles-dir "lib"))
-        (call-with-output-file (path-settings (new-file~ profiles-dir ".repository") eol-encoding: 'cr-lf)
+    (let ((profiles-dir (new-directory dot-jedi-dir "profiles")))
+      (unless (exists? profiles-dir)
+        (create-directories (new-directory profiles-dir "lib"))
+        (call-with-output-file (path-settings (new-file profiles-dir ".repository") eol-encoding: 'cr-lf)
           (lambda (output)
             (format output "(repository Profiles{%}{%}")
             (format output "  (library \"lib\")){%}")))
         (let ((user-dir {Directory Home "jazz_user" "lib"}))
-          (when (exists?~ user-dir)
-            (iterate-directory~ user-dir
+          (when (exists? user-dir)
+            (iterate-directory user-dir
               (lambda (dir)
-                (let ((dirname (get-name~ dir)))
-                  (when (and (starts-with? dirname "profile.") (exists?~ (new-file~ dir ".package")))
-                    (let ((profile-dir (new-directory~ profiles-dir (list "lib" dirname))))
-                      (unless (exists?~ profile-dir)
-                        (copy-directory~ dir profile-dir)
+                (let ((dirname (get-name dir)))
+                  (when (and (starts-with? dirname "profile.") (exists? (new-file dir ".package")))
+                    (let ((profile-dir (new-directory profiles-dir (list "lib" dirname))))
+                      (unless (exists? profile-dir)
+                        (copy-directory dir profile-dir)
                         (convert-profile profile-dir)
                         (convert-feedback "; moving old {a} to obsolete..." dirname)
-                        (let ((obsolete-dir (new-directory~ user-dir "obsolete")))
-                          (let ((obsolete-profile-dir (new-directory~ obsolete-dir dirname)))
-                            (unless (exists?~ obsolete-profile-dir)
-                              (create-directories~ obsolete-dir)
-                              (move-pathname~ dir obsolete-profile-dir)))))))))
+                        (let ((obsolete-dir (new-directory user-dir "obsolete")))
+                          (let ((obsolete-profile-dir (new-directory obsolete-dir dirname)))
+                            (unless (exists? obsolete-profile-dir)
+                              (create-directories obsolete-dir)
+                              (move-pathname dir obsolete-profile-dir)))))))))
               files?: #f
               directories?: #t
               recursive?: #f))))))
@@ -86,7 +87,7 @@
       (define (unable-to-convert)
         (error "Unable to convert package"))
       
-      (let ((package-file (new-file~ profile-dir ".package")))
+      (let ((package-file (new-file profile-dir ".package")))
         (let ((expr (read-expr package-file)))
           (match expr
             ((package ?profile-package . ?alist)
@@ -119,24 +120,24 @@
             (? (error "Unable to convert manifest")))))
       
       (define (convert-manifest form)
-        (remove-property~ form 'unit-name)
+        (remove-property form 'unit-name)
         form)
       
-      (when (exists?~ manifest-file)
-        (let ((filename (get-name~ manifest-file)))
+      (when (exists? manifest-file)
+        (let ((filename (get-name manifest-file)))
           (convert-feedback "; converting {a}..." filename)
           (with-jazz-readtable
             (lambda ()
               (let ((form (convert-manifest (parse-form `(data jazz.ide.data.project (form (<Project> ,@(cdr (read-manifest))))))))
-                    (project-file (new-file~ profile-dir ".project")))
+                    (project-file (new-file profile-dir ".project")))
                 (add-imports filename form '(jazz.editor.c jazz.editor.jazz))
                 (save-form form project-file)
-                (delete-file~ manifest-file)))))))
+                (delete-file manifest-file)))))))
     
     (define (convert-setting settings-dir filename dialect potential-imports convert)
       (convert-feedback "; converting {a}..." filename)
-      (let ((file (new-file~ settings-dir filename)))
-        (when (exists?~ file)
+      (let ((file (new-file settings-dir filename)))
+        (when (exists? file)
           (let ((expr (read-expr file)))
             (let ((form (convert (parse-form `(data ,dialect (form ,expr))))))
               (add-imports filename form potential-imports)
@@ -145,12 +146,12 @@
     (define (convert-preferences form)
       (iterate-nodes form
         (lambda (node)
-          (when (get-property~ node 'active-project)
-            (remove-property~ node 'active-project))))
+          (when (get-property node 'active-project)
+            (remove-property node 'active-project))))
       form)
     
     (define (convert-workbench form)
-      (let ((profile-unit (get-name~ profile-dir)))
+      (let ((profile-unit (get-name profile-dir)))
         (parse-form
           `(data jazz.ide.data.workbench
            (form
@@ -161,21 +162,21 @@
     (define (convert-workspaces form)
       (iterate-nodes form
         (lambda (node)
-          (let ((model-name (get-property~ node 'model-name)))
+          (let ((model-name (get-property node 'model-name)))
             (when model-name
-              (rename-property~ node 'model-name 'model)
-              (set-property~ node 'model (new Reference model-name))))
-          (let ((frame-model (get-property~ node 'frame-model)))
+              (rename-property node 'model-name 'model)
+              (set-property node 'model (new Reference model-name))))
+          (let ((frame-model (get-property node 'frame-model)))
             (when frame-model
-              (set-property~ node 'frame-model (new Reference frame-model))))))
+              (set-property node 'frame-model (new Reference frame-model))))))
       form)
     
-    (let ((profile-unit (get-name~ profile-dir)))
+    (let ((profile-unit (get-name profile-dir)))
       (convert-feedback "; converting {a}..." profile-unit)
       (receive (profile-name profile-package) (convert-package)
-        (let ((module-dir (new-directory~ profile-dir (list "profile" (downcase (symbol->string profile-name))))))
-          (let ((manifest-file (new-file~ module-dir (format "{a}-Manifest.jazz" profile-name)))
-                (settings-dir (new-directory~ module-dir "settings")))
+        (let ((module-dir (new-directory profile-dir (list "profile" (downcase (symbol->string profile-name))))))
+          (let ((manifest-file (new-file module-dir (format "{a}-Manifest.jazz" profile-name)))
+                (settings-dir (new-directory module-dir "settings")))
             (convert-manifest manifest-file)
             (convert-setting settings-dir "Bindings.jml"    'jedi.data.bindings        '() identity)
             (convert-setting settings-dir "Connections.jml" 'jazz.ide.data.connections '(jazz.database.ado jazz.database.sqlserver) identity)
@@ -199,13 +200,13 @@
                   potential-import
                 (iterate (cdr scan)))))))
       
-      (let ((context (get-context~ form))
+      (let ((context (get-context form))
             (imports '()))
         (iterate-nodes form
           (lambda (node)
-            (when (eq? (get-action~ node) 'new)
-              (let ((model (get-model~ node)))
-                (when (not (locate-reference~ context model))
+            (when (eq? (get-action node) 'new)
+              (let ((model (get-model node)))
+                (when (not (locate-reference context model))
                   (let ((import (determine-import model)))
                     (when (not (memq? import imports))
                       (set! imports (cons import imports)))))))))
@@ -213,7 +214,7 @@
     
     (let ((imports (determine-imports form)))
       (when (not-null? imports)
-        (set-imports~ (get-data~ form) (map list imports)))))
+        (set-imports (get-data form) (map list imports)))))
   
   (convert-profiles))
 
@@ -223,6 +224,7 @@
 ;;;
 
 
+@comment
 (definition protected (convert-settings-205000 dot-jedi-dir)
   (define (convert-profile profile-dir)
     (define (convert what form)
@@ -249,35 +251,37 @@
 ;;;
 
 
+@comment
 (definition (iterate-profiles dot-jedi-dir proc)
-  (let ((profiles-dir (new-directory~ dot-jedi-dir '("profiles" "lib"))))
-    (when (exists?~ profiles-dir)
-      (iterate-directory~ profiles-dir
+  (let ((profiles-dir (new-directory dot-jedi-dir '("profiles" "lib"))))
+    (when (exists? profiles-dir)
+      (iterate-directory profiles-dir
         (lambda (dir)
-          (let ((dirname (get-name~ dir)))
-            (when (and (starts-with? dirname "profile.") (exists?~ (new-file~ dir ".package")))
-              (let ((profile-dir (new-directory~ profiles-dir dirname)))
+          (let ((dirname (get-name dir)))
+            (when (and (starts-with? dirname "profile.") (exists? (new-file dir ".package")))
+              (let ((profile-dir (new-directory profiles-dir dirname)))
                 (proc profile-dir)))))
         files?: #f
         directories?: #t
         recursive?: #f))))
 
 
+@comment
 (definition (convert-settings profile-dir convert literal-hook)
   (define (convert-setting what settings-dir filename)
     (convert-feedback "; converting {a}..." filename)
-    (let ((file (new-file~ settings-dir filename)))
-      (when (exists?~ file)
+    (let ((file (new-file settings-dir filename)))
+      (when (exists? file)
         (let ((expr (read-expr file literal-hook)))
           (let ((form (convert what (parse-form expr))))
             (save-form form file))))))
   
-  (let ((profile-name (get-name~ profile-dir)))
+  (let ((profile-name (get-name profile-dir)))
     (convert-feedback "; converting {a}..." profile-name)
-    (let ((module-dir (new-directory~ profile-dir (split profile-name "."))))
-      (when (exists?~ module-dir)
-        (let ((settings-dir (new-directory~ module-dir "settings")))
-          (when (exists?~ settings-dir)
+    (let ((module-dir (new-directory profile-dir (split profile-name "."))))
+      (when (exists? module-dir)
+        (let ((settings-dir (new-directory module-dir "settings")))
+          (when (exists? settings-dir)
             (convert-setting 'bindings    settings-dir "Bindings.jml")
             (convert-setting 'colors      settings-dir "Colors.jml")
             (convert-setting 'connections settings-dir "Connections.jml")
@@ -293,6 +297,7 @@
             (convert-setting 'workspaces  settings-dir "Workspaces.jml")))))))
 
 
+@comment
 (definition (read-expr file (literal-hook #f))
   (with-jazz-readtable
     (lambda ()
@@ -303,6 +308,7 @@
             (read input)))))))
 
 
+@comment
 (definition (convert-feedback . rest)
   (with-printer :terminal
     (lambda (output)

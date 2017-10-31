@@ -54,7 +54,7 @@
   
   
   @convert-variable?
-  (method (emit-parameters parameters output)
+  (method (emit-parameters self parameters output)
     (let (iterate (parameters parameters))
       (cond ((variable? parameters)
              (format output " . {a}" (variable-symbol parameters)))

@@ -50,10 +50,10 @@
 (class Horizontal-View extends View
       
       
-  (method (install rest)
-    (nextmethod rest)
+  (method (install self rest)
+    (nextmethod self rest)
     (for-each (lambda (n)
-                (if (and (= n 2) (is-not? (get-parent~ parent) Horizontal-View))
+                (if (and (= n 2) (is-not? (get-parent parent) Horizontal-View))
                     (new Vertical-View parent: self)
                   (new Label-View parent: self title: (->string n))))
               (naturals 0 3)))
@@ -64,18 +64,18 @@
   ;;;
   
   
-  (method (layout)
+  (method (layout self)
     (when children
       (let* ((length (length children))
              (size (get-size))
-             (width (quotient (get-width~ size) length))
-             (height (get-height~ size))
+             (width (quotient (get-width size) length))
+             (height (get-height size))
              (child-size (new Dimension width height))
              (h 0))
         (for-each-view
           (lambda (view)
-            (set-position~ view (new Point h 0))
-            (set-size~ view child-size)
+            (set-position view (new Point h 0))
+            (set-size view child-size)
             (increase! h width))))))
   
   
@@ -84,5 +84,5 @@
   ;;;
   
   
-  (method (draw surface context)
-    (fill-rect~ surface (get-bounds) {Color Dark-Red}))))
+  (method (draw self surface context)
+    (fill-rect surface (get-bounds) {Color Dark-Red}))))

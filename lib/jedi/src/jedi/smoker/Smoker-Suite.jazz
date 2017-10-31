@@ -47,7 +47,7 @@
 (class Smoker-Suite extends Object
 
   
-  (method public (smoke)
+  (method public (smoke self)
     (run-validations)
     (run-showcase)
     (run-searches)
@@ -69,21 +69,21 @@
   ;;;
   
   
-  (method (run-validations)
+  (method (run-validations self)
     @wait-Validation-Suite-cleanup-of-units
     (new Activity
       name: "Smoker Validations"
       context: self
       execute: (lambda (activity)
                  (while #t
-                   (set-range~ activity (new Range 0 1))
-                   (user-feedback~ activity "Validating")
+                   (set-range activity (new Range 0 1))
+                   (user-feedback activity "Validating")
                    (let ((suite (new Validation-Suite feedback: user-feedback)))
-                     (validate~ suite report-success?: #f)
+                     (validate suite report-success?: #f)
                      (sleep 2)
-                     (user-feedback~ activity "Done")
-                     (step-it~ activity)
-                     (set-done~ activity)
+                     (user-feedback activity "Done")
+                     (step-it activity)
+                     (set-done activity)
                      (sleep 10))))))
   
   
@@ -92,14 +92,14 @@
   ;;;
   
   
-  (method (run-showcase)
+  (method (run-showcase self)
     (let* ((frame (new-frame Showcase))
-           (showcase (get-guest~ frame))
-           (tab (locate~ showcase 'tab)))
-      (set-selection-name~ tab 'threads-sheet)
-      (let ((threads (locate~ showcase 'threads)))
+           (showcase (get-guest frame))
+           (tab (locate showcase 'tab)))
+      (set-selection-name tab 'threads-sheet)
+      (let ((threads (locate showcase 'threads)))
         (for-each (lambda (n)
-                    (add-threaded-icon~ threads n))
+                    (add-threaded-icon threads n))
                   (naturals 0 5)))))
   
   
@@ -108,15 +108,15 @@
   ;;;
 
 
-  (method (run-searches)
+  (method (run-searches self)
     (let* ((appl (get-application))
-           (manager (get-search-manager~ appl))
-           (frame (get-host~ manager))
-           (view (get-search~ manager))
-           (tree (locate~ view 'targets)))
-      (set-visible?~ frame #t)
-      (end-edition~ tree)
-      (set-search-targets~ view '(("Search-View" "")))
+           (manager (get-search-manager appl))
+           (frame (get-host manager))
+           (view (get-search manager))
+           (tree (locate view 'targets)))
+      (set-visible? frame #t)
+      (end-edition tree)
+      (set-search-targets view '(("Search-View" "")))
       (unimplemented)
       @convert-thread
       (new Thread
@@ -130,7 +130,7 @@
                          ;; during the search because the wait-for will never complete...
                          (wait-for running)
                          (sleep 1))
-                       (set! running (on-search~ view #f))))))))
+                       (set! running (on-search view #f))))))))
   
   
   ;;;
@@ -138,13 +138,13 @@
   ;;;
   
   
-  (method (run-builds)
+  (method (run-builds self)
     @wait (run-project-builds "Jazz"   Launcher-Project "Distribution"    0 8000)
     @wait (run-project-builds "Yoda"   Yoda-Project     "Distribution" 1000 5000)
     @wait (run-project-builds "Puzzle" Puzzle-Project   "Distribution" 1000 7000))
   
   
-  (method (run-project-builds title project-class project-title (wait-before 0) (wait-beetween 0))
+  (method (run-project-builds self title project-class project-title (wait-before 0) (wait-beetween 0))
     (unimplemented)
     @convert-thread
     (new Thread
@@ -159,5 +159,5 @@
                        ;; during the build because the wait-for will never complete...
                        (wait-for running)
                        (sleep wait-beetween))
-                     (let ((project (find-project~ project-class project-title)))
-                       (set! running (build~ project threaded?: #t keep-reporter?: #f))))))))))
+                     (let ((project (find-project project-class project-title)))
+                       (set! running (build project threaded?: #t keep-reporter?: #f))))))))))

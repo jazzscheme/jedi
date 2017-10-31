@@ -60,8 +60,8 @@
             (<Text-View> name: text    position: {Point 0 0} size: {Dimension 100 100}))))))
   
   
-  (method (install rest)
-    (nextmethod rest)
+  (method (install self rest)
+    (nextmethod self rest)
     (for-each (lambda (n)
                 (case n
                   ((1) (new Toto parent: self name: 'toto))
@@ -75,18 +75,18 @@
   ;;;
   
   
-  (method (layout)
+  (method (layout self)
     (when children
       (let* ((length (length children))
              (size (get-size))
-             (width (get-width~ size))
-             (height (quotient (get-height~ size) length))
+             (width (get-width size))
+             (height (quotient (get-height size) length))
              (child-size (new Dimension width height))
              (v 0))
         (for-each-view
           (lambda (view)
-            (set-position~ view (new Point 0 v))
-            (set-size~ view child-size)
+            (set-position view (new Point 0 v))
+            (set-size view child-size)
             (increase! v height))))))
   
   
@@ -95,5 +95,5 @@
   ;;;
   
   
-  (method (draw surface context)
-    (fill-rect~ surface (get-bounds) {Color Dark-Red}))))
+  (method (draw self surface context)
+    (fill-rect surface (get-bounds) {Color Dark-Red}))))

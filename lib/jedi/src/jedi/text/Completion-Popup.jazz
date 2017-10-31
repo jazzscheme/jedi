@@ -58,15 +58,15 @@
       (<Tree-View> name: tree position: {Point 5 5} size: {Dimension 90 190})))
   
   
-  (method public (get-owner-text)
+  (method public (get-owner-text self)
     owner-text)
   
   
-  (method public (set-owner-text text)
+  (method public (set-owner-text self text)
     (set! owner-text text))
 
 
-  (method (focus-lose)
+  (method (focus-lose self)
     @convert
     (when (neq? receiving owner-text)
       (close)))))

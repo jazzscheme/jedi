@@ -38,11 +38,12 @@
 (module jedi.run jazz
 
 
-(import (jedi))
+(import (jazz.process)
+        (jedi))
 
 
 (definition (run descriptor)
-  (boot-environment~ (new Jedi-Application)))
+  (boot-environment (new Jedi-Application)))
 
 
 (register-product-run 'jedi run))

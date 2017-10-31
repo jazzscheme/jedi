@@ -48,7 +48,9 @@
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
-        (jazz.website))
+        (jazz.text)
+        (jazz.website)
+        (jedi))
 
 
 (class Jedi-Profile extends IDE-Profile
@@ -59,12 +61,12 @@
   ;;;
   
   
-  (method (selection->doc text)
+  (method (selection->doc self text)
     (define (collect-runs text)
       (let ((queue (new-queue)))
-        (for-each-range~ text (if (has-selection?~ text) (get-selection~ text) (text-range~ text))
+        (for-each-range text (if (has-selection? text) (get-selection text) (text-range text))
           (lambda (line paragraph start end)
-            (let ((runs (range-runs~ paragraph start end)))
+            (let ((runs (range-runs paragraph start end)))
               (enqueue queue runs))))
         (queue-list queue)))
     
@@ -99,8 +101,8 @@
                           (if first?
                               (set! first? #f)
                             (format output " "))
-                          (let ((str (encode-string (export-string~ run)))
-                                (class (color-class (get-color~ (get-style~ run)))))
+                          (let ((str (encode-string (export-string run)))
+                                (class (color-class (get-color (get-style run)))))
                             (if (not class)
                                 (format output "\"{a}\"" str)
                               (format output "(<span> class: {s} \"{a}\")" class str))))
@@ -112,7 +114,7 @@
       (set-clipboard-text (get-output-string output))))
   
   
-  (method (file->doc file)
+  (method (file->doc self file)
     (define (process-line-char status in-string? input output)
       (let ((c (read-char input)))
         (cond ((eof-object? c)
@@ -235,13 +237,13 @@
       (time)))
   
   
-  (method (extract-doc)
+  (method (extract-doc self)
     (define (extract-toplevel-doc info)
       (bind (name . units) info
         (user-feedback "Extracting {a}..." name)
         (let ((reference-dir {Directory Jazz "lib" "jazz.website" "reference"}))
-          (create-directories~ reference-dir)
-          (call-with-output-file (path-settings (new-file~ reference-dir (format "{a}.jml" name)))
+          (create-directories reference-dir)
+          (call-with-output-file (path-settings (new-file reference-dir (format "{a}.jml" name)))
             (lambda (port)
               (let ((form (parse-form `(data jazz.ide.data.doc (form ,(extract-unit/module-doc name units))))))
                 (print-form-data form port)))))))
@@ -258,7 +260,7 @@
     
     (define (extract-module-doc name declaration)
       (let ((declarations (filter-access/compatibility-declarations (resolve-declarations (table-values (get-public-lookup declaration))))))
-        (let ((sorted (sort string<? declarations key: (lambda (decl) (symbol->string (get-name~ decl))))))
+        (let ((sorted (sort string<? declarations key: (lambda (decl) (symbol->string (get-name decl))))))
           `(<Module-Doc> name: ,name title: ,(symbol->string name)
              ,@(collect extract-declaration-doc sorted)))))
     
@@ -279,84 +281,84 @@
         ((C-Type-Declaration) (extract-c-type-doc declaration))
         ((C-Definition-Declaration) (extract-c-definition-doc declaration))
         ((C-Named-Declare-Declaration) #f)
-        (else (debug 'Unknown (category-identifier (class-of declaration))) `(<Doc> name: ,(get-name~ declaration)))))
+        (else (debug 'Unknown (category-identifier (class-of declaration))) `(<Doc> name: ,(get-name declaration)))))
     
     (define (extract-export-doc declaration)
-      `(<Export-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+      `(<Export-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))))
     
     (define (extract-define-doc declaration)
-      `(<Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
-         parameters: ,(extract-signature (get-signature~ declaration))))
+      `(<Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
+         parameters: ,(extract-signature (get-signature declaration))))
     
     (define (extract-define-macro-doc declaration)
-      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
-         parameters: ,(extract-signature (get-signature~ declaration))))
+      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
+         parameters: ,(extract-signature (get-signature declaration))))
     
     (define (extract-definition-doc declaration)
-      `(<Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
-         parameters: ,(extract-signature (get-signature~ declaration))))
+      `(<Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
+         parameters: ,(extract-signature (get-signature declaration))))
     
     (define (extract-generic-doc declaration)
-      `(<Generic-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
-         parameters: ,(extract-signature (get-signature~ declaration))))
+      `(<Generic-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
+         parameters: ,(extract-signature (get-signature declaration))))
     
     (define (extract-macro-doc declaration)
-      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
-         parameters: ,(extract-signature (get-signature~ declaration))))
+      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
+         parameters: ,(extract-signature (get-signature declaration))))
     
     (define (extract-syntax-doc declaration)
-      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
-         parameters: ,(extract-signature (get-signature~ declaration))))
+      `(<Syntax-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
+         parameters: ,(extract-signature (get-signature declaration))))
     
     (define (extract-class-doc declaration)
-      (let ((name (symbol->string (get-name~ declaration)))
-            (ascendant (get-ascendant~ declaration))
-            (interfaces (get-interfaces~ declaration)))
+      (let ((name (symbol->string (get-name declaration)))
+            (ascendant (get-ascendant declaration))
+            (interfaces (get-interfaces declaration)))
         (unless (or (ends-with? name "-Class")
                     (ends-with? name "~Class"))
           `(<Class-Doc> name: ,(extract-locator declaration) title: ,name
              ascendant: ,(if ascendant (extract-locator (resolve-binding ascendant)) #f)
              interfaces: ,(map extract-locator (resolve-declarations interfaces))
-             ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children~ declaration))))))))
+             ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children declaration))))))))
     
     (define (extract-interface-doc declaration)
-      (let ((ascendants (get-ascendants~ declaration)))
-        `(<Interface-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
+      (let ((ascendants (get-ascendants declaration)))
+        `(<Interface-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
            ascendants: ,(map extract-locator (resolve-declarations ascendants))
-           ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children~ declaration)))))))
+           ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children declaration)))))))
     
     (define (extract-slot-doc declaration)
-      `(<Slot-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+      `(<Slot-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))))
     
     (define (extract-property-doc declaration)
-      `(<Property-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+      `(<Property-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))))
     
     (define (extract-method-doc declaration)
       (define (extract-propagation-list)
-        (let ((propagation (get-propagation~ declaration)))
+        (let ((propagation (get-propagation declaration)))
           (list propagation: propagation)))
       
-      `(<Method-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))
-         access: ,(get-access~ declaration)
+      `(<Method-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))
+         access: ,(get-access declaration)
          ,@(extract-propagation-list)
-         parameters: ,(extract-signature (get-signature~ declaration))))
+         parameters: ,(extract-signature (get-signature declaration))))
     
     (define (extract-c-type-doc declaration)
-      `(<C-Type-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+      `(<C-Type-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))))
     
     (define (extract-c-definition-doc declaration)
-      `(<C-Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name~ declaration))))
+      `(<C-Definition-Doc> name: ,(extract-locator declaration) title: ,(symbol->string (get-name declaration))))
     
     (define (extract-signature signature)
       (define (extract-name parameter)
-        (get-name~ parameter))
+        (get-name parameter))
       
       (if (not signature)
           #f
-        (let ((positional (get-positional~ signature))
-              (optional (get-optional~ signature))
-              (named (get-named~ signature))
-              (rest (get-rest~ signature)))
+        (let ((positional (get-positional signature))
+              (optional (get-optional signature))
+              (named (get-named signature))
+              (rest (get-rest signature)))
           `(,@(if (null? positional) '() (list positional: (map extract-name positional)))
             ,@(if (null? optional) '() (list optional: (map extract-name optional)))
             ,@(if (null? named) '() (list named: (map extract-name named)))
@@ -364,7 +366,7 @@
     
     ;; temp hack to obtain the same format as when sub-modules are well integrated
     (define (extract-locator declaration)
-      (let ((locator (get-locator~ declaration)))
+      (let ((locator (get-locator declaration)))
         (let ((names (reverse! (split-reference locator))))
           (let ((len (length names)))
             (cond ((and (>= len 2) (eq? (first names) (second names)))
@@ -381,12 +383,12 @@
     
     (define (filter-access/compatibility-declarations declarations)
       (collect-if (lambda (decl)
-                    (and (let ((access (get-access~ decl)))
+                    (and (let ((access (get-access decl)))
                            (or (eq? access 'public)
                                (and (eq? access 'protected)
                                     (is? decl Method-Declaration)
-                                    (memq? (get-propagation~ decl) '(virtual chained)))))
-                         (eq? (get-compatibility~ decl) 'uptodate)))
+                                    (memq? (get-propagation decl) '(virtual chained)))))
+                         (eq? (get-compatibility decl) 'uptodate)))
                   declarations))
     
     (for-each extract-toplevel-doc Documented-Modules)
@@ -405,38 +407,38 @@
     {Directory Jazz "lib" "jazz.website" "content"})
   
   
-  (method (regenerate-jazzwebsite)
-    (reload-documentation~ (get-application))
-    (generate-jazzwebsite))
+  (method (regenerate-jazzwebsite self)
+    (reload-documentation (get-application))
+    (generate-jazzwebsite self))
   
   
-  (method (generate-jazzwebsite)
+  (method (generate-jazzwebsite self)
     (let* ((site (load-jml JazzWebsite-Site))
            (transformed (transform-jml site (new JazzWebsite-Transformation)))
-           (pages (get-children~ transformed)))
+           (pages (get-children transformed)))
       (for-each (lambda (page)
-                  (user-feedback "Rendering {a}..." (get-property~ page 'path))
+                  (user-feedback "Rendering {a}..." (get-property page 'path))
                   (render-jazzwebsite-page page))
                 pages)
       (user-feedback "Website generated")))
   
   
-  (method (render-jazzwebsite-page page)
+  (method (render-jazzwebsite-page self page)
     (let* ((content JazzWebsite-Content)
-           (file (new-file~ content (format "{a}.htm" (get-property~ page 'path))))
+           (file (new-file content (format "{a}.htm" (get-property page 'path))))
            (preferences (new JML-Preferences))
            (renderer (new XHTML-Renderer preferences))
-           (html (first-child~ page)))
+           (html (first-child page)))
       ;; why does using UTF-8 char-encoding not work with accents in the generated HTML page
       (call-with-output-file (path-settings file char-encoding: 'ISO-8859-1)
         (lambda (output)
-          (render~ renderer html output)))))
+          (render renderer html output)))))
   
   
-  (method (export-latest-news)
+  (method (export-latest-news self)
     (let* ((site (load-jml JazzWebsite-Site))
-           (news (second (get-children~ (find-name~ site 'news))))
-           (latest (first (get-children~ news))))
+           (news (second (get-children (find-name site 'news))))
+           (latest (first (get-children news))))
       (let ((output (open-output-string))
             (left-margin 0)
             (right-margin 70)
@@ -444,9 +446,9 @@
         (define (render node)
           (typecase node
             ((JML-Text)
-             (render-text (get-text~ node)))
+             (render-text (get-text node)))
             (else
-             (let ((tag (get-tag~ node)))
+             (let ((tag (get-tag node)))
                (case tag
                  ((division) (render-division node))
                  ((p) (render-paragraph node))
@@ -459,7 +461,7 @@
                  (else (error "Unable to render tag: {s}" tag)))))))
         
         (define (render-children node)
-          (for-each render (get-children~ node)))
+          (for-each render (get-children node)))
         
         (define (render-text text)
           (let ((words (remove-empty (split text " "))))
@@ -473,7 +475,7 @@
                       words)))
         
         (define (render-division node)
-          (let ((title (get-property~ node 'title)))
+          (let ((title (get-property node 'title)))
             (paragraph)
             (print (upcase title))
             (paragraph)
@@ -485,7 +487,7 @@
           (paragraph))
         
         (define (render-bold node)
-          (render-text (upcase (get-text~ (first-child~ node)))))
+          (render-text (upcase (get-text (first-child node)))))
         
         (define (render-break node)
           (break))
@@ -497,7 +499,7 @@
                         (lambda ()
                           (render subnode)
                           (break))))
-                    (get-children~ node)))
+                    (get-children node)))
         
         (define (render-span node)
           (render-children node))
@@ -506,8 +508,8 @@
           (render-children node))
         
         (define (render-anchor node)
-          (let ((href (get-property~ node 'href))
-                (text (get-text~ (first-child~ node))))
+          (let ((href (get-property node 'href))
+                (text (get-text (first-child node))))
             (if (equal? href text)
                 (print href)
               (print (format "{a}: {a}" text href)))))
@@ -549,12 +551,12 @@
   
   
   @wait
-  (method override (test)
+  (method override (test self)
     (new-mandelbrot))
   
   
   @wait
-  (method (new-mandelbrot)
+  (method (new-mandelbrot self)
     (new-frame Mandelbrot host-title: "Mandelbrot" host-position: {Point 50 50} host-size: {Dimension 800 800} host-workspace: 'home))
 
   
@@ -563,7 +565,7 @@
   ;;;
   
   
-  (method (gambit (expr: expr #f) (maximum-heapsize: maximum-heapsize 102400) (exception-handler: exception-handler :repl))
+  (method (gambit self (expr: expr #f) (maximum-heapsize: maximum-heapsize 102400) (exception-handler: exception-handler :repl))
     (unimplemented)
     @convert
     (let* ((exception (case exception-handler ((:repl) "r") ((:exit) "q")))
@@ -593,19 +595,19 @@
   ;;;
   
   
-  (method (extract-images dst (remove-duplicates: remove-duplicates #t))
+  (method (extract-images self dst (remove-duplicates: remove-duplicates #t))
     (let ((src {Directory Jazz "lib" "jazz.resources" "resources" "images"}))
-      (create-directories~ dst)
+      (create-directories dst)
       (let ((digests '()))
-        (iterate-directory~ src
+        (iterate-directory src
           (lambda (file)
-            (let ((name (get-name~ file))
-                  (digest (digest-file (parse~ file) 'SHA-1)))
+            (let ((name (get-name file))
+                  (digest (digest-file (parse file) 'SHA-1)))
               (user-feedback "Processing {a}..." name)
-              (unless (or (ends-with? (get-base~ file) "_")
+              (unless (or (ends-with? (get-base file) "_")
                           (and remove-duplicates (member? digest digests test: equal?)))
                 (set! digests (cons digest digests))
-                (copy-file~ file (new-file~ dst name))))))
+                (copy-file file (new-file dst name))))))
         (let ((count (length digests)))
           (user-feedback "Copied {a} file{a}" count (format-plural count))))))
     
@@ -615,45 +617,45 @@
   ;;;
   
   
-  (method (generate-disabled image (debug?: debug? #f))
+  (method (generate-disabled self image (debug?: debug? #f))
     (define (convert cmd)
       (if debug?
           (debug-string (string-append "convert " cmd))
         (image-convert cmd)))
     
-    (let ((directory (get-parent~ image))
-          (name (get-name~ image))
-          (base (get-base~ image))
-          (extension (get-extension~ image)))
+    (let ((directory (get-parent image))
+          (name (get-name image))
+          (base (get-base image))
+          (extension (get-extension image)))
       (let ((grayscale (format "_grayscale_.{a}" extension))
             (disabled (format "{a}_.{a}" base extension)))
-        (with-current-directory (parse~ directory)
+        (with-current-directory (parse directory)
           (lambda ()
             (unwind-protect
                 (begin
                   (convert (format "-fx G {a} {a}" name grayscale))
                   (convert (format "-channel alpha -fx u-0.6 {a} {a}" grayscale disabled)))
-              (let ((grayscale (new-brother~ image grayscale)))
-                (when (exists?~ grayscale)
-                  (delete-file~ grayscale)))))))))
+              (let ((grayscale (new-brother image grayscale)))
+                (when (exists? grayscale)
+                  (delete-file grayscale)))))))))
   
   
-  (method (generate-all-disabled directory extensions)
-    (iterate-directory~ directory
+  (method (generate-all-disabled self directory extensions)
+    (iterate-directory directory
       (lambda (file)
-        (when (member? (get-extension~ file) extensions test: extension=?)
-          (user-feedback "Generating disabled for {a}..." (get-name~ file))
+        (when (member? (get-extension file) extensions test: extension=?)
+          (user-feedback "Generating disabled for {a}..." (get-name file))
           (generate-disabled file))))
     (user-feedback "Done"))
   
   
-  (method (delete-all-disabled directory extensions)
-    (iterate-directory~ directory
+  (method (delete-all-disabled self directory extensions)
+    (iterate-directory directory
       (lambda (file)
-        (when (and (member? (get-extension~ file) extensions test: extension=?)
-                   (ends-with? (get-base~ file) "_"))
-          (user-message "Deleting disabled {a}..." (get-name~ file))
-          (delete-file~ file))))
+        (when (and (member? (get-extension file) extensions test: extension=?)
+                   (ends-with? (get-base file) "_"))
+          (user-message "Deleting disabled {a}..." (get-name file))
+          (delete-file file))))
     (user-message "Done"))
 
   
@@ -670,12 +672,12 @@
   
   
   @wait
-  (method override (test8)
+  (method override (test8 self)
     (let ((expander (new Template-Expander))
           (template {File Builder-Unit "Templates" "Project.jazz"}))
       (call-with-output-file (path-settings {File Builder-Unit "Templates" "Test.jazz"})
         (lambda (output)
-          (expand~ expander template Template-AList output))))
+          (expand expander template Template-AList output))))
     (user-message "Done"))
   
   
@@ -685,19 +687,19 @@
   
   
   @wait
-  (method override (test)
+  (method override (test self)
     (test-taskbar))
   
   
   @wait
-  (method override (test-shift)
+  (method override (test-shift self)
     (test-remove-taskbar))
   
   
   @wait
-  (method (test-taskbar)
+  (method (test-taskbar self)
     (let ((record (new NOTIFYICONDATA))
-          (icon (load-image~ Image 'icon {Icon-Resource "Jazz"} width: 16 height: 16)))
+          (icon (load-image Image 'icon {Icon-Resource "Jazz"} width: 16 height: 16)))
       (set record 'cbSize (size-of NOTIFYICONDATA))
       (set record 'hWnd (get-toplevel-hwnd))
       (set record 'uID 10)
@@ -708,7 +710,7 @@
   
   
   @wait
-  (method (test-remove-taskbar)
+  (method (test-remove-taskbar self)
     (let ((record (new NOTIFYICONDATA)))
       (set record 'cbSize (size-of NOTIFYICONDATA))
       (set record 'hWnd (get-toplevel-hwnd))
@@ -722,7 +724,7 @@
   
   
   @wait
-  (method override (test)
+  (method override (test self)
     (let ((x 1))
       (debug (tie "{x}~~Hello~{{self}"))))
   
@@ -733,12 +735,12 @@
   
   
   @wait
-  (method override (test1)
+  (method override (test1 self)
     (format :console "{%}xxx{?abc~}yyy" #f))
   
   
   @wait
-  (method override (test2)
+  (method override (test2 self)
     (format :console "{%}xxx{?ab{a}c~}yyy" 10))
   
   
@@ -748,31 +750,31 @@
     
   
   @wait
-  (method override (test)
+  (method override (test self)
     (debug (definition-value (category-field org.apache.bcel.classfile.JavaClass '<init>))))
 
   
   @wait
-  (method override (test)
-    (debug (foo~ (new X) #f)))
+  (method override (test self)
+    (debug (foo (new X) #f)))
   
   
   @wait
-  (method override (test-shift)
-    (debug (get-foo~ (new X))))
+  (method override (test-shift self)
+    (debug (get-foo (new X))))
   
   
   @wait
-  (method override (test1)
+  (method override (test1 self)
     (let* ((dispatcher (new Dispatcher))
-           (dag-root (get-dag-root~ dispatcher)))
-      (insert-node~ dispatcher #f (list X Y))
-      (insert-node~ dispatcher #f (list Y X))
-      (insert-node~ dispatcher #f (list A A A))
-      (insert-node~ dispatcher #f (list A A B))
+           (dag-root (get-dag-root dispatcher)))
+      (insert-node dispatcher #f (list X Y))
+      (insert-node dispatcher #f (list Y X))
+      (insert-node dispatcher #f (list A A A))
+      (insert-node dispatcher #f (list A A B))
       (let ((test
              (lambda signature
-               (let ((generics (find-generics~ dispatcher signature)))
+               (let ((generics (find-generics dispatcher signature)))
                  (debug (map category-identifier signature) generics)))))
         (test X X)
         (test X Y)
@@ -784,14 +786,14 @@
   
   
   @wait
-  (method override (test2)
+  (method override (test2 self)
     (let* ((dispatcher (new Dispatcher))
-           (dag-root (get-dag-root~ dispatcher)))
-      (insert-node~ dispatcher #f (list Rect))
-      (insert-node~ dispatcher #f (list Point))
+           (dag-root (get-dag-root dispatcher)))
+      (insert-node dispatcher #f (list Rect))
+      (insert-node dispatcher #f (list Point))
       (let ((test
              (lambda signature
-               (let ((generics (find-generics~ dispatcher signature)))
+               (let ((generics (find-generics dispatcher signature)))
                  (debug (map category-identifier signature) generics)))))
         (test Object)
         (test Point)
@@ -800,14 +802,14 @@
   
   
   @wait
-  (method override (test2)
+  (method override (test2 self)
     (let* ((dispatcher (new Dispatcher))
-           (dag-root (get-dag-root~ dispatcher)))
-      (insert-node~ dispatcher #f (list))
-      (insert-node~ dispatcher #f (list <javaint>))
+           (dag-root (get-dag-root dispatcher)))
+      (insert-node dispatcher #f (list))
+      (insert-node dispatcher #f (list <javaint>))
       (let ((test
              (lambda signature
-               (let ((generics (find-generics~ dispatcher signature)))
+               (let ((generics (find-generics dispatcher signature)))
                  (debug (map category-identifier signature) generics)))))
         (test )
         (test Integer)
@@ -842,7 +844,7 @@
   
   
   @wait
-  (method (setup-exemplar)
+  (method (setup-exemplar self)
     (set! ed (new Exemplar-Domain))
     (set! xa (new X :domain ed name: 'a :a 1 :b 2 :c 3))
     (set! xb (new X :domain ed name: 'b base: 'a :b 5))
@@ -852,11 +854,11 @@
   
   
   @wait
-  (method (test-exemplar)
-    (init~ xa)
-    (init~ xb)
-    (init~ x1)
-    (init~ x2)
+  (method (test-exemplar self)
+    (init xa)
+    (init xb)
+    (init x1)
+    (init x2)
     (user-message "Test done"))
 
   
@@ -866,43 +868,43 @@
   
   
   @wait
-  (method (user-code text)
-    (let* ((start (get-line~ (get-start~ text)))
-           (end (get-line~ (get-end~ text)))
-           (col (get-column~ text start))
-           (char (get-char~ text (new Cell start col))))
+  (method (user-code self text)
+    (let* ((start (get-line (get-start text)))
+           (end (get-line (get-end text)))
+           (col (get-column text start))
+           (char (get-char text (new Cell start col))))
       (if (not (eqv? char #\-))
           (bell)
-        (delete-range~ text (new Range$Cell$ (new Cell start 0) (new Cell start (+ col 2))))
+        (delete-range text (new Range$Cell$ (new Cell start 0) (new Cell start (+ col 2))))
         (for-each (lambda (line)
-                    (remove-spaces~ text (new Cell line (paragraph-length~ text line))
+                    (remove-spaces text (new Cell line (paragraph-length text line))
                       keep: 'one))
                   (naturals start end))
-        (let ((paragraph (get-paragraph~ (get-paragraph~ text start))))
-          (unless (get-bulleted?~ (get-format~ paragraph))
-            (toggle-bulleted~ text start))))))
+        (let ((paragraph (get-paragraph (get-paragraph text start))))
+          (unless (get-bulleted? (get-format paragraph))
+            (toggle-bulleted text start))))))
   
   
   @wait
-  (method override (test)
+  (method override (test self)
     (test-for-each-page))
   
   
   @wait
-  (method (test-for-each-page)
-    (for-each-page~ % 0 (+ (get-limit~ %) 1) 360
+  (method (test-for-each-page self)
+    (for-each-page % 0 (+ (get-limit %) 1) 360
      (lambda (page top bottom)
-       (let ((t (get-bottom~ (get-line~ % top)))
-             (b (get-top~ (get-line~ % bottom))))
+       (let ((t (get-bottom (get-line % top)))
+             (b (get-top (get-line % bottom))))
          (debug (- b t))))))
   
   
   @wait
-  (method (hide-paragraphs)
-    (let ((text (get-focus)))
-      (for-each-selected-paragraph~ text
+  (method (hide-paragraphs self)
+    (let ((text (active-focus)))
+      (for-each-selected-paragraph text
        (lambda (row paragraph)
-         (hide~ paragraph)))))
+         (hide paragraph)))))
 
   
   ;;;
@@ -911,18 +913,18 @@
 
   
   @wait
-  (method override (test2)
+  (method override (test2 self)
     (let* ((java (new Java-Runtime))
-           (output (execute~ java "com/metascoop/Test" classpath: Java-Classpath :arguments "JazzStandaloneRelease.exe")))
+           (output (execute java "com/metascoop/Test" classpath: Java-Classpath :arguments "JazzStandaloneRelease.exe")))
       (message-box (join-lines output))))
   
   
   @wait
-  (method override (test3)
+  (method override (test3 self)
     (let ((obj1 (new org.jazzscheme.test.Test))
            (obj2 (new org.jazzscheme.test.Test 8)))
-      (debug (cj~ obj1 2))
-      (debug (test~ obj1 4 5) (test~ obj2 2 3 4))))
+      (debug (cj obj1 2))
+      (debug (test obj1 4 5) (test obj2 2 3 4))))
 
   
   ;;;
@@ -931,7 +933,7 @@
   
   
   @wait
-  (method (test-context)
+  (method (test-context self)
     (with-execution-context
       (lambda ()
         (with-progress
@@ -952,12 +954,12 @@
   
   
   @wait
-  (method (to-fix)
+  (method (to-fix self)
     (debug (symbol->string #f)))
   
   
   @wait
-  (method (foo n)
+  (method (foo self n)
     (with-execution-node
       (lambda ()
         (goo n))
@@ -966,7 +968,7 @@
   
   
   @wait
-  (method (goo n)
+  (method (goo self n)
     (with-execution-node
       (lambda ()
         (hoo n))
@@ -975,7 +977,7 @@
   
   
   @wait
-  (method (hoo n)
+  (method (hoo self n)
     (with-execution-node
       (lambda ()
         (car n))
@@ -988,7 +990,7 @@
   
   
   @wait
-  (method (test-parameters)
+  (method (test-parameters self)
     (set-parameter 'test 2)
     (new Thread
       context: self
@@ -1006,7 +1008,7 @@
   
   
   @wait
-  (method override (test1)
+  (method override (test1 self)
     (with-log (new Log name: 'test file: (timestamped-log "test"))
       (lambda ()
         (log-entry name: "hello")
@@ -1018,24 +1020,24 @@
   
   
   @wait
-  (method override (test-shift)
+  (method override (test-shift self)
     (foo 2))
   
   
   @wait
-  (method (foo x)
+  (method (foo self x)
     (log-entry name: "foo" message: (format "received {a}" x))
     (bar x))
   
   
   @wait
-  (method (bar x)
+  (method (bar self x)
     (let ((y (+ x x x)))
       (log-entry name: "bar" message: "some stack" data: (new Stack-Snapshot))))
   
   
   @wait
-  (method override (test2)
+  (method override (test2 self)
     (with-log (new Log name: 'test file: (timestamped-log "test"))
       (lambda ()
         (log-entry name: "hello")
@@ -1053,13 +1055,13 @@
   
   
   @wait
-  (method override (test3)
+  (method override (test3 self)
     (gc)
     (test-resources))
   
   
   @wait
-  (method (test-resources)
+  (method (test-resources self)
     (with-log (new Log name: "Resources" file: {File Build "Logs" "Resources.jml"})
       (lambda ()
         (test-bitmap)
@@ -1080,7 +1082,7 @@
   
   
   @wait
-  (method (test-bitmap)
+  (method (test-bitmap self)
     (with-profile
       (lambda (node)
         (new Bitmap surface: (desktop-surface) width: 16 height: 16))
@@ -1088,17 +1090,17 @@
   
   
   @wait
-  (method (test-image)
+  (method (test-image self)
     (with-profile
       (lambda (node)
-        (load-image~ Image 'icon {Icon-Resource "Jazz"})
-        (load-image~ Image 'image {Image-Resource "Break"})
-        (load-image~ Image 'cursor {Cursor-Resource "Move"}))
+        (load-image Image 'icon {Icon-Resource "Jazz"})
+        (load-image Image 'image {Image-Resource "Break"})
+        (load-image Image 'cursor {Cursor-Resource "Move"}))
       name: "Image"))
   
   
   @wait
-  (method (test-picture)
+  (method (test-picture self)
     (with-profile
       (lambda (node)
         (new Picture))
@@ -1106,7 +1108,7 @@
   
   
   @wait
-  (method (test-portfolio)
+  (method (test-portfolio self)
     (with-profile
       (lambda (node)
         (new Portfolio))
@@ -1114,7 +1116,7 @@
   
   
   @wait
-  (method (test-pseudo-handle)
+  (method (test-pseudo-handle self)
     (with-profile
       (lambda (node)
         (GetCurrentProcess))
@@ -1122,7 +1124,7 @@
   
   
   @wait
-  (method (test-region)
+  (method (test-region self)
     (with-profile
       (lambda (node)
         (new Region rect: {Rect 0 0 100 100}))
@@ -1130,25 +1132,25 @@
   
   
   @wait
-  (method (test-registry-key)
+  (method (test-registry-key self)
     (with-profile
       (lambda (node)
         (let ((key1 (new Registry-Key key: HKEY_CLASSES_ROOT))
               (key2 (new Registry-Key key: HKEY_CURRENT_USER)))
-          (open-key~ key1 "TypeLib")
-          (open-key~ key1 "TypeLib")
-          (open-key~ key1 "TypeLib"))
+          (open-key key1 "TypeLib")
+          (open-key key1 "TypeLib")
+          (open-key key1 "TypeLib"))
         (with ((key (new Registry-Key key: HKEY_CLASSES_ROOT)))
           (with-profile
             (lambda (node)
-              (with ((subkey (open-key~ key "TypeLib")))
+              (with ((subkey (open-key key "TypeLib")))
                 ))
             name: "open-key")))
       name: "Registry-Key"))
   
   
   @wait
-  (method (test-socket)
+  (method (test-socket self)
     (with-profile
       (lambda (node)
         (new Socket))
@@ -1156,7 +1158,7 @@
   
   
   @wait
-  (method (test-stack)
+  (method (test-stack self)
     (with-node
       (lambda (node)
         (log-profile name: 'before)
@@ -1170,7 +1172,7 @@
   
   
   @wait
-  (method (test-synchronizer)
+  (method (test-synchronizer self)
     (with-profile
       (lambda (node)
         (new Impulse)
@@ -1180,7 +1182,7 @@
 
   
   @wait
-  (method (test-user-name)
+  (method (test-user-name self)
     (with-profile
       (lambda (node)
         (get-system-user-name))
@@ -1188,7 +1190,7 @@
   
   
   @wait
-  (method override (test9)
+  (method override (test9 self)
     (gc-clear-undestroyed))
   
   
@@ -1198,26 +1200,26 @@
   
   
   @wait
-  (method override (test1)
+  (method override (test1 self)
     (blend 255))
   
   
   @wait
-  (method override (test2)
+  (method override (test2 self)
     (blend 100))
   
   
   @wait
-  (method override (test3)
+  (method override (test3 self)
     (blend 30))
   
   
   @wait
-  (method (blend x)
+  (method (blend self x)
     (pick-figure
       click:
       (lambda (view pos)
-        (set-alpha-blending~ (get-player~ view) x))))
+        (set-alpha-blending (get-player view) x))))
 
   
   ;;;
@@ -1233,7 +1235,7 @@
       #f)
     
     
-    (method (bar)
+    (method (bar self)
       (set! holder #f)
       (let* ((x 2)
              (z self)
@@ -1250,23 +1252,23 @@
         (proc 7 #f)))
     
     
-    (method (baz)
+    (method (baz self)
       (let ((x 2))
         (car x))))
   
   
   @wait
-  (method override (test)
-    (bar~ (new Foo)))
+  (method override (test self)
+    (bar (new Foo)))
   
   
   @wait
-  (method override (test-shift)
-    (baz~ (new Foo)))
+  (method override (test-shift self)
+    (baz (new Foo)))
 
   
   @wait
-  (method (test-location)
+  (method (test-location self)
     (let ((x 2)
           (y (break))
           (z 3))
@@ -1274,9 +1276,9 @@
 
   
   @wait
-  (method (test-location-aux)
+  (method (test-location-aux self)
     (let ((z (new [Z Y X])))
-      (foo~ z '(10 20 30))))
+      (foo z '(10 20 30))))
     
   
   @wait
@@ -1289,7 +1291,7 @@
       (class Z extends Object
         
         
-        (method (foo list)
+        (method (foo self list)
           (for-each (lambda (x)
                       (map (lambda (y)
                              (car y))
@@ -1297,7 +1299,7 @@
                     list))
         
         
-        (method (bar)
+        (method (bar self)
           (car 1)))))
   
   
@@ -1307,38 +1309,38 @@
   
 
   @wait
-  (method (xml-viewer)
+  (method (xml-viewer self)
     (let ((document (new XML-Document))
           (file {File "C:" "Books.xml"}))
-      (load~ document file)
+      (load document file)
       (let* ((frame (new-frame XML-Viewer host-visible?: #f))
-             (viewer (get-guest~ frame)))
-        (set-document~ viewer document)
-        (bring-to-front~ frame)
-        (set-visible?~ frame #t))))
+             (viewer (get-guest frame)))
+        (set-document viewer document)
+        (bring-to-front frame)
+        (set-visible? frame #t))))
 
   
   @wait
-  (method override (test)
+  (method override (test self)
     (let* ((text "<TABLE colspan=2> aaaa </TABLE>")
            (parser (new XML-Parser text: text)))
-      (debug (parse-text~ parser))))
+      (debug (parse-text parser))))
   
   
   @wait
-  (method override (test1)
+  (method override (test1 self)
     (log-entry name: "Test1")
     (let* ((text "start <A> blabla <B> </B> yoyo <C> </C> gousigousi </A> end")
            (parser (new XML-Parser text: text)))
-      (debug (parse-text~ parser))))
+      (debug (parse-text parser))))
   
   
   @wait
-  (method override (test2)
+  (method override (test2 self)
     (let* ((file {File Jazz "Doc.jazz"})
            (text (with ((input (new File-Reader file))) (read-content-string input)))
            (parser (new XML-Parser text: text)))
-      (debug (parse-text~ parser))
+      (debug (parse-text parser))
       (debug (length text))))
   
   
@@ -1351,7 +1353,7 @@
   (class My-Transfo extends XML-Transformer
     
     
-    (method public (machin node x y)
+    (method public (machin self node x y)
       (xsl-rules node
         ((a)
          (f ((mode "1") (title (<-xml x)))
@@ -1362,21 +1364,21 @@
                        (cdr node)))))))
     
     
-    (method public (chouette node a b)
+    (method public (chouette self node a b)
       (xsl-rules node
         ((b)
          (xml>>
-          (apply-transformation machin (children~ node)))))))
+          (apply-transformation machin (children node)))))))
 
   
   @wait
-  (method override (test)
+  (method override (test self)
     (let ((transfo (new My-Transfo handler: (new XML-Formatter))))
-      (machin~ transfo '(a "B" "C") 1 2)))
+      (machin transfo '(a "B" "C") 1 2)))
   
   
   @test
-  (method override (test1)
+  (method override (test1 self)
     (format :console "{t}"
      (expand-xsl-ruleset
        '(x y)
@@ -1388,24 +1390,24 @@
              (lambda (n)
                (>>xml
                 (p (<-xml n))))
-             (children~ node)))))))))
+             (children node)))))))))
   
   
   @wait
-  (method override (test0)
+  (method override (test0 self)
     (let ((f (new XML-Formatter :pretty #t indentation: 2)))
-      (begin-element~ f "body")
-      (begin-element~ f "h1")
-        (add-attribute~ f "align" "center")
-      (end-element~ f "h1")
-      (begin-element~ f "p")
-        (text~ f "Bonjour les petits amis")
-      (end-element~ f "p")
-      (end-element~ f "body")))
+      (begin-element f "body")
+      (begin-element f "h1")
+        (add-attribute f "align" "center")
+      (end-element f "h1")
+      (begin-element f "p")
+        (text f "Bonjour les petits amis")
+      (end-element f "p")
+      (end-element f "body")))
   
 
   @test
-  (method override (test1)
+  (method override (test1 self)
     (let ((processor (new XML-Formatter :pretty #f))
           (converter process-sxml))
        (converter
@@ -1418,15 +1420,15 @@
   
   
   @wait
-  (method override (test0)
+  (method override (test0 self)
     (car 1))
   
   
   @wait
-  (method (setup-compiler)
-    (initialize-user-passes~ Compiler)
-    (add-user-pass~ Compiler (new Type-Annotator))
-    (add-user-pass~ Compiler (new Mutation-Annotator)))
+  (method (setup-compiler self)
+    (initialize-user-passes Compiler)
+    (add-user-pass Compiler (new Type-Annotator))
+    (add-user-pass Compiler (new Mutation-Annotator)))
   
   
   ;;;
@@ -1435,18 +1437,18 @@
   
   
   @wait
-  (method override (test1)
+  (method override (test1 self)
     (cond (2 => debug)))
   
   
   @wait
-  (method override (test)
+  (method override (test self)
     (debug (lalr-parser (ID +))))
   
   
   @wait
-  (method override (test)
-    (test~ CPS identity))
+  (method override (test self)
+    (test CPS identity))
 
   
   ;;;
@@ -1454,7 +1456,7 @@
   ;;;
   
   
-  (method (speedup old new)
+  (method (speedup self old new)
     (percentage (- old new) new))
   
   
@@ -1464,7 +1466,7 @@
 
 
   @wait
-  (method (test-activities)
+  (method (test-activities self)
     (new Activity
       context: self
       execute: (lambda (activity)
@@ -1474,23 +1476,23 @@
                        (no activity-no)
                        (n 0))
                    (increase! activity-no)
-                   (set-range~ activity (new Range 0 max))
-                   (while (and (< n max) (not (cancel-requested?~ activity)))
+                   (set-range activity (new Range 0 max))
+                   (while (and (< n max) (not (cancel-requested? activity)))
                      (sleep wait)
                      (increase! n)
-                     (user-message~ activity "Test {s} : Step {s}" no n)
-                     (delta-pos~ activity 1))
-                   (unless (cancel-requested?~ activity)
-                     (user-message~ activity "Test {s} : Done" no)
-                     (set-done~ activity)
+                     (user-message activity "Test {s} : Step {s}" no n)
+                     (delta-pos activity 1))
+                   (unless (cancel-requested? activity)
+                     (user-message activity "Test {s} : Done" no)
+                     (set-done activity)
                      (sleep .5))))
       :unregister? #t))
 
 
   @wait
-  (method (test-styles)
-    (let ((stage (locate~ (find-frame-guest Showcase) 'stage)))
-      (send-message~ (locate~ stage 'pb) BM_SETIMAGE IMAGE_BITMAP (load-image~ Image 'image {Image-Resource "Break"}))))
+  (method (test-styles self)
+    (let ((stage (locate (find-frame-guest Showcase) 'stage)))
+      (send-message (locate stage 'pb) BM_SETIMAGE IMAGE_BITMAP (load-image Image 'image {Image-Resource "Break"}))))
 
 
   ;;;
@@ -1499,17 +1501,17 @@
 
 
   @wait
-  (method (test-ast (describe? #t))
+  (method (test-ast self (describe? #t))
     (let ((file {File Jazz "lib" "jazz.sample.files" "Java" "org" "jazz" "project" "Z.java"}))
       (let ((ast (parse-java file Java-AST)))
         (when describe?
-          (describe~ ast)
-          (fresh-prompt~ (get-application)))
+          (describe ast)
+          (fresh-prompt (get-application)))
         ast)))
 
 
   @wait
-  (method (test-java)
+  (method (test-java self)
     (let ((file {File Jazz "lib" "jazz.sample.files" "Java" "org" "jazz" "project" "Z.java"}))
       (let ((ast (parse-java file Java-AST)))
         (java-definitions ast))))))

@@ -38,4 +38,7 @@
 (module jedi jazz
 
 
+(hub reload-documentation)
+
+
 (export (jedi.autoload)))
