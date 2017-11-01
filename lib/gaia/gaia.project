@@ -10,7 +10,7 @@
 
 
 (form
-  (<Jazz-Project>   name: Gaia    default-traits: Safety.Release directory: {Directory :context "../.."} product: gaia
+  (<Jazz-Project>   name: Gaia    default-traits: Safety.Devel directory: {Directory :context "../.."} product: gaia
     (<Trait>        name: Safety
       (<install>)
       (<Trait>      name: Core
