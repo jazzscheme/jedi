@@ -40,7 +40,7 @@
 
 (import (gaia)
         (jazz.ide)
-        (jazz.jml))
+        (jazz.markup))
 
 
 (class Gaia-Bindings extends IDE-Bindings

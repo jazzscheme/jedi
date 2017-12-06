@@ -41,8 +41,8 @@
 (import (jazz.action)
         (jazz.handler)
         (jazz.ide)
-        (jazz.jml)
         (jazz.layout)
+        (jazz.markup)
         (jazz.resource)
         (jazz.ui))
 

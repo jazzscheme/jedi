@@ -12,12 +12,12 @@
                                      jazz.editor.jazz
                                      jazz.graphic
                                      jazz.io
-                                     jazz.jml
-                                     jazz.jrm
+                                     jazz.markup
                                      jazz.media
                                      jazz.network
                                      jazz.platform
                                      jazz.profile
+                                     jazz.remote
                                      jazz.ui
                                      contrib.irregex
                                      srfi-19

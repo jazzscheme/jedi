@@ -40,7 +40,7 @@
 
 (import (jazz.action)
         (jazz.handler)
-        (jazz.jml))
+        (jazz.markup))
 
 
 (class Gaia-Actions extends Actions

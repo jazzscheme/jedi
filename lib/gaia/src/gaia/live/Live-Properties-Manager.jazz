@@ -38,7 +38,7 @@
 (module protected gaia.live.Live-Properties-Manager jazz
 
 
-(import (jazz.jml)
+(import (jazz.markup)
         (jazz.resource)
         (jazz.ui)
         (gaia))

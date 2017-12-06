@@ -38,7 +38,7 @@
 (module protected gaia.search.Gaia-Search jazz
 
 
-(import (jazz.jml)
+(import (jazz.markup)
         (jazz.search)
         (jazz.ui))
 
