@@ -190,7 +190,7 @@
   ;;;
   
   
-  (method (launch-server/clients self (action: action 'debug) (safety: safety 'Release) (server: server #f) (clients: clients '()))
+  (method (launch-server/clients self (action: action 'debug) (safety: safety 'Devel) (server: server #f) (clients: clients '()))
     (define (launch-server server-project server-safety server-traits client-project client-traits)
       (let ((cookie (register-debugger-cookie)))
         (register-debugger-cookie-procedure cookie
@@ -765,7 +765,7 @@
                               (let ((clean-file (new-brother file clean-name)))
                                 (if (exists? clean-file)
                                     (debug clean-file)
-                                  (move-pathname file clean-file)
+                                  (rename file clean-file)
                                   (user-message "{a}" clean-name)
                                   (increase! count))))))))))))))
         files?: #t
