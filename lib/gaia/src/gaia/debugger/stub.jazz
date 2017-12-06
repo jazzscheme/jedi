@@ -38,8 +38,8 @@
 (module gaia.debugger.stub jazz
 
 
-(import (jazz.jrm.syntax (phase syntax))
-        (jazz.jrm))
+(import (jazz.remote.syntax (phase syntax))
+        (jazz.remote))
 
 
 (remotable-stub Gaia-Debugger

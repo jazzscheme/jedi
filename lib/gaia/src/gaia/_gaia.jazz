@@ -44,7 +44,7 @@
 (export (gaia.autoload))
 
 (import (jazz.debugger)
-        (jazz.jrm))
+        (jazz.remote))
 
 
 ;;;

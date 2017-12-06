@@ -38,7 +38,7 @@
 (module gaia.debugger jazz
 
 
-(import (jazz.jrm)
+(import (jazz.remote)
         (gaia.debugger.implementation)
         (gaia.debugger.stub))
 
