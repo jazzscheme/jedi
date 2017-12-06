@@ -39,7 +39,7 @@
 
 
 (import (jazz.ide)
-        (jazz.jml))
+        (jazz.markup))
 
 
 (class Jedi-Toplevel extends IDE-Toplevel

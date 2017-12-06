@@ -10,7 +10,7 @@
 
 
 (import (jazz.application)
-        (jazz.jml)
+        (jazz.markup)
         (jazz.platform)
         (jazz.ui)
         (jazz.window))

@@ -40,7 +40,7 @@
 
 (import (jedi)
         (jazz.ide)
-        (jazz.jml))
+        (jazz.markup))
 
 
 (class Jedi-Bindings extends IDE-Bindings

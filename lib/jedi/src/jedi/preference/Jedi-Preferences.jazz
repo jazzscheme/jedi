@@ -44,7 +44,7 @@
         (jazz.document)
         (jazz.ide)
         (jazz.io)
-        (jazz.jml)
+        (jazz.markup)
         (jazz.reference)
         (jazz.ui)
         (jedi))

@@ -47,7 +47,7 @@
         (jazz.graphic)
         (jazz.ide)
         (jazz.io)
-        (jazz.jml)
+        (jazz.markup)
         (jazz.text)
         (jazz.website)
         (jedi))
@@ -217,12 +217,12 @@
       ;(jazz.designer)
       (jazz.graphic)
       (jazz.io)
-      (jazz.jml)
-      (jazz.jrm)
+      (jazz.markup)
       (jazz.media)
       (jazz.network)
       ;(jazz.platform)
       ;(jazz.print)
+      (jazz.remote)
       (jazz.runtime)
       (jazz.schema)
       ;(jazz.skin)
@@ -413,8 +413,8 @@
   
   
   (method (generate-jazzwebsite self)
-    (let* ((site (load-jml JazzWebsite-Site))
-           (transformed (transform-jml site (new JazzWebsite-Transformation)))
+    (let* ((site (load-markup JazzWebsite-Site))
+           (transformed (transform-markup site (new JazzWebsite-Transformation)))
            (pages (get-children transformed)))
       (for-each (lambda (page)
                   (user-feedback "Rendering {a}..." (get-property page 'path))
@@ -426,7 +426,7 @@
   (method (render-jazzwebsite-page self page)
     (let* ((content JazzWebsite-Content)
            (file (new-file content (format "{a}.htm" (get-property page 'path))))
-           (preferences (new JML-Preferences))
+           (preferences (new Markup-Preferences))
            (renderer (new XHTML-Renderer preferences))
            (html (first-child page)))
       ;; why does using UTF-8 char-encoding not work with accents in the generated HTML page
@@ -436,7 +436,7 @@
   
   
   (method (export-latest-news self)
-    (let* ((site (load-jml JazzWebsite-Site))
+    (let* ((site (load-markup JazzWebsite-Site))
            (news (second (get-children (find-name site 'news))))
            (latest (first (get-children news))))
       (let ((output (open-output-string))
@@ -445,7 +445,7 @@
             (column 0))
         (define (render node)
           (typecase node
-            ((JML-Text)
+            ((Markup-Text)
              (render-text (get-text node)))
             (else
              (let ((tag (get-tag node)))

@@ -54,7 +54,7 @@
         (jazz.favorite)
         (jazz.ide)
         (jazz.io)
-        (jazz.jml)
+        (jazz.markup)
         (jazz.preferences)
         (jazz.process)
         (jazz.project)
@@ -378,7 +378,7 @@
         cataloguer))
     
     (unless documentation-cataloguer
-      (when (get-documented? (get-preferences #f))
+      (when (get-documented? (current-preferences #f))
         (set! documentation-cataloguer (new-documentation-cataloguer))))
     documentation-cataloguer)
   

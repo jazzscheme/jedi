@@ -15,7 +15,7 @@
         (jazz.ide.development)
         (jazz.graphic)
         (jazz.io)
-        (jazz.jml)
+        (jazz.markup)
         (jazz.network)
         (jazz.platform)
         (jazz.profile)

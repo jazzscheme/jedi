@@ -38,7 +38,7 @@
 (module protected jedi.search.Jedi-Search jazz
 
 
-(import (jazz.jml)
+(import (jazz.markup)
         (jazz.search)
         (jazz.ui))
 
