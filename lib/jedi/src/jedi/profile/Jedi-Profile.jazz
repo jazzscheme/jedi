@@ -418,7 +418,7 @@
            (pages (get-children transformed)))
       (for-each (lambda (page)
                   (user-feedback "Rendering {a}..." (get-property page 'path))
-                  (render-jazzwebsite-page page))
+                  (render-jazzwebsite-page self page))
                 pages)
       (user-feedback "Website generated")))
   

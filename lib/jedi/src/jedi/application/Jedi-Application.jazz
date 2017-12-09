@@ -45,6 +45,7 @@
         (jazz.console)
         (jazz.debugger)
         (jazz.designer)
+        (jazz.designer.ui)
         (jazz.doc)
         (jazz.editor)
         (jazz.editor.jazz)
@@ -272,7 +273,7 @@
       (cond
       @wait ((extension=? ext "class") (browse-java-classfile file))
       @wait ((extension=? ext "jar") (browse-java-jarfile file))
-            (else (apply nextmethod file rest)))))
+            (else (apply nextmethod self file rest)))))
   
   
   ;;;
@@ -424,8 +425,8 @@
             (jazz? (and focus (is? focus Jazz-Text-View)))
             (console? (and focus (is? focus Console-Text-View))))
         (when preferences-designer
-          (set-action-enabled? {Action code-text analyse} (and code? (not console?)))
-          (set-action-enabled? {Action code-text analyse-buffer} (and code? (not console?)))
+          (set-action-enabled? {Action ide analyse} (and code? (not console?)))
+          (set-action-enabled? {Action ide analyse-buffer} (and code? (not console?)))
           (set-action-enabled? {Action code-text evaluate} (and code? (not console?)))
           (set-action-enabled? {Action code-text evaluate-buffer} (and code? (not console?)))
           (set-action-enabled? {Action code-text edit-definitions} code?)
