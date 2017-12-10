@@ -35,47 +35,47 @@
   ;;;
 
 
-  (method override (test)
+  (method override (test self)
     )
     
   
-  (method override (test0)
+  (method override (test0 self)
     )
     
   
-  (method override (test1)
+  (method override (test1 self)
     )
     
   
-  (method override (test2)
+  (method override (test2 self)
     )
     
   
-  (method override (test3)
+  (method override (test3 self)
     )
     
   
-  (method override (test4)
+  (method override (test4 self)
     )
     
   
-  (method override (test5)
+  (method override (test5 self)
     )
     
   
-  (method override (test6)
+  (method override (test6 self)
     )
     
   
-  (method override (test7)
+  (method override (test7 self)
     )
     
   
-  (method override (test8)
+  (method override (test8 self)
     )
     
   
-  (method override (test9)
+  (method override (test9 self)
     ))
 
 
