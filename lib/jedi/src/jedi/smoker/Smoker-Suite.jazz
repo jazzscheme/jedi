@@ -109,7 +109,7 @@
 
 
   (method (run-searches self)
-    (let* ((appl (get-application))
+    (let* ((appl (current-application))
            (manager (get-search-manager appl))
            (frame (get-host manager))
            (view (get-search manager))

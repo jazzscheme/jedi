@@ -411,7 +411,7 @@
   
   
   (method (regenerate-jazzwebsite self)
-    (reload-documentation (get-application))
+    (reload-documentation (current-application))
     (generate-jazzwebsite self))
   
   
@@ -1509,7 +1509,7 @@
       (let ((ast (parse-java file Java-AST)))
         (when describe?
           (describe ast)
-          (fresh-prompt (get-application)))
+          (fresh-prompt (current-application)))
         ast)))
 
 
