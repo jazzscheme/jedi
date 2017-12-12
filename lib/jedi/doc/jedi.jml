@@ -360,4 +360,4 @@
       "One nice way of using your profile is to test your code there is a very Lispish interactive fashion and when it is functional, migrate it to it's own unit. "
       ))
     (<Section-Doc> name: Settings
-      (<Section-Doc> name: Preferences)))))))))
+      (<Section-Doc> name: Preferences))))))
