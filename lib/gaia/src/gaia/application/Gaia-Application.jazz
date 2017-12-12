@@ -657,10 +657,10 @@
         (case mode
           ((live)
            (select-named-workspace 'live)
-           (full-screen (get-application) #t))
+           (full-screen (current-application) #t))
           ((design)
            (select-named-workspace 'design)
-           (full-screen-host (get-application) (find-singleton-docked 'Live-Properties) #t)))
+           (full-screen-host (current-application) (find-singleton-docked 'Live-Properties) #t)))
         (platform-tile-gaia/world debuggee mode)
         (set! current-state 'tiled)))
     (else
@@ -674,10 +674,10 @@
         (case mode
           ((live)
            (select-named-workspace 'live)
-           (full-screen (get-application) #t))
+           (full-screen (current-application) #t))
           ((design)
            (select-named-workspace 'design)
-           (full-screen-host (get-application) (find-singleton-docked 'Live-Properties) #t)))
+           (full-screen-host (current-application) (find-singleton-docked 'Live-Properties) #t)))
         (platform-tile-gaia/world debuggee mode)
         (set! current-state 'tiled))))
   
@@ -687,7 +687,7 @@
       (method (restore-gaia/world self (debuggee #f))
         (change-scrollbar-style #f)
         (select-named-workspace (or previous-workspace 'text))
-        (full-screen (get-application) #f)
+        (full-screen (current-application) #f)
         (platform-restore-gaia/world debuggee)
         (receive (server clients) (collect-world-debuggees)
           (let ((debuggees (append clients (if server (list server) '()))))
@@ -701,7 +701,7 @@
         (show-taskbar #t)
         (change-scrollbar-style #f)
         (select-named-workspace (or previous-workspace 'text))
-        (full-screen (get-application) #f)
+        (full-screen (current-application) #f)
         (platform-restore-gaia/world debuggee)
         (if previous-placement
             (set-placement (current-toplevel) previous-placement)

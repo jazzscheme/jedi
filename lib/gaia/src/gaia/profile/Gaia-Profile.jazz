@@ -137,7 +137,7 @@
             (when (eq? result 'yes)
               (let ((source (get-source exc))
                     (range (get-range exc)))
-                (edit-document (get-application) source selection: range)))
+                (edit-document (current-application) source selection: range)))
             (neq? result 'no)))))
     (lambda (exc)
       (signal-cancel))
@@ -231,7 +231,7 @@
     (define (client->trait client)
       (compose-identifier 'Client client))
     
-    (save-all (get-application))
+    (save-all (current-application))
     (let ((workbench (get-workbench)))
       (let ((server-project (find-project workbench 'yownu:lib:yownu:Yownu-Server))
             (client-project (find-project workbench 'yownu:lib:yownu:Yownu)))
@@ -261,14 +261,14 @@
   
   
   (method override (test5 self)
-    (reload-documentation (get-application))
+    (reload-documentation (current-application))
     (parameterize ((generate-manual? #t)
                    (generate-reference? #f))
       (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
   
   
   (method override (test6 self)
-    (reload-documentation (get-application))
+    (reload-documentation (current-application))
     (parameterize ((generate-manual? #t)
                    (generate-reference? #t))
       (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
