@@ -362,7 +362,7 @@
   ;;;
   
   
-  (method override (get-documentation-cataloguer self)
+  (method override (get-documentation-cataloguer self (safe?: safe? #t))
     (define (new-documentation-cataloguer)
       (let ((cataloguer (new Cataloguer))
             (workbench (get-workbench)))
@@ -370,7 +370,9 @@
           (lambda (project)
             (let ((file (get-documentation project)))
               (when file
-                (let ((form (safe-read-form file)))
+                (let ((form (if safe?
+                                (safe-read-form file)
+                              (read-form file))))
                   (unless (exception? form)
                     (let* ((doc (instantiate form))
                            (name (get-name doc))
@@ -386,7 +388,7 @@
   
   (method public (reload-documentation self)
     (set! documentation-cataloguer #f)
-    (get-documentation-cataloguer self))
+    (get-documentation-cataloguer self safe?: #f))
   
   
   ;;;
