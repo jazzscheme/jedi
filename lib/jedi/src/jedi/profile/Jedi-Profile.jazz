@@ -46,6 +46,7 @@
         (jazz.foreign)
         (jazz.graphic)
         (jazz.ide)
+        (jazz.ide.development)
         (jazz.io)
         (jazz.markup)
         (jazz.text)
@@ -71,16 +72,16 @@
         (queue-list queue)))
     
     (define (color-class color)
-      (when color
-        (cond ((color-similar? color {Color Dark-Blue}) "blue")
-              ((color-similar? color {Color Dark-Green}) "green")
-              ((color-similar? color {Color Dark-Red}) "red")
-              ((color-similar? color {Color Dark-Purple}) "purple")
-              ((color-similar? color {Color Purple}) "purple")
-              ((color-similar? color {Color Ochre}) "ochre")
-              ((color-similar? color {Color Dark-Orange}) "orange")
-              ((color-similar? color {Color Dark-Gray}) "gray")
-              (else (debug 'unknown 'color color) #f))))
+      (and color
+           (cond ((color-similar? color {Color Dark-Blue}) "blue")
+                 ((color-similar? color {Color Dark-Green}) "green")
+                 ((color-similar? color {Color Dark-Red}) "red")
+                 ((color-similar? color {Color Dark-Purple}) "purple")
+                 ((color-similar? color {Color Purple}) "purple")
+                 ((color-similar? color {Color Ochre}) "ochre")
+                 ((color-similar? color {Color Dark-Orange}) "orange")
+                 ((color-similar? color {Color Dark-Gray}) "gray")
+                 (else (debug 'unknown 'color color) #f))))
     
     (define (encode-string str)
       (substitute-alist '((#\\ . "\\\\")
@@ -271,6 +272,8 @@
         ((Define-Macro-Declaration) (extract-define-macro-doc declaration))
         ((Definition-Declaration) (extract-definition-doc declaration))
         ((Generic-Declaration) (extract-generic-doc declaration))
+        ((Hub-Declaration) #f)
+        ((Node-Declaration) #f)
         ((Macro-Declaration) (extract-macro-doc declaration))
         ((Syntax-Declaration) (extract-syntax-doc declaration))
         ((Class-Declaration) (extract-class-doc declaration))
@@ -314,12 +317,12 @@
       (let ((name (symbol->string (get-name declaration)))
             (ascendant (get-ascendant declaration))
             (interfaces (get-interfaces declaration)))
-        (unless (or (ends-with? name "-Class")
-                    (ends-with? name "~Class"))
-          `(<Class-Doc> name: ,(extract-locator declaration) title: ,name
-             ascendant: ,(if ascendant (extract-locator (resolve-binding ascendant)) #f)
-             interfaces: ,(map extract-locator (resolve-declarations interfaces))
-             ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children declaration))))))))
+        (and (not (or (ends-with? name "-Class")
+                      (ends-with? name "~Class")))
+             `(<Class-Doc> name: ,(extract-locator declaration) title: ,name
+                ascendant: ,(if ascendant (extract-locator (resolve-binding ascendant)) #f)
+                interfaces: ,(map extract-locator (resolve-declarations interfaces))
+                ,@(map extract-declaration-doc (filter-access/compatibility-declarations (queue-list (get-children declaration))))))))
     
     (define (extract-interface-doc declaration)
       (let ((ascendants (get-ascendants declaration)))
@@ -404,7 +407,7 @@
     {File Jazz "lib" "jazz.website" "site" "JazzWebsite.jml"})
   
   (definition JazzWebsite-Content
-    {Directory Jazz "lib" "jazz.website" "content"})
+    {Directory Home "Devel" "jazz" "website" "local"})
   
   
   (method (regenerate-jazzwebsite self)
