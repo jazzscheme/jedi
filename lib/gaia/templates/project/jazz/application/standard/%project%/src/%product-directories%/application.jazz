@@ -32,19 +32,19 @@
 (class %project-name%-Application extends Application
 
   
-  (method override (process-name)
+  (method override (process-name self)
     "%project-title%")
   
   
-  (method override (new-toplevel)
+  (method override (new-toplevel self)
     (new %project-name%-Toplevel))
   
   
-  (method override (default-preferences)
+  (method override (default-preferences self)
     (new %project-name%-Preferences))
   
   
-  (method override (default-workspaces)
+  (method override (default-workspaces self)
     (new %project-name%-Workspaces))
 
   
@@ -53,11 +53,11 @@
   ;;;
 
 
-  (method override (default-frame-class)
+  (method override (default-frame-class self)
     Plain-Text-View)
 
 
-  (method override (known-extension-frame-class ext)
+  (method override (known-extension-frame-class self ext)
     (cond ((member? ext '("txt" "text") test: ci=?) Plain-Text-View)
           (else (nextmethod ext)))))
 
@@ -123,7 +123,7 @@
 (class %project-name%-Menubar extends Menubar
   
   
-  (method override (install rest)
+  (method override (install self rest)
     (nextmethod rest)
     (with-update-locked
       (lambda ()

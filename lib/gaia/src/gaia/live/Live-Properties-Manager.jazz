@@ -65,7 +65,7 @@
   
   
   (method public (get-text self)
-    (locate 'text))
+    (locate self 'text))
 
   
   ;;;
@@ -92,7 +92,7 @@
   
   
   (method override (get-tools-view self)
-    (locate 'tools))
+    (locate self 'tools))
   
   
   ;;;
