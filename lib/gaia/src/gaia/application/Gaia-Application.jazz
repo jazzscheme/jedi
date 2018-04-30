@@ -72,7 +72,7 @@
         (jazz.ui)
         (jazz.version)
         (jazz.view)
-        (jazz.window (cond windows))
+        (jazz.window (cond (not mac)))
         (jazz.workspace)
         (gaia)
         (gaia.validate)
