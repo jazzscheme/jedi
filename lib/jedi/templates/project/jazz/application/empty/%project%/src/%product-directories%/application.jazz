@@ -24,11 +24,11 @@
 (class %project-name%-Application extends Application
 
   
-  (method override (process-name)
+  (method override (process-name self)
     "%project-title%")
   
   
-  (method override (new-toplevel)
+  (method override (new-toplevel self)
     (new %project-name%-Toplevel)))
 
 
