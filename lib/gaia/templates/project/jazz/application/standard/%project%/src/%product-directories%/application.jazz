@@ -12,8 +12,8 @@
 (import (jazz.action)
         (jazz.application)
         (jazz.debuggee)
-        (jazz.jml)
         (jazz.layout)
+        (jazz.markup)
         (jazz.menu)
         (jazz.platform)
         (jazz.reference)
@@ -59,7 +59,7 @@
 
   (method override (known-extension-frame-class self ext)
     (cond ((member? ext '("txt" "text") test: ci=?) Plain-Text-View)
-          (else (nextmethod ext)))))
+          (else (nextmethod self ext)))))
 
 
 ;;;
@@ -124,8 +124,8 @@
   
   
   (method override (install self rest)
-    (nextmethod rest)
-    (with-update-locked
+    (nextmethod self rest)
+    (with-update-locked self
       (lambda ()
         (new Label-Item parent: self name: 'file   content: (new File-Base-Menu))
         (new Label-Item parent: self name: 'edit   content: (new Edit-Base-Menu))
