@@ -92,22 +92,45 @@
 
 
 (cond-expand
-  (mac
+  (windows
     (definition install-dir
-      {Directory Home "Devel" "install"}))
+      {Directory Home "gaia" "install"}))
   (else
     (definition install-dir
-      {Directory Home "install"})))
+      {Directory Home "Devel" "gaia" "install"})))
+
+
+(definition install-name
+  (cond-expand
+    (mac
+     "gaia.app")
+    (else
+     "gaia")))
 
 
 (definition (install descriptor)
   (initialize-aliases)
   (install-application descriptor install-dir
+    name: install-name
     scriptable?: #t
     platform?: #t
     git?: #t
     files: '("README"
              "INSTALL")))
+
+
+;;;
+;;;; Deploy
+;;;
+
+
+(definition (deploy descriptor)
+  (initialize-aliases)
+  ;; appl
+  (deploy-application descriptor
+                      (new-directory install-dir install-name)
+                      make: 'gaia
+                      install: 'gaia))
 
 
 ;;;
@@ -117,4 +140,5 @@
 
 (register-product 'gaia
   build: build
-  install: install))
+  install: install
+  deploy: deploy))
