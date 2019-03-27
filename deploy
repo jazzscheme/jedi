@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+  # echo "No environment parameter"
+  # exit 1
+  ENVIRONMENT="test"
+else
+  ENVIRONMENT="$1"
+  shift
+fi
+
+./jaz deploy "gaia@$ENVIRONMENT" "$@" -debug
