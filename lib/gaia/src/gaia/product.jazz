@@ -112,6 +112,7 @@
   (initialize-aliases)
   (install-application descriptor install-dir
     name: install-name
+    jazz?: #t
     scriptable?: #t
     platform?: #t
     git?: #t
