@@ -115,7 +115,9 @@
     jazz?: #t
     scriptable?: #t
     platform?: #t
+    opengl?: #t
     git?: #t
+    gstreamer?: #t
     files: '("README"
              "INSTALL")))
 
