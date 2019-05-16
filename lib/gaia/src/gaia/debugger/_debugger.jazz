@@ -38,13 +38,13 @@
 (module gaia.debugger jazz
 
 
-(import (jazz.remote)
+(import (jazz.presence)
         (gaia.debugger.implementation)
         (gaia.debugger.stub))
 
 
 (definition public (make-gaia-debugger)
-  (new Gaia-Debugger-Local-Proxy (new Gaia-Debugger)))
+  (new Gaia-Debugger-Local-Proxy (require-presence 'debugging) (new Gaia-Debugger)))
 
 
-(register-object (get-local-register) 'gaia-debugger (make-gaia-debugger)))
+(register-object (get-local-register 'debugging) 'gaia-debugger (make-gaia-debugger)))

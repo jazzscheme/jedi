@@ -16,6 +16,6 @@
       (<Trait>      name: Core
         (<install>                configuration: "cache/core"))
       (<Trait>      name: Devel
-        (<install>                configuration: "cache/devel"))
+        (<install>                configuration: "cache/develop"))
       (<Trait>      name: Release
         (<install>                configuration: "cache/release"))))))
