@@ -4,6 +4,7 @@
 /cache
 /gambit
 /jazz
+/.jaz
 /.jazzini
 .configuration
 .DS_Store
