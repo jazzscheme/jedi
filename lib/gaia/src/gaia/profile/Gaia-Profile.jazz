@@ -125,7 +125,7 @@
 
 @w
 (definition public (with-safe-explore proc (action: action 'ask))
-  (with-exception-filter
+  (catch-exception-filter
     (lambda (obj)
       (let ((exc (and (object? obj) (is? obj Explore-Error) obj)))
         (when exc
@@ -155,7 +155,7 @@
     (init-six)
     (call-with-input-string str
       (lambda (input)
-        (with-exception-filter
+        (catch-exception-filter
           (lambda (exc)
             (with-jazz-readtable
               (lambda ()
