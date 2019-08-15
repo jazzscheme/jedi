@@ -640,11 +640,11 @@
   
   
   (method (live-gaia/world self (debuggee #f))
-    (tile-gaia/world debuggee 'live))
+    (tile-gaia/world self debuggee 'live))
   
   
   (method (design-gaia/world self (debuggee #f))
-    (tile-gaia/world debuggee 'design))
+    (tile-gaia/world self debuggee 'design))
   
   
   (cond-expand
