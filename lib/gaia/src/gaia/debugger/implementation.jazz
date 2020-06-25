@@ -46,24 +46,24 @@
   
   
   (method public (show-properties self debuggee class properties)
-    (execute-event
+    (send-event
       (lambda ()
         (show-properties (current-application) debuggee class properties))))
   
   
   (method public (live-gaia/world self debuggee)
-    (execute-event
+    (send-event
       (lambda ()
         (live-gaia/world (current-application) debuggee))))
   
   
   (method public (design-gaia/world self debuggee)
-    (execute-event
+    (send-event
       (lambda ()
         (design-gaia/world (current-application) debuggee))))
   
   
   (method public (restore-gaia/world self debuggee)
-    (execute-event
+    (send-event
       (lambda ()
         (restore-gaia/world (current-application) debuggee))))))
