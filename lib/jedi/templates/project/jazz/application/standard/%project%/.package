@@ -16,8 +16,8 @@
                                      jazz.media
                                      jazz.network
                                      jazz.platform
+                                     jazz.presence
                                      jazz.profile
-                                     jazz.remote
                                      jazz.ui
                                      contrib.irregex
                                      srfi-19
