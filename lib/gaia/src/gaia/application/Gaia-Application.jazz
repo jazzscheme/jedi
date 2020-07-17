@@ -57,6 +57,8 @@
         (jazz.ide)
         (jazz.io)
         (jazz.markup)
+        (jazz.opengl)
+        (jazz.opengl.window)
         (jazz.platform)
         (jazz.preferences)
         (jazz.presence)
@@ -226,7 +228,7 @@
 
 
   (method override (new-toplevel self)
-    (new Gaia-Toplevel))
+    (new-opengl-window class: Gaia-Toplevel))
   
   
   (method override (finish-process self)
