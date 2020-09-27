@@ -56,6 +56,8 @@
         (jazz.ide)
         (jazz.io)
         (jazz.markup)
+        (jazz.opengl)
+        (jazz.opengl.window)
         (jazz.preferences)
         (jazz.process)
         (jazz.project)
@@ -106,7 +108,7 @@
 
 
   (method override (new-toplevel self)
-    (new Jedi-Toplevel))
+    (new-opengl-window class: Jedi-Toplevel))
 
 
   (method override (finalize-process self)
