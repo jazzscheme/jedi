@@ -382,6 +382,7 @@
           ((member? ext '("world") test: extension=?) Jazz-Text-View)
           ((member? ext '("zone") test: extension=?) Jazz-Text-View)
           ((member? ext '("identity") test: extension=?) Jazz-Text-View)
+          ((member? ext '("machine") test: extension=?) Jazz-Text-View)
           ((member? ext '("character") test: extension=?) Jazz-Text-View)
           ((member? ext '("player") test: extension=?) Jazz-Text-View)
           ((member? ext '("generator") test: extension=?) Jazz-Text-View)
