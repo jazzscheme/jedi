@@ -1276,12 +1276,6 @@
           (y (break))
           (z 3))
       (list x y z)))
-
-  
-  @wait
-  (method (test-location-aux self)
-    (let ((z (new [Z Y X])))
-      (foo z '(10 20 30))))
     
   
   @wait
