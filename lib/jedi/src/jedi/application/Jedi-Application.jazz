@@ -160,7 +160,14 @@
   
   
   (define (convert-settings dir old)
-    #f
+    (define (convert-initial)
+      (jedi.convert:convert-settings-initial (new Directory (tokenise-filename dir)))
+      205001)
+    
+    (case old
+      ((#f) (convert-initial))
+      (else #f))
+    
     @comment (
     (define (convert-initial)
       (jedi.convert:convert-settings-initial (new Directory (tokenise-filename dir)))

@@ -52,6 +52,16 @@
 ;;;
 
 
+(definition protected (convert-settings-initial dot-jedi-dir)
+  (let ((profiles-dir (new-directory dot-jedi-dir "profiles")))
+    (unless (exists? profiles-dir)
+      (create-directories (new-directory profiles-dir "lib"))
+      (call-with-output-file (path-settings (new-file profiles-dir ".repository") eol-encoding: 'cr-lf)
+        (lambda (output)
+          (format output "(repository Profiles{%}{%}")
+          (format output "  (library \"lib\")){%}"))))))
+
+
 @comment
 (definition protected (convert-settings-initial dot-jedi-dir)
   (define (convert-profiles)
