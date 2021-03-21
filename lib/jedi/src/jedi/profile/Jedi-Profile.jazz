@@ -212,7 +212,6 @@
       (jazz.clipboard)
       (jazz.console)
       (jazz.database)
-      (jazz.database.sqlserver)
       ;(jazz.debuggee)
       ;(jazz.debugger)
       ;(jazz.designer)

@@ -79,7 +79,6 @@
         (:action :application on-select-workspace workspace: text)
         (:action :application on-select-workspace workspace: debugger)
         (:action :application on-select-workspace workspace: groupware)
-        (:action :application on-select-workspace workspace: sql)
         (:action :application on-select-workspace workspace: designer)
         (:action :application on-select-workspace workspace: formatted)
         (:action :application on-next-workspace)
