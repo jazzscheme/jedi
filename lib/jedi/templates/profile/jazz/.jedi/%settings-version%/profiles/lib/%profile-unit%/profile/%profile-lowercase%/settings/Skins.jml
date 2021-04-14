@@ -10,9 +10,4 @@
 
 
 (form
-  (<Skins>                        active: %active-skin%
-    (<Default-Skin> name: default)
-    (<Jazz-Skin>    name: jazz)
-    (<Mac-Skin>     name: mac)
-    (<Windows-Skin> name: windows)
-    (<X11-Skin>     name: x11))))
+  (<Skins-Preferences>)))
