@@ -243,35 +243,6 @@
           (if (or (not server) (registered-process-live? (cons server-project server-traits)))
               (launch-clients client-project clients-traits)
             (launch-server server-project server-safety server-traits client-project clients-traits))))))
-  
-  
-  ;;;
-  ;;;; Website
-  ;;;
-
-  
-  (definition WorldWebsite-Site
-    {File World "lib" "world.website" "site" "WorldWebsite.jml"})
-  
-  (definition WorldWebsite-Content
-    {Directory World "lib" "world.website" "content"})
-  
-  (definition WorldWebsite-Reference
-    {Directory World "lib" "world.website" "reference"})
-  
-  
-  (method override (test5 self)
-    (reload-documentation (current-application))
-    (parameterize ((generate-manual? #t)
-                   (generate-reference? #f))
-      (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
-  
-  
-  (method override (test6 self)
-    (reload-documentation (current-application))
-    (parameterize ((generate-manual? #t)
-                   (generate-reference? #t))
-      (generate-website WorldWebsite-Site WorldWebsite-Content WorldWebsite-Reference)))
 
   
   ;;;

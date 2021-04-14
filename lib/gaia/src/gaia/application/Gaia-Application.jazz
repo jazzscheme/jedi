@@ -51,8 +51,6 @@
         (jazz.editor)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
-        (jazz.editor.sql)
-        (jazz.editor.sql.view)
         (jazz.favorite)
         (jazz.ide)
         (jazz.io)
@@ -242,13 +240,9 @@
                (<kind> name: "Interface" kind: jazz   template: "jazz/NewInterface.jazz"))
              (<kind>   name: "Script"    kind: jazz   template: "jazz/NewScript.jazz")))))
     
-    (define (setup-sql)
-      (register-console (get-sql-console) "SQL Console" #f view-class: SQL-Console-View console-button?: #f))
-    
     (nextmethod self)
     (setup-documents)
-    (setup-workspaces self)
-    (setup-sql))
+    (setup-workspaces self))
   
   
   ;;;
@@ -283,19 +277,6 @@
   
   (method override (default-workspaces self)
     (new Default-Gaia-Workspaces))
-  
-  
-  ;;;
-  ;;;; Versions
-  ;;;
-  
-
-  (method override (mandatory-version self what)
-    (case what
-      ((sqlserver) {Version 8 0 0})
-      ((dao) {Version 3 6 0})
-      ((access-database) {Version 4 0 0})
-      (else (nextmethod self what))))
   
   
   ;;;
@@ -850,28 +831,6 @@
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
                       (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results}))))
                 (<Stage-Preferences>                             location: second))))))
-      (<Workspace-Preferences>                  name: sql        title: "SQL" icon: {Image-Resource "WorkspaceSQL"} shortcut: {Shortcut :shift :alt #\L} frame-model: {Class-Reference SQL-Text-View}
-        (<Menubar-Preferences>                  name: menubar    location: root
-          (<Mainbar-Preferences>                name: toolbar    location: second
-            (<Status-Preferences>               name: status     location: second
-              (<Splitter-Preferences>           name: top        location: first orientation: horz mode: relative division: 33 insets: {Rect 5 5 5 5}
-                (<Minibuffer-Preferences>                        location: first state: split
-                  (<Splitter-Preferences>                        location: first orientation: vert mode: relative division: -27
-                    (<Pad-Preferences>                           location: second
-                      (<Docked-Preferences>                      location: selection model: {Class-Reference SQL-Console-Manager})
-                      (<Docked-Preferences>                      location: #f model: {Class-Reference Lisp-Console-Manager})
-                      (<Docked-Preferences>                      location: #f model: {Class-Reference Properties-Manager})
-                      (<Docked-Preferences>                      location: #f model: {Class-Reference Search-Results}))
-                    (<Splitter-Preferences>                      location: first mode: relative division: 48 orientation: horz
-                      (<Splitter-Preferences>                    location: second mode: relative division: -43 orientation: vert
-                        (<Docked-Preferences>                    location: first model: {Class-Reference Chapters-Browser})
-                        (<Docked-Preferences>                    location: second model: {Class-Reference SQL-Connections-Manager}))
-                      (<Docked-Preferences>                      location: first model: {Class-Reference Workbench-Manager}))))
-                (<Splitter-Preferences>                          location: second orientation: vert mode: relative division: -41
-                  (<Stage-Preferences>                           location: first)
-                  (<Pad-Preferences>                             location: second
-                    (<Docked-Preferences>                        location: selection model: {Class-Reference SQL-Tree-Output})
-                    (<Docked-Preferences>                        location: #f model: {Class-Reference SQL-Text-Output}))))))))
       (<Workspace-Preferences>                  name: designer   title: "Designer" icon: {Image-Resource "Designer"} shortcut: {Shortcut :shift :alt #\X} frame-model: {Class-Reference View-Editor}
         (<Menubar-Preferences>                  name: menubar    location: root
           (<Mainbar-Preferences>                name: toolbar    location: second
