@@ -516,6 +516,7 @@
         (when preferences-designer
           (set-action-enabled? {Action code-text evaluate} (and code? (not console?)))
           (set-action-enabled? {Action code-text evaluate-buffer} (and code? (not console?)))
+          (set-action-enabled? {Action code-text edit-definition} code?)
           (set-action-enabled? {Action code-text edit-definitions} code?)
           (set-action-enabled? {Action code-text edit-references} code?)
           (set-action-enabled? {Action code-text recolorize-syntax} (and code? (not console?)))
