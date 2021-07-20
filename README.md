@@ -1,22 +1,26 @@
+Jedi
+====
+
 Jedi is a fully programmable IDE for the Lisp family of languages.
 
 
 License
-=======
+-------
 
 JazzScheme is released under a dual Mozilla Public License Version 1.1 or
 GNU General Public License v2 or later. Choose whichever license you prefer.
 
 
 Platforms
-=========
+---------
 
 Windows, Mac OS X / X11, Linux / X11
 
 
 Distribution
-============
+------------
 
+```
 README                   :  Readme file
 INSTALL                  :  Installation instructions
 
@@ -32,16 +36,17 @@ bin                      :  Default configuration binaries
 build                    :  Custom configurations binaries
 jazz                     :  Jazz repository as a Git submodule
 lib                      :  Pre-installed packages
+```
 
 
 Building
-========
+--------
 
 Please see INSTALL for details and examples on building Jedi.
 
 
 Launching
-=========
+---------
 
 Launch
   Once you have built Jedi you can launch it using the jedi executable.
@@ -63,7 +68,7 @@ Debugging
 
 
 Documentation
-=============
+-------------
 
 Jedi documentation is available online at www.jazzscheme.org
 
