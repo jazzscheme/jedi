@@ -74,7 +74,7 @@
                           (set! first? #f)))))))
     
     (define (copy-info)
-      (install-filename '("README"))
+      (install-filename '("README.md"))
       (install-filename '("INSTALL")))
     
     (define (copy-templates)
@@ -118,7 +118,7 @@
     opengl?: #t
     git?: #t
     gstreamer?: #t
-    files: '("README"
+    files: '("README.md"
              "INSTALL")))
 
 

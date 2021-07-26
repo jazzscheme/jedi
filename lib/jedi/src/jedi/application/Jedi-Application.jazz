@@ -502,7 +502,7 @@
   
   
   (method package (on-readme self evt)
-    (edit-document {File Resources "README"})))
+    (edit-document {File Resources "README.md"})))
 
 
 ;;;
