@@ -250,7 +250,7 @@
   ;;;
   
   
-  (method override (test8 self)
+  (method override (test7 self)
     (let ((text (active-focus)))
       (if (is-not? text Text-View)
           (bell)
@@ -267,14 +267,31 @@
                   (tabulate-range text (new-range text start (get-end text)))))))))))
   
   
-  (method override (test9 self)
+  (method override (test8 self)
     (let ((text (active-focus)))
       (if (is-not? text Text-View)
           (bell)
         (let ((str (get-selected-string text)))
           (let ((start (get-start text)))
-            (set-clipboard-text (c->lisp str text start))
+            (set-clipboard-text (c->lisp self str text start))
             (user-message "Clipbard set to Lisp code"))))))
+  
+  
+  (method override (test9 self)
+    (define (normalize str)
+      (if (and (not (ends-with? str ";"))
+               (not (ends-with? str "}")))
+          (string-append str ";")
+        str))
+    
+    (let ((text (active-focus)))
+      (if (is-not? text Text-View)
+          (bell)
+        (let ((str (normalize (get-selected-string text))))
+          (let ((start (get-start text)))
+            (replace-selection text (split-lines (c->lisp self str text start)))
+            @w
+            (tabulate-range text (new-range text start (get-end text))))))))
   
   
   (method override (test0 self)
@@ -285,14 +302,14 @@
           (if (not str)
               (bell)
             (let ((start (get-start text)))
-              (replace-selection text (split-lines (c->lisp str text start)))
+              (replace-selection text (split-lines (c->lisp self str text start)))
               @w
               (tabulate-range text (new-range text start (get-end text)))))))))
   
   
   (method (c->lisp self str text start)
     (receive (comments expressions) (parse-infix str text start)
-      (let ((expressions (parse-c comments expressions)))
+      (let ((expressions (parse-c self comments expressions)))
         (let ((output (open-output-string)))
           (for-each (lambda (expr)
                       (pp expr output))
