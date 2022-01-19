@@ -28,6 +28,7 @@
                                 extras
                                 samples
                                 jazz.designer
+                                jazz.editor.dart
                                 jazz.ide
                                 gaia.install))
             (gaia.install (update gaia.install)
