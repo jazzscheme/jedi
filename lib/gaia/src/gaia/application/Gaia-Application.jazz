@@ -233,12 +233,12 @@
     (define (setup-documents)
       (set-document-kinds
         '(<kinds>
-           (<kind>     name: "Scheme"    kind: scheme template: "scheme/New.scm")
            (<kind>     name: "Jazz"      kind: jazz   template: "jazz/New.jazz"
              (<kind>   name: "Module"    kind: jazz   template: "jazz/NewModule.jazz"
                (<kind> name: "Class"     kind: jazz   template: "jazz/NewClass.jazz")
                (<kind> name: "Interface" kind: jazz   template: "jazz/NewInterface.jazz"))
-             (<kind>   name: "Script"    kind: jazz   template: "jazz/NewScript.jazz")))))
+             (<kind>   name: "Script"    kind: jazz   template: "jazz/NewScript.jazz"))
+           (<kind>     name: "Scheme"    kind: scheme template: "scheme/New.scm"))))
     
     (nextmethod self)
     (setup-documents)
