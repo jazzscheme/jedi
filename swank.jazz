@@ -1,0 +1,16 @@
+(script jazz
+
+(import (jazz.debugger.swank))
+
+(define swank-port-number
+  4005)
+
+(define process
+  (let ((port (open-tcp-client (list port-number: swank-port-number))))
+    (new Swank-Process port)))
+
+(terminal process)
+
+(let ((id (generate-unique-id process)))
+  (send-swank-message process `(:emacs-rex (swank:connection-info) "COMMON-LISP-USER" t ,id))
+  (terminal-string (receive-swank-response process))))
