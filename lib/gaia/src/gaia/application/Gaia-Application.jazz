@@ -226,7 +226,7 @@
 
 
   (method override (new-toplevel self)
-    (new-opengl-window class: Gaia-Toplevel))
+    (new Gaia-Toplevel))
   
   
   (method override (finish-process self)
