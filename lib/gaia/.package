@@ -17,6 +17,7 @@
                           gaia.debugger.implementation
                           gaia.debugger.stub
                           gaia.live
+                          gaia.problem
                           gaia.product
                           gaia.run
                           gaia.services
