@@ -1,0 +1,25 @@
+(package %package%
+  
+  (root "src")
+  (products (%product% (title "%product-title%")
+                       (run %product-unit%.run)
+                       (update %product-unit%.application
+                               %product-unit%.run)
+                       (build (%product%))
+                       (dependencies jazz
+                                     jazz.debuggee
+                                     jazz.designer
+                                     jazz.editor.jazz
+                                     jazz.graphic
+                                     jazz.io
+                                     jazz.markup
+                                     jazz.media
+                                     jazz.network
+                                     jazz.platform
+                                     jazz.presence
+                                     jazz.profile
+                                     jazz.ui
+                                     contrib.irregex
+                                     srfi-19
+                                     profiler)))
+  (project ".project"))

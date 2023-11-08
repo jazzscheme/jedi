@@ -1,0 +1,82 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; %profile%
+;;;
+
+
+(module %profile-unit%.%profile% jazz
+
+
+(import (irregex)
+        (jazz.clipboard)
+        (jazz.ide)
+        (jazz.ide.development)
+        (jazz.graphic)
+        (jazz.io)
+        (jazz.markup)
+        (jazz.network)
+        (jazz.platform)
+        (jazz.profile)
+        (jazz.project)
+        (jazz.ui)
+        (jazz.ui.dialog)
+        (jazz.view)
+        (jedi)
+        (time))
+
+
+(class %profile% extends Jedi-Profile
+  
+  
+  ;;;
+  ;;;; Test
+  ;;;
+
+
+  (method override (test self)
+    )
+    
+  
+  (method override (test0 self)
+    )
+    
+  
+  (method override (test1 self)
+    )
+    
+  
+  (method override (test2 self)
+    )
+    
+  
+  (method override (test3 self)
+    )
+    
+  
+  (method override (test4 self)
+    )
+    
+  
+  (method override (test5 self)
+    )
+    
+  
+  (method override (test6 self)
+    )
+    
+  
+  (method override (test7 self)
+    )
+    
+  
+  (method override (test8 self)
+    )
+    
+  
+  (method override (test9 self)
+    ))
+
+
+(register-profile-class %profile%))

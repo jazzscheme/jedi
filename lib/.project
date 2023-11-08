@@ -14,4 +14,4 @@
 
 (form
   (<Project> name: lib
-    (<*>               tag-reference: {File :context "gaia" ".project"}))))
+    (<*>               tag-reference: {File :context "jedi" ".project"}))))

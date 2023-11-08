@@ -1,10 +1,10 @@
-Gaia is a sophisticated programmable IDE targeted at game development.
+Jedi is a sophisticated programmable IDE for lisp languages.
 
 
 License
 =======
 
-Gaia is pending copyright.
+Jedi is pending copyright.
 
 
 Platforms
@@ -36,35 +36,35 @@ lib                      :  Pre-installed packages
 Building
 ========
 
-Please see INSTALL for details and examples on building Gaia.
+Please see INSTALL for details and examples on building Jedi.
 
 
 Launching
 =========
 
 Launch
-  Once you have built Gaia you can launch it using the gaia executable.
+  Once you have built Jedi you can launch it using the jedi executable.
 
 Debugging
-  If you get an error before the Gaia is fully functional, you will end up in
+  If you get an error before the Jedi is fully functional, you will end up in
   the Gambit debugger. This is not as painful as would appear as JazzScheme
   code is very close to the generated Scheme code so that inspecting a Jazz
   stack inside the Gambit debugger is very easy. Having access to a lower level
   debugger is even a very nice feature as it is virtually impossible to crash
-  Gaia even when modifying a critical piece of code (like inserting a bug in
+  Jedi even when modifying a critical piece of code (like inserting a bug in
   the view system for instance) as the Gambit debugger is completely self
   contained.
 
   If you get an error that brings you to the Gambit debugger, the console will
   automatically open. You can then use all of Gambit's debugging command to
   debug your code and when you are done, simply execute the (resume) command.
-  This will resume Gaia's message loop making it again functional.
+  This will resume Jedi's message loop making it again functional.
 
 
 Documentation
 =============
 
-Gaia documentation is available online at ...
+Jedi documentation is available online at ...
 
 
 ------------------------------------------

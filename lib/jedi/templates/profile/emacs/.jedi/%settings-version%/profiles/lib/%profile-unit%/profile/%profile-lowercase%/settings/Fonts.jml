@@ -1,0 +1,15 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Fonts
+;;;
+
+
+(data jazz.ide.data.fonts
+
+
+(form
+  (<Fonts-Preferences>
+    (<Font-Preferences> name: Code       font-name: vera-mono point-size: 18)
+    (<Font-Preferences> name: Code-Bold  font-name: vera-mono point-size: 18 bold?: #t))))

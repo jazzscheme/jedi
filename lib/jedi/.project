@@ -1,0 +1,62 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(import (jazz.project)
+        (jazz.editor.jazz))
+
+
+(form
+  (<Project>                 name: jedi                    documentation: {File :context "doc" "jedi.jml"} description-file: {File :context ".package"}
+    (<Project-Directory>                                   directory: {Directory :context "src"}
+      (<Project-Directory>                                 directory: {Directory :context "src" "jedi"}
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "application"}
+          (<Jazz-File>       name: Jedi-Menubar            source: {File :context "src" "jedi" "application" "Jedi-Menubar.jazz"})
+          (<Jazz-File>       name: Jedi-Status             source: {File :context "src" "jedi" "application" "Jedi-Status.jazz"})
+          (<Jazz-File>       name: Jedi-Toolbar            source: {File :context "src" "jedi" "application" "Jedi-Toolbar.jazz"})
+          (<Jazz-File>       name: Jedi-Toplevel           source: {File :context "src" "jedi" "application" "Jedi-Toplevel.jazz"})
+          (<Jazz-File>       name: Jedi-Application        source: {File :context "src" "jedi" "application" "Jedi-Application.jazz"}))
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "profile"}
+          (<Jazz-File>       name: Jedi-Profile            source: {File :context "src" "jedi" "profile" "Jedi-Profile.jazz"}))
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "search"}
+          (<Jazz-File>       name: Jedi-Search             source: {File :context "src" "jedi" "search" "Jedi-Search.jazz"}))
+        (<Jazz-File>         name: _jedi                   source: {File :context "src" "jedi" "_jedi.jazz"})
+        (<Jazz-File>         name: autoload                source: {File :context "src" "jedi" "autoload.jazz"})
+        (<Jazz-File>         name: run                     source: {File :context "src" "jedi" "run.jazz"})
+        (<Project-File>                                    source: {File :context "src" "jedi" "install.scm"})
+        (<Jazz-File>         name: services                source: {File :context "src" "jedi" "services.jazz"})
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "data"}
+          (<Jazz-File>       name: bindings                source: {File :context "src" "jedi" "data" "bindings.jazz"})
+          (<Jazz-File>       name: preferences             source: {File :context "src" "jedi" "data" "preferences.jazz"})
+          (<Jazz-File>       name: workspaces              source: {File :context "src" "jedi" "data" "workspaces.jazz"}))
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "validate"}
+          (<Jazz-File>       name: Jedi-Tester             source: {File :context "src" "jedi" "validate" "Jedi-Tester.jazz"})
+          (<Jazz-File>       name: _validate               source: {File :context "src" "jedi" "validate" "_validate.jazz"})
+          (<Jazz-File>       name: autoload                source: {File :context "src" "jedi" "validate" "autoload.jazz"}))
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "preference"}
+          (<Jazz-File>       name: Jedi-Actions            source: {File :context "src" "jedi" "preference" "Jedi-Actions.jazz"})
+          (<Jazz-File>       name: Jedi-Bindings           source: {File :context "src" "jedi" "preference" "Jedi-Bindings.jazz"})
+          (<Jazz-File>       name: Jedi-Preferences        source: {File :context "src" "jedi" "preference" "Jedi-Preferences.jazz"}))
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "debugger"}
+          (<Jazz-File>       name: _debugger               source: {File :context "src" "jedi" "debugger" "_debugger.jazz"})
+          (<Jazz-File>       name: implementation          source: {File :context "src" "jedi" "debugger" "implementation.jazz"})
+          (<Jazz-File>       name: stub                    source: {File :context "src" "jedi" "debugger" "stub.jazz"}))
+        (<Project-Directory>                               directory: {Directory :context "src" "jedi" "live"}
+          (<Jazz-File>       name: Live-Properties-Manager source: {File :context "src" "jedi" "live" "Live-Properties-Manager.jazz"})
+          (<Jazz-File>       name: Live-Properties         source: {File :context "src" "jedi" "live" "Live-Properties.jazz"})
+          (<Jazz-File>       name: Live-Style              source: {File :context "src" "jedi" "live" "Live-Style.jazz"})
+          (<Jazz-File>       name: _live                   source: {File :context "src" "jedi" "live" "_live.jazz"}))
+        (<Jazz-File>         name: product                 source: {File :context "src" "jedi" "product.jazz"})
+        (<Jazz-File>         name: problem                 source: {File :context "src" "jedi" "problem.jazz"}))
+      (<Project-Directory>                                 directory: {Directory :context "src" "world"}
+        (<Project-Directory>                               directory: {Directory :context "src" "world" "debuggee"}
+          (<Jazz-File>       name: stub                    source: {File :context "src" "world" "debuggee" "stub.jazz"}))))
+    (<Project-Directory>                                   directory: {Directory :context "doc"}
+      (<Project-File>                                      source: {File :context "doc" "jedi.jml"})))))

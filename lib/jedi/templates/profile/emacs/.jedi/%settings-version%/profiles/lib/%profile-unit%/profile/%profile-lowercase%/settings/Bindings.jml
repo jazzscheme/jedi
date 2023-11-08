@@ -1,0 +1,13 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Bindings
+;;;
+
+
+(data jedi.data.bindings
+
+
+(form
+  (<Jedi-Bindings>)))

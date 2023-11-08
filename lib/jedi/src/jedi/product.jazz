@@ -1,0 +1,147 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Product
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2015
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module jedi.product jazz
+
+
+(import (jazz.io)
+        (jazz.product))
+
+
+;;;
+;;;; Build
+;;;
+
+
+(definition (build descriptor (unit: unit #f) (force?: force? #f))
+  (define (resources-dir)
+    (let ((bundle (product-descriptor-build-bundle descriptor)))
+      (if bundle
+          (new-directory {Directory Build} (format "{a}.app/Contents/Resources" bundle))
+        {Directory Build})))
+  
+  (let ((project-dir {Directory Jedi})
+        (resources-dir (resources-dir)))
+    (define (install-filename path)
+      (let ((src (new-file project-dir path))
+            (dst (new-file resources-dir path)))
+        (install-file src dst
+          feedback: (lambda (action pathname)
+                      (build-feedback "; {a} {a}..." action (get-name pathname))))))
+    
+    (define (install-dirname path (src #f) (dst #f))
+      (let ((src (new-directory project-dir (or src path)))
+            (dst (new-directory resources-dir (or dst path))))
+        (install-directory src dst
+          feedback: (let ((first? #t))
+                      (lambda (action pathname)
+                        (when first?
+                          (build-feedback "; {a} {a}..." action (get-name pathname))
+                          (set! first? #f)))))))
+    
+    (define (copy-info)
+      (install-filename '("README"))
+      (install-filename '("INSTALL")))
+    
+    (define (copy-templates)
+      (install-dirname '("lib" "jedi" "templates")))
+    
+    (build-product-descriptor descriptor unit: unit force?: force?)
+    (initialize-aliases)
+    (copy-info)
+    (copy-templates)))
+
+
+;;;
+;;;; Install
+;;;
+
+
+(cond-expand
+  (windows
+    (definition install-dir
+      {Directory Home "jedi" "install"}))
+  (else
+    (definition install-dir
+      {Directory Home "Devel" "jedi" "install"})))
+
+
+(definition install-name
+  (cond-expand
+    (mac
+     "jedi.app")
+    (else
+     "jedi")))
+
+
+(definition (install descriptor)
+  (initialize-aliases)
+  (install-application descriptor install-dir
+    name: install-name
+    jazz?: #t
+    scriptable?: #t
+    platform?: #t
+    opengl?: #t
+    git?: #t
+    gstreamer?: #t
+    files: '("README"
+             "INSTALL")))
+
+
+;;;
+;;;; Deploy
+;;;
+
+
+(definition (deploy descriptor)
+  (initialize-aliases)
+  ;; appl
+  (deploy-application descriptor
+                      (new-directory install-dir install-name)
+                      make: 'jedi
+                      install: 'jedi))
+
+
+;;;
+;;;; Register
+;;;
+
+
+(register-product 'jedi
+  build: build
+  install: install
+  deploy: deploy))

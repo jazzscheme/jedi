@@ -1,0 +1,226 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Live Properties
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2015
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.live.Live-Properties jazz
+
+
+(import (jazz.event)
+        (jazz.graphic)
+        (jazz.handler)
+        (jazz.text)
+        (jedi)
+        (jedi.live)
+        (jazz.window))
+
+
+(class undocumented Live-Properties extends Formatted-Text-View
+  
+  
+  (method override (new-model self)
+    (new Formatted-Text-Model base-style: {Text-Style font: {Font Label}}))
+  
+  
+  (method override (install self rest)
+    (nextmethod self rest)
+    ;; Formats
+    (add-format self 'Heading1      {Format Base keep-with-next?: #t})
+    (add-format self 'Heading2      {Format Base keep-with-next?: #t})
+    (add-format self 'Heading3      {Format Base keep-with-next?: #t})
+    (add-format self 'Heading4      {Format Base keep-with-next?: #t})
+    (add-format self 'Heading5      {Format Base keep-with-next?: #t})
+    (add-format self 'Code          {Format Base @wait-left-margin: 100 @wait-right-margin: 100 background: {Color Light-Gray}})
+    ;; Styles
+    (add-style self 'Heading1       {Text-Style Base font: {Font Heading1} color: {Color Dark-Red}})
+    (add-style self 'Heading2       {Text-Style Base font: {Font Heading2} color: {Color Dark-Red}})
+    (add-style self 'Heading3       {Text-Style Base font: {Font Heading3} color: {Color Dark-Red}})
+    (add-style self 'Heading4       {Text-Style Base font: {Font Heading4} color: {Color Dark-Red}})
+    (add-style self 'Heading5       {Text-Style Base font: {Font Heading5} color: {Color Dark-Red}})
+    (add-style self 'Reference      {Text-Style Base font: {Font Link} color: {Color Dark-Blue}})
+    (add-style self 'Link           {Link-Style font: {Font Link} color: {Color Link}})
+    (add-style self 'Code           {Text-Style Base font: {Font Code} @wait-color: {Color Dark-Red}})
+    (add-style self 'Variable       {Text-Style Code color: {Color Dark-Red}})
+    (add-style self 'Live-Component {Text-Style Base font: {Font font-name: "Arial" point-size: 12} color: {Color Dark-Red}}))
+
+
+  ;;;
+  ;;;; Cursor
+  ;;;
+
+
+  (method override (cursor-update self evt)
+    (let ((view (get-position evt)))
+      (show-text-cursor self)
+      (when (and (view-enabled? self) selectable?)
+        (if (get-alt? evt)
+            (set-cursor :finger)
+          (let* ((pos (view->text self view))
+                 (par (get-paragraph self (get-line pos))))
+            (if (< (get-h view) (paragraph-left par))
+                (set-cursor :left-arrow)
+              (let ((style (get-style-at model pos)))
+                (if (and (is? style Live-Style)
+                         (get-control? evt))
+                    (set-cursor :finger)
+                  (set-cursor :ibeam)))))))))
+
+  
+  ;;;
+  ;;;; Mouse
+  ;;;
+
+
+  (method override (mouse-down self evt)
+    (let* ((pos (view->text self (get-position evt)))
+           (style (get-style-at model pos)))
+      (unless (and (is? style Live-Style)
+                   (get-control? evt))
+        (nextmethod self evt))))
+
+
+  (method override (drag-up self evt . rest)
+    (define (invoke-action action pos style)
+      (cond ((is? action Event-Handler)
+             (invoke action self (apply make-event Event :link self (get-properties action))))
+            (else
+             (action self pos style))))
+    
+    (define (goto-anchor anchor)
+      (for-each-heading model
+        (lambda (name heading line string)
+          (when (equal? string anchor)
+            (set-selection (new Range$Cell$
+                             (new Cell line 0)
+                             (new Cell line (cardinality string))))))))
+    
+    (let ((mouse-selecting? mouse-selecting?))
+      (nextmethod self evt)
+      (when (and (view-enabled? self) (not mouse-selecting?) (get-control? evt))
+        (let* ((pos (view->text (get-position evt)))
+               (style (get-style-at model pos)))
+          (when (is? style Live-Style)
+            (let ((action (get-choose-action style)))
+              (action self pos style)))))))
+  
+  
+  ;;;
+  ;;;; Keyboard
+  ;;;
+
+
+  (method override (return-press self evt)
+    (let ((pos (get-end self)))
+      (let ((style (get-style-at model pos)))
+        (if (is? style Live-Style)
+            (let ((action (get-return-action style)))
+              (action self pos style))
+          (nextmethod self evt)))))
+  
+  
+  ;;;
+  ;;;; Explorer
+  ;;;
+  
+  
+  (method override (select-outer self)
+    (let ((pos (get-end self)))
+      (let ((style (get-style-at model pos)))
+        (if (is? style Live-Style)
+            (set-selection (live-range pos style))
+          (nextmethod self)))))
+  
+  
+  (method (live-range self pos style)
+    (let ((explorer (new (explorer-class self) model start: pos end: pos)))
+      (select-style explorer (lambda (s) (eq? s style)) strict?: #t)
+      (get-range explorer)))
+
+
+  ;;;
+  ;;;; Properties
+  ;;;
+  
+  
+  (method (show-properties self debuggee class properties)
+    (if (not properties)
+        (empty-text model)
+      (let ((content (properties->content debuggee class properties)))
+        (set-content model content))))
+  
+  
+  (method (properties->content self debuggee class properties)
+    (let ((paragraphs (new-queue))
+          (formats (new List-Factory))
+          (styles (new List-Factory)))
+      (define (intern-format format)
+        (when format
+          (put formats format)))
+      
+      (define (intern-style style)
+        (when style
+          (put styles style)))
+      
+      (define (live-style property value)
+        (intern-style (new Live-Style font: {Font Label} color: {Color Link} return-action: (return-action property value) choose-action: (choose-action property value))))
+      
+      (define (return-action property value)
+        (lambda (text pos style)
+          (let ((range (live-range pos style)))
+            (let ((literal (with-jazz-readtable
+                             (lambda ()
+                               (read-string-element
+                                 (get-string text range))))))
+              (set-property debuggee property literal)))))
+      
+      (define (choose-action property value)
+        (lambda (text pos style)
+          (let ((range (live-range pos style)))
+            (live-choose text style (get-string text range) value range
+              (lambda (new-value)
+                (set-property debuggee property new-value))))))
+      
+      (enqueue paragraphs (cons #f (list (list (->string class) (intern-style (new Text-Style base: 'Live-Component))))))
+      (for-each (lambda (info)
+                  (bind (property value) info
+                    (enqueue paragraphs (cons #f (list (list (->string property) #f)
+                                                       (list ": " #f)
+                                                       (list (->string value) (live-style property value)))))))
+                properties)
+      (enqueue paragraphs (cons #f (list (list "" #f))))
+      (new Formatted-Text
+        formats: (get-output formats)
+        styles: (get-output styles)
+        paragraphs: (queue-list paragraphs))))))

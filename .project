@@ -14,7 +14,7 @@
 
 
 (form
-  (<Project> name: gaia description-file: {File :context ".repository"} active-project: Gaia depot-directory: {Directory :context}
-    (<*>                tag-reference: {File :context "lib" "gaia" "gaia.project"})
+  (<Project> name: jedi description-file: {File :context ".repository"} active-project: Jedi depot-directory: {Directory :context}
+    (<*>                tag-reference: {File :context "lib" "jedi" "jedi.project"})
     (<*>                tag-reference: {File :context "jazz" ".project"})
     (<*>                tag-reference: {File :context "lib" ".project"}))))

@@ -1,0 +1,37 @@
+(package jedi
+  
+  (title "Jedi")
+  (description "Jazz IDE")
+  (authors "Guillaume Cartier")
+  (stage release)
+  (root "src")
+  (install jedi.install)
+  (products (jedi (title "Jedi")
+                  (product jedi.product)
+                  (run jedi.run)
+                  (update jedi
+                          jedi.data.bindings
+                          jedi.data.preferences
+                          jedi.data.workspaces
+                          jedi.debugger
+                          jedi.debugger.implementation
+                          jedi.debugger.stub
+                          jedi.live
+                          jedi.problem
+                          jedi.product
+                          jedi.run
+                          jedi.services
+                          jedi.validate
+                          world.debuggee.stub)
+                  (build (jedi include-compiler?: #t bundle: "jedi" resources: "resources"))
+                  (dependencies preinstalled
+                                descriptors
+                                extras
+                                samples
+                                jazz.designer
+                                jazz.editor.dart
+                                jazz.ide
+                                jedi.install))
+            (jedi.install (update jedi.install)
+                          (dependencies jazz)))
+  (project ".project"))

@@ -1,6 +1,0 @@
-(package %profile-unit%
-  
-  (products (%profile-unit% (update %profile-unit%.%profile%)
-                            (dependencies jazz)))
-  (profiles (%profile% (appl gaia) (unit %profile-unit%)))
-  (project ".project"))

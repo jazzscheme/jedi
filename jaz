@@ -50,7 +50,7 @@ display_module_info () {
 }
 
 display_info () {
-    (display_module_info "Gaia" "$REL")
+    (display_module_info "Jedi" "$REL")
     echo
     (display_module_info "Jazz" "$JAZZ")
 }

@@ -1,0 +1,363 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Documentation
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2015
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(data jazz.doc.data
+
+
+(form
+(<Project-Doc> name: jedi title: "Jedi"
+  (<description>
+    (<p> "Jedi is a full-featured IDE for the Jazz programming language built entirely in Jazz"))
+  (<Section-Doc> name: ide title: "Working with the IDE"
+    (<Section-Doc> name: login title: "Login"
+      (<description>
+        (<img> src: "images/jedi/login_new.png")))
+    (<Section-Doc> name: workspaces title: "Workspaces"
+      (<description>
+        "Workspaces are groups of related windows, tools, ... that are activated together. "
+        (<p>)
+        "The buttons located at the right-hand side of the Jedi toolbar can be used to switch the active workspace. "
+        (<p>)
+        "Jedi comes with the following workspaces installed:"
+        (<p>)
+        (<img> src: "images/jedi/workspaces.png")
+        (<p>)
+        (<node>
+            (<span> (<img> src: "images/common/workspace_home.png") "Home")
+            (<span> (<img> src: "images/common/workspace_text.png") "Text")
+            (<span> (<img> src: "images/common/workspace_debugger.png") "Debugger")
+            (<span> (<img> src: "images/common/workspace_groupware.png") "Groupware"))))
+    (<Section-Doc> name: bindings title: "Bindings"
+      (<description>
+        "The following bindings are predefined:"
+        (<p>)
+        (<node>
+          "Jazz"
+          "Emacs (basic)"
+          "Mac (todo)"
+          "Windows")
+        (<division> title: "Bindings Manager"
+          (<img> src: "images/jedi/bindings_manager.png"))
+        (<division> title: "Bindings Viewer"
+          (<img> src: "images/jedi/bindings_viewer.png"))))
+    (<Section-Doc> name: properties title: "Properties"
+      (<description>
+        (<img> src: "images/jedi/properties.png")
+        (<p>)
+        "This window is used to visually edit properties of components. "
+        (<p>)
+        "Mainly used by the workbench at the moment."))
+    (<Section-Doc> name: preferences title: "Preferences")
+    (<Section-Doc> name: help title: "Getting Help")
+    (<Section-Doc> name: eclipse title: "Eclipse Glossary"
+    (<description>
+      "Here is a very informal correspondance between some Eclipse and Jazz concepts where applicable."
+      (<p>)
+      (<table> width: "300" class: "terminology"
+        (<th> "Eclipse") (<th> "Jazz")
+        (<tr> (<td> "workspace") (<td> "profile"))
+        (<tr> (<td> "feature") (<td> "package"))
+        (<tr> (<td> "project") (<td> "project"))
+        (<tr> (<td> "perspective") (<td> "workspace"))))))
+  (<Section-Doc> name: projects title: "Managing Projects"
+    (<Section-Doc> name: workbench title: "Workbench"
+      (<description>
+        "The workbench is the window used to manage source files. "
+        (<p>)
+        (<img> src: "images/jedi/workbench.png")))
+    (<Section-Doc> name: project title: "Project"
+      (<description>
+        "Projects are workbench entities that contain source files and resources. "
+        (<p>)
+        "For every project, Jedi will build a full cross-reference database (its catalog) of every source file in that project. "
+        (<p>)
+        "You update your project's catalog either by using the 'Update Catalog' context menu item or through the 'Catalogs Manager' window found in the 'Tools' menu. "
+        (<p>)
+        "Once you catalog is up-to-date, you can:"
+        (<node>
+          "edit a symbol's definitions by using alt-period on it"
+          "list all definitions that reference a certain symbol by pressing ctrl-alt-period on it")
+        (<p>)
+        "Note that projects can contain source code from any language. Jedi will only catalog the source files that it knows about. "
+        (<p>)
+        "At the moment the following languages are fully supported:"
+        (<node>
+          "Scheme"
+          "JazzScheme"
+          "CommonLisp")
+        (<p>)
+        "Those are partially supported:"
+        (<node>
+          "C"
+          "C++"
+          "Java"
+          "Lua"
+          "Python"
+          "CSS")))
+    (<Section-Doc> name: language-project title: "Language Specific Project"
+      (<description>
+        "In addition to plain projects, Jedi supports language specific projects that can be used to build and run code in that language. "
+        (<p>)
+        "Two languages are supported at the moment:"
+        (<node>
+          "Gambit (in development)"
+          "Jazz"))
+      (<Section-Doc> name: configuration title: "Configuration"
+        (<description>))
+      (<Section-Doc> name: build title: "Building"
+        (<description>))
+      (<Section-Doc> name: test title: "Testing"
+        (<description>))
+      (<Section-Doc> name: debug title: "Debugging"
+        (<description>))
+      (<Section-Doc> name: run title: "Running"
+        (<description>))
+      (<Section-Doc> name: gambit title: "Gambit Development"
+        (<description>))
+      (<Section-Doc> name: jazz title: "Jazz Development"
+        (<description>)))
+    (<Section-Doc> name: catalog title: "Catalog"
+      (<description>
+        "A catalog is a full cross-reference database of a set of source files. "
+        "Catalogs can be created manually but the easiest way to manage catalogs is through projects as each project automatically creates a catalog of it's source files. "
+        (<p>)
+        "Note that a new profile comes with projects for all Jazz packages pre-installed in the workbench. "
+        "An easy way to update the catalogs of all these projects is through the Catalogs Manager window that can be invoked using Tools / Catalogs / Catalogs Manager. "
+        "In the catalog manager, if no project is selected, pressing the Update button will update all catalogs. "
+        (<division> title: "Languages"
+          "Languages supported  at the moment:"
+          (<node>
+            "CommonLisp"
+            "Scheme"
+            "Jazz"
+            "C (very basic)"
+            "CSS (very basic)"
+            "Java (very basic)"
+            "JavaScript (very basic)"
+            "Lua-Parser (very basic)"
+            "Properties (very basic)"
+            "Python (very basic)"))
+        (<division> title: "Catalogs Manager"
+          (<img> src: "images/jedi/catalogs_manager.png")))))
+  (<Section-Doc> name: code title: "Source Code"
+    (<Section-Doc> name: text title: "Text"
+      (<Section-Doc> name: scrolling title: "Scrolling")
+      (<Section-Doc> name: coloring title: "Syntax Coloring")
+      (<Section-Doc> name: evaluating title: "Evaluating Code"
+        (<description>
+          "In a Jazz text, use ctrl-enter to evaluate the current definition. "
+          "Note that Jazz will need to know to what debuggee to send the code for evaluation. "
+          "You can right-click on any debuggee in the Processed window and select 'Focus' to focus this debuggee so it will be the one that gets the code evaluations. "))
+      (<Section-Doc> name: cataloging title: "Cataloging Code"
+        )
+      (<Section-Doc> name: printing title: "Printing"))
+    (<Section-Doc> name: exploring title: "Exploring"
+      (<description>)
+      (<Section-Doc> name: chapters title: "Chapters"
+        (<description>
+          (<img> src: "images/jedi/text_chapters.png")))
+      (<Section-Doc> name: hierarchy title: "Hierarchy"
+        (<description>
+          (<img> src: "images/jedi/text_hierarchy.png")))
+      (<Section-Doc> name: definitions title: "Find Definitions")
+      (<Section-Doc> name: references title: "Find References")
+      (<Section-Doc> name: history-navigation title: "History Navigation")
+      (<Section-Doc> name: class-browser title: "Class Browser"
+        (<description>
+          (<img> src: "images/jedi/class_browser.png"))))
+    (<Section-Doc> name: searching title: "Searching"
+      (<Section-Doc> name: incremental-search title: "Incremental Search")
+      (<Section-Doc> name: search title: "Search"
+        (<description>
+          (<node>
+            "Multiple search & replace"
+            "Preserve Case"
+            "Textual macros on replace")
+          (<division> title: "Text"
+            (<img> src: "images/jedi/search_text.png"))
+          (<division> title: "Directories"
+            (<img> src: "images/jedi/search_directories.png"))
+          (<division> title: "Projects"
+            (<img> src: "images/jedi/search_projects.png"))
+          (<division> title: "Results"
+            (<img> src: "images/jedi/search_results.png"))
+          (<division> title: "Shortcuts"
+            (<table> class: "terminology" width: "400"
+              (<th> "Shortcut") (<th> "Description")
+              (<tr> (<td> "Alt-W") (<td> "Toggle Whole Words"))
+              (<tr> (<td> "Alt-I") (<td> "Toggle Ignore Case"))
+              (<tr> (<td> "Alt-C") (<td> "Toggle Preserve Case"))
+              (<tr> (<td> "Alt-R") (<td> "Toggle Play Recording")))))))
+    (<Section-Doc> name: editing title: "Editing"
+      (<Section-Doc> name: text-navigation title: "Navigation"
+        (<description>
+          (<node>
+            "char"
+            "word"
+            "expression")))
+      (<Section-Doc> name: clipboard-stack title: "Clipboard Stack")
+      (<Section-Doc> name: mouse-copy title: "Mouse Copy")
+      (<Section-Doc> name: completion title: "Symbol Completion")
+      (<Section-Doc> name: tabulation title: "Code Tabulation")
+      (<Section-Doc> name: recorder title: "Macro Recording")
+      (<Section-Doc> name: undo title: "Undo / Redo"))
+    (<Section-Doc> name: editing-lisp title: "Editing Lisp Code"
+      (<Section-Doc> name: outer title: "Select Outer Expression")
+      (<Section-Doc> name: flash title: "Flash Matching Character")))
+  (<Section-Doc> name: debugging title: "Debugging"
+    (<description>
+      (<node>
+        "debugger"
+        "debuggee"))
+    (<Section-Doc> name: debugger title: "Debugger"
+      (<description>
+        "The Jazz debugger is a remote debugger. "
+        "This means that the debugger will debug one or more remote 'debuggee' that are automatically connected to it via TCP/IP. "
+        "Note that Jedi also a debuggee that is debugged by itself so that should an error occur inside the IDE, the debugger can be used to debug it. "
+        (<p>)
+        "A great advantage of remote debugging is that you are debugging your application exactly as itself with all its features: windows, menus, connections, ports, threads, ... instead of simulating inside the IDE it's various features. "
+        "With a remote debugger it is even possible to debug a game running remotely on a gaming console. "
+        (<p>)
+        "The Jazz kernel supports debugging of Jazz code. "
+        "But it really is a Gambit debugger and can be used to debug any Gambit code. "
+        "All you need to do is create a product that will load your Gambit code and then run your product using the Debug command. "
+        (<p>))
+      (<Section-Doc> name: terminal title: "Terminal"
+        (<description>
+          (<img> src: "images/jedi/terminal.png")
+          (<p>)
+          "The terminal represent's Gambit console. "
+          "The terminal name was choose to distinguish it from Jedi's own console. "))
+      (<Section-Doc> name: console title: "Console"
+        (<description>
+          (<img> src: "images/jedi/debugger_console.png")
+          (<p>)
+          "The console is where the debuggee interact with the debugger usually through a read-eval-print loop. "
+          (<p>)
+          "Each thread that throws an exception will open it's own console and start a repl at that point. "
+          (<p>)
+          "Note that Jedi automatically opens a console when it starts to enable experimenting. "
+          "Expression entered in that console are evaluation inside the IDE's primordial thread. "
+          "Beware that if you built Jedi in release safety, Gambit's safe mode is disabled so that code entered in that console can crash the IDE. "
+          (<division> title: "Evaluation Context")
+          (<division> title: "Enclosing REPL")))
+      (<Section-Doc> name: processes title: "Processes"
+        (<description>
+          (<img> src: "images/jedi/debugger_processes.png")))
+      (<Section-Doc> name: threads title: "Threads"
+        (<description>
+          (<img> src: "images/jedi/debugger_threads.png")))
+      (<Section-Doc> name: frames title: "Frames"
+        (<description>
+          (<img> src: "images/jedi/debugger_frames.png")))
+      (<Section-Doc> name: detail title: "Detail"
+        (<description>
+          (<img> src: "images/jedi/debugger_detail.png")))
+      (<Section-Doc> name: variables title: "Variables"
+        (<description>
+          (<img> src: "images/jedi/debugger_variables.png")))
+      (<Section-Doc> name: inspector title: "Inspector"
+        (<description>
+          (<img> src: "images/jedi/inspector.png")))
+    (<Section-Doc> name: view-explorer title: "View Explorer"
+      (<description>
+        (<img> src: "images/jedi/view_explorer.png")))
+    (<Section-Doc> name: test-functions title: "Test Functions"
+      (<description>)))
+    (<Section-Doc> name: debuggee title: "Debuggee"
+      (<Section-Doc> name: restart title: "Restart"
+        (<description>
+          "Jazz supports a concept of restarts similar to CommonLisp. "
+          "The debugger will automatically propose all restarts when displaying an exception or break point. "))
+      (<Section-Doc> name: crash title: "Crash Handler"
+        (<description>))))
+  (<Section-Doc> name: profiling title: "Profiling"
+    (<description>
+      (<img> src: "images/jedi/debugger_profiler.png"))
+    (<Section-Doc> name: profiler title: "Profiler"))
+  (<Section-Doc> name: collaborative-work title: "Collaborative Work"
+    (<Section-Doc> name: compare-directories title: "Compare Directories"
+      (<description>
+        (<img> src: "images/jedi/compare_directories.png")))
+    (<Section-Doc> name: compare-files title: "Compare Files"
+      (<description>
+        (<img> src: "images/jedi/compare_files.png")))
+    (<Section-Doc> name: capture title: "Screen Captures"
+      (<description>
+        )))
+  (<Section-Doc> name: web title: "Web Development"
+    (<description>
+      (<img> src: "images/jedi/servers.png")))
+  (<Section-Doc> name: user title: "User Preferences"
+    (<Section-Doc> name: launch title: "Launch Parameters"
+      (<description>
+        (<p> "Jedi supports the following launch parameters in addition to the ones supported by the kernel:")
+        (<table> class: "terminology" width: "500"
+          (<th> "Parameter") (<th> "Description")
+          (<tr> (<td> "/profile") (<td> "automatic profile name used for loggin")))
+        (<p>)
+        (<p> "Example:")
+        (<p> (<xmp> #"kernel.exe -run jedi -profile Guillaume"#))))
+    (<Section-Doc> name: profile title: "Profile"
+    (<description>
+      "A profile is a set of Jedi preferences. "
+      (<p>)
+      "Profiles are located inside the Profiles repository. "
+      "For example, if a 'Me' profile is created, it will contain the following files: "
+      (<p>)
+      (<xmp> #"HOME
+  .jazz
+    .jazzini
+    lib
+      jedi.profiles
+        profile
+          Me
+            _Me.jazz
+            Me-Project.jazz
+            settings
+              Bindings.jml
+              Preferences.jml
+              Servers.jml
+              Workbench.jml"#)
+      (<p>)
+      "The reason profiles reside inside a package is that they contain Jazz code. "
+      "In the example above, the _Me.jazz unit contains a Me class that can be used to customize the IDE, experiment with code, ..."
+      (<p>)
+      "One nice way of using your profile is to test your code there is a very Lispish interactive fashion and when it is functional, migrate it to it's own unit. "
+      ))
+    (<Section-Doc> name: Settings
+      (<Section-Doc> name: Preferences))))))

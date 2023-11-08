@@ -1,0 +1,932 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi Profile
+;;;
+;;;  The contents of this file are subject to the Mozilla Public License Version
+;;;  1.1 (the "License"); you may not use this file except in compliance with
+;;;  the License. You may obtain a copy of the License at
+;;;  http://www.mozilla.org/MPL/
+;;;
+;;;  Software distributed under the License is distributed on an "AS IS" basis,
+;;;  WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+;;;  for the specific language governing rights and limitations under the
+;;;  License.
+;;;
+;;;  The Original Code is JazzScheme.
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 1996-2015
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+;;;
+;;;  Alternatively, the contents of this file may be used under the terms of
+;;;  the GNU General Public License Version 2 or later (the "GPL"), in which
+;;;  case the provisions of the GPL are applicable instead of those above. If
+;;;  you wish to allow use of your version of this file only under the terms of
+;;;  the GPL, and not to allow others to use your version of this file under the
+;;;  terms of the MPL, indicate your decision by deleting the provisions above
+;;;  and replace them with the notice and other provisions required by the GPL.
+;;;  If you do not delete the provisions above, a recipient may use your version
+;;;  of this file under the terms of any one of the MPL or the GPL.
+;;;
+;;;  See www.jazzscheme.org for details.
+
+
+(module protected jedi.profile.Jedi-Profile jazz
+
+
+(import (jazz.application)
+        (jazz.clipboard)
+        (jazz.component)
+        (jazz.debugger)
+        (jazz.debugger.jazz)
+        (jazz.editor)
+        (jazz.editor.jazz)
+        (jazz.editor.lisp)
+        (jazz.feedback)
+        (jazz.graphic)
+        (jazz.handler)
+        (jazz.ide)
+        (jazz.io)
+        (jazz.project)
+        (jazz.text)
+        (jazz.ui)
+        (jazz.ui.dialog)
+        (jazz.undoer)
+        (jazz.view)
+        (jazz.website)
+        (jazz.window)
+        (jedi))
+
+
+;;;
+;;;; SIX
+;;;
+
+
+(define six-types-extra
+  '(short
+    long
+    size_t
+    charptr
+    FILEptr
+    unsignedint
+    unsignedshort
+    unsignedchar
+    stdvectorchar
+    vec3_t
+    constvec3_t
+    vec4_t
+    constvec4_t
+    ms3d_vertex_tptr
+    ms3d_joint_t
+    ms3d_joint_tptr
+    ms3d_group_tptr
+    ms3d_triangle_tptr
+    ms3d_material_tptr
+    ms3d_keyframe_tptr
+    ms3d_tangent_tptr
+    fourindices
+    
+    f32vector
+    Vector
+    
+    FLT
+    point3
+    vector3
+    plane3
+    ray3
+    primitive
+    point3ref
+    ray3ref
+    CollisionList
+    CollisionType
+    
+    ;; java
+    boolean
+    Random
+    IBlockState
+    MutableBlockPos
+    Biome))
+
+
+(define init-six
+  (let ((inited? #f))
+    (lambda ()
+      (unless inited?
+        (for-each (lambda (type)
+                    (six-types-set! (cons (cons type #f) (six-types))))
+                  six-types-extra)
+        (set! inited? #t)))))
+
+
+@w
+(definition public (with-safe-explore proc (action: action 'ask))
+  (catch-exception-filter
+    (lambda (obj)
+      (let ((exc (and (object? obj) (is? obj Explore-Error) obj)))
+        (when exc
+          (let ((result (case action
+                          ((ask)
+                           (message-box (exception-reason exc) type: 'confirmation yes: "Show Me" no: "Debug" cancel: "Ignore"))
+                          ((ignore)
+                           'cancel))))
+            (when (eq? result 'yes)
+              (let ((source (get-source exc))
+                    (range (get-range exc)))
+                (edit-document (current-application) source selection: range)))
+            (neq? result 'no)))))
+    (lambda (exc)
+      (signal-cancel))
+    proc))
+
+
+(define (parse-infix str text start)
+  (let ((comments (new-queue)))
+    (define (add-comment str)
+      (enqueue comments str))
+    
+    (define (make-six-readtable readtable)
+      (readtable-comment-handler-set (readtable-start-syntax-set readtable 'six) add-comment))
+    
+    (init-six)
+    (call-with-input-string str
+      (lambda (input)
+        (catch-exception-filter
+          (lambda (exc)
+            (with-jazz-readtable
+              (lambda ()
+                (continuation-capture
+                  (lambda (cont)
+                    (let ((code (message-box (exception-reason exc) type: 'confirmation yes: "Show Me" no: "Debug" cancel: "Ignore")))
+                      (when (eq? code 'yes)
+                        (let ((location (exception-location exc cont)))
+                          (let ((filepos (position->filepos (locat-position location))))
+                            (let ((pos (new Cell (filepos-line filepos) (filepos-col filepos))))
+                              (set-caret text (nu+ start pos))))))
+                      (neq? code 'no)))))))
+          (lambda (exc)
+            (signal-cancel))
+          (lambda ()
+            (let ((expressions (parameterize ((current-readtable (make-six-readtable (input-port-readtable input))))
+                                 (read-source-all input))))
+              (values (queue-list comments)
+                      expressions))))))))
+
+
+;;;
+;;;; Profile
+;;;
+
+
+(class Jedi-Profile extends IDE-Profile
+  
+  
+  ;;;
+  ;;;; Server/Clients
+  ;;;
+  
+  
+  (method (launch-server/clients self (action: action 'debug) (safety: safety 'Devel) (server: server #f) (clients: clients '()))
+    (define (launch-server server-project server-safety server-traits client-project client-traits)
+      (let ((cookie (register-debugger-cookie)))
+        (register-debugger-cookie-procedure cookie
+          (lambda (process cookie)
+            (register-process-configuration process (cons server-project server-traits))
+            (launch-clients client-project client-traits)))
+        (launch-project server-project (cons server-safety server-traits) cookie: cookie)))
+    
+    (define (launch-clients client-project clients-traits)
+      (for-each (lambda (client-traits)
+                  (launch-client client-project client-traits))
+                clients-traits))
+    
+    (define (launch-client client-project client-traits)
+      (let ((cookie (register-debugger-cookie)))
+        (register-debugger-cookie-procedure cookie
+          (lambda (process cookie)
+            (register-process-configuration process (cons client-project client-traits))))
+        (launch-project client-project client-traits cookie: cookie)))
+    
+    (define (launch-project project traits (cookie: cookie #f))
+      (let ((project (clone-component project)))
+        (define (collect-project-traits)
+          (collect-if (lambda (trait)
+                        (find-local-trait project trait))
+                      traits))
+        
+        (set-default-traits project (collect-project-traits))
+        (set-arguments project (append (get-arguments project) (list "-local-server/clients" "true")))
+        (project-action project action debugger-interactive?: #t debugger-cookie: cookie)))
+    
+    (define (safety->trait safety)
+      (compose-identifier 'Safety safety))
+    
+    (define (server->trait server)
+      (compose-identifier 'Server server))
+    
+    (define (client->trait client)
+      (compose-identifier 'Client client))
+    
+    (save-all (current-application))
+    (let ((workbench (get-workbench)))
+      (let ((server-project (find-project workbench 'yownu:lib:yownu:Yownu-Server))
+            (client-project (find-project workbench 'yownu:lib:yownu:Yownu)))
+        (let ((server-safety (and server (safety->trait safety)))
+              (server-traits (and server (list (server->trait server))))
+              (clients-traits (map (lambda (client)
+                                     (list (safety->trait safety) (client->trait client)))
+                                   clients)))
+          (if (or (not server) (registered-process-live? (cons server-project server-traits)))
+              (launch-clients client-project clients-traits)
+            (launch-server server-project server-safety server-traits client-project clients-traits))))))
+
+  
+  ;;;
+  ;;;; C -> Lisp
+  ;;;
+  
+  
+  (method override (test7 self)
+    (let ((text (active-focus)))
+      (if (is-not? text Text-View)
+          (bell)
+        (let ((str (get-selected-string text)))
+          (receive (comments expressions) (parse-infix str text (get-start text))
+            (let ((output (open-output-string)))
+              (for-each (lambda (expr)
+                          (pp expr output))
+                        (desourcify-all expressions))
+              (let ((lisp (butlast (get-output-string output))))
+                (let ((start (get-start text)))
+                  (replace-selection text (split-lines lisp))
+                  @w
+                  (tabulate-range text (new-range text start (get-end text)))))))))))
+  
+  
+  (method override (test8 self)
+    (let ((text (active-focus)))
+      (if (is-not? text Text-View)
+          (bell)
+        (let ((str (get-selected-string text)))
+          (let ((start (get-start text)))
+            (set-clipboard-text (c->lisp self str text start))
+            (user-message "Clipbard set to Lisp code"))))))
+  
+  
+  (method override (test9 self)
+    (define (normalize str)
+      (if (and (not (ends-with? str ";"))
+               (not (ends-with? str "}")))
+          (string-append str ";")
+        str))
+    
+    (let ((text (active-focus)))
+      (if (is-not? text Text-View)
+          (bell)
+        (let ((str (normalize (get-selected-string text))))
+          (let ((start (get-start text)))
+            (replace-selection text (split-lines (c->lisp self str text start)))
+            @w
+            (tabulate-range text (new-range text start (get-end text))))))))
+  
+  
+  (method override (test0 self)
+    (let ((text (active-focus)))
+      (if (is-not? text Text-View)
+          (bell)
+        (let ((str (get-clipboard-text)))
+          (if (not str)
+              (bell)
+            (let ((start (get-start text)))
+              (replace-selection text (split-lines (c->lisp self str text start)))
+              @w
+              (tabulate-range text (new-range text start (get-end text)))))))))
+  
+  
+  (method (c->lisp self str text start)
+    (receive (comments expressions) (parse-infix str text start)
+      (let ((expressions (parse-c self comments expressions)))
+        (let ((output (open-output-string)))
+          (for-each (lambda (expr)
+                      (pp expr output))
+                    expressions)
+          ;; remove pp trailing return
+          (butlast (get-output-string output))))))
+  
+  
+  (method (parse-c self comments expressions)
+    (define unary-translations
+      '((six.!x  . not)
+        (six.++x . unimplemented.++x)
+        (six.x++ . increase!)
+        (six.--x . unimplemented.--x)
+        (six.x-- . decrease!)
+        (six.~x  . bitwise-not)
+        (six.*x  . unimplemented.*x)
+        (six.+x  . +)
+        (six.-x  . -)))
+    
+    (define binary-translations
+      '((six.x%y      . modulo)
+        (six.x*y      . *)
+        (six.x/y      . /)
+        (six.x+y      . +)
+        (six.x-y      . -)
+        (six.x<y      . <)
+        (six.x<=y     . <=)
+        (six.x>y      . >)
+        (six.x>=y     . >=)
+        (six.x!=y     . /=)
+        (six.x==y     . =)
+        (six.x&y      . bitwise-and)
+        (six.x^y      . bitwise-xor)
+        (|six.x\|y|   . bitwise-ior)
+        (six.x&&y     . and)
+        (|six.x\|\|y| . or)
+        (six.x+=y     . increase!)
+        (six.x-=y     . decrease!)
+        (six.x*=y     . multiply!)
+        (six.x/=y     . divide!)
+        (|six.x\|=y|  . bitwise-ior!)))
+    
+    (define binary-associatives
+      '(+
+        *
+        and
+        or))
+    
+    (define next-comment
+      #f)
+    
+    (define next-comment-location
+      #f)
+    
+    (define (next-comment!)
+      (if (null? comments)
+          (begin
+            (set! next-comment #f)
+            (set! next-comment-location #f))
+        (set! next-comment (car comments))
+        (set! next-comment-location (source->location next-comment))
+        (set! comments (cdr comments))))
+    
+    (define (source->location src)
+      (and (source? src)
+           (let ((filepos (position->filepos (locat-position (source-locat src)))))
+             (cons (filepos-line filepos)
+                   (filepos-col filepos)))))
+    
+    (define (insert-comments src)
+      (define (patch-last-comment! comments)
+        (let ((last (last comments)))
+          (set-cadr! last (string-append (cadr last) "\n"))))
+      
+      (let ((comments
+              (let (loop)
+                (if (and next-comment-location
+                         (let ((location (source->location src)))
+                           (and location (nu>? location next-comment-location))))
+                    (cons (inserted-comment next-comment) (or (loop) '()))
+                  #f))))
+        (when comments
+          (patch-last-comment! comments))
+        comments))
+    
+    (define (inserted-comment src)
+      (define (replace-comment comment)
+        (string-append ";;"
+                       (if (starts-with? comment "//")
+                           (substring comment 2 (string-length comment))
+                         comment)))
+      
+      (prog1 (list (print-marker) (replace-comment (desourcify src)))
+        (next-comment!)))
+    
+    (define (simplify-associative expr)
+      (let ((op (car expr)))
+        (if (and (memq? op binary-associatives)
+                 (pair? (cadr expr))
+                 (eq? (caadr expr) op))
+            (let ((x (simplify-associative (cadr expr)))
+                  (y (caddr expr)))
+              `(,op ,@(cdr x) ,y))
+          expr)))
+    
+    (define (parse-forms exprs)
+      (let (loop (scan exprs))
+        (if (null? scan)
+            '()
+          (let ((src (first scan)))
+            (let ((comments (insert-comments src)))
+              (let ((parsed-forms
+                      (let ((c0 (desourcify src)))
+                        (cond ((eq? (expr-kind c0) 'six.define-variable)
+                               (bind (kind var type size val) c0
+                                 `((let ((,(parse var) ,(typeify (parse type)) ,@(if val (list (parse val)) '())))
+                                     ,@(loop (cdr scan))))))
+                              (else
+                               (cons (parse src) (loop (cdr scan))))))))
+                (if comments
+                    (append comments parsed-forms)
+                  parsed-forms)))))))
+    
+    (define (parse expr)
+      (let ((kind (expr-kind expr)))
+        (let ((unary (assq kind unary-translations)))
+          (if unary
+              (bind (kind x) (source-code expr)
+                `(,(cdr unary) ,(parse x)))
+            (let ((binary (assq kind binary-translations)))
+              (if binary
+                  (bind (kind x y) (source-code expr)
+                    (simplify-associative `(,(cdr binary) ,(parse x) ,(parse y))))
+                (case kind
+                  ((six.define-procedure)
+                   (bind (kind name proc) (source-code expr)
+                     (bind (kind type parameters body) (source-code proc)
+                       (let ((queue (new-queue)))
+                         (for-each (lambda (parameter)
+                                     (bind (param type) (source-code parameter)
+                                       (enqueue queue (parse (source-code param)))
+                                       (enqueue queue (typeify (parse (source-code type))))))
+                                   (source-code parameters))
+                         `(define (,(parse name) ,@(queue-list queue)) ,(typeify (parse (source-code type))) ,@(parse-forms (cdr (source-code body))))))))
+                  ((six.identifier)
+                   (source-code (cadr (source-code expr))))
+                  ((six.if)
+                   (bind (kind test then . rest) (source-code expr)
+                     (if (null? rest)
+                         `(when ,(parse test)
+                            ,@(parse-body then))
+                       `(if ,(parse test)
+                            ,(parse then)
+                          ,(parse (car rest))))))
+                  ((six.for)
+                   (bind (kind expr1 expr2 expr3 statement) (source-code expr)
+                     (let ((expr1 (case (expr-kind expr1)
+                                    ((six.define-variable)
+                                     (bind (kind var type size val) (source-code expr1)
+                                       `(,(parse var) ,(typeify (parse type)) iterate (set! ,(parse var) ,(parse val)))))
+                                    ((six.x=y)
+                                     (bind (kind var val) (source-code expr1)
+                                       `(,(parse var) iterate (set! ,(parse var) ,(parse val)))))
+                                    (else
+                                     (error "Unable to parse")))))
+                       `(loop (for ,@expr1 ,(parse expr2) ,(parse expr3))
+                              ,@(parse-compound statement)))))
+                  ((six.dot)
+                   (bind (kind obj member) (source-code expr)
+                     `(,(string->symbol (format "{s}~~" (parse member)))
+                       ,(parse obj))))
+                  ((six.arrow)
+                   (bind (kind obj member) (source-code expr)
+                     `(,(string->symbol (format "{s}~~" (parse member)))
+                       ,(parse obj))))
+                  ((six.index)
+                   (bind (kind vec index) (source-code expr)
+                     `(vector-ref ,(parse vec) ,(parse index))))
+                  ((six.compound)
+                   `(begin
+                      ,@(parse-compound expr)))
+                  ((six.call)
+                   (let ((first (source-code (car (source-code (cdr (source-code expr)))))))
+                     (if (eq? (expr-kind first) 'six.dot)
+                         (bind (kind obj member) first
+                           `(,(string->symbol (format "{s}~~" (parse member)))
+                             ,(parse obj)
+                             ,@(parse-list (cddr (source-code expr)))))
+                       (map parse (cdr (source-code expr))))))
+                  ((six.break)
+                   `(break))
+                  ((six.continue)
+                   `(continue))
+                  ((six.return)
+                   `(return ,(parse (cadr (source-code expr)))))
+                  ((six.x=y)
+                   (bind (kind var val) (source-code expr)
+                     (case (expr-kind var)
+                       ((six.index)
+                        `(vector-set! ,(parse (cadr (source-code var))) ,(parse (caddr (source-code var))) ,(parse val)))
+                       (else
+                        `(set! ,(parse var) ,(parse val))))))
+                  ((six.&x)
+                   (parse (cadr (source-code expr))))
+                  ((six.x<<y)
+                   (bind (kind x y) (source-code expr)
+                     `(arithmetic-shift ,(parse x) ,(parse y))))
+                  ((six.x>>y)
+                   (bind (kind x y) (source-code expr)
+                     `(arithmetic-shift ,(parse x) (- ,(parse y)))))
+                  ((six.x?y:z)
+                   (bind (kind test yes no) (source-code expr)
+                     `(if ,(parse test)
+                          ,(parse yes)
+                        ,(parse no))))
+                  ((six.literal)
+                   (source-code (cadr (source-code expr))))
+                  ((six.list)
+                   (bind (kind list-car list-cdr) (source-code expr)
+                     (cons (parse list-car) (parse list-cdr))))
+                  ((six.null)
+                   '())
+                  (else
+                   expr))))))))
+    
+    (define (parse-list lst)
+      (map parse lst))
+    
+    (define (parse-body expr)
+      (if (eq? (expr-kind expr) 'six.compound)
+          (parse-forms (cdr (source-code expr)))
+        (list (parse expr))))
+    
+    (define (parse-compound expr)
+      (parse-forms (cdr (source-code expr))))
+    
+    (define (typeify expr)
+      (let ((expr (source-code expr)))
+        (assert (symbol? expr))
+        (string->symbol (format "<{s}>" expr))))
+    
+    (define (referenceify expr)
+      (string->symbol (format "<reference{s}>" expr)))
+    
+    (define (pointerify expr)
+      (string->symbol (format "<pointer{s}>" expr)))
+    
+    (define (expr-kind expr)
+      (and (pair? (source-code expr))
+           (source-code (car (source-code expr)))))
+    
+    (next-comment!)
+    (let ((expressions (parse-forms expressions)))
+      (if next-comment
+          (append expressions (map inserted-comment (cons next-comment comments)))
+        expressions)))
+  
+  
+  ;;;
+  ;;;; Live Coding
+  ;;;
+  
+  
+  (method override (test self)
+    (live-code self))
+  
+  
+  (method (live-code self)
+    (define (literal-range text)
+      (let ((has-selection? (has-selection? text))
+            (expl (new (explorer-class text) (get-model text) start: (get-start text) end: (get-end text))))
+        (let (iter)
+          (and (or has-selection? (outer-expr expl))
+               (begin
+                 (set! has-selection? #f)
+                 (let ((range (get-range expl)))
+                   (and (= (get-line (get-start range))
+                           (get-line (get-end range)))
+                        (let ((literal-string (get-marked expl))
+                              (literal (with-jazz-readtable
+                                         (lambda ()
+                                           (read-marked expl)))))
+                          (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
+                                 (or (iter) (list literal-string literal range)))
+                                ((is? literal Color)
+                                 (list literal-string literal range))
+                                (else
+                                 (iter)))))))))))
+    
+    (define (choose-literal text undoer atomic-preserved modified? literal-string literal range pos)
+      (define (choose-number)
+        (let* ((page-height 10)
+               (width 100)
+               (mid (fxround/ width 2))
+               (precision (and (inexact? literal)
+                               (let ((pos (find literal-string #\.)))
+                                 (if (not pos)
+                                     0
+                                   (- (cardinality literal-string) pos 1)))))
+               (factor (if (inexact? literal)
+                           (* 10 (/ (expt 10. precision)))
+                         50)))
+          (define (scroll-proc scrollbar action line-height page-height thumb-pos orientation)
+            (define (scroll-action)
+              (define (scroll amount)
+                (set-pos scrollbar (+ (get-pos scrollbar) amount) redraw?: #t))
+              
+              (case action
+                ((line-up)     (scroll (- line-height)))
+                ((line-down)   (scroll line-height))
+                ((page-up)     (scroll (- page-height)))
+                ((page-down)   (scroll page-height))
+                ((thumb-track) (set-pos scrollbar thumb-pos redraw?: #t))))
+            
+            (scroll-action)
+            (let ((pos (get-pos scrollbar)))
+              (when (not modified?)
+                (set-caret text (get-start range)))
+              (let ((normalized (/ (cast <fl> (- pos mid)) 50)))
+                (let ((str (if (inexact? literal)
+                               (format "{r precision: :v}" (+ literal (* normalized factor)) (+ precision 1))
+                             (->string (+ literal (inexact->exact (round (* normalized factor)))))))
+                      (start (get-start text)))
+                  (replace text range (list str))
+                  (update-window (current-toplevel))
+                  (eval-sel text)
+                  (set! modified? #t)
+                  (set! range (new Range$Cell$ start (get-start text)))
+                  (set-caret text start)))))
+          
+          (let ((choose
+                  (new Scrollbar
+                    size: {Dimension 200 13}
+                    orientation: 'horz
+                    pos: mid
+                    range: (new Range 0 (+ width page-height))
+                    page-height: page-height
+                    scroll-proc: scroll-proc
+                    return-press-handler: (new Event-Handler execute: return-press)
+                    escape-press-handler: (new Event-Handler execute: escape-press)
+                    focus-lose-handler: (new Event-Handler execute: edition-ended))))
+            (popup text choose (nu- pos {Dimension 100 25}))
+            (set-pos choose mid)
+            (acquire-focus choose))))
+      
+      (define (choose-color)
+        (let ((choose
+                (new Color-Choose
+                  size: {Dimension 527 109}
+                  background: {Color Dark-Gray}
+                  color: literal
+                  feedback: (lambda (color)
+                              (when (not modified?)
+                                (set-caret text (get-start range)))
+                              (let ((str (->string color))
+                                    (start (get-start text)))
+                                (replace text range (list str))
+                                (update-window (current-toplevel))
+                                (eval-sel text)
+                                (set! modified? #t)
+                                (set! range (new Range$Cell$ start (get-start text)))
+                                (set-caret text start)))
+                  return-press-handler: (new Event-Handler execute: return-press)
+                  escape-press-handler: (new Event-Handler execute: escape-press)
+                  focus-lose-handler: (new Event-Handler execute: edition-ended))))
+          (popup text choose (nu- pos {Dimension 304 125}))
+          (acquire-focus choose)))
+      
+      (define (return-press evt)
+        (end-atomic-undo undoer atomic-preserved)
+        (set! undoer #f)
+        (close-popups (current-toplevel)))
+      
+      (define (escape-press evt)
+        (end-atomic-undo undoer atomic-preserved)
+        (set! undoer #f)
+        (when modified?
+          (undo text)
+          (set-caret text (get-start text))
+          (eval-sel text))
+        (close-popups (current-toplevel)))
+      
+      (define (edition-ended evt)
+        (when undoer
+          (end-atomic-undo undoer atomic-preserved)))
+      
+      (cond ((or (integer? literal) (and (number? literal) (inexact? literal)))
+             (choose-number))
+            ((is? literal Color)
+             (choose-color))))
+    
+    (define (eval-sel text)
+      (with-safe-explore
+        (lambda ()
+          (let ((range (current-declaration-range text)))
+            (if (not range)
+                (bell)
+              (evaluate-range text range evaluation-mode: 'live))))))
+    
+    (let ((text (active-focus)))
+      (if (is-not? text Jazz-Text-View)
+          (bell)
+        (let ((info (literal-range text)))
+          (if (not info)
+              (begin
+                (user-message "No literal found")
+                (bell))
+            (let ((undoer (get-undoer (get-model text))))
+              (let ((atomic-preserved (start-atomic-undo undoer)))
+                (bind (literal-string literal range) info
+                  (let* ((start (get-start range))
+                         (end (get-end range))
+                         (mid (fxround/ (+ (get-col start) (get-col end)) 2))
+                         (pos (text->view text (new Cell (get-line start) mid))))
+                    (choose-literal text undoer atomic-preserved #f literal-string literal range pos))))))))))
+  
+  
+  ;;;
+  ;;;; Warcraft Models
+  ;;;
+  
+  
+  (method (clean-warcraft-model-names self)
+    (let ((count 0))
+      (iterate-directory (choose-directory)
+        (lambda (file)
+          (let ((extension (get-extension file)))
+            (when (extension=? extension "ms3d")
+              (let ((base (get-base file)))
+                (let ((open-brace (find base #\[)))
+                  (when open-brace
+                    (let ((second-underscore (find base #\_ start: (+ open-brace 1))))
+                      (when second-underscore
+                        (let ((third-underscore (find base #\_ start: (+ second-underscore 1))))
+                          (when third-underscore
+                            (let ((clean-name (add-extension (format "{a}_{a}"
+                                                                     (substring base 0 (- open-brace 1))
+                                                                     (substring base (+ second-underscore 1) third-underscore))
+                                                             extension)))
+                              (let ((clean-file (new-brother file clean-name)))
+                                (if (exists? clean-file)
+                                    (debug clean-file)
+                                  (rename file clean-file)
+                                  (user-message "{a}" clean-name)
+                                  (increase! count))))))))))))))
+        files?: #t
+        directories?: #f
+        recursive?: #t)
+      (user-message "Cleaned {a} name{a}" count (format-plural count))))
+  
+  
+  ;;;
+  ;;;; Trailing Whitespace
+  ;;;
+  
+  
+  @w
+  (method override (test8 self)
+    (let ((project (find-project (get-workbench) 'world:lib)))
+      (let ((directory (get-parent (get-tag-reference (get-form project)))))
+        (search-trailing-whitespace directory: directory)))))
+
+
+;;;
+;;;; Expressions
+;;;
+
+
+(define-expression site
+  tabulate: 1)
+
+
+(define-expression assets
+  tabulate: 1
+  walk: :repository)
+
+
+(define-expression model
+  tabulate: 1
+  walk: :repository)
+
+
+(define-expression role
+  tabulate: 1
+  walk: :repository)
+
+
+(define-expression metadata
+  tabulate: 1
+  walk: :repository)
+
+
+(define-expression iterate-table
+  tabulate: 1)
+
+
+(define-expression iterate-register
+  tabulate: 1)
+
+
+(define-expression define-model
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("model"))
+
+
+(define-expression define-block-model
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("block-model"))
+
+
+(define-expression define-block-category
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("block-category"))
+
+
+(define-expression define-block-kind
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("block-kind"))
+
+
+(define-expression define-block
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("block"))
+
+
+(define-expression define-biome
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("biome"))
+
+
+(define-expression define-crafting-recipe
+  declaration?: #t
+  walk: :define
+  name-mangler: ("crafting-recipe"))
+
+
+(define-expression define-part
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("part"))
+
+
+(define-expression define-change
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("change"))
+
+
+(define-expression define-contour-category
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("contour-category"))
+
+
+(define-expression define-contour
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("contour"))
+
+
+(define-expression define-name-contour
+  declaration?: #t
+  tabulate: 2
+  walk: :define
+  name-mangler: ("contour"))
+
+
+(define-expression define-item
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("item"))
+
+
+(define-expression define-parameter
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("parameter"))
+
+
+(define-expression define-objective
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("objective"))
+
+
+;;;
+;;;; Completions
+;;;
+
+
+(register-user-completions
+  '(("get-h" . "get-h")
+    ("get-v" . "get-v")
+    ("hei" . "height")
+    ("ja" . "jazz")
+    ("me" . "me")
+    ("met" . "method")
+    ("sy" . "syntax")
+    ("wid" . "width")
+    ("wo" . "world"))))

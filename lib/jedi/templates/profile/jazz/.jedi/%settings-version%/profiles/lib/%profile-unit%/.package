@@ -1,0 +1,6 @@
+(package %profile-unit%
+  
+  (products (%profile-unit% (update %profile-unit%.%profile%)
+                            (dependencies jazz)))
+  (profiles (%profile% (appl jedi) (unit %profile-unit%)))
+  (project ".project"))
