@@ -118,8 +118,10 @@
     opengl?: #t
     git?: #t
     gstreamer?: #t
-    files: '("README"
-             "INSTALL")))
+    files: (cond-expand
+             (mac '()) ;; already installed in resources
+             (else '("README"
+                     "INSTALL")))))
 
 
 ;;;
