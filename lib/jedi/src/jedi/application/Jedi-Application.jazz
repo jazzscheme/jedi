@@ -316,10 +316,11 @@
           (create file))
         (set! settings (new File-Settings file: file))
         (register-settings settings)))
+    (register-resources-alias 'Jedi 'jedi)
     (register-alias 'Project
                     (list (if (is-alias? 'Jedi)
                               'Jedi
-                            'Build)))
+                            'Resources)))
     (let ((projects-dir {Directory Settings "projects"}))
       (create-directories projects-dir)
       (let ((projects-repository (make-repository 'Projects "lib" (parse projects-dir) dynamic?: #t)))
