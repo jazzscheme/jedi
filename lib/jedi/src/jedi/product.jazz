@@ -133,7 +133,8 @@
   (deploy-application descriptor
                       (new-directory install-dir install-name)
                       make: 'jedi
-                      install: 'jedi))
+                      install: 'jedi
+                      deploy: 'git))
 
 
 ;;;

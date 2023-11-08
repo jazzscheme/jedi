@@ -3,7 +3,7 @@
 if [ -z "$1" ]; then
   # echo "No environment parameter"
   # exit 1
-  ENVIRONMENT="test"
+  ENVIRONMENT="prod"
 else
   ENVIRONMENT="$1"
   shift
