@@ -24,13 +24,121 @@
                           jedi.validate
                           world.debuggee.stub)
                   (build (jedi include-compiler?: #t bundle: "jedi" resources: "resources"))
-                  (dependencies preinstalled
-                                descriptors
-                                extras
+                  (dependencies contrib.statprof
                                 samples
+                                jazz.action
+                                jazz.application
+                                jazz.associative
+                                jazz.cairo
+                                jazz.clipboard
+                                jazz.columnar
+                                jazz.command
+                                jazz.component
+                                jazz.console
+                                jazz.core
+                                jazz.crash
+                                jazz.debuggee
+                                jazz.debuggee.jazz
+                                jazz.debuggee.ui
+                                jazz.debugger
+                                jazz.debugger.gambit
+                                jazz.debugger.jazz
+                                jazz.debugger.stub
+                                jazz.descriptor
                                 jazz.designer
+                                jazz.designer.ui
+                                jazz.detprof
+                                jazz.doc
+                                jazz.domain
+                                jazz.editor
+                                jazz.editor.c
+                                jazz.editor.clike
+                                jazz.editor.clojure
+                                jazz.editor.commonlisp
                                 jazz.editor.dart
+                                jazz.editor.diff
+                                jazz.editor.java
+                                jazz.editor.javascript
+                                jazz.editor.jazz
+                                jazz.editor.lisp
+                                jazz.editor.lua
+                                jazz.editor.python
+                                jazz.editor.scheme
+                                jazz.editor.tex
+                                jazz.evaluate
+                                jazz.event
+                                jazz.favorite
+                                jazz.feedback
+                                jazz.figure
+                                jazz.fontconfig
+                                jazz.fonts
+                                jazz.foreign
+                                jazz.freetype
+                                jazz.git
+                                jazz.graphic
+                                jazz.groupware
+                                jazz.handler
+                                jazz.help
+                                jazz.history
                                 jazz.ide
+                                jazz.inspector
+                                jazz.integrity ; obsolete but still used by jazz.ide
+                                jazz.io
+                                jazz.json
+                                jazz.layout
+                                jazz.listener
+                                jazz.locale
+                                jazz.locator
+                                jazz.log
+                                jazz.markup
+                                jazz.match
+                                jazz.math
+                                jazz.media
+                                jazz.menu
+                                jazz.moment
+                                jazz.network
+                                jazz.object
+                                jazz.opengl
+                                jazz.outline
+                                jazz.picker
+                                jazz.platform
+                                jazz.preferences
+                                jazz.presence
+                                jazz.print
+                                jazz.process
+                                jazz.product
+                                jazz.profile
+                                jazz.project
+                                jazz.recorder
+                                jazz.reference
+                                jazz.reporter
+                                jazz.resource
+                                jazz.resources
+                                jazz.runtime
+                                jazz.screen
+                                jazz.search
+                                jazz.selection
+                                jazz.settings
+                                jazz.skin
+                                jazz.snapshot
+                                jazz.stream
+                                jazz.syntax
+                                jazz.template
+                                jazz.text
+                                jazz.time
+                                jazz.tracker
+                                jazz.tree
+                                jazz.ui
+                                jazz.undoer
+                                jazz.validation
+                                jazz.version
+                                jazz.view
+                                jazz.website
+                                jazz.window
+                                jazz.workspace
+                                jazz.zlib
+                                profiler
+                                descriptors
                                 jedi.install))
             (jedi.install (update jedi.install)
                           (dependencies jazz)))
