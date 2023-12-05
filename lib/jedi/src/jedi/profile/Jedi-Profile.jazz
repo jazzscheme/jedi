@@ -859,6 +859,13 @@
   name-mangler: ("crafting-recipe"))
 
 
+(define-expression define-graphic-profile
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("graphic-profile"))
+
+
 (define-expression define-part
   declaration?: #t
   tabulate: 1
