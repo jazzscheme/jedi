@@ -316,7 +316,7 @@
           (create file))
         (set! settings (new File-Settings file: file))
         (register-settings settings)))
-    (register-resources-alias 'Jedi 'jedi)
+    (register-resources-alias 'Jedi)
     (register-alias 'Project
                     (list (if (is-alias? 'Jedi)
                               'Jedi
