@@ -12,6 +12,8 @@
 	<string>Jedi</string>
 	<key>CFBundleName</key>
 	<string>Jedi</string>
+	<key>CFBundleDisplayName</key>
+	<string>Jedi</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleDocumentTypes</key>
