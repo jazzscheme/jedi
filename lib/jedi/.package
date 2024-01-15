@@ -23,7 +23,7 @@
                           jedi.services
                           jedi.validate
                           world.debuggee.stub)
-                  (build (jedi include-compiler?: #t bundle: "jedi" resources: "resources"))
+                  (build (jedi executable: "Jedi" include-compiler?: #t bundle: "jedi" resources: "resources"))
                   (dependencies contrib.statprof
                                 samples
                                 jazz.action
