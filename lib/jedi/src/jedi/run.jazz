@@ -49,7 +49,7 @@
 
 
 (definition (setup-snapshot)
-  (snapshots-directory {Directory Settings "work" "crashes"}))
+  (snapshots-directory {Directory Settings "work" "snapshots"}))
 
 
 (definition (setup-presence)
