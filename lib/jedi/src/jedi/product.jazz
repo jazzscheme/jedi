@@ -102,8 +102,10 @@
 
 (definition install-name
   (cond-expand
+    (silicon
+     "jedi-silicon")
     (mac
-     "jedi.app")
+     "jedi-mac")
     (else
      "jedi")))
 
