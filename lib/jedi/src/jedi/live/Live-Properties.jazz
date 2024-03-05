@@ -62,7 +62,7 @@
     (add-format self 'Heading3      {Format Base keep-with-next?: #t})
     (add-format self 'Heading4      {Format Base keep-with-next?: #t})
     (add-format self 'Heading5      {Format Base keep-with-next?: #t})
-    (add-format self 'Code          {Format Base @wait-left-margin: 100 @wait-right-margin: 100 background: {Color Light-Gray}})
+    (add-format self 'Code          {Format Base @wait left-margin: @wait 100 @wait right-margin: @wait 100 background: {Color Light-Gray}})
     ;; Styles
     (add-style self 'Heading1       {Text-Style Base font: {Font Heading1} color: {Color Dark-Red}})
     (add-style self 'Heading2       {Text-Style Base font: {Font Heading2} color: {Color Dark-Red}})
@@ -71,7 +71,7 @@
     (add-style self 'Heading5       {Text-Style Base font: {Font Heading5} color: {Color Dark-Red}})
     (add-style self 'Reference      {Text-Style Base font: {Font Link} color: {Color Dark-Blue}})
     (add-style self 'Link           {Link-Style font: {Font Link} color: {Color Link}})
-    (add-style self 'Code           {Text-Style Base font: {Font Code} @wait-color: {Color Dark-Red}})
+    (add-style self 'Code           {Text-Style Base font: {Font Code} @wait color: @wait {Color Dark-Red}})
     (add-style self 'Variable       {Text-Style Code color: {Color Dark-Red}})
     (add-style self 'Live-Component {Text-Style Base font: {Font font-name: "Arial" point-size: 12} color: {Color Dark-Red}}))
 
