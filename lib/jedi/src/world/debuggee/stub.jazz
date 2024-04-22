@@ -38,11 +38,6 @@
 (module world.debuggee.stub jazz
 
 
-(hub position-world)
-(hub restore-world)
-(hub set-property)
-
-
 (import (jazz.presence.syntax (phase syntax))
         (jazz.presence))
 

@@ -132,6 +132,7 @@
         (let* ((pos (view->text (get-position evt)))
                (style (get-style-at model pos)))
           (when (is? style Live-Style)
+            @hub-regression
             (let ((action (get-choose-action style)))
               (action self pos style)))))))
   
@@ -142,6 +143,7 @@
 
 
   (method override (return-press self evt)
+    @hub-regression
     (let ((pos (get-end self)))
       (let ((style (get-style-at model pos)))
         (if (is? style Live-Style)

@@ -38,10 +38,6 @@
 (module protected jedi.live jazz
 
 
-(hub get-choose-action)
-(hub get-return-action)
-
-
 (import (jazz.application)
         (jazz.graphic)
         (jazz.handler)
