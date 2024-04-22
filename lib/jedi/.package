@@ -35,7 +35,6 @@
                                 jazz.command
                                 jazz.component
                                 jazz.console
-                                jazz.core
                                 jazz.crash
                                 jazz.debuggee
                                 jazz.debuggee.jazz
