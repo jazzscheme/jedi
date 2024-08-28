@@ -803,7 +803,7 @@
   walk: :repository)
 
 
-(define-expression iterate-table
+(define-expression table-iterate-safe
   tabulate: 1)
 
 
@@ -878,6 +878,13 @@
   tabulate: 1
   walk: :define
   name-mangler: ("change"))
+
+
+(define-expression define-pool
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("pool"))
 
 
 (define-expression define-contour-category
