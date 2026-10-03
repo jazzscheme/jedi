@@ -27,6 +27,8 @@
                   (dependencies contrib.statprof
                                 samples
                                 jazz.action
+                                jazz.agent
+                                jazz.ai
                                 jazz.application
                                 jazz.associative
                                 jazz.cairo
