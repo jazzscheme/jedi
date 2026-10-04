@@ -3,90 +3,107 @@
 REL="$(dirname "$0")"
 
 JAZZ="$REL/jazz"
-JED="$REL/jedi"
+JEDI="$REL/jedi"
 JAZ="$JAZZ/jaz"
 
-UPDATE_SUBMODULES="true"
+REPOCOLOR='\033[1;34m'
+NOCOLOR='\033[0m'
 
-bootstrap_init () {
-    cd "$REL"
-    git submodule init
-}
+case $OSTYPE in
+    "msys" )
+        alias git='"/c/Program Files/Git/bin/git"'
+	     ;;
+esac
 
-bootstrap_update () {
-    cd "$REL"
-    git submodule update
-}
+feedback() {
+    case $OSTYPE in
+        "msys" )
+            echo -e "$1"
+	         ;;
 
-bootstrap () {
-    (bootstrap_init) &&
-    (bootstrap_update)
-}
-
-bootstrap_dispatch () {
-    case "$1" in
-	"init" )
-	    bootstrap_init
-	    ;;
-	"update" )
-	    bootstrap_update
-	    ;;
-	"" )
-	    bootstrap
-	    ;;
-	* )
-	    echo "Unknown bootstrap option : $1"
-	    return 1
-	    ;;
+        * )
+            echo "$1"
+            ;;
     esac
-}
-
-display_module_info () {
-    echo "$1"
-    if [ -d "$2" ]; then
-	cd "$2" &&
-	git log -1
-    fi
 }
 
 display_info () {
-    (display_module_info "Jedi" "$REL")
+    feedback "${REPOCOLOR}$1${NOCOLOR}"
+    if [ -d "$2" ]; then
+	     cd "$2" &&
+	     git log -1
+    fi
+}
+
+display_all_info () {
+    (display_info "Jedi" "$JEDI")
     echo
-    (display_module_info "Jazz" "$JAZZ")
+    (display_info "Jazz" "$JAZZ")
 }
 
-update_submodules () {
-    cd "$REL"
-    git submodule update
+display_status () {
+    feedback "${REPOCOLOR}$1${NOCOLOR}"
+    if [ -d "$2" ]; then
+	     cd "$2" &&
+	     git status
+    fi
 }
 
-while getopts "l" OPTION; do
-    case $OPTION in
-	"l" )
-	    UPDATE_SUBMODULES="false"
-	    ;;
-    esac
-done
+display_all_status () {
+    (display_status "Jedi" "$JEDI")
+    echo
+    (display_status "Jazz" "$JAZZ")
+}
 
-shift $((OPTIND-1))
+display_diff () {
+    feedback "${REPOCOLOR}$1${NOCOLOR}"
+    if [ -d "$2" ]; then
+	     cd "$2" &&
+	     git diff
+    fi
+}
+
+display_all_diff () {
+    (display_diff "Jedi" "$JEDI")
+    echo
+    (display_diff "Jazz" "$JAZZ")
+}
+
+pull () {
+    feedback "${REPOCOLOR}$1${NOCOLOR}"
+    if [ -d "$2" ]; then
+	     cd "$2" &&
+	     git pull
+    fi
+}
+
+pull_all () {
+    (pull "Jedi" "$JEDI")
+    echo
+    (pull "Jazz" "$JAZZ")
+}
 
 case "$1" in
-	"bootstrap" )
-		bootstrap_dispatch $2
+	"info" )
+		display_all_info
 		exit
 		;;
 
-	"info" )
-		display_info
+	"status" )
+		display_all_status
+		exit
+		;;
+
+	"diff" )
+		display_all_diff
+		exit
+		;;
+
+	"pull" )
+		pull_all
 		exit
 		;;
 esac
-
-if [ ! -f "$JAZ" ]; then
-	bootstrap
-elif $UPDATE_SUBMODULES; then
-    (update_submodules)
-fi
 
 if [ ! -f "$JAZ" ]; then
 	echo "Unable to find jazz/jaz"
