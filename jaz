@@ -3,7 +3,6 @@
 REL="$(dirname "$0")"
 
 JAZZ="$REL/jazz"
-JEDI="$REL/jedi"
 JAZ="$JAZZ/jaz"
 
 REPOCOLOR='\033[1;34m'
@@ -36,7 +35,7 @@ display_info () {
 }
 
 display_all_info () {
-    (display_info "Jedi" "$JEDI")
+    (display_info "Jedi" "$REL")
     echo
     (display_info "Jazz" "$JAZZ")
 }
@@ -50,7 +49,7 @@ display_status () {
 }
 
 display_all_status () {
-    (display_status "Jedi" "$JEDI")
+    (display_status "Jedi" "$REL")
     echo
     (display_status "Jazz" "$JAZZ")
 }
@@ -64,7 +63,7 @@ display_diff () {
 }
 
 display_all_diff () {
-    (display_diff "Jedi" "$JEDI")
+    (display_diff "Jedi" "$REL")
     echo
     (display_diff "Jazz" "$JAZZ")
 }
@@ -78,7 +77,7 @@ pull () {
 }
 
 pull_all () {
-    (pull "Jedi" "$JEDI")
+    (pull "Jedi" "$REL")
     echo
     (pull "Jazz" "$JAZZ")
 }
